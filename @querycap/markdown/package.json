@@ -8,6 +8,9 @@
     "markdown-it-sup": "1.0.0"
   },
   "peerDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist/"
   ],
