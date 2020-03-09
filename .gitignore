@@ -1,0 +1,16 @@
+dist/
+
+public/
+coverage/
+node_modules/
+.idea/
+
+*.js
+
+.tmp/
+
+!*.config.js
+!.eslintrc.js
+
+*.log
+package-lock.json

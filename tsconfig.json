@@ -1,0 +1,33 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "*": ["__types__/*", "*"]
+    },
+    "noImplicitAny": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "module": "commonjs",
+    "lib": ["dom", "esnext", "webworker"],
+    "target": "es2015",
+    "pretty": true,
+    "strict": true,
+    /* Additional Checks */
+    "noUnusedLocals": true,
+    "preserveConstEnums": false,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "removeComments": false,
+    "declaration": true,
+    "noEmitOnError": false,
+    "emitDeclarationOnly": true,
+    "outDir": ".tmp"
+  },
+  "exclude": [".tmp/*", "dist/*", "node_modules/*"]
+}

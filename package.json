@@ -1,0 +1,89 @@
+{
+  "name": "devkit",
+  "private": true,
+  "workspaces": [
+    "@querycap/*"
+  ],
+  "scripts": {
+    "ncu": "lerna exec -- ncu -u",
+    "clean": "rm -rf @querycap*/*/node_modules",
+    "fmt": "prettier --write @querycap*/{,**/}{,**/}*.{ts,tsx,json,md}",
+    "test": "jest --coverage",
+    "build": "lerna exec monobundle",
+    "prepare": "yarn test && yarn build"
+  },
+  "dependencies": {
+    "@querycap-dev/dev-deps": "*",
+    "@querycap-dev/monobundle": "0.4.5",
+    "@reactorx/core": "0.20.x",
+    "@reactorx/request": "0.20.x",
+    "@testing-library/react": "9.5.x",
+    "@types/lodash": "4.14.x",
+    "@types/node": "13.9.x",
+    "@types/react": "16.9.x",
+    "@types/react-dom": "16.9.x",
+    "axios": "0.19.x",
+    "date-fns": "2.10.0",
+    "localforage-memoryStorageDriver": "0.9.2",
+    "lodash": "4.17.15",
+    "react": "16.13.0",
+    "react-dom": "16.13.0",
+    "rxjs": "6.5.4"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "^@querycap/([^/]+)$": "<rootDir>/@querycap/$1/index.ts"
+    },
+    "moduleFileExtensions": [
+      "tsx",
+      "ts",
+      "json",
+      "jsx",
+      "js"
+    ],
+    "modulePaths": [
+      "<rootDir>"
+    ],
+    "testRegex": ".*/__tests__/.+\\.(generator|test|spec)\\.(ts|tsx)$"
+  },
+  "husky": {
+    "hooks": {
+      "post-merge": "yarn",
+      "pre-commit": "lint-staged && pretty-quick --staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --quiet"
+    ]
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "arrowParens": "always",
+    "printWidth": 120,
+    "jsxBracketSameLine": true
+  },
+  "eslintConfig": {
+    "extends": [
+      "@querycap-dev/eslint-config"
+    ],
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "rules": {
+      "@typescript-eslint/ban-ts-ignore": "off"
+    }
+  }
+}

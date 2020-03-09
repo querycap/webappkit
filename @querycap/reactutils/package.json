@@ -1,0 +1,22 @@
+{
+  "name": "@querycap/reactutils",
+  "version": "0.3.2",
+  "files": [
+    "dist/"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@babel/runtime-corejs3": "*",
+    "lodash": "4.x",
+    "react": "16.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "monobundle": {
+    "env": "browser"
+  },
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
+}

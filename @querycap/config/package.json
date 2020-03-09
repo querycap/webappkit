@@ -1,0 +1,20 @@
+{
+  "name": "@querycap/config",
+  "version": "0.3.2",
+  "files": [
+    "dist/"
+  ],
+  "peerDependencies": {
+    "@babel/runtime-corejs3": "*"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "monobundle": {
+    "env": "browser"
+  },
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
+}

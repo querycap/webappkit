@@ -1,0 +1,28 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "12"
+        }
+      }
+    ],
+    "@querycap-dev/babel-preset"
+  ],
+  "env": {
+    "ROLLUP_BROWSER": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "safari": 12,
+              "esmodules": true
+            }
+          }
+        ]
+      ]
+    }
+  }
+}

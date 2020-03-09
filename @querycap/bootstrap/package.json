@@ -1,0 +1,31 @@
+{
+  "name": "@querycap/bootstrap",
+  "version": "0.0.0",
+  "files": [
+    "dist/"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@babel/runtime-corejs3": "*",
+    "@reactorx/core": "0.x",
+    "lodash": "4.x",
+    "react": "16.x",
+    "react-dom": "16.x"
+  },
+  "dependencies": {
+    "redux-logger": "*",
+    "@reactorx/router": "0.20.x",
+    "@types/history": "4.7.5",
+    "history": "4.10.x",
+    "@querycap/persister": "0.3.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "monobundle": {
+    "env": "browser"
+  },
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
+}
