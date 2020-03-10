@@ -30,9 +30,9 @@ const Bootstrap = (props: { initialValues?: any; children?: React.ReactNode }) =
                 return "orange";
             }
             return "black";
-          }
-        }
-      })
+          },
+        },
+      }),
     );
   }
 
@@ -57,33 +57,33 @@ function PersisterConnect({ persister }: { persister: ReturnType<typeof createPe
   return null;
 }
 
-export const createBootstrap = (appName: string, e: ReactElement<any> | (() => ReactElement<any>)) => {
+export const createBootstrap = (appName: string) => (e: ReactElement<any> | (() => ReactElement<any>)) => {
   const persister = createPersister({
-    name: appName || "app"
+    name: appName || "app",
   });
 
   const history = createBrowserHistory({
     basename: "",
     forceRefresh: false,
     keyLength: 6,
-    getUserConfirmation: (message, callback) => callback(globalThis.confirm(message))
+    getUserConfirmation: (message, callback) => callback(globalThis.confirm(message)),
   });
 
   return ($root: Element, async = false) => {
     const r =
       async && (ReactDOM as any).createRoot
         ? (node: ReactNode, $r: Element) => {
-          return (ReactDOM as any).createRoot($r).render(node);
-        }
+            return (ReactDOM as any).createRoot($r).render(node);
+          }
         : render;
 
     persister.hydrate((storeValues) => {
       r(
         <Bootstrap initialValues={storeValues}>
-          <PersisterConnect persister={persister}/>
+          <PersisterConnect persister={persister} />
           <ReactorxRouter history={history}>{isFunction(e) ? e() : e}</ReactorxRouter>
         </Bootstrap>,
-        $root
+        $root,
       );
     });
   };

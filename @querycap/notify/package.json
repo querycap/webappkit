@@ -18,6 +18,9 @@
   "monobundle": {
     "env": "browser"
   },
+  "scripts": {
+    "prepare": "monobundle"
+  },
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "module": "dist/index.es.js"
