@@ -1,0 +1,15 @@
+{
+  "name": "@querycap-ui/babel-preset-css-prop",
+  "version": "0.0.0",
+  "main": "babel.config.js",
+  "license": "MIT",
+  "dependencies": {
+    "babel-plugin-emotion": "10.x"
+  },
+  "peerDependencies": {
+    "@babel/core": "7.8.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
