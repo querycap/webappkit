@@ -10,30 +10,33 @@ const Bootstrap = (props: { initialValues?: any; children?: React.ReactNode }) =
   const store$ = Store.create(props.initialValues || {});
 
   if (process.env.NODE_ENV !== "production") {
-    store$.applyMiddleware(
-      require("redux-logger").createLogger({
-        duration: true,
-        collapsed: true,
-        errorTransformer: (e: any) => {
-          throw e;
-        },
-        colors: {
-          title: (actor: Actor) => {
-            switch (actor.stage) {
-              case AsyncStage.STARTED:
-                return "blue";
-              case AsyncStage.DONE:
-                return "green";
-              case AsyncStage.FAILED:
-                return "red";
-              case AsyncStage.CANCEL:
-                return "orange";
-            }
-            return "black";
+    // @ts-ignore
+    import("redux-logger").then(({ createLogger }) => {
+      store$.applyMiddleware(
+        createLogger({
+          duration: true,
+          collapsed: true,
+          errorTransformer: (e: any) => {
+            throw e;
           },
-        },
-      }),
-    );
+          colors: {
+            title: (actor: Actor) => {
+              switch (actor.stage) {
+                case AsyncStage.STARTED:
+                  return "blue";
+                case AsyncStage.DONE:
+                  return "green";
+                case AsyncStage.FAILED:
+                  return "red";
+                case AsyncStage.CANCEL:
+                  return "orange";
+              }
+              return "black";
+            },
+          },
+        }),
+      );
+    });
   }
 
   return (

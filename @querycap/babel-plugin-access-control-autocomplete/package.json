@@ -6,13 +6,13 @@
     "@babel/types": "7.x",
     "@babel/runtime-corejs3": "*"
   },
-  "types": "dist/index.d.ts",
   "files": [
     "dist/"
   ],
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
   "scripts": {
     "prepare": "monobundle"
-  }
+  },
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
 }
