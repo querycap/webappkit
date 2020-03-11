@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`babel-preset-css-prop with css prop 1`] = `
+"
+
+import React from \\"react\\"
+
+const SomeComponent = () => {
+  return (
+    <>
+      <div css={(t) => ({ color: t.color.primary })}>123</div>
+    </>
+  )
+}
+    
+ ↓ ↓ ↓ ↓ ↓ ↓
+
+import React from \\"react\\";
+import { jsx as ___EmotionJSX } from \\"@emotion/core\\";
+import { Fragment as ___Fragment } from \\"react\\";
+
+const SomeComponent = () => {
+  return ___EmotionJSX(___Fragment, null, ___EmotionJSX(\\"div\\", {
+    css: t => ({
+      color: t.color.primary
+    })
+  }, \\"123\\"));
+};  
+  "
+`;
+
+exports[`babel-preset-css-prop without css prop 1`] = `
+"
+
+import React from \\"react\\"
+
+const SomeComponent = () => {
+  return (
+    <>
+      <div>123</div>
+    </>
+  )
+}
+    
+ ↓ ↓ ↓ ↓ ↓ ↓
+
+import React from \\"react\\";
+
+const SomeComponent = () => {
+  return React.createElement(React.Fragment, null, React.createElement(\\"div\\", null, \\"123\\"));
+};  
+  "
+`;

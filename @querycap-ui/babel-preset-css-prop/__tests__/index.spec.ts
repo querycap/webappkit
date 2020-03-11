@@ -1,41 +1,48 @@
 import { transform } from "@babel/core";
 
-const compile = (code: string) => {
+const compileToSnapshot = (code: string) => {
   const t = transform(code, {
-    presets: ["@babel/preset-env", "@querycap-dev/babel-preset", "@querycap-ui/babel-preset-css-prop"],
+    root: __dirname,
+    presets: ["@querycap-ui/babel-preset-css-prop"],
   });
 
-  return t?.code;
+  return `
+${code}
+    
+ ↓ ↓ ↓ ↓ ↓ ↓
+
+${t?.code}  
+  `;
 };
 
-describe("babel", () => {
-  it("without css", () => {
-    console.log(
-      compile(`
+describe("babel-preset-css-prop", () => {
+  it("without css prop", () => {
+    expect(
+      compileToSnapshot(`
 import React from "react"
 
 const SomeComponent = () => {
   return (
     <>
-      <div>${Date.now()}</div>
+      <div>123</div>
     </>
   )
 }`),
-    );
+    ).toMatchSnapshot();
   });
 
-  it("with css", () => {
-    console.log(
-      compile(`
+  it("with css prop", () => {
+    expect(
+      compileToSnapshot(`
 import React from "react"
 
 const SomeComponent = () => {
   return (
     <>
-      <div css={(t) => ({ color: t.color.primary })}>${Date.now()}</div>
+      <div css={(t) => ({ color: t.color.primary })}>123</div>
     </>
   )
 }`),
-    );
+    ).toMatchSnapshot();
   });
 });
