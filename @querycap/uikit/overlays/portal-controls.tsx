@@ -1,6 +1,6 @@
 import { useValueRef } from "@querycap/reactutils";
 import { invariant } from "hey-listen";
-import { toUpper, noop } from "lodash";
+import { noop, toUpper } from "lodash";
 import { RefObject, useEffect } from "react";
 import { fromEvent, merge as observableMerge } from "rxjs";
 import { bufferTime, delay as rxDelay, filter as rxFilter } from "rxjs/operators";
@@ -21,7 +21,7 @@ export function useCloseOnOutsideClick(close: () => void, elementRefs: Array<Ref
 
     const sub = observableMerge(fromEvent(globalThis.document, "mouseup"), fromEvent(globalThis.document, "touchend"))
       .pipe(
-        rxFilter((e: MouseEvent | TouchEvent) => {
+        rxFilter((e) => {
           if ((e as any).button && (e as any).button !== 0) {
             return false;
           }
@@ -69,12 +69,12 @@ export function usePortalCloseOnEsc(close: () => void = noop) {
   const closeRef = useValueRef(close);
 
   useEffect(() => {
-    const sub = fromEvent(document, "keydown")
+    const sub = fromEvent<KeyboardEvent>(document, "keydown")
       .pipe(
-        rxFilter((e: KeyboardEvent) => toUpper(e.key) === "ESCAPE"),
+        rxFilter((e) => toUpper(e.key) === "ESCAPE"),
         bufferTime(500),
       )
-      .subscribe((events: KeyboardEvent[]) => {
+      .subscribe((events) => {
         if (events.length > 0) {
           // 单击单隐藏, 双击全隐藏
           if (stackRef.current.top() == pid || events.length > 1) {
