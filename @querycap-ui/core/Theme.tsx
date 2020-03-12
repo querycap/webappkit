@@ -37,7 +37,7 @@ export const theme = {
     xxs: 10,
     xs: 12,
     s: 14,
-    base: 16,
+    b: 16,
     m: 18,
     l: 24,
     xl: 36,
@@ -51,22 +51,12 @@ export const theme = {
 
   radius: {
     s: 2,
-    base: 4,
+    b: 4,
     m: 8,
   },
 
   spacing: {
     base: "0.6em 1em",
-  },
-
-  shadow: {
-    dp2: `0 2px 2px 0 rgba(0, 0, 0, .04), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12)`,
-    dp3: `0 3px 4px 0 rgba(0, 0, 0, .04), 0 3px 3px -2px rgba(0, 0, 0, .2), 0 1px 8px 0 rgba(0, 0, 0, .12)`,
-    dp4: `0 4px 5px 0 rgba(0, 0, 0, .04), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2)`,
-    dp6: `0 6px 10px 0 rgba(0, 0, 0, .04), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2)`,
-    dp8: `0 8px 10px 1px rgba(0, 0, 0, .04), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2)`,
-    dp16: `0 16px 24px 2px rgba(0, 0, 0, .04), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2)`,
-    dp24: `0 9px 46px 8px rgba(0, 0, 0, .04), 0 11px 15px -7px rgba(0, 0, 0, .12), 0 24px 38px 3px rgba(0, 0, 0, .2)`,
   },
 };
 
@@ -100,29 +90,27 @@ function reverse<T>(settings: T): T {
   return nextSettings;
 }
 
-export type TTheme = typeof theme;
+export type Theme = typeof theme;
 
-export function ThemeProvider(props: { theme?: TTheme; children: React.ReactNode }) {
-  return <ThemeContext.Provider value={props.theme || theme}>{props.children}</ThemeContext.Provider>;
-}
+export const ThemeProvider = (props: { theme?: Theme; children: React.ReactNode }) => (
+  <ThemeContext.Provider value={props.theme || theme}>{props.children}</ThemeContext.Provider>
+);
 
-export function useDesignSystem(): TTheme {
+export const useTheme = (): Theme => {
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
   return useContext(ThemeContext) as any;
-}
+};
 
-export function DesignSystemColorReverse({ children }: { children?: ReactNode }) {
-  const ds = useDesignSystem();
+export const ThemeReverse = ({ children }: { children?: ReactNode }) => {
+  const ds = useTheme();
   const r = useMemo(() => reverse(ds), []);
   return <ThemeProvider theme={r}>{children}</ThemeProvider>;
-}
+};
 
-export function withDesignSystemReverse<TProps>(Comp: ComponentType<TProps>) {
-  return function DesignSystemReverse(props: TProps) {
-    return (
-      <DesignSystemColorReverse>
-        <Comp {...props} />
-      </DesignSystemColorReverse>
-    );
-  };
+export function withThemeReverse<TProps>(Comp: ComponentType<TProps>) {
+  return (props: TProps) => (
+    <ThemeReverse>
+      <Comp {...props} />
+    </ThemeReverse>
+  );
 }
