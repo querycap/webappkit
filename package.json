@@ -20,7 +20,7 @@
   "dependencies": {
     "@querycap-dev/dev-deps": "*",
     "@querycap-dev/devkit": "*",
-    "@querycap-dev/monobundle": "0.4.6",
+    "@querycap-dev/monobundle": "0.4.7",
     "@querycap-dev/webpack-preset": "0.5.x",
     "@querycap-dev/webpack-preset-assets": "0.5.x",
     "@querycap-dev/webpack-preset-html": "0.5.x",
