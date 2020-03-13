@@ -1,13 +1,13 @@
 {
   "name": "@querycap/request",
-  "version": "0.2.2",
+  "version": "1.0.0",
   "files": [
     "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@querycap/notify": "0.x",
+    "@querycap/notify": "1.0.0",
     "@reactorx/core": "0.20.x",
     "@reactorx/request": "0.20.x",
     "axios": "0.19.x",

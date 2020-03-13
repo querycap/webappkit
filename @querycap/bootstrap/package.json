@@ -1,6 +1,6 @@
 {
   "name": "@querycap/bootstrap",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "files": [
     "dist/"
   ],
@@ -17,7 +17,7 @@
     "@reactorx/router": "0.20.x",
     "@types/history": "4.7.5",
     "history": "4.10.x",
-    "@querycap/persister": "0.3.2"
+    "@querycap/persister": "1.0.0"
   },
   "publishConfig": {
     "access": "public"
