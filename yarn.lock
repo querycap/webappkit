@@ -837,7 +837,7 @@
     "@manypkg/get-packages" "^1.0.0"
     semver "^5.4.1"
 
-"@changesets/cli@2.6.1":
+"@changesets/cli@2.6.x":
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/@changesets/cli/-/cli-2.6.1.tgz#72767e5beb53a39160f14eac30414b825183b568"
   integrity sha512-d31s4SCQHgXJUkOpmrC5bBf7vphjGBRcSj8mchcwzP4iRU+RydUTDATvF9ZA8U/uV6p/EoGImlLyZwyuuKDNyw==
@@ -2573,10 +2573,10 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@querycap-dev/babel-preset@0.2.x":
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/@querycap-dev/babel-preset/-/babel-preset-0.2.3.tgz#a06c08d06e1ce6fb946b44f0e956abeaad265ab8"
-  integrity sha512-arOeW+qhbvtdq+xhIgtM/HZoLtF/zK/r12V4Wg3QzllaQYDZG4qGTu1VSeGwfOCh59TmntoDUZwGY2Wf8oaLBQ==
+"@querycap-dev/babel-preset@0.2.4":
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/@querycap-dev/babel-preset/-/babel-preset-0.2.4.tgz#4b51cb77b6c2a6207b1f9ef4fa65ffe01766d68c"
+  integrity sha512-OFeW4TFqlaH7BOfKH428mwWhndkS0BEYyuywH6i+MHj1NScvfC2AkjmzmAyw0Ym+7IsyLgUo5TIQRGnTaLgZjw==
   dependencies:
     "@babel/plugin-proposal-class-properties" "7.8.x"
     "@babel/plugin-proposal-nullish-coalescing-operator" "7.8.x"
@@ -2589,17 +2589,18 @@
     babel-plugin-pure-calls-annotation "0.3.x"
     babel-plugin-typescript-iife-enum "0.2.x"
 
-"@querycap-dev/dev-deps@*":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@querycap-dev/dev-deps/-/dev-deps-0.1.2.tgz#61aeb7a544a5bcd436e8a832e9d579dde9b53f92"
-  integrity sha512-gyy3KqyjJuD2EI4IOKNcl7dLsk8ORBLVsFPzypZ/mo+dYbXb/bgAsyB+z3t3SThnFzDSdjZALBjFGc4VOlzptQ==
+"@querycap-dev/dev-deps@0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@querycap-dev/dev-deps/-/dev-deps-0.1.3.tgz#a1c90b39b5137303503b273d1b4ecc89a3aeba1b"
+  integrity sha512-1fIPgNrjywXZ1zgZ6nXBQaJKKXfSjqvJz6tNEBOLo4ev5u4rSUIXPQvy37LOJ44ZRcSaKEG4S8jtptnRJKDMzw==
   dependencies:
     "@babel/core" "7.8.x"
     "@babel/preset-env" "7.8.x"
+    "@changesets/cli" "2.6.x"
     "@commitlint/cli" "8.3.x"
     "@commitlint/config-conventional" "8.3.x"
-    "@querycap-dev/babel-preset" "0.2.x"
-    "@querycap-dev/eslint-config" "0.3.4"
+    "@querycap-dev/babel-preset" "0.2.4"
+    "@querycap-dev/eslint-config" "0.3.5"
     "@types/jest" "25.1.x"
     babel-jest "25.1.x"
     husky "4.2.x"
@@ -2626,10 +2627,10 @@
     ts-node "8.6.2"
     yargs "15.1.x"
 
-"@querycap-dev/eslint-config@0.3.4":
-  version "0.3.4"
-  resolved "https://registry.yarnpkg.com/@querycap-dev/eslint-config/-/eslint-config-0.3.4.tgz#521a18f102144365583699e5945efc3e579d69fc"
-  integrity sha512-qoiXjnU2MgiOH6kYFdGEhvFoQy1+1SnVtBa1sXyRP1IT/s6B7TmniBuIDOl5QCf0VIczNWPxxUCRREQpko9EJQ==
+"@querycap-dev/eslint-config@0.3.5":
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/@querycap-dev/eslint-config/-/eslint-config-0.3.5.tgz#8cde33ba8ad403a70e698cd5f35bdd599dcb93de"
+  integrity sha512-BQft9NScJewBAbJKcIHl/w7XFrgdVi5APKIqhTkJN536pvj0Eyidj6CDIlfOeQRsyZYApKgBR2gTjRnI/bKxYA==
   dependencies:
     "@typescript-eslint/eslint-plugin" "2.x"
     "@typescript-eslint/parser" "2.x"
