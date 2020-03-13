@@ -1,14 +1,8 @@
 {
-  "packages": [
-    "@querycap/*"
-  ],
+  "packages": ["@querycap/*", "@querycap-ui/*"],
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "ignoreChanges": [
-    "**/__fixtures__/**",
-    "**/__tests__/**",
-    "**/*.md"
-  ],
+  "ignoreChanges": ["**/__fixtures__/**", "**/__tests__/**", "**/*.md"],
   "command": {
     "version": {
       "exact": true,
