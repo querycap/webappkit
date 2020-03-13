@@ -6,6 +6,7 @@
     "@querycap-ui/*"
   ],
   "scripts": {
+    "release": "lerna version --conventional-commits --no-commit-hooks",
     "ncu": "lerna exec -- ncu -u",
     "clean": "rm -rf @querycap*/*/node_modules",
     "fmt": "prettier --write @querycap*/{,**/}{,**/}*.{ts,tsx,json,md}",
@@ -18,8 +19,7 @@
     "build": "webpack --config webpack.config.ts"
   },
   "dependencies": {
-    "@changesets/changelog-github": "0.2.2",
-    "@querycap-dev/dev-deps": "0.1.3",
+    "@querycap-dev/dev-deps": "0.2.0",
     "@querycap-dev/devkit": "*",
     "@querycap-dev/monobundle": "0.4.7",
     "@querycap-dev/webpack-preset": "0.5.x",
