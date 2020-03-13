@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/styling",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "@emotion/core": "10.0.x",
-    "polished": "3.4.x",
     "csstype": "*",
+    "polished": "3.4.x",
     "react-spring": "8.0.x"
   },
   "publishConfig": {

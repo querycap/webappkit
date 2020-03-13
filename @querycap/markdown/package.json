@@ -1,13 +1,12 @@
 {
   "name": "@querycap/markdown",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "dependencies": {
     "markdown-it": "10.0.x",
     "markdown-it-ins": "3.0.0",
     "markdown-it-sub": "1.0.0",
     "markdown-it-sup": "1.0.0"
   },
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   },
