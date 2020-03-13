@@ -1,0 +1,12 @@
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: yarn
+      - uses: codecov/codecov-action@v1
+        with:
+          file: ./coverage/clover.xml
+          fail_ci_if_error: true
