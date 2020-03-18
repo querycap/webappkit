@@ -1,5 +1,5 @@
 import { cover } from "polished";
-import { applyStyles, selector } from "..";
+import { applyStyles, selector } from "../selector";
 import { theme } from "../theme";
 
 describe("flex", () => {
