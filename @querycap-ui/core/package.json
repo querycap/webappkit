@@ -1,5 +1,5 @@
 {
-  "name": "@querycap-ui/styling",
+  "name": "@querycap-ui/core",
   "version": "0.1.0",
   "license": "MIT",
   "peerDependencies": {
@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@emotion/core": "10.0.x",
-    "csstype": "*",
     "polished": "3.4.x",
     "react-spring": "8.0.x"
   },

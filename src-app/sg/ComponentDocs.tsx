@@ -1,4 +1,4 @@
-import { cover, padding, rgba, useDesignSystem } from "@querycap-ui/core";
+import { applyStyles, cover, selector, themes, WithBackground } from "@querycap-ui/core";
 import { IRoute, NavLink } from "@reactorx/router";
 import { filter, groupBy, isFunction, last, map } from "lodash";
 import React, { Fragment, ReactNode } from "react";
@@ -26,32 +26,37 @@ interface ISectionProps {
 }
 
 const Section = ({ title, children }: ISectionProps) => (
-  <div css={{ ...padding("1em", 0), borderBottom: "1px solid #f0f0f0" }}>
-    <h4 css={{ margin: 0, ...padding(0, "1em") }}>{title}</h4>
-    <div css={{ ...padding("1em") }}>{children}</div>
+  <div
+    css={selector()
+      .position("relative")
+      .padding(themes.space.s4)
+      .borderBottom("1px solid")
+      .borderColor(themes.colors.border)}>
+    <div
+      css={selector()
+        .paddingY(themes.space.s2)
+        .opacity(0.4)}>
+      {title}
+    </div>
+    <div>{children}</div>
   </div>
 );
 
 const SubSection = ({ title, children }: ISectionProps) => (
   <div
-    css={{
-      ...padding("3em", "1em", "1em"),
-      position: "relative",
-      border: "1px solid #f0f0f0",
-      borderRadius: 4,
-      "& + &": {
-        marginTop: "1em",
-      },
-    }}>
+    css={applyStyles(
+      selector()
+        .position("relative")
+        .padding(themes.space.s4)
+        .border("1px solid")
+        .borderColor(themes.colors.border),
+
+      selector("& + &").marginTop(themes.space.s4),
+    )}>
     <h5
-      css={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        ...padding("0.8em", "1em"),
-        margin: 0,
-      }}>
+      css={selector()
+        .margin(0)
+        .paddingBottom(themes.space.s3)}>
       {title}
     </h5>
     <div>{children}</div>
@@ -71,7 +76,6 @@ const ExampleList = ({ name, module, group, examples }: IExampleListProps) => (
       if (!isFunction(Example)) {
         throw Example;
       }
-
       return (
         <SubSection key={key} title={key}>
           <Example />
@@ -82,42 +86,43 @@ const ExampleList = ({ name, module, group, examples }: IExampleListProps) => (
 );
 
 function Sidebar() {
-  const ds = useDesignSystem();
-
   return (
     <ul
-      css={{
-        position: "absolute",
-        top: 0,
-        bottom: 0,
-        left: 0,
-        width: 200,
-        overflowX: "hidden",
-        overflowY: "auto",
-        fontSize: ds.size.xs,
-        backgroundColor: `${ds.color.primary}`,
-        "& ul": {
-          padding: 0,
-          listStyle: "none",
-          paddingLeft: "1em",
-        },
-        "& a": {
-          display: "block",
-          color: `${ds.color.text}`,
-          padding: "0.3em 0.6em",
-          "&:hover": {
-            backgroundColor: rgba(ds.color.text, 0.5),
-          },
-        },
-      }}>
-      <li>
-        <NavLink to="/" exact>
-          ALL
-        </NavLink>
-      </li>
+      css={applyStyles(
+        selector()
+          .position("absolute")
+          .margin(0)
+          .padding(themes.space.s3)
+          .fontSize(themes.fontSizes.s)
+          .backgroundColor(themes.colors.bg)
+          .color(themes.colors.text)
+          .top(0)
+          .bottom(0)
+          .lineHeight(themes.lineHeights.normal)
+          .left(0)
+          .width(200)
+          .overflowX("hidden")
+          .overflowY("auto")
+          .listStyle("none"),
+        selector("& ul")
+          .color("inherit")
+          .paddingLeft(themes.space.s2)
+          .margin(0)
+          .listStyle("none"),
+        selector("& a")
+          .color("inherit")
+          .textDecoration("none")
+          .opacity(0.8),
+        selector("& a:hover").opacity(1),
+        selector("& a[data-current=true]").opacity(1),
+      )}>
       {map(groups, (req, group) => (
         <li key={group}>
-          <h4 css={{ color: `${ds.color.text}` }}>
+          <h4
+            css={selector()
+              .paddingY(themes.space.s2)
+              .margin(0)
+              .color(themes.colors.text)}>
             <NavLink to={`/${group}`}>{group}</NavLink>
           </h4>
           <ul>
@@ -149,14 +154,17 @@ function Sidebar() {
 export const ComponentDocs = ({ match }: IRoute<{ group?: string; module?: string; name?: string }>) => {
   return (
     <div css={cover()}>
-      <Sidebar />
+      <WithBackground color={(t) => t.colors.black}>
+        <Sidebar />
+      </WithBackground>
       <div
-        css={{
-          ...cover(),
-          left: 200,
-          overflowX: "hidden",
-          overflowY: "auto",
-        }}>
+        css={applyStyles(
+          cover(),
+          selector()
+            .left(200)
+            .overflowX("hidden")
+            .overflowY("auto"),
+        )}>
         {map(groups, (req, group) => {
           if (match.params.group && match.params.group !== group) {
             return null;
