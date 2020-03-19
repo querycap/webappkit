@@ -1,89 +1,57 @@
 import { applyStyles, cover, selector, themes, WithBackground } from "@querycap-ui/core";
 import { IRoute, NavLink } from "@reactorx/router";
-import { filter, groupBy, isFunction, last, map } from "lodash";
-import React, { Fragment, ReactNode } from "react";
+import { filter, groupBy, map } from "lodash";
+import React, { ReactNode } from "react";
+import { CodeBlock } from "./CodeBlock";
 
-const groups = {
-  "@querycap": (require as any).context("@querycap/", true, /\/__examples__\/(.+)\.tsx?$/),
-  "@querycap-ui": (require as any).context("@querycap-ui/", true, /\/__examples__\/(.+)\.tsx?$/),
-};
+import { examples, IExample } from "./exmaple";
 
-const getComponents = (req: any) => filter(req.keys(), () => true) as string[];
-
-const getComponentName = (key: string) => {
-  const result = key.replace(/\.tsx?$/g, "").split("/");
-  return `${last(result)}`;
-};
-
-const getModuleName = (key: string) => {
-  const result = key.replace(/\.tsx?$/g, "").split("/");
-  return `${result[1]}`;
-};
-
-interface ISectionProps {
-  title?: ReactNode;
-  children?: ReactNode;
-}
-
-const Section = ({ title, children }: ISectionProps) => (
-  <div
-    css={selector()
-      .position("relative")
-      .padding(themes.space.s4)
-      .borderBottom("1px solid")
-      .borderColor(themes.colors.border)}>
-    <div
-      css={selector()
-        .paddingY(themes.space.s2)
-        .opacity(0.4)}>
-      {title}
-    </div>
-    <div>{children}</div>
-  </div>
-);
-
-const SubSection = ({ title, children }: ISectionProps) => (
+const ExampleSection = ({ children }: { children?: ReactNode }) => (
   <div
     css={applyStyles(
       selector()
         .position("relative")
-        .padding(themes.space.s4)
-        .border("1px solid")
-        .borderColor(themes.colors.border),
-
+        .padding(themes.space.s4),
       selector("& + &").marginTop(themes.space.s4),
     )}>
-    <h5
-      css={selector()
-        .margin(0)
-        .paddingBottom(themes.space.s3)}>
-      {title}
-    </h5>
-    <div>{children}</div>
+    {children}
   </div>
 );
 
-interface IExampleListProps {
-  name: string;
-  module: string;
-  group: string;
-  examples: { [k: string]: () => JSX.Element };
-}
-
-const ExampleList = ({ name, module, group, examples }: IExampleListProps) => (
-  <Section title={`${group}/${module}/${name}`}>
-    {map(examples, (Example, key) => {
-      if (!isFunction(Example)) {
-        throw Example;
-      }
-      return (
-        <SubSection key={key} title={key}>
-          <Example />
-        </SubSection>
-      );
-    })}
-  </Section>
-);
+const ExampleBlock = ({ name, module, group, source, examples }: IExample) => {
+  return (
+    <div
+      css={selector()
+        .position("relative")
+        .paddingY(themes.space.s5)
+        .paddingX(themes.space.s4)
+        .borderBottom("1px solid")
+        .borderColor(themes.colors.border)}>
+      <div
+        css={selector()
+          .position("absolute")
+          .top(0)
+          .right(0)
+          .paddingX(themes.space.s4)
+          .paddingY(themes.space.s2)
+          .fontSize(themes.fontSizes.s)
+          .opacity(0.3)}>
+        {group}/{module}/{name}
+      </div>
+      <div
+        css={selector()
+          .border(`1px solid`)
+          .borderColor(themes.colors.border)}>
+        {map(examples, (Example, key) => (
+          <ExampleSection key={key}>
+            <Example />
+          </ExampleSection>
+        ))}
+      </div>
+      {!!source && <CodeBlock>{source}</CodeBlock>}
+    </div>
+  );
+};
 
 function Sidebar() {
   return (
@@ -116,89 +84,67 @@ function Sidebar() {
         selector("& a:hover").opacity(1),
         selector("& a[data-current=true]").opacity(1),
       )}>
-      {map(groups, (req, group) => (
-        <li key={group}>
-          <h4
-            css={selector()
-              .paddingY(themes.space.s2)
-              .margin(0)
-              .color(themes.colors.text)}>
-            <NavLink to={`/${group}`}>{group}</NavLink>
-          </h4>
-          <ul>
-            {map(groupBy(getComponents(req), getModuleName), (keys, module) => {
-              return (
-                <li key={module}>
-                  <NavLink to={`/${group}/${module}`}>{module}</NavLink>
-                  <ul>
-                    {map(keys, (key, i) => {
-                      const name = getComponentName(key);
-
-                      return (
-                        <li key={i}>
-                          <NavLink to={`/${group}/${module}/${name}`}>{name}</NavLink>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </li>
-              );
-            })}
-          </ul>
-        </li>
-      ))}
+      {map(
+        groupBy(examples, (e) => e.group),
+        (examples, group) => (
+          <li key={group}>
+            <h4
+              css={selector()
+                .paddingY(themes.space.s2)
+                .margin(0)
+                .color(themes.colors.text)}>
+              <NavLink to={`/${group}`}>{group}</NavLink>
+            </h4>
+            <ul>
+              {map(
+                groupBy(examples, (e) => e.module),
+                (_, module) => (
+                  <li key={module}>
+                    <NavLink to={`/${group}/${module}`}>{module}</NavLink>
+                  </li>
+                ),
+              )}
+            </ul>
+          </li>
+        ),
+      )}
     </ul>
   );
 }
 
-export const ComponentDocs = ({ match }: IRoute<{ group?: string; module?: string; name?: string }>) => {
+const List = ({ filterBy }: { filterBy: { group?: string; module?: string } }) => {
+  const matched =
+    filterBy.group || filterBy.module
+      ? filter(examples, (e) => {
+          if (filterBy.module) {
+            return e.group === filterBy.group && e.module === filterBy.module;
+          }
+          return e.group === filterBy.group;
+        })
+      : examples;
+
+  return (
+    <>
+      {map(matched, (ex) => {
+        return <ExampleBlock {...ex} key={`${ex.group}:${ex.module}:${ex.name}`} />;
+      })}
+    </>
+  );
+};
+
+export const ComponentDocs = ({ match }: IRoute<{ group?: string; module?: string }>) => {
   return (
     <div css={cover()}>
-      <WithBackground color={(t) => t.colors.black}>
+      <WithBackground color={(t) => t.colors.gray9}>
         <Sidebar />
       </WithBackground>
       <div
-        css={applyStyles(
-          cover(),
-          selector()
-            .left(200)
-            .overflowX("hidden")
-            .overflowY("auto"),
-        )}>
-        {map(groups, (req, group) => {
-          if (match.params.group && match.params.group !== group) {
-            return null;
-          }
-
-          const componentList = getComponents(req);
-
-          const matchedComponentList =
-            match.params.group === group && match.params.module
-              ? filter(componentList, (key) => {
-                  const isMatchedModule = getModuleName(key) === match.params.module;
-
-                  if (match.params.name) {
-                    return isMatchedModule && getComponentName(key) === match.params.name;
-                  }
-
-                  return isMatchedModule;
-                })
-              : componentList;
-
-          return (
-            <Fragment key={group}>
-              {map(matchedComponentList, (key, idx) => (
-                <ExampleList
-                  key={`${group}::${idx}`}
-                  name={getComponentName(key)}
-                  module={getModuleName(key)}
-                  group={group}
-                  examples={req(key) as { [k: string]: () => JSX.Element }}
-                />
-              ))}
-            </Fragment>
-          );
-        })}
+        css={selector()
+          .with(cover())
+          .left(200)
+          .overflowX("hidden")
+          .overflowY("auto")}>
+        <List filterBy={match.params} />
       </div>
     </div>
   );

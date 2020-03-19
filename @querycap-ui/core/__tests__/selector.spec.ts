@@ -1,16 +1,14 @@
 import { cover } from "polished";
-import { applyStyles, selector } from "../selector";
+import { selector } from "../selector";
 import { theme } from "../theme";
 
-describe("flex", () => {
+describe("selector", () => {
   it("selector", () => {
-    const applyTheme = applyStyles(
-      cover(),
-      selector()
-        .display("flex")
-        .flexDirection("row")
-        .alignItems("center"),
-    );
+    const applyTheme = selector()
+      .with(cover())
+      .display("flex")
+      .flexDirection("row")
+      .alignItems("center");
 
     expect(applyTheme(theme)).toEqual([
       { bottom: 0, left: 0, position: "absolute", right: 0, top: 0 },
@@ -19,11 +17,22 @@ describe("flex", () => {
   });
 
   it("sub selector", () => {
-    const applyTheme = selector("&:active", "&:hover").backgroundColor("red");
+    const applyTheme = selector()
+      .backgroundColor("black")
+      .with(false)
+      .with(selector("&:active", "&:hover").backgroundColor("red"))
+      .with(selector("&[data-current=true]").backgroundColor("red"));
 
-    expect(applyTheme(theme)).toEqual({
-      "&:active": { backgroundColor: "red" },
-      "&:hover": { backgroundColor: "red" },
-    });
+    expect(applyTheme(theme)).toEqual([
+      { backgroundColor: "black" },
+      false,
+      {
+        "&:active": { backgroundColor: "red" },
+        "&:hover": { backgroundColor: "red" },
+      },
+      {
+        "&[data-current=true]": { backgroundColor: "red" },
+      },
+    ]);
   });
 });

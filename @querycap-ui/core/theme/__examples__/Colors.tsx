@@ -1,13 +1,24 @@
 import { applyStyles, safeTextColor, selector, themes } from "@querycap-ui/core";
+import { headings, Markdown } from "@querycap-ui/texts";
 import { map } from "lodash";
 import React, { Fragment } from "react";
 import { colors } from "../colors";
 
-export const Colors = () => {
-  const baseColors = ["black", "gray", "darkBlue", "blue", "green", "yellow", "red", "purple"];
+const docs = `
+## Tips
+
+关于反色。是通过灰度计算公式 <https://en.wikipedia.org/wiki/Grayscale> 得到灰度值，
+当背景色的灰度值为小于 160，则使用浅色文字，否则为深色文字。
+`;
+
+export const NOSRC = true;
+
+export const Color_system = () => {
+  const baseColors = ["black", "white", "gray", "darkBlue", "blue", "green", "yellow", "red", "purple"];
 
   return (
     <>
+      <h2 css={headings.h2}>基本色</h2>
       <div
         css={applyStyles(
           selector()
@@ -30,7 +41,7 @@ export const Colors = () => {
           </div>
         ))}
       </div>
-      <hr />
+      <h2 css={headings.h2}>色阶</h2>
       <div
         css={applyStyles(
           selector()
@@ -41,7 +52,7 @@ export const Colors = () => {
             .width("50%")
             .textAlign("center"),
         )}>
-        {map(baseColors.slice(1), (color, key) => (
+        {map(baseColors.slice(2), (color, key) => (
           <div css={selector().padding(themes.space.s1)} key={key}>
             {map(["", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"], (k) => {
               const colorValue = (colors as any)[`${color}${k}`];
@@ -67,6 +78,7 @@ export const Colors = () => {
           </div>
         ))}
       </div>
+      <Markdown>{docs}</Markdown>
     </>
   );
 };

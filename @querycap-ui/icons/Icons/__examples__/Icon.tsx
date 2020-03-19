@@ -3,6 +3,8 @@ import { map } from "lodash";
 import React from "react";
 import * as IconSets from "..";
 
+export const NOSRC = true;
+
 export const Icons = () => (
   <div
     css={selector()
@@ -11,11 +13,10 @@ export const Icons = () => (
     {map(IconSets, (Icon, key) => (
       <div
         key={key}
-        css={{
-          display: "flex",
-          alignItems: "center",
-          width: "20%",
-        }}>
+        css={selector()
+          .display("flex")
+          .alignItems("center")
+          .width("25%")}>
         <span
           css={selector()
             .fontSize((t) => t.fontSizes.l)

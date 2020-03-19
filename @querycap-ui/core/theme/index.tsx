@@ -57,6 +57,12 @@ export const theme = {
     bold: 500,
   },
 
+  radii: {
+    s: 2,
+    normal: 4,
+    l: 8,
+  },
+
   fontSizes: {
     xs: 12,
     s: 14,
@@ -114,8 +120,8 @@ const grayscale = (color: string) => {
   return red * 0.299 + green * 0.587 + blue * 0.114;
 };
 
-export const safeTextColor = (bg: string) => (t: Theme) => {
-  return grayscale(bg) > 160 ? t.colors.textDark : t.colors.textLight;
+export const safeTextColor = (bg: string | ((t: Theme) => string)) => (t: Theme) => {
+  return grayscale(isFunction(bg) ? bg(t) : bg) > 160 ? t.colors.textDark : t.colors.textLight;
 };
 
 export const ThemeProvider = (props: { theme?: Theme; children?: React.ReactNode }) => (

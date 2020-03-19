@@ -1,5 +1,5 @@
 import { Global } from "@emotion/core";
-import { cover, normalize } from "@querycap-ui/core";
+import { applyStyles, cover, normalize, selector, themes } from "@querycap-ui/core";
 import React from "react";
 
 export const CSSReset = () => {
@@ -7,28 +7,22 @@ export const CSSReset = () => {
     <>
       <Global styles={normalize()} />
 
-      <Global
-        styles={{
-          "*,*::after,*::before": {
-            boxSizing: "border-box",
-          },
-        }}
-      />
+      <Global styles={selector("*,*::after,*::before").boxSizing("border-box")} />
 
       <Global
-        styles={(t) => ({
-          "html, body": {
-            position: "relative",
-            height: "100%",
-            width: "100%",
-            overflow: "hidden",
-          },
-          "#root": {
-            ...cover(),
-            overflow: "hidden",
-            fontFamily: t.fonts.normal,
-          },
-        })}
+        styles={applyStyles(
+          selector("html, body")
+            .position("relative")
+            .height("100%")
+            .width("100%")
+            .overflow("hidden"),
+          selector("#root")
+            .with(() => cover())
+            .lineHeight(themes.lineHeights.normal)
+            .fontFamily(themes.fonts.normal)
+            .color(themes.colors.text)
+            .overflow("hidden"),
+        )}
       />
     </>
   );

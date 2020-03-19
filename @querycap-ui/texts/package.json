@@ -1,0 +1,27 @@
+{
+  "name": "@querycap-ui/texts",
+  "version": "0.0.0",
+  "license": "MIT",
+  "peerDependencies": {
+    "@babel/runtime-corejs3": "*",
+    "react": "16.x"
+  },
+  "dependencies": {
+    "@emotion/core": "10.0.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "monobundle": {
+    "env": "browser"
+  },
+  "scripts": {
+    "prepare": "monobundle"
+  },
+  "files": [
+    "dist/"
+  ],
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
+}
