@@ -123,10 +123,13 @@ function Sidebar() {
   );
 }
 
-const List = ({ filterBy }: { filterBy: { group?: string; module?: string } }) => {
+const List = ({ filterBy }: { filterBy: { group?: string; module?: string; name?: string } }) => {
   const matched =
-    filterBy.group || filterBy.module
+    filterBy.group || filterBy.module || filterBy.name
       ? filter(examples, (e) => {
+          if (filterBy.name) {
+            return e.group === filterBy.group && e.module === filterBy.module && e.name === filterBy.name;
+          }
           if (filterBy.module) {
             return e.group === filterBy.group && e.module === filterBy.module;
           }
@@ -143,7 +146,7 @@ const List = ({ filterBy }: { filterBy: { group?: string; module?: string } }) =
   );
 };
 
-export const ComponentDocs = ({ match }: IRoute<{ group?: string; module?: string }>) => {
+export const ComponentDocs = ({ match }: IRoute<{ group?: string; module?: string; name?: string }>) => {
   return (
     <div css={cover()}>
       <WithBackground color={(t) => t.colors.gray9}>

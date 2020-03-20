@@ -83,10 +83,10 @@ export const theme = {
     ...colors,
 
     primary: colors.blue6,
-    success: colors.green6,
-    warning: colors.yellow6,
-    danger: colors.red6,
-    info: colors.gray6,
+    success: colors.green5,
+    warning: colors.yellow5,
+    danger: colors.red5,
+    info: colors.gray5,
 
     textLight: colors.white,
     textDark: colors.black,
@@ -101,6 +101,8 @@ export const theme = {
 };
 
 export interface Theme extends Readonly<typeof theme> {}
+
+export type ValueOrThemeGetter<T> = T | ((t: Theme) => T);
 
 export const themes: {
   [S in keyof Theme]: {
@@ -120,7 +122,7 @@ const grayscale = (color: string) => {
   return red * 0.299 + green * 0.587 + blue * 0.114;
 };
 
-export const safeTextColor = (bg: string | ((t: Theme) => string)) => (t: Theme) => {
+export const safeTextColor = (bg: ValueOrThemeGetter<string>) => (t: Theme) => {
   return grayscale(isFunction(bg) ? bg(t) : bg) > 160 ? t.colors.textDark : t.colors.textLight;
 };
 

@@ -1,15 +1,14 @@
 import React from "react";
 
-export interface IGraphProps extends React.HTMLAttributes<any> {
+export interface GraphProps extends React.HTMLAttributes<any> {
   inline?: boolean;
 }
 
-export type IIconProps = IGraphProps;
-
-export const Graph = ({ children, inline, ...otherProps }: IGraphProps) => {
+export const Graph = ({ children, inline, ...otherProps }: GraphProps) => {
   return (
     <span
       {...otherProps}
+      role={"icon"}
       css={[
         {
           alignItems: "center",
@@ -27,9 +26,10 @@ export const Graph = ({ children, inline, ...otherProps }: IGraphProps) => {
   );
 };
 
-export const Icon = ({ children, ...props }: IGraphProps) => (
+export const Icon = ({ inline = true, children, ...props }: GraphProps) => (
   <Graph
     {...props}
+    inline={inline}
     css={{
       "& > svg": {
         display: "block",
@@ -45,4 +45,4 @@ export const Icon = ({ children, ...props }: IGraphProps) => (
   </Graph>
 );
 
-export const createIcon = (svg: React.ReactElement) => (props: IGraphProps) => <Icon {...props}>{svg}</Icon>;
+export const createIcon = (svg: React.ReactElement) => (props: GraphProps) => <Icon {...props}>{svg}</Icon>;
