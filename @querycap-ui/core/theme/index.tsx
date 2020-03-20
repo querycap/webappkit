@@ -100,7 +100,7 @@ export const theme = {
   },
 };
 
-export type Theme = typeof theme;
+export interface Theme extends Readonly<typeof theme> {}
 
 export const themes: {
   [S in keyof Theme]: {

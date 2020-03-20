@@ -3,7 +3,8 @@ import { selector, themes } from "@querycap-ui/core";
 export const headings = {
   break: selector()
     .paddingBottom(themes.space.s1)
-    .borderBottom("1px solid")
+    .borderWidth(1)
+    .borderStyle("solid")
     .borderColor(themes.colors.border),
 
   h1: selector()

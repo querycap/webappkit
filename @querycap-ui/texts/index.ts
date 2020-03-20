@@ -1,2 +1,2 @@
 export * from "./Markdown";
-export * from "./Headings";
+export * from "./utils";

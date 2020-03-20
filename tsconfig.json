@@ -3,8 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "*": ["__types__/*", "*"]
+      "*": ["__types__/*", "*/index.ts", "*"]
     },
+    "composite": true,
     "noImplicitAny": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,

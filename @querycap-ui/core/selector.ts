@@ -1,12 +1,11 @@
-import { CSSObject, Interpolation } from "@emotion/core";
+import { Interpolation } from "@emotion/core";
 import { isEmpty, isFunction } from "lodash";
+import { CSSProperties } from "react";
 import { Theme } from "./theme";
 
 export type InterpolationBuilder = (t: Theme) => Interpolation;
 
-export const applyStyles = (...interpolations: Array<InterpolationBuilder | Interpolation>) => (
-  t: any,
-): Interpolation => {
+const applyStyles = (...interpolations: Array<InterpolationBuilder | Interpolation>) => (t: any): Interpolation => {
   const styles: Interpolation[] = [];
 
   for (const interpolation of interpolations) {
@@ -24,68 +23,74 @@ export const applyStyles = (...interpolations: Array<InterpolationBuilder | Inte
   return styles;
 };
 
-export interface CSSObjectWithAliases extends CSSObject {
-  marginX: CSSObject["marginTop"];
-  marginY: CSSObject["marginTop"];
-  paddingX: CSSObject["paddingTop"];
-  paddingY: CSSObject["paddingTop"];
-  borderRadiusTop: CSSObject["borderTopLeftRadius"];
-  borderRadiusBottom: CSSObject["borderTopLeftRadius"];
-  borderRadiusLeft: CSSObject["borderTopLeftRadius"];
-  borderRadiusRight: CSSObject["borderTopLeftRadius"];
+export interface CSSPropertiesWithAliases extends CSSProperties {
+  marginX: CSSProperties["marginTop"];
+  marginY: CSSProperties["marginTop"];
+  paddingX: CSSProperties["paddingTop"];
+  paddingY: CSSProperties["paddingTop"];
+  borderTopRadius: CSSProperties["borderTopLeftRadius"];
+  borderBottomRadius: CSSProperties["borderTopLeftRadius"];
+  borderLeftRadius: CSSProperties["borderTopLeftRadius"];
+  borderRightRadius: CSSProperties["borderTopLeftRadius"];
+}
+
+export interface BuilderProperties extends CSSPropertiesWithAliases {
   with: Interpolation;
 }
 
-export type Builder<T> = {
-  [k in keyof T]-?: (arg: ((t: Theme) => T[k]) | T[k]) => Builder<T>;
+export type CSSBuilder = {
+  [k in keyof BuilderProperties]-?: (arg: ((t: Theme) => BuilderProperties[k]) | BuilderProperties[k]) => CSSBuilder;
 } & {
   (t: Theme): Interpolation;
 };
 
-const aliases: { [k: string]: Array<keyof CSSObject> } = {
+const aliases: { [k: string]: Array<keyof CSSProperties> } = {
   marginX: ["marginLeft", "marginRight"],
   marginY: ["marginTop", "marginBottom"],
   paddingX: ["paddingLeft", "paddingRight"],
   paddingY: ["paddingTop", "paddingBottom"],
-  borderRadiusTop: ["borderTopLeftRadius", "borderTopRightRadius"],
-  borderRadiusBottom: ["borderBottomLeftRadius", "borderBottomRightRadius"],
-  borderRadiusLeft: ["borderTopLeftRadius", "borderBottomLeftRadius"],
-  borderRadiusRight: ["borderTopRightRadius", "borderBottomRightRadius"],
+  borderTopRadius: ["borderTopLeftRadius", "borderTopRightRadius"],
+  borderBottomRadius: ["borderBottomLeftRadius", "borderBottomRightRadius"],
+  borderLeftRadius: ["borderTopLeftRadius", "borderBottomLeftRadius"],
+  borderRightRadius: ["borderTopRightRadius", "borderBottomRightRadius"],
 };
 
-export function selector<T = CSSObjectWithAliases>(...selectors: string[]) {
-  const n = selectors.length;
+type StyleOrBuilderSet = {
+  [k: string]: any | ((t: any) => any);
+};
 
-  let styleOrBuilders = {} as any;
+const buildStyle = (styleOrBuilders: StyleOrBuilderSet) => (t: any): Interpolation => {
+  const styles = {} as any;
 
-  const buildStyle = (styleOrBuilders: any) => (t: any): Interpolation => {
-    const styles = {} as any;
+  for (const prop in styleOrBuilders) {
+    const styleOrBuilder = styleOrBuilders[prop];
+    const value = isFunction(styleOrBuilder) ? styleOrBuilder(t) : styleOrBuilder;
 
-    for (const prop in styleOrBuilders) {
-      const styleOrBuilder = styleOrBuilders[prop];
-      const value = isFunction(styleOrBuilder) ? styleOrBuilder(t) : styleOrBuilder;
-
-      if (aliases[prop]) {
-        for (const p of aliases[prop]) {
-          styles[p] = value;
-        }
-      } else {
-        styles[prop] = value;
+    if (aliases[prop]) {
+      for (const p of aliases[prop]) {
+        styles[p] = value;
       }
+    } else {
+      styles[prop] = value;
     }
+  }
 
-    return styles;
-  };
+  return styles;
+};
 
-  const interpolationOrBuilders: Array<InterpolationBuilder | Interpolation> = [];
-
+const createBuilder = (
+  selectors: readonly string[],
+  styleOrBuilders: StyleOrBuilderSet = {},
+  interpolationOrBuilders: ReadonlyArray<InterpolationBuilder | Interpolation> = [],
+) => {
   const applyTheme = (t: any) => {
-    if (!isEmpty(styleOrBuilders)) {
-      interpolationOrBuilders.push(buildStyle(styleOrBuilders));
-      styleOrBuilders = {};
-    }
+    const n = selectors.length;
 
-    const final = applyStyles(...interpolationOrBuilders)(t);
+    const final = applyStyles(
+      ...(isEmpty(styleOrBuilders)
+        ? interpolationOrBuilders
+        : [...interpolationOrBuilders, buildStyle(styleOrBuilders)]),
+    )(t);
 
     if (n === 0) {
       return final;
@@ -100,24 +105,32 @@ export function selector<T = CSSObjectWithAliases>(...selectors: string[]) {
     return finals;
   };
 
-  const builder = new Proxy(applyTheme, {
+  return new Proxy(applyTheme, {
     get(_, prop) {
       if (prop === "with") {
         return (v: any): any => {
-          if (!isEmpty(styleOrBuilders)) {
-            interpolationOrBuilders.push(buildStyle(styleOrBuilders));
-            styleOrBuilders = {};
-          }
-          interpolationOrBuilders.push(v);
-          return builder;
+          return createBuilder(
+            selectors,
+            {},
+            !isEmpty(styleOrBuilders)
+              ? [...interpolationOrBuilders, buildStyle(styleOrBuilders), v]
+              : [...interpolationOrBuilders, v],
+          );
         };
       }
+
       return (v: any): any => {
-        styleOrBuilders[prop as any] = v;
-        return builder;
+        const nextStyleOrBuilders: StyleOrBuilderSet = {};
+        for (const prop in styleOrBuilders) {
+          nextStyleOrBuilders[prop] = styleOrBuilders[prop];
+        }
+        nextStyleOrBuilders[prop as any] = v;
+        return createBuilder(selectors, nextStyleOrBuilders, interpolationOrBuilders);
       };
     },
-  });
+  }) as CSSBuilder;
+};
 
-  return builder as Builder<T>;
+export function selector(...selectors: readonly string[]): CSSBuilder {
+  return createBuilder(selectors, {}, []);
 }

@@ -1,4 +1,4 @@
-import { applyStyles, safeTextColor, selector, themes } from "@querycap-ui/core";
+import { safeTextColor, selector, themes } from "@querycap-ui/core";
 import { headings, Markdown } from "@querycap-ui/texts";
 import { map } from "lodash";
 import React, { Fragment } from "react";
@@ -20,14 +20,14 @@ export const Color_system = () => {
     <>
       <h2 css={headings.h2}>基本色</h2>
       <div
-        css={applyStyles(
-          selector()
-            .display("flex")
-            .flexWrap("wrap"),
-          selector("& > *")
-            .flex(1)
-            .textAlign("center"),
-        )}>
+        css={selector()
+          .display("flex")
+          .flexWrap("wrap")
+          .with(
+            selector("& > *")
+              .flex(1)
+              .textAlign("center"),
+          )}>
         {map(baseColors, (color, key) => (
           <div
             key={key}
@@ -43,15 +43,15 @@ export const Color_system = () => {
       </div>
       <h2 css={headings.h2}>色阶</h2>
       <div
-        css={applyStyles(
-          selector()
-            .display("flex")
-            .flexWrap("wrap")
-            .margin((t) => -t.space.s1),
-          selector("& > *")
-            .width("50%")
-            .textAlign("center"),
-        )}>
+        css={selector()
+          .display("flex")
+          .flexWrap("wrap")
+          .margin((t) => -t.space.s1)
+          .with(
+            selector("& > *")
+              .width("50%")
+              .textAlign("center"),
+          )}>
         {map(baseColors.slice(2), (color, key) => (
           <div css={selector().padding(themes.space.s1)} key={key}>
             {map(["", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"], (k) => {

@@ -1,9 +1,11 @@
-import { selector } from "@querycap-ui/core";
+import { selector, themes } from "@querycap-ui/core";
 import { map } from "lodash";
 import React from "react";
 import * as IconSets from "..";
 
 export const NOSRC = true;
+
+console.log("Icons");
 
 export const Icons = () => (
   <div
@@ -19,15 +21,15 @@ export const Icons = () => (
           .width("25%")}>
         <span
           css={selector()
-            .fontSize((t) => t.fontSizes.l)
-            .padding((t) => t.space.s1)}>
+            .fontSize(themes.fontSizes.l)
+            .padding(themes.space.s1)}>
           <Icon />
         </span>
         <span
           css={selector()
-            .fontSize((t) => t.fontSizes.s)
-            .fontFamily((t) => t.fonts.mono)
-            .padding((t) => t.space.s1)}>
+            .fontSize(themes.fontSizes.s)
+            .fontFamily(themes.fonts.mono)
+            .padding(themes.space.s1)}>
           {key}
         </span>
       </div>

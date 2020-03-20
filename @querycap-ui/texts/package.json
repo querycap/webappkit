@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "license": "MIT",
   "peerDependencies": {
-    "@babel/runtime-corejs3": "*",
     "react": "16.x"
   },
   "dependencies": {
-    "@emotion/core": "10.0.x"
+    "@querycap-ui/core": "0.1.0",
+    "@querycap/markdown": "0.1.0"
   },
   "publishConfig": {
     "access": "public"
