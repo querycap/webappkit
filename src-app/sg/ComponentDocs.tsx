@@ -109,9 +109,16 @@ function Sidebar() {
             <ul>
               {map(
                 groupBy(examples, (e) => e.module),
-                (_, module) => (
+                (examples, module) => (
                   <li key={module}>
                     <NavLink to={`/${group}/${module}`}>{module}</NavLink>
+                    <ul>
+                      {map(examples, (e) => (
+                        <li key={e.name}>
+                          <NavLink to={`/${group}/${module}/${e.name}`}>{e.name}</NavLink>
+                        </li>
+                      ))}
+                    </ul>
                   </li>
                 ),
               )}

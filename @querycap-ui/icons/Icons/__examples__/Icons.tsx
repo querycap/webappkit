@@ -5,8 +5,6 @@ import * as IconSets from "..";
 
 export const NOSRC = true;
 
-console.log("Icons");
-
 export const Icons = () => (
   <div
     css={selector()

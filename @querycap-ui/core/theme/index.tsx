@@ -94,7 +94,7 @@ export const theme = {
     bgLight: colors.gray2,
 
     text: colors.black,
-    bg: colors.gray2,
+    bg: colors.gray0,
 
     border: colors.gray2,
   },

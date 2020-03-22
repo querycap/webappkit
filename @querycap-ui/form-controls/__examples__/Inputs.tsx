@@ -1,6 +1,6 @@
 import { selector } from "@querycap-ui/core";
 import { themes } from "@querycap-ui/core/theme";
-import { Button, Input, InputIcon, InputPrefix } from "@querycap-ui/form-controls";
+import { Button, Input, InputIcon, InputPrefix, InputSuffix } from "@querycap-ui/form-controls";
 import { IconAirplay, IconChevronDown, IconEyeOff } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
 import { headings } from "@querycap-ui/texts/utils";
@@ -27,12 +27,15 @@ export const Inputs = () => {
           <input type="text" disabled value={"输入"} />
         </Input>
       </Stack>
-
       <h2 css={headings.h2}> input 套件 </h2>
       <Stack spacing={themes.space.s2} css={selector().fontSize(themes.fontSizes.xs)}>
         <Input>
           <InputPrefix css={selector().fontFamily(themes.fonts.mono)}>https://</InputPrefix>
           <input type="text" placeholder={"www.github.com"} />
+        </Input>
+        <Input>
+          <input type="text" placeholder={"www.github.com"} />
+          <InputSuffix css={selector().fontFamily(themes.fonts.mono)}>.com</InputSuffix>
         </Input>
         <Input>
           <InputIcon>
@@ -62,7 +65,6 @@ export const Inputs = () => {
           </Input>
           <Button primary>提交</Button>
         </Stack>
-
         <Stack inline spacing={themes.space.s1}>
           <Input small>
             <input type="text" />

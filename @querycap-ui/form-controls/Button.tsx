@@ -17,7 +17,7 @@ const createBtnStyle = ({ block, invisible, primary, small }: ButtonOptions) =>
   base
     .paddingX(block ? 0 : small ? "0.8em" : "1em")
     .paddingY(small ? "0.25em" : "0.5em")
-    .display(block ? "flex" : "inline-flex")
+    .display(block ? "block" : "inline-block")
     .alignItems("center")
     .outline("none")
     .with(
