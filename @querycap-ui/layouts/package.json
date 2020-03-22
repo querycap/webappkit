@@ -1,12 +1,12 @@
 {
   "name": "@querycap-ui/layouts",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "peerDependencies": {
     "react": "16.x"
   },
   "dependencies": {
-    "@querycap-ui/core": "0.1.0"
+    "@querycap-ui/core": "0.2.0"
   },
   "publishConfig": {
     "access": "public"
