@@ -16,14 +16,14 @@ export const CSSReset = () => {
               .position("relative")
               .height("100%")
               .width("100%")
-              .overflow("hidden"),
+              .overflow("hidden")
+              .lineHeight(themes.lineHeights.normal)
+              .color(themes.colors.text)
+              .fontFamily(themes.fonts.normal),
           )
           .with(
             selector("#root")
               .with(() => cover())
-              .lineHeight(themes.lineHeights.normal)
-              .fontFamily(themes.fonts.normal)
-              .color(themes.colors.text)
               .overflow("hidden"),
           )}
       />

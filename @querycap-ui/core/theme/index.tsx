@@ -79,6 +79,13 @@ export const theme = {
     normal: 1.5,
   },
 
+  shadows: {
+    normal: "0 1px 1px rgba(27,31,35,0.1)",
+    medium: "0 1px 5px rgba(27,31,35,0.15)",
+    large: "0 1px 15px rgba(27,31,35,0.15)",
+    extraLarge: "0 10px 50px rgba(27,31,35,0.15)",
+  },
+
   colors: {
     ...colors,
 
@@ -94,7 +101,7 @@ export const theme = {
     bgLight: colors.gray2,
 
     text: colors.black,
-    bg: colors.gray0,
+    bg: colors.white,
 
     border: colors.gray2,
   },
