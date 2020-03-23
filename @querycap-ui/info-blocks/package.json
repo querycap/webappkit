@@ -1,0 +1,26 @@
+{
+  "name": "@querycap-ui/info-blocks",
+  "version": "0.0.0",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "16.x"
+  },
+  "dependencies": {
+    "@querycap-ui/core": "0.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "monobundle": {
+    "env": "browser"
+  },
+  "scripts": {
+    "prepare": "monobundle"
+  },
+  "files": [
+    "dist/"
+  ],
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
+}
