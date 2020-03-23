@@ -8,15 +8,15 @@ export const Switches = () => {
 
   return (
     <Stack spacing={themes.space.s2}>
-      <label>
-        <Switch value={checked} disabled onValueChange={setCheck} />
-      </label>
-      <label>
-        <Switch value={checked} onValueChange={setCheck} tips={["on", "off"]} />
-      </label>
-      <label css={{ fontSize: "2em" }}>
-        <Switch value={checked} onValueChange={setCheck} />
-      </label>
+      <div>
+        <Switch value={checked} disabled onValueChange={setCheck} /> <span>文本</span>
+      </div>
+      <div>
+        <Switch value={checked} onValueChange={setCheck} tips={["on", "off"]} /> <span>文本</span>
+      </div>
+      <div css={{ fontSize: "2em" }}>
+        <Switch value={checked} onValueChange={setCheck} /> <span>文本</span>
+      </div>
     </Stack>
   );
 };

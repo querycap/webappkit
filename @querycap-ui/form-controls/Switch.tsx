@@ -52,7 +52,8 @@ export const Switch = forwardRef(({ name, value, tips, onValueChange, disabled, 
         }}
         css={selector()
           .position("relative")
-          .display("block")
+          .display("inline-block")
+          .top("0.125em")
           .height("1em")
           .width(tips ? "2.5em" : "1.5em")
           .borderRadius("0.6em")
