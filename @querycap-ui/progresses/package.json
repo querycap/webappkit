@@ -1,0 +1,32 @@
+{
+  "name": "@querycap-ui/progresses",
+  "version": "0.0.0",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "16.x",
+    "@reactorx/core": "*",
+    "@emotion/core": "10.x",
+    "rxjs": "*",
+    "@querycap-ui/core": "0.x",
+    "@babel/runtime-corejs3": "*"
+  },
+  "dependencies": {
+    "@querycap-ui/icons": "0.x",
+    "@querycap/uikit": "0.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "monobundle": {
+    "env": "browser"
+  },
+  "scripts": {
+    "prepare": "monobundle"
+  },
+  "files": [
+    "dist/"
+  ],
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
+}
