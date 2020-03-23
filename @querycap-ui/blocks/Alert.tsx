@@ -40,6 +40,7 @@ export const AlertCard = ({ type, onRequestClose, children }: AlertProps) => {
   return (
     <div
       css={selector()
+        .position("relative")
         .display("flex")
         .width("100%")
         .paddingY("0.6em")
@@ -47,11 +48,7 @@ export const AlertCard = ({ type, onRequestClose, children }: AlertProps) => {
         .borderRadius(themes.radii.s)
         .boxShadow(themes.shadows.medium)
         .backgroundColor(themes.colors.bg)
-        .with(
-          selector("& > [role=img]")
-            .fill(color)
-            .marginRight("0.8em"),
-        )
+        .with(selector("& > [role=img]").fill(color).marginRight("0.8em"))
         .with(selector("& > [role=info]").flex(1))}>
       <div role={"img"}>
         <AlertIcon type={type} scale={1.2} />
@@ -87,11 +84,7 @@ export const Alert = ({ type, onRequestClose, children }: AlertProps) => {
         .borderLeft("3px solid")
         .borderColor(color)
         .backgroundColor((t) => rgba(color(t), 0.15))
-        .with(
-          selector("& > [role=img]")
-            .fill(color)
-            .marginRight("0.8em"),
-        )
+        .with(selector("& > [role=img]").fill(color).marginRight("0.8em"))
         .with(selector("& > [role=info]").flex(1))}>
       <div role={"img"}>
         <AlertIcon type={type} scale={1.2} />

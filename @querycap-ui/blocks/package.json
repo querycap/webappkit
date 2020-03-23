@@ -1,5 +1,5 @@
 {
-  "name": "@querycap-ui/info-blocks",
+  "name": "@querycap-ui/blocks",
   "version": "0.0.0",
   "license": "MIT",
   "peerDependencies": {
