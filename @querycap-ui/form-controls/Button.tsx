@@ -15,6 +15,7 @@ export interface ButtonProps extends ButtonOptions, ButtonHTMLAttributes<HTMLBut
 
 const createBtnStyle = ({ block, invisible, primary, small }: ButtonOptions) =>
   base
+    .position("relative")
     .paddingX(block ? 0 : small ? "0.8em" : "1em")
     .paddingY(small ? "0.25em" : "0.5em")
     .display(block ? "block" : "inline-block")
@@ -54,6 +55,7 @@ const createBtnStyle = ({ block, invisible, primary, small }: ButtonOptions) =>
         ? undefined
         : selector("&:focus")
             .outline(0)
+            .zIndex(1)
             .boxShadow((t) => `0 0 0 0.2em ${rgba(t.colors.primary, 0.15)}`),
     )
     .with(
@@ -67,6 +69,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         ref={ref}
+        role={"button"}
         css={createBtnStyle({
           invisible,
           primary,
