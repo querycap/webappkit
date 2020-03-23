@@ -8,10 +8,7 @@ import { examples, IExample } from "./exmaple";
 
 const ExampleSection = ({ children }: { children?: ReactNode }) => (
   <div
-    css={selector()
-      .position("relative")
-      .padding(themes.space.s4)
-      .with(selector("& + &").marginTop(themes.space.s4))}>
+    css={selector().position("relative").padding(themes.space.s4).with(selector("& + &").marginTop(themes.space.s4))}>
     {children}
   </div>
 );
@@ -21,11 +18,9 @@ const ExampleBlock = ({ name, module, group, source, examples }: IExample) => {
     <div
       css={selector()
         .position("relative")
-        .borderWidth(1)
-        .borderStyle("solid")
         .paddingY(themes.space.s5)
         .paddingX(themes.space.s4)
-        .borderColor(themes.colors.border)}>
+        .with(selector("& + &").borderWidth(1).borderStyle("solid").borderColor(themes.colors.border))}>
       <div
         css={selector()
           .position("absolute")
@@ -44,13 +39,7 @@ const ExampleBlock = ({ name, module, group, source, examples }: IExample) => {
             .borderStyle("solid")
             .borderRadius(themes.radii.normal)
             .borderColor(themes.colors.border)
-            .with(
-              source
-                ? selector()
-                    .borderBottom("none")
-                    .borderBottomRadius(0)
-                : null,
-            )}>
+            .with(source ? selector().borderBottom("none").borderBottomRadius(0) : null)}>
           {map(examples, (Example, key) => (
             <ExampleSection key={key}>
               <Example />
@@ -81,13 +70,7 @@ function Sidebar() {
         .overflowX("hidden")
         .overflowY("auto")
         .listStyle("none")
-        .with(
-          selector("& ul")
-            .color("inherit")
-            .paddingLeft(themes.space.s2)
-            .margin(0)
-            .listStyle("none"),
-        )
+        .with(selector("& ul").color("inherit").paddingLeft(themes.space.s2).margin(0).listStyle("none"))
         .with(
           selector("& a")
             .color("inherit")
@@ -99,11 +82,7 @@ function Sidebar() {
         groupBy(examples, (e) => e.group),
         (examples, group) => (
           <li key={group}>
-            <h4
-              css={selector()
-                .paddingY(themes.space.s2)
-                .margin(0)
-                .color(themes.colors.text)}>
+            <h4 css={selector().paddingY(themes.space.s2).margin(0).color(themes.colors.text)}>
               <NavLink to={`/${group}`}>{group}</NavLink>
             </h4>
             <ul>
@@ -159,12 +138,7 @@ export const ComponentDocs = ({ match }: IRoute<{ group?: string; module?: strin
       <WithBackground color={(t) => t.colors.gray9}>
         <Sidebar />
       </WithBackground>
-      <div
-        css={selector()
-          .with(cover())
-          .left(200)
-          .overflowX("hidden")
-          .overflowY("auto")}>
+      <div css={selector().with(cover()).left(200).overflowX("hidden").overflowY("auto")}>
         <List filterBy={match.params} />
       </div>
     </div>

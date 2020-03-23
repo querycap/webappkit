@@ -4,11 +4,18 @@ import React from "react";
 const scales = [1, 1.2, 1.8, 2];
 
 export const IconBaseLines = () => (
-  <div css={{ lineHeight: 2 }}>
+  <div
+    css={{
+      lineHeight: 2,
+      "& [role=text]": {
+        outline: "1px solid red",
+      },
+    }}>
     {scales.map((scale) => {
       return (
         <div key={scale} css={{ fontSize: `${scale}em` }}>
-          <IconSquare /> 文字
+          <IconSquare />
+          <span role={"text"}>文字</span>
         </div>
       );
     })}
@@ -18,7 +25,7 @@ export const IconBaseLines = () => (
           <span>
             <IconSquare scale={scale} />
           </span>
-          <span>文字</span>
+          <span role={"text"}>文字</span>
         </div>
       );
     })}
