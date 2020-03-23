@@ -1,10 +1,20 @@
 import { ThemeContext } from "@emotion/core";
 import { isFunction, mapValues } from "lodash";
 import { parseToRgb } from "polished";
-import React, { useContext, useMemo } from "react";
+import React, { ReactNode, useContext, useMemo } from "react";
 import { colors } from "./colors";
 
 const fontStack = (...fonts: string[]) => fonts.map((font) => (font.includes(" ") ? `"${font}"` : font)).join(", ");
+
+const fontSizes = {
+  xs: 12,
+  s: 14,
+  normal: 16,
+  m: 20,
+  l: 24,
+  xl: 30,
+  xxl: 38,
+};
 
 export const theme = {
   space: {
@@ -64,13 +74,9 @@ export const theme = {
   },
 
   fontSizes: {
-    xs: 12,
-    s: 14,
-    normal: 16,
-    m: 20,
-    l: 24,
-    xl: 30,
-    xxl: 38,
+    ...fontSizes,
+
+    text: fontSizes.normal,
   },
 
   lineHeights: {
@@ -141,28 +147,41 @@ export const useTheme = (): Theme => {
   return (useContext(ThemeContext) as any) || theme;
 };
 
-export const WithBackground = ({
-  color,
-  children,
-}: {
-  color: string | ((t: Theme) => string);
-  children?: React.ReactNode;
-}) => {
-  const t = useTheme();
+export const withTheme = (
+  theme: {
+    [S in keyof Theme]?: {
+      [V in keyof Theme[S]]?: Theme[S][V] | ((t: Theme) => Theme[S][V]);
+    };
+  },
+) => {
+  return ({ children }: { children?: ReactNode }) => {
+    const t = useTheme();
 
-  const c = isFunction(color) ? color(t) : color;
+    const next = useMemo((): Theme => {
+      const next: any = {};
 
-  const next = useMemo(
-    (): Theme => ({
-      ...t,
-      colors: {
-        ...t.colors,
-        bg: c,
-        text: safeTextColor(c)(t),
-      },
-    }),
-    [c],
-  );
+      for (const group in t) {
+        const values = (t as any)[group];
+        next[group] = {};
 
-  return <ThemeProvider theme={next}>{children}</ThemeProvider>;
+        for (const key in values) {
+          const n = ((theme as any)[group] || {})[key];
+
+          next[group][key] = n ? (isFunction(n) ? n(t) : n) : values[key];
+        }
+      }
+
+      return next;
+    }, []);
+
+    return <ThemeProvider theme={next}>{children}</ThemeProvider>;
+  };
 };
+
+export const withBackground = (bg: string | ((t: Theme) => string)) =>
+  withTheme({
+    colors: {
+      bg: bg,
+      text: safeTextColor(bg),
+    },
+  });

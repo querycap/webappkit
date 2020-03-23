@@ -22,9 +22,8 @@ export = withPresets(
   }),
   (c) => {
     c.resolve!.alias = {
-      "@turf/turf$": "@turf/turf/index.js",
-      "turf-jsts$": "turf-jsts/jsts.mjs",
       lodash$: "lodash-es",
+      "@querycap-ui/*$": "@querycap-ui/*/index.ts",
     };
   },
   withAssetsPreset(),

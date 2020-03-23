@@ -1,4 +1,4 @@
-import { cover, selector, themes, WithBackground } from "@querycap-ui/core";
+import { cover, selector, themes, withBackground } from "@querycap-ui/core";
 import { IRoute, NavLink } from "@reactorx/router";
 import { filter, groupBy, map } from "lodash";
 import React, { ReactNode } from "react";
@@ -132,10 +132,12 @@ const List = ({ filterBy }: { filterBy: { group?: string; module?: string; name?
   );
 };
 
+const WithBackground = withBackground(themes.colors.gray9);
+
 export const ComponentDocs = ({ match }: IRoute<{ group?: string; module?: string; name?: string }>) => {
   return (
     <div css={cover()}>
-      <WithBackground color={(t) => t.colors.gray9}>
+      <WithBackground>
         <Sidebar />
       </WithBackground>
       <div css={selector().with(cover()).left(200).overflowX("hidden").overflowY("auto")}>
