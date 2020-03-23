@@ -47,7 +47,7 @@ const SomeComponent = () => {
 import React from \\"react\\";
 
 const SomeComponent = () => {
-  return React.createElement(React.Fragment, null, React.createElement(\\"div\\", null, \\"123\\"));
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(\\"div\\", null, \\"123\\"));
 };  
   "
 `;

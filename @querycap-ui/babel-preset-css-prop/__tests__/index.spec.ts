@@ -1,7 +1,7 @@
-import { transform } from "@babel/core";
+import { transformSync } from "@babel/core";
 
 const compileToSnapshot = (code: string) => {
-  const t = transform(code, {
+  const t = transformSync(code, {
     root: __dirname,
     presets: ["@querycap-ui/babel-preset-css-prop"],
   });
