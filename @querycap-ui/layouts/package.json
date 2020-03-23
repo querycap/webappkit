@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "license": "MIT",
   "peerDependencies": {
-    "react": "16.x"
+    "react": "16.x",
+    "@emotion/core": "10.x",
+    "@babel/runtime-corejs3": "*"
   },
   "dependencies": {
     "@querycap-ui/core": "0.2.0"

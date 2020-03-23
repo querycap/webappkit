@@ -3,10 +3,15 @@
   "version": "0.0.0",
   "license": "MIT",
   "peerDependencies": {
-    "react": "16.x"
+    "react": "16.x",
+    "@reactorx/core": "*",
+    "@emotion/core": "10.x",
+    "rxjs": "*",
+    "@querycap-ui/core": "0.x",
+    "@babel/runtime-corejs3": "*"
   },
   "dependencies": {
-    "@querycap-ui/core": "0.2.0",
+    "@querycap-ui/icons": "0.x",
     "@querycap/uikit": "0.1.0"
   },
   "publishConfig": {
