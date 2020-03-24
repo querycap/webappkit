@@ -1,13 +1,13 @@
 {
   "name": "@querycap-ui/texts",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "peerDependencies": {
     "react": "16.x"
   },
   "dependencies": {
-    "@querycap-ui/core": "0.2.0",
-    "@querycap/markdown": "0.2.0"
+    "@querycap-ui/core": "0.3.0",
+    "@querycap/markdown": "0.2.1"
   },
   "publishConfig": {
     "access": "public"

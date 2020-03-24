@@ -1,17 +1,17 @@
 {
   "name": "@querycap-ui/blocks",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "peerDependencies": {
-    "react": "16.x",
-    "@reactorx/core": "*",
+    "@babel/runtime-corejs3": "*",
     "@emotion/core": "10.x",
-    "rxjs": "*",
     "@querycap-ui/core": "0.x",
-    "@babel/runtime-corejs3": "*"
+    "@reactorx/core": "*",
+    "react": "16.x",
+    "rxjs": "*"
   },
   "dependencies": {
-    "@querycap-ui/icons": "0.x",
+    "@querycap-ui/icons": "0.1.1",
     "@querycap/uikit": "0.1.0"
   },
   "publishConfig": {

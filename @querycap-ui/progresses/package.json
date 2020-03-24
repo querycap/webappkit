@@ -1,15 +1,15 @@
 {
   "name": "@querycap-ui/progresses",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "peerDependencies": {
-    "react": "16.x",
+    "@babel/runtime-corejs3": "*",
     "@emotion/core": "10.x",
     "@querycap-ui/core": "0.x",
-    "@babel/runtime-corejs3": "*"
+    "react": "16.x"
   },
   "dependencies": {
-    "@querycap-ui/icons": "0.x",
+    "@querycap-ui/icons": "0.1.1",
     "@querycap/uikit": "0.1.0"
   },
   "publishConfig": {

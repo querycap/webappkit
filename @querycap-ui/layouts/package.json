@@ -1,14 +1,14 @@
 {
   "name": "@querycap-ui/layouts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "peerDependencies": {
-    "react": "16.x",
+    "@babel/runtime-corejs3": "*",
     "@emotion/core": "10.x",
-    "@babel/runtime-corejs3": "*"
+    "react": "16.x"
   },
   "dependencies": {
-    "@querycap-ui/core": "0.2.0"
+    "@querycap-ui/core": "0.3.0"
   },
   "publishConfig": {
     "access": "public"
