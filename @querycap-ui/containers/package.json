@@ -1,16 +1,16 @@
 {
   "name": "@querycap-ui/containers",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "lodash": "4.x",
-    "react": "16.x",
-    "rxjs": "*",
     "@emotion/core": "10.0.x",
     "@querycap-ui/core": "*",
+    "@querycap/reactutils": "*",
     "@reactorx/core": "*",
-    "@querycap/reactutils": "*"
+    "lodash": "4.x",
+    "react": "16.x",
+    "rxjs": "*"
   },
   "publishConfig": {
     "access": "public"

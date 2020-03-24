@@ -1,18 +1,18 @@
 {
   "name": "@querycap-ui/date-pickers",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@emotion/css": "10.0.x",
     "@emotion/core": "10.0.x",
-    "lodash": "4.x",
-    "react": "16.x",
+    "@emotion/css": "10.0.x",
+    "@querycap-ui/core": "*",
     "date-fns": "*",
-    "@querycap-ui/core": "*"
+    "lodash": "4.x",
+    "react": "16.x"
   },
   "dependencies": {
-    "@querycap-ui/containers": "0.0.0",
+    "@querycap-ui/containers": "0.1.0",
     "@querycap-ui/icons": "0.1.1"
   },
   "publishConfig": {
