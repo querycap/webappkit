@@ -1,9 +1,8 @@
-import { selector } from "@querycap-ui/core";
-import { themes } from "@querycap-ui/core/theme";
+import { selector, themes } from "@querycap-ui/core";
 import { Button, Input, InputIcon, InputPrefix, InputSuffix } from "@querycap-ui/form-controls";
 import { IconAirplay, IconChevronDown, IconEyeOff } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
-import { headings } from "@querycap-ui/texts/utils";
+import { headings } from "@querycap-ui/texts";
 import React from "react";
 
 export const Inputs = () => {

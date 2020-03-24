@@ -1,0 +1,30 @@
+{
+  "name": "@querycap-ui/date-pickers",
+  "version": "0.0.0",
+  "license": "MIT",
+  "peerDependencies": {
+    "@babel/runtime-corejs3": "*",
+    "lodash": "4.x",
+    "react": "16.x",
+    "date-fns": "*",
+    "@querycap-ui/core": "*"
+  },
+  "dependencies": {
+    "@querycap-ui/containers": "0.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "monobundle": {
+    "env": "browser"
+  },
+  "scripts": {
+    "prepare": "monobundle"
+  },
+  "files": [
+    "dist/"
+  ],
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
+}

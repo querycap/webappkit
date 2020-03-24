@@ -1,0 +1,29 @@
+{
+  "name": "@querycap-ui/containers",
+  "version": "0.0.0",
+  "license": "MIT",
+  "peerDependencies": {
+    "@babel/runtime-corejs3": "*",
+    "lodash": "4.x",
+    "react": "16.x",
+    "date-fns": "*",
+    "rxjs": "*",
+    "@emotion/core": "10.0.x",
+    "@querycap-ui/core": "*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "monobundle": {
+    "env": "browser"
+  },
+  "scripts": {
+    "prepare": "monobundle"
+  },
+  "files": [
+    "dist/"
+  ],
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
+}
