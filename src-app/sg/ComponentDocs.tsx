@@ -1,4 +1,5 @@
 import { cover, selector, themes, withBackground } from "@querycap-ui/core";
+import { Stack } from "@querycap-ui/layouts";
 import { IRoute, NavLink } from "@reactorx/router";
 import { filter, groupBy, map } from "lodash";
 import React, { ReactNode } from "react";
@@ -32,22 +33,26 @@ const ExampleBlock = ({ name, module, group, source, examples }: IExample) => {
           .opacity(0.3)}>
         {group}/{module}/{name}
       </div>
-      <div>
+      <Stack inline spacing={themes.space.s2}>
         <div
           css={selector()
+            .flex(1)
             .borderWidth(1)
             .borderStyle("solid")
             .borderRadius(themes.radii.normal)
-            .borderColor(themes.state.borderColor)
-            .with(source ? selector().borderBottom("none").borderBottomRadius(0) : null)}>
+            .borderColor(themes.state.borderColor)}>
           {map(examples, (Example, key) => (
             <ExampleSection key={key}>
               <Example />
             </ExampleSection>
           ))}
         </div>
-        {!!source && <CodeBlock css={selector().borderBottomRadius(themes.radii.normal)}>{source}</CodeBlock>}
-      </div>
+        {!!source && (
+          <div css={selector().borderBottomRadius(themes.radii.normal).fontSize("0.6em").width("30%")}>
+            <CodeBlock>{source}</CodeBlock>
+          </div>
+        )}
+      </Stack>
     </div>
   );
 };

@@ -9,10 +9,11 @@ export const CodeBlock = memo(({ children, ...otherProps }: { children: string }
   <pre
     {...otherProps}
     css={selector()
+      .borderRadius(themes.radii.normal)
       .margin(0)
-      .fontSize(themes.fontSizes.xs)
       .fontFamily(themes.fonts.mono)
       .padding(themes.space.s4)
+      .overflow("auto")
       .color(safeTextColor(themes.colors.gray9))
       .backgroundColor(themes.colors.gray9)}>
     <code
