@@ -6,10 +6,11 @@
     "@babel/runtime-corejs3": "*",
     "lodash": "4.x",
     "react": "16.x",
-    "date-fns": "*",
     "rxjs": "*",
     "@emotion/core": "10.0.x",
-    "@querycap-ui/core": "*"
+    "@querycap-ui/core": "*",
+    "@reactorx/core": "*",
+    "@querycap/reactutils": "*"
   },
   "publishConfig": {
     "access": "public"

@@ -4,15 +4,19 @@
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
+    "@emotion/css": "10.x",
     "@emotion/core": "10.x",
     "@querycap-ui/core": "0.x",
     "@reactorx/core": "*",
     "react": "16.x",
-    "rxjs": "*"
+    "rxjs": "*",
+    "lodash": "4.x"
   },
   "dependencies": {
+    "@querycap/uikit": "0.1.0",
     "@querycap-ui/icons": "0.1.1",
-    "@querycap/uikit": "0.1.0"
+    "@querycap-ui/form-controls": "0.1.0",
+    "@querycap-ui/layouts": "0.0.2"
   },
   "publishConfig": {
     "access": "public"

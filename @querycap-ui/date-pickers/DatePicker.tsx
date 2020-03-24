@@ -28,25 +28,19 @@ export const format = (date: number | Date, formatStr: string) => {
   });
 };
 
-const SquareButton = ({
-  children,
-  ...otherProps
-}: { disabled?: boolean } & React.HTMLAttributes<HTMLButtonElement>) => {
+const NavBtn = ({ children, ...otherProps }: { disabled?: boolean } & React.HTMLAttributes<HTMLAnchorElement>) => {
   return (
-    <button
+    <a
+      href={"#"}
       {...otherProps}
-      css={selector().with(
-        selector().with((t) => ({
-          color: "inherit",
-          outline: 0,
-          margin: 0,
-          border: `1px solid ${t.state.borderColor}`,
-          borderRadius: t.radii.s,
-          cursor: "pointer",
-        })),
-      )}>
+      css={selector().with({
+        color: "inherit",
+        outline: 0,
+        margin: 0,
+        cursor: "pointer",
+      })}>
       <span>{children}</span>
-    </button>
+    </a>
   );
 };
 
@@ -276,19 +270,13 @@ export const DatePickerHeader = ({
       borderBottom: `2px solid ${t.state.borderColor}`,
     }))}>
     <WeekRow>
-      <SquareButton
-        css={[{ padding: "0.4em" }, navLeftDisabled && { visibility: "hidden" }]}
-        disabled={navLeftDisabled}
-        onClick={() => onNav(-1)}>
+      <NavBtn css={[navLeftDisabled && { visibility: "hidden" }]} disabled={navLeftDisabled} onClick={() => onNav(-1)}>
         <IconChevronLeft />
-      </SquareButton>
+      </NavBtn>
       <Cell style={{ width: "80%" }}>{format(monthValue, "yyyy 年 M 月")}</Cell>
-      <SquareButton
-        css={[{ padding: "0.4em" }, navRightDisabled && { visibility: "hidden" }]}
-        disabled={navRightDisabled}
-        onClick={() => onNav(1)}>
+      <NavBtn css={[navRightDisabled && { visibility: "hidden" }]} disabled={navRightDisabled} onClick={() => onNav(1)}>
         <IconChevronRight />
-      </SquareButton>
+      </NavBtn>
     </WeekRow>
   </div>
 );

@@ -8,10 +8,6 @@
     "@querycap-ui/core": "0.x",
     "react": "16.x"
   },
-  "dependencies": {
-    "@querycap-ui/icons": "0.1.1",
-    "@querycap/uikit": "0.1.0"
-  },
   "publishConfig": {
     "access": "public"
   },
