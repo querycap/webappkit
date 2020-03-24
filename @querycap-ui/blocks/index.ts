@@ -5,3 +5,4 @@ export * from "./Popover";
 export * from "./Tooltip";
 export * from "./Modals";
 export * from "./Dailogs";
+export * from "./Tabs";
