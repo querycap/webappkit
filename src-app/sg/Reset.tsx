@@ -18,7 +18,7 @@ export const CSSReset = () => {
               .width("100%")
               .overflow("hidden")
               .lineHeight(themes.lineHeights.normal)
-              .color(themes.colors.text)
+              .color(themes.state.color)
               .fontFamily(themes.fonts.normal),
           )
           .with(

@@ -5,7 +5,7 @@ export const headings = {
     .paddingBottom(themes.space.s1)
     .borderWidth(1)
     .borderStyle("solid")
-    .borderColor(themes.colors.border),
+    .borderColor(themes.state.borderColor),
 
   h1: selector()
     .marginTop(themes.space.s4)

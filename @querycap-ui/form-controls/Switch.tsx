@@ -13,14 +13,14 @@ export const Switch = forwardRef(({ name, value, tips, onValueChange, disabled, 
     if (value) {
       return {
         transform: `translate3d(${tips ? "150%" : "50%"},0,0)`,
-        color: disabled ? ds.colors.border : ds.colors.primary,
+        color: disabled ? ds.state.borderColor : ds.colors.primary,
         onOpacity: 1,
         offOpacity: 0,
       };
     }
     return {
       transform: `translate3d(0,0,0)`,
-      color: disabled ? ds.colors.border : ds.colors.gray5,
+      color: disabled ? ds.state.borderColor : ds.colors.gray5,
       onOpacity: 0,
       offOpacity: 1,
     };
@@ -65,11 +65,7 @@ export const Switch = forwardRef(({ name, value, tips, onValueChange, disabled, 
               .fontSize("0.6em")
               .textTransform("uppercase")
               .color(safeTextColor(next.color))
-              .with(
-                selector("& > *")
-                  .paddingX(themes.space.s1)
-                  .with(cover()),
-              )}>
+              .with(selector("& > *").paddingX(themes.space.s1).with(cover()))}>
             <animated.span style={{ opacity: styles.onOpacity }} css={{ textAlign: "left" }}>
               {tips[0]}
             </animated.span>

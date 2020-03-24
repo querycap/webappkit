@@ -2,11 +2,11 @@ import { selector, themes } from "@querycap-ui/core";
 import { withAutoPlacement } from "@querycap/uikit";
 import { startsWith } from "lodash";
 import React from "react";
-import { OverlayBaseProps, OverlayBase } from "./Overlay";
+import { OverlayProps, Overlay } from "./Overlay";
 
-export const Popover = withAutoPlacement(({ children, placement, ...otherProps }: OverlayBaseProps) => {
+export const Popover = withAutoPlacement(({ children, placement, ...otherProps }: OverlayProps) => {
   return (
-    <OverlayBase {...otherProps} placement={placement}>
+    <Overlay {...otherProps} placement={placement}>
       <div
         style={{
           position: "relative",
@@ -16,12 +16,12 @@ export const Popover = withAutoPlacement(({ children, placement, ...otherProps }
           css={selector()
             .borderRadius(themes.radii.s)
             .border("1px solid")
-            .borderColor(themes.colors.border)
-            .backgroundColor(themes.colors.bg)
+            .borderColor(themes.state.borderColor)
+            .backgroundColor(themes.state.backgroundColor)
             .boxShadow(themes.shadows.normal)}>
           {children}
         </div>
       </div>
-    </OverlayBase>
+    </Overlay>
   );
 });

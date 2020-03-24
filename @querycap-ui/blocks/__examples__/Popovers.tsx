@@ -12,7 +12,7 @@ const PopoverDemo = ({ placement }: { placement: string }) => {
 
   return (
     <>
-      <div ref={ref} css={selector().border("1px solid").padding("1em").borderColor(themes.colors.border)}>
+      <div ref={ref} css={selector().border("1px solid").padding("1em").borderColor(themes.state.borderColor)}>
         {placement}
       </div>
       <Popover isOpen={isOpen} triggerRef={ref} onRequestClose={hide} placement={placement as any}>

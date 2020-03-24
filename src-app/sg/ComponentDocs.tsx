@@ -20,7 +20,7 @@ const ExampleBlock = ({ name, module, group, source, examples }: IExample) => {
         .position("relative")
         .paddingY(themes.space.s5)
         .paddingX(themes.space.s4)
-        .with(selector("& + &").borderWidth(1).borderStyle("solid").borderColor(themes.colors.border))}>
+        .with(selector("& + &").borderWidth(1).borderStyle("solid").borderColor(themes.state.borderColor))}>
       <div
         css={selector()
           .position("absolute")
@@ -38,7 +38,7 @@ const ExampleBlock = ({ name, module, group, source, examples }: IExample) => {
             .borderWidth(1)
             .borderStyle("solid")
             .borderRadius(themes.radii.normal)
-            .borderColor(themes.colors.border)
+            .borderColor(themes.state.borderColor)
             .with(source ? selector().borderBottom("none").borderBottomRadius(0) : null)}>
           {map(examples, (Example, key) => (
             <ExampleSection key={key}>
@@ -52,62 +52,60 @@ const ExampleBlock = ({ name, module, group, source, examples }: IExample) => {
   );
 };
 
-function Sidebar() {
-  return (
-    <ul
-      css={selector()
-        .padding(themes.space.s3)
-        .fontSize(themes.fontSizes.s)
-        .backgroundColor(themes.colors.bg)
-        .color(themes.colors.text)
-        .lineHeight(themes.lineHeights.normal)
-        .position("absolute")
-        .margin(0)
-        .top(0)
-        .bottom(0)
-        .left(0)
-        .width(200)
-        .overflowX("hidden")
-        .overflowY("auto")
-        .listStyle("none")
-        .with(selector("& ul").color("inherit").paddingLeft(themes.space.s2).margin(0).listStyle("none"))
-        .with(
-          selector("& a")
-            .color("inherit")
-            .textDecoration("none")
-            .opacity(0.8)
-            .with(selector("&:hover", "&[data-current=true]").opacity(1)),
-        )}>
-      {map(
-        groupBy(examples, (e) => e.group),
-        (examples, group) => (
-          <li key={group}>
-            <h4 css={selector().paddingY(themes.space.s2).margin(0).color(themes.colors.text)}>
-              <NavLink to={`/${group}`}>{group}</NavLink>
-            </h4>
-            <ul>
-              {map(
-                groupBy(examples, (e) => e.module),
-                (examples, module) => (
-                  <li key={module}>
-                    <NavLink to={`/${group}/${module}`}>{module}</NavLink>
-                    <ul>
-                      {map(examples, (e) => (
-                        <li key={e.name}>
-                          <NavLink to={`/${group}/${module}/${e.name}`}>{e.name}</NavLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                ),
-              )}
-            </ul>
-          </li>
-        ),
-      )}
-    </ul>
-  );
-}
+const Sidebar = withBackground(themes.colors.gray9)(() => (
+  <ul
+    css={selector()
+      .padding(themes.space.s3)
+      .fontSize(themes.fontSizes.s)
+      .backgroundColor(themes.state.backgroundColor)
+      .color(themes.state.color)
+      .lineHeight(themes.lineHeights.normal)
+      .position("absolute")
+      .margin(0)
+      .top(0)
+      .bottom(0)
+      .left(0)
+      .width(200)
+      .overflowX("hidden")
+      .overflowY("auto")
+      .listStyle("none")
+      .with(selector("& ul").color("inherit").paddingLeft(themes.space.s2).margin(0).listStyle("none"))
+      .with(
+        selector("& a")
+          .color("inherit")
+          .textDecoration("none")
+          .opacity(0.8)
+          .with(selector("&:hover", "&[data-current=true]").opacity(1)),
+      )}>
+    {map(
+      groupBy(examples, (e) => e.group),
+      (examples, group) => (
+        <li key={group}>
+          <h4 css={selector().paddingY(themes.space.s2).margin(0).color(themes.state.color)}>
+            <NavLink to={`/${group}`}>{group}</NavLink>
+          </h4>
+          <ul>
+            {map(
+              groupBy(examples, (e) => e.module),
+              (examples, module) => (
+                <li key={module}>
+                  <NavLink to={`/${group}/${module}`}>{module}</NavLink>
+                  <ul>
+                    {map(examples, (e) => (
+                      <li key={e.name}>
+                        <NavLink to={`/${group}/${module}/${e.name}`}>{e.name}</NavLink>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ),
+            )}
+          </ul>
+        </li>
+      ),
+    )}
+  </ul>
+));
 
 const List = ({ filterBy }: { filterBy: { group?: string; module?: string; name?: string } }) => {
   const matched =
@@ -132,14 +130,10 @@ const List = ({ filterBy }: { filterBy: { group?: string; module?: string; name?
   );
 };
 
-const WithBackground = withBackground(themes.colors.gray9);
-
 export const ComponentDocs = ({ match }: IRoute<{ group?: string; module?: string; name?: string }>) => {
   return (
     <div css={cover()}>
-      <WithBackground>
-        <Sidebar />
-      </WithBackground>
+      <Sidebar />
       <div css={selector().with(cover()).left(200).overflowX("hidden").overflowY("auto")}>
         <List filterBy={match.params} />
       </div>

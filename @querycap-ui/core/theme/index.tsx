@@ -1,7 +1,7 @@
 import { ThemeContext } from "@emotion/core";
 import { isFunction, mapValues } from "lodash";
 import { parseToRgb } from "polished";
-import React, { ReactNode, useContext, useMemo } from "react";
+import React, { FunctionComponent, useContext, useMemo } from "react";
 import { colors } from "./colors";
 
 const fontStack = (...fonts: string[]) => fonts.map((font) => (font.includes(" ") ? `"${font}"` : font)).join(", ");
@@ -17,6 +17,13 @@ const fontSizes = {
 };
 
 export const theme = {
+  state: {
+    fontSize: fontSizes.normal,
+    color: colors.black,
+    borderColor: colors.gray2,
+    backgroundColor: colors.white,
+  },
+
   space: {
     s0: 0,
     s1: 4,
@@ -40,12 +47,13 @@ export const theme = {
       "Segoe UI",
       "Roboto",
       "Helvetica Neue",
-      "Helvetica",
-      "PingFang SC",
-      "Hiragino Sans GB",
-      "Microsoft YaHei",
-      "SimSun",
+      "Arial",
+      "Noto Sans",
       "sans-serif",
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol",
+      "Noto Color Emoji",
     ),
 
     mono: fontStack(
@@ -73,11 +81,7 @@ export const theme = {
     l: 8,
   },
 
-  fontSizes: {
-    ...fontSizes,
-
-    text: fontSizes.normal,
-  },
+  fontSizes: fontSizes,
 
   lineHeights: {
     condensedUltra: 1,
@@ -105,11 +109,6 @@ export const theme = {
     textDark: colors.black,
     bgDark: colors.darkBlue9,
     bgLight: colors.gray2,
-
-    text: colors.black,
-    bg: colors.white,
-
-    border: colors.gray2,
   },
 };
 
@@ -136,7 +135,7 @@ const grayscale = (color: string) => {
 };
 
 export const safeTextColor = (bg: ValueOrThemeGetter<string>) => (t: Theme) => {
-  return grayscale(isFunction(bg) ? bg(t) : bg) > 160 ? t.colors.textDark : t.colors.textLight;
+  return grayscale(isFunction(bg) ? bg(t) : bg) > 255 - 60 ? t.colors.textDark : t.colors.textLight;
 };
 
 export const ThemeProvider = (props: { theme?: Theme; children?: React.ReactNode }) => (
@@ -147,41 +146,44 @@ export const useTheme = (): Theme => {
   return (useContext(ThemeContext) as any) || theme;
 };
 
-export const withTheme = (
-  theme: {
-    [S in keyof Theme]?: {
-      [V in keyof Theme[S]]?: Theme[S][V] | ((t: Theme) => Theme[S][V]);
-    };
+export const withThemeState = (
+  state: {
+    [V in keyof Theme["state"]]?: Theme["state"][V] | ((t: Theme) => Theme["state"][V]);
   },
 ) => {
-  return ({ children }: { children?: ReactNode }) => {
+  return <T extends any>(Comp: FunctionComponent<T>) => (props: T) => {
     const t = useTheme();
 
     const next = useMemo((): Theme => {
-      const next: any = {};
+      const nextState: any = {};
 
-      for (const group in t) {
-        const values = (t as any)[group];
-        next[group] = {};
+      for (const key in t.state) {
+        const n = (state as any)[key];
 
-        for (const key in values) {
-          const n = ((theme as any)[group] || {})[key];
-
-          next[group][key] = n ? (isFunction(n) ? n(t) : n) : values[key];
-        }
+        nextState[key] = n ? (isFunction(n) ? n(t) : n) : (t.state as any)[key];
       }
 
-      return next;
+      return {
+        ...t,
+        state: nextState,
+      };
     }, []);
 
-    return <ThemeProvider theme={next}>{children}</ThemeProvider>;
+    return (
+      <ThemeProvider theme={next}>
+        <Comp {...props} />
+      </ThemeProvider>
+    );
   };
 };
 
-export const withBackground = (bg: string | ((t: Theme) => string)) =>
-  withTheme({
-    colors: {
-      bg: bg,
-      text: safeTextColor(bg),
-    },
+export const withBackground = (backgroundColor: string | ((t: Theme) => string)) =>
+  withThemeState({
+    backgroundColor: backgroundColor,
+    color: safeTextColor(backgroundColor),
+  });
+
+export const withTextSize = (v: number | ((t: Theme) => number)) =>
+  withThemeState({
+    fontSize: v,
   });

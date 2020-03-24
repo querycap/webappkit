@@ -1,14 +1,12 @@
 import { selector, themes, withBackground } from "@querycap-ui/core";
 import { useToggle, useToggleControlOnHover, withAutoPlacement } from "@querycap/uikit";
 import React, { Children, cloneElement, isValidElement, ReactChild, ReactNode, useRef } from "react";
-import { OverlayBase, OverlayBaseProps } from "./Overlay";
+import { Overlay, OverlayProps } from "./Overlay";
 
-const WithBackground = withBackground(themes.colors.gray9);
-
-export const Tooltip = withAutoPlacement(({ placement, children, ...otherProps }: OverlayBaseProps) => {
-  return (
-    <WithBackground>
-      <OverlayBase {...otherProps} placement={placement}>
+export const Tooltip = withBackground(themes.colors.gray9)(
+  withAutoPlacement(({ placement, children, ...otherProps }: OverlayProps) => {
+    return (
+      <Overlay {...otherProps} placement={placement}>
         <div
           css={selector()
             .fontSize(themes.fontSizes.xs)
@@ -31,21 +29,21 @@ export const Tooltip = withAutoPlacement(({ placement, children, ...otherProps }
             )}>
           <div
             css={selector()
-              .colorFill(themes.colors.text)
-              .backgroundColor(themes.colors.bg)
+              .colorFill(themes.state.color)
+              .backgroundColor(themes.state.backgroundColor)
               .boxShadow(themes.shadows.normal)
               .borderRadius(themes.radii.s)
               .padding("0.25em 0.5em")}>
             {children}
           </div>
         </div>
-      </OverlayBase>
-    </WithBackground>
-  );
-});
+      </Overlay>
+    );
+  }),
+);
 
 export interface TooltipTriggerProps {
-  placement?: OverlayBaseProps["placement"];
+  placement?: OverlayProps["placement"];
   content: ReactNode;
   children: ReactChild;
 }

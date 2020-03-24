@@ -23,7 +23,7 @@ export const Checkbox = forwardRef(
         />
         <span
           css={selector()
-            .fill(disabled ? themes.colors.border : themes.colors.primary)
+            .fill(disabled ? themes.state.borderColor : themes.colors.primary)
             .cursor(disabled ? "default" : "pointer")}>
           {value ? (
             indeterminate ? (
@@ -35,14 +35,7 @@ export const Checkbox = forwardRef(
             <IconSquare scale={1.2} />
           )}
         </span>
-        {children && (
-          <span
-            css={selector()
-              .flex(1)
-              .marginLeft(themes.space.s2)}>
-            {children}
-          </span>
-        )}
+        {children && <span css={selector().flex(1).marginLeft(themes.space.s2)}>{children}</span>}
       </label>
     );
   },

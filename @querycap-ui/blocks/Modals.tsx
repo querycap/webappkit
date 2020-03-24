@@ -1,8 +1,8 @@
-import { cover, rgba, selector, themes, useTransition } from "@querycap-ui/core";
+import { animated, cover, rgba, selector, themes, useTransition } from "@querycap-ui/core";
 import { IconX } from "@querycap-ui/icons";
 import { useOnExactlyClick, usePortalCloseOnEsc, withPortal } from "@querycap/uikit";
 import { noop } from "lodash";
-import React, { forwardRef, ReactNode, Ref, useRef } from "react";
+import React, { forwardRef, Fragment, ReactNode, Ref, useRef } from "react";
 
 const withoutBubble = (callback: () => void) => (e: React.SyntheticEvent<any>) => {
   if (e) {
@@ -78,7 +78,7 @@ export const ModalPanel = forwardRef(
         .minWidth(400)
         .padding("2.8em 3.2em")
         .borderRadius(themes.radii.normal)
-        .backgroundColor(themes.colors.bg)}
+        .backgroundColor(themes.state.backgroundColor)}
       {...otherProps}>
       {onRequestClose && (
         <a
@@ -91,7 +91,7 @@ export const ModalPanel = forwardRef(
             .minWidth(400)
             .padding("0.5em 1em")
             .opacity(0.5)
-            .colorFill(themes.colors.text)}>
+            .colorFill(themes.state.color)}>
           <IconX />
         </a>
       )}
@@ -120,5 +120,47 @@ export const ModalBackdrop = ({ onRequestClose, ...others }: React.HTMLAttribute
         },
       ]}
     />
+  );
+};
+
+export interface ModalProps extends ModalBaseProps {
+  isOpen: boolean;
+}
+
+export const AnimatedModalBackdrop = animated(ModalBackdrop);
+
+export const Modal = ({ isOpen, children, onRequestClose }: ModalProps) => {
+  const transition = useModalTransition(isOpen);
+
+  return (
+    <ModalBase onRequestClose={onRequestClose}>
+      {transition.map(
+        ({ item, key, props: style }) =>
+          item && (
+            <Fragment key={key}>
+              <AnimatedModalBackdrop onRequestClose={onRequestClose} style={{ opacity: style.opacity }} />
+              <animated.div style={style}>{children}</animated.div>
+            </Fragment>
+          ),
+      )}
+    </ModalBase>
+  );
+};
+
+export const ModalDialog = ({ isOpen, children, onRequestClose }: ModalProps) => {
+  const transition = useModalTransition(isOpen);
+
+  return (
+    <ModalDialogBase onRequestClose={onRequestClose}>
+      {transition.map(
+        ({ item, key, props: style }) =>
+          item && (
+            <Fragment key={key}>
+              <AnimatedModalBackdrop onRequestClose={onRequestClose} style={{ opacity: style.opacity }} />
+              <animated.div style={style}>{children}</animated.div>
+            </Fragment>
+          ),
+      )}
+    </ModalDialogBase>
   );
 };
