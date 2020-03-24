@@ -8,7 +8,7 @@ const docs = `
 ## Tips
 
 关于反色。是通过灰度计算公式 <https://en.wikipedia.org/wiki/Grayscale> 得到灰度值，
-当背景色的灰度值为小于 160，则使用浅色文字，否则为深色文字。
+当背景色的灰度值为小于 255 - 60，则使用浅色文字，否则为深色文字。
 `;
 
 export const NOSRC = true;
@@ -19,15 +19,7 @@ export const Color_system = () => {
   return (
     <>
       <h2 css={headings.h2}>基本色</h2>
-      <div
-        css={selector()
-          .display("flex")
-          .flexWrap("wrap")
-          .with(
-            selector("& > *")
-              .flex(1)
-              .textAlign("center"),
-          )}>
+      <div css={selector().display("flex").flexWrap("wrap").with(selector("& > *").flex(1).textAlign("center"))}>
         {map(baseColors, (color, key) => (
           <div
             key={key}
@@ -47,11 +39,7 @@ export const Color_system = () => {
           .display("flex")
           .flexWrap("wrap")
           .margin((t) => -t.space.s1)
-          .with(
-            selector("& > *")
-              .width("50%")
-              .textAlign("center"),
-          )}>
+          .with(selector("& > *").width("50%").textAlign("center"))}>
         {map(baseColors.slice(2), (color, key) => (
           <div css={selector().padding(themes.space.s1)} key={key}>
             {map(["", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"], (k) => {

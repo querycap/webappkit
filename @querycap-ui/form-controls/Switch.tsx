@@ -20,7 +20,7 @@ export const Switch = forwardRef(({ name, value, tips, onValueChange, disabled, 
     }
     return {
       transform: `translate3d(0,0,0)`,
-      color: disabled ? ds.state.borderColor : ds.colors.gray5,
+      color: disabled ? ds.state.borderColor : ds.colors.gray4,
       onOpacity: 0,
       offOpacity: 1,
     };
@@ -90,7 +90,16 @@ export const Switch = forwardRef(({ name, value, tips, onValueChange, disabled, 
             .borderRadius("100%")
             .border("2px solid")
             .backgroundColor("white")
-            .pointerEvents("none")}
+            .pointerEvents("none")
+            .with(
+              selector("&:before")
+                .content(`""`)
+                .with(cover())
+                .zIndex(1)
+                .backgroundColor("white")
+                .borderRadius("100%")
+                .boxShadow("0 2px 4px 0 rgba(0,0,0,0.3)"),
+            )}
         />
       </animated.div>
     </label>
