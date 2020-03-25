@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.2.1...@querycap-ui/blocks@0.2.2) (2020-03-25)
+
+
+### Bug Fixes
+
+* **blocks:** zIndex fix Notification ([35d6f65](https://github.com/querycap/webappkit/commit/35d6f651e5eab51f532113b7a4034c2821b68f8d))
+
+
+
+
+
 ## [0.2.1](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.2.0...@querycap-ui/blocks@0.2.1) (2020-03-25)
 
 
