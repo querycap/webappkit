@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.2.0...@querycap-ui/blocks@0.2.1) (2020-03-25)
+
+
+### Bug Fixes
+
+* **block:** dark mode fix of Popover ([ff2e09a](https://github.com/querycap/webappkit/commit/ff2e09ad019adeff1633cac0fbb6cedc513664a5))
+
+
+
+
+
 # [0.2.0](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.1.1...@querycap-ui/blocks@0.2.0) (2020-03-25)
 
 
