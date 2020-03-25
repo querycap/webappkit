@@ -37,7 +37,7 @@ const fontSizes = {
 
 const state = {
   fontSize: fontSizes.normal,
-  borderColor: colors.gray2,
+  borderColor: rgba(_safeTextColor(colors.white), 0.1),
   backgroundColor: colors.white,
   color: _safeTextColor(colors.white),
 };

@@ -1,4 +1,4 @@
-import { colors, cover, selector, themes, ThemeState, withBackground } from "@querycap-ui/core";
+import { colors, cover, rgba, selector, themes, ThemeState, withBackground } from "@querycap-ui/core";
 import { Stack } from "@querycap-ui/layouts";
 import { IRoute, NavLink, parseSearchString, useRouter } from "@reactorx/router";
 import { filter, groupBy, map } from "lodash";
@@ -75,11 +75,11 @@ const Sidebar = withBackground(colors.gray9)(() => {
         .top(0)
         .bottom(0)
         .left(0)
-        .width(200)
+        .width(260)
         .overflowX("hidden")
         .overflowY("auto")
         .listStyle("none")
-        .with(selector("& ul").color("inherit").paddingLeft(themes.space.s2).margin(0).listStyle("none"))
+        .with(selector("& ul").color("inherit").paddingLeft(themes.space.s1).margin(0).listStyle("none"))
         .with(
           selector("& a")
             .color("inherit")
@@ -99,7 +99,17 @@ const Sidebar = withBackground(colors.gray9)(() => {
                 groupBy(examples, (e) => e.module),
                 (examples, module) => (
                   <li key={module}>
-                    <NavLink to={`/${group}/${module}${location.search}`}>{module}</NavLink>
+                    <NavLink to={`/${group}/${module}${location.search}`}>
+                      <div css={selector().display("flex").alignItems("center").justifyContent("space-between")}>
+                        <div>{`/${module}`}</div>
+                        <img
+                          style={{
+                            height: "0.8em",
+                          }}
+                          src={`//img.shields.io/npm/v/${group}/${module}.svg?style=flat-square`}
+                        />
+                      </div>
+                    </NavLink>
                     <ul>
                       {map(examples, (e) => (
                         <li key={e.name}>
@@ -141,22 +151,27 @@ const List = ({ filterBy }: { filterBy: { group?: string; module?: string; name?
   );
 };
 
-export const ComponentDocs = ({ match }: IRoute<{ group?: string; module?: string; name?: string }>) => {
+const ComponentDocsMain = ({ match }: IRoute<{ group?: string; module?: string; name?: string }>) => {
+  return (
+    <div
+      css={selector().with(cover()).backgroundColor(themes.state.backgroundColor).color(themes.state.backgroundColor)}>
+      <Sidebar />
+      <div css={selector().with(cover()).left(260).overflowX("hidden").overflowY("auto")}>
+        <List filterBy={match.params} />
+      </div>
+    </div>
+  );
+};
+
+export const ComponentDocs = (props: IRoute<{ group?: string; module?: string; name?: string }>) => {
   const { location } = useRouter();
   const { dark } = parseSearchString(location.search);
 
-  return (
-    <div css={cover()}>
-      <Sidebar />
-      <div css={selector().with(cover()).left(200).overflowX("hidden").overflowY("auto")}>
-        {dark ? (
-          <ThemeState borderColor={colors.gray6} color={colors.gray4} backgroundColor={colors.gray8}>
-            <List filterBy={match.params} />
-          </ThemeState>
-        ) : (
-          <List filterBy={match.params} />
-        )}
-      </div>
-    </div>
+  return dark ? (
+    <ThemeState borderColor={rgba(colors.gray4, 0.15)} color={colors.gray4} backgroundColor={colors.gray8}>
+      <ComponentDocsMain {...props} />
+    </ThemeState>
+  ) : (
+    <ComponentDocsMain {...props} />
   );
 };
