@@ -1,4 +1,4 @@
-import { safeTextColor, selector, useTheme } from "@querycap-ui/core";
+import { safeTextColor, selector, themes, ThemeState, useTheme } from "@querycap-ui/core";
 import { IconChevronLeft, IconChevronRight } from "@querycap-ui/icons";
 import {
   addDays,
@@ -33,8 +33,7 @@ const NavBtn = ({ children, ...otherProps }: { disabled?: boolean } & React.HTML
     <a
       href={"#"}
       {...otherProps}
-      css={selector().with({
-        color: "inherit",
+      css={selector().colorFill(themes.state.color).with({
         outline: 0,
         margin: 0,
         cursor: "pointer",
@@ -211,35 +210,24 @@ export const DayCell = ({
   disabled,
   ...otherProps
 }: IDayCellProps) => {
-  const ds = useTheme();
-
   return (
-    <Cell
-      {...otherProps}
-      css={[
-        {
-          color: isToday ? ds.colors.primary : ds.state.color,
-        },
-        isInPrevMonth || isInNextMonth ? { opacity: 0.6 } : {},
-        disabled
-          ? { opacity: 0.5 }
-          : {
-              "&:hover": {
-                cursor: "pointer",
-                color: safeTextColor(ds.colors.primary)(ds),
-                backgroundColor: ds.colors.primary,
-              },
-            },
-        isSelected
-          ? {
-              color: safeTextColor(ds.colors.primary)(ds),
-              backgroundColor: ds.colors.primary,
-            }
-          : {},
-      ]}
-      onClick={() => onSelect(dayValue)}>
-      {format(dayValue, "d")}
-    </Cell>
+    <ThemeState
+      backgroundColor={isSelected && !disabled ? themes.colors.primary : themes.state.backgroundColor}
+      color={isSelected ? safeTextColor(themes.colors.primary) : isToday ? themes.colors.primary : themes.state.color}>
+      <Cell
+        {...otherProps}
+        css={(ds) => [
+          {
+            color: ds.state.color,
+            backgroundColor: ds.state.backgroundColor,
+          },
+          isInPrevMonth || isInNextMonth ? { opacity: 0.6 } : {},
+          disabled ? { opacity: 0.5 } : { "&:hover": { opacity: 0.7, cursor: "pointer" } },
+        ]}
+        onClick={() => onSelect(dayValue)}>
+        {format(dayValue, "d")}
+      </Cell>
+    </ThemeState>
   );
 };
 

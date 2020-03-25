@@ -206,15 +206,14 @@ export const ComponentDocs = (props: IRoute<{ group?: string; module?: string; n
   const { location } = useRouter();
   const { dark } = parseSearchString(location.search);
 
-  return dark ? (
-    <ThemeState root borderColor={rgba(colors.gray4, 0.15)} color={colors.gray4} backgroundColor={colors.gray8}>
+  return (
+    <ThemeState
+      root
+      borderColor={dark ? rgba(colors.gray4, 0.15) : themes.state.borderColor}
+      color={dark ? colors.gray4 : themes.state.color}
+      backgroundColor={dark ? colors.gray8 : themes.state.backgroundColor}>
       <ComponentDocsMain {...props} />
       <CSSReset />
     </ThemeState>
-  ) : (
-    <>
-      <ComponentDocsMain {...props} />
-      <CSSReset />
-    </>
   );
 };

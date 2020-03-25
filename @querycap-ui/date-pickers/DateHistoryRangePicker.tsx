@@ -1,4 +1,4 @@
-import { safeTextColor, selector, tint, useTheme } from "@querycap-ui/core";
+import { rgba, safeTextColor, selector, themes, ThemeState, useTheme } from "@querycap-ui/core";
 import {
   addDays,
   addMonths,
@@ -173,48 +173,40 @@ const DayCell = ({
   isInRange,
   isSelected,
   onSelected,
+  isToday,
   disabled,
 }: {
   day: Date;
   isSelected?: boolean;
   isInRange?: boolean;
+  isToday?: boolean;
   isCurrentMonth?: boolean;
   disabled?: boolean;
   onSelected: (day: Date) => void;
 }) => {
-  const t = useTheme();
-
   return (
-    <Cell
-      onClick={disabled ? undefined : () => onSelected(day)}
-      css={[
-        !isCurrentMonth && { opacity: 0.5 },
-        disabled && { opacity: 0.5 },
-        !disabled && {
-          "&:hover": {
-            cursor: "pointer",
-            color: safeTextColor(t.colors.primary)(t),
-            backgroundColor: t.colors.primary,
-          },
-        },
-        {
-          color: t.state.color,
-        },
-        isInRange
-          ? {
-              color: safeTextColor(tint(0.7, t.colors.primary))(t),
-              backgroundColor: tint(0.7, t.colors.primary),
-            }
-          : {},
+    <ThemeState
+      backgroundColor={
         isSelected
-          ? {
-              color: safeTextColor(t.colors.primary)(t),
-              backgroundColor: t.colors.primary,
-            }
-          : {},
-      ]}>
-      {format(day, "d")}
-    </Cell>
+          ? themes.colors.primary
+          : isInRange
+          ? (t) => rgba(t.colors.primary, 0.2)
+          : themes.state.backgroundColor
+      }
+      color={isSelected ? safeTextColor(themes.colors.primary) : isToday ? themes.colors.primary : themes.state.color}>
+      <Cell
+        css={(ds) => [
+          {
+            color: ds.state.color,
+            backgroundColor: ds.state.backgroundColor,
+          },
+          !isCurrentMonth ? { opacity: 0.6 } : {},
+          disabled ? { opacity: 0.5 } : { "&:hover": { opacity: 0.7, cursor: "pointer" } },
+        ]}
+        onClick={disabled ? undefined : () => onSelected(day)}>
+        {format(day, "d")}
+      </Cell>
+    </ThemeState>
   );
 };
 
