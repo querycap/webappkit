@@ -2,7 +2,7 @@ import { selector, shadows, themes } from "@querycap-ui/core";
 import { withAutoPlacement } from "@querycap/uikit";
 import { startsWith } from "lodash";
 import React from "react";
-import { OverlayProps, Overlay } from "./Overlay";
+import { Overlay, OverlayProps } from "./Overlay";
 
 export const Popover = withAutoPlacement(({ children, placement, ...otherProps }: OverlayProps) => {
   return (
@@ -17,6 +17,7 @@ export const Popover = withAutoPlacement(({ children, placement, ...otherProps }
             .borderRadius(themes.radii.s)
             .border("1px solid")
             .borderColor(themes.state.borderColor)
+            .color(themes.state.color)
             .backgroundColor(themes.state.backgroundColor)
             .boxShadow(shadows.normal)}>
           {children}
