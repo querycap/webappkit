@@ -28,7 +28,7 @@ import {
   useMonthDays,
 } from "./DatePicker";
 
-export interface IDateRangePickerProps {
+export interface DateRangePickerProps {
   max?: string;
   min?: string;
   quick?: boolean;
@@ -49,7 +49,7 @@ const Cell = (props: React.HTMLAttributes<any>) => (
   />
 );
 
-export const DateHistoryRangePicker = (props: IDateRangePickerProps) => {
+export const DateHistoryRangePicker = (props: DateRangePickerProps) => {
   const [timeRange, setTimeRange] = useState(() => {
     const [from, to] = props.value || ["", ""];
 
