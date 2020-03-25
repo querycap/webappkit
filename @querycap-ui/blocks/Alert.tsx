@@ -46,7 +46,7 @@ export const AlertCard = ({ type, onRequestClose, children }: AlertProps) => {
         .paddingY("0.6em")
         .paddingX("1em")
         .borderRadius(themes.radii.s)
-        .boxShadow(shadows.large)
+        .boxShadow(shadows.medium)
         .color(themes.state.color)
         .backgroundColor(themes.state.backgroundColor)
         .with(selector("& > [role=img]").fill(color).marginRight("0.8em"))

@@ -183,7 +183,7 @@ const ComponentDocsMain = ({ match }: IRoute<{ group?: string; module?: string; 
   return (
     <Stack
       align={"stretch"}
-      css={selector().with(cover()).backgroundColor(themes.state.backgroundColor).color(themes.state.color)}>
+      css={selector().with(cover()).zIndex(1).backgroundColor(themes.state.backgroundColor).color(themes.state.color)}>
       <Nav groups={keys(groups)} />
       <Stack inline align={"stretch"} css={{ flex: 1, overflow: "hidden" }}>
         {match.params.group ? (
