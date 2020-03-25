@@ -1,4 +1,4 @@
-import { rgba, selector, themes } from "@querycap-ui/core";
+import { rgba, selector, themes, shadows } from "@querycap-ui/core";
 import { IconAlertCircle, IconCheckCircle, IconInfo, IconX, IconXCircle } from "@querycap-ui/icons";
 import React, { ReactNode } from "react";
 
@@ -46,7 +46,8 @@ export const AlertCard = ({ type, onRequestClose, children }: AlertProps) => {
         .paddingY("0.6em")
         .paddingX("1em")
         .borderRadius(themes.radii.s)
-        .boxShadow(themes.shadows.medium)
+        .boxShadow(shadows.large)
+        .color(themes.state.color)
         .backgroundColor(themes.state.backgroundColor)
         .with(selector("& > [role=img]").fill(color).marginRight("0.8em"))
         .with(selector("& > [role=info]").flex(1))}>
@@ -57,7 +58,7 @@ export const AlertCard = ({ type, onRequestClose, children }: AlertProps) => {
       {onRequestClose && (
         <a
           href={"#"}
-          css={{ opacity: 0.3 }}
+          css={selector().opacity(0.3).colorFill(themes.state.color)}
           role={"button"}
           onClick={(e) => {
             e.preventDefault();
@@ -93,7 +94,7 @@ export const Alert = ({ type, onRequestClose, children }: AlertProps) => {
       {onRequestClose && (
         <a
           href={"#"}
-          css={{ opacity: 0.3 }}
+          css={selector().opacity(0.3).colorFill(themes.state.color)}
           role={"button"}
           onClick={(e) => {
             e.preventDefault();

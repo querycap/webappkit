@@ -1,4 +1,4 @@
-import { rgba, safeTextColor, selector, themes } from "@querycap-ui/core";
+import { colors, rgba, safeTextColor, selector, themes } from "@querycap-ui/core";
 import React, { ButtonHTMLAttributes, forwardRef, ReactNode } from "react";
 import { base } from "./utils";
 
@@ -29,18 +29,14 @@ const createBtnStyle = ({ block, invisible, primary, small }: ButtonOptions) =>
             .colorFill(safeTextColor(themes.colors.primary))
         : selector()
             .borderColor(themes.colors.primary)
-            .backgroundColor(themes.colors.textLight)
+            .backgroundColor(themes.state.backgroundColor)
             .colorFill(themes.colors.primary),
     )
     .with(block && selector().width("100%").justifyContent("center"))
     .with(invisible && selector().borderColor("transparent"))
     .with(selector("&:hover").opacity(0.9).cursor("pointer"))
     .with(selector("& > * + *").marginLeft(themes.space.s1))
-    .with(
-      invisible
-        ? undefined
-        : selector("&:active").boxShadow((t) => `inset 0 0.15em 0.3em ${rgba(t.colors.black, 0.15)}`),
-    )
+    .with(invisible ? undefined : selector("&:active").boxShadow(`inset 0 0.15em 0.3em ${rgba(colors.black, 0.15)}`))
     .with(
       invisible
         ? undefined

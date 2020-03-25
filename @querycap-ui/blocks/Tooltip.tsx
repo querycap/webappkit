@@ -1,9 +1,9 @@
-import { selector, themes, withBackground } from "@querycap-ui/core";
+import { selector, shadows, themes, tintOrShade, withBackground } from "@querycap-ui/core";
 import { useToggle, useToggleControlOnHover, withAutoPlacement } from "@querycap/uikit";
 import React, { Children, cloneElement, isValidElement, ReactChild, ReactNode, useRef } from "react";
 import { Overlay, OverlayProps } from "./Overlay";
 
-export const Tooltip = withBackground(themes.colors.gray9)(
+export const Tooltip = withBackground((t) => tintOrShade(0.9, t.state.backgroundColor))(
   withAutoPlacement(({ placement, children, ...otherProps }: OverlayProps) => {
     return (
       <Overlay {...otherProps} placement={placement}>
@@ -31,7 +31,7 @@ export const Tooltip = withBackground(themes.colors.gray9)(
             css={selector()
               .colorFill(themes.state.color)
               .backgroundColor(themes.state.backgroundColor)
-              .boxShadow(themes.shadows.normal)
+              .boxShadow(shadows.normal)
               .borderRadius(themes.radii.s)
               .padding("0.25em 0.5em")}>
             {children}

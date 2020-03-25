@@ -1,4 +1,4 @@
-import { selector, themes, withTextSize } from "@querycap-ui/core";
+import { selector, themes, withTextSize, shadows } from "@querycap-ui/core";
 import { Button } from "@querycap-ui/form-controls";
 import { IconX } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
@@ -14,7 +14,7 @@ export const DialogContainer = withTextSize(themes.fontSizes.s)(
           .borderRadius(themes.radii.s)
           .width(width)
           .backgroundColor(themes.state.backgroundColor)
-          .boxShadow(themes.shadows.large)}>
+          .boxShadow(shadows.large)}>
         {children}
       </div>
     );
@@ -31,7 +31,8 @@ export const DialogClose = ({ float, onRequestClose }: { float?: boolean; onRequ
         onRequestClose();
       }}
       css={selector()
-        .opacity(0.5)
+        .opacity(0.3)
+        .colorFill(themes.state.color)
         .with(float && selector().position("absolute").right(0).top(0).padding(themes.space.s3))}>
       <IconX />
     </a>

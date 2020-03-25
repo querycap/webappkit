@@ -1,24 +1,17 @@
-import { safeTextColor, selector, themes } from "@querycap-ui/core";
-import { headings, Markdown } from "@querycap-ui/texts";
+import { safeTextColor, selector, theme, themes } from "@querycap-ui/core";
 import { map } from "lodash";
 import React, { Fragment } from "react";
 import { colors } from "../colors";
-
-const docs = `
-## Tips
-
-关于反色。是通过灰度计算公式 <https://en.wikipedia.org/wiki/Grayscale> 得到灰度值，
-当背景色的灰度值为小于 255 - 60，则使用浅色文字，否则为深色文字。
-`;
 
 export const NOSRC = true;
 
 export const Color_system = () => {
   const baseColors = ["black", "white", "gray", "darkBlue", "blue", "green", "yellow", "red", "purple"];
+  const stateColors = ["primary", "success", "danger", "info", "warning"];
 
   return (
     <>
-      <h2 css={headings.h2}>基本色</h2>
+      <h2>基本色</h2>
       <div css={selector().display("flex").flexWrap("wrap").with(selector("& > *").flex(1).textAlign("center"))}>
         {map(baseColors, (color, key) => (
           <div
@@ -33,7 +26,7 @@ export const Color_system = () => {
           </div>
         ))}
       </div>
-      <h2 css={headings.h2}>色阶</h2>
+      <h2>色阶</h2>
       <div
         css={selector()
           .display("flex")
@@ -66,7 +59,28 @@ export const Color_system = () => {
           </div>
         ))}
       </div>
-      <Markdown>{docs}</Markdown>
+
+      <h2>状态色</h2>
+      <div css={selector().display("flex").flexWrap("wrap").with(selector("& > *").flex(1).textAlign("center"))}>
+        {map(stateColors, (stateColor, key) => (
+          <div
+            key={key}
+            css={selector()
+              .lineHeight(themes.lineHeights.normal)
+              .fontFamily(themes.fonts.mono)
+              .paddingY(themes.space.s2)
+              .color(safeTextColor((theme.colors as any)[stateColor]))
+              .backgroundColor((theme.colors as any)[stateColor])}>
+            {stateColor}
+          </div>
+        ))}
+      </div>
+
+      <h2>反色</h2>
+      <p>
+        关于反色。是通过灰度计算公式得到 <a href="https://en.wikipedia.org/wiki/Grayscale">灰度值</a>
+        ，并通过背景值计算出。
+      </p>
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { rgba, selector, themes } from "@querycap-ui/core";
+import { rgba, selector, themes, tintOrShade } from "@querycap-ui/core";
 import React, { ReactNode } from "react";
 import { base } from "./utils";
 
@@ -22,7 +22,12 @@ const createInputStyle = ({ disabled, active, success, danger, small }: InputOpt
     .display("flex")
     .alignItems("center")
     .outline("none")
-    .with(selector().borderColor(themes.state.borderColor).backgroundColor(themes.colors.textLight))
+    .with(
+      selector()
+        .borderColor(themes.state.borderColor)
+        .colorFill(themes.state.color)
+        .backgroundColor(themes.state.backgroundColor),
+    )
     .with(
       active &&
         selector()
@@ -41,7 +46,13 @@ const createInputStyle = ({ disabled, active, success, danger, small }: InputOpt
           .borderColor(themes.colors.danger)
           .boxShadow((t) => `0 0 0 0.2em ${rgba(t.colors.danger, 0.15)}`),
     )
-    .with(disabled && selector().opacity(0.6).backgroundColor(themes.colors.gray1).cursor("default"))
+    .with(
+      disabled &&
+        selector()
+          .opacity(0.5)
+          .backgroundColor((t) => tintOrShade(0.1, t.state.backgroundColor))
+          .cursor("default"),
+    )
     .with(selector("& > *").paddingY((t) => Math.round((small ? 0.25 : 0.5) * t.state.fontSize)))
     .with(
       selector("& input")
@@ -50,12 +61,8 @@ const createInputStyle = ({ disabled, active, success, danger, small }: InputOpt
         .background("none")
         .lineHeight("inherit")
         .border("none")
+        .colorFill("inherit")
         .paddingX(themes.space.s2),
-      // .with(
-      // hack to disable autofill-previewed
-      // selector("&:-internal-autofill-previewed", "&:-internal-autofill-selected")
-      //   .transition("background-color 5000s ease-in-out 0s"),
-      // ),
     );
 
 export interface InputProps extends InputOptions {
@@ -85,7 +92,7 @@ export const InputPrefix = ({ children, ...otherProps }: { children?: ReactNode 
       css={selector()
         .paddingX(themes.space.s2)
         .color((t) => rgba(t.state.color, 0.5))
-        .backgroundColor(themes.colors.gray1)
+        .backgroundColor((t) => tintOrShade(0.06, t.state.backgroundColor))
         .borderRight(`1px solid`)
         .borderColor(themes.state.borderColor)}>
       {children}
@@ -100,7 +107,7 @@ export const InputSuffix = ({ children, ...otherProps }: { children?: ReactNode 
       css={selector()
         .paddingX(themes.space.s2)
         .color((t) => rgba(t.state.color, 0.5))
-        .backgroundColor(themes.colors.gray1)
+        .backgroundColor((t) => tintOrShade(0.06, t.state.backgroundColor))
         .borderLeft(`1px solid`)
         .borderColor(themes.state.borderColor)}>
       {children}

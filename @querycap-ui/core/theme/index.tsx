@@ -1,10 +1,29 @@
 import { ThemeContext } from "@emotion/core";
 import { isFunction, mapValues } from "lodash";
-import { parseToRgb } from "polished";
-import React, { FunctionComponent, useContext, useMemo } from "react";
+import { parseToRgb, rgba, shade, tint } from "polished";
+import React, { FunctionComponent, ReactNode, useContext, useMemo } from "react";
 import { colors } from "./colors";
 
+export { colors };
+
 const fontStack = (...fonts: string[]) => fonts.map((font) => (font.includes(" ") ? `"${font}"` : font)).join(", ");
+
+// https://en.wikipedia.org/wiki/Grayscale
+export const grayscaleValue = (color: string) => {
+  const { red, green, blue } = parseToRgb(color);
+  return red * 0.299 + green * 0.587 + blue * 0.114;
+};
+
+export const tintOrShade = (p: number, backgroundColor: string, breakpoint = 256 / 2) =>
+  (grayscaleValue(backgroundColor) < breakpoint ? tint : shade)(p, backgroundColor);
+
+const _safeTextColor = (bg: string) => {
+  return tintOrShade(0.875, bg, 255 - 60);
+};
+
+export const safeTextColor = (bg: ValueOrThemeGetter<string>) => (t: Theme) => {
+  return _safeTextColor(isFunction(bg) ? bg(t) : bg);
+};
 
 const fontSizes = {
   xs: 12,
@@ -16,13 +35,15 @@ const fontSizes = {
   xxl: 38,
 };
 
+const state = {
+  fontSize: fontSizes.normal,
+  borderColor: colors.gray2,
+  backgroundColor: colors.white,
+  color: _safeTextColor(colors.white),
+};
+
 export const theme = {
-  state: {
-    fontSize: fontSizes.normal,
-    color: colors.black,
-    borderColor: colors.gray2,
-    backgroundColor: colors.white,
-  },
+  state: state,
 
   space: {
     s0: 0,
@@ -69,16 +90,24 @@ export const theme = {
     ),
   },
 
-  fontWeights: {
-    light: 300,
-    normal: 400,
-    bold: 500,
-  },
-
   radii: {
     s: 2,
     normal: 4,
     l: 8,
+  },
+
+  colors: {
+    primary: colors.blue6,
+    success: colors.green5,
+    warning: colors.yellow5,
+    danger: colors.red5,
+    info: colors.gray5,
+  },
+
+  fontWeights: {
+    light: 300,
+    normal: 400,
+    bold: 500,
   },
 
   fontSizes: fontSizes,
@@ -88,31 +117,16 @@ export const theme = {
     condensed: 1.25,
     normal: 1.5,
   },
-
-  shadows: {
-    normal: "0 1px 1px rgba(27,31,35,0.1)",
-    medium: "0 1px 5px rgba(27,31,35,0.15)",
-    large: "0 1px 15px rgba(27,31,35,0.15)",
-    extraLarge: "0 10px 50px rgba(27,31,35,0.15)",
-  },
-
-  colors: {
-    ...colors,
-
-    primary: colors.blue6,
-    success: colors.green5,
-    warning: colors.yellow5,
-    danger: colors.red5,
-    info: colors.gray5,
-
-    textLight: colors.white,
-    textDark: colors.black,
-    bgDark: colors.darkBlue9,
-    bgLight: colors.gray2,
-  },
 };
 
 export interface Theme extends Readonly<typeof theme> {}
+
+export const shadows = {
+  normal: (t: Theme) => `0 1px 1px ${rgba(tintOrShade(0.3, t.state.backgroundColor), 0.1)}`,
+  medium: (t: Theme) => `0 1px 5px ${rgba(tintOrShade(0.3, t.state.backgroundColor), 0.15)}`,
+  large: (t: Theme) => `0 1px 15px ${rgba(tintOrShade(0.3, t.state.backgroundColor), 0.17)}`,
+  extraLarge: (t: Theme) => `0 10px 50px ${rgba(tintOrShade(0.3, t.state.backgroundColor), 0.2)}`,
+};
 
 export type ValueOrThemeGetter<T> = T | ((t: Theme) => T);
 
@@ -128,16 +142,6 @@ export const themes: {
   });
 }) as any;
 
-// https://en.wikipedia.org/wiki/Grayscale
-const grayscale = (color: string) => {
-  const { red, green, blue } = parseToRgb(color);
-  return red * 0.299 + green * 0.587 + blue * 0.114;
-};
-
-export const safeTextColor = (bg: ValueOrThemeGetter<string>) => (t: Theme) => {
-  return grayscale(isFunction(bg) ? bg(t) : bg) > 255 - 60 ? t.colors.textDark : t.colors.textLight;
-};
-
 export const ThemeProvider = (props: { theme?: Theme; children?: React.ReactNode }) => (
   <ThemeContext.Provider value={props.theme || theme}>{props.children}</ThemeContext.Provider>
 );
@@ -146,33 +150,44 @@ export const useTheme = (): Theme => {
   return (useContext(ThemeContext) as any) || theme;
 };
 
+export const ThemeState = ({
+  children,
+  ...state
+}: {
+  [V in keyof Theme["state"]]?: Theme["state"][V] | ((t: Theme) => Theme["state"][V]);
+} & {
+  children: ReactNode;
+}) => {
+  const t = useTheme();
+
+  const next = useMemo((): Theme => {
+    const nextState: any = {};
+
+    for (const key in t.state) {
+      const n = (state as any)[key];
+
+      nextState[key] = n ? (isFunction(n) ? n(t) : n) : (t.state as any)[key];
+    }
+
+    return {
+      ...t,
+      state: nextState,
+    };
+  }, []);
+
+  return <ThemeProvider theme={next}>{children}</ThemeProvider>;
+};
+
 export const withThemeState = (
   state: {
     [V in keyof Theme["state"]]?: Theme["state"][V] | ((t: Theme) => Theme["state"][V]);
   },
 ) => {
   return <T extends any>(Comp: FunctionComponent<T>) => (props: T) => {
-    const t = useTheme();
-
-    const next = useMemo((): Theme => {
-      const nextState: any = {};
-
-      for (const key in t.state) {
-        const n = (state as any)[key];
-
-        nextState[key] = n ? (isFunction(n) ? n(t) : n) : (t.state as any)[key];
-      }
-
-      return {
-        ...t,
-        state: nextState,
-      };
-    }, []);
-
     return (
-      <ThemeProvider theme={next}>
+      <ThemeState {...state}>
         <Comp {...props} />
-      </ThemeProvider>
+      </ThemeState>
     );
   };
 };

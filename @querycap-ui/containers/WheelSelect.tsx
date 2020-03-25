@@ -246,7 +246,7 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
               left: 0,
               width: "100%",
               whiteSpace: "nowrap",
-              color: t.colors.textLight,
+              color: t.state.color,
               textOverflow: "ellipsis",
               textAlign: "center",
               height: itemHeight,

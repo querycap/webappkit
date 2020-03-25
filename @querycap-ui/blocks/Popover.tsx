@@ -1,4 +1,4 @@
-import { selector, themes } from "@querycap-ui/core";
+import { selector, shadows, themes } from "@querycap-ui/core";
 import { withAutoPlacement } from "@querycap/uikit";
 import { startsWith } from "lodash";
 import React from "react";
@@ -18,7 +18,7 @@ export const Popover = withAutoPlacement(({ children, placement, ...otherProps }
             .border("1px solid")
             .borderColor(themes.state.borderColor)
             .backgroundColor(themes.state.backgroundColor)
-            .boxShadow(themes.shadows.normal)}>
+            .boxShadow(shadows.normal)}>
           {children}
         </div>
       </div>

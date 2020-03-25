@@ -1,4 +1,4 @@
-import { animated, cover, safeTextColor, selector, themes, useSpring, useTheme } from "@querycap-ui/core";
+import { animated, cover, safeTextColor, selector, themes, tintOrShade, useSpring, useTheme } from "@querycap-ui/core";
 import React, { forwardRef, ReactNode, useEffect } from "react";
 import { ControlledInput } from "./Input";
 
@@ -10,17 +10,20 @@ export const Switch = forwardRef(({ name, value, tips, onValueChange, disabled, 
   const ds = useTheme();
 
   const getStyle = (value: boolean) => {
+    const bgOfDisabled = tintOrShade(0.1, ds.state.backgroundColor);
+
     if (value) {
       return {
         transform: `translate3d(${tips ? "150%" : "50%"},0,0)`,
-        color: disabled ? ds.state.borderColor : ds.colors.primary,
+        color: disabled ? bgOfDisabled : ds.colors.primary,
         onOpacity: 1,
         offOpacity: 0,
       };
     }
+
     return {
       transform: `translate3d(0,0,0)`,
-      color: disabled ? ds.state.borderColor : ds.colors.gray4,
+      color: disabled ? bgOfDisabled : tintOrShade(0.3, ds.state.backgroundColor),
       onOpacity: 0,
       offOpacity: 1,
     };
@@ -96,7 +99,7 @@ export const Switch = forwardRef(({ name, value, tips, onValueChange, disabled, 
                 .content(`""`)
                 .with(cover())
                 .zIndex(1)
-                .backgroundColor("white")
+                .backgroundColor((t) => tintOrShade(-0.15, t.state.color))
                 .borderRadius("100%")
                 .boxShadow("0 2px 4px 0 rgba(0,0,0,0.3)"),
             )}

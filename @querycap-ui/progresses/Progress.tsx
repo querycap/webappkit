@@ -1,4 +1,4 @@
-import { selector, themes } from "@querycap-ui/core";
+import { selector, themes, tintOrShade } from "@querycap-ui/core";
 import React, { ReactNode } from "react";
 
 export const Progress = ({
@@ -22,7 +22,7 @@ export const Progress = ({
       .width(inline ? 200 : "100%")
       .overflow("hidden")
       .borderRadius(themes.radii.normal)
-      .backgroundColor(themes.colors.gray2)}>
+      .backgroundColor((t) => tintOrShade(0.08, t.state.backgroundColor))}>
     {children}
   </div>
 );

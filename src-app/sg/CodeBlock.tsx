@@ -1,4 +1,4 @@
-import { safeTextColor, selector, themes } from "@querycap-ui/core";
+import { colors, safeTextColor, selector, themes } from "@querycap-ui/core";
 import { highlight, languages } from "prismjs";
 import "prismjs/components/prism-typescript";
 import "prismjs/themes/prism-tomorrow.css";
@@ -14,8 +14,8 @@ export const CodeBlock = memo(({ children, ...otherProps }: { children: string }
       .fontFamily(themes.fonts.mono)
       .padding(themes.space.s4)
       .overflow("auto")
-      .color(safeTextColor(themes.colors.gray9))
-      .backgroundColor(themes.colors.gray9)}>
+      .color(safeTextColor(colors.gray9))
+      .backgroundColor(colors.gray9)}>
     <code
       dangerouslySetInnerHTML={{
         __html: highlight(children, languages["typescript"], "typescript"),
