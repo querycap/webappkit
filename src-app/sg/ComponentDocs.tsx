@@ -1,7 +1,7 @@
-import { colors, cover, rgba, selector, themes, ThemeState, withBackground } from "@querycap-ui/core";
+import { colors, cover, rgba, selector, shadows, themes, ThemeState, withBackground } from "@querycap-ui/core";
 import { Stack } from "@querycap-ui/layouts";
-import { IRoute, NavLink, parseSearchString, useRouter } from "@reactorx/router";
-import { filter, groupBy, map } from "lodash";
+import { IRoute, NavLink, parseSearchString, Redirect, useRouter } from "@reactorx/router";
+import { filter, groupBy, keys, last, map } from "lodash";
 import React, { ReactNode } from "react";
 import { CodeBlock } from "./CodeBlock";
 
@@ -59,7 +59,7 @@ const ExampleBlock = ({ name, module, group, source, examples }: IExample) => {
   );
 };
 
-const Sidebar = withBackground(colors.gray9)(() => {
+const Sidebar = withBackground(colors.gray9)(({ group, examples }: { group: string; examples: IExample[] }) => {
   const { location } = useRouter();
 
   return (
@@ -70,56 +70,49 @@ const Sidebar = withBackground(colors.gray9)(() => {
         .backgroundColor(themes.state.backgroundColor)
         .color(themes.state.color)
         .lineHeight(themes.lineHeights.normal)
-        .position("absolute")
-        .margin(0)
-        .top(0)
-        .bottom(0)
-        .left(0)
+        .position("relative")
         .width(260)
+        .margin(0)
         .overflowX("hidden")
         .overflowY("auto")
         .listStyle("none")
-        .with(selector("& ul").color("inherit").paddingLeft(themes.space.s1).margin(0).listStyle("none"))
+        .with(
+          selector("& ul")
+            .color("inherit")
+            .paddingLeft(themes.space.s1)
+            .paddingY(themes.space.s1)
+            .margin(0)
+            .listStyle("none"),
+        )
         .with(
           selector("& a")
             .color("inherit")
             .textDecoration("none")
             .opacity(0.8)
+            .paddingY(themes.space.s1)
             .with(selector("&:hover", "&[data-current=true]").opacity(1)),
         )}>
       {map(
-        groupBy(examples, (e) => e.group),
-        (examples, group) => (
-          <li key={group}>
-            <h4 css={selector().paddingY(themes.space.s2).margin(0).color(themes.state.color)}>
-              <NavLink to={`/${group}${location.search}`}>{group}</NavLink>
-            </h4>
+        groupBy(examples, (e) => e.module),
+        (examples, module) => (
+          <li key={module}>
+            <NavLink to={`/${group}/${module}${location.search}`}>
+              <div css={selector().display("flex").alignItems("center").justifyContent("space-between")}>
+                <div>{`${group}/${module}`}</div>
+                <img
+                  style={{
+                    height: "0.8em",
+                  }}
+                  src={`//img.shields.io/npm/v/${group}/${module}.svg?style=flat-square`}
+                />
+              </div>
+            </NavLink>
             <ul>
-              {map(
-                groupBy(examples, (e) => e.module),
-                (examples, module) => (
-                  <li key={module}>
-                    <NavLink to={`/${group}/${module}${location.search}`}>
-                      <div css={selector().display("flex").alignItems("center").justifyContent("space-between")}>
-                        <div>{`/${module}`}</div>
-                        <img
-                          style={{
-                            height: "0.8em",
-                          }}
-                          src={`//img.shields.io/npm/v/${group}/${module}.svg?style=flat-square`}
-                        />
-                      </div>
-                    </NavLink>
-                    <ul>
-                      {map(examples, (e) => (
-                        <li key={e.name}>
-                          <NavLink to={`/${group}/${module}/${e.name}${location.search}`}>{e.name}</NavLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                ),
-              )}
+              {map(examples, (e) => (
+                <li key={e.name}>
+                  <NavLink to={`/${group}/${module}/${e.name}${location.search}`}>{e.name}</NavLink>
+                </li>
+              ))}
             </ul>
           </li>
         ),
@@ -151,15 +144,53 @@ const List = ({ filterBy }: { filterBy: { group?: string; module?: string; name?
   );
 };
 
-const ComponentDocsMain = ({ match }: IRoute<{ group?: string; module?: string; name?: string }>) => {
+const Nav = withBackground(colors.gray9)(({ groups }: { groups: string[] }) => {
+  const { location } = useRouter();
+
   return (
-    <div
-      css={selector().with(cover()).backgroundColor(themes.state.backgroundColor).color(themes.state.backgroundColor)}>
-      <Sidebar />
-      <div css={selector().with(cover()).left(260).overflowX("hidden").overflowY("auto")}>
-        <List filterBy={match.params} />
-      </div>
-    </div>
+    <Stack
+      inline
+      justify={"flex-end"}
+      spacing={themes.space.s3}
+      css={selector()
+        .paddingX(themes.space.s3)
+        .position("relative")
+        .zIndex(10)
+        .boxShadow(shadows.medium)
+        .paddingY(themes.space.s2)
+        .backgroundColor(themes.state.backgroundColor)
+        .color(themes.state.color)
+        .with(selector("& a").color(themes.state.color).textDecoration("none"))}>
+      {map(groups, (g) => (
+        <NavLink key={g} to={`/${g}${location.search}`}>
+          {g}
+        </NavLink>
+      ))}
+    </Stack>
+  );
+});
+
+const ComponentDocsMain = ({ match }: IRoute<{ group?: string; module?: string; name?: string }>) => {
+  const groups = groupBy(examples, (e) => e.group);
+
+  return (
+    <Stack
+      align={"stretch"}
+      css={selector().with(cover()).backgroundColor(themes.state.backgroundColor).color(themes.state.color)}>
+      <Nav groups={keys(groups)} />
+      <Stack inline align={"stretch"} css={{ flex: 1, overflow: "hidden" }}>
+        {match.params.group ? (
+          <>
+            <Sidebar group={match.params.group} examples={groups[match.params.group]} />
+            <div css={selector().flex(1).position("relative").overflowX("hidden").overflowY("auto")}>
+              <List filterBy={match.params} />
+            </div>
+          </>
+        ) : (
+          <Redirect to={`/${last(keys(groups))}`} />
+        )}
+      </Stack>
+    </Stack>
   );
 };
 
