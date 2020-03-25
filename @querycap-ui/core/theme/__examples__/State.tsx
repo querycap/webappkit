@@ -43,7 +43,7 @@ export const State = () => {
       </p>
       <Stack spacing={themes.space.s2}>
         {map([12, 14, 18, 20, 24, 48], (v) => (
-          <ThemeState fontSize={v}>
+          <ThemeState fontSize={v} key={v}>
             <Button block small>
               Button {v} px
             </Button>
@@ -52,26 +52,24 @@ export const State = () => {
       </Stack>
       <p>同样的，在需要动态计算的场景，这个值也会非常有用。</p>
       <h3>Color Theme Switch</h3>
-      <p style={{ backgroundColor: colors.yellow0, padding: "0.2em" }}>
-        <ul>
-          <li>
-            前景色&nbsp;<code style={{ color: theme.state.color }}>theme.state.color</code>
-          </li>
-          <li>
-            边框色&nbsp;
-            <code style={{ color: theme.state.borderColor }}>theme.state.borderColor</code>
-          </li>
-          <li>
-            背景色&nbsp;
-            <code
-              style={{
-                color: theme.state.backgroundColor,
-              }}>
-              theme.state.backgroundColor
-            </code>
-          </li>
-        </ul>
-      </p>
+      <ul style={{ backgroundColor: colors.yellow0, padding: "0.2em" }}>
+        <li>
+          前景色&nbsp;<code style={{ color: theme.state.color }}>theme.state.color</code>
+        </li>
+        <li>
+          边框色&nbsp;
+          <code style={{ color: theme.state.borderColor }}>theme.state.borderColor</code>
+        </li>
+        <li>
+          背景色&nbsp;
+          <code
+            style={{
+              color: theme.state.backgroundColor,
+            }}>
+            theme.state.backgroundColor
+          </code>
+        </li>
+      </ul>
       <p>
         其他非状态颜色应该从这几个颜色计算而来，如 <code>box-shadow</code> 等，通过修改这三个颜色，来快速实现 dark mode
       </p>

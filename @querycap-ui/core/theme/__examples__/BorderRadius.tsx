@@ -10,9 +10,8 @@ export const BorderRadius = () => {
       <div css={selector().display("flex").flexDirection("column").alignItems("center").fontFamily(themes.fonts.mono)}>
         {map(theme.radii, (v, k) => {
           return (
-            <div css={selector().paddingX(v).marginTop(themes.space.s4)}>
+            <div key={k} css={selector().paddingX(v).marginTop(themes.space.s4)}>
               <div
-                key={k}
                 css={selector()
                   .padding(themes.space.s2)
                   .width(400)

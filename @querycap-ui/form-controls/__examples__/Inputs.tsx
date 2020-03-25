@@ -11,19 +11,19 @@ export const Inputs = () => {
       <h2 css={headings.h2}> 输入状态 </h2>
       <Stack spacing={themes.space.s2} css={selector().fontSize(themes.fontSizes.xs)}>
         <Input>
-          <input type="text" value={"输入"} />
+          <input type="text" />
         </Input>
         <Input active>
-          <input type="text" value={"输入"} />
+          <input type="text" value={"输入中"} readOnly />
         </Input>
         <Input danger>
-          <input type="text" value={"输入"} />
+          <input type="text" value={"输入错误"} readOnly />
         </Input>
         <Input success>
-          <input type="text" value={"输入"} />
+          <input type="text" value={"输入成功"} readOnly />
         </Input>
         <Input disabled>
-          <input type="text" disabled value={"输入"} />
+          <input type="text" disabled value={"输入静止"} />
         </Input>
       </Stack>
       <h2 css={headings.h2}> input 套件 </h2>
