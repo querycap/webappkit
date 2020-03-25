@@ -17,6 +17,7 @@ export const Space = () => {
           return (
             <div css={selector().paddingX(v).marginTop(themes.space.s2).backgroundColor(colors.yellow1)}>
               <div
+                key={k}
                 css={selector()
                   .padding(themes.space.s2)
                   .width(200)

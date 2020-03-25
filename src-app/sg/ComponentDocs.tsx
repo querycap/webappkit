@@ -1,7 +1,8 @@
 import { colors, cover, rgba, selector, shadows, themes, ThemeState, withBackground } from "@querycap-ui/core";
+import { Switch } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 import { IRoute, NavLink, parseSearchString, Redirect, useRouter } from "@reactorx/router";
-import { filter, groupBy, keys, last, map } from "lodash";
+import { filter, groupBy, keys, last, map, noop } from "lodash";
 import React, { ReactNode } from "react";
 import { CodeBlock } from "./CodeBlock";
 
@@ -146,6 +147,7 @@ const List = ({ filterBy }: { filterBy: { group?: string; module?: string; name?
 
 const Nav = withBackground(colors.gray9)(({ groups }: { groups: string[] }) => {
   const { location } = useRouter();
+  const { dark } = parseSearchString(location.search);
 
   return (
     <Stack
@@ -154,6 +156,7 @@ const Nav = withBackground(colors.gray9)(({ groups }: { groups: string[] }) => {
       spacing={themes.space.s3}
       css={selector()
         .paddingX(themes.space.s3)
+        .fontSize(themes.fontSizes.s)
         .position("relative")
         .zIndex(10)
         .boxShadow(shadows.medium)
@@ -166,6 +169,10 @@ const Nav = withBackground(colors.gray9)(({ groups }: { groups: string[] }) => {
           {g}
         </NavLink>
       ))}
+
+      <NavLink key={"toggle"} to={dark ? `${location.pathname}` : `${location.pathname}?dark=1`}>
+        <Switch value={!!dark} onValueChange={noop} />
+      </NavLink>
     </Stack>
   );
 });
