@@ -27,6 +27,7 @@ export const CSSReset = () => {
               .with(() => cover())
               .overflow("hidden"),
           )
+          .with(selector("a").color(themes.colors.primary))
           .with(selector("h1").with(headings.h1))
           .with(selector("h2").with(headings.h2))
           .with(selector("h3").with(headings.h3))

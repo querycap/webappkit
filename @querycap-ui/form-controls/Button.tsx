@@ -1,4 +1,4 @@
-import { colors, rgba, safeTextColor, selector, themes } from "@querycap-ui/core";
+import { colors, rgba, safeTextColor, selector, themes, ThemeState } from "@querycap-ui/core";
 import React, { ButtonHTMLAttributes, forwardRef, ReactNode } from "react";
 import { base } from "./utils";
 
@@ -13,7 +13,7 @@ export interface ButtonProps extends ButtonOptions, ButtonHTMLAttributes<HTMLBut
   children?: ReactNode;
 }
 
-const createBtnStyle = ({ block, invisible, primary, small }: ButtonOptions) =>
+const createBtnStyle = ({ block, invisible, small }: ButtonOptions) =>
   base
     .position("relative")
     .paddingX(block ? 0 : small ? "1.2em" : "1.6em")
@@ -21,17 +21,9 @@ const createBtnStyle = ({ block, invisible, primary, small }: ButtonOptions) =>
     .display(block ? "block" : "inline-block")
     .alignItems("center")
     .outline("none")
-    .with(
-      primary && !invisible
-        ? selector()
-            .backgroundColor(themes.colors.primary)
-            .borderColor(themes.colors.primary)
-            .colorFill(safeTextColor(themes.colors.primary))
-        : selector()
-            .borderColor(themes.colors.primary)
-            .backgroundColor(themes.state.backgroundColor)
-            .colorFill(themes.colors.primary),
-    )
+    .backgroundColor(themes.state.backgroundColor)
+    .borderColor(themes.state.borderColor)
+    .colorFill(themes.state.color)
     .with(block && selector().width("100%").justifyContent("center"))
     .with(invisible && selector().borderColor("transparent"))
     .with(selector("&:hover").opacity(0.9).cursor("pointer"))
@@ -43,26 +35,30 @@ const createBtnStyle = ({ block, invisible, primary, small }: ButtonOptions) =>
         : selector("&:focus")
             .outline(0)
             .zIndex(1)
-            .boxShadow((t) => `0 0 0 0.2em ${rgba(t.colors.primary, 0.15)}`),
+            .boxShadow((t) => `0 0 0 0.2em ${rgba(t.state.borderColor, 0.15)}`),
     )
     .with(selector("&:disabled").opacity(0.6).cursor("default"));
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ disabled, invisible, primary, small, block, ...props }: ButtonProps, ref) => {
     return (
-      <button
-        ref={ref}
-        role={"button"}
-        css={createBtnStyle({
-          invisible,
-          primary,
-          small,
-          block,
-        })}
-        aria-disabled={disabled}
-        disabled={disabled}
-        {...props}
-      />
+      <ThemeState
+        borderColor={themes.colors.primary}
+        color={primary ? safeTextColor(themes.colors.primary) : themes.colors.primary}
+        backgroundColor={primary ? themes.colors.primary : themes.state.backgroundColor}>
+        <button
+          ref={ref}
+          role={"button"}
+          css={createBtnStyle({
+            invisible,
+            small,
+            block,
+          })}
+          aria-disabled={disabled}
+          disabled={disabled}
+          {...props}
+        />
+      </ThemeState>
     );
   },
 );

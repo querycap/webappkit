@@ -1,5 +1,6 @@
 import { ThemeContext } from "@emotion/core";
-import { isFunction, mapValues } from "lodash";
+import { mix } from "@querycap-ui/core";
+import { forEach, isFunction, keys, mapValues } from "lodash";
 import { parseToRgb, rgba, shade, tint } from "polished";
 import React, { FunctionComponent, ReactNode, useContext, useMemo } from "react";
 import { colors } from "./colors";
@@ -17,8 +18,16 @@ export const grayscaleValue = (color: string) => {
 export const tintOrShade = (p: number, backgroundColor: string, breakpoint = 256 / 2) =>
   (grayscaleValue(backgroundColor) < breakpoint ? tint : shade)(p, backgroundColor);
 
+export const mayMixDark = (color: string, bgColor: string) => {
+  if (color === bgColor) {
+    return color;
+  }
+  const grayscale = grayscaleValue(bgColor);
+  return grayscale < 256 / 2 ? mix(0.8, color, bgColor) : color;
+};
+
 const _safeTextColor = (bg: string) => {
-  return tintOrShade(0.875, bg, 255 - 60);
+  return tintOrShade(0.95, bg, 256 - 60);
 };
 
 export const safeTextColor = (bg: ValueOrThemeGetter<string>) => (t: Theme) => {
@@ -38,12 +47,22 @@ const fontSizes = {
 const state = {
   fontSize: fontSizes.normal,
   borderColor: rgba(_safeTextColor(colors.white), 0.1),
-  backgroundColor: colors.white,
   color: _safeTextColor(colors.white),
+  backgroundColor: colors.white,
+};
+
+export const stateColors = {
+  primary: colors.blue6,
+  success: colors.green5,
+  warning: colors.yellow5,
+  danger: colors.red5,
+  info: colors.gray5,
 };
 
 export const theme = {
   state: state,
+  colors: stateColors,
+  stateColors: stateColors,
 
   space: {
     s0: 0,
@@ -96,14 +115,6 @@ export const theme = {
     l: 8,
   },
 
-  colors: {
-    primary: colors.blue6,
-    success: colors.green5,
-    warning: colors.yellow5,
-    danger: colors.red5,
-    info: colors.gray5,
-  },
-
   fontWeights: {
     light: 300,
     normal: 400,
@@ -150,30 +161,61 @@ export const useTheme = (): Theme => {
   return (useContext(ThemeContext) as any) || theme;
 };
 
+const themeStateKeys = keys(theme.state);
+
 export const ThemeState = ({
   children,
+  root,
+  autoColor,
   ...state
 }: {
   [V in keyof Theme["state"]]?: Theme["state"][V] | ((t: Theme) => Theme["state"][V]);
 } & {
   children: ReactNode;
+  root?: boolean;
+  autoColor?: boolean;
 }) => {
   const t = useTheme();
 
+  const values: any[] = [];
+
+  const nextState = {} as any;
+
+  forEach(themeStateKeys, (k) => {
+    const n = (state as any)[k];
+
+    nextState[k] = n ? (isFunction(n) ? n(t) : n) : (t.state as any)[k];
+
+    values.push(nextState[k]);
+  });
+
   const next = useMemo((): Theme => {
-    const nextState: any = {};
+    const rootBackgroundColor = (t.state as any).$$rootBackgroundColor;
 
-    for (const key in t.state) {
-      const n = (state as any)[key];
+    if (autoColor) {
+      nextState.color = _safeTextColor(nextState.backgroundColor);
+    }
 
-      nextState[key] = n ? (isFunction(n) ? n(t) : n) : (t.state as any)[key];
+    if (rootBackgroundColor) {
+      nextState.color = mayMixDark(nextState.color, rootBackgroundColor);
+      nextState.backgroundColor = mayMixDark(nextState.backgroundColor, rootBackgroundColor);
+      nextState.borderColor = mayMixDark(nextState.borderColor, rootBackgroundColor);
+    }
+
+    if (root) {
+      nextState.$$rootBackgroundColor = nextState.backgroundColor;
+    } else {
+      nextState.$$rootBackgroundColor = rootBackgroundColor;
     }
 
     return {
       ...t,
       state: nextState,
+      colors: mapValues(t.colors, (color) => {
+        return mayMixDark(color, nextState.backgroundColor);
+      }) as any,
     };
-  }, []);
+  }, values);
 
   return <ThemeProvider theme={next}>{children}</ThemeProvider>;
 };

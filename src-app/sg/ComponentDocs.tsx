@@ -4,6 +4,7 @@ import { Stack } from "@querycap-ui/layouts";
 import { IRoute, NavLink, parseSearchString, Redirect, useRouter } from "@reactorx/router";
 import { filter, groupBy, keys, last, map, noop } from "lodash";
 import React, { ReactNode } from "react";
+import { CSSReset } from "src-app/sg/Reset";
 import { CodeBlock } from "./CodeBlock";
 
 import { examples, IExample } from "./exmaple";
@@ -206,10 +207,14 @@ export const ComponentDocs = (props: IRoute<{ group?: string; module?: string; n
   const { dark } = parseSearchString(location.search);
 
   return dark ? (
-    <ThemeState borderColor={rgba(colors.gray4, 0.15)} color={colors.gray4} backgroundColor={colors.gray8}>
+    <ThemeState root borderColor={rgba(colors.gray4, 0.15)} color={colors.gray4} backgroundColor={colors.gray8}>
       <ComponentDocsMain {...props} />
+      <CSSReset />
     </ThemeState>
   ) : (
-    <ComponentDocsMain {...props} />
+    <>
+      <ComponentDocsMain {...props} />
+      <CSSReset />
+    </>
   );
 };
