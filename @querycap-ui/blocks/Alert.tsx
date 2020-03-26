@@ -1,4 +1,5 @@
-import { select, shadows, theme, transparentize } from "@querycap-ui/core";
+import { css } from "@emotion/core";
+import { select, shadows, theme, transparentize } from "@querycap-ui/core/macro";
 import { IconAlertCircle, IconCheckCircle, IconInfo, IconX, IconXCircle } from "@querycap-ui/icons";
 import { flow } from "lodash";
 import React, { ReactNode } from "react";
@@ -35,6 +36,8 @@ const alertColor = (type: AlertProps["type"]) => {
   }
 };
 
+console.log("AlertCard");
+
 export const AlertCard = ({ type, onRequestClose, children }: AlertProps) => {
   const color = alertColor(type);
 
@@ -52,7 +55,13 @@ export const AlertCard = ({ type, onRequestClose, children }: AlertProps) => {
         .backgroundColor(theme.state.backgroundColor)
         .with(select("& > [role=img]").fill(color).marginRight("0.8em"))
         .with(select("& > [role=info]").flex(1))}>
-      <div role={"img"}>
+      <div
+        role={"img"}
+        css={[
+          css({
+            color: "red",
+          }),
+        ]}>
         <AlertIcon type={type} scale={1.2} />
       </div>
       <div role={"info"}>{children}</div>

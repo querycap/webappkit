@@ -1,0 +1,235 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@querycap-ui/core/macro complex 1`] = `
+"
+
+import {
+  colors,
+  rgba,
+  roundedEm,
+  safeTextColor,
+  select,
+  simpleShadow,
+  theme,
+  tint,
+  tintOrShade,
+  transparentize,
+} from \\"@querycap-ui/core/macro\\";
+
+const createBtnStyle = ({block, invisible, small}) =>
+  select()
+    .with(base)
+    .position(\\"relative\\")
+    .paddingX(block ? 0 : small ? \\"1.2em\\" : \\"1.6em\\")
+    .paddingY(flow(theme.state.fontSize, roundedEm(small ? 0.25 : 0.5)))
+    .display(block ? \\"block\\" : \\"inline-block\\")
+    .alignItems(\\"center\\")
+    .outline(\\"none\\")
+    .backgroundColor(theme.state.backgroundColor)
+    .borderColor(theme.state.borderColor)
+    .colorFill(theme.state.color)
+    .with(block && select().width(\\"100%\\").justifyContent(\\"center\\"))
+    .with(invisible && select().borderColor(\\"transparent\\"))
+    .with(select(\\"&:hover\\").opacity(0.9).cursor(\\"pointer\\"))
+    .with(select(\\"& > * + *\\").marginLeft(theme.space.s1))
+    .with(invisible ? undefined : select(\\"&:active\\").boxShadow(\`inset 0 0.15em 0.3em \${rgba(colors.black, 0.15)}\`))
+    .with(
+      invisible
+        ? undefined
+        : select(\\"&:focus\\")
+          .outline(0)
+          .zIndex(1)
+          .boxShadow(flow(theme.state.borderColor, transparentize(0.85), simpleShadow(\\"0 0 0 0.2em\\"))),
+    )
+    .with(select(\\"&:disabled\\").opacity(0.6).cursor(\\"default\\"));
+
+    
+ ↓ ↓ ↓ ↓ ↓ ↓
+
+import { transparentize as _transparentize } from \\"@querycap-ui/core\\";
+import { theme as _theme } from \\"@querycap-ui/core\\";
+import { simpleShadow as _simpleShadow } from \\"@querycap-ui/core\\";
+import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
+import { css as _css } from \\"@emotion/core\\";
+import { roundedEm as _roundedEm } from \\"@querycap-ui/core\\";
+import { rgba as _rgba } from \\"@querycap-ui/core\\";
+import { colors as _colors } from \\"@querycap-ui/core\\";
+var __style5 = {
+  name: \\"v0rj7v\\",
+  styles: \\"position:relative;align-items:center;outline:none;\\"
+};
+var __style4 = {
+  name: \\"199w7gr\\",
+  styles: \\"width:100%;justify-content:center;\\"
+};
+var __style3 = {
+  name: \\"roftna\\",
+  styles: \\"border-color:transparent;\\"
+};
+var __style2 = {
+  name: \\"1s1p9w1\\",
+  styles: \\"opacity:0.9;cursor:pointer;\\"
+};
+var __style1 = {
+  name: \\"1pqorvt\\",
+  styles: \\"outline:0;z-index:1;\\"
+};
+var __style0 = {
+  name: \\"1w92t4z\\",
+  styles: \\"opacity:0.6;cursor:default;\\"
+};
+
+const createBtnStyle = ({
+  block,
+  invisible,
+  small
+}) => __t => [_fromTheme(base)(__t), __style5, {
+  paddingLeft: _fromTheme(block ? 0 : small ? \\"1.2em\\" : \\"1.6em\\")(__t),
+  paddingRight: _fromTheme(block ? 0 : small ? \\"1.2em\\" : \\"1.6em\\")(__t),
+  paddingTop: _fromTheme(flow(_theme.state.fontSize, _roundedEm(small ? 0.25 : 0.5)))(__t),
+  paddingBottom: _fromTheme(flow(_theme.state.fontSize, _roundedEm(small ? 0.25 : 0.5)))(__t),
+  display: _fromTheme(block ? \\"block\\" : \\"inline-block\\")(__t),
+  backgroundColor: _fromTheme(_theme.state.backgroundColor)(__t),
+  borderColor: _fromTheme(_theme.state.borderColor)(__t),
+  color: _fromTheme(_theme.state.color)(__t),
+  fill: _fromTheme(_theme.state.color)(__t)
+}, _fromTheme(block && __style4)(__t), _fromTheme(invisible && __style3)(__t), _fromTheme({
+  \\"&:hover\\": __style2
+})(__t), _fromTheme(__t => ({
+  \\"& > * + *\\": {
+    marginLeft: _fromTheme(_theme.space.s1)(__t)
+  }
+}))(__t), _fromTheme(invisible ? undefined : __t => ({
+  \\"&:active\\": {
+    boxShadow: _fromTheme(\`inset 0 0.15em 0.3em \${_rgba(_colors.black, 0.15)}\`)(__t)
+  }
+}))(__t), _fromTheme(invisible ? undefined : __t => ({
+  \\"&:focus\\": [__style1, {
+    boxShadow: _fromTheme(flow(_theme.state.borderColor, _transparentize(0.85), _simpleShadow(\\"0 0 0 0.2em\\")))(__t)
+  }]
+}))(__t), _fromTheme({
+  \\"&:disabled\\": __style0
+})(__t)];  
+  "
+`;
+
+exports[`@querycap-ui/core/macro nests 1`] = `
+"
+
+import React from \\"react\\"
+import { select, theme, animated } from \\"@querycap-ui/core/macro\\"
+
+const C = () => {
+  return (
+    <>
+      <div css={select().padding(theme.space.s2).display(\\"flex\\").with(select(\\"& > h2\\").color(\\"red\\"))}></div>
+    </>
+  )
+}
+
+const Animated = animated(C);
+
+    
+ ↓ ↓ ↓ ↓ ↓ ↓
+
+import { animated as _animated } from \\"@querycap-ui/core\\";
+import { theme as _theme } from \\"@querycap-ui/core\\";
+import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
+import { css as _css } from \\"@emotion/core\\";
+import React from \\"react\\";
+var __style1 = {
+  name: \\"k008qs\\",
+  styles: \\"display:flex;\\"
+};
+var __style0 = {
+  name: \\"tokvmb\\",
+  styles: \\"color:red;\\"
+};
+
+const C = () => {
+  return <>
+      <div css={__t => [__style1, {
+      padding: _fromTheme(_theme.space.s2)(__t)
+    }, _fromTheme({
+      \\"& > h2\\": __style0
+    })(__t)]}></div>
+    </>;
+};
+
+const Animated = _animated(C);  
+  "
+`;
+
+exports[`@querycap-ui/core/macro simple 1`] = `
+"
+
+import React from \\"react\\"
+import { select, animated } from \\"@querycap-ui/core/macro\\"
+import { css } from \\"@emotion/core\\";
+
+const v = css({ color: \\"red\\" })
+
+const C = () => {
+  return (
+    <>
+      <animated.div css={select().flex(1)}></animated.div>
+    </>
+  )
+}
+    
+ ↓ ↓ ↓ ↓ ↓ ↓
+
+import { animated as _animated } from \\"@querycap-ui/core\\";
+import React from \\"react\\";
+import { css } from \\"@emotion/core\\";
+var __style0 = {
+  name: \\"1rr4qq7\\",
+  styles: \\"flex:1;\\"
+};
+const v = {
+  name: \\"4lnri7-v\\",
+  styles: \\"color:red;;label:v;\\"
+};
+
+const C = () => {
+  return <>
+      <_animated.div css={__style0}></_animated.div>
+    </>;
+};  
+  "
+`;
+
+exports[`@querycap-ui/core/macro with variables 1`] = `
+"
+
+import React from \\"react\\"
+import { select, theme } from \\"@querycap-ui/core/macro\\"
+
+const C = () => {
+  return (
+    <>
+      <div css={select().padding(theme.space.s2).display(\\"flex\\")}></div>
+    </>
+  )
+}
+    
+ ↓ ↓ ↓ ↓ ↓ ↓
+
+import { theme as _theme } from \\"@querycap-ui/core\\";
+import { css as _css } from \\"@emotion/core\\";
+import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
+import React from \\"react\\";
+var __style0 = {
+  name: \\"k008qs\\",
+  styles: \\"display:flex;\\"
+};
+
+const C = () => {
+  return <>
+      <div css={__t => [__style0, {
+      padding: _fromTheme(_theme.space.s2)(__t)
+    }]}></div>
+    </>;
+};  
+  "
+`;

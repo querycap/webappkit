@@ -1,4 +1,4 @@
-import { select, theme, withTextSize, shadows } from "@querycap-ui/core";
+import { select, theme, withTextSize, shadows } from "@querycap-ui/core/macro";
 import { Button } from "@querycap-ui/form-controls";
 import { IconX } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";

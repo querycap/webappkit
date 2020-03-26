@@ -1,4 +1,4 @@
-import { roundedEm, select, simpleShadow, theme, tintOrShade, transparentize } from "@querycap-ui/core";
+import { roundedEm, select, simpleShadow, theme, tintOrShade, transparentize } from "@querycap-ui/core/macro";
 import { flow } from "lodash";
 import React, { ReactNode } from "react";
 import { base } from "./utils";
@@ -19,7 +19,8 @@ export interface InputOptions {
 }
 
 const createInputStyle = ({ disabled, active, success, danger, small }: InputOptions) =>
-  base
+  select()
+    .with(base)
     .display("flex")
     .alignItems("center")
     .outline("none")

@@ -1,4 +1,4 @@
-import { animated, cover, select, theme, ThemeState, tintOrShade, useSpring, useTheme } from "@querycap-ui/core";
+import { animated, cover, select, theme, ThemeState, tintOrShade, useSpring, useTheme } from "@querycap-ui/core/macro";
 import { flow } from "lodash";
 import React, { forwardRef, ReactNode, useEffect } from "react";
 import { ControlledInput } from "./Input";
@@ -98,13 +98,7 @@ const SwitchCore = ({ value, tips }: { value: boolean; tips?: [ReactNode, ReactN
 
 export const Switch = forwardRef(({ name, value, tips, onValueChange, disabled, ...props }: SwitchProps, ref) => {
   return (
-    <label
-      {...props}
-      role="switch"
-      aria-checked={value}
-      css={{
-        cursor: !disabled ? "pointer" : "default",
-      }}>
+    <label {...props} role="switch" aria-checked={value} css={select().cursor(!disabled ? "pointer" : "default")}>
       <input
         ref={ref as any}
         name={name}

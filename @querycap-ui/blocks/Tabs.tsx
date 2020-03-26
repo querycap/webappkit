@@ -1,4 +1,4 @@
-import { select, theme } from "@querycap-ui/core";
+import { select, theme } from "@querycap-ui/core/macro";
 import { map } from "lodash";
 import React, { Children, isValidElement, ReactElement, ReactNode, useEffect, useState } from "react";
 

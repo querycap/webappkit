@@ -1,4 +1,4 @@
-import { roundedEm, select, theme, ThemeState } from "@querycap-ui/core";
+import { roundedEm, select, theme, ThemeState } from "@querycap-ui/core/macro";
 import { flow, map } from "lodash";
 import React from "react";
 
@@ -72,7 +72,7 @@ export const Pagination = ({ total, pager, onPagerChange, onShowSizeChange, ...o
             e.preventDefault();
             !!pageNum && currentPage !== pageNum && updatePage(pageNum);
           }}
-          css={itemStyle.cursor("pointer")}>
+          css={select().with(itemStyle).cursor("pointer")}>
           {pageNum ? pageNum : "..."}
         </a>
       </ThemeState>
@@ -93,7 +93,7 @@ export const Pagination = ({ total, pager, onPagerChange, onShowSizeChange, ...o
         <>
           {currentPage !== 1 && (
             <a
-              css={itemStyle.marginRight("0.2em")}
+              css={select().with(itemStyle).marginRight("0.2em")}
               href={"#"}
               onClick={(e) => {
                 e.preventDefault();
@@ -102,11 +102,11 @@ export const Pagination = ({ total, pager, onPagerChange, onShowSizeChange, ...o
               上一页
             </a>
           )}
-          <div css={itemStyle.marginRight("0.2em")}>{total} 条</div>
+          <div css={select().with(itemStyle).marginRight("0.2em")}>{total} 条</div>
           <div css={{ "& > *": { margin: "0 0.2em" } }}>{pageNumItems}</div>
           {currentPage !== totalPage && (
             <a
-              css={itemStyle}
+              css={select().with(itemStyle)}
               href={"#"}
               onClick={(e) => {
                 e.preventDefault();

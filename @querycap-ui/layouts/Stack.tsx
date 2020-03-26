@@ -1,4 +1,5 @@
-import { select, ValueOrThemeGetter } from "@querycap-ui/core";
+import { select } from "@querycap-ui/core/macro";
+import type { ValueOrThemeGetter } from "@querycap-ui/core";
 import React, { CSSProperties, ReactNode } from "react";
 
 export const Stack = ({

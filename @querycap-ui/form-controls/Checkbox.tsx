@@ -1,4 +1,4 @@
-import { select, theme } from "@querycap-ui/core";
+import { select, theme } from "@querycap-ui/core/macro";
 import { IconCheckSquare, IconMinusSquare, IconSquare } from "@querycap-ui/icons";
 import React, { forwardRef, ReactNode } from "react";
 import { ControlledInput } from "./Input";

@@ -1,4 +1,4 @@
-import { safeTextColor, select, theme, ThemeState, transparentize, useTheme } from "@querycap-ui/core";
+import { safeTextColor, select, theme, ThemeState, transparentize, useTheme } from "@querycap-ui/core/macro";
 import {
   addDays,
   addMonths,

@@ -1,4 +1,4 @@
-import { select, shadows, theme, tintOrShade, withBackground } from "@querycap-ui/core";
+import { select, shadows, theme, tintOrShade, withBackground } from "@querycap-ui/core/macro";
 import { useToggle, useToggleControlOnHover, withAutoPlacement } from "@querycap/uikit";
 import { flow } from "lodash";
 import React, { Children, cloneElement, isValidElement, ReactChild, ReactNode, useRef } from "react";

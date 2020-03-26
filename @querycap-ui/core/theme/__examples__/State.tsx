@@ -1,4 +1,4 @@
-import { colors, select, defaultTheme, theme, ThemeState } from "@querycap-ui/core";
+import { colors, select, defaultTheme, theme, ThemeState } from "@querycap-ui/core/macro";
 import { Button } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 import { map } from "lodash";

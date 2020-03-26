@@ -1,4 +1,4 @@
-import { select, theme, tintOrShade } from "@querycap-ui/core";
+import { select, theme, tintOrShade } from "@querycap-ui/core/macro";
 import { flow } from "lodash";
 import React, { ReactNode } from "react";
 

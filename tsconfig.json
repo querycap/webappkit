@@ -5,6 +5,7 @@
     "paths": {
       "*": ["__types__/*", "*/index.ts", "*"]
     },
+    "resolveJsonModule": true,
     "composite": true,
     "noImplicitAny": true,
     "experimentalDecorators": true,

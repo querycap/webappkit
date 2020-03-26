@@ -1,4 +1,4 @@
-import { colors, select, defaultTheme, theme } from "@querycap-ui/core";
+import { colors, select, defaultTheme, theme } from "@querycap-ui/core/macro";
 import { map } from "lodash";
 import React from "react";
 

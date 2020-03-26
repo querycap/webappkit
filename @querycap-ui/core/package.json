@@ -22,6 +22,8 @@
     "prepare": "monobundle"
   },
   "files": [
+    "macro/",
+    "aliases.json",
     "dist/"
   ],
   "types": "dist/index.d.ts",

@@ -1,4 +1,4 @@
-import { safeTextColor, select, theme, ThemeState, useTheme } from "@querycap-ui/core";
+import { safeTextColor, select, theme, ThemeState, useTheme } from "@querycap-ui/core/macro";
 import { IconChevronLeft, IconChevronRight } from "@querycap-ui/icons";
 import {
   addDays,

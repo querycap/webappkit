@@ -1,4 +1,4 @@
-import { cover, mix, rgba, select, theme, useTheme } from "@querycap-ui/core";
+import { cover, mix, rgba, select, theme, useTheme } from "@querycap-ui/core/macro";
 import { useValueRef } from "@querycap/reactutils";
 import { useObservableEffect } from "@reactorx/core";
 import { assign, Dictionary, map, max, reduce } from "lodash";

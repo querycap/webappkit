@@ -1,4 +1,4 @@
-import { animated, cover, rgba, select, theme, useTransition } from "@querycap-ui/core";
+import { animated, cover, rgba, select, theme, useTransition } from "@querycap-ui/core/macro";
 import { IconX } from "@querycap-ui/icons";
 import { useOnExactlyClick, usePortalCloseOnEsc, withPortal } from "@querycap/uikit";
 import { noop } from "lodash";

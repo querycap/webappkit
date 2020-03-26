@@ -1,5 +1,5 @@
 import { TooltipTrigger } from "@querycap-ui/blocks";
-import { select, theme } from "@querycap-ui/core";
+import { select, theme } from "@querycap-ui/core/macro";
 import { Stack } from "@querycap-ui/layouts";
 import React from "react";
 

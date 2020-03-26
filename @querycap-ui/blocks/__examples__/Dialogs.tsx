@@ -1,5 +1,5 @@
 import { Dialog, DialogAlert, DialogPrompt, Tab, Tabs } from "@querycap-ui/blocks";
-import { select, theme } from "@querycap-ui/core";
+import { select, theme } from "@querycap-ui/core/macro";
 import { Button } from "@querycap-ui/form-controls";
 import { IconCheckCircle } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";

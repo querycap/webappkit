@@ -1,4 +1,4 @@
-import { animated, select, theme, useTransition } from "@querycap-ui/core";
+import { animated, select, theme, useTransition } from "@querycap-ui/core/macro";
 import { Portal } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
 import React from "react";

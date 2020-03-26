@@ -1,4 +1,4 @@
-import { theme } from "@querycap-ui/core";
+import { theme } from "@querycap-ui/core/macro";
 import { Alert, AlertCard } from "@querycap-ui/blocks";
 import { Stack } from "@querycap-ui/layouts";
 import React from "react";

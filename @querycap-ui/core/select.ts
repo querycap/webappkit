@@ -1,6 +1,8 @@
 import { Interpolation } from "@emotion/core";
 import { isEmpty, isFunction } from "lodash";
 import { CSSProperties } from "react";
+// @ts-ignore
+import aliases from "./aliases.json";
 import { Theme } from "./theme";
 
 export type InterpolationBuilder = (t: Theme) => Interpolation;
@@ -47,20 +49,6 @@ export type CSSBuilder = {
   (t: Theme): Interpolation;
 };
 
-const aliases: { [k: string]: Array<keyof CSSProperties> } = {
-  colorFill: ["color", "fill"],
-  borderX: ["borderLeft", "borderRight"],
-  borderY: ["borderTop", "borderBottom"],
-  marginX: ["marginLeft", "marginRight"],
-  marginY: ["marginTop", "marginBottom"],
-  paddingX: ["paddingLeft", "paddingRight"],
-  paddingY: ["paddingTop", "paddingBottom"],
-  borderTopRadius: ["borderTopLeftRadius", "borderTopRightRadius"],
-  borderBottomRadius: ["borderBottomLeftRadius", "borderBottomRightRadius"],
-  borderLeftRadius: ["borderTopLeftRadius", "borderBottomLeftRadius"],
-  borderRightRadius: ["borderTopRightRadius", "borderBottomRightRadius"],
-};
-
 type StyleOrBuilderSet = {
   [k: string]: any | ((t: any) => any);
 };
@@ -72,8 +60,8 @@ const buildStyle = (styleOrBuilders: StyleOrBuilderSet) => (t: any): Interpolati
     const styleOrBuilder = styleOrBuilders[prop];
     const value = isFunction(styleOrBuilder) ? styleOrBuilder(t) : styleOrBuilder;
 
-    if (aliases[prop]) {
-      for (const p of aliases[prop]) {
+    if ((aliases as any)[prop]) {
+      for (const p of (aliases as any)[prop]) {
         styles[p] = value;
       }
     } else {
@@ -102,16 +90,12 @@ const createBuilder = (
       return final;
     }
 
-    const finals: Interpolation = {};
-
-    for (const s of selectors) {
-      finals[s] = final;
-    }
-
-    return finals;
+    return {
+      [selectors.join(", ")]: final,
+    };
   };
 
-  return new Proxy(applyTheme, {
+  const builder = new Proxy(applyTheme, {
     get(_, prop) {
       if (prop === "with") {
         return (v: any): any => {
@@ -126,15 +110,13 @@ const createBuilder = (
       }
 
       return (v: any): any => {
-        const nextStyleOrBuilders: StyleOrBuilderSet = {};
-        for (const prop in styleOrBuilders) {
-          nextStyleOrBuilders[prop] = styleOrBuilders[prop];
-        }
-        nextStyleOrBuilders[prop as any] = v;
-        return createBuilder(selectors, nextStyleOrBuilders, interpolationOrBuilders);
+        styleOrBuilders[prop as any] = v;
+        return builder;
       };
     },
   }) as CSSBuilder;
+
+  return builder;
 };
 
 export function select(...selectors: readonly string[]): CSSBuilder {

@@ -1,4 +1,4 @@
-import { select, theme } from "@querycap-ui/core";
+import { select, theme } from "@querycap-ui/core/macro";
 
 export const headings = {
   break: select()

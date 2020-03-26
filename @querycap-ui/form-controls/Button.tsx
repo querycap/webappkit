@@ -10,7 +10,7 @@ import {
   tint,
   tintOrShade,
   transparentize,
-} from "@querycap-ui/core";
+} from "@querycap-ui/core/macro";
 import { flow } from "lodash";
 import React, { ButtonHTMLAttributes, forwardRef, ReactNode } from "react";
 import { base } from "./utils";
@@ -27,7 +27,8 @@ export interface ButtonProps extends ButtonOptions, ButtonHTMLAttributes<HTMLBut
 }
 
 const createBtnStyle = ({ block, invisible, small }: ButtonOptions) =>
-  base
+  select()
+    .with(base)
     .position("relative")
     .paddingX(block ? 0 : small ? "1.2em" : "1.6em")
     .paddingY(flow(theme.state.fontSize, roundedEm(small ? 0.25 : 0.5)))

@@ -1,7 +1,7 @@
 {
   "name": "@querycap-ui/babel-preset-css-prop",
   "version": "0.2.0",
-  "main": "babel.config.js",
+  "main": "index.js",
   "license": "MIT",
   "dependencies": {
     "babel-plugin-emotion": "10.x"
