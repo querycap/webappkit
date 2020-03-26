@@ -1,4 +1,5 @@
-import { rgba, selector, themes, tintOrShade } from "@querycap-ui/core";
+import { roundedEm, select, simpleShadow, theme, tintOrShade, transparentize } from "@querycap-ui/core";
+import { flow } from "lodash";
 import React, { ReactNode } from "react";
 import { base } from "./utils";
 
@@ -23,46 +24,46 @@ const createInputStyle = ({ disabled, active, success, danger, small }: InputOpt
     .alignItems("center")
     .outline("none")
     .with(
-      selector()
-        .borderColor(themes.state.borderColor)
-        .colorFill(themes.state.color)
-        .backgroundColor(themes.state.backgroundColor),
+      select()
+        .borderColor(theme.state.borderColor)
+        .colorFill(theme.state.color)
+        .backgroundColor(theme.state.backgroundColor),
     )
     .with(
       active &&
-        selector()
-          .borderColor(themes.colors.primary)
-          .boxShadow((t) => `0 0 0 0.2em ${rgba(t.colors.primary, 0.15)}`),
+        select()
+          .borderColor(theme.colors.primary)
+          .boxShadow(flow(theme.colors.primary, transparentize(0.85), simpleShadow("0 0 0 0.2em"))),
     )
     .with(
       success &&
-        selector()
-          .borderColor(themes.colors.success)
-          .boxShadow((t) => `0 0 0 0.2em ${rgba(t.colors.success, 0.15)}`),
+        select()
+          .borderColor(theme.colors.success)
+          .boxShadow(flow(theme.colors.success, transparentize(0.85), simpleShadow("0 0 0 0.2em"))),
     )
     .with(
       danger &&
-        selector()
-          .borderColor(themes.colors.danger)
-          .boxShadow((t) => `0 0 0 0.2em ${rgba(t.colors.danger, 0.15)}`),
+        select()
+          .borderColor(theme.colors.danger)
+          .boxShadow(flow(theme.colors.danger, transparentize(0.85), simpleShadow("0 0 0 0.2em"))),
     )
     .with(
       disabled &&
-        selector()
+        select()
           .opacity(0.5)
-          .backgroundColor((t) => tintOrShade(0.1, t.state.backgroundColor))
-          .cursor("default"),
+          .cursor("default")
+          .backgroundColor(flow(theme.state.backgroundColor, tintOrShade(0.1))),
     )
-    .with(selector("& > *").paddingY((t) => Math.round((small ? 0.25 : 0.5) * t.state.fontSize)))
+    .with(select("& > *").paddingY(flow(theme.state.fontSize, roundedEm(small ? 0.25 : 0.5))))
     .with(
-      selector("& input")
+      select("& input")
         .flex(1)
         .outline(0)
         .background("none")
         .lineHeight("inherit")
         .border("none")
         .colorFill("inherit")
-        .paddingX(themes.space.s2),
+        .paddingX(theme.space.s2),
     );
 
 export interface InputProps extends InputOptions {
@@ -89,12 +90,12 @@ export const InputPrefix = ({ children, ...otherProps }: { children?: ReactNode 
   return (
     <span
       {...otherProps}
-      css={selector()
-        .paddingX(themes.space.s2)
-        .color((t) => rgba(t.state.color, 0.5))
-        .backgroundColor((t) => tintOrShade(0.06, t.state.backgroundColor))
+      css={select()
+        .paddingX(theme.space.s2)
+        .color(flow(theme.state.color, transparentize(0.5)))
+        .backgroundColor(flow(theme.state.backgroundColor, tintOrShade(0.06)))
         .borderRight(`1px solid`)
-        .borderColor(themes.state.borderColor)}>
+        .borderColor(theme.state.borderColor)}>
       {children}
     </span>
   );
@@ -104,12 +105,12 @@ export const InputSuffix = ({ children, ...otherProps }: { children?: ReactNode 
   return (
     <span
       {...otherProps}
-      css={selector()
-        .paddingX(themes.space.s2)
-        .color((t) => rgba(t.state.color, 0.5))
-        .backgroundColor((t) => tintOrShade(0.06, t.state.backgroundColor))
+      css={select()
+        .paddingX(theme.space.s2)
+        .color(flow(theme.state.color, transparentize(0.5)))
+        .backgroundColor(flow(theme.state.backgroundColor, tintOrShade(0.06)))
         .borderLeft(`1px solid`)
-        .borderColor(themes.state.borderColor)}>
+        .borderColor(theme.state.borderColor)}>
       {children}
     </span>
   );
@@ -119,11 +120,11 @@ export const InputIcon = ({ pullRight, children, ...otherProps }: { children?: R
   return (
     <span
       {...otherProps}
-      css={selector()
+      css={select()
         .display("flex")
-        .fill((t) => rgba(t.state.color, 0.5))
-        .paddingLeft(themes.space.s2)
-        .with(selector("* + &").paddingLeft(0).paddingRight(themes.space.s2))}>
+        .colorFill(flow(theme.state.color, transparentize(0.5)))
+        .paddingLeft(theme.space.s2)
+        .with(select("* + &").paddingLeft(0).paddingRight(theme.space.s2))}>
       {children}
     </span>
   );

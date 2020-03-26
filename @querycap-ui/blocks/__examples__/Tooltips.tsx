@@ -1,5 +1,5 @@
 import { TooltipTrigger } from "@querycap-ui/blocks";
-import { selector, themes } from "@querycap-ui/core";
+import { select, theme } from "@querycap-ui/core";
 import { Stack } from "@querycap-ui/layouts";
 import React from "react";
 
@@ -18,7 +18,7 @@ const TooltipDemo = ({ placement }: { placement: string }) => {
 };
 
 export const Tooltips = () => (
-  <Stack spacing={themes.space.s2} align={"center"} css={selector("& > *").width("50%")}>
+  <Stack spacing={theme.space.s2} align={"center"} css={select("& > *").width("50%")}>
     {[
       "left",
       "right",

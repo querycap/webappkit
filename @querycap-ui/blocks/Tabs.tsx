@@ -1,4 +1,4 @@
-import { selector, themes } from "@querycap-ui/core";
+import { select, theme } from "@querycap-ui/core";
 import { map } from "lodash";
 import React, { Children, isValidElement, ReactElement, ReactNode, useEffect, useState } from "react";
 
@@ -42,30 +42,30 @@ export const Tabs = ({
   }, children);
 
   return (
-    <div css={selector().position("relative").fontSize(themes.state.fontSize)}>
+    <div css={select().position("relative").fontSize(theme.state.fontSize)}>
       <div
-        css={selector()
+        css={select()
           .display("flex")
           .borderBottom("1px solid")
-          .borderColor(themes.state.borderColor)
-          .with(selector("& > * + *").marginLeft(themes.space.s2))
+          .borderColor(theme.state.borderColor)
+          .with(select("& > * + *").marginLeft(theme.space.s2))
           .with(
-            selector("& > *")
+            select("& > *")
               .position("relative")
-              .paddingY(themes.space.s2)
+              .paddingY(theme.space.s2)
               .color("inherit")
               .textDecoration("none")
               .with(
-                selector("&[data-current=true]:before")
+                select("&[data-current=true]:before")
                   .content('""')
                   .position("absolute")
                   .left(0)
                   .bottom(-1)
                   .height(2)
                   .right(0)
-                  .backgroundColor(themes.colors.primary),
+                  .backgroundColor(theme.colors.primary),
               )
-              .with(selector("&[data-current=true]").color(themes.colors.primary)),
+              .with(select("&[data-current=true]").color(theme.colors.primary)),
           )}>
         {map(state.orders, (name) => {
           return (

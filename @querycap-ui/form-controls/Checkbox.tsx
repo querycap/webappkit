@@ -1,4 +1,4 @@
-import { selector, themes } from "@querycap-ui/core";
+import { select, theme } from "@querycap-ui/core";
 import { IconCheckSquare, IconMinusSquare, IconSquare } from "@querycap-ui/icons";
 import React, { forwardRef, ReactNode } from "react";
 import { ControlledInput } from "./Input";
@@ -22,8 +22,8 @@ export const Checkbox = forwardRef(
           onChange={() => !disabled && onValueChange(!value)}
         />
         <span
-          css={selector()
-            .fill(disabled ? themes.state.borderColor : themes.colors.primary)
+          css={select()
+            .fill(disabled ? theme.state.borderColor : theme.colors.primary)
             .cursor(disabled ? "default" : "pointer")}>
           {value ? (
             indeterminate ? (
@@ -35,7 +35,7 @@ export const Checkbox = forwardRef(
             <IconSquare scale={1.2} />
           )}
         </span>
-        {children && <span css={selector().flex(1).marginLeft(themes.space.s2)}>{children}</span>}
+        {children && <span css={select().flex(1).marginLeft(theme.space.s2)}>{children}</span>}
       </label>
     );
   },

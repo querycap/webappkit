@@ -1,5 +1,5 @@
 import { Global } from "@emotion/core";
-import { cover, normalize, selector, themes } from "@querycap-ui/core";
+import { cover, normalize, select, theme } from "@querycap-ui/core";
 import { headings } from "@querycap-ui/texts";
 import React from "react";
 
@@ -8,32 +8,32 @@ export const CSSReset = () => {
     <>
       <Global styles={normalize()} />
 
-      <Global styles={selector("*,*::after,*::before").boxSizing("border-box")} />
+      <Global styles={select("*,*::after,*::before").boxSizing("border-box")} />
 
       <Global
-        styles={selector()
+        styles={select()
           .with(
-            selector("html, body")
+            select("html, body")
               .position("relative")
               .height("100%")
               .width("100%")
               .overflow("hidden")
-              .lineHeight(themes.lineHeights.normal)
-              .color(themes.state.color)
-              .fontFamily(themes.fonts.normal),
+              .lineHeight(theme.lineHeights.normal)
+              .color(theme.state.color)
+              .fontFamily(theme.fonts.normal),
           )
           .with(
-            selector("#root")
+            select("#root")
               .with(() => cover())
               .overflow("hidden"),
           )
-          .with(selector("a").color(themes.colors.primary))
-          .with(selector("h1").with(headings.h1))
-          .with(selector("h2").with(headings.h2))
-          .with(selector("h3").with(headings.h3))
-          .with(selector("h4").with(headings.h4))
-          .with(selector("h5").with(headings.h5))
-          .with(selector("h6").with(headings.h6))}
+          .with(select("a").color(theme.colors.primary))
+          .with(select("h1").with(headings.h1))
+          .with(select("h2").with(headings.h2))
+          .with(select("h3").with(headings.h3))
+          .with(select("h4").with(headings.h4))
+          .with(select("h5").with(headings.h5))
+          .with(select("h6").with(headings.h6))}
       />
     </>
   );

@@ -1,4 +1,4 @@
-import { selector, themes } from "@querycap-ui/core";
+import { select, theme } from "@querycap-ui/core";
 import React, { ReactNode } from "react";
 
 export const FormControl = ({
@@ -13,44 +13,31 @@ export const FormControl = ({
   children?: ReactNode;
 }) => {
   return (
-    <label
-      css={selector()
-        .display("block")
-        .position("relative")
-        .paddingY("1.75em")}>
-      {label && (
-        <div
-          css={selector()
-            .position("absolute")
-            .top(0)
-            .right(0)
-            .left(0)}>
-          {label}
-        </div>
-      )}
+    <label css={select().display("block").position("relative").paddingY("1.75em")}>
+      {label && <div css={select().position("absolute").top(0).right(0).left(0)}>{label}</div>}
       {children}
       {error ? (
         <div
-          css={selector()
+          css={select()
             .position("absolute")
             .bottom(0)
             .right(0)
             .left(0)
-            .paddingY(themes.space.s1)
-            .color(themes.colors.danger)
+            .paddingY(theme.space.s1)
+            .color(theme.colors.danger)
             .fontSize("0.75em")}>
           {error}
         </div>
       ) : (
         desc && (
           <div
-            css={selector()
+            css={select()
               .position("absolute")
               .bottom(0)
               .right(0)
               .left(0)
               .opacity(0.5)
-              .paddingY(themes.space.s1)
+              .paddingY(theme.space.s1)
               .fontSize("0.75em")}>
             {desc}
           </div>

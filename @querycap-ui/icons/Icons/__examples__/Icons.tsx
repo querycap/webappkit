@@ -1,4 +1,4 @@
-import { selector, themes } from "@querycap-ui/core";
+import { select, theme } from "@querycap-ui/core";
 import { map } from "lodash";
 import React from "react";
 import * as IconSets from "..";
@@ -6,13 +6,13 @@ import * as IconSets from "..";
 export const NOSRC = true;
 
 export const Icons = () => (
-  <div css={selector().display("flex").flexWrap("wrap")}>
+  <div css={select().display("flex").flexWrap("wrap")}>
     {map(IconSets, (Icon, key) => (
-      <div key={key} css={selector().display("flex").alignItems("center").width("25%").colorFill(themes.state.color)}>
-        <span css={selector().fontSize(themes.fontSizes.l).padding(themes.space.s1)}>
+      <div key={key} css={select().display("flex").alignItems("center").width("25%").colorFill(theme.state.color)}>
+        <span css={select().fontSize(theme.fontSizes.l).padding(theme.space.s1)}>
           <Icon />
         </span>
-        <span css={selector().fontSize(themes.fontSizes.s).fontFamily(themes.fonts.mono).padding(themes.space.s1)}>
+        <span css={select().fontSize(theme.fontSizes.s).fontFamily(theme.fonts.mono).padding(theme.space.s1)}>
           {key}
         </span>
       </div>

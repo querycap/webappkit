@@ -1,4 +1,4 @@
-import { selector, shadows, themes } from "@querycap-ui/core";
+import { select, shadows, theme } from "@querycap-ui/core";
 import { map } from "lodash";
 import React from "react";
 
@@ -7,16 +7,16 @@ export const Shadows = () => {
     <>
       <h2>阴影</h2>
 
-      <div css={selector().display("flex").flexDirection("column").alignItems("center").fontFamily(themes.fonts.mono)}>
+      <div css={select().display("flex").flexDirection("column").alignItems("center").fontFamily(theme.fonts.mono)}>
         {map(shadows, (v, k) => {
           return (
-            <div key={k} css={selector().paddingX(v).marginTop(themes.space.s4)}>
+            <div key={k} css={select().paddingX(v).marginTop(theme.space.s4)}>
               <div
-                css={selector()
-                  .padding(themes.space.s2)
+                css={select()
+                  .padding(theme.space.s2)
                   .width(400)
-                  .borderRadius(themes.radii.normal)
-                  .backgroundColor(themes.state.backgroundColor)
+                  .borderRadius(theme.radii.normal)
+                  .backgroundColor(theme.state.backgroundColor)
                   .boxShadow(v)}>
                 {k}
               </div>

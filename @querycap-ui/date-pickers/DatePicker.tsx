@@ -1,4 +1,4 @@
-import { safeTextColor, selector, themes, ThemeState, useTheme } from "@querycap-ui/core";
+import { safeTextColor, select, theme, ThemeState, useTheme } from "@querycap-ui/core";
 import { IconChevronLeft, IconChevronRight } from "@querycap-ui/icons";
 import {
   addDays,
@@ -19,7 +19,7 @@ import {
 } from "date-fns";
 
 import { zhCN } from "date-fns/locale";
-import { Dictionary, floor, forEach, map, set } from "lodash";
+import { Dictionary, floor, flow, forEach, map, set } from "lodash";
 import React, { ReactNode, useEffect, useMemo, useState } from "react";
 
 export const format = (date: number | Date, formatStr: string) => {
@@ -33,7 +33,7 @@ const NavBtn = ({ children, ...otherProps }: { disabled?: boolean } & React.HTML
     <a
       href={"#"}
       {...otherProps}
-      css={selector().colorFill(themes.state.color).with({
+      css={select().colorFill(theme.state.color).with({
         outline: 0,
         margin: 0,
         cursor: "pointer",
@@ -212,18 +212,17 @@ export const DayCell = ({
 }: IDayCellProps) => {
   return (
     <ThemeState
-      backgroundColor={isSelected && !disabled ? themes.colors.primary : themes.state.backgroundColor}
-      color={isSelected ? safeTextColor(themes.colors.primary) : isToday ? themes.colors.primary : themes.state.color}>
+      backgroundColor={isSelected && !disabled ? theme.colors.primary : theme.state.backgroundColor}
+      color={
+        isSelected ? flow(theme.colors.primary, safeTextColor) : isToday ? theme.colors.primary : theme.state.color
+      }>
       <Cell
         {...otherProps}
-        css={(ds) => [
-          {
-            color: ds.state.color,
-            backgroundColor: ds.state.backgroundColor,
-          },
-          isInPrevMonth || isInNextMonth ? { opacity: 0.6 } : {},
-          disabled ? { opacity: 0.5 } : { "&:hover": { opacity: 0.7, cursor: "pointer" } },
-        ]}
+        css={select()
+          .color(theme.state.color)
+          .backgroundColor(theme.state.backgroundColor)
+          .with((isInPrevMonth || isInNextMonth) && { opacity: 0.6 })
+          .with(disabled ? { opacity: 0.5 } : { "&:hover": { opacity: 0.7, cursor: "pointer" } })}
         onClick={() => onSelect(dayValue)}>
         {format(dayValue, "d")}
       </Cell>
@@ -253,10 +252,9 @@ export const DatePickerHeader = ({
   navRightDisabled?: boolean;
 }) => (
   <div
-    css={selector().with((t) => ({
-      padding: "0 0.5em",
-      borderBottom: `2px solid ${t.state.borderColor}`,
-    }))}>
+    css={select()
+      .padding("0 0.5em")
+      .borderBottom(flow(theme.state.borderColor, (color) => `2px solid ${color}`))}>
     <WeekRow>
       <NavBtn css={[navLeftDisabled && { visibility: "hidden" }]} disabled={navLeftDisabled} onClick={() => onNav(-1)}>
         <IconChevronLeft />

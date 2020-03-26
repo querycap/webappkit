@@ -16,14 +16,13 @@ export = withPresets(
     polyfill: /babel|core-js/,
     styling: /polished|emotion|react-spring/,
     core: /react|reactorx|history|axios|localforage/,
-    utils: /buffer|moment|lodash|rxjs/,
+    utils: /buffer|date-fns|lodash|rxjs/,
     markdown: /markdown-it/,
     d3: /d3-shape|d3-path/,
   }),
   (c) => {
     c.resolve!.alias = {
       lodash$: "lodash-es",
-      "@querycap-ui/*$": "@querycap-ui/*/index.ts",
     };
   },
   withAssetsPreset(),

@@ -1,4 +1,4 @@
-import { rgba, safeTextColor, selector, themes, ThemeState, useTheme } from "@querycap-ui/core";
+import { safeTextColor, select, theme, ThemeState, transparentize, useTheme } from "@querycap-ui/core";
 import {
   addDays,
   addMonths,
@@ -15,6 +15,7 @@ import {
   lastDayOfMonth,
   parseISO,
 } from "date-fns";
+import { flow } from "lodash";
 import React, { useEffect, useState } from "react";
 import {
   DataCells,
@@ -188,21 +189,20 @@ const DayCell = ({
     <ThemeState
       backgroundColor={
         isSelected
-          ? themes.colors.primary
+          ? theme.colors.primary
           : isInRange
-          ? (t) => rgba(t.colors.primary, 0.2)
-          : themes.state.backgroundColor
+          ? flow(theme.colors.primary, transparentize(0.8))
+          : theme.state.backgroundColor
       }
-      color={isSelected ? safeTextColor(themes.colors.primary) : isToday ? themes.colors.primary : themes.state.color}>
+      color={
+        isSelected ? flow(theme.colors.primary, safeTextColor) : isToday ? theme.colors.primary : theme.state.color
+      }>
       <Cell
-        css={(ds) => [
-          {
-            color: ds.state.color,
-            backgroundColor: ds.state.backgroundColor,
-          },
-          !isCurrentMonth ? { opacity: 0.6 } : {},
-          disabled ? { opacity: 0.5 } : { "&:hover": { opacity: 0.7, cursor: "pointer" } },
-        ]}
+        css={select()
+          .color(theme.state.color)
+          .backgroundColor(theme.state.backgroundColor)
+          .with(!isCurrentMonth && { opacity: 0.6 })
+          .with(disabled ? { opacity: 0.5 } : { "&:hover": { opacity: 0.7, cursor: "pointer" } })}
         onClick={disabled ? undefined : () => onSelected(day)}>
         {format(day, "d")}
       </Cell>
@@ -212,20 +212,17 @@ const DayCell = ({
 
 export const QuickSelect = ({ onSelect }: { onSelect: (from: Date, to: Date) => void }) => (
   <div
-    css={selector().with((t) => ({
-      width: "8em",
-      padding: "1em",
-      borderLeft: `1px solid ${t.state.borderColor}`,
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      "& > *": {
-        cursor: "pointer",
-        padding: "0.5em 0",
-        color: t.colors.primary,
-      },
-    }))}>
+    css={select()
+      .borderLeft(flow(theme.state.borderColor, (color) => `1px solid ${color}`))
+      .with({
+        width: "8em",
+        padding: "1em",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      })
+      .with(select("& > *").cursor("pointer").padding("0.5em 0").color(theme.colors.primary))}>
     <div
       onClick={() => {
         const today = getToday();

@@ -1,4 +1,4 @@
-import { selector, themes } from "@querycap-ui/core";
+import { select, theme } from "@querycap-ui/core";
 import { Button } from "@querycap-ui/form-controls";
 import { IconCamera } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
@@ -9,8 +9,8 @@ export const Buttons = () => {
   return (
     <>
       <h2 css={headings.h2}>普通按钮</h2>
-      <Stack spacing={themes.space.s2}>
-        <Stack inline spacing={themes.space.s2}>
+      <Stack spacing={theme.space.s2}>
+        <Stack inline spacing={theme.space.s2}>
           <Button type="button" primary>
             主按钮
           </Button>
@@ -18,7 +18,7 @@ export const Buttons = () => {
             主按钮
           </Button>
         </Stack>
-        <Stack inline spacing={themes.space.s2}>
+        <Stack inline spacing={theme.space.s2}>
           <Button type="button">按钮</Button>
           <Button type="button" disabled>
             按钮
@@ -31,8 +31,8 @@ export const Buttons = () => {
         </div>
       </Stack>
       <h2 css={headings.h2}>小按钮</h2>
-      <Stack spacing={themes.space.s2} css={selector().fontSize(themes.fontSizes.xs)}>
-        <Stack inline spacing={themes.space.s2}>
+      <Stack spacing={theme.space.s2} css={select().fontSize(theme.fontSizes.xs)}>
+        <Stack inline spacing={theme.space.s2}>
           <Button type="button" primary small>
             主按钮
           </Button>
@@ -40,7 +40,7 @@ export const Buttons = () => {
             主按钮
           </Button>
         </Stack>
-        <Stack inline spacing={themes.space.s2}>
+        <Stack inline spacing={theme.space.s2}>
           <Button type="button" small>
             按钮
           </Button>
@@ -59,8 +59,8 @@ export const Buttons = () => {
         </Button>
       </Stack>
       <h2 css={headings.h2}> 和 Icon 搭配使用</h2>
-      <Stack spacing={themes.space.s2} css={selector().fontSize(themes.fontSizes.xs)}>
-        <Stack inline spacing={themes.space.s2}>
+      <Stack spacing={theme.space.s2} css={select().fontSize(theme.fontSizes.xs)}>
+        <Stack inline spacing={theme.space.s2}>
           <Button type="button" primary small>
             <IconCamera />
             <span>主按钮</span>
@@ -70,7 +70,7 @@ export const Buttons = () => {
             <span>主按钮</span>
           </Button>
         </Stack>
-        <Stack inline spacing={themes.space.s2}>
+        <Stack inline spacing={theme.space.s2}>
           <Button type="button" small>
             <IconCamera />
             <span>按钮</span>

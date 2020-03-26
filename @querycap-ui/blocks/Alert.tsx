@@ -1,5 +1,6 @@
-import { rgba, selector, themes, shadows } from "@querycap-ui/core";
+import { select, shadows, theme, transparentize } from "@querycap-ui/core";
 import { IconAlertCircle, IconCheckCircle, IconInfo, IconX, IconXCircle } from "@querycap-ui/icons";
+import { flow } from "lodash";
 import React, { ReactNode } from "react";
 
 export interface AlertProps {
@@ -24,13 +25,13 @@ const AlertIcon = ({ type, scale }: { type: AlertProps["type"]; scale?: number }
 const alertColor = (type: AlertProps["type"]) => {
   switch (type) {
     case "error":
-      return themes.colors.danger;
+      return theme.colors.danger;
     case "success":
-      return themes.colors.success;
+      return theme.colors.success;
     case "warning":
-      return themes.colors.warning;
+      return theme.colors.warning;
     default:
-      return themes.colors.primary;
+      return theme.colors.primary;
   }
 };
 
@@ -39,18 +40,18 @@ export const AlertCard = ({ type, onRequestClose, children }: AlertProps) => {
 
   return (
     <div
-      css={selector()
+      css={select()
         .position("relative")
         .display("flex")
         .width("100%")
         .paddingY("0.6em")
         .paddingX("1em")
-        .borderRadius(themes.radii.s)
+        .borderRadius(theme.radii.s)
         .boxShadow(shadows.medium)
-        .color(themes.state.color)
-        .backgroundColor(themes.state.backgroundColor)
-        .with(selector("& > [role=img]").fill(color).marginRight("0.8em"))
-        .with(selector("& > [role=info]").flex(1))}>
+        .color(theme.state.color)
+        .backgroundColor(theme.state.backgroundColor)
+        .with(select("& > [role=img]").fill(color).marginRight("0.8em"))
+        .with(select("& > [role=info]").flex(1))}>
       <div role={"img"}>
         <AlertIcon type={type} scale={1.2} />
       </div>
@@ -58,7 +59,7 @@ export const AlertCard = ({ type, onRequestClose, children }: AlertProps) => {
       {onRequestClose && (
         <a
           href={"#"}
-          css={selector().opacity(0.3).colorFill(themes.state.color)}
+          css={select().opacity(0.3).colorFill(theme.state.color)}
           role={"button"}
           onClick={(e) => {
             e.preventDefault();
@@ -76,17 +77,17 @@ export const Alert = ({ type, onRequestClose, children }: AlertProps) => {
 
   return (
     <div
-      css={selector()
+      css={select()
         .display("flex")
         .width("100%")
         .paddingY("0.6em")
         .paddingX("0.8em")
-        .borderRadius(themes.radii.s)
+        .borderRadius(theme.radii.s)
         .borderLeft("3px solid")
         .borderColor(color)
-        .backgroundColor((t) => rgba(color(t), 0.15))
-        .with(selector("& > [role=img]").fill(color).marginRight("0.8em"))
-        .with(selector("& > [role=info]").flex(1))}>
+        .backgroundColor(flow(color, transparentize(0.85)))
+        .with(select("& > [role=img]").fill(color).marginRight("0.8em"))
+        .with(select("& > [role=info]").flex(1))}>
       <div role={"img"}>
         <AlertIcon type={type} scale={1.2} />
       </div>
@@ -94,7 +95,7 @@ export const Alert = ({ type, onRequestClose, children }: AlertProps) => {
       {onRequestClose && (
         <a
           href={"#"}
-          css={selector().opacity(0.3).colorFill(themes.state.color)}
+          css={select().opacity(0.3).colorFill(theme.state.color)}
           role={"button"}
           onClick={(e) => {
             e.preventDefault();

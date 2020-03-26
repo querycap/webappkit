@@ -1,16 +1,17 @@
-import { selector, shadows, themes, tintOrShade, withBackground } from "@querycap-ui/core";
+import { select, shadows, theme, tintOrShade, withBackground } from "@querycap-ui/core";
 import { useToggle, useToggleControlOnHover, withAutoPlacement } from "@querycap/uikit";
+import { flow } from "lodash";
 import React, { Children, cloneElement, isValidElement, ReactChild, ReactNode, useRef } from "react";
 import { Overlay, OverlayProps } from "./Overlay";
 
-export const Tooltip = withBackground((t) => tintOrShade(0.9, t.state.backgroundColor))(
+export const Tooltip = withBackground(flow(theme.state.color, tintOrShade(0.9)))(
   withAutoPlacement(({ placement, children, ...otherProps }: OverlayProps) => {
     return (
       <Overlay {...otherProps} placement={placement}>
         <div
-          css={selector()
-            .fontSize(themes.fontSizes.xs)
-            .lineHeight(themes.lineHeights.condensed)
+          css={select()
+            .fontSize(theme.fontSizes.xs)
+            .lineHeight(theme.lineHeights.condensed)
             .with({
               position: "relative",
               display: "block",
@@ -19,7 +20,7 @@ export const Tooltip = withBackground((t) => tintOrShade(0.9, t.state.background
               pointerEvents: "none",
             })
             .with(
-              selector("&:before").with({
+              select("&:before").with({
                 content: `""`,
                 position: "absolute",
                 left: "50%",
@@ -28,11 +29,11 @@ export const Tooltip = withBackground((t) => tintOrShade(0.9, t.state.background
               }),
             )}>
           <div
-            css={selector()
-              .colorFill(themes.state.color)
-              .backgroundColor(themes.state.backgroundColor)
+            css={select()
+              .colorFill(theme.state.color)
+              .backgroundColor(theme.state.backgroundColor)
               .boxShadow(shadows.normal)
-              .borderRadius(themes.radii.s)
+              .borderRadius(theme.radii.s)
               .padding("0.25em 0.5em")}>
             {children}
           </div>

@@ -1,4 +1,5 @@
-import { animated, cover, selector, themes, ThemeState, tintOrShade, useSpring, useTheme } from "@querycap-ui/core";
+import { animated, cover, select, theme, ThemeState, tintOrShade, useSpring, useTheme } from "@querycap-ui/core";
+import { flow } from "lodash";
 import React, { forwardRef, ReactNode, useEffect } from "react";
 import { ControlledInput } from "./Input";
 
@@ -41,7 +42,7 @@ const SwitchCore = ({ value, tips }: { value: boolean; tips?: [ReactNode, ReactN
         borderColor: styles.backgroundColor,
         backgroundColor: styles.backgroundColor,
       }}
-      css={selector()
+      css={select()
         .position("relative")
         .display("inline-block")
         .top("0.125em")
@@ -51,11 +52,11 @@ const SwitchCore = ({ value, tips }: { value: boolean; tips?: [ReactNode, ReactN
         .border("1px solid")}>
       {tips && (
         <div
-          css={selector()
+          css={select()
             .fontSize("0.6em")
             .textTransform("uppercase")
-            .color(themes.state.color)
-            .with(selector("& > *").paddingX(themes.space.s1).with(cover()))}>
+            .color(theme.state.color)
+            .with(select("& > *").paddingX(theme.space.s1).with(cover()))}>
           <animated.span style={{ opacity: styles.onOpacity }} css={{ textAlign: "left" }}>
             {tips[0]}
           </animated.span>
@@ -70,7 +71,7 @@ const SwitchCore = ({ value, tips }: { value: boolean; tips?: [ReactNode, ReactN
           borderColor: styles.backgroundColor,
           transform: styles.transform,
         }}
-        css={selector()
+        css={select()
           .position("absolute")
           .top(-1)
           .left(-1)
@@ -82,11 +83,11 @@ const SwitchCore = ({ value, tips }: { value: boolean; tips?: [ReactNode, ReactN
           .backgroundColor("white")
           .pointerEvents("none")
           .with(
-            selector("&:before")
+            select("&:before")
               .content(`""`)
               .with(cover())
               .zIndex(1)
-              .backgroundColor((t) => tintOrShade(-0.15, t.state.color))
+              .backgroundColor(flow(theme.state.color, tintOrShade(-0.15)))
               .borderRadius("100%")
               .boxShadow("0 2px 4px 0 rgba(0,0,0,0.3)"),
           )}
@@ -116,10 +117,10 @@ export const Switch = forwardRef(({ name, value, tips, onValueChange, disabled, 
       <ThemeState
         backgroundColor={
           disabled
-            ? (t) => tintOrShade(0.1, t.state.backgroundColor)
+            ? flow(theme.state.backgroundColor, tintOrShade(0.1))
             : value
-            ? themes.colors.primary
-            : (t) => tintOrShade(0.3, t.state.backgroundColor)
+            ? theme.colors.primary
+            : flow(theme.state.backgroundColor, tintOrShade(0.3))
         }
         autoColor>
         <SwitchCore value={value} tips={tips} />

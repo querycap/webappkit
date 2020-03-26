@@ -1,4 +1,4 @@
-import { cover, mix, rgba, selector, themes, useTheme } from "@querycap-ui/core";
+import { cover, mix, rgba, select, theme, useTheme } from "@querycap-ui/core";
 import { useValueRef } from "@querycap/reactutils";
 import { useObservableEffect } from "@reactorx/core";
 import { assign, Dictionary, map, max, reduce } from "lodash";
@@ -224,7 +224,7 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
       style={{
         height: columnHeight,
       }}>
-      <small css={selector().width("50%").color(themes.colors.primary).textAlign("left")}>
+      <small css={select().width("50%").color(theme.colors.primary).textAlign("left")}>
         <span
           style={{
             paddingLeft: `${maxValueLength / 2 + 1}em`,
@@ -235,11 +235,11 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
       <div
         ref={containerElmRef}
         data-transition={true}
-        css={selector()
+        css={select()
           .fontSize("1.4em")
           .with(cover())
           .with(
-            selector("& > *").with({
+            select("& > *").with({
               cursor: "pointer",
               position: "absolute",
               top: columnHeight / 2 - itemHeight / 2,
@@ -254,7 +254,7 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
             }),
           )
           .with(
-            selector("&[data-transition=true] > *").with({
+            select("&[data-transition=true] > *").with({
               transition: "120ms",
               transitionTimingFunction: "ease-out",
             }),

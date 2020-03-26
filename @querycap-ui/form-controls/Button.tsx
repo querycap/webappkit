@@ -1,4 +1,17 @@
-import { colors, rgba, safeTextColor, selector, themes, ThemeState } from "@querycap-ui/core";
+import {
+  colors,
+  rgba,
+  roundedEm,
+  safeTextColor,
+  select,
+  simpleShadow,
+  theme,
+  ThemeState,
+  tint,
+  tintOrShade,
+  transparentize,
+} from "@querycap-ui/core";
+import { flow } from "lodash";
 import React, { ButtonHTMLAttributes, forwardRef, ReactNode } from "react";
 import { base } from "./utils";
 
@@ -17,35 +30,35 @@ const createBtnStyle = ({ block, invisible, small }: ButtonOptions) =>
   base
     .position("relative")
     .paddingX(block ? 0 : small ? "1.2em" : "1.6em")
-    .paddingY((t) => Math.round((small ? 0.25 : 0.5) * t.state.fontSize))
+    .paddingY(flow(theme.state.fontSize, roundedEm(small ? 0.25 : 0.5)))
     .display(block ? "block" : "inline-block")
     .alignItems("center")
     .outline("none")
-    .backgroundColor(themes.state.backgroundColor)
-    .borderColor(themes.state.borderColor)
-    .colorFill(themes.state.color)
-    .with(block && selector().width("100%").justifyContent("center"))
-    .with(invisible && selector().borderColor("transparent"))
-    .with(selector("&:hover").opacity(0.9).cursor("pointer"))
-    .with(selector("& > * + *").marginLeft(themes.space.s1))
-    .with(invisible ? undefined : selector("&:active").boxShadow(`inset 0 0.15em 0.3em ${rgba(colors.black, 0.15)}`))
+    .backgroundColor(theme.state.backgroundColor)
+    .borderColor(theme.state.borderColor)
+    .colorFill(theme.state.color)
+    .with(block && select().width("100%").justifyContent("center"))
+    .with(invisible && select().borderColor("transparent"))
+    .with(select("&:hover").opacity(0.9).cursor("pointer"))
+    .with(select("& > * + *").marginLeft(theme.space.s1))
+    .with(invisible ? undefined : select("&:active").boxShadow(`inset 0 0.15em 0.3em ${rgba(colors.black, 0.15)}`))
     .with(
       invisible
         ? undefined
-        : selector("&:focus")
+        : select("&:focus")
             .outline(0)
             .zIndex(1)
-            .boxShadow((t) => `0 0 0 0.2em ${rgba(t.state.borderColor, 0.15)}`),
+            .boxShadow(flow(theme.state.borderColor, transparentize(0.85), simpleShadow("0 0 0 0.2em"))),
     )
-    .with(selector("&:disabled").opacity(0.6).cursor("default"));
+    .with(select("&:disabled").opacity(0.6).cursor("default"));
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ disabled, invisible, primary, small, block, ...props }: ButtonProps, ref) => {
     return (
       <ThemeState
-        borderColor={themes.colors.primary}
-        color={primary ? safeTextColor(themes.colors.primary) : themes.colors.primary}
-        backgroundColor={primary ? themes.colors.primary : themes.state.backgroundColor}>
+        borderColor={primary ? theme.colors.primary : theme.state.borderColor}
+        color={primary ? flow(theme.colors.primary, safeTextColor) : flow(theme.state.color, tintOrShade(0.3))}
+        backgroundColor={primary ? theme.colors.primary : flow(theme.state.backgroundColor, tint(0.2))}>
         <button
           ref={ref}
           role={"button"}
@@ -54,6 +67,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             small,
             block,
           })}
+          data-primary={primary}
           aria-disabled={disabled}
           disabled={disabled}
           {...props}

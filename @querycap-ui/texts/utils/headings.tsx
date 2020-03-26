@@ -1,45 +1,45 @@
-import { selector, themes } from "@querycap-ui/core";
+import { select, theme } from "@querycap-ui/core";
 
 export const headings = {
-  break: selector()
-    .paddingBottom(themes.space.s1)
+  break: select()
+    .paddingBottom(theme.space.s1)
     .borderWidth(1)
     .borderStyle("solid")
-    .borderColor(themes.state.borderColor),
+    .borderColor(theme.state.borderColor),
 
-  h1: selector()
-    .marginTop(themes.space.s4)
-    .marginBottom(themes.space.s3)
-    .fontSize(themes.fontSizes.xl)
-    .fontWeight(themes.fontWeights.bold),
+  h1: select()
+    .marginTop(theme.space.s4)
+    .marginBottom(theme.space.s3)
+    .fontSize(theme.fontSizes.xl)
+    .fontWeight(theme.fontWeights.bold),
 
-  h2: selector()
-    .marginTop(themes.space.s4)
-    .marginBottom(themes.space.s3)
-    .fontSize(themes.fontSizes.l)
-    .fontWeight(themes.fontWeights.bold),
+  h2: select()
+    .marginTop(theme.space.s4)
+    .marginBottom(theme.space.s3)
+    .fontSize(theme.fontSizes.l)
+    .fontWeight(theme.fontWeights.bold),
 
-  h3: selector()
-    .marginTop(themes.space.s4)
-    .marginBottom(themes.space.s3)
-    .fontWeight(themes.fontWeights.bold)
-    .fontSize(themes.fontSizes.m),
+  h3: select()
+    .marginTop(theme.space.s4)
+    .marginBottom(theme.space.s3)
+    .fontWeight(theme.fontWeights.bold)
+    .fontSize(theme.fontSizes.m),
 
-  h4: selector()
-    .marginTop(themes.space.s4)
-    .marginBottom(themes.space.s3)
-    .fontWeight(themes.fontWeights.bold)
-    .fontSize(themes.fontSizes.normal),
+  h4: select()
+    .marginTop(theme.space.s4)
+    .marginBottom(theme.space.s3)
+    .fontWeight(theme.fontWeights.bold)
+    .fontSize(theme.fontSizes.normal),
 
-  h5: selector()
-    .marginTop(themes.space.s4)
-    .marginBottom(themes.space.s3)
-    .fontWeight(themes.fontWeights.bold)
-    .fontSize(themes.fontSizes.s),
+  h5: select()
+    .marginTop(theme.space.s4)
+    .marginBottom(theme.space.s3)
+    .fontWeight(theme.fontWeights.bold)
+    .fontSize(theme.fontSizes.s),
 
-  h6: selector()
-    .marginTop(themes.space.s4)
-    .marginBottom(themes.space.s3)
-    .fontWeight(themes.fontWeights.bold)
-    .fontSize(themes.fontSizes.xs),
+  h6: select()
+    .marginTop(theme.space.s4)
+    .marginBottom(theme.space.s3)
+    .fontWeight(theme.fontWeights.bold)
+    .fontSize(theme.fontSizes.xs),
 };

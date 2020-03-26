@@ -1,11 +1,11 @@
-import { themes } from "@querycap-ui/core";
+import { theme } from "@querycap-ui/core";
 import { Alert, AlertCard } from "@querycap-ui/blocks";
 import { Stack } from "@querycap-ui/layouts";
 import React from "react";
 
 export const Alerts = () => {
   return (
-    <Stack spacing={themes.space.s2} align={"stretch"}>
+    <Stack spacing={theme.space.s2} align={"stretch"}>
       <Alert
         type={"info"}
         onRequestClose={() => {
@@ -40,7 +40,7 @@ export const Alerts = () => {
 
 export const AlertCards = () => {
   return (
-    <Stack spacing={themes.space.s2} align={"stretch"}>
+    <Stack spacing={theme.space.s2} align={"stretch"}>
       <AlertCard
         type={"info"}
         onRequestClose={() => {

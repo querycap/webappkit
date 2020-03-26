@@ -1,4 +1,4 @@
-import { selector, themes } from "@querycap-ui/core";
+import { select, theme } from "@querycap-ui/core";
 import { Button, Input, InputIcon, InputPrefix, InputSuffix } from "@querycap-ui/form-controls";
 import { IconAirplay, IconChevronDown, IconEyeOff } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
@@ -9,7 +9,7 @@ export const Inputs = () => {
   return (
     <>
       <h2 css={headings.h2}> 输入状态 </h2>
-      <Stack spacing={themes.space.s2} css={selector().fontSize(themes.fontSizes.xs)}>
+      <Stack spacing={theme.space.s2} css={select().fontSize(theme.fontSizes.xs)}>
         <Input>
           <input type="text" />
         </Input>
@@ -27,14 +27,14 @@ export const Inputs = () => {
         </Input>
       </Stack>
       <h2 css={headings.h2}> input 套件 </h2>
-      <Stack spacing={themes.space.s2} css={selector().fontSize(themes.fontSizes.xs)}>
+      <Stack spacing={theme.space.s2} css={select().fontSize(theme.fontSizes.xs)}>
         <Input>
-          <InputPrefix css={selector().fontFamily(themes.fonts.mono)}>https://</InputPrefix>
+          <InputPrefix css={select().fontFamily(theme.fonts.mono)}>https://</InputPrefix>
           <input type="text" placeholder={"www.github.com"} />
         </Input>
         <Input>
           <input type="text" placeholder={"www.github.com"} />
-          <InputSuffix css={selector().fontFamily(themes.fonts.mono)}>.com</InputSuffix>
+          <InputSuffix css={select().fontFamily(theme.fonts.mono)}>.com</InputSuffix>
         </Input>
         <Input>
           <InputIcon>
@@ -57,14 +57,14 @@ export const Inputs = () => {
       </Stack>
 
       <h2 css={headings.h2}> 与 Button 组合 </h2>
-      <Stack spacing={themes.space.s2} css={selector().fontSize(themes.fontSizes.xs)}>
-        <Stack inline spacing={themes.space.s1}>
+      <Stack spacing={theme.space.s2} css={select().fontSize(theme.fontSizes.xs)}>
+        <Stack inline spacing={theme.space.s1}>
           <Input>
             <input type="text" />
           </Input>
           <Button primary>提交</Button>
         </Stack>
-        <Stack inline spacing={themes.space.s1}>
+        <Stack inline spacing={theme.space.s1}>
           <Input small>
             <input type="text" />
           </Input>

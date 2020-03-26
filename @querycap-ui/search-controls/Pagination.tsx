@@ -1,5 +1,5 @@
-import { selector, themes, ThemeState } from "@querycap-ui/core";
-import { map } from "lodash";
+import { roundedEm, select, theme, ThemeState } from "@querycap-ui/core";
+import { flow, map } from "lodash";
 import React from "react";
 
 export interface Pager {
@@ -53,22 +53,21 @@ export const Pagination = ({ total, pager, onPagerChange, onShowSizeChange, ...o
     });
   };
 
-  const itemStyle = selector()
+  const itemStyle = select()
     .textDecoration("none")
-    .colorFill(themes.state.color)
-    .backgroundColor(themes.state.backgroundColor)
+    .colorFill(theme.state.color)
+    .backgroundColor(theme.state.backgroundColor)
     .paddingX("0.6em")
-    .borderRadius(themes.radii.s)
-    .paddingY((t) => Math.round(0.25 * t.state.fontSize));
+    .borderRadius(theme.radii.s)
+    .paddingY(flow(theme.state.fontSize, roundedEm(0.25)));
 
   const pageNumItems = map(pageNums, (pageNum, idx) => {
     const active = currentPage === pageNum;
 
     return (
-      <ThemeState backgroundColor={active ? themes.colors.primary : themes.state.backgroundColor} autoColor>
+      <ThemeState key={idx} backgroundColor={active ? theme.colors.primary : theme.state.backgroundColor} autoColor>
         <a
           href={"#"}
-          key={idx}
           onClick={(e) => {
             e.preventDefault();
             !!pageNum && currentPage !== pageNum && updatePage(pageNum);

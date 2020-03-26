@@ -1,4 +1,4 @@
-import { colors, cover, rgba, selector, shadows, themes, ThemeState, withBackground } from "@querycap-ui/core";
+import { colors, cover, rgba, select, shadows, theme, ThemeState, withBackground } from "@querycap-ui/core";
 import { Switch } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 import { IRoute, NavLink, parseSearchString, Redirect, useRouter } from "@reactorx/router";
@@ -10,8 +10,7 @@ import { CodeBlock } from "./CodeBlock";
 import { examples, IExample } from "./exmaple";
 
 const ExampleSection = ({ children }: { children?: ReactNode }) => (
-  <div
-    css={selector().position("relative").padding(themes.space.s4).with(selector("& + &").marginTop(themes.space.s4))}>
+  <div css={select().position("relative").padding(theme.space.s4).with(select("& + &").marginTop(theme.space.s4))}>
     {children}
   </div>
 );
@@ -19,32 +18,32 @@ const ExampleSection = ({ children }: { children?: ReactNode }) => (
 const ExampleBlock = ({ name, module, group, source, examples }: IExample) => {
   return (
     <div
-      css={selector()
+      css={select()
         .position("relative")
-        .backgroundColor(themes.state.backgroundColor)
-        .color(themes.state.color)
-        .paddingY(themes.space.s5)
-        .paddingX(themes.space.s4)
-        .with(selector("& + &").borderTopWidth(1).borderTopStyle("solid").borderColor(themes.state.borderColor))}>
+        .backgroundColor(theme.state.backgroundColor)
+        .color(theme.state.color)
+        .paddingY(theme.space.s5)
+        .paddingX(theme.space.s4)
+        .with(select("& + &").borderTopWidth(1).borderTopStyle("solid").borderColor(theme.state.borderColor))}>
       <div
-        css={selector()
+        css={select()
           .position("absolute")
           .top(0)
           .right(0)
-          .paddingX(themes.space.s4)
-          .paddingY(themes.space.s2)
-          .fontSize(themes.fontSizes.s)
+          .paddingX(theme.space.s4)
+          .paddingY(theme.space.s2)
+          .fontSize(theme.fontSizes.s)
           .opacity(0.3)}>
         {group}/{module}/{name}
       </div>
-      <Stack inline spacing={themes.space.s2}>
+      <Stack inline spacing={theme.space.s2}>
         <div
-          css={selector()
+          css={select()
             .flex(1)
             .borderWidth(1)
             .borderStyle("solid")
-            .borderRadius(themes.radii.normal)
-            .borderColor(themes.state.borderColor)}>
+            .borderRadius(theme.radii.normal)
+            .borderColor(theme.state.borderColor)}>
           {map(examples, (Example, key) => (
             <ExampleSection key={key}>
               <Example />
@@ -52,7 +51,7 @@ const ExampleBlock = ({ name, module, group, source, examples }: IExample) => {
           ))}
         </div>
         {!!source && (
-          <div css={selector().borderBottomRadius(themes.radii.normal).fontSize("0.6em").width("30%")}>
+          <div css={select().borderBottomRadius(theme.radii.normal).fontSize("0.6em").width("30%")}>
             <CodeBlock>{source}</CodeBlock>
           </div>
         )}
@@ -66,12 +65,12 @@ const Sidebar = withBackground(colors.gray9)(({ group, examples }: { group: stri
 
   return (
     <ul
-      css={selector()
-        .padding(themes.space.s3)
-        .fontSize(themes.fontSizes.s)
-        .backgroundColor(themes.state.backgroundColor)
-        .color(themes.state.color)
-        .lineHeight(themes.lineHeights.normal)
+      css={select()
+        .padding(theme.space.s3)
+        .fontSize(theme.fontSizes.s)
+        .backgroundColor(theme.state.backgroundColor)
+        .color(theme.state.color)
+        .lineHeight(theme.lineHeights.normal)
         .position("relative")
         .width(260)
         .margin(0)
@@ -79,27 +78,27 @@ const Sidebar = withBackground(colors.gray9)(({ group, examples }: { group: stri
         .overflowY("auto")
         .listStyle("none")
         .with(
-          selector("& ul")
+          select("& ul")
             .color("inherit")
-            .paddingLeft(themes.space.s1)
-            .paddingY(themes.space.s1)
+            .paddingLeft(theme.space.s1)
+            .paddingY(theme.space.s1)
             .margin(0)
             .listStyle("none"),
         )
         .with(
-          selector("& a")
+          select("& a")
             .color("inherit")
             .textDecoration("none")
             .opacity(0.8)
-            .paddingY(themes.space.s1)
-            .with(selector("&:hover", "&[data-current=true]").opacity(1)),
+            .paddingY(theme.space.s1)
+            .with(select("&:hover", "&[data-current=true]").opacity(1)),
         )}>
       {map(
         groupBy(examples, (e) => e.module),
         (examples, module) => (
           <li key={module}>
             <NavLink to={`/${group}/${module}${location.search}`}>
-              <div css={selector().display("flex").alignItems("center").justifyContent("space-between")}>
+              <div css={select().display("flex").alignItems("center").justifyContent("space-between")}>
                 <div>{`${group}/${module}`}</div>
                 <img
                   style={{
@@ -154,17 +153,17 @@ const Nav = withBackground(colors.gray9)(({ groups }: { groups: string[] }) => {
     <Stack
       inline
       justify={"flex-end"}
-      spacing={themes.space.s3}
-      css={selector()
-        .paddingX(themes.space.s3)
-        .fontSize(themes.fontSizes.s)
+      spacing={theme.space.s3}
+      css={select()
+        .paddingX(theme.space.s3)
+        .fontSize(theme.fontSizes.s)
         .position("relative")
         .zIndex(10)
         .boxShadow(shadows.medium)
-        .paddingY(themes.space.s2)
-        .backgroundColor(themes.state.backgroundColor)
-        .color(themes.state.color)
-        .with(selector("& a").color(themes.state.color).textDecoration("none"))}>
+        .paddingY(theme.space.s2)
+        .backgroundColor(theme.state.backgroundColor)
+        .color(theme.state.color)
+        .with(select("& a").color(theme.state.color).textDecoration("none"))}>
       {map(groups, (g) => (
         <NavLink key={g} to={`/${g}${location.search}`}>
           {g}
@@ -184,13 +183,13 @@ const ComponentDocsMain = ({ match }: IRoute<{ group?: string; module?: string; 
   return (
     <Stack
       align={"stretch"}
-      css={selector().with(cover()).zIndex(1).backgroundColor(themes.state.backgroundColor).color(themes.state.color)}>
+      css={select().with(cover()).zIndex(1).backgroundColor(theme.state.backgroundColor).color(theme.state.color)}>
       <Nav groups={keys(groups)} />
       <Stack inline align={"stretch"} css={{ flex: 1, overflow: "hidden" }}>
         {match.params.group ? (
           <>
             <Sidebar group={match.params.group} examples={groups[match.params.group]} />
-            <div css={selector().flex(1).position("relative").overflowX("hidden").overflowY("auto")}>
+            <div css={select().flex(1).position("relative").overflowX("hidden").overflowY("auto")}>
               <List filterBy={match.params} />
             </div>
           </>
@@ -209,9 +208,9 @@ export const ComponentDocs = (props: IRoute<{ group?: string; module?: string; n
   return (
     <ThemeState
       root
-      borderColor={dark ? rgba(colors.gray4, 0.15) : themes.state.borderColor}
-      color={dark ? colors.gray4 : themes.state.color}
-      backgroundColor={dark ? colors.gray8 : themes.state.backgroundColor}>
+      borderColor={dark ? rgba(colors.gray2, 0.15) : theme.state.borderColor}
+      color={dark ? colors.gray2 : theme.state.color}
+      backgroundColor={dark ? colors.gray8 : theme.state.backgroundColor}>
       <ComponentDocsMain {...props} />
       <CSSReset />
     </ThemeState>

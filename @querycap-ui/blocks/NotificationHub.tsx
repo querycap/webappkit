@@ -1,4 +1,4 @@
-import { animated, selector, themes, useTransition } from "@querycap-ui/core";
+import { animated, select, theme, useTransition } from "@querycap-ui/core";
 import { Portal } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
 import React from "react";
@@ -61,8 +61,8 @@ export const NotificationHub = ({
         <Portal key={key}>
           <animated.div
             style={style}
-            css={selector().position("absolute").top(0).left(0).right(0).zIndex(10).pointerEvents("none")}>
-            <div css={selector().maxWidth(320).margin("0 auto").pointerEvents("auto").padding(themes.space.s2)}>
+            css={select().position("absolute").top(0).left(0).right(0).zIndex(10).pointerEvents("none")}>
+            <div css={select().maxWidth(320).margin("0 auto").pointerEvents("auto").padding(theme.space.s2)}>
               <Notification msg={item} closeRequestIn={closeRequestIn} onRequestClose={onRequestClose} />
             </div>
           </animated.div>

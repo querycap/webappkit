@@ -1,5 +1,5 @@
-import { safeTextColor, selector, theme, themes, ThemeState } from "@querycap-ui/core";
-import { map } from "lodash";
+import { safeTextColor, select, defaultTheme, theme, ThemeState, negative } from "@querycap-ui/core";
+import { map, flow } from "lodash";
 import React, { Fragment } from "react";
 import { colors } from "../colors";
 
@@ -12,20 +12,20 @@ export const Color_system = () => {
   return (
     <>
       <h2>状态色</h2>
-      <div css={selector().display("flex").flexWrap("wrap").with(selector("& > *").flex(1).textAlign("center"))}>
+      <div css={select().display("flex").flexWrap("wrap").with(select("& > *").flex(1).textAlign("center"))}>
         {map(stateColors, (stateColor, key) => {
           return (
             <ThemeState
               key={key}
-              backgroundColor={(theme.colors as any)[stateColor]}
-              color={safeTextColor((theme.colors as any)[stateColor])}>
+              backgroundColor={(defaultTheme.colors as any)[stateColor]}
+              color={safeTextColor((defaultTheme.colors as any)[stateColor])}>
               <div
-                css={selector()
-                  .lineHeight(themes.lineHeights.normal)
-                  .fontFamily(themes.fonts.mono)
-                  .paddingY(themes.space.s2)
-                  .color(themes.state.color)
-                  .backgroundColor(themes.state.backgroundColor)}>
+                css={select()
+                  .lineHeight(theme.lineHeights.normal)
+                  .fontFamily(theme.fonts.mono)
+                  .paddingY(theme.space.s2)
+                  .color(theme.state.color)
+                  .backgroundColor(theme.state.backgroundColor)}>
                 {stateColor}
               </div>
             </ThemeState>
@@ -34,7 +34,7 @@ export const Color_system = () => {
       </div>
 
       <h2>基本色</h2>
-      <div css={selector().display("flex").flexWrap("wrap").with(selector("& > *").flex(1).textAlign("center"))}>
+      <div css={select().display("flex").flexWrap("wrap").with(select("& > *").flex(1).textAlign("center"))}>
         {map(baseColors, (baseColor, key) => {
           return (
             <ThemeState
@@ -42,12 +42,12 @@ export const Color_system = () => {
               backgroundColor={(colors as any)[baseColor]}
               color={safeTextColor((colors as any)[baseColor])}>
               <div
-                css={selector()
-                  .lineHeight(themes.lineHeights.normal)
-                  .fontFamily(themes.fonts.mono)
-                  .paddingY(themes.space.s2)
-                  .color(themes.state.color)
-                  .backgroundColor(themes.state.backgroundColor)}>
+                css={select()
+                  .lineHeight(theme.lineHeights.normal)
+                  .fontFamily(theme.fonts.mono)
+                  .paddingY(theme.space.s2)
+                  .color(theme.state.color)
+                  .backgroundColor(theme.state.backgroundColor)}>
                 {baseColor}
               </div>
             </ThemeState>
@@ -56,13 +56,13 @@ export const Color_system = () => {
       </div>
       <h2>色阶</h2>
       <div
-        css={selector()
+        css={select()
           .display("flex")
           .flexWrap("wrap")
-          .margin((t) => -t.space.s1)
-          .with(selector("& > *").width("50%").textAlign("center"))}>
+          .margin(flow(theme.space.s1, negative))
+          .with(select("& > *").width("50%").textAlign("center"))}>
         {map(baseColors.slice(2), (colorName, key) => (
-          <div css={selector().padding(themes.space.s1)} key={key}>
+          <div css={select().padding(theme.space.s1)} key={key}>
             {map(["", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"], (k) => {
               const colorValue = (colors as any)[`${colorName}${k}`];
 
@@ -70,15 +70,15 @@ export const Color_system = () => {
                 <Fragment key={`${colorName}${k}`}>
                   <ThemeState key={key} color={safeTextColor(colorValue)} backgroundColor={colorValue}>
                     <div
-                      css={selector()
+                      css={select()
                         .display("flex")
                         .flexWrap("wrap")
-                        .lineHeight(themes.lineHeights.normal)
-                        .padding(themes.space.s2)
-                        .fontFamily(themes.fonts.mono)
+                        .lineHeight(theme.lineHeights.normal)
+                        .padding(theme.space.s2)
+                        .fontFamily(theme.fonts.mono)
                         .justifyContent("space-between")
-                        .color(themes.state.color)
-                        .backgroundColor(themes.state.backgroundColor)}>
+                        .color(theme.state.color)
+                        .backgroundColor(theme.state.backgroundColor)}>
                       <span>{`${colorName}${k}`}</span>
                       <span>{colorValue}</span>
                     </div>

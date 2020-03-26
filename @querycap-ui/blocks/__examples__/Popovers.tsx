@@ -1,5 +1,5 @@
 import { Popover } from "@querycap-ui/blocks";
-import { selector, themes } from "@querycap-ui/core";
+import { select, theme } from "@querycap-ui/core";
 import { Stack } from "@querycap-ui/layouts";
 import { useToggle, useToggleControlOnClick } from "@querycap/uikit";
 import React, { useRef } from "react";
@@ -12,7 +12,7 @@ const PopoverDemo = ({ placement }: { placement: string }) => {
 
   return (
     <>
-      <div ref={ref} css={selector().border("1px solid").padding("1em").borderColor(themes.state.borderColor)}>
+      <div ref={ref} css={select().border("1px solid").padding("1em").borderColor(theme.state.borderColor)}>
         {placement}
       </div>
       <Popover isOpen={isOpen} triggerRef={ref} onRequestClose={hide} placement={placement as any}>
@@ -23,7 +23,7 @@ const PopoverDemo = ({ placement }: { placement: string }) => {
 };
 
 export const Popovers = () => (
-  <Stack spacing={themes.space.s2} align={"center"} css={selector("& > *").width("50%")}>
+  <Stack spacing={theme.space.s2} align={"center"} css={select("& > *").width("50%")}>
     {[
       "left",
       "right",

@@ -1,4 +1,5 @@
-import { selector, themes, tintOrShade } from "@querycap-ui/core";
+import { select, theme, tintOrShade } from "@querycap-ui/core";
+import { flow } from "lodash";
 import React, { ReactNode } from "react";
 
 export const Progress = ({
@@ -13,7 +14,7 @@ export const Progress = ({
 }) => (
   <div
     {...props}
-    css={selector()
+    css={select()
       .height(height)
       .display(inline ? "inline-flex" : "flex")
       .alignItems("stretch")
@@ -21,8 +22,8 @@ export const Progress = ({
       .lineHeight("inherit")
       .width(inline ? 200 : "100%")
       .overflow("hidden")
-      .borderRadius(themes.radii.normal)
-      .backgroundColor((t) => tintOrShade(0.08, t.state.backgroundColor))}>
+      .borderRadius(theme.radii.normal)
+      .backgroundColor(flow(theme.state.backgroundColor, tintOrShade(0.08)))}>
     {children}
   </div>
 );

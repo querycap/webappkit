@@ -1,4 +1,4 @@
-import { colors, selector, theme, themes, ThemeState } from "@querycap-ui/core";
+import { colors, select, defaultTheme, theme, ThemeState } from "@querycap-ui/core";
 import { Button } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 import { map } from "lodash";
@@ -8,14 +8,13 @@ export const NOSRC = true;
 
 const Panel = () => {
   return (
-    <div
-      css={selector().padding(themes.space.s2).backgroundColor(themes.state.backgroundColor).color(themes.state.color)}>
+    <div css={select().padding(theme.space.s2).backgroundColor(theme.state.backgroundColor).color(theme.state.color)}>
       <div
-        css={selector()
-          .padding(themes.space.s4)
+        css={select()
+          .padding(theme.space.s4)
           .border("1px solid")
-          .borderColor(themes.state.borderColor)
-          .borderRadius(themes.radii.normal)}>
+          .borderColor(theme.state.borderColor)
+          .borderRadius(theme.radii.normal)}>
         <h1 style={{ margin: 0 }}>标题</h1>
         <p>文本文本</p>
         <div>
@@ -41,7 +40,7 @@ export const State = () => {
         因而，用 <code>theme.state.fontSize</code> 来定义基础的文字大小，通过取值并在 JavaScript
         计算并取整来解决上面的问题，如 Button
       </p>
-      <Stack spacing={themes.space.s2}>
+      <Stack spacing={theme.space.s2}>
         {map([12, 14, 18, 20, 24, 48], (v) => (
           <ThemeState fontSize={v} key={v}>
             <Button block small>
@@ -54,17 +53,17 @@ export const State = () => {
       <h3>Color Theme Switch</h3>
       <ul style={{ backgroundColor: colors.yellow0, padding: "0.2em" }}>
         <li>
-          前景色&nbsp;<code style={{ color: theme.state.color }}>theme.state.color</code>
+          前景色&nbsp;<code style={{ color: defaultTheme.state.color }}>theme.state.color</code>
         </li>
         <li>
           边框色&nbsp;
-          <code style={{ color: theme.state.borderColor }}>theme.state.borderColor</code>
+          <code style={{ color: defaultTheme.state.borderColor }}>theme.state.borderColor</code>
         </li>
         <li>
           背景色&nbsp;
           <code
             style={{
-              color: theme.state.backgroundColor,
+              color: defaultTheme.state.backgroundColor,
             }}>
             theme.state.backgroundColor
           </code>
@@ -73,7 +72,7 @@ export const State = () => {
       <p>
         其他非状态颜色应该从这几个颜色计算而来，如 <code>box-shadow</code> 等，通过修改这三个颜色，来快速实现 dark mode
       </p>
-      <Stack inline spacing={themes.space.s4} css={selector("& > *").flex(1)}>
+      <Stack inline spacing={theme.space.s4} css={select("& > *").flex(1)}>
         <Panel />
 
         <ThemeState borderColor={colors.gray6} color={colors.gray2} backgroundColor={colors.darkBlue9}>

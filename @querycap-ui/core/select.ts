@@ -25,6 +25,8 @@ const applyStyles = (...interpolations: Array<InterpolationBuilder | Interpolati
 
 export interface CSSPropertiesWithAliases extends CSSProperties {
   colorFill: CSSProperties["color"];
+  borderX: CSSProperties["borderLeft"];
+  borderY: CSSProperties["borderLeft"];
   marginX: CSSProperties["marginTop"];
   marginY: CSSProperties["marginTop"];
   paddingX: CSSProperties["paddingTop"];
@@ -47,6 +49,8 @@ export type CSSBuilder = {
 
 const aliases: { [k: string]: Array<keyof CSSProperties> } = {
   colorFill: ["color", "fill"],
+  borderX: ["borderLeft", "borderRight"],
+  borderY: ["borderTop", "borderBottom"],
   marginX: ["marginLeft", "marginRight"],
   marginY: ["marginTop", "marginBottom"],
   paddingX: ["paddingLeft", "paddingRight"],
@@ -133,6 +137,6 @@ const createBuilder = (
   }) as CSSBuilder;
 };
 
-export function selector(...selectors: readonly string[]): CSSBuilder {
+export function select(...selectors: readonly string[]): CSSBuilder {
   return createBuilder(selectors, {}, []);
 }

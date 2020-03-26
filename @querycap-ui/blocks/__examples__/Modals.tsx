@@ -1,5 +1,5 @@
 import { Dialog, Modal, ModalDialog } from "@querycap-ui/blocks";
-import { themes } from "@querycap-ui/core";
+import { theme } from "@querycap-ui/core";
 import { Button } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 import { useToggle } from "@querycap/uikit";
@@ -35,7 +35,7 @@ const DialogDemo = () => {
 };
 
 export const Modals = () => (
-  <Stack spacing={themes.space.s2}>
+  <Stack spacing={theme.space.s2}>
     <ModalDemo />
     <DialogDemo />
   </Stack>

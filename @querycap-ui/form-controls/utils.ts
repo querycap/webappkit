@@ -1,13 +1,13 @@
-import { selector, themes } from "@querycap-ui/core";
+import { select, theme } from "@querycap-ui/core";
 
-export const base = selector()
-  .lineHeight(themes.lineHeights.normal)
+export const base = select()
+  .lineHeight(theme.lineHeights.normal)
   .borderWidth(1)
   .borderStyle("solid")
   .boxSizing("border-box")
-  .fontSize(themes.state.fontSize)
+  .fontSize(theme.state.fontSize)
   .fontFamily("inherit")
   .verticalAlign("baseline")
-  .borderRadius(themes.radii.s)
+  .borderRadius(theme.radii.s)
   .appearance("none")
   .textDecoration("none");

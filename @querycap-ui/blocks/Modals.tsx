@@ -1,4 +1,4 @@
-import { animated, cover, rgba, selector, themes, useTransition } from "@querycap-ui/core";
+import { animated, cover, rgba, select, theme, useTransition } from "@querycap-ui/core";
 import { IconX } from "@querycap-ui/icons";
 import { useOnExactlyClick, usePortalCloseOnEsc, withPortal } from "@querycap/uikit";
 import { noop } from "lodash";
@@ -73,25 +73,25 @@ export const ModalPanel = forwardRef(
   ) => (
     <div
       ref={ref}
-      css={selector()
+      css={select()
         .position("relative")
         .minWidth(400)
         .padding("2.8em 3.2em")
-        .borderRadius(themes.radii.normal)
-        .backgroundColor(themes.state.backgroundColor)}
+        .borderRadius(theme.radii.normal)
+        .backgroundColor(theme.state.backgroundColor)}
       {...otherProps}>
       {onRequestClose && (
         <a
           href="#"
           onClick={withoutBubble(onRequestClose)}
-          css={selector()
+          css={select()
             .position("absolute")
             .top(0)
             .right(0)
             .minWidth(400)
             .padding("0.5em 1em")
             .opacity(0.5)
-            .colorFill(themes.state.color)}>
+            .colorFill(theme.state.color)}>
           <IconX />
         </a>
       )}

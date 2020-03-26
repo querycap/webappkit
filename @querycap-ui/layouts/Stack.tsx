@@ -1,4 +1,4 @@
-import { selector, ValueOrThemeGetter } from "@querycap-ui/core";
+import { select, ValueOrThemeGetter } from "@querycap-ui/core";
 import React, { CSSProperties, ReactNode } from "react";
 
 export const Stack = ({
@@ -18,12 +18,12 @@ export const Stack = ({
   return (
     <div
       {...otherProps}
-      css={selector()
+      css={select()
         .display("flex")
         .flexDirection(inline ? "row" : "column")
         .alignItems(align)
         .justifyContent(justify)
-        .with(inline ? selector("& > * + *").marginLeft(spacing) : selector("& > * + *").marginTop(spacing))}>
+        .with(inline ? select("& > * + *").marginLeft(spacing) : select("& > * + *").marginTop(spacing))}>
       {children}
     </div>
   );
