@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.3.0...@querycap-ui/blocks@0.3.1) (2020-03-27)
+
+
+### Bug Fixes
+
+* **ui/core:** enhance hoisting ([7485b50](https://github.com/querycap/webappkit/commit/7485b50fa8c475cf9150bd3fcc7a0647d4968bc9))
+
+
+
+
+
 # [0.3.0](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.2.3...@querycap-ui/blocks@0.3.0) (2020-03-27)
 
 

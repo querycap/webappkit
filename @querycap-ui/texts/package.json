@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/texts",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "MIT",
   "peerDependencies": {
     "@emotion/core": "10.x",
@@ -8,8 +8,8 @@
     "react": "16.x"
   },
   "dependencies": {
-    "@querycap-ui/core": "0.5.0",
-    "@querycap/markdown": "0.3.0"
+    "@querycap-ui/core": "0.5.1",
+    "@querycap/markdown": "0.3.1"
   },
   "publishConfig": {
     "access": "public"
