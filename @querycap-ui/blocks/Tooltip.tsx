@@ -4,7 +4,7 @@ import { flow } from "lodash";
 import React, { Children, cloneElement, isValidElement, ReactChild, ReactNode, useRef } from "react";
 import { Overlay, OverlayProps } from "./Overlay";
 
-export const Tooltip = withBackground(flow(theme.state.color, tintOrShade(0.9)))(
+export const Tooltip = withBackground(flow(theme.state.color, tintOrShade(0.05)))(
   withAutoPlacement(({ placement, children, ...otherProps }: OverlayProps) => {
     return (
       <Overlay {...otherProps} placement={placement}>
