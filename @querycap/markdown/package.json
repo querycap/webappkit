@@ -1,6 +1,6 @@
 {
   "name": "@querycap/markdown",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "dependencies": {
     "markdown-it": "10.0.x",
     "markdown-it-ins": "3.0.0",
@@ -16,7 +16,6 @@
   "scripts": {
     "prepare": "monobundle"
   },
-  "peerDependencies": {},
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "module": "dist/index.es.js"
