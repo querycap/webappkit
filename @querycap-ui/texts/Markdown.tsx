@@ -1,12 +1,11 @@
-import { createMarkdown } from "@querycap/markdown";
-import React, { memo } from "react";
+import React, { memo, useMemo } from "react";
+import markdown from "remark-parse";
+// @ts-ignore
+import remark2react from "remark-react";
+import unified from "unified";
 
-const md = createMarkdown();
+export const Markdown = memo(({ children }: { children: string }) => {
+  const parser = useMemo(() => unified().use(markdown, { commonmark: true }).use(remark2react), []);
 
-export const Markdown = memo(({ children }: { children: string }) => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: md.render(children),
-    }}
-  />
-));
+  return <div>{parser.processSync(children).contents}</div>;
+});

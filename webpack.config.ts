@@ -18,11 +18,11 @@ export = withPresets(
   },
   withTsPreset({
     polyfill: /babel|core-js/,
-    styling: /polished|emotion|react-spring/,
-    core: /react|reactorx|history|axios|localforage/,
-    utils: /buffer|date-fns|lodash|rxjs/,
-    markdown: /markdown-it/,
+    markdown: /unified|remark|remark-react/,
     d3: /d3-shape|d3-path/,
+    styling: /polished|emotion|react-spring/,
+    core: /react|reactorx|scheduler|history|axios/,
+    utils: /buffer|date-fns|lodash|rxjs/,
   }),
   (c) => {
     c.resolve!.alias = {
