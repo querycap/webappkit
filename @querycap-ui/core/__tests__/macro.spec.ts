@@ -36,8 +36,7 @@ const C = () => {
   });
 
   it("with variables", () => {
-    expect(
-      compileToSnapshot(`
+    const result = compileToSnapshot(`
 import React from "react"
 import { select, theme } from "@querycap-ui/core/macro"
 
@@ -47,27 +46,67 @@ const C = () => {
       <div css={select().padding(theme.space.s2).display("flex")}></div>
     </>
   )
-}`),
-    ).toMatchSnapshot();
+}`);
+
+    expect(result).toMatchSnapshot();
   });
 
   it("nests", () => {
-    expect(
-      compileToSnapshot(`
+    const result = compileToSnapshot(`
 import React from "react"
-import { select, theme, animated } from "@querycap-ui/core/macro"
+import { flow } from "lodash"
+import { select, theme, animated, cover } from "@querycap-ui/core/macro"
 
 const C = () => {
+  const v = "red"
+
   return (
     <>
-      <div css={select().padding(theme.space.s2).display("flex").with(select("& > h2").color("red"))}></div>
+      <div css={select()
+      .border(flow(theme.state.borderColor, (color) => \`2px solid \${color}\`))
+      .padding(theme.space.s2)
+      .display("flex")
+      .color(v)
+      .with(select("& > h2").color("red"))
+      .with(cover)
+      .with({
+        fontSize: 1,
+      })
+      .with(v && select().color(theme.state.color))
+      .with(v || select().color(theme.state.color))
+      .with(v ? undefined: select("& > a").color(theme.state.color))}></div>
     </>
   )
 }
 
 const Animated = animated(C);
-`),
-    ).toMatchSnapshot();
+`);
+
+    expect(result).toMatchSnapshot();
+  });
+
+  it("flow", () => {
+    const result = compileToSnapshot(`
+import React from "react"
+import { flow } from "lodash"
+import { select, theme } from "@querycap-ui/core/macro"
+
+const C = () => {
+  const v = "red"
+
+  return (
+    <>
+      <div css={select().border(flow(theme.state.borderColor, (color) => \`2px solid \${color}\`))}>
+      </div>
+      
+      <div css={select().border(flow(theme.state.borderColor, (color) => \`2px solid \${color + v}\`))}>
+      </div>
+    </>
+  )
+}
+`);
+
+    expect(result).toMatchSnapshot();
   });
 
   it("complex", () => {
@@ -84,6 +123,8 @@ import {
   tintOrShade,
   transparentize,
 } from "@querycap-ui/core/macro";
+import { flow } from "lodash";
+import { base } from "./util";
 
 const createBtnStyle = ({block, invisible, small}) =>
   select()
@@ -112,8 +153,6 @@ const createBtnStyle = ({block, invisible, small}) =>
     )
     .with(select("&:disabled").opacity(0.6).cursor("default"));
 `);
-
-    console.log(results);
 
     expect(results).toMatchSnapshot();
   });

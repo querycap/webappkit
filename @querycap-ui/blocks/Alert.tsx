@@ -36,8 +36,6 @@ const alertColor = (type: AlertProps["type"]) => {
   }
 };
 
-console.log("AlertCard");
-
 export const AlertCard = ({ type, onRequestClose, children }: AlertProps) => {
   const color = alertColor(type);
 

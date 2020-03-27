@@ -15,6 +15,8 @@ import {
   tintOrShade,
   transparentize,
 } from \\"@querycap-ui/core/macro\\";
+import { flow } from \\"lodash\\";
+import { base } from \\"./util\\";
 
 const createBtnStyle = ({block, invisible, small}) =>
   select()
@@ -54,62 +56,155 @@ import { css as _css } from \\"@emotion/core\\";
 import { roundedEm as _roundedEm } from \\"@querycap-ui/core\\";
 import { rgba as _rgba } from \\"@querycap-ui/core\\";
 import { colors as _colors } from \\"@querycap-ui/core\\";
-var __style5 = {
-  name: \\"v0rj7v\\",
-  styles: \\"position:relative;align-items:center;outline:none;\\"
-};
-var __style4 = {
-  name: \\"199w7gr\\",
-  styles: \\"width:100%;justify-content:center;\\"
-};
-var __style3 = {
-  name: \\"roftna\\",
-  styles: \\"border-color:transparent;\\"
-};
-var __style2 = {
-  name: \\"1s1p9w1\\",
-  styles: \\"opacity:0.9;cursor:pointer;\\"
-};
-var __style1 = {
-  name: \\"1pqorvt\\",
-  styles: \\"outline:0;z-index:1;\\"
-};
-var __style0 = {
+import { flow } from \\"lodash\\";
+import { base } from \\"./util\\";
+var __macro_generated_ref_0 = {
   name: \\"1w92t4z\\",
   styles: \\"opacity:0.6;cursor:default;\\"
 };
+var __macro_generated_ref_1 = {
+  \\"&:disabled\\": __macro_generated_ref_0
+};
+var __macro_generated_ref_2 = {
+  name: \\"1pqorvt\\",
+  styles: \\"outline:0;z-index:1;\\"
+};
 
-const createBtnStyle = ({
+var __macro_generated_ref_3 =
+/*__THEME_NEED__*/
+__macro_generated_t => ({
+  \\"&:focus\\": [__macro_generated_ref_2, {
+    boxShadow: _fromTheme(flow(_theme.state.borderColor, _transparentize(0.85), _simpleShadow(\\"0 0 0 0.2em\\")))(__macro_generated_t)
+  }]
+});
+
+var __macro_generated_ref_4 =
+/*__THEME_NEED__*/
+__macro_generated_t => ({
+  \\"&:active\\": {
+    boxShadow: _fromTheme(\`inset 0 0.15em 0.3em \${_rgba(_colors.black, 0.15)}\`)(__macro_generated_t)
+  }
+});
+
+var __macro_generated_ref_5 =
+/*__THEME_NEED__*/
+__macro_generated_t => ({
+  \\"& > * + *\\": {
+    marginLeft: _fromTheme(_theme.space.s1)(__macro_generated_t)
+  }
+});
+
+var __macro_generated_ref_6 = {
+  name: \\"1s1p9w1\\",
+  styles: \\"opacity:0.9;cursor:pointer;\\"
+};
+var __macro_generated_ref_7 = {
+  \\"&:hover\\": __macro_generated_ref_6
+};
+var __macro_generated_ref_8 = {
+  name: \\"roftna\\",
+  styles: \\"border-color:transparent;\\"
+};
+var __macro_generated_ref_9 = {
+  name: \\"199w7gr\\",
+  styles: \\"width:100%;justify-content:center;\\"
+};
+var __macro_generated_ref_10 = {
+  name: \\"v0rj7v\\",
+  styles: \\"position:relative;align-items:center;outline:none;\\"
+};
+
+var __macro_generated_ref_11 = (block, small, invisible) =>
+/*__THEME_NEED__*/
+__macro_generated_t => [_fromTheme(base)(__macro_generated_t), __macro_generated_ref_10, {
+  paddingLeft: _fromTheme(block ? 0 : small ? \\"1.2em\\" : \\"1.6em\\")(__macro_generated_t),
+  paddingRight: _fromTheme(block ? 0 : small ? \\"1.2em\\" : \\"1.6em\\")(__macro_generated_t),
+  paddingTop: _fromTheme(flow(_theme.state.fontSize, _roundedEm(small ? 0.25 : 0.5)))(__macro_generated_t),
+  paddingBottom: _fromTheme(flow(_theme.state.fontSize, _roundedEm(small ? 0.25 : 0.5)))(__macro_generated_t),
+  display: _fromTheme(block ? \\"block\\" : \\"inline-block\\")(__macro_generated_t),
+  backgroundColor: _fromTheme(_theme.state.backgroundColor)(__macro_generated_t),
+  borderColor: _fromTheme(_theme.state.borderColor)(__macro_generated_t),
+  color: _fromTheme(_theme.state.color)(__macro_generated_t),
+  fill: _fromTheme(_theme.state.color)(__macro_generated_t)
+}, block && __macro_generated_ref_9, invisible && __macro_generated_ref_8, _fromTheme(__macro_generated_ref_7)(__macro_generated_t), _fromTheme(
+/*__THEME_NEED__*/
+__macro_generated_ref_5)(__macro_generated_t), _fromTheme(
+/*__THEME_NEED__*/
+invisible ? undefined :
+/*__THEME_NEED__*/
+__macro_generated_ref_4)(__macro_generated_t), _fromTheme(
+/*__THEME_NEED__*/
+invisible ? undefined :
+/*__THEME_NEED__*/
+__macro_generated_ref_3)(__macro_generated_t), _fromTheme(__macro_generated_ref_1)(__macro_generated_t)];
+
+const createBtnStyle =
+/*__THEME_NEED__*/
+({
   block,
   invisible,
   small
-}) => __t => [_fromTheme(base)(__t), __style5, {
-  paddingLeft: _fromTheme(block ? 0 : small ? \\"1.2em\\" : \\"1.6em\\")(__t),
-  paddingRight: _fromTheme(block ? 0 : small ? \\"1.2em\\" : \\"1.6em\\")(__t),
-  paddingTop: _fromTheme(flow(_theme.state.fontSize, _roundedEm(small ? 0.25 : 0.5)))(__t),
-  paddingBottom: _fromTheme(flow(_theme.state.fontSize, _roundedEm(small ? 0.25 : 0.5)))(__t),
-  display: _fromTheme(block ? \\"block\\" : \\"inline-block\\")(__t),
-  backgroundColor: _fromTheme(_theme.state.backgroundColor)(__t),
-  borderColor: _fromTheme(_theme.state.borderColor)(__t),
-  color: _fromTheme(_theme.state.color)(__t),
-  fill: _fromTheme(_theme.state.color)(__t)
-}, _fromTheme(block && __style4)(__t), _fromTheme(invisible && __style3)(__t), _fromTheme({
-  \\"&:hover\\": __style2
-})(__t), _fromTheme(__t => ({
-  \\"& > * + *\\": {
-    marginLeft: _fromTheme(_theme.space.s1)(__t)
-  }
-}))(__t), _fromTheme(invisible ? undefined : __t => ({
-  \\"&:active\\": {
-    boxShadow: _fromTheme(\`inset 0 0.15em 0.3em \${_rgba(_colors.black, 0.15)}\`)(__t)
-  }
-}))(__t), _fromTheme(invisible ? undefined : __t => ({
-  \\"&:focus\\": [__style1, {
-    boxShadow: _fromTheme(flow(_theme.state.borderColor, _transparentize(0.85), _simpleShadow(\\"0 0 0 0.2em\\")))(__t)
-  }]
-}))(__t), _fromTheme({
-  \\"&:disabled\\": __style0
-})(__t)];  
+}) =>
+/*__THEME_NEED__*/
+__macro_generated_ref_11(block, small, invisible);  
+  "
+`;
+
+exports[`@querycap-ui/core/macro flow 1`] = `
+"
+
+import React from \\"react\\"
+import { flow } from \\"lodash\\"
+import { select, theme } from \\"@querycap-ui/core/macro\\"
+
+const C = () => {
+  const v = \\"red\\"
+
+  return (
+    <>
+      <div css={select().border(flow(theme.state.borderColor, (color) => \`2px solid \${color}\`))}>
+      </div>
+      
+      <div css={select().border(flow(theme.state.borderColor, (color) => \`2px solid \${color + v}\`))}>
+      </div>
+    </>
+  )
+}
+
+    
+ ↓ ↓ ↓ ↓ ↓ ↓
+
+import { theme as _theme } from \\"@querycap-ui/core\\";
+import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
+import React from \\"react\\";
+import { flow } from \\"lodash\\";
+
+var __macro_generated_ref_0 = v =>
+/*__THEME_NEED__*/
+__macro_generated_t => ({
+  border: _fromTheme(flow(_theme.state.borderColor, color => \`2px solid \${color + v}\`))(__macro_generated_t)
+});
+
+var __macro_generated_ref_1 =
+/*__THEME_NEED__*/
+__macro_generated_t => ({
+  border: _fromTheme(flow(_theme.state.borderColor, color => \`2px solid \${color}\`))(__macro_generated_t)
+});
+
+const C = () => {
+  const v = \\"red\\";
+  return <>
+      <div css={
+    /*__THEME_NEED__*/
+    __macro_generated_ref_1}>
+      </div>
+      
+      <div css={
+    /*__THEME_NEED__*/
+    __macro_generated_ref_0(v)}>
+      </div>
+    </>;
+};  
   "
 `;
 
@@ -117,12 +212,27 @@ exports[`@querycap-ui/core/macro nests 1`] = `
 "
 
 import React from \\"react\\"
-import { select, theme, animated } from \\"@querycap-ui/core/macro\\"
+import { flow } from \\"lodash\\"
+import { select, theme, animated, cover } from \\"@querycap-ui/core/macro\\"
 
 const C = () => {
+  const v = \\"red\\"
+
   return (
     <>
-      <div css={select().padding(theme.space.s2).display(\\"flex\\").with(select(\\"& > h2\\").color(\\"red\\"))}></div>
+      <div css={select()
+      .border(flow(theme.state.borderColor, (color) => \`2px solid \${color}\`))
+      .padding(theme.space.s2)
+      .display(\\"flex\\")
+      .color(v)
+      .with(select(\\"& > h2\\").color(\\"red\\"))
+      .with(cover)
+      .with({
+        fontSize: 1,
+      })
+      .with(v && select().color(theme.state.color))
+      .with(v || select().color(theme.state.color))
+      .with(v ? undefined: select(\\"& > a\\").color(theme.state.color))}></div>
     </>
   )
 }
@@ -132,27 +242,74 @@ const Animated = animated(C);
     
  ↓ ↓ ↓ ↓ ↓ ↓
 
+import { cover as _cover } from \\"@querycap-ui/core\\";
 import { animated as _animated } from \\"@querycap-ui/core\\";
 import { theme as _theme } from \\"@querycap-ui/core\\";
-import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
 import { css as _css } from \\"@emotion/core\\";
+import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
 import React from \\"react\\";
-var __style1 = {
-  name: \\"k008qs\\",
-  styles: \\"display:flex;\\"
-};
-var __style0 = {
+import { flow } from \\"lodash\\";
+
+var __macro_generated_ref_0 =
+/*__THEME_NEED__*/
+__macro_generated_t => ({
+  \\"& > a\\": {
+    color: _fromTheme(_theme.state.color)(__macro_generated_t)
+  }
+});
+
+var __macro_generated_ref_1 =
+/*__THEME_NEED__*/
+__macro_generated_t => ({
+  color: _fromTheme(_theme.state.color)(__macro_generated_t)
+});
+
+var __macro_generated_ref_2 =
+/*__THEME_NEED__*/
+__macro_generated_t => ({
+  color: _fromTheme(_theme.state.color)(__macro_generated_t)
+});
+
+var __macro_generated_ref_3 = {
   name: \\"tokvmb\\",
   styles: \\"color:red;\\"
 };
+var __macro_generated_ref_4 = {
+  \\"& > h2\\": __macro_generated_ref_3
+};
+var __macro_generated_ref_5 = {
+  name: \\"k008qs\\",
+  styles: \\"display:flex;\\"
+};
+
+var __macro_generated_ref_6 = v =>
+/*__THEME_NEED__*/
+__macro_generated_t => [__macro_generated_ref_5, {
+  border: _fromTheme(flow(_theme.state.borderColor, color => \`2px solid \${color}\`))(__macro_generated_t),
+  padding: _fromTheme(_theme.space.s2)(__macro_generated_t),
+  color: _fromTheme(v)(__macro_generated_t)
+}, _fromTheme(__macro_generated_ref_4)(__macro_generated_t), _fromTheme(_cover)(__macro_generated_t), {
+  fontSize: 1
+}, _fromTheme(
+/*__THEME_NEED__*/
+v &&
+/*__THEME_NEED__*/
+__macro_generated_ref_2)(__macro_generated_t), _fromTheme(
+/*__THEME_NEED__*/
+v ||
+/*__THEME_NEED__*/
+__macro_generated_ref_1)(__macro_generated_t), _fromTheme(
+/*__THEME_NEED__*/
+v ? undefined :
+/*__THEME_NEED__*/
+__macro_generated_ref_0)(__macro_generated_t)];
 
 const C = () => {
+  const v = \\"red\\";
   return <>
-      <div css={__t => [__style1, {
-      padding: _fromTheme(_theme.space.s2)(__t)
-    }, _fromTheme({
-      \\"& > h2\\": __style0
-    })(__t)]}></div>
+      <div css={
+    /*__THEME_NEED__*/
+    __macro_generated_ref_6(v)}></div>
     </>;
 };
 
@@ -182,7 +339,7 @@ const C = () => {
 import { animated as _animated } from \\"@querycap-ui/core\\";
 import React from \\"react\\";
 import { css } from \\"@emotion/core\\";
-var __style0 = {
+var __macro_generated_ref_0 = {
   name: \\"1rr4qq7\\",
   styles: \\"flex:1;\\"
 };
@@ -193,7 +350,7 @@ const v = {
 
 const C = () => {
   return <>
-      <_animated.div css={__style0}></_animated.div>
+      <_animated.div css={__macro_generated_ref_0}></_animated.div>
     </>;
 };  
   "
@@ -219,16 +376,22 @@ import { theme as _theme } from \\"@querycap-ui/core\\";
 import { css as _css } from \\"@emotion/core\\";
 import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
 import React from \\"react\\";
-var __style0 = {
+var __macro_generated_ref_0 = {
   name: \\"k008qs\\",
   styles: \\"display:flex;\\"
 };
 
+var __macro_generated_ref_1 =
+/*__THEME_NEED__*/
+__macro_generated_t => [__macro_generated_ref_0, {
+  padding: _fromTheme(_theme.space.s2)(__macro_generated_t)
+}];
+
 const C = () => {
   return <>
-      <div css={__t => [__style0, {
-      padding: _fromTheme(_theme.space.s2)(__t)
-    }]}></div>
+      <div css={
+    /*__THEME_NEED__*/
+    __macro_generated_ref_1}></div>
     </>;
 };  
   "

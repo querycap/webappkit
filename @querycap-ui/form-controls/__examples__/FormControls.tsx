@@ -13,7 +13,7 @@ export const Inputs = () => {
             <InputIcon>
               <IconUser />
             </InputIcon>
-            <input type="text" value={"username"} />
+            <input type="text" defaultValue={"username"} />
           </Input>
         </FormControl>
         <FormControl label={"密码"} error={"密码不正确"}>
@@ -21,7 +21,7 @@ export const Inputs = () => {
             <InputIcon>
               <IconLock />
             </InputIcon>
-            <input type="text" value={"password"} />
+            <input type="text" defaultValue={"password"} />
           </Input>
         </FormControl>
       </div>

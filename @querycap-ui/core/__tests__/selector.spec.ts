@@ -1,7 +1,7 @@
 /**
  * @jest-environment node
  */
-import { select } from "@querycap-ui/core/select";
+import { select } from "@querycap-ui/core";
 import { cover } from "polished";
 import { defaultTheme } from "../theme";
 

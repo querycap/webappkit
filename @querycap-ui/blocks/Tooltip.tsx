@@ -12,22 +12,12 @@ export const Tooltip = withBackground(flow(theme.state.color, tintOrShade(0.05))
           css={select()
             .fontSize(theme.fontSizes.xs)
             .lineHeight(theme.lineHeights.condensed)
-            .with({
-              position: "relative",
-              display: "block",
-              padding: 4,
-              zIndex: 500,
-              pointerEvents: "none",
-            })
-            .with(
-              select("&:before").with({
-                content: `""`,
-                position: "absolute",
-                left: "50%",
-                marginLeft: -3,
-                zIndex: 2,
-              }),
-            )}>
+            .position("relative")
+            .display("block")
+            .padding(theme.space.s1)
+            .zIndex(500)
+            .pointerEvents("none")
+            .with(select("&:before").content(`""`).position("absolute").left("50%").marginLeft(-1).zIndex(2))}>
           <div
             css={select()
               .colorFill(theme.state.color)
