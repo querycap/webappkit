@@ -1,5 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`@querycap-ui/core/macro builder only 1`] = `
+"
+
+import { select, theme } from \\"@querycap-ui/core/macro\\";
+    
+export const headings = {
+  h1: select()
+    .marginTop(theme.space.s4)
+    .marginBottom(1)
+    .fontSize(12)
+    .fontWeight(theme.fontWeights.bold),
+};
+
+    
+ ↓ ↓ ↓ ↓ ↓ ↓
+
+import { theme as _theme } from \\"@querycap-ui/core\\";
+import { css as _css } from \\"@emotion/core\\";
+import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
+var __macro_generated_ref_0 = {
+  name: \\"6xa9h0\\",
+  styles: \\"margin-bottom:1px;font-size:12px;\\"
+};
+
+var __macro_generated_ref_1 =
+/*__THEME_NEED__*/
+__macro_generated_t => [__macro_generated_ref_0, {
+  marginTop: _fromTheme(_theme.space.s4)(__macro_generated_t),
+  fontWeight: _fromTheme(_theme.fontWeights.bold)(__macro_generated_t)
+}];
+
+export const headings = {
+  h1:
+  /*__THEME_NEED__*/
+  __macro_generated_ref_1
+};  
+  "
+`;
+
 exports[`@querycap-ui/core/macro complex 1`] = `
 "
 

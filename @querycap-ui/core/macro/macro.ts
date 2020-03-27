@@ -1,14 +1,14 @@
-import type { Node, NodePath } from "@babel/core";
+import { Node, NodePath } from "@babel/core";
 // @ts-ignore
 import { addDefault, addNamed } from "@babel/helper-module-imports";
 import * as t from "@babel/types";
-import type {
+import {
   CallExpression,
   Expression,
+  Function,
   Identifier,
   Program,
   StringLiteral,
-  Function,
   V8IntrinsicIdentifier,
   VariableDeclarator,
 } from "@babel/types";
@@ -229,8 +229,6 @@ const createScanner = (program: NodePath<Program>) => {
 
         const createFunctionIfNeed = () => {
           const paramSet: { [k: string]: Identifier } = {};
-
-          // const fn = chainRoot.findParent((p) => p.isFunction())
 
           chainRoot.traverse(
             {

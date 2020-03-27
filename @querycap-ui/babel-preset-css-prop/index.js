@@ -81,7 +81,7 @@ const autoImportEmotionJSXIFNeed = (api) => {
   };
 };
 
-module.exports = (_, { sourceMap, autoLabel, labelFormat, instances }) => ({
+module.exports = (_, { sourceMap = false, autoLabel, labelFormat, instances }) => ({
   plugins: [
     autoImportEmotionJSXIFNeed,
     r("@babel/plugin-transform-react-jsx"),

@@ -156,4 +156,20 @@ const createBtnStyle = ({block, invisible, small}) =>
 
     expect(results).toMatchSnapshot();
   });
+
+  it("builder only", () => {
+    const results = compileToSnapshot(`
+import { select, theme } from "@querycap-ui/core/macro";
+    
+export const headings = {
+  h1: select()
+    .marginTop(theme.space.s4)
+    .marginBottom(1)
+    .fontSize(12)
+    .fontWeight(theme.fontWeights.bold),
+};
+`);
+
+    expect(results).toMatchSnapshot();
+  });
 });
