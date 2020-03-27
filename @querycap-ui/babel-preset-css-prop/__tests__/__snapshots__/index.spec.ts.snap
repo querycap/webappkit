@@ -3,8 +3,6 @@
 exports[`babel-preset-css-prop css prop 1`] = `
 "
 
-import React from \\"react\\"
-
 const SomeComponent = () => {
   return (
     <>
@@ -17,7 +15,6 @@ const SomeComponent = () => {
 
 import { Fragment as _Fragment } from \\"react\\";
 import { jsx as _jsx } from \\"@emotion/core\\";
-import React from \\"react\\";
 
 const SomeComponent = () => {
   return _jsx(_Fragment, null, _jsx(\\"div\\", {
@@ -32,8 +29,6 @@ const SomeComponent = () => {
 exports[`babel-preset-css-prop css prop only 1`] = `
 "
 
-import React from \\"react\\"
-
 const SomeComponent = () => {
   return (
     <div css={(t) => ({ color: t.color.primary })}>123</div>
@@ -43,7 +38,6 @@ const SomeComponent = () => {
  ↓ ↓ ↓ ↓ ↓ ↓
 
 import { jsx as _jsx } from \\"@emotion/core\\";
-import React from \\"react\\";
 
 const SomeComponent = () => {
   return _jsx(\\"div\\", {
@@ -58,8 +52,6 @@ const SomeComponent = () => {
 exports[`babel-preset-css-prop without css prop 1`] = `
 "
 
-import React from \\"react\\"
-
 const SomeComponent = () => {
   return (
     <>
@@ -72,7 +64,6 @@ const SomeComponent = () => {
 
 import { Fragment as _Fragment } from \\"react\\";
 import { createElement as _createElement } from \\"react\\";
-import React from \\"react\\";
 
 const SomeComponent = () => {
   return _createElement(_Fragment, null, _createElement(\\"div\\", null, \\"123\\"));
