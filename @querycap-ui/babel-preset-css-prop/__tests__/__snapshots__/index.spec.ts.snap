@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`babel-preset-css-prop with css prop 1`] = `
+exports[`babel-preset-css-prop css prop 1`] = `
 "
 
 import React from \\"react\\"
@@ -15,16 +15,42 @@ const SomeComponent = () => {
     
  ↓ ↓ ↓ ↓ ↓ ↓
 
+import { Fragment as _Fragment } from \\"react\\";
+import { jsx as _jsx } from \\"@emotion/core\\";
 import React from \\"react\\";
-import { jsx as ___EmotionJSX } from \\"@emotion/core\\";
-import { Fragment as ___Fragment } from \\"react\\";
 
 const SomeComponent = () => {
-  return ___EmotionJSX(___Fragment, null, ___EmotionJSX(\\"div\\", {
+  return _jsx(_Fragment, null, _jsx(\\"div\\", {
     css: t => ({
       color: t.color.primary
     })
   }, \\"123\\"));
+};  
+  "
+`;
+
+exports[`babel-preset-css-prop css prop only 1`] = `
+"
+
+import React from \\"react\\"
+
+const SomeComponent = () => {
+  return (
+    <div css={(t) => ({ color: t.color.primary })}>123</div>
+  )
+}
+    
+ ↓ ↓ ↓ ↓ ↓ ↓
+
+import { jsx as _jsx } from \\"@emotion/core\\";
+import React from \\"react\\";
+
+const SomeComponent = () => {
+  return _jsx(\\"div\\", {
+    css: t => ({
+      color: t.color.primary
+    })
+  }, \\"123\\");
 };  
   "
 `;
@@ -44,10 +70,12 @@ const SomeComponent = () => {
     
  ↓ ↓ ↓ ↓ ↓ ↓
 
+import { Fragment as _Fragment } from \\"react\\";
+import { createElement as _createElement } from \\"react\\";
 import React from \\"react\\";
 
 const SomeComponent = () => {
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(\\"div\\", null, \\"123\\"));
+  return _createElement(_Fragment, null, _createElement(\\"div\\", null, \\"123\\"));
 };  
   "
 `;

@@ -8,7 +8,7 @@
     "react": "16.x"
   },
   "dependencies": {
-    "@emotion/core": "10.0.x",
+    "@emotion/core": "10.x",
     "polished": "3.4.x",
     "react-spring": "8.0.x"
   },

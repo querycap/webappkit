@@ -17,7 +17,6 @@ export const headings = {
  ↓ ↓ ↓ ↓ ↓ ↓
 
 import { theme as _theme } from \\"@querycap-ui/core\\";
-import { css as _css } from \\"@emotion/core\\";
 import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
 var __macro_generated_ref_0 = {
   name: \\"6xa9h0\\",
@@ -91,7 +90,6 @@ import { transparentize as _transparentize } from \\"@querycap-ui/core\\";
 import { theme as _theme } from \\"@querycap-ui/core\\";
 import { simpleShadow as _simpleShadow } from \\"@querycap-ui/core\\";
 import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
-import { css as _css } from \\"@emotion/core\\";
 import { roundedEm as _roundedEm } from \\"@querycap-ui/core\\";
 import { rgba as _rgba } from \\"@querycap-ui/core\\";
 import { colors as _colors } from \\"@querycap-ui/core\\";
@@ -284,7 +282,6 @@ const Animated = animated(C);
 import { cover as _cover } from \\"@querycap-ui/core\\";
 import { animated as _animated } from \\"@querycap-ui/core\\";
 import { theme as _theme } from \\"@querycap-ui/core\\";
-import { css as _css } from \\"@emotion/core\\";
 import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
 import React from \\"react\\";
 import { flow } from \\"lodash\\";
@@ -378,13 +375,13 @@ const C = () => {
 import { animated as _animated } from \\"@querycap-ui/core\\";
 import React from \\"react\\";
 import { css } from \\"@emotion/core\\";
-var __macro_generated_ref_0 = {
-  name: \\"1rr4qq7\\",
-  styles: \\"flex:1;\\"
-};
 const v = {
   name: \\"4lnri7-v\\",
   styles: \\"color:red;;label:v;\\"
+};
+var __macro_generated_ref_0 = {
+  name: \\"1rr4qq7\\",
+  styles: \\"flex:1;\\"
 };
 
 const C = () => {
@@ -412,7 +409,6 @@ const C = () => {
  ↓ ↓ ↓ ↓ ↓ ↓
 
 import { theme as _theme } from \\"@querycap-ui/core\\";
-import { css as _css } from \\"@emotion/core\\";
 import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
 import React from \\"react\\";
 var __macro_generated_ref_0 = {

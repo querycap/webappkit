@@ -11,5 +11,8 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "files": [
+    "./import-emotion-jsx-only-need"
+  ]
 }

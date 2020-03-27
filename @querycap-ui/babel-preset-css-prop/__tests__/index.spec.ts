@@ -19,8 +19,6 @@ describe("babel-preset-css-prop", () => {
   it("without css prop", () => {
     expect(
       compileToSnapshot(`
-import React from "react"
-
 const SomeComponent = () => {
   return (
     <>
@@ -31,16 +29,25 @@ const SomeComponent = () => {
     ).toMatchSnapshot();
   });
 
-  it("with css prop", () => {
+  it("css prop", () => {
     expect(
       compileToSnapshot(`
-import React from "react"
-
 const SomeComponent = () => {
   return (
     <>
       <div css={(t) => ({ color: t.color.primary })}>123</div>
     </>
+  )
+}`),
+    ).toMatchSnapshot();
+  });
+
+  it("css prop only", () => {
+    expect(
+      compileToSnapshot(`
+const SomeComponent = () => {
+  return (
+    <div css={(t) => ({ color: t.color.primary })}>123</div>
   )
 }`),
     ).toMatchSnapshot();

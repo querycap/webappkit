@@ -1,4 +1,5 @@
 import { Node, NodePath } from "@babel/core";
+import generate from "@babel/generator";
 // @ts-ignore
 import { addDefault, addNamed } from "@babel/helper-module-imports";
 import * as t from "@babel/types";
@@ -12,6 +13,7 @@ import {
   V8IntrinsicIdentifier,
   VariableDeclarator,
 } from "@babel/types";
+import { serializeStyles } from "@emotion/serialize";
 import { createMacro } from "babel-plugin-macros";
 import aliasesOrigin from "../aliases.json";
 
@@ -51,7 +53,6 @@ const isGenerated = (id: string) => id.startsWith(generatedPrefix);
 
 const createScanner = (program: NodePath<Program>) => {
   const querycapUICoreImport = createImporter(program, "@querycap-ui/core");
-  const emotionCoreImport = createImporter(program, "@emotion/core");
 
   const objectExpression = (o: { [k: string]: Expression }) => {
     return t.objectExpression(
@@ -85,59 +86,41 @@ const createScanner = (program: NodePath<Program>) => {
   const asThemeGetter = (returnExpr: Expression) =>
     t.arrowFunctionExpression([t.identifier(generatedPrefix + "t")], returnExpr);
 
-  const createHoisting = (program: NodePath<Program>) => {
-    let lastInserted: NodePath;
+  const createHoisting = () => {
     let styleIdx = 0;
 
-    return (expr: Expression): NodePath<VariableDeclarator> | undefined => {
+    return (nodePath: NodePath, expr: Expression): NodePath<VariableDeclarator> | undefined => {
       const ident = t.identifier(`${generatedPrefix}ref_${styleIdx}`);
       const decl = t.variableDeclaration("var", [t.variableDeclarator(ident, expr)]);
 
-      if (lastInserted) {
-        lastInserted = lastInserted.insertAfter([decl])[0];
-      } else {
-        const targetPath = program.get("body").find((p) => !p.isImportDeclaration());
-
-        if (targetPath) {
-          lastInserted = targetPath.insertBefore([decl])[0];
-        }
-      }
+      const ownerDecl = nodePath.findParent((p) => p.parentPath.isProgram());
+      const inserted = ownerDecl.insertBefore([decl])[0];
 
       styleIdx++;
 
-      return lastInserted && ((lastInserted.get("declarations") as NodePath[])[0] as NodePath<VariableDeclarator>);
+      return inserted && ((inserted.get("declarations") as NodePath[])[0] as NodePath<VariableDeclarator>);
     };
   };
 
-  const hoistingAsVariable = createHoisting(program);
+  const hoistAsVariable = createHoisting();
 
-  const hoistStaticCSS = (o: { [k: string]: Expression }) => {
-    const cssIdent = emotionCoreImport("css");
+  const hoistStaticCSS = (nodePath: NodePath, o: { [k: string]: Expression }) => {
+    const cssObject = generate(objectExpression(o))?.code;
 
-    const callExpr = callExpression(cssIdent, objectExpression(o));
+    const res = serializeStyles([eval(`(${cssObject})`)], {});
 
-    const variableDeclarator = hoistingAsVariable(callExpr)!;
-
-    // to register binding
-    if (!program.scope.getBinding(cssIdent.name)) {
-      program.traverse({
-        ImportSpecifier(s) {
-          if (s.get("local").node.name === cssIdent.name) {
-            program.scope.registerBinding("module", s);
-          }
-        },
-      });
-    }
-
-    // update to referencePaths to let emotion to handle
-    program.scope
-      .getBinding(cssIdent.name)!
-      .referencePaths.push((variableDeclarator.get("init") as NodePath<CallExpression>).get("callee"));
+    const variableDeclarator = hoistAsVariable(
+      nodePath,
+      objectExpression({
+        name: t.stringLiteral(res.name),
+        styles: t.stringLiteral(res.styles),
+      }),
+    )!;
 
     return variableDeclarator.node.id as Identifier;
   };
 
-  const createCollector = (selector: string) => {
+  const createCollector = (nodePath: NodePath, selector: string) => {
     const parts: any[] = [];
 
     let needTheme = false;
@@ -148,7 +131,7 @@ const createScanner = (program: NodePath<Program>) => {
 
     const swap = () => {
       if (hasStatic) {
-        parts.push(hoistStaticCSS(cssStaticProps));
+        parts.push(hoistStaticCSS(nodePath, cssStaticProps));
       }
 
       if (hasThemeGetter) {
@@ -269,11 +252,11 @@ const createScanner = (program: NodePath<Program>) => {
           const params = Object.values(paramSet);
 
           if (params.length === 0) {
-            const variableDeclarator = hoistingAsVariable(result)!;
+            const variableDeclarator = hoistAsVariable(nodePath, result)!;
             return t.clone(variableDeclarator.node.id as Identifier);
           }
 
-          const variableDeclarator = hoistingAsVariable(t.arrowFunctionExpression(params, result))!;
+          const variableDeclarator = hoistAsVariable(nodePath, t.arrowFunctionExpression(params, result))!;
           return callExpression(variableDeclarator.node.id as Identifier, ...params);
         };
 
@@ -291,7 +274,7 @@ const createScanner = (program: NodePath<Program>) => {
 
   return {
     scan: (path: NodePath<CallExpression>) => {
-      const collector = createCollector(path.node.arguments.map((s) => (s as StringLiteral).value).join(", "));
+      const collector = createCollector(path, path.node.arguments.map((s) => (s as StringLiteral).value).join(", "));
 
       const resolveCallChain = (path: NodePath<CallExpression>): NodePath => {
         const memberExpression = path.parentPath;
