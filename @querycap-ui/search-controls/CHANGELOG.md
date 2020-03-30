@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.3.0...@querycap-ui/search-controls@0.3.1) (2020-03-30)
+
+
+### Bug Fixes
+
+* **ui/search-controls:** use ui/core/macro ([19e317d](https://github.com/querycap/webappkit/commit/19e317df6b674550799dae10ccc795976e96069f))
+
+
+
+
+
 # [0.3.0](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.2.0...@querycap-ui/search-controls@0.3.0) (2020-03-30)
 
 
