@@ -5,6 +5,9 @@
     "@babel/runtime-corejs3": "*",
     "offline-plugin": "*"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist/"
   ],
