@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/querycap/webappkit/compare/@querycap-ui/texts@0.2.1...@querycap-ui/texts@0.3.0) (2020-03-30)
+
+
+### Features
+
+* **texts:** drop markdown-it ([27e15d4](https://github.com/querycap/webappkit/commit/27e15d4a26352973f30fc88f3d38a7c4f957d364))
+
+
+
+
+
 ## [0.2.1](https://github.com/querycap/webappkit/compare/@querycap-ui/texts@0.2.0...@querycap-ui/texts@0.2.1) (2020-03-27)
 
 **Note:** Version bump only for package @querycap-ui/texts

@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/texts",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "license": "MIT",
   "peerDependencies": {
     "@emotion/core": "10.x",
@@ -8,10 +8,10 @@
     "react": "16.x"
   },
   "dependencies": {
-    "@querycap-ui/core": "0.5.1",
+    "@querycap-ui/core": "0.6.0",
     "remark-parse": "7.0.x",
-    "unified": "8.4.x",
-    "remark-react": "7.0.x"
+    "remark-react": "7.0.x",
+    "unified": "8.4.x"
   },
   "publishConfig": {
     "access": "public"

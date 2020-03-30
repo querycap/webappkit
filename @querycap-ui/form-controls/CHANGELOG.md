@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.4.1...@querycap-ui/form-controls@0.5.0) (2020-03-30)
+
+
+### Features
+
+* **ui/search-controls:** added SearchBox and inputs ([072bb9f](https://github.com/querycap/webappkit/commit/072bb9ffb246115a1104c1e38a4278bdf17b1611))
+
+
+
+
+
 ## [0.4.1](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.4.0...@querycap-ui/form-controls@0.4.1) (2020-03-27)
 
 **Note:** Version bump only for package @querycap-ui/form-controls
