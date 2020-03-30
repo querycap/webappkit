@@ -90,6 +90,7 @@ import { transparentize as _transparentize } from \\"@querycap-ui/core\\";
 import { theme as _theme } from \\"@querycap-ui/core\\";
 import { simpleShadow as _simpleShadow } from \\"@querycap-ui/core\\";
 import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
+import { selectKeys as _selectKeys } from \\"@querycap-ui/core\\";
 import { roundedEm as _roundedEm } from \\"@querycap-ui/core\\";
 import { rgba as _rgba } from \\"@querycap-ui/core\\";
 import { colors as _colors } from \\"@querycap-ui/core\\";
@@ -100,7 +101,7 @@ var __macro_generated_ref_0 = {
   styles: \\"opacity:0.6;cursor:default;\\"
 };
 var __macro_generated_ref_1 = {
-  \\"&:disabled\\": __macro_generated_ref_0
+  [_selectKeys(\\"&:disabled\\")]: __macro_generated_ref_0
 };
 var __macro_generated_ref_2 = {
   name: \\"1pqorvt\\",
@@ -110,7 +111,7 @@ var __macro_generated_ref_2 = {
 var __macro_generated_ref_3 =
 /*__THEME_NEED__*/
 __macro_generated_t => ({
-  \\"&:focus\\": [__macro_generated_ref_2, {
+  [_selectKeys(\\"&:focus\\")]: [__macro_generated_ref_2, {
     boxShadow: _fromTheme(flow(_theme.state.borderColor, _transparentize(0.85), _simpleShadow(\\"0 0 0 0.2em\\")))(__macro_generated_t)
   }]
 });
@@ -118,7 +119,7 @@ __macro_generated_t => ({
 var __macro_generated_ref_4 =
 /*__THEME_NEED__*/
 __macro_generated_t => ({
-  \\"&:active\\": {
+  [_selectKeys(\\"&:active\\")]: {
     boxShadow: _fromTheme(\`inset 0 0.15em 0.3em \${_rgba(_colors.black, 0.15)}\`)(__macro_generated_t)
   }
 });
@@ -126,7 +127,7 @@ __macro_generated_t => ({
 var __macro_generated_ref_5 =
 /*__THEME_NEED__*/
 __macro_generated_t => ({
-  \\"& > * + *\\": {
+  [_selectKeys(\\"& > * + *\\")]: {
     marginLeft: _fromTheme(_theme.space.s1)(__macro_generated_t)
   }
 });
@@ -136,7 +137,7 @@ var __macro_generated_ref_6 = {
   styles: \\"opacity:0.9;cursor:pointer;\\"
 };
 var __macro_generated_ref_7 = {
-  \\"&:hover\\": __macro_generated_ref_6
+  [_selectKeys(\\"&:hover\\")]: __macro_generated_ref_6
 };
 var __macro_generated_ref_8 = {
   name: \\"roftna\\",
@@ -282,6 +283,7 @@ const Animated = animated(C);
 import { cover as _cover } from \\"@querycap-ui/core\\";
 import { animated as _animated } from \\"@querycap-ui/core\\";
 import { theme as _theme } from \\"@querycap-ui/core\\";
+import { selectKeys as _selectKeys } from \\"@querycap-ui/core\\";
 import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
 import React from \\"react\\";
 import { flow } from \\"lodash\\";
@@ -289,7 +291,7 @@ import { flow } from \\"lodash\\";
 var __macro_generated_ref_0 =
 /*__THEME_NEED__*/
 __macro_generated_t => ({
-  \\"& > a\\": {
+  [_selectKeys(\\"& > a\\")]: {
     color: _fromTheme(_theme.state.color)(__macro_generated_t)
   }
 });
@@ -311,7 +313,7 @@ var __macro_generated_ref_3 = {
   styles: \\"color:red;\\"
 };
 var __macro_generated_ref_4 = {
-  \\"& > h2\\": __macro_generated_ref_3
+  [_selectKeys(\\"& > h2\\")]: __macro_generated_ref_3
 };
 var __macro_generated_ref_5 = {
   name: \\"k008qs\\",
@@ -350,6 +352,81 @@ const C = () => {
 };
 
 const Animated = _animated(C);  
+  "
+`;
+
+exports[`@querycap-ui/core/macro select 1`] = `
+"
+
+import React from \\"react\\"
+import { select, OptionFocusedAttr } from \\"@querycap-ui/core/macro\\"
+
+const v = \\"\\"
+
+const C = () => {
+
+  return (
+    <>
+      <div css={select()
+      .with(select(\\"& > h1\\", \\"& > h2\\").color(\\"red\\").with(
+        select(\`&[\${OptionFocusedAttr}=true]\`).color(\\"red\\")
+      ))
+      .with(select(v).color(\\"red\\"))
+      .with(select().color(\\"red\\"))}></div>
+    </>
+  )
+}
+
+    
+ ↓ ↓ ↓ ↓ ↓ ↓
+
+import { OptionFocusedAttr as _OptionFocusedAttr } from \\"@querycap-ui/core\\";
+import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
+import { selectKeys as _selectKeys } from \\"@querycap-ui/core\\";
+import React from \\"react\\";
+const v = \\"\\";
+var __macro_generated_ref_0 = {
+  name: \\"tokvmb\\",
+  styles: \\"color:red;\\"
+};
+var __macro_generated_ref_1 = {
+  name: \\"tokvmb\\",
+  styles: \\"color:red;\\"
+};
+var __macro_generated_ref_2 = {
+  [_selectKeys(v)]: __macro_generated_ref_1
+};
+var __macro_generated_ref_3 = {
+  name: \\"tokvmb\\",
+  styles: \\"color:red;\\"
+};
+var __macro_generated_ref_4 = {
+  [_selectKeys(\`&[\${_OptionFocusedAttr}=true]\`)]: __macro_generated_ref_3
+};
+var __macro_generated_ref_5 = {
+  name: \\"tokvmb\\",
+  styles: \\"color:red;\\"
+};
+
+var __macro_generated_ref_6 =
+/*__THEME_NEED__*/
+__macro_generated_t => ({
+  [_selectKeys(\\"& > h1\\", \\"& > h2\\")]: [__macro_generated_ref_5, _fromTheme(__macro_generated_ref_4)(__macro_generated_t)]
+});
+
+var __macro_generated_ref_7 =
+/*__THEME_NEED__*/
+__macro_generated_t => [_fromTheme(
+/*__THEME_NEED__*/
+__macro_generated_ref_6)(__macro_generated_t), _fromTheme(__macro_generated_ref_2)(__macro_generated_t), _fromTheme(__macro_generated_ref_0)(__macro_generated_t)];
+
+const C = () => {
+  return <>
+      <div css={
+    /*__THEME_NEED__*/
+    __macro_generated_ref_7}></div>
+    </>;
+};  
   "
 `;
 

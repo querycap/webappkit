@@ -1,6 +1,6 @@
 import { FormControl, Input, InputIcon } from "@querycap-ui/form-controls";
 import { IconLock, IconUser } from "@querycap-ui/icons";
-import { headings } from "@querycap-ui/texts/utils";
+import { headings } from "@querycap-ui/texts";
 import React from "react";
 
 export const Inputs = () => {

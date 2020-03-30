@@ -51,6 +51,33 @@ const C = () => {
     expect(result).toMatchSnapshot();
   });
 
+  it("select", () => {
+    const result = compileToSnapshot(`
+import React from "react"
+import { select, OptionFocusedAttr } from "@querycap-ui/core/macro"
+
+const v = ""
+
+const C = () => {
+
+  return (
+    <>
+      <div css={select()
+      .with(select("& > h1", "& > h2").color("red").with(
+        select(\`&[\${OptionFocusedAttr}=true]\`).color("red")
+      ))
+      .with(select(v).color("red"))
+      .with(select().color("red"))}></div>
+    </>
+  )
+}
+`);
+
+    console.log(result);
+
+    expect(result).toMatchSnapshot();
+  });
+
   it("nests", () => {
     const result = compileToSnapshot(`
 import React from "react"

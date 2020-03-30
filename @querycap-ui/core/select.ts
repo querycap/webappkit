@@ -72,6 +72,8 @@ const buildStyle = (styleOrBuilders: StyleOrBuilderSet) => (t: any): Interpolati
   return styles;
 };
 
+export const selectKeys = (...selectors: string[]) => selectors.join(", ");
+
 const createBuilder = (
   selectors: readonly string[],
   styleOrBuilders: StyleOrBuilderSet = {},
@@ -91,7 +93,7 @@ const createBuilder = (
     }
 
     return {
-      [selectors.join(", ")]: final,
+      [selectKeys(...selectors)]: final,
     };
   };
 

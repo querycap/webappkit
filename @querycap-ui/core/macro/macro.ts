@@ -9,7 +9,6 @@ import {
   Function,
   Identifier,
   Program,
-  StringLiteral,
   V8IntrinsicIdentifier,
   VariableDeclarator,
 } from "@babel/types";
@@ -120,7 +119,7 @@ const createScanner = (program: NodePath<Program>) => {
     return variableDeclarator.node.id as Identifier;
   };
 
-  const createCollector = (nodePath: NodePath, selector: string) => {
+  const createCollector = (nodePath: NodePath, selectors: any[]) => {
     const parts: any[] = [];
 
     let needTheme = false;
@@ -152,10 +151,9 @@ const createScanner = (program: NodePath<Program>) => {
     const createCSSValues = (blocks: any[]) => {
       const toObject = () => {
         const v = blocks.length === 1 ? blocks[0] : t.arrayExpression(blocks);
-        if (selector) {
-          return objectExpression({
-            [selector]: v,
-          });
+        if (selectors.length > 0) {
+          const key = callExpression(querycapUICoreImport("selectKeys"), ...selectors);
+          return t.objectExpression([t.objectProperty(key, v, true)]);
         }
         return v;
       };
@@ -274,7 +272,7 @@ const createScanner = (program: NodePath<Program>) => {
 
   return {
     scan: (path: NodePath<CallExpression>) => {
-      const collector = createCollector(path, path.node.arguments.map((s) => (s as StringLiteral).value).join(", "));
+      const collector = createCollector(path, path.node.arguments);
 
       const resolveCallChain = (path: NodePath<CallExpression>): NodePath => {
         const memberExpression = path.parentPath;

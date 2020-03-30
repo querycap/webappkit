@@ -122,10 +122,10 @@ export const theme: {
 }) as any;
 
 export const shadows = {
-  normal: flow(theme.state.backgroundColor, tintOrShade(0.3), transparentize(0.9), simpleShadow("0 1px 1px")),
-  medium: flow(theme.state.backgroundColor, tintOrShade(0.3), transparentize(0.85), simpleShadow("0 1px 5px")),
-  large: flow(theme.state.backgroundColor, tintOrShade(0.3), transparentize(0.85), simpleShadow("0 1px 15px")),
-  extraLarge: flow(theme.state.backgroundColor, tintOrShade(0.3), transparentize(0.8), simpleShadow("0 10px 15px")),
+  normal: flow(theme.state.backgroundColor, tintOrShade(0.2), transparentize(0.8), simpleShadow("0 1px 1px")),
+  medium: flow(theme.state.backgroundColor, tintOrShade(0.2), transparentize(0.75), simpleShadow("0 1px 5px")),
+  large: flow(theme.state.backgroundColor, tintOrShade(0.2), transparentize(0.75), simpleShadow("0 1px 15px")),
+  extraLarge: flow(theme.state.backgroundColor, tintOrShade(0.2), transparentize(0.75), simpleShadow("0 10px 15px")),
 };
 
 export const ThemeProvider = (props: { theme?: Theme; children?: React.ReactNode }) => (
