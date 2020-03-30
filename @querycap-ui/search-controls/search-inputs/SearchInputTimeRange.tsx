@@ -1,4 +1,4 @@
-import { select, theme } from "@querycap-ui/core";
+import { select, theme } from "@querycap-ui/core/macro";
 import { DateWheelPicker } from "@querycap-ui/date-pickers";
 import { IconCalendar } from "@querycap-ui/icons";
 import { parseRange, stringifyRange } from "@querycap/strfmt";
