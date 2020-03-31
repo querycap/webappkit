@@ -1,6 +1,6 @@
 {
   "name": "@querycap/pwa",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
     "offline-plugin": "*"
