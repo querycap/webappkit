@@ -69,9 +69,10 @@ export function useStoreState$<T>(
 
 export function createUseState<T>(
   topic: string,
+  initialState?: T,
   persistOpts: { crossTabs?: boolean; expiresIn?: number } = { crossTabs: true },
 ) {
-  return function (initialState?: T | (() => T)) {
+  return function () {
     const [state$, update] = useStoreState$<T>(topic, initialState, persistOpts);
     const state = useObservable(state$);
     return [state, update] as const;
