@@ -1,18 +1,25 @@
 {
   "name": "@querycap-ui/babel-preset-css-prop",
-  "version": "0.3.5",
-  "main": "index.js",
+  "version": "0.3.6",
   "license": "MIT",
   "dependencies": {
-    "babel-plugin-emotion": "10.x"
+    "babel-plugin-emotion": "10.x",
+    "@babel/plugin-transform-react-jsx": "7.9.x",
+    "@babel/helper-module-imports": "7.x",
+    "@babel/plugin-syntax-jsx": "7.x"
   },
-  "peerDependencies": {
-    "@babel/core": "7.8.x"
-  },
+  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   },
   "files": [
-    "src/"
-  ]
+    "register.js",
+    "dist/"
+  ],
+  "scripts": {
+    "prepare": "monobundle"
+  },
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
 }

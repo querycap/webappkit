@@ -1,9 +1,10 @@
 import { transformSync } from "@babel/core";
+import presetCSSProp from "@querycap-ui/babel-preset-css-prop";
 
 const compileToSnapshot = (code: string) => {
   const t = transformSync(code, {
     root: __dirname,
-    presets: ["@querycap-ui/babel-preset-css-prop"],
+    presets: [presetCSSProp],
   });
 
   return `

@@ -1,3 +1,1 @@
-require("ts-node/register");
-
-module.exports = require("./macro").macro;
+module.exports = require("@querycap-ui/core.macro");

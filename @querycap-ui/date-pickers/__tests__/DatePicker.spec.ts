@@ -1,5 +1,5 @@
 import { formatRFC3339, parseISO } from "date-fns";
-import { getDaysInMonth } from "../DatePicker";
+import { getDaysInMonth } from "@querycap-ui/date-pickers";
 
 test("getDaysInMonth should get days list in mouth", () => {
   const days = getDaysInMonth("2016-01-01", 1);

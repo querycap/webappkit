@@ -1,0 +1,28 @@
+{
+  "name": "@querycap-ui/core.macro",
+  "version": "0.0.0",
+  "license": "MIT",
+  "peerDependencies": {
+    "@babel/runtime-corejs3": "*"
+  },
+  "dependencies": {
+    "@babel/generator": "7.x",
+    "@babel/types": "7.x",
+    "@babel/helper-module-imports": "7.x",
+    "babel-plugin-macros": "2.x",
+    "@emotion/serialize": "0.11.x",
+    "lodash": "4.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepare": "monobundle"
+  },
+  "files": [
+    "dist/"
+  ],
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
+}

@@ -8,6 +8,7 @@
     "react": "16.x"
   },
   "dependencies": {
+    "@querycap-ui/css-aliases": "0.0.0",
     "@emotion/core": "10.x",
     "polished": "3.4.x",
     "react-spring": "8.0.x"

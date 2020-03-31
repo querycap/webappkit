@@ -13,8 +13,8 @@ import {
   VariableDeclarator,
 } from "@babel/types";
 import { serializeStyles } from "@emotion/serialize";
+import { aliases as aliasesOrigin } from "@querycap-ui/css-aliases";
 import { createMacro } from "babel-plugin-macros";
-import aliasesOrigin from "../aliases.json";
 
 const aliases: { [k: string]: string[] } = aliasesOrigin;
 
@@ -311,7 +311,7 @@ const createScanner = (program: NodePath<Program>) => {
   };
 };
 
-export const macro = createMacro(({ references }) => {
+export default createMacro(({ references }) => {
   Object.keys(references).forEach((k) => {
     if (references[k].length > 0) {
       if (k === "select") {

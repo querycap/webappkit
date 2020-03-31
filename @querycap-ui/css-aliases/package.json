@@ -1,19 +1,17 @@
 {
-  "name": "@querycap/pwa",
-  "version": "0.1.1",
-  "peerDependencies": {
-    "@babel/runtime-corejs3": "*",
-    "offline-plugin": "*"
-  },
+  "name": "@querycap-ui/css-aliases",
+  "version": "0.0.0",
+  "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "scripts": {
+    "prepare": "monobundle"
   },
   "files": [
     "dist/"
   ],
-  "scripts": {
-    "prepare": "monobundle"
-  },
+  "peerDependencies": {},
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "module": "dist/index.es.js"

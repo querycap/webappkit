@@ -1,8 +1,7 @@
 import { Interpolation } from "@emotion/core";
 import { isEmpty, isFunction } from "lodash";
 import { CSSProperties } from "react";
-// @ts-ignore
-import aliases from "./aliases.json";
+import { aliases } from "@querycap-ui/css-aliases";
 import { Theme } from "./theme";
 
 export type InterpolationBuilder = (t: Theme) => Interpolation;
