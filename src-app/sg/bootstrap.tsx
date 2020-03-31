@@ -3,8 +3,9 @@ import { createBootstrap } from "@querycap/bootstrap";
 import { Route, Switch } from "@reactorx/router";
 import React from "react";
 import { ComponentDocs } from "./ComponentDocs";
+import { conf } from "./config";
 
-export const bootstrap = createBootstrap("sg")(
+export const bootstrap = createBootstrap(conf())(
   <>
     <ThemeProvider>
       <Switch>

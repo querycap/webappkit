@@ -1,12 +1,11 @@
 import { parse } from "querystring";
-import React, { createContext, ReactNode, useContext } from "react";
+import { createContext, useContext } from "react";
 
 export type BaseConfig = { appName: string; env: string; version: string };
 
 const ConfigContext = createContext<{ config: any }>({ config: {} as any });
 
-const ConfigProvider = ConfigContext.Provider;
-
+export const ConfigProvider = ConfigContext.Provider;
 export const useConfig = <T extends BaseConfig>(): T => useContext(ConfigContext).config || {};
 
 const getDevKitValue = (key: string) => {
@@ -29,14 +28,9 @@ export function confLoader<TKeys extends string>() {
     } as any;
   };
 
-  conf.Provider = ({ children }: { children: ReactNode }) => (
-    <ConfigProvider
-      value={{
-        config: conf(),
-      }}>
-      {children}
-    </ConfigProvider>
-  );
+  const useConfigWithTypes = () => useConfig<ReturnType<typeof conf>>();
+
+  conf.useConfig = useConfigWithTypes;
 
   return conf;
 }

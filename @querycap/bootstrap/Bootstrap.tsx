@@ -1,3 +1,4 @@
+import { BaseConfig, ConfigProvider } from "@querycap/config";
 import { createPersister } from "@querycap/persister";
 import { Actor, AsyncStage, Store, StoreProvider, useStore } from "@reactorx/core";
 import { ReactorxRouter } from "@reactorx/router";
@@ -60,9 +61,11 @@ function PersisterConnect({ persister }: { persister: ReturnType<typeof createPe
   return null;
 }
 
-export const createBootstrap = (appName: string) => (e: ReactElement<any> | (() => ReactElement<any>)) => {
+export const createBootstrap = <T extends BaseConfig>(config: T) => (
+  e: ReactElement<any> | (() => ReactElement<any>),
+) => {
   const persister = createPersister({
-    name: appName || "app",
+    name: config.appName || "app",
   });
 
   const history = createBrowserHistory({
@@ -83,8 +86,10 @@ export const createBootstrap = (appName: string) => (e: ReactElement<any> | (() 
     persister.hydrate((storeValues) => {
       r(
         <Bootstrap initialValues={storeValues}>
-          <PersisterConnect persister={persister} />
-          <ReactorxRouter history={history}>{isFunction(e) ? e() : e}</ReactorxRouter>
+          <ConfigProvider value={{ config }}>
+            <PersisterConnect persister={persister} />
+            <ReactorxRouter history={history}>{isFunction(e) ? e() : e}</ReactorxRouter>
+          </ConfigProvider>
         </Bootstrap>,
         $root,
       );
