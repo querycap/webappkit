@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.7](https://github.com/querycap/webappkit/compare/@querycap-ui/babel-preset-css-prop@0.3.1...@querycap-ui/babel-preset-css-prop@0.3.7) (2020-03-31)
+
+
+### Bug Fixes
+
+* **ui/babel-preset-css-prop:** release files fix ([d09e97f](https://github.com/querycap/webappkit/commit/d09e97f8a38a95c56625bd57016ebefb716179fb))
+* **ui/core:** fix macro in node.js ([102af93](https://github.com/querycap/webappkit/commit/102af9372adae55c61f45221c1096658147f7e22))
+
+
+
+
+
 ## [0.3.1](https://github.com/querycap/webappkit/compare/@querycap-ui/babel-preset-css-prop@0.3.0...@querycap-ui/babel-preset-css-prop@0.3.1) (2020-03-27)
 
 

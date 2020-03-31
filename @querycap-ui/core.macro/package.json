@@ -1,16 +1,16 @@
 {
   "name": "@querycap-ui/core.macro",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*"
   },
   "dependencies": {
     "@babel/generator": "7.x",
-    "@babel/types": "7.x",
     "@babel/helper-module-imports": "7.x",
-    "babel-plugin-macros": "2.x",
+    "@babel/types": "7.x",
     "@emotion/serialize": "0.11.x",
+    "babel-plugin-macros": "2.x",
     "lodash": "4.x"
   },
   "publishConfig": {

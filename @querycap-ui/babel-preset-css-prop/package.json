@@ -1,14 +1,13 @@
 {
   "name": "@querycap-ui/babel-preset-css-prop",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "license": "MIT",
   "dependencies": {
-    "babel-plugin-emotion": "10.x",
-    "@babel/plugin-transform-react-jsx": "7.9.x",
     "@babel/helper-module-imports": "7.x",
-    "@babel/plugin-syntax-jsx": "7.x"
+    "@babel/plugin-syntax-jsx": "7.x",
+    "@babel/plugin-transform-react-jsx": "7.9.x",
+    "babel-plugin-emotion": "10.x"
   },
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   },
