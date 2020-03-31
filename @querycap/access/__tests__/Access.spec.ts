@@ -1,4 +1,4 @@
-import { fromOAuthToken, hasLogon } from "..";
+import { fromOAuthToken, hasLogon } from "@querycap/access";
 
 describe("#AccessToken", () => {
   describe("expires_in", () => {

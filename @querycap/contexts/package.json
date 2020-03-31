@@ -1,0 +1,28 @@
+{
+  "name": "@querycap/contexts",
+  "version": "0.0.0",
+  "files": [
+    "dist/"
+  ],
+  "peerDependencies": {
+    "@reactorx/router": "0.x",
+    "@reactorx/core": "0.x",
+    "@querycap/reactutils": "*",
+    "lodash": "4.x",
+    "date-fns": "2.x",
+    "@babel/runtime-corejs3": "*"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "monobundle": {
+    "env": "browser"
+  },
+  "scripts": {
+    "prepare": "monobundle"
+  },
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
+}

@@ -97,7 +97,7 @@ function withAccessControl(method: "some" | "every", ...deps: Array<ShouldEnterR
       return shouldRender;
     });
 
-  return function<TFn extends Function>(CompOrHook: TFn, isHook?: boolean) {
+  return function <TFn extends Function>(CompOrHook: TFn, isHook?: boolean) {
     if (isHook) {
       (CompOrHook as any).resolveShouldRender = resolveShouldRender;
       return CompOrHook;
