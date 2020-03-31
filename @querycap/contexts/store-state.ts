@@ -23,7 +23,7 @@ export type TUpdater<T> = (prev: T) => T;
 export function useStoreState$<T>(
   topic: string,
   initialState: undefined | T | (() => T),
-  persistOpts?: { crossTabs?: boolean; expiresIn?: number } = {},
+  persistOpts: { crossTabs?: boolean; expiresIn?: number } = {},
 ) {
   const scope = useStoreStateScope();
 
