@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.2](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.0.1...@querycap-ui/core.macro@0.0.2) (2020-03-31)
+
+
+### Bug Fixes
+
+* re-exports fix ([dc91ec7](https://github.com/querycap/webappkit/commit/dc91ec7983130355667eca8ce24c6dc5b0c4619e))
+
+
+
+
+
 ## 0.0.1 (2020-03-31)
 
 
