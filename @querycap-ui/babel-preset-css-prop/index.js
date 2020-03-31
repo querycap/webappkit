@@ -8,7 +8,7 @@ const r = (pkg) => {
 
 module.exports = (_, { sourceMap = false, autoLabel, labelFormat, instances }) => ({
   plugins: [
-    require("./import-emotion-jsx-only-need").importEmotionJSXOnlyNeed,
+    require("./src/import-emotion-jsx-only-need").importEmotionJSXOnlyNeed,
     r("@babel/plugin-transform-react-jsx"),
     [
       r("babel-plugin-emotion"),
