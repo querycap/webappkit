@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/querycap/webappkit/compare/@querycap/config@0.5.0...@querycap/config@0.6.0) (2020-03-31)
+
+
+### Features
+
+* **bootstrap:** config inject when bootstrap ([e1a839c](https://github.com/querycap/webappkit/commit/e1a839c7b0a6e0fa49b9cb6cae2399286fe7e743))
+
+
+
+
+
 # 0.5.0 (2020-03-31)
 
 
