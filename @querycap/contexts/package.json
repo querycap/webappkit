@@ -1,16 +1,16 @@
 {
   "name": "@querycap/contexts",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "files": [
     "dist/"
   ],
   "peerDependencies": {
-    "@reactorx/router": "0.x",
-    "@reactorx/core": "0.x",
+    "@babel/runtime-corejs3": "*",
     "@querycap/reactutils": "*",
-    "lodash": "4.x",
+    "@reactorx/core": "0.x",
+    "@reactorx/router": "0.x",
     "date-fns": "2.x",
-    "@babel/runtime-corejs3": "*"
+    "lodash": "4.x"
   },
   "license": "MIT",
   "publishConfig": {

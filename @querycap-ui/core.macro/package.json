@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/core.macro",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*"
@@ -10,8 +10,8 @@
     "@babel/helper-module-imports": "7.x",
     "@babel/types": "7.x",
     "@emotion/serialize": "0.11.x",
-    "babel-plugin-macros": "2.x",
-    "@querycap-ui/css-aliases": "0.0.2"
+    "@querycap-ui/css-aliases": "0.1.0",
+    "babel-plugin-macros": "2.x"
   },
   "publishConfig": {
     "access": "public"

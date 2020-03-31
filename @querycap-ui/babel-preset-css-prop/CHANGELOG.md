@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/querycap/webappkit/compare/@querycap-ui/babel-preset-css-prop@0.3.8...@querycap-ui/babel-preset-css-prop@0.4.0) (2020-03-31)
+
+
+### Features
+
+* **contexts:** initial contexts for state mgr ([7e7f86a](https://github.com/querycap/webappkit/commit/7e7f86a7ec61375cb8f3d618468d0772305c9a48))
+
+
+
+
+
 ## [0.3.8](https://github.com/querycap/webappkit/compare/@querycap-ui/babel-preset-css-prop@0.3.7...@querycap-ui/babel-preset-css-prop@0.3.8) (2020-03-31)
 
 

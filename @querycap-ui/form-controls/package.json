@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/form-controls",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
@@ -9,7 +9,7 @@
     "react": "16.x"
   },
   "dependencies": {
-    "@querycap-ui/core": "0.6.2",
+    "@querycap-ui/core": "0.6.3",
     "@querycap-ui/icons": "0.2.0"
   },
   "publishConfig": {
