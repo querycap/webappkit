@@ -1,12 +1,12 @@
 {
   "name": "@querycap/config",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "files": [
     "dist/"
   ],
   "peerDependencies": {
-    "react": "16.x",
-    "@babel/runtime-corejs3": "*"
+    "@babel/runtime-corejs3": "*",
+    "react": "16.x"
   },
   "license": "MIT",
   "publishConfig": {
