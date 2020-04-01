@@ -59,7 +59,7 @@ const createInputStyle = ({ disabled, active, success, danger, small }: InputOpt
     )
     .with(select("& > *").paddingY(flow(theme.state.fontSize, roundedEm(small ? 0.25 : 0.5))))
     .with(
-      select("& input")
+      select("& input", "& textarea")
         .flex(1)
         .outline(0)
         .background("none")
