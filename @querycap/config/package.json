@@ -5,6 +5,7 @@
     "dist/"
   ],
   "peerDependencies": {
+    "react": "16.x",
     "@babel/runtime-corejs3": "*"
   },
   "license": "MIT",

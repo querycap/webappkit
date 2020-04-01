@@ -10,7 +10,9 @@
     "@reactorx/core": "0.x",
     "@reactorx/router": "0.x",
     "date-fns": "2.x",
-    "lodash": "4.x"
+    "lodash": "4.x",
+    "rxjs": "6.x",
+    "react": "16.x"
   },
   "license": "MIT",
   "publishConfig": {
