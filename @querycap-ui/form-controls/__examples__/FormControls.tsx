@@ -1,5 +1,5 @@
 import { FormControl, Input, InputIcon } from "@querycap-ui/form-controls";
-import { IconLock, IconUser } from "@querycap-ui/icons";
+import { IconEyeOff, IconLock, IconUser } from "@querycap-ui/icons";
 import { headings } from "@querycap-ui/texts";
 import React from "react";
 
@@ -13,7 +13,10 @@ export const Inputs = () => {
             <InputIcon>
               <IconUser />
             </InputIcon>
-            <input type="text" defaultValue={"username"} />
+            <input name="username" type="text" />
+            <InputIcon>
+              <IconEyeOff />
+            </InputIcon>
           </Input>
         </FormControl>
         <FormControl label={"密码"} error={"密码不正确"}>
@@ -21,7 +24,7 @@ export const Inputs = () => {
             <InputIcon>
               <IconLock />
             </InputIcon>
-            <input type="text" defaultValue={"password"} />
+            <input name={"password"} type="password" />
           </Input>
         </FormControl>
       </div>

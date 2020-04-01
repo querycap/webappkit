@@ -12,9 +12,11 @@ export interface ControlledInput<T> {
 
 export interface InputOptions {
   small?: boolean;
+
   active?: boolean;
   success?: boolean;
   danger?: boolean;
+
   disabled?: boolean;
 }
 
@@ -65,7 +67,9 @@ const createInputStyle = ({ disabled, active, success, danger, small }: InputOpt
         .border("none")
         .colorFill("inherit")
         .paddingX(theme.space.s2),
-    );
+    )
+    .with(select(`& * + input`).marginLeft("-2em").paddingLeft("2em"))
+    .with(select("& input:not(:last-child)").marginRight("-2em").paddingRight("2em"));
 
 export interface InputProps extends InputOptions {
   children?: ReactNode;
@@ -93,6 +97,7 @@ export const InputPrefix = ({ children, ...otherProps }: { children?: ReactNode 
       {...otherProps}
       css={select()
         .paddingX(theme.space.s2)
+        .marginRight(theme.space.s2)
         .color(flow(theme.state.color, transparentize(0.5)))
         .backgroundColor(flow(theme.state.backgroundColor, tintOrShade(0.06)))
         .borderRight(`1px solid`)
@@ -108,6 +113,7 @@ export const InputSuffix = ({ children, ...otherProps }: { children?: ReactNode 
       {...otherProps}
       css={select()
         .paddingX(theme.space.s2)
+        .marginLeft(theme.space.s2)
         .color(flow(theme.state.color, transparentize(0.5)))
         .backgroundColor(flow(theme.state.backgroundColor, tintOrShade(0.06)))
         .borderLeft(`1px solid`)
@@ -121,11 +127,11 @@ export const InputIcon = ({ pullRight, children, ...otherProps }: { children?: R
   return (
     <span
       {...otherProps}
+      role="img"
       css={select()
-        .display("flex")
-        .colorFill(flow(theme.state.color, transparentize(0.5)))
-        .paddingLeft(theme.space.s2)
-        .with(select("* + &").paddingLeft(0).paddingRight(theme.space.s2))}>
+        .textAlign("center")
+        .width("2em")
+        .colorFill(flow(theme.state.color, transparentize(0.5)))}>
       {children}
     </span>
   );
