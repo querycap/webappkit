@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/querycap/webappkit/compare/@querycap/form@0.3.0...@querycap/form@0.3.1) (2020-04-02)
+
+
+### Bug Fixes
+
+* **form:** reset enhance ([c097e9a](https://github.com/querycap/webappkit/commit/c097e9a29cf6d1d1b6fd4341329d8a6600eba48c))
+
+
+
+
+
 # [0.3.0](https://github.com/querycap/webappkit/compare/@querycap/form@0.2.0...@querycap/form@0.3.0) (2020-04-02)
 
 
