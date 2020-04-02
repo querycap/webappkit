@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/search-controls",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
@@ -14,9 +14,9 @@
     "rxjs": "6.x"
   },
   "dependencies": {
-    "@querycap-ui/blocks": "0.4.1",
+    "@querycap-ui/blocks": "0.4.2",
     "@querycap-ui/date-pickers": "0.x",
-    "@querycap-ui/form-controls": "0.7.1",
+    "@querycap-ui/form-controls": "0.7.2",
     "@querycap-ui/icons": "0.x",
     "@querycap/reactutils": "0.5.0",
     "@querycap/strfmt": "0.x",
