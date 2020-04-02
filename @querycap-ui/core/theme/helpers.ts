@@ -17,6 +17,4 @@ export const safeTextColor = (backgroundColor: string) => {
 
 export const negative = (v: number) => -v;
 
-export const roundedEm = curry((em: number, v: number) => Math.round(em * v));
-
 export const simpleShadow = curry((sizes: string, color: string) => `${sizes} ${color}`);

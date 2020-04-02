@@ -1,4 +1,6 @@
-import { select, theme } from "@querycap-ui/core/macro";
+import { roundedEm, select, theme } from "@querycap-ui/core/macro";
+
+export const fitPaddingY = (small?: boolean) => roundedEm(small ? 0.3 : 0.6);
 
 export const base = select()
   .lineHeight(theme.lineHeights.normal)

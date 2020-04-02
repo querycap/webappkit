@@ -1,7 +1,6 @@
 import {
   colors,
   rgba,
-  roundedEm,
   safeTextColor,
   select,
   simpleShadow,
@@ -13,7 +12,7 @@ import {
 } from "@querycap-ui/core/macro";
 import { flow } from "lodash";
 import React, { ButtonHTMLAttributes, forwardRef, ReactNode } from "react";
-import { base } from "./utils";
+import { base, fitPaddingY } from "./utils";
 
 export interface ButtonOptions {
   primary?: boolean;
@@ -40,7 +39,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             .with(base)
             .position("relative")
             .paddingX(block ? 0 : small ? "1.2em" : "1.6em")
-            .paddingY(flow(theme.state.fontSize, roundedEm(small ? 0.25 : 0.5)))
+            .paddingY(fitPaddingY(small))
             .display(block ? "block" : "inline-block")
             .alignItems("center")
             .outline("none")

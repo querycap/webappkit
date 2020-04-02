@@ -1,4 +1,4 @@
-import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect } from "@querycap-ui/blocks";
+import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect } from "@querycap-ui/form-controls";
 import { cover, select } from "@querycap-ui/core";
 import { useToggle } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";

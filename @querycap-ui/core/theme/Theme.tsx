@@ -128,6 +128,8 @@ export const shadows = {
   extraLarge: flow(theme.state.color, tintOrShade(0.2), transparentize(0.65), simpleShadow("0 8px 12px")),
 };
 
+export const roundedEm = (em: number) => (t: Theme) => Math.round(em * t.state.fontSize);
+
 export const ThemeProvider = (props: { theme?: Theme; children?: React.ReactNode }) => (
   <ThemeContext.Provider value={props.theme || defaultTheme}>{props.children}</ThemeContext.Provider>
 );

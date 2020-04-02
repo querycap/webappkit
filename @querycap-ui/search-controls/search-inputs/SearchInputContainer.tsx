@@ -82,7 +82,7 @@ const FilterLabel = ({
         .color(flow(theme.state.color, transparentize(0.05)))
         .borderRadius(theme.radii.s)
         .backgroundColor(flow(theme.state.color, transparentize(0.96)))
-        .with(select("& > *").paddingY(flow(theme.state.fontSize, roundedEm(0.25))))}>
+        .with(select("& > *").paddingY(roundedEm(0.3)))}>
       <div
         css={select()
           .display("flex")

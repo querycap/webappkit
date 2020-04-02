@@ -305,13 +305,13 @@ export function MenuPopover({
 export const MenuGroup = ({ children }: { children: ReactNode }) => (
   <div
     css={select()
-      .paddingY(flow(theme.state.fontSize, roundedEm(0.25)))
+      .paddingY(roundedEm(0.3))
       .with(select("& + &").borderTop("1px solid").borderColor(theme.state.borderColor))
       .with(
         select("& > *")
           .display("block")
           .paddingX("1em")
-          .paddingY(flow(theme.state.fontSize, roundedEm(0.25)))
+          .paddingY(roundedEm(0.3))
           .colorFill(theme.state.color)
           .cursor("pointer")
           .with(

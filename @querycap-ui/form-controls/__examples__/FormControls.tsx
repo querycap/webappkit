@@ -21,7 +21,7 @@ export const Inputs = () => {
           </Input>
         </FormControl>
         <FormControl label={"密码"} error={"密码不正确"}>
-          <Input danger>
+          <Input danger small>
             <InputIcon>
               <IconLock />
             </InputIcon>

@@ -13,16 +13,16 @@ export const Inputs = () => {
         <Input>
           <input type="text" />
         </Input>
-        <Input active>
+        <Input small active>
           <input type="text" value={"输入中"} readOnly />
         </Input>
-        <Input danger>
+        <Input small danger>
           <input type="text" value={"输入错误"} readOnly />
         </Input>
-        <Input success>
+        <Input small success>
           <input type="text" value={"输入成功"} readOnly />
         </Input>
-        <Input disabled>
+        <Input small disabled>
           <input type="text" disabled value={"输入静止"} />
         </Input>
       </Stack>

@@ -6,7 +6,7 @@ import { fromEvent, merge } from "rxjs";
 import { buffer, debounceTime, filter as rxFilter, tap } from "rxjs/operators";
 import { FilterMeta, FilterValue, useSearchBox } from "../search-box";
 import { useKeyboardControlsOfSearchBox } from "./hooks";
-import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect } from "@querycap-ui/blocks";
+import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect } from "@querycap-ui/form-controls";
 
 export const SearchInputWild = () => {
   const ctx = useSearchBox();

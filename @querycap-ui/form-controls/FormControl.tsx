@@ -1,6 +1,5 @@
 import { roundedEm, select, theme } from "@querycap-ui/core/macro";
 import { asField, FieldInput, useField } from "@querycap/form";
-import { flow } from "lodash";
 import React, { ReactNode } from "react";
 import { Input, InputProps } from "./Input";
 
@@ -17,7 +16,7 @@ export const FormControl = ({ label, error, desc, children }: FormControlProps) 
       css={select()
         .display("block")
         .position("relative")
-        .paddingY(flow(theme.state.fontSize, roundedEm(1.75)))
+        .paddingY(roundedEm(1.8))
         .with(!label && select().paddingTop(0))
         .with(
           select(`& > [role=msg]`)

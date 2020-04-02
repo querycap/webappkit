@@ -1,5 +1,5 @@
 import { roundedEm, select, theme, ThemeState } from "@querycap-ui/core/macro";
-import { flow, map } from "lodash";
+import { map } from "lodash";
 import React from "react";
 
 export interface Pager {
@@ -59,7 +59,7 @@ export const Pagination = ({ total, pager, onPagerChange, onShowSizeChange, ...o
     .backgroundColor(theme.state.backgroundColor)
     .paddingX("0.6em")
     .borderRadius(theme.radii.s)
-    .paddingY(flow(theme.state.fontSize, roundedEm(0.25)));
+    .paddingY(roundedEm(0.3));
 
   const pageNumItems = map(pageNums, (pageNum, idx) => {
     const active = currentPage === pageNum;

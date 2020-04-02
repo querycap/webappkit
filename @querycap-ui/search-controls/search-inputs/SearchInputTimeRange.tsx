@@ -10,7 +10,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { fromEvent, merge } from "rxjs";
 import { filter as rxFilter, tap } from "rxjs/operators";
 import { displayValue, SearchInputProps } from "../search-box";
-import { MenuPopover, useKeyboardArrowControls } from "@querycap-ui/blocks";
+import { MenuPopover, useKeyboardArrowControls } from "@querycap-ui/form-controls";
 import { withPreventDefault } from "./utils";
 
 export const createTimeRangeDisplay = (f = "yyyy-MM-dd HH:mm") => (v: string) => {

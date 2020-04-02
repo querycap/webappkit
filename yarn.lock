@@ -2468,12 +2468,12 @@
     ts-node "*"
     typescript "3.8.x"
 
-"@querycap-dev/devkit@0.2.11":
-  version "0.2.11"
-  resolved "https://registry.npmjs.org/@querycap-dev/devkit/-/devkit-0.2.11.tgz#1cfd5e011ec5470dccf91fcf9c275fc832a52b41"
-  integrity sha512-hNa42gcWYnRttO//0JJdOZjexLSvGtBkRy9jUR8GqA9z62pC6Rw2u1Q9lKx8HwtTep5k/dcSkpfl315ruGFz9w==
+"@querycap-dev/devkit@0.3.0":
+  version "0.3.0"
+  resolved "https://registry.npmjs.org/@querycap-dev/devkit/-/devkit-0.3.0.tgz#be848275da8dbfa3f108f263b9fd1c5e96e95f7e"
+  integrity sha512-NOLwEvxae70xiHN329w+Cz1JT9mFIj93gmcjrL+RLasOGfBZaAXommCYNaHWz4mHxyRgcK7dv9ef2y5u2QkNmQ==
   dependencies:
-    "@querycap-dev/generate" "0.3.5"
+    "@querycap-dev/generate" "0.4.0"
     "@types/cross-spawn" "6.0.x"
     "@types/js-yaml" "3.12.x"
     cross-spawn "7.0.x"
@@ -2501,34 +2501,35 @@
   dependencies:
     "@morlay/simplify-svg" "1.x"
 
-"@querycap-dev/generate@0.3.5":
-  version "0.3.5"
-  resolved "https://registry.npmjs.org/@querycap-dev/generate/-/generate-0.3.5.tgz#f430da055d56b93a9b2a619c643ae2262f7da555"
-  integrity sha512-+GBF0bBK4q5mG41xgdyj5WUNWvqFhkdywYrCdRpeQT3EqBS4wKNGPjGVqlG/u2+siQLymFm6Mu1alu1vjM5JTw==
+"@querycap-dev/generate@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.npmjs.org/@querycap-dev/generate/-/generate-0.4.0.tgz#17df4dc915db68fac0ba2d7759aced211f2201ee"
+  integrity sha512-ewlbM6XtHMR1Z/KUYHQdfUBMIN/Lf4Dq80c6NQYLHotZFFEs50atvyIHLZQNf8DlTpXJr7+dcoGvKYyXF79Y2A==
   dependencies:
-    chalk "3.0.0"
+    chalk "4.0.0"
     globby "11.0.0"
     prettier "*"
 
-"@querycap-dev/monobundle@0.4.12":
-  version "0.4.12"
-  resolved "https://registry.npmjs.org/@querycap-dev/monobundle/-/monobundle-0.4.12.tgz#1ff998ac36879a21501bb4512f8684dab0d83b4c"
-  integrity sha512-x3n5G8gw5+Duh0PdnNQeDLXBBwqREYE0cIjJEMjOx0S3UUYPNg8+LIM6h8ffCRmzoOvrddDob5LukRvBZYBn6A==
+"@querycap-dev/monobundle@0.5.0":
+  version "0.5.0"
+  resolved "https://registry.npmjs.org/@querycap-dev/monobundle/-/monobundle-0.5.0.tgz#293bce31675aaf51ce4cc77a6b79ddf09b6cba50"
+  integrity sha512-ZvBw0ImmHsPSzmD0jgZRmRFxURipG1olug7YEbzcpnuJA125p07Sy5xYgHYfA4cKW33ZiQeqlxFGq1h7wEMRfQ==
   dependencies:
     "@rollup/plugin-json" "4.0.x"
     "@rollup/plugin-node-resolve" "7.1.x"
     "@types/yargs" "15.x"
     chalk "3.0.x"
     del "5.1.x"
+    minimatch "3.0.x"
     rollup "2.3.x"
     rollup-plugin-babel "4.4.0"
     rollup-plugin-dts "1.3.0"
     yargs "15.3.x"
 
-"@querycap-dev/webpack-preset-assets@0.5.5":
-  version "0.5.5"
-  resolved "https://registry.npmjs.org/@querycap-dev/webpack-preset-assets/-/webpack-preset-assets-0.5.5.tgz#fb1b96c902af9e36691c4bbe5473225243269434"
-  integrity sha512-wj8ZF2rbPsdYanb/y78FlJM1vc/GWTXh1Ts6wmDe/a3T1WHKKX/tHMfXnd5iBf7cFFue0oaA7NfK+r0HLlfWLA==
+"@querycap-dev/webpack-preset-assets@0.6.0":
+  version "0.6.0"
+  resolved "https://registry.npmjs.org/@querycap-dev/webpack-preset-assets/-/webpack-preset-assets-0.6.0.tgz#bed2bd76edcb780c136282827b22a336bd055dd2"
+  integrity sha512-UaUmOc5mk+mCCMNkE0+2pLJmUzmDc+cgUAnc4r+bQ2n2qRGTIUkPmh6QA4mH6Uu+4DH6mkARhGL9RwmH9IohOg==
   dependencies:
     css-loader "3.4.2"
     file-loader "6.0.0"
@@ -2539,19 +2540,19 @@
     style-loader "1.1.3"
     url-loader "4.0.0"
 
-"@querycap-dev/webpack-preset-html@0.5.7":
-  version "0.5.7"
-  resolved "https://registry.npmjs.org/@querycap-dev/webpack-preset-html/-/webpack-preset-html-0.5.7.tgz#0538b6a0d955a2e99852ac18420f8a031620a456"
-  integrity sha512-MGYsfLvzzAgZVwux1Hem67g4YzictcVYUjuPWTFgNh2yT0Y2cj1T4u9rhB9ajN6SqKFX9zT9Qx8Rw1c1WbiIgg==
+"@querycap-dev/webpack-preset-html@0.6.0":
+  version "0.6.0"
+  resolved "https://registry.npmjs.org/@querycap-dev/webpack-preset-html/-/webpack-preset-html-0.6.0.tgz#145cac0055cb2c868e59473d84932817fe5397f0"
+  integrity sha512-8fdfsgwrKI1hELyB/WUcFwblfvKlebNWz/IixlaDESPut0e+1e2XQwVAYDlSVvFbLoW87R0chyR+V8+jVl3zGg==
   dependencies:
-    html-webpack-plugin "4.0.3"
+    html-webpack-plugin "4.0.4"
     offline-plugin "5.0.7"
     webpack-pwa-manifest "4.2.0"
 
-"@querycap-dev/webpack-preset-ts@0.5.5":
-  version "0.5.5"
-  resolved "https://registry.npmjs.org/@querycap-dev/webpack-preset-ts/-/webpack-preset-ts-0.5.5.tgz#7d8cef4611241a33cb76d38bfc1a61accdcc5668"
-  integrity sha512-5VijP48K0qk0UcFkNB2OSRHTlDi1gMVm1zf039s+o2EnqSLFQPe5ZiFu2QDOvNSyhHyu4hoQAiU3kurg5T4JQA==
+"@querycap-dev/webpack-preset-ts@0.6.0":
+  version "0.6.0"
+  resolved "https://registry.npmjs.org/@querycap-dev/webpack-preset-ts/-/webpack-preset-ts-0.6.0.tgz#b01541134cee9626e544705f5b83eedb24395e63"
+  integrity sha512-flvnMnjvUJ+UdP/bhu5ZZmiiCA+HoPpQ1lnlJGlWx3gljNMwiDhsoq1peM1qlEasuuBg2K1ue7mLYHob81Cr4Q==
   dependencies:
     "@types/terser-webpack-plugin" "2.2.0"
     babel-loader "8.1.x"
@@ -2559,13 +2560,13 @@
     terser-webpack-plugin "2.3.5"
     worker-loader "2.0.x"
 
-"@querycap-dev/webpack-preset@0.5.13":
-  version "0.5.13"
-  resolved "https://registry.npmjs.org/@querycap-dev/webpack-preset/-/webpack-preset-0.5.13.tgz#e293a959326e2a3d84d5d9ad66dbdbd07f1b6d6f"
-  integrity sha512-h2z49SD2VWoaZ6XpTOxIx82LS3Nu4Dm3g6+36GOS82KGD0PghT+ieSR6150hvx1HQ7+CKSvXBtRMkIKjlOpyBA==
+"@querycap-dev/webpack-preset@0.6.0":
+  version "0.6.0"
+  resolved "https://registry.npmjs.org/@querycap-dev/webpack-preset/-/webpack-preset-0.6.0.tgz#5c28e005e4c7f31e47dbf170f6458bd3be65dda5"
+  integrity sha512-LcqH4SLxcqILPR+FDnE1qpJ/fNljmuuRGGAx3hqCSQ151lN7jpe7y7U9pFJ3YJdUyVUPXNT26977Q0pRcagLhQ==
   dependencies:
     "@morlay/webpack-browser-sync" "*"
-    "@querycap-dev/devkit" "0.2.11"
+    "@querycap-dev/devkit" "0.3.0"
     "@types/webpack" "4.x"
     webpack "4.x"
     webpack-bundle-analyzer "3.6.1"
@@ -4396,10 +4397,18 @@ chalk@2.4.2, chalk@^2.0.0, chalk@^2.0.1, chalk@^2.1.0, chalk@^2.3.1, chalk@^2.4.
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-chalk@3.0.0, chalk@3.0.x, chalk@^3.0.0:
+chalk@3.0.x, chalk@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/chalk/-/chalk-3.0.0.tgz#3f73c2bf526591f574cc492c51e2456349f844e4"
   integrity sha512-4D3B6Wf41KOYRFdszmDqMCGq5VV/uMAB273JILmO+3jAlh8X4qDtdtgCR3fxtbLEMzSx22QdhnDcJvu2u1fVwg==
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
+chalk@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.npmjs.org/chalk/-/chalk-4.0.0.tgz#6e98081ed2d17faab615eb52ac66ec1fe6209e72"
+  integrity sha512-N9oWFcegS0sFr9oh1oz2d7Npos6vNoWW9HvtCg5N1KRFpUhaAhvTv5Y58g880fZaEYSNm3qDz8SU1UrGvp+n7A==
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
@@ -7124,10 +7133,10 @@ html-minifier-terser@^5.0.1, html-minifier-terser@^5.0.4:
     relateurl "^0.2.7"
     terser "^4.6.3"
 
-html-webpack-plugin@4.0.3:
-  version "4.0.3"
-  resolved "https://registry.npmjs.org/html-webpack-plugin/-/html-webpack-plugin-4.0.3.tgz#70659c8836210249cb6fa9dd6706a957547666d5"
-  integrity sha512-XCm5MGK6Yv/ey30fbhqjKIGm1r6G1HxmNorJ/xUdL/Zj3mOLtb9ZHEEIw0e4h3VzgyUrp8szCJh3VN9z1LNx7A==
+html-webpack-plugin@4.0.4:
+  version "4.0.4"
+  resolved "https://registry.npmjs.org/html-webpack-plugin/-/html-webpack-plugin-4.0.4.tgz#90cdfb168094e93e047174d9baca098ec5540636"
+  integrity sha512-BREQzUbFfIQS39KqxkT2L1Ot0tuu1isako1CaCQLrgEQ43zi2ScHAe3SMTnVBWsStnIsGtl8jprDdxwZkNhrwQ==
   dependencies:
     "@types/html-minifier-terser" "^5.0.0"
     "@types/tapable" "^1.0.5"
@@ -9214,7 +9223,7 @@ minimalistic-crypto-utils@^1.0.0, minimalistic-crypto-utils@^1.0.1:
   resolved "https://registry.npmjs.org/minimalistic-crypto-utils/-/minimalistic-crypto-utils-1.0.1.tgz#f6c00c1c0b082246e5c4d99dfb8c7c083b2b582a"
   integrity sha1-9sAMHAsIIkblxNmd+4x8CDsrWCo=
 
-minimatch@^3.0.2, minimatch@^3.0.3, minimatch@^3.0.4:
+minimatch@3.0.x, minimatch@^3.0.2, minimatch@^3.0.3, minimatch@^3.0.4:
   version "3.0.4"
   resolved "https://registry.npmjs.org/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   integrity sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
