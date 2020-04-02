@@ -7,8 +7,7 @@ import React, { forwardRef, ReactNode, useMemo, useRef } from "react";
 import { BehaviorSubject } from "rxjs";
 import { distinctUntilChanged, map as rxMap, tap } from "rxjs/operators";
 import { displayValue, SearchInputProps } from "../search-box";
-import { MenuOptGroup, SelectMenuPopover } from "./Menu";
-import { OptionFocusedAttr, useNewSelect } from "./Select";
+import { MenuOptGroup, OptionFocusedAttr, SelectMenuPopover, useNewSelect } from "@querycap-ui/blocks";
 import { withPreventDefault } from "./utils";
 
 const SortLabel = forwardRef(

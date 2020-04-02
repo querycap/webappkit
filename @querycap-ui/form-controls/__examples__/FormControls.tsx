@@ -15,7 +15,7 @@ export const Inputs = () => {
               <IconUser />
             </InputIcon>
             <input name="username" type="text" />
-            <InputIcon>
+            <InputIcon pullRight>
               <IconEyeOff />
             </InputIcon>
           </Input>

@@ -1,9 +1,27 @@
 import { theme } from "@querycap-ui/core";
-import { Button, FormControlWithField } from "@querycap-ui/form-controls";
+import { Button, FormControlWithField, InputSelect } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 import { SimpleInputText, useNewForm } from "@querycap/form";
 import { required, validateQueue, validEmail } from "@querycap/validators";
 import React from "react";
+
+const displayGender = (v: string) => {
+  switch (v) {
+    case "MALE":
+      return (
+        <span>
+          M<small>ale</small>
+        </span>
+      );
+    case "FEMALE":
+      return (
+        <span>
+          F<small>emale</small>
+        </span>
+      );
+  }
+  return "";
+};
 
 export function SimpleForm() {
   const [{ reset }, Form] = useNewForm("SimpleForm", {
@@ -17,6 +35,9 @@ export function SimpleForm() {
       onSubmit={(values) => {
         alert(JSON.stringify(values, null, 2));
       }}>
+      <FormControlWithField name="gender">
+        {(props) => <InputSelect {...props} enum={["MALE", "FEMALE"]} display={displayGender} />}
+      </FormControlWithField>
       <FormControlWithField name="firstName">{SimpleInputText}</FormControlWithField>
       <FormControlWithField name="lastName">{SimpleInputText}</FormControlWithField>
       <FormControlWithField name="email" desc={"邮箱"} validate={validateQueue(required(), validEmail())}>

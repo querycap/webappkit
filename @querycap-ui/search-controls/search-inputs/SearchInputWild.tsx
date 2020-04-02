@@ -4,10 +4,9 @@ import { Dictionary, every, forEach, last, map, size, startsWith } from "lodash"
 import React, { useEffect, useRef } from "react";
 import { fromEvent, merge } from "rxjs";
 import { buffer, debounceTime, filter as rxFilter, tap } from "rxjs/operators";
-import { MenuOptGroup, SelectMenuPopover } from "./Menu";
 import { FilterMeta, FilterValue, useSearchBox } from "../search-box";
 import { useKeyboardControlsOfSearchBox } from "./hooks";
-import { useKeyboardArrowControls, useNewSelect } from "./Select";
+import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect } from "@querycap-ui/blocks";
 
 export const SearchInputWild = () => {
   const ctx = useSearchBox();

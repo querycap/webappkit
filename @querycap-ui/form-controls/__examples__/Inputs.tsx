@@ -1,6 +1,6 @@
 import { select, theme } from "@querycap-ui/core/macro";
 import { Button, Input, InputIcon, InputPrefix, InputSuffix } from "@querycap-ui/form-controls";
-import { IconAirplay, IconChevronDown, IconEyeOff } from "@querycap-ui/icons";
+import { IconAirplay, IconEyeOff } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
 import { headings } from "@querycap-ui/texts";
 import React from "react";
@@ -46,12 +46,6 @@ export const Inputs = () => {
           <input type="text" />
           <InputIcon>
             <IconEyeOff />
-          </InputIcon>
-        </Input>
-        <Input>
-          <input type="text" />
-          <InputIcon>
-            <IconChevronDown />
           </InputIcon>
         </Input>
       </Stack>

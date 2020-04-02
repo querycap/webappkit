@@ -37,15 +37,7 @@ const FilterInput = () => {
     const Input = focusedFilter.type! || SearchInputText;
 
     return (
-      <div
-        css={{
-          flex: 1,
-          display: "flex",
-          alignItems: "center",
-          "& > *:last-child": {
-            flex: 1,
-          },
-        }}>
+      <div css={select().flex(1).display("flex").alignItems("stretch").with(select("& > *:last-child").flex(1))}>
         <FilterLabel filterMeta={focusedFilter} />
         <Input
           {...focusedFilter}
@@ -154,11 +146,11 @@ export const SearchInputContainer = (_: {}) => {
           .flexWrap("wrap")
           .paddingX("0.4em")
           .lineHeight(theme.lineHeights.condensed)
-          .with(select("& input").width("100%").paddingX(theme.space.s1))
+          .with(select("& input", "& [role=input]").width("100%").paddingX(theme.space.s1))
           .margin(-2)
           .with(select("& > *").margin(2))}>
         <FilterLabelList />
-        <div css={select().flex(1).with("& input").paddingX(0)}>
+        <div css={select().flex(1).with(select("& input", "& [role=input]").paddingX(0))}>
           <FilterInput />
         </div>
       </div>

@@ -77,34 +77,43 @@ export const formUpdateField = FormActor.named<
 
 export const formRemoveField = FormActor.named<void, { field: string }>("field/remove").effectOn(
   formKeyFromActor,
-  (formState: FormState, { opts }) => ({
-    ...formState,
-    fields: putFields(formState.fields, opts.field, () => undefined as any),
-  }),
+  (formState: FormState, { opts }) =>
+    formState
+      ? {
+          ...formState,
+          fields: putFields(formState.fields, opts.field, () => undefined as any),
+        }
+      : formState,
 );
 
 export const formFocusField = FormActor.named<void, { field: string }>("field/focus").effectOn(
   formKeyFromActor,
-  (formState: FormState, { opts }) => ({
-    ...formState,
-    fields: putFields(formState.fields, opts.field, (fieldState) => ({
-      ...fieldState,
-      active: true,
-      visited: true,
-    })),
-  }),
+  (formState: FormState, { opts }) =>
+    formState
+      ? {
+          ...formState,
+          fields: putFields(formState.fields, opts.field, (fieldState) => ({
+            ...fieldState,
+            active: true,
+            visited: true,
+          })),
+        }
+      : formState,
 );
 
 export const formBlurField = FormActor.named<void, { field: string }>("field/blur").effectOn(
   formKeyFromActor,
-  (formState: FormState, { opts }) => ({
-    ...formState,
-    fields: putFields(formState.fields, opts.field, (fieldState) => ({
-      ...fieldState,
-      active: false,
-      touched: true,
-    })),
-  }),
+  (formState: FormState, { opts }) =>
+    formState
+      ? {
+          ...formState,
+          fields: putFields(formState.fields, opts.field, (fieldState) => ({
+            ...fieldState,
+            active: false,
+            touched: true,
+          })),
+        }
+      : formState,
 );
 
 export function putValues(values: any = {}, fieldName: string, value: string): any {

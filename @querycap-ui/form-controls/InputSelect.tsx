@@ -1,25 +1,52 @@
 import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect } from "@querycap-ui/blocks";
-import { cover, select } from "@querycap-ui/core";
+import { cover } from "@querycap-ui/core";
+import { select } from "@querycap-ui/core/select";
+import { InputIcon } from "@querycap-ui/form-controls";
+import { IconChevronDown } from "@querycap-ui/icons";
+import { FieldInputCommonProps } from "@querycap/form";
+import { useValueRef } from "@querycap/reactutils";
 import { useToggle } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
-import { filter, includes, map, noop } from "lodash";
-import React, { useEffect, useRef } from "react";
+import { map, noop } from "lodash";
+import React, { ReactNode, useEffect, useMemo, useRef } from "react";
 import { fromEvent, merge } from "rxjs";
 import { filter as rxFilter, tap } from "rxjs/operators";
-import { displayValue, SearchInputProps } from "../search-box";
-import { useKeyboardControlsOfSearchBox } from "./hooks";
 
-export const SearchInputSelect = ({
+export interface InputSelectProps<T extends any = any> extends FieldInputCommonProps<T> {
+  enum: any[];
+  display?: (v: T) => ReactNode;
+}
+
+export const InputSelect = ({
   enum: values,
-  display,
-  usedValues,
-  defaultValue,
-  onSubmit,
-  onCancel,
-}: SearchInputProps) => {
+  display = (v: any) => `${v}`,
+  value,
+  onValueChange,
+  onBlur,
+  onFocus,
+}: InputSelectProps) => {
   const inputElmRef = useRef<HTMLInputElement>(null);
 
-  const [isOpened, openPopover, closePopover] = useToggle();
+  const propsRef = useValueRef({
+    onBlur: onBlur || noop,
+    onFocus: onFocus || noop,
+  });
+
+  const [isOpened, openPopoverOrigin, closePopoverOrigin] = useToggle();
+
+  const [openPopover, closePopover] = useMemo(
+    () => [
+      () => {
+        openPopoverOrigin();
+        propsRef.current.onFocus();
+      },
+      () => {
+        closePopoverOrigin();
+        propsRef.current.onBlur();
+      },
+    ],
+    [],
+  );
 
   const [selectCtx, Select] = useNewSelect();
 
@@ -34,11 +61,6 @@ export const SearchInputSelect = ({
     }
   });
 
-  useKeyboardControlsOfSearchBox(inputElmRef, {
-    onCancel,
-    onSubmit,
-  });
-
   useObservableEffect(() => {
     if (!inputElmRef.current) {
       return;
@@ -46,7 +68,7 @@ export const SearchInputSelect = ({
 
     return selectCtx.selectValue$.pipe(
       tap((value) => {
-        onSubmit(value);
+        onValueChange(value);
       }),
     );
   }, []);
@@ -86,27 +108,25 @@ export const SearchInputSelect = ({
   return (
     <>
       <div role="input" css={select().position("relative")}>
-        <input
-          ref={inputElmRef}
-          type="text"
-          value={defaultValue || ""}
-          css={select().with(cover()).opacity(0)}
-          onChange={noop}
-        />
-        <span>{displayValue(defaultValue || "", display)}</span>&nbsp;
+        <input ref={inputElmRef} type="text" value={value} css={select().with(cover()).opacity(0)} onChange={noop} />
+        <span>{display(value)}</span>&nbsp;
       </div>
+      <InputIcon>
+        <IconChevronDown />
+      </InputIcon>
       {isOpened && (
         <Select>
-          <SelectMenuPopover triggerRef={inputElmRef} onRequestClose={() => closePopover()} placement={"bottom-left"}>
+          <SelectMenuPopover
+            fullWidth
+            triggerRef={inputElmRef}
+            onRequestClose={() => closePopover()}
+            placement={"bottom-left"}>
             <MenuOptGroup>
-              {map(
-                filter(values, (v) => !includes(usedValues || [], v)),
-                (key) => (
-                  <div data-opt={key} key={key}>
-                    {displayValue(key, display)}
-                  </div>
-                ),
-              )}
+              {map(values, (value) => (
+                <div data-opt={value} key={value}>
+                  {display(value)}
+                </div>
+              ))}
             </MenuOptGroup>
           </SelectMenuPopover>
         </Select>

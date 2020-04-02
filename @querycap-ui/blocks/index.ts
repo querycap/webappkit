@@ -6,3 +6,4 @@ export * from "./Tooltip";
 export * from "./Modals";
 export * from "./Dailogs";
 export * from "./Tabs";
+export * from "./Menu";

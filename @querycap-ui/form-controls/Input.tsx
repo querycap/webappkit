@@ -1,3 +1,4 @@
+import { negative } from "@querycap-ui/core";
 import { roundedEm, select, simpleShadow, theme, tintOrShade, transparentize } from "@querycap-ui/core/macro";
 import { flow } from "lodash";
 import React, { ReactNode } from "react";
@@ -59,7 +60,7 @@ const createInputStyle = ({ disabled, active, success, danger, small }: InputOpt
     )
     .with(select("& > *").paddingY(flow(theme.state.fontSize, roundedEm(small ? 0.25 : 0.5))))
     .with(
-      select("& input", "& textarea")
+      select("& [role=input]", "& input", "& textarea")
         .flex(1)
         .outline(0)
         .width("100%")
@@ -70,8 +71,9 @@ const createInputStyle = ({ disabled, active, success, danger, small }: InputOpt
         .colorFill("inherit")
         .paddingX(theme.space.s2),
     )
-    .with(select(`& * + input`).marginLeft("-2em").paddingLeft("2em"))
-    .with(select("& input:not(:last-child)").marginRight("-2em").paddingRight("2em"));
+    .with(select(`& * + [role=img]`).marginLeft(flow(theme.space.s2, negative)));
+// .with(select(`& * + [role=img]`).marginRight("-1em"))
+// .with(select("& input:not(:last-child)", "& [role=input]:not(:last-child)").marginRight("-2em").paddingRight("2em"));
 
 export interface InputProps extends InputOptions {
   children?: ReactNode;
@@ -99,7 +101,6 @@ export const InputPrefix = ({ children, ...otherProps }: { children?: ReactNode 
       {...otherProps}
       css={select()
         .paddingX(theme.space.s2)
-        .marginRight(theme.space.s2)
         .color(flow(theme.state.color, transparentize(0.5)))
         .backgroundColor(flow(theme.state.backgroundColor, tintOrShade(0.06)))
         .borderRight(`1px solid`)
@@ -115,7 +116,6 @@ export const InputSuffix = ({ children, ...otherProps }: { children?: ReactNode 
       {...otherProps}
       css={select()
         .paddingX(theme.space.s2)
-        .marginLeft(theme.space.s2)
         .color(flow(theme.state.color, transparentize(0.5)))
         .backgroundColor(flow(theme.state.backgroundColor, tintOrShade(0.06)))
         .borderLeft(`1px solid`)
@@ -127,9 +127,7 @@ export const InputSuffix = ({ children, ...otherProps }: { children?: ReactNode 
 
 export const InputControlSuffix = ({ children, ...otherProps }: { children?: ReactNode }) => {
   return (
-    <span
-      {...otherProps}
-      css={select().marginLeft(theme.space.s2).borderLeft(`1px solid`).borderColor(theme.state.borderColor)}>
+    <span {...otherProps} css={select().borderLeft(`1px solid`).borderColor(theme.state.borderColor)}>
       {children}
     </span>
   );
@@ -152,8 +150,10 @@ export const InputIcon = ({ pullRight, children, ...otherProps }: { children?: R
       role="img"
       css={select()
         .textAlign("center")
-        .width("2em")
-        .colorFill(flow(theme.state.color, transparentize(0.5)))}>
+        .paddingX(theme.space.s2)
+        .colorFill(flow(theme.state.color, transparentize(0.5)))
+        .backgroundColor(flow(theme.state.color, transparentize(0.97)))
+        .with(pullRight && select().position("absolute").backgroundColor("transparent").right(0))}>
       {children}
     </span>
   );
