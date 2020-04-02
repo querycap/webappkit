@@ -44,6 +44,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             .display(block ? "block" : "inline-block")
             .alignItems("center")
             .outline("none")
+            .whiteSpace("nowrap")
             .backgroundColor(theme.state.backgroundColor)
             .borderColor(theme.state.borderColor)
             .colorFill(theme.state.color)

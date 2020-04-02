@@ -62,6 +62,8 @@ const createInputStyle = ({ disabled, active, success, danger, small }: InputOpt
       select("& input", "& textarea")
         .flex(1)
         .outline(0)
+        .width("100%")
+        .maxWidth("100%")
         .background("none")
         .lineHeight("inherit")
         .border("none")
@@ -118,6 +120,26 @@ export const InputSuffix = ({ children, ...otherProps }: { children?: ReactNode 
         .backgroundColor(flow(theme.state.backgroundColor, tintOrShade(0.06)))
         .borderLeft(`1px solid`)
         .borderColor(theme.state.borderColor)}>
+      {children}
+    </span>
+  );
+};
+
+export const InputControlSuffix = ({ children, ...otherProps }: { children?: ReactNode }) => {
+  return (
+    <span
+      {...otherProps}
+      css={select().marginLeft(theme.space.s2).borderLeft(`1px solid`).borderColor(theme.state.borderColor)}>
+      {children}
+    </span>
+  );
+};
+
+export const InputControlPrefix = ({ children, ...otherProps }: { children?: ReactNode }) => {
+  return (
+    <span
+      {...otherProps}
+      css={select().marginRight(theme.space.s2).borderRight(`1px solid`).borderColor(theme.state.borderColor)}>
       {children}
     </span>
   );
