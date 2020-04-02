@@ -1,5 +1,5 @@
 import { useStore, Volume } from "@reactorx/core";
-import { Dictionary, every, filter, get, isArray, isObject, map, mapValues } from "lodash";
+import { Dictionary, every, filter, get, isArray, isObject, map, mapValues, pickBy } from "lodash";
 import React, {
   createContext,
   FormHTMLAttributes,
@@ -44,6 +44,8 @@ export interface FormContexts<TFormValues = any> {
   blurField: (fieldName: string) => void;
 
   setErrors: (errors: Dictionary<string>) => void;
+
+  getErrors: () => Dictionary<string>;
   getValues: () => TFormValues;
 
   createSubmit: (cb: (values: TFormValues) => void) => (evt: SyntheticEvent<any>) => void;
@@ -184,6 +186,13 @@ export function useNewForm<TFormValues extends object>(formName: string, initial
       return getFormState().values;
     };
 
+    const getErrors = () => {
+      return pickBy(
+        mapValues(getFormState().fields, (f) => f.error),
+        (v) => v,
+      );
+    };
+
     const createSubmit = (cb: (values: TFormValues) => void) => {
       return (e: React.FormEvent) => {
         e.preventDefault();
@@ -211,6 +220,8 @@ export function useNewForm<TFormValues extends object>(formName: string, initial
       blurField,
 
       getValues,
+      getErrors,
+
       setErrors,
 
       createSubmit,
