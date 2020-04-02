@@ -1,5 +1,5 @@
 import { useStore, Volume } from "@reactorx/core";
-import { Dictionary, every, filter, get, isArray, isObject, map, mapValues, pickBy } from "lodash";
+import { Dictionary, filter, forEach, get, isArray, isEmpty, isObject, map, mapValues, pickBy } from "lodash";
 import React, {
   createContext,
   FormHTMLAttributes,
@@ -42,7 +42,7 @@ export interface FormContexts<TFormValues = any> {
   destroy: () => void;
   reset: () => void;
 
-  addField: (fieldName: string) => void;
+  addField: (fieldName: string, validate: FieldState["validate"]) => void;
   removeField: (fieldName: string) => void;
 
   updateField: (fieldName: string, value: any | ((value: any) => any), error?: string, initial?: boolean) => void;
@@ -50,8 +50,8 @@ export interface FormContexts<TFormValues = any> {
   blurField: (fieldName: string) => void;
 
   setErrors: (errors: Dictionary<string>) => void;
-
   getErrors: () => Dictionary<string>;
+  validateAndErrors: () => Dictionary<string>;
   getValues: () => TFormValues;
 
   createSubmit: (cb: (values: TFormValues) => void) => (evt: SyntheticEvent<any>) => void;
@@ -68,10 +68,6 @@ const FormProvider = FormContext.Provider;
 export function useForm<TFormValues extends any>(): FormContexts<TFormValues> {
   return useContext(FormContext).form;
 }
-
-const isValid = (fields: FormState["fields"]): boolean => {
-  return every(fields || {}, (field: FieldState) => !field.error);
-};
 
 export function pickValidValues(values: any): any {
   if (values instanceof Blob || values instanceof File) {
@@ -113,6 +109,21 @@ const FormDestroy = () => {
   return null;
 };
 
+const validateAll = (fields: FormState["fields"], values: any) => {
+  const errors: Dictionary<string> = {};
+
+  forEach(fields, ({ validate }, fieldName) => {
+    if (validate) {
+      const err = validate(get(values, fieldName));
+      if (err) {
+        errors[fieldName] = err;
+      }
+    }
+  });
+
+  return errors;
+};
+
 export function useNewForm<TFormValues extends object>(formName: string, initialValues = {} as Partial<TFormValues>) {
   const store$ = useStore();
 
@@ -139,11 +150,11 @@ export function useNewForm<TFormValues extends object>(formName: string, initial
       return store$.getState()[formKey(formName)] || ({} as FormState<TFormValues>);
     };
 
-    const addField = (fieldName: string, defaultValue?: string) => {
+    const addField = (fieldName: string, validate: FieldState["validate"]) => {
       formAddField
         .with(
           {
-            defaultValue: defaultValue,
+            validate,
           },
           { form: formName, field: fieldName },
         )
@@ -209,21 +220,26 @@ export function useNewForm<TFormValues extends object>(formName: string, initial
       );
     };
 
+    const validateAndErrors = () => {
+      const formState = getFormState();
+      return validateAll(formState.fields, formState.values);
+    };
+
     const createSubmit = (cb: (values: TFormValues) => void) => {
       return (e: React.FormEvent) => {
         e.preventDefault();
         e.stopPropagation();
 
         startSubmit();
+        const errors = validateAndErrors();
 
-        const formState = getFormState();
-
-        if (!isValid(formState.fields)) {
+        if (!isEmpty(errors)) {
+          setErrors(errors);
           endSubmit();
           return;
         }
 
-        cb(formState.values);
+        cb(getValues());
       };
     };
 
@@ -239,6 +255,7 @@ export function useNewForm<TFormValues extends object>(formName: string, initial
 
       getValues,
       getErrors,
+      validateAndErrors,
 
       setErrors,
 

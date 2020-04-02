@@ -7,6 +7,7 @@ export interface FieldState {
   touched?: boolean; // blured
   visited?: boolean; // focused
   error?: string;
+  validate?: (v: any) => string | undefined;
 }
 
 export interface FormState<TFormValues = any> {

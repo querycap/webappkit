@@ -65,11 +65,11 @@ export const useFieldState = (name: string): { formID: string; name: string; val
   );
 };
 
-const FieldRegister = ({ name }: { name: string }) => {
+const FieldRegister = ({ name, validate }: { name: string; validate: FieldState["validate"] }) => {
   const { formName, addField, removeField } = useForm();
 
   useLayoutEffect(() => {
-    addField(name);
+    addField(name, validate);
     return () => removeField(name);
   }, [formName, name]);
 
@@ -83,10 +83,14 @@ export const Field = (props: FieldProps) => {
 
   const validateRef = useValueRef(props.validate || (() => ""));
 
+  const validate = (value: any) => {
+    return validateRef.current(value);
+  };
+
   const controls = useMemo(() => {
     return {
       handleValueChange: (value: any, initial?: boolean) => {
-        updateField(name, value, validateRef.current(value), initial);
+        updateField(name, value, validate(value), initial);
       },
       handleFocus: () => focusField(name),
       handleBlur: () => blurField(name),
@@ -97,7 +101,7 @@ export const Field = (props: FieldProps) => {
 
   return (
     <FieldProvider key={`${fieldState.formID}/${fieldState.name}`} value={{ ...fieldState, controls }}>
-      <FieldRegister name={name} />
+      <FieldRegister name={name} validate={validate} />
       {props.children}
     </FieldProvider>
   );

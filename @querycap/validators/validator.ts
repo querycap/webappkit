@@ -1,7 +1,12 @@
+import { isEmpty } from "lodash";
+
 export type Validator<T = any> = (value: T) => string | undefined;
 
 export const createValidator = <T = any>(defaultError: string, test: (v: T) => boolean) => (error = defaultError) => {
   return (value: T) => {
+    if (isEmpty(value)) {
+      return undefined;
+    }
     if (test(value)) {
       return undefined;
     }
@@ -9,7 +14,7 @@ export const createValidator = <T = any>(defaultError: string, test: (v: T) => b
   };
 };
 
-export const validateQueue = (...validators: Validator[]) => {
+export const chain = (...validators: Validator[]) => {
   return (value: any) => {
     for (const v of validators) {
       const err = v(value);
@@ -22,7 +27,7 @@ export const validateQueue = (...validators: Validator[]) => {
   };
 };
 
-export const validateAll = (...validators: Validator[]) => {
+export const all = (...validators: Validator[]) => {
   return (value: any) => {
     const e: string[] = [];
 

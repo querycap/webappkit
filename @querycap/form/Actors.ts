@@ -13,8 +13,8 @@ export const formInitial = FormActor.named<{ initials: any; id: string }>("initi
   (_, { arg }) => ({
     id: arg.id,
     fields: {},
-    initials: arg.initials,
-    values: cloneDeep(arg),
+    initials: arg.initials || {},
+    values: cloneDeep(arg.initials || {}),
   }),
 );
 
@@ -81,15 +81,16 @@ const putFields = (
   return omit<FieldState>(fields, fieldName) as Dictionary<FieldState>;
 };
 
-export const formAddField = FormActor.named<{ defaultValue: any; error?: string }, { field: string }>(
-  "field/add",
-).effectOn(
+export const formAddField = FormActor.named<
+  { defaultValue?: any; validate: FieldState["validate"] },
+  { field: string }
+>("field/add").effectOn(
   formKeyFromActor,
-  mustFormStateReady((formState: FormState, { arg: { defaultValue, error }, opts }) => ({
+  mustFormStateReady((formState: FormState, { arg: { defaultValue, validate }, opts }) => ({
     ...formState,
     values: putValues(formState.values, opts.field, get(formState.initials, opts.field, defaultValue)),
     fields: putFields(formState.fields, opts.field, () => ({
-      error,
+      validate,
       active: false,
       changed: false,
       touched: false,
