@@ -1,7 +1,5 @@
-import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect } from "@querycap-ui/blocks";
 import { cover } from "@querycap-ui/core";
-import { select } from "@querycap-ui/core/select";
-import { InputIcon } from "@querycap-ui/form-controls";
+import { select } from "@querycap-ui/core/macro";
 import { IconChevronDown } from "@querycap-ui/icons";
 import { FieldInputCommonProps } from "@querycap/form";
 import { useValueRef } from "@querycap/reactutils";
@@ -11,6 +9,8 @@ import { map, noop } from "lodash";
 import React, { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
 import { fromEvent, merge } from "rxjs";
 import { filter as rxFilter, tap } from "rxjs/operators";
+import { InputIcon } from "./Input";
+import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect } from "./Menu";
 
 export interface InputSelectProps<T extends any = any> extends FieldInputCommonProps<T> {
   enum: any[];
