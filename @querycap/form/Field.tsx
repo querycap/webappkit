@@ -7,24 +7,28 @@ import React, {
   InputHTMLAttributes,
   ReactNode,
   useContext,
-  useEffect,
+  useLayoutEffect,
   useMemo,
 } from "react";
 import { useFieldNameMayWithPrefix, useForm } from "./Form";
 import { FieldState, Validate } from "./State";
 
-export interface FieldProps<TName extends string = string> {
-  name?: TName;
-  children: ReactNode;
-  validate?: Validate;
+export interface FieldMeta {
+  name: string;
+  readOnly?: boolean;
+  disabled?: boolean;
 }
 
-export interface CurrentFieldContext<T = any> {
-  name: string;
+export interface FieldProps extends Partial<FieldMeta> {
+  validate?: Validate;
+  children: ReactNode;
+}
+
+export interface CurrentFieldContext<T = any> extends FieldMeta {
   value: any;
   state: FieldState;
   controls: {
-    handleValueChange: (v: T) => void;
+    handleValueChange: (v: T, initial?: boolean) => void;
     handleBlur: (e?: FocusEvent) => void;
     handleFocus: (e?: FocusEvent) => void;
   };
@@ -41,43 +45,62 @@ const FieldProvider = FieldContext.Provider;
 
 export const useField = () => useContext(FieldContext);
 
-export const useFieldState = (name: string): { name: string; value: any; state: FieldState } => {
+export const useFieldState = (name: string): { formID: string; name: string; value: any; state: FieldState } => {
   const { state$ } = useForm();
 
   return useSelector(
     state$,
-    (state) => ({
-      state: get(state, ["fields", name], {}),
-      value: get(state, `values.${name}`),
-      name,
-    }),
+    (state) => {
+      const formID = state.id;
+      const fieldState = get(state, ["fields", name]);
+
+      return {
+        state: fieldState || {},
+        value: fieldState ? get(state, `values.${name}`) : undefined,
+        name,
+        formID,
+      };
+    },
     [name],
   );
 };
 
-export const Field = <TName extends string = string>(props: FieldProps<TName>) => {
-  const { formName, registerField, updateField, focusField, blurField } = useForm();
+const FieldRegister = ({ name }: { name: string }) => {
+  const { formName, addField, removeField } = useForm();
+
+  useLayoutEffect(() => {
+    addField(name);
+    return () => removeField(name);
+  }, [formName, name]);
+
+  return null;
+};
+
+export const Field = (props: FieldProps) => {
+  const { formName, updateField, focusField, blurField } = useForm();
 
   const name = useFieldNameMayWithPrefix(props.name || "");
-  const validateRef = useValueRef(props.validate || (() => ""));
 
-  useEffect(() => {
-    return registerField(name);
-  }, [formName, name]);
+  const validateRef = useValueRef(props.validate || (() => ""));
 
   const controls = useMemo(() => {
     return {
-      handleValueChange: (value: any) => {
-        updateField(name, value, validateRef.current(value));
+      handleValueChange: (value: any, initial?: boolean) => {
+        updateField(name, value, validateRef.current(value), initial);
       },
       handleFocus: () => focusField(name),
       handleBlur: () => blurField(name),
     };
   }, [formName, name]);
 
-  const { value, state } = useFieldState(name);
+  const fieldState = useFieldState(name);
 
-  return <FieldProvider value={{ name, value, state, controls }}>{props.children}</FieldProvider>;
+  return (
+    <FieldProvider key={`${fieldState.formID}/${fieldState.name}`} value={{ ...fieldState, controls }}>
+      <FieldRegister name={name} />
+      {props.children}
+    </FieldProvider>
+  );
 };
 
 export const asField = <TProps extends {}>(Comp: FunctionComponent<TProps>) => {
@@ -90,21 +113,22 @@ export const asField = <TProps extends {}>(Comp: FunctionComponent<TProps>) => {
   };
 };
 
-export interface FieldInputCommonProps<T = any> {
-  name: string;
+export interface FieldInputCommonProps<T = any> extends FieldMeta {
   value: T;
-  onValueChange: (v: T) => void;
+  onValueChange: (v: T, initial?: boolean) => void;
   onFocus: () => void;
   onBlur: () => void;
 }
 
 export const FieldInput = ({ children }: { children: (props: FieldInputCommonProps) => JSX.Element | number }) => {
-  const { name, value, controls } = useField();
+  const { name, readOnly, disabled, value, controls } = useField();
 
   return (
     <>
       {children({
         name,
+        readOnly,
+        disabled,
         value: value || "",
         onValueChange: controls.handleValueChange || noop,
         onFocus: controls.handleFocus,

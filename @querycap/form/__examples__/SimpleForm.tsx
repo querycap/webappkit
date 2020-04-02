@@ -23,7 +23,7 @@ const displayGender = (v: string) => {
   return "";
 };
 
-export function SimpleForm() {
+export const SimpleForm = () => {
   const [{ reset }, Form] = useNewForm("SimpleForm", {
     firstName: "123",
     lastName: "231",
@@ -36,7 +36,7 @@ export function SimpleForm() {
         alert(JSON.stringify(values, null, 2));
       }}>
       <FormControlWithField name="gender">
-        {(props) => <InputSelect {...props} enum={["MALE", "FEMALE"]} display={displayGender} />}
+        {(props) => <InputSelect {...props} enum={["FEMALE", "MALE"]} display={displayGender} />}
       </FormControlWithField>
       <FormControlWithField name="firstName">{SimpleInputText}</FormControlWithField>
       <FormControlWithField name="lastName">{SimpleInputText}</FormControlWithField>
@@ -57,4 +57,4 @@ export function SimpleForm() {
       </Stack>
     </Form>
   );
-}
+};

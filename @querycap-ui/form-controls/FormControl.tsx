@@ -45,14 +45,12 @@ export const FormControl = ({ label, error, desc, children }: FormControlProps) 
   );
 };
 
-export interface FormControlWithFieldProps
-  extends Omit<FormControlProps, "error">,
-    Omit<InputProps, "active" | "danger"> {
+export interface FormControlWithFieldProps extends Omit<FormControlProps, "error">, Pick<InputProps, "small"> {
   children: Parameters<typeof FieldInput>[0]["children"];
 }
 
-export const FormControlWithField = asField(({ children, label, desc, small, disabled }: FormControlWithFieldProps) => {
-  const { state } = useField();
+export const FormControlWithField = asField(({ children, label, desc, small }: FormControlWithFieldProps) => {
+  const { state, disabled } = useField();
 
   const err = state.touched ? state.error : undefined;
 

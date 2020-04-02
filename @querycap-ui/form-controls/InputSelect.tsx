@@ -8,7 +8,7 @@ import { useValueRef } from "@querycap/reactutils";
 import { useToggle } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
 import { map, noop } from "lodash";
-import React, { ReactNode, useEffect, useMemo, useRef } from "react";
+import React, { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
 import { fromEvent, merge } from "rxjs";
 import { filter as rxFilter, tap } from "rxjs/operators";
 
@@ -17,19 +17,24 @@ export interface InputSelectProps<T extends any = any> extends FieldInputCommonP
   display?: (v: T) => ReactNode;
 }
 
-export const InputSelect = ({
-  enum: values,
-  display = (v: any) => `${v}`,
-  value,
-  onValueChange,
-  onBlur,
-  onFocus,
-}: InputSelectProps) => {
+export const InputSelect = (props: InputSelectProps) => {
+  const {
+    enum: values,
+    display = (v: any) => `${v}`,
+    value,
+    onValueChange,
+    onBlur,
+    onFocus,
+    disabled,
+    readOnly,
+  } = props;
+
   const inputElmRef = useRef<HTMLInputElement>(null);
 
-  const propsRef = useValueRef({
+  const valuesRef = useValueRef({
     onBlur: onBlur || noop,
     onFocus: onFocus || noop,
+    disabled: readOnly || disabled || values.length <= 1,
   });
 
   const [isOpened, openPopoverOrigin, closePopoverOrigin] = useToggle();
@@ -37,16 +42,26 @@ export const InputSelect = ({
   const [openPopover, closePopover] = useMemo(
     () => [
       () => {
-        openPopoverOrigin();
-        propsRef.current.onFocus();
+        if (!valuesRef.current.disabled) {
+          openPopoverOrigin();
+          valuesRef.current.onFocus();
+        }
       },
       () => {
-        closePopoverOrigin();
-        propsRef.current.onBlur();
+        if (!valuesRef.current.disabled) {
+          closePopoverOrigin();
+          valuesRef.current.onBlur();
+        }
       },
     ],
     [],
   );
+
+  useLayoutEffect(() => {
+    if (!value && values.length > 0) {
+      onValueChange(values[0], true);
+    }
+  }, []);
 
   const [selectCtx, Select] = useNewSelect();
 
@@ -67,8 +82,10 @@ export const InputSelect = ({
     }
 
     return selectCtx.selectValue$.pipe(
+      rxFilter((v) => !!v),
       tap((value) => {
         onValueChange(value);
+        closePopover();
       }),
     );
   }, []);
@@ -101,20 +118,16 @@ export const InputSelect = ({
     ];
   }, []);
 
-  useEffect(() => {
-    inputElmRef.current?.focus();
-  }, []);
-
   return (
     <>
       <div role="input" css={select().position("relative")}>
         <input ref={inputElmRef} type="text" value={value} css={select().with(cover()).opacity(0)} onChange={noop} />
         <span>{display(value)}</span>&nbsp;
       </div>
-      <InputIcon>
+      <InputIcon pullRight>
         <IconChevronDown />
       </InputIcon>
-      {isOpened && (
+      {!valuesRef.current.disabled && isOpened && (
         <Select>
           <SelectMenuPopover
             fullWidth

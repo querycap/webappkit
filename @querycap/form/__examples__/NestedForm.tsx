@@ -6,7 +6,7 @@ import { FieldArray, FormSection, SimpleInputText, useNewForm } from "@querycap/
 import React from "react";
 
 export function NestedForm() {
-  const [, Form] = useNewForm("SimpleForm");
+  const [, Form] = useNewForm("NestedForm");
 
   return (
     <Form

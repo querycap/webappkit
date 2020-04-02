@@ -1,14 +1,13 @@
 import { negative } from "@querycap-ui/core";
 import { roundedEm, select, simpleShadow, theme, tintOrShade, transparentize } from "@querycap-ui/core/macro";
+import { FieldMeta } from "@querycap/form";
 import { flow } from "lodash";
 import React, { ReactNode } from "react";
 import { base } from "./utils";
 
-export interface ControlledInput<T> {
-  name?: string;
+export interface ControlledInput<T> extends Partial<FieldMeta> {
   value: T;
-  onValueChange: (v: T) => void;
-  disabled?: boolean;
+  onValueChange: (v: T, initial?: boolean) => void;
 }
 
 export interface InputOptions {
@@ -72,8 +71,6 @@ const createInputStyle = ({ disabled, active, success, danger, small }: InputOpt
         .paddingX(theme.space.s2),
     )
     .with(select(`& * + [role=img]`).marginLeft(flow(theme.space.s2, negative)));
-// .with(select(`& * + [role=img]`).marginRight("-1em"))
-// .with(select("& input:not(:last-child)", "& [role=input]:not(:last-child)").marginRight("-2em").paddingRight("2em"));
 
 export interface InputProps extends InputOptions {
   children?: ReactNode;

@@ -10,6 +10,7 @@ export interface FieldState {
 }
 
 export interface FormState<TFormValues = any> {
+  id: string;
   fields: Dictionary<FieldState>;
   initials: TFormValues;
   values: TFormValues;

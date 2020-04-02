@@ -1,3 +1,3 @@
 import("./bootstrap").then(({ bootstrap }) => {
-  bootstrap(document.querySelector("#root") as Element);
+  bootstrap(document.querySelector("#root") as Element, true);
 });

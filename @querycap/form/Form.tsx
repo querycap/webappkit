@@ -10,6 +10,7 @@ import React, {
   useMemo,
 } from "react";
 import { Observable } from "rxjs";
+import { v4 as uuid } from "uuid";
 import {
   formAddField,
   formBlurField,
@@ -37,9 +38,14 @@ export const useFieldNameMayWithPrefix = (name: string) => {
 export interface FormContexts<TFormValues = any> {
   formName: string;
 
-  registerField: (fieldName: string) => () => void;
+  initial: () => void;
+  destroy: () => void;
+  reset: () => void;
 
-  updateField: (fieldName: string, value: any | ((value: any) => any), error?: string) => void;
+  addField: (fieldName: string) => void;
+  removeField: (fieldName: string) => void;
+
+  updateField: (fieldName: string, value: any | ((value: any) => any), error?: string, initial?: boolean) => void;
   focusField: (fieldName: string) => void;
   blurField: (fieldName: string) => void;
 
@@ -51,8 +57,6 @@ export interface FormContexts<TFormValues = any> {
   createSubmit: (cb: (values: TFormValues) => void) => (evt: SyntheticEvent<any>) => void;
   startSubmit: () => void;
   endSubmit: () => void;
-
-  reset: () => void;
 
   state$: Observable<FormState<TFormValues>>;
 }
@@ -88,24 +92,22 @@ export function pickValidValues(values: any): any {
   return values;
 }
 
-const FormMount = ({ formName, initialValues }: { formName: string; initialValues: any }) => {
-  const store$ = useStore();
+const FormInitial = () => {
+  const { initial, formName } = useForm();
 
   // to make sure before autoFocus
   useLayoutEffect(() => {
-    formInitial.with(initialValues, { form: formName }).invoke(store$);
+    initial();
   }, [formName]);
 
   return null;
 };
 
-const FormUnmount = ({ formName }: { formName: string }) => {
-  const store$ = useStore();
+const FormDestroy = () => {
+  const { destroy, formName } = useForm();
 
   useEffect(() => {
-    return () => {
-      formDestroy.with(undefined, { form: formName }).invoke(store$);
-    };
+    return () => destroy();
   }, [formName]);
 
   return null;
@@ -115,6 +117,12 @@ export function useNewForm<TFormValues extends object>(formName: string, initial
   const store$ = useStore();
 
   const ctx = useMemo(() => {
+    const formState = {
+      id: uuid(),
+      initials: initialValues,
+      values: initialValues,
+    };
+
     const startSubmit = () => {
       return formStartSubmit.with(undefined, { form: formName }).invoke(store$);
     };
@@ -142,21 +150,23 @@ export function useNewForm<TFormValues extends object>(formName: string, initial
         .invoke(store$);
     };
 
-    const reset = () => {
+    const initial = () => {
+      formInitial.with({ initials: formState.initials, id: formState.id }, { form: formName }).invoke(store$);
+    };
+
+    const destroy = () => {
       formDestroy.with(undefined, { form: formName }).invoke(store$);
-      formInitial.with(initialValues, { form: formName }).invoke(store$);
+    };
+
+    const reset = () => {
+      formState.id = uuid();
+
+      destroy();
+      initial();
     };
 
     const removeField = (fieldName: string) => {
       formRemoveField.with(undefined, { form: formName, field: fieldName }).invoke(store$);
-    };
-
-    const registerField = (fieldName: string, defaultValue?: string) => {
-      addField(fieldName, defaultValue);
-
-      return () => {
-        removeField(fieldName);
-      };
     };
 
     const focusField = (fieldName: string) => {
@@ -167,12 +177,18 @@ export function useNewForm<TFormValues extends object>(formName: string, initial
       formBlurField.with(undefined, { form: formName, field: fieldName }).invoke(store$);
     };
 
-    const updateField = (fieldName: string, nextValue: any | ((value: any) => any), error?: string) => {
+    const updateField = (
+      fieldName: string,
+      nextValue: any | ((value: any) => any),
+      error?: string,
+      initial?: boolean,
+    ) => {
       formUpdateField
         .with(
           {
             value: nextValue,
-            error: error,
+            error,
+            initial,
           },
           {
             field: fieldName,
@@ -214,7 +230,9 @@ export function useNewForm<TFormValues extends object>(formName: string, initial
     return {
       formName,
 
-      registerField,
+      addField,
+      removeField,
+
       updateField,
       focusField,
       blurField,
@@ -229,9 +247,12 @@ export function useNewForm<TFormValues extends object>(formName: string, initial
       startSubmit,
       endSubmit,
 
+      initial,
+      destroy,
+
       reset,
 
-      state$: Volume.from(store$, (state) => get(state, formKey(formName), { values: initialValues })),
+      state$: Volume.from(store$, (state) => get(state, formKey(formName), formState)),
     };
   }, [store$, formName]);
 
@@ -245,7 +266,7 @@ export function useNewForm<TFormValues extends object>(formName: string, initial
     } & Omit<FormHTMLAttributes<any>, "onSubmit">) {
       return (
         <FormProvider key={formName} value={{ form: ctx }}>
-          <FormMount formName={formName} initialValues={initialValues} />
+          <FormInitial />
           <form
             noValidate
             onSubmit={ctx.createSubmit((values) => {
@@ -258,7 +279,7 @@ export function useNewForm<TFormValues extends object>(formName: string, initial
             {...otherProps}>
             {children}
           </form>
-          <FormUnmount formName={formName} />
+          <FormDestroy />
         </FormProvider>
       );
     };
