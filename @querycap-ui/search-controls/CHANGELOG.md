@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.3.8...@querycap-ui/search-controls@0.4.0) (2020-04-02)
+
+
+### Features
+
+* **blocks:** mv Menu into blocks ([a0f538b](https://github.com/querycap/webappkit/commit/a0f538b36ad20c32b4df4b554a6a092891355f48))
+
+
+
+
+
 ## [0.3.8](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.3.7...@querycap-ui/search-controls@0.3.8) (2020-04-02)
 
 **Note:** Version bump only for package @querycap-ui/search-controls

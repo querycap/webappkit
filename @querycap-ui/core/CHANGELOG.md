@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.6.4...@querycap-ui/core@0.7.0) (2020-04-02)
+
+
+### Features
+
+* **blocks:** mv Menu into blocks ([a0f538b](https://github.com/querycap/webappkit/commit/a0f538b36ad20c32b4df4b554a6a092891355f48))
+
+
+
+
+
 ## [0.6.4](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.6.3...@querycap-ui/core@0.6.4) (2020-04-01)
 
 **Note:** Version bump only for package @querycap-ui/core

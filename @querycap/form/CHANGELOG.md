@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/querycap/webappkit/compare/@querycap/form@0.2.0...@querycap/form@0.3.0) (2020-04-02)
+
+
+### Features
+
+* **blocks:** mv Menu into blocks ([a0f538b](https://github.com/querycap/webappkit/commit/a0f538b36ad20c32b4df4b554a6a092891355f48))
+
+
+
+
+
 # [0.2.0](https://github.com/querycap/webappkit/compare/@querycap/form@0.1.1...@querycap/form@0.2.0) (2020-04-02)
 
 
