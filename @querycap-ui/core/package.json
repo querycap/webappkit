@@ -18,7 +18,10 @@
     "access": "public"
   },
   "monobundle": {
-    "env": "browser"
+    "env": "browser",
+    "sideDependencies": [
+      "@querycap-ui/core.macro"
+    ]
   },
   "scripts": {
     "prepare": "monobundle"

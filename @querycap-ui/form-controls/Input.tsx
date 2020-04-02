@@ -124,7 +124,9 @@ export const InputSuffix = ({ children, ...otherProps }: { children?: ReactNode 
 
 export const InputControlSuffix = ({ children, ...otherProps }: { children?: ReactNode }) => {
   return (
-    <span {...otherProps} css={select().borderLeft(`1px solid`).borderColor(theme.state.borderColor)}>
+    <span
+      {...otherProps}
+      css={select().position("relative").borderLeft(`1px solid`).borderColor(theme.state.borderColor)}>
       {children}
     </span>
   );
@@ -134,7 +136,7 @@ export const InputControlPrefix = ({ children, ...otherProps }: { children?: Rea
   return (
     <span
       {...otherProps}
-      css={select().marginRight(paddingX).borderRight(`1px solid`).borderColor(theme.state.borderColor)}>
+      css={select().position("relative").borderRight(`1px solid`).borderColor(theme.state.borderColor)}>
       {children}
     </span>
   );
