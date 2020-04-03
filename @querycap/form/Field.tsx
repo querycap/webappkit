@@ -56,7 +56,7 @@ export const useFieldState = (name: string): { formID: string; name: string; val
 
       return {
         state: fieldState || {},
-        value: fieldState ? get(state, `values.${name}`) : undefined,
+        value: get(state, `values.${name}`),
         name,
         formID,
       };

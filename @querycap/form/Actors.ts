@@ -1,5 +1,5 @@
 import { Actor } from "@reactorx/core";
-import { cloneDeep, Dictionary, get, isFunction, mapValues, omit, set } from "lodash";
+import { Dictionary, get, isFunction, mapValues, omit, set } from "lodash";
 import { FieldState, FormErrors, FormState } from "./State";
 
 export const FormActor = Actor.of<any, { form: string }>("form");
@@ -8,15 +8,7 @@ export const formKey = (formName: string) => `${FormActor.group}::${formName}`;
 
 const formKeyFromActor = (actor: Actor) => formKey(actor.opts.form);
 
-export const formInitial = FormActor.named<{ initials: any; id: string }>("initial").effectOn(
-  formKeyFromActor,
-  (_, { arg }) => ({
-    id: arg.id,
-    fields: {},
-    initials: arg.initials || {},
-    values: cloneDeep(arg.initials || {}),
-  }),
-);
+export const formInitial = FormActor.named<FormState>("initial").effectOn(formKeyFromActor, (_, { arg }) => arg);
 
 export const formDestroy = FormActor.named<void>("destroy").effectOn(formKeyFromActor, () => undefined);
 
@@ -86,17 +78,19 @@ export const formAddField = FormActor.named<
   { field: string }
 >("field/add").effectOn(
   formKeyFromActor,
-  mustFormStateReady((formState: FormState, { arg: { defaultValue, validate }, opts }) => ({
-    ...formState,
-    values: putValues(formState.values, opts.field, get(formState.initials, opts.field, defaultValue)),
-    fields: putFields(formState.fields, opts.field, () => ({
-      validate,
-      active: false,
-      changed: false,
-      touched: false,
-      visited: false,
-    })),
-  })),
+  mustFormStateReady((formState: FormState, { arg: { defaultValue, validate }, opts }) => {
+    return {
+      ...formState,
+      values: putValues(formState.values, opts.field, get(formState.initials, opts.field, defaultValue)),
+      fields: putFields(formState.fields, opts.field, () => ({
+        validate,
+        active: false,
+        changed: false,
+        touched: false,
+        visited: false,
+      })),
+    };
+  }),
 );
 
 export const formUpdateField = FormActor.named<

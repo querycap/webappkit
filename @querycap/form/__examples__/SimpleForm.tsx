@@ -27,6 +27,7 @@ export const SimpleForm = () => {
   const [{ reset }, Form] = useNewForm("SimpleForm", {
     name: "231",
     email: "xxx@x.com",
+    gender: "FEMALE",
   });
 
   return (

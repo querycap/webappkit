@@ -1,5 +1,17 @@
 import { useStore, Volume } from "@reactorx/core";
-import { Dictionary, filter, forEach, get, isArray, isEmpty, isObject, map, mapValues, pickBy } from "lodash";
+import {
+  cloneDeep,
+  Dictionary,
+  filter,
+  forEach,
+  get,
+  isArray,
+  isEmpty,
+  isObject,
+  map,
+  mapValues,
+  pickBy,
+} from "lodash";
 import React, {
   createContext,
   FormHTMLAttributes,
@@ -128,10 +140,11 @@ export function useNewForm<TFormValues extends object>(formName: string, initial
   const store$ = useStore();
 
   const ctx = useMemo(() => {
-    const formState = {
+    const formState: FormState = {
       id: uuid(),
+      fields: {},
       initials: initialValues,
-      values: initialValues,
+      values: cloneDeep(initialValues),
     };
 
     const startSubmit = () => {
@@ -162,7 +175,7 @@ export function useNewForm<TFormValues extends object>(formName: string, initial
     };
 
     const initial = () => {
-      formInitial.with({ initials: formState.initials, id: formState.id }, { form: formName }).invoke(store$);
+      formInitial.with(formState, { form: formName }).invoke(store$);
     };
 
     const destroy = () => {
