@@ -52,7 +52,9 @@ export class Persister {
           }
         });
 
-        console.log("hydrated", data);
+        if (process.env.NODE_ENV !== "production") {
+          console.log("hydrated", data);
+        }
 
         if (callback) {
           callback(data);
