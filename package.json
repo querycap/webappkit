@@ -23,9 +23,9 @@
     "@querycap-dev/dev-deps": "0.2.5",
     "@querycap-dev/devkit": "0.3.0",
     "@querycap-dev/generate-svg2tsx": "0.3.6",
-    "@querycap-dev/monobundle": "0.5.0",
+    "@querycap-dev/monobundle": "0.5.1",
     "@querycap-dev/webpack-preset": "0.6.0",
-    "@querycap-dev/webpack-preset-assets": "0.6.0",
+    "@querycap-dev/webpack-preset-assets": "0.6.1",
     "@querycap-dev/webpack-preset-html": "0.6.0",
     "@querycap-dev/webpack-preset-ts": "0.6.0",
     "@reactorx/core": "0.20.x",
@@ -34,7 +34,7 @@
     "@types/babel-plugin-macros": "2.8.1",
     "@types/benchmark": "1.0.31",
     "@types/lodash": "4.14.x",
-    "@types/node": "13.9.x",
+    "@types/node": "13.11.x",
     "@types/prismjs": "1.16.0",
     "@types/react": "16.9.x",
     "@types/react-dom": "16.9.x",
@@ -47,7 +47,7 @@
     "prismjs": "1.19.0",
     "react": "experimental",
     "react-dom": "experimental",
-    "rxjs": "6.5.4"
+    "rxjs": "6.5.5"
   },
   "jest": {
     "testEnvironment": "jsdom",
