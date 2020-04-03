@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.6](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.4.5...@querycap-ui/blocks@0.4.6) (2020-04-03)
+
+
+### Bug Fixes
+
+* **blocks:** alert card styling fix ([c50ce88](https://github.com/querycap/webappkit/commit/c50ce88a2d21d45de2a189db21ce9cc0f677f97c))
+
+
+
+
+
 ## [0.4.5](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.4.4...@querycap-ui/blocks@0.4.5) (2020-04-03)
 
 **Note:** Version bump only for package @querycap-ui/blocks
