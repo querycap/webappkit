@@ -1,3 +1,4 @@
+import { roundedEm } from "@querycap-ui/core";
 import { select, shadows, theme, transparentize } from "@querycap-ui/core/macro";
 import { IconAlertCircle, IconCheckCircle, IconInfo, IconX, IconXCircle } from "@querycap-ui/icons";
 import { flow } from "lodash";
@@ -44,8 +45,8 @@ export const AlertCard = ({ type, onRequestClose, children }: AlertProps) => {
         .position("relative")
         .display("flex")
         .width("100%")
-        .paddingY("0.6em")
         .paddingX("1em")
+        .paddingY(roundedEm(0.8))
         .borderRadius(theme.radii.s)
         .boxShadow(shadows.medium)
         .color(theme.state.color)
