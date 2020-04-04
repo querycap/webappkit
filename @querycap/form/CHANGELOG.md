@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.4](https://github.com/querycap/webappkit/compare/@querycap/form@0.3.3...@querycap/form@0.3.4) (2020-04-04)
+
+
+### Bug Fixes
+
+* **form:** field state fix ([f1c0d40](https://github.com/querycap/webappkit/commit/f1c0d40969a37f0bc2d3350b99609c4c72a78f07))
+
+
+
+
+
 ## [0.3.3](https://github.com/querycap/webappkit/compare/@querycap/form@0.3.2...@querycap/form@0.3.3) (2020-04-02)
 
 
