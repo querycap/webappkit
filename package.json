@@ -20,14 +20,14 @@
     "build": "webpack --config webpack.config.ts"
   },
   "dependencies": {
-    "@querycap-dev/dev-deps": "0.2.7",
+    "@querycap-dev/dev-deps": "0.2.9",
     "@querycap-dev/devkit": "0.3.2",
     "@querycap-dev/generate-svg2tsx": "0.3.6",
-    "@querycap-dev/monobundle": "0.6.1",
+    "@querycap-dev/monobundle": "0.6.3",
     "@querycap-dev/webpack-preset": "0.6.2",
     "@querycap-dev/webpack-preset-assets": "0.6.3",
     "@querycap-dev/webpack-preset-html": "0.6.1",
-    "@querycap-dev/webpack-preset-ts": "0.6.2",
+    "@querycap-dev/webpack-preset-ts": "0.6.3",
     "@reactorx/core": "0.20.x",
     "@reactorx/request": "0.20.x",
     "@testing-library/react": "10.0.x",

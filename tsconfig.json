@@ -2,11 +2,12 @@
   "compileOnSave": true,
   "compilerOptions": {
     "baseUrl": ".",
+    "rootDir": ".",
+    "outDir": ".tmp",
     "paths": {
       "*": ["__types__/*", "*/index.ts", "*"]
     },
     "resolveJsonModule": true,
-    "composite": true,
     "noImplicitAny": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,
@@ -28,8 +29,7 @@
     "removeComments": false,
     "declaration": true,
     "noEmitOnError": false,
-    "emitDeclarationOnly": true,
-    "outDir": ".tmp"
+    "emitDeclarationOnly": true
   },
   "exclude": [".tmp/*", "dist/*", "node_modules/*"]
 }

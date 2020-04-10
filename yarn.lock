@@ -2452,10 +2452,10 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@querycap-dev/babel-preset@^0.3.3":
-  version "0.3.3"
-  resolved "https://registry.npmjs.org/@querycap-dev/babel-preset/-/babel-preset-0.3.3.tgz#60ada33c28de23cfa89309a0ed1b4b18885b7db6"
-  integrity sha512-VZGKXdfDDimPNr2qfCxfylXu7i5au0AGg0D8+tny9URBGj4ENU0cenZNelb0AQR+Gh6bm5QQGVo6MK5LCDLACQ==
+"@querycap-dev/babel-preset@^0.3.5":
+  version "0.3.5"
+  resolved "https://registry.npmjs.org/@querycap-dev/babel-preset/-/babel-preset-0.3.5.tgz#3b595abc969008a859cd16cc4151f83d0b58d17d"
+  integrity sha512-jdjWumnImkS09DmuALM/FIQmSvW/ejGvbya5b0BcIJGcSDZfmZjGP9Hi9x0AGK0gXbA1FAiyIrAD0cpzLTvBeg==
   dependencies:
     "@babel/plugin-proposal-class-properties" "7.8.x"
     "@babel/plugin-proposal-nullish-coalescing-operator" "7.8.x"
@@ -2468,17 +2468,17 @@
     babel-plugin-pure-calls-annotation "0.3.x"
     babel-plugin-typescript-iife-enum "0.2.x"
 
-"@querycap-dev/dev-deps@0.2.7":
-  version "0.2.7"
-  resolved "https://registry.npmjs.org/@querycap-dev/dev-deps/-/dev-deps-0.2.7.tgz#991ea110ced7af5adf0e66b49e7647a283a53fa2"
-  integrity sha512-uMVOgJopvmMMWFghHlJaBJv8/XjbI1vduiIDKZRxeKWivEX6SiCSNyWNXp/sPiyc4XqO2xV+sEXt1bCyNE7IOA==
+"@querycap-dev/dev-deps@0.2.9":
+  version "0.2.9"
+  resolved "https://registry.npmjs.org/@querycap-dev/dev-deps/-/dev-deps-0.2.9.tgz#474187536ff30a6bff737dd0194068dee3689aa3"
+  integrity sha512-GGW/kH44FBc9JrQm4iAEChBxgiZVAe6DVvj2qWAwqiT1rre6xTCpnkx4Jm8OF3/0KcwZoTTWpiGu8M1vl7+38g==
   dependencies:
     "@babel/core" "7.9.x"
     "@babel/preset-env" "7.9.x"
     "@babel/runtime-corejs3" "7.9.x"
     "@commitlint/cli" "8.3.x"
     "@commitlint/config-conventional" "8.3.x"
-    "@querycap-dev/babel-preset" "^0.3.3"
+    "@querycap-dev/babel-preset" "^0.3.5"
     "@querycap-dev/eslint-config" "0.3.6"
     "@types/jest" "25.2.x"
     babel-jest "25.3.x"
@@ -2533,10 +2533,10 @@
     globby "11.0.0"
     prettier "*"
 
-"@querycap-dev/monobundle@0.6.1":
-  version "0.6.1"
-  resolved "https://registry.npmjs.org/@querycap-dev/monobundle/-/monobundle-0.6.1.tgz#3b6d08757132b6b7f39e5bf1c5342251c3450038"
-  integrity sha512-N6nV5A87nBTs05YXqtTtb6YcTlVOlnWnzsp7hT4WUPjM7HcJDANVqoYma5XlNIKRVubIWAcLrJdTi03ZqUF39Q==
+"@querycap-dev/monobundle@0.6.3":
+  version "0.6.3"
+  resolved "https://registry.npmjs.org/@querycap-dev/monobundle/-/monobundle-0.6.3.tgz#416efefdc9be61b351c63ba97d07e2c6decf3883"
+  integrity sha512-ScuAkPZE2C+Cgyt7ZUf+gN5jzUwOUu+HnC/ZN2+C2FJKe6LU1BnkR1WCZR1ysGTsVZ0z0xB8ouXA9GZ7ISgh7Q==
   dependencies:
     "@rollup/plugin-json" "4.0.x"
     "@rollup/plugin-node-resolve" "7.1.x"
@@ -2572,10 +2572,10 @@
     offline-plugin "5.0.7"
     webpack-pwa-manifest "4.2.0"
 
-"@querycap-dev/webpack-preset-ts@0.6.2":
-  version "0.6.2"
-  resolved "https://registry.npmjs.org/@querycap-dev/webpack-preset-ts/-/webpack-preset-ts-0.6.2.tgz#1f180f1ff140093918b82cb24359192cf8e70429"
-  integrity sha512-EVM8/A3FeOxT3kQVIpMzJlIavsAzDNjVR0mz4RKA3GlAMczjlOcxu+hC86oZAlBUSVdk5YEQLYV3C+xMvX6Xbw==
+"@querycap-dev/webpack-preset-ts@0.6.3":
+  version "0.6.3"
+  resolved "https://registry.npmjs.org/@querycap-dev/webpack-preset-ts/-/webpack-preset-ts-0.6.3.tgz#05629799257d5568e6e1c3b678ff377f896c92be"
+  integrity sha512-a8glIGi5G95SgH9nM8CLpZpFMrjFd2g2+JZCtcxMM0ObKBcZg/QKdsm3UA3Fq/qeiq2c+HuqjOhzq1F3YLshBA==
   dependencies:
     "@types/terser-webpack-plugin" "2.2.x"
     babel-loader "8.1.x"
