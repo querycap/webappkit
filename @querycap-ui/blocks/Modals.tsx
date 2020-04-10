@@ -75,7 +75,7 @@ export const ModalPanel = forwardRef(
       ref={ref}
       css={select()
         .position("relative")
-        .minWidth(400)
+        .minWidth(300)
         .padding("2.8em 3.2em")
         .borderRadius(theme.radii.normal)
         .backgroundColor(theme.state.backgroundColor)}
@@ -88,7 +88,6 @@ export const ModalPanel = forwardRef(
             .position("absolute")
             .top(0)
             .right(0)
-            .minWidth(400)
             .padding("0.5em 1em")
             .opacity(0.5)
             .colorFill(theme.state.color)}>
