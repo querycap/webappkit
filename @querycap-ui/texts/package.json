@@ -9,9 +9,9 @@
   },
   "dependencies": {
     "@querycap-ui/core": "0.7.4",
-    "remark-parse": "7.0.x",
+    "remark-parse": "8.0.x",
     "remark-react": "7.0.x",
-    "unified": "8.4.x"
+    "unified": "9.0.x"
   },
   "publishConfig": {
     "access": "public"

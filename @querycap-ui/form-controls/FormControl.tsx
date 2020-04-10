@@ -16,30 +16,44 @@ export const FormControl = ({ label, error, desc, children }: FormControlProps) 
       css={select()
         .display("block")
         .position("relative")
-        .paddingY(roundedEm(1.8))
-        .with(!label && select().paddingTop(0))
-        .with(
-          select(`& > [role=msg]`)
-            .position("absolute")
-            .bottom(theme.space.s1)
-            .right(0)
-            .left(0)
-            .paddingY(theme.space.s1)
-            .fontSize("0.75em"),
-        )}>
-      {label && <div css={select().position("absolute").top(0).right(0).left(0)}>{label}</div>}
-      {children}
-      {error ? (
-        <div role={"msg"} css={select().color(theme.colors.danger)}>
-          {error}
-        </div>
-      ) : (
-        desc && (
-          <div role={"msg"} css={select().opacity(0.5)}>
-            {desc}
+        .paddingY(roundedEm(1.5))
+        .with(!label && select().paddingTop(0))}>
+      <div
+        css={select()
+          .position("relative")
+          .with(
+            select("& > [role=label]")
+              .position("absolute")
+              .opacity(0.5)
+              .fontSize(roundedEm(0.9))
+              .bottom("100%")
+              .paddingY(3)
+              .right(0)
+              .left(0),
+          )
+          .with(
+            select(`& > [role=msg]`)
+              .paddingY(3)
+              .position("absolute")
+              .top("100%")
+              .right(0)
+              .left(0)
+              .fontSize(roundedEm(0.75)),
+          )}>
+        {label && <div role={"label"}>{label}</div>}
+        {children}
+        {error ? (
+          <div role={"msg"} css={select().color(theme.colors.danger)}>
+            {error}
           </div>
-        )
-      )}
+        ) : (
+          desc && (
+            <div role={"msg"} css={select().opacity(0.4)}>
+              {desc}
+            </div>
+          )
+        )}
+      </div>
     </label>
   );
 };
