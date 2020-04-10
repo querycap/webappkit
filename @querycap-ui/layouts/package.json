@@ -8,7 +8,7 @@
     "react": "16.x"
   },
   "dependencies": {
-    "@querycap-ui/core": "0.7.6"
+    "@querycap-ui/core": "^0.7.6"
   },
   "publishConfig": {
     "access": "public"

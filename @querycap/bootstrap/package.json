@@ -13,8 +13,8 @@
     "react-dom": "16.x"
   },
   "dependencies": {
-    "@querycap/config": "0.6.1",
-    "@querycap/persister": "0.5.0",
+    "@querycap/config": "^0.6.1",
+    "@querycap/persister": "^0.5.0",
     "@reactorx/router": "0.20.x",
     "@types/history": "4.7.5",
     "history": "4.10.x",

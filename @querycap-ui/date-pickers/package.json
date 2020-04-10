@@ -12,8 +12,8 @@
     "react": "16.x"
   },
   "dependencies": {
-    "@querycap-ui/containers": "0.3.0",
-    "@querycap-ui/icons": "0.2.0"
+    "@querycap-ui/containers": "^0.3.0",
+    "@querycap-ui/icons": "^0.2.0"
   },
   "publishConfig": {
     "access": "public"

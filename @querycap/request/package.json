@@ -7,7 +7,7 @@
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@querycap/notify": "0.x",
+    "@querycap/notify": "^0.x",
     "@reactorx/core": "0.20.x",
     "@reactorx/request": "0.20.x",
     "axios": "0.19.x",

@@ -5,8 +5,8 @@
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
     "@emotion/core": "10.x",
-    "@querycap-ui/core": "0.x",
-    "@querycap/reactutils": "0.x",
+    "@querycap-ui/core": "^0.x",
+    "@querycap/reactutils": "^0.x",
     "@reactorx/core": "0.x",
     "date-fns": "2.x",
     "lodash": "4.x",
@@ -14,12 +14,12 @@
     "rxjs": "6.x"
   },
   "dependencies": {
-    "@querycap-ui/date-pickers": "0.x",
-    "@querycap-ui/form-controls": "0.7.9",
-    "@querycap-ui/icons": "0.x",
-    "@querycap/reactutils": "0.5.0",
-    "@querycap/strfmt": "0.x",
-    "@querycap/uikit": "0.2.1"
+    "@querycap-ui/date-pickers": "^0.x",
+    "@querycap-ui/form-controls": "^0.7.9",
+    "@querycap-ui/icons": "^0.x",
+    "@querycap/reactutils": "^0.5.0",
+    "@querycap/strfmt": "^0.x",
+    "@querycap/uikit": "^0.2.1"
   },
   "publishConfig": {
     "access": "public"
