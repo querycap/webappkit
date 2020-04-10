@@ -63,7 +63,6 @@ const createInputStyle = ({ disabled, active, success, danger, small }: InputOpt
       select("& [role=input]", "& input", "& textarea")
         .flex(1)
         .outline(0)
-        .width("100%")
         .maxWidth("100%")
         .background("none")
         .lineHeight("inherit")
