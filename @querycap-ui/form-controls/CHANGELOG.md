@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.7](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.7.6...@querycap-ui/form-controls@0.7.7) (2020-04-10)
+
+
+### Bug Fixes
+
+* **blocks:** style fix of ModalPanel minWidth ([842bf43](https://github.com/querycap/webappkit/commit/842bf4313bee604dd0f8fd883aca135f19b14d7a))
+
+
+
+
+
 ## [0.7.6](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.7.5...@querycap-ui/form-controls@0.7.6) (2020-04-04)
 
 **Note:** Version bump only for package @querycap-ui/form-controls
