@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/querycap/webappkit/compare/@querycap-ui/date-pickers@0.3.0...@querycap-ui/date-pickers@0.3.1) (2020-04-10)
+
+
+### Bug Fixes
+
+* **ui/core:** fix macro in node.js ([102af93](https://github.com/querycap/webappkit/commit/102af9372adae55c61f45221c1096658147f7e22))
+
+
+
+
+
 # [0.3.0](https://github.com/querycap/webappkit/compare/@querycap-ui/date-pickers@0.2.0...@querycap-ui/date-pickers@0.3.0) (2020-03-27)
 
 

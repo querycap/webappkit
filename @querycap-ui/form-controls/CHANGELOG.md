@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.10](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.7.9...@querycap-ui/form-controls@0.7.10) (2020-04-10)
+
+
+### Bug Fixes
+
+* **form-controls:** fix width of Input > input ([f186073](https://github.com/querycap/webappkit/commit/f1860738031531fcaa37b2bb211cb3174262c350))
+
+
+
+
+
 ## [0.7.9](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.7.8...@querycap-ui/form-controls@0.7.9) (2020-04-10)
 
 **Note:** Version bump only for package @querycap-ui/form-controls
