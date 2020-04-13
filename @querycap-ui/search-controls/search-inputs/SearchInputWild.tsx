@@ -1,3 +1,5 @@
+import { preventDefault } from "@querycap-ui/core/domHelpers";
+import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect } from "@querycap-ui/form-controls";
 import { useToggle } from "@querycap/uikit";
 import { useObservable, useObservableEffect } from "@reactorx/core";
 import { Dictionary, every, forEach, last, map, size, startsWith } from "lodash";
@@ -6,7 +8,6 @@ import { fromEvent, merge } from "rxjs";
 import { buffer, debounceTime, filter as rxFilter, tap } from "rxjs/operators";
 import { FilterMeta, FilterValue, useSearchBox } from "../search-box";
 import { useKeyboardControlsOfSearchBox } from "./hooks";
-import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect } from "@querycap-ui/form-controls";
 
 export const SearchInputWild = () => {
   const ctx = useSearchBox();
@@ -93,15 +94,15 @@ export const SearchInputWild = () => {
 
     return [
       inputKeydownEnter$.pipe(
-        tap((e) => {
+        tap(() => {
           if (selectCtx.focused$.value) {
             selectCtx.select();
             selectCtx.focus("");
           } else {
             selectCtx.select("submit");
           }
-          e.preventDefault();
         }),
+        tap(preventDefault),
       ),
 
       // 双击 Backspace 删除 最后一个

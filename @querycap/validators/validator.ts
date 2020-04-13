@@ -14,7 +14,7 @@ export const createValidator = <T = any>(defaultError: string, test: (v: T) => b
   };
 };
 
-export const chain = (...validators: Validator[]) => {
+export const once = (...validators: Validator[]) => {
   return (value: any) => {
     for (const v of validators) {
       const err = v(value);

@@ -1,5 +1,5 @@
 import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect } from "@querycap-ui/form-controls";
-import { cover, select } from "@querycap-ui/core";
+import { cover, preventDefault, select } from "@querycap-ui/core";
 import { useToggle } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
 import { filter, includes, map, noop } from "lodash";
@@ -66,13 +66,13 @@ export const SearchInputSelect = ({
 
     return [
       inputKeydownEnter$.pipe(
-        tap((e) => {
+        tap(() => {
           if (selectCtx.focused$.value) {
             selectCtx.select();
             selectCtx.focus("");
           }
-          e.preventDefault();
         }),
+        tap(preventDefault),
       ),
 
       merge(inputFocus$, inputClick$).pipe(tap(() => openPopover())),

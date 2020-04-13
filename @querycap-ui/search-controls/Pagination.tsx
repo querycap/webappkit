@@ -1,4 +1,5 @@
-import { roundedEm, select, theme, ThemeState } from "@querycap-ui/core/macro";
+import { preventDefault, roundedEm, select, theme, ThemeState } from "@querycap-ui/core/macro";
+import { pipe } from "rxjs";
 import { map } from "lodash";
 import React from "react";
 
@@ -68,10 +69,9 @@ export const Pagination = ({ total, pager, onPagerChange, onShowSizeChange, ...o
       <ThemeState key={idx} backgroundColor={active ? theme.colors.primary : theme.state.backgroundColor} autoColor>
         <a
           href={"#"}
-          onClick={(e) => {
-            e.preventDefault();
+          onClick={pipe(preventDefault, () => {
             !!pageNum && currentPage !== pageNum && updatePage(pageNum);
-          }}
+          })}
           css={select().with(itemStyle).cursor("pointer")}>
           {pageNum ? pageNum : "..."}
         </a>

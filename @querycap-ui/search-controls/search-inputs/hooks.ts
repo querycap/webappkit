@@ -1,3 +1,4 @@
+import { preventDefault } from "@querycap-ui/core";
 import { useValueRef } from "@querycap/reactutils";
 import { useObservableEffect } from "@reactorx/core";
 import { last } from "lodash";
@@ -48,8 +49,8 @@ export const useKeyboardControlsOfSearchBox = (
           rxMap((events) => last(events)),
         ),
       ).pipe(
-        tap((e) => {
-          e?.preventDefault();
+        tap(preventDefault),
+        tap(() => {
           optsRef.current.onCancel && optsRef.current.onCancel();
         }),
       ),
@@ -57,8 +58,8 @@ export const useKeyboardControlsOfSearchBox = (
       merge(inputKeydownTab$, inputKeydownEnter$).pipe(
         tap((e) => {
           optsRef.current.onSubmit && optsRef.current.onSubmit((e.target as HTMLInputElement).value);
-          e.preventDefault();
         }),
+        tap(preventDefault),
       ),
     ];
   }, [inputElmRef.current]);

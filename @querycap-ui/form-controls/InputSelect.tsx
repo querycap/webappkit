@@ -1,4 +1,4 @@
-import { cover } from "@querycap-ui/core";
+import { cover, preventDefault } from "@querycap-ui/core";
 import { select } from "@querycap-ui/core/macro";
 import { IconChevronDown } from "@querycap-ui/icons";
 import { FieldInputCommonProps } from "@querycap/form";
@@ -105,13 +105,13 @@ export const InputSelect = (props: InputSelectProps) => {
 
     return [
       inputKeydownEnter$.pipe(
-        tap((e) => {
+        tap(() => {
           if (selectCtx.focused$.value) {
             selectCtx.select();
             selectCtx.focus("");
           }
-          e.preventDefault();
         }),
+        tap(preventDefault),
       ),
 
       merge(inputFocus$, inputClick$).pipe(tap(() => openPopover())),

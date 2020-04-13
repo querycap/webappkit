@@ -1,7 +1,8 @@
-import { select, theme, withTextSize, shadows } from "@querycap-ui/core/macro";
+import { preventDefault, select, shadows, stopPropagation, theme, withTextSize } from "@querycap-ui/core/macro";
 import { Button } from "@querycap-ui/form-controls";
 import { IconX } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
+import { pipe } from "rxjs";
 import React, { ReactNode } from "react";
 
 export const DialogContainer = withTextSize(theme.fontSizes.s)(
@@ -25,11 +26,7 @@ export const DialogClose = ({ float, onRequestClose }: { float?: boolean; onRequ
   return (
     <a
       href="#"
-      onClick={(e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        onRequestClose();
-      }}
+      onClick={pipe(preventDefault, stopPropagation, onRequestClose)}
       css={select()
         .opacity(0.3)
         .colorFill(theme.state.color)

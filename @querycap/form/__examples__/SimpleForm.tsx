@@ -1,9 +1,10 @@
-import { theme, ThemeState } from "@querycap-ui/core";
+import { preventDefault, theme, ThemeState } from "@querycap-ui/core";
 import { Button, FormControlWithField, InputSelect } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 import { SimpleInputText, useNewForm } from "@querycap/form";
-import { chain, required, validCellPhone, validEmail } from "@querycap/validators";
+import { once, required, validCellPhone, validEmail } from "@querycap/validators";
 import React from "react";
+import { pipe } from "rxjs";
 
 const displayGender = (v: string) => {
   switch (v) {
@@ -39,24 +40,18 @@ export const SimpleForm = () => {
         <FormControlWithField name="gender">
           {(props) => <InputSelect {...props} enum={["FEMALE", "MALE"]} display={displayGender} />}
         </FormControlWithField>
-        <FormControlWithField name="cell" validate={chain(required(), validCellPhone())}>
+        <FormControlWithField name="cell" validate={once(required(), validCellPhone())}>
           {SimpleInputText}
         </FormControlWithField>
         <FormControlWithField name="name">{SimpleInputText}</FormControlWithField>
-        <FormControlWithField name="email" desc="邮箱" validate={chain(required(), validEmail())}>
+        <FormControlWithField name="email" desc="邮箱" validate={once(required(), validEmail())}>
           {SimpleInputText}
         </FormControlWithField>
         <Stack inline spacing={theme.space.s2}>
           <Button type="submit" primary>
             Submit
           </Button>
-          <Button
-            onClick={(e) => {
-              e.preventDefault();
-              reset();
-            }}>
-            Reset
-          </Button>
+          <Button onClick={pipe(preventDefault, reset)}>Reset</Button>
         </Stack>
       </Form>
     </ThemeState>

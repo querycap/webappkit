@@ -1,14 +1,13 @@
-import { select, theme } from "@querycap-ui/core/macro";
+import { preventDefault, select, theme } from "@querycap-ui/core/macro";
+import { MenuOptGroup, OptionFocusedAttr, SelectMenuPopover, useNewSelect } from "@querycap-ui/form-controls";
 import { IconArrowDown, IconArrowUp } from "@querycap-ui/icons";
 import { Portal, useToggle } from "@querycap/uikit";
 import { useObservable, useObservableEffect } from "@reactorx/core";
 import { includes, map, split } from "lodash";
 import React, { forwardRef, ReactNode, useMemo, useRef } from "react";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, pipe } from "rxjs";
 import { distinctUntilChanged, map as rxMap, tap } from "rxjs/operators";
 import { displayValue, SearchInputProps } from "../search-box";
-import { MenuOptGroup, OptionFocusedAttr, SelectMenuPopover, useNewSelect } from "@querycap-ui/form-controls";
-import { withPreventDefault } from "./utils";
 
 const SortLabel = forwardRef(
   (
@@ -104,7 +103,7 @@ export const SearchInputSort = ({ defaultValue, display, enum: values = [], onSu
       <SortLabel
         ref={triggerElmRef}
         asc={asc}
-        onClick={withPreventDefault(() => (isOpened ? closePopover() : openPopover()))}>
+        onClick={pipe(preventDefault, () => (isOpened ? closePopover() : openPopover()))}>
         {displayValue(by, display)}
       </SortLabel>
       <div
@@ -113,7 +112,7 @@ export const SearchInputSort = ({ defaultValue, display, enum: values = [], onSu
           cursor: "pointer",
           padding: "0.4em 0.9em 0.4em 0",
         }}
-        onClick={withPreventDefault(toggleAsc)}>
+        onClick={pipe(preventDefault, toggleAsc)}>
         {asc ? <IconArrowDown /> : <IconArrowUp />}
       </div>
       {isOpened && (

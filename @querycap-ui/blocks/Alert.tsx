@@ -1,8 +1,9 @@
-import { roundedEm } from "@querycap-ui/core";
+import { roundedEm, preventDefault } from "@querycap-ui/core";
 import { select, shadows, theme, transparentize } from "@querycap-ui/core/macro";
 import { IconAlertCircle, IconCheckCircle, IconInfo, IconX, IconXCircle } from "@querycap-ui/icons";
 import { flow } from "lodash";
 import React, { ReactNode } from "react";
+import { pipe } from "rxjs";
 
 export interface AlertProps {
   type: "info" | "success" | "error" | "warning";
@@ -62,10 +63,7 @@ export const AlertCard = ({ type, onRequestClose, children }: AlertProps) => {
           href={"#"}
           css={select().opacity(0.3).colorFill(theme.state.color)}
           role={"button"}
-          onClick={(e) => {
-            e.preventDefault();
-            onRequestClose();
-          }}>
+          onClick={pipe(preventDefault, onRequestClose)}>
           <IconX />
         </a>
       )}
@@ -98,10 +96,7 @@ export const Alert = ({ type, onRequestClose, children }: AlertProps) => {
           href={"#"}
           css={select().opacity(0.3).colorFill(theme.state.color)}
           role={"button"}
-          onClick={(e) => {
-            e.preventDefault();
-            onRequestClose();
-          }}>
+          onClick={pipe(preventDefault, onRequestClose)}>
           <IconX />
         </a>
       )}

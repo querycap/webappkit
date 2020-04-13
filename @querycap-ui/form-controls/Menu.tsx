@@ -1,4 +1,4 @@
-import { roundedEm, select, shadows, theme, transparentize } from "@querycap-ui/core/macro";
+import { preventDefault, roundedEm, select, shadows, theme, transparentize } from "@querycap-ui/core/macro";
 import { useValueRef } from "@querycap/reactutils";
 import { getBoundingClientRect, Overlay, position } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
@@ -17,7 +17,7 @@ import React, {
   useMemo,
   useRef,
 } from "react";
-import { BehaviorSubject, fromEvent, merge } from "rxjs";
+import { BehaviorSubject, fromEvent, merge, pipe } from "rxjs";
 import { distinctUntilChanged, filter as rxFilter, tap } from "rxjs/operators";
 
 const rangeLimit = (v: number, min: number, max: number) => {
@@ -112,8 +112,8 @@ export const useKeyboardArrowControls = (
 
     return [
       merge(inputKeydownArrowDown$, inputKeydownArrowUp$, inputKeydownArrowLeft$, inputKeydownArrowRight$).pipe(
+        tap(preventDefault),
         tap((e) => {
-          e.preventDefault();
           navRef.current(toLower(replace(e.key, "Arrow", "")) as any);
         }),
       ),
@@ -169,10 +169,7 @@ export const Option = ({ value, children }: { value: string; children: ReactElem
         onMouseOver: () => {
           ctx.focus(value);
         },
-        onClick: (e: MouseEvent) => {
-          e.preventDefault();
-          ctx.select();
-        },
+        onClick: pipe(preventDefault, () => ctx.select()),
       })}
     </>
   );

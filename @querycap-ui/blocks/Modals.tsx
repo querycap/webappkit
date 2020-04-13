@@ -1,16 +1,18 @@
-import { animated, cover, rgba, select, theme, useTransition } from "@querycap-ui/core/macro";
+import {
+  animated,
+  cover,
+  preventDefault,
+  rgba,
+  select,
+  stopPropagation,
+  theme,
+  useTransition,
+} from "@querycap-ui/core/macro";
 import { IconX } from "@querycap-ui/icons";
+import { pipe } from "rxjs";
 import { useOnExactlyClick, usePortalCloseOnEsc, withPortal } from "@querycap/uikit";
 import { noop } from "lodash";
 import React, { forwardRef, Fragment, ReactNode, Ref, useRef } from "react";
-
-const withoutBubble = (callback: () => void) => (e: React.SyntheticEvent<any>) => {
-  if (e) {
-    e.preventDefault();
-    e.stopPropagation();
-  }
-  callback();
-};
 
 export interface ModalBaseProps {
   onRequestClose?: () => void;
@@ -83,7 +85,7 @@ export const ModalPanel = forwardRef(
       {onRequestClose && (
         <a
           href="#"
-          onClick={withoutBubble(onRequestClose)}
+          onClick={pipe(preventDefault, stopPropagation, onRequestClose)}
           css={select()
             .position("absolute")
             .top(0)

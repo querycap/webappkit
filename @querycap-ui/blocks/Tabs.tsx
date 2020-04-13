@@ -1,4 +1,5 @@
-import { select, theme } from "@querycap-ui/core/macro";
+import { preventDefault, select, stopPropagation, theme } from "@querycap-ui/core/macro";
+import { pipe } from "rxjs";
 import { map } from "lodash";
 import React, { Children, isValidElement, ReactElement, ReactNode, useEffect, useState } from "react";
 
@@ -73,15 +74,12 @@ export const Tabs = ({
               key={name}
               data-current={name === state.active}
               href={"#"}
-              onClick={(e) => {
-                e.stopPropagation();
-                e.preventDefault();
-
+              onClick={pipe(stopPropagation, preventDefault, () => {
                 setState((state) => ({
                   ...state,
                   active: name,
                 }));
-              }}>
+              })}>
               {state.tabs[name].title}
             </a>
           );

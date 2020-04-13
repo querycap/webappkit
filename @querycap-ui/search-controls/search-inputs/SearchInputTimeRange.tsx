@@ -1,5 +1,6 @@
-import { select, theme } from "@querycap-ui/core/macro";
+import { preventDefault, select, theme } from "@querycap-ui/core/macro";
 import { DateWheelPicker } from "@querycap-ui/date-pickers";
+import { MenuPopover, useKeyboardArrowControls } from "@querycap-ui/form-controls";
 import { IconCalendar } from "@querycap-ui/icons";
 import { parseRange, stringifyRange } from "@querycap/strfmt";
 import { useToggle } from "@querycap/uikit";
@@ -7,11 +8,9 @@ import { useObservableEffect } from "@reactorx/core";
 import { format, parseISO } from "date-fns";
 import { noop } from "lodash";
 import React, { useEffect, useRef, useState } from "react";
-import { fromEvent, merge } from "rxjs";
+import { fromEvent, merge, pipe } from "rxjs";
 import { filter as rxFilter, tap } from "rxjs/operators";
 import { displayValue, SearchInputProps } from "../search-box";
-import { MenuPopover, useKeyboardArrowControls } from "@querycap-ui/form-controls";
-import { withPreventDefault } from "./utils";
 
 export const createTimeRangeDisplay = (f = "yyyy-MM-dd HH:mm") => (v: string) => {
   const r = parseRange(v);
@@ -72,11 +71,7 @@ export const SearchInputTimeRange = ({
     const inputKeydownEnter$ = inputKeydown$.pipe(onKey("Enter"));
 
     return [
-      inputKeydownEnter$.pipe(
-        tap((e) => {
-          e.preventDefault();
-        }),
-      ),
+      inputKeydownEnter$.pipe(tap(preventDefault)),
 
       merge(inputFocus$, inputClick$).pipe(tap(() => openPopover())),
     ];
@@ -114,7 +109,7 @@ export const SearchInputTimeRange = ({
                     <a
                       href={"#"}
                       css={{ padding: "0 2em", position: "absolute" }}
-                      onClick={withPreventDefault(() => {
+                      onClick={pipe(preventDefault, () => {
                         setTimeRange((r) => ({ ...r, to: "" }));
                       })}>
                       至今
@@ -150,7 +145,7 @@ export const SearchInputTimeRange = ({
                     <a
                       href={"#"}
                       css={select().colorFill(theme.colors.primary)}
-                      onClick={withPreventDefault(() => {
+                      onClick={pipe(preventDefault, () => {
                         setTimeRange((r) => ({ ...r, to: r.from }));
                       })}>
                       <IconCalendar /> &nbsp; 选择日期
@@ -167,17 +162,12 @@ export const SearchInputTimeRange = ({
               justifyContent: "flex-end",
               "& > * + *": { marginLeft: "1em" },
             }}>
-            <a
-              href={"#"}
-              css={{ color: "inherit", opacity: 0.7 }}
-              onClick={withPreventDefault(() => {
-                onCancel();
-              })}>
+            <a href={"#"} css={{ color: "inherit", opacity: 0.7 }} onClick={pipe(preventDefault, onCancel)}>
               取消
             </a>
             <a
               href={"#"}
-              onClick={withPreventDefault(() => {
+              onClick={pipe(preventDefault, () => {
                 onSubmit(stringifyRange(timeRange));
               })}>
               确定
