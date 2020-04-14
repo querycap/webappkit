@@ -77,7 +77,7 @@ export const Overlay = withPortal(
           pointerEvents: domReady ? "auto" : "none",
           position: "absolute",
           zIndex: 10,
-          minWidth: fullWidth ? triggerRect.width : "auto",
+          width: fullWidth ? triggerRect.width : "auto",
         }}>
         {children}
       </div>

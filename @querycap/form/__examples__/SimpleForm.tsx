@@ -11,13 +11,13 @@ const displayGender = (v: string) => {
     case "MALE":
       return (
         <span>
-          M<small>ale</small>
+          M<small>ale</small> ~~~~~~~~~~~~~~~~~~~~~~~~~~~
         </span>
       );
     case "FEMALE":
       return (
         <span>
-          F<small>emale</small>
+          F<small>emale</small> ~~~~~~~~~~~~~~~~~~~~~~~~~~~
         </span>
       );
   }
@@ -32,7 +32,7 @@ export const SimpleForm = () => {
   });
 
   return (
-    <ThemeState fontSize={theme.fontSizes.s}>
+    <ThemeState>
       <Form
         onSubmit={(values) => {
           alert(JSON.stringify(values, null, 2));

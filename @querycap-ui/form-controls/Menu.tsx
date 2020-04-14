@@ -307,6 +307,8 @@ export const MenuGroup = ({ children }: { children: ReactNode }) => (
       .with(
         select("& > *")
           .display("block")
+          .overflow("hidden")
+          .textOverflow("ellipsis")
           .paddingX("1em")
           .paddingY(roundedEm(0.3))
           .colorFill(theme.state.color)

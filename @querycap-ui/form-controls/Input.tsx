@@ -63,6 +63,7 @@ const createInputStyle = ({ disabled, active, success, danger, small }: InputOpt
       select("& [role=input]", "& input", "& textarea")
         .flex(1)
         .outline(0)
+        .width("100%")
         .maxWidth("100%")
         .background("none")
         .lineHeight("inherit")
@@ -125,7 +126,7 @@ export const InputControlSuffix = ({ children, ...otherProps }: { children?: Rea
   return (
     <span
       {...otherProps}
-      css={select().position("relative").borderLeft(`1px solid`).borderColor(theme.state.borderColor)}>
+      css={select().position("relative").display("block").borderLeft(`1px solid`).borderColor(theme.state.borderColor)}>
       {children}
     </span>
   );
@@ -135,7 +136,11 @@ export const InputControlPrefix = ({ children, ...otherProps }: { children?: Rea
   return (
     <span
       {...otherProps}
-      css={select().position("relative").borderRight(`1px solid`).borderColor(theme.state.borderColor)}>
+      css={select()
+        .position("relative")
+        .display("block")
+        .borderRight(`1px solid`)
+        .borderColor(theme.state.borderColor)}>
       {children}
     </span>
   );
