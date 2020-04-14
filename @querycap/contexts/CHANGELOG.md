@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/querycap/webappkit/compare/@querycap/contexts@0.1.2...@querycap/contexts@0.2.0) (2020-04-14)
+
+
+### Features
+
+* **contexts:** createStore for creating topic state ([9a0ab33](https://github.com/querycap/webappkit/commit/9a0ab33376725c94b4a0b813f0ed44dfc3abd9bc))
+
+
+
+
+
 ## [0.1.2](https://github.com/querycap/webappkit/compare/@querycap/contexts@0.1.1...@querycap/contexts@0.1.2) (2020-04-01)
 
 

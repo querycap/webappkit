@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/querycap/webappkit/compare/@querycap/form@0.3.6...@querycap/form@0.4.0) (2020-04-14)
+
+
+### Features
+
+* **contexts:** createStore for creating topic state ([9a0ab33](https://github.com/querycap/webappkit/commit/9a0ab33376725c94b4a0b813f0ed44dfc3abd9bc))
+
+
+
+
+
 ## [0.3.6](https://github.com/querycap/webappkit/compare/@querycap/form@0.3.5...@querycap/form@0.3.6) (2020-04-13)
 
 **Note:** Version bump only for package @querycap/form
