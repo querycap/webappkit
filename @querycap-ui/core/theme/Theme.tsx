@@ -23,10 +23,17 @@ const fontSizes = {
   xxl: 38,
 };
 
+const lineHeights = {
+  condensedUltra: 1,
+  condensed: 1.25,
+  normal: 1.5,
+};
+
 const state = {
+  lineHeight: lineHeights.normal,
   fontSize: fontSizes.normal,
-  borderColor: rgba(safeTextColor(colors.white), 0.1),
   color: safeTextColor(colors.white),
+  borderColor: rgba(safeTextColor(colors.white), 0.1),
   backgroundColor: colors.white,
 };
 
@@ -98,13 +105,9 @@ export const defaultTheme = {
     bold: 500,
   },
 
-  fontSizes: fontSizes,
+  fontSizes,
 
-  lineHeights: {
-    condensedUltra: 1,
-    condensed: 1.25,
-    normal: 1.5,
-  },
+  lineHeights,
 };
 
 export interface Theme extends Readonly<typeof defaultTheme> {}
