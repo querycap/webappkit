@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.4.16...@querycap-ui/blocks@0.5.0) (2020-04-14)
+
+
+### Features
+
+* **ui/blocks:** new api onDestroyed of Modals for animation finish ([034e896](https://github.com/querycap/webappkit/commit/034e8963f155d7c377698eab990b3955a2d835b5))
+
+
+
+
+
 ## [0.4.16](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.4.15...@querycap-ui/blocks@0.4.16) (2020-04-14)
 
 **Note:** Version bump only for package @querycap-ui/blocks
