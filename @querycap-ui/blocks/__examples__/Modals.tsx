@@ -10,7 +10,7 @@ const ModalDemo = () => {
 
   return (
     <div>
-      <Modal isOpen={isOpen} onRequestClose={hide}>
+      <Modal isOpen={isOpen} onRequestClose={hide} onDestroyed={() => console.log("destroyed")}>
         12313123
       </Modal>
       <Button onClick={show}>click modal</Button>

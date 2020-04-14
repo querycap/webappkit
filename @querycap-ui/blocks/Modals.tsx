@@ -9,10 +9,10 @@ import {
   useTransition,
 } from "@querycap-ui/core/macro";
 import { IconX } from "@querycap-ui/icons";
-import { pipe } from "rxjs";
 import { useOnExactlyClick, usePortalCloseOnEsc, withPortal } from "@querycap/uikit";
 import { noop } from "lodash";
 import React, { forwardRef, Fragment, ReactNode, Ref, useRef } from "react";
+import { pipe } from "rxjs";
 
 export interface ModalBaseProps {
   onRequestClose?: () => void;
@@ -60,12 +60,13 @@ export const ModalDialogBase = withPortal(({ onRequestClose, ...otherProps }: Mo
   );
 });
 
-export const useModalTransition = (isOpen = false) =>
+export const useModalTransition = (isOpen = false, onDestroyed?: () => void) =>
   useTransition(isOpen, null, {
     from: { opacity: 0, transform: "translate3d(0,30px,0) scale(1)" },
     enter: { opacity: 1, transform: "translate3d(0,0,0) scale(1)" },
     leave: { opacity: 0, transform: "translate3d(0,0,0) scale(0.9)" },
     config: { mass: 1, tension: 500, friction: 40 },
+    onDestroyed: (isDestroyed) => isDestroyed && onDestroyed && onDestroyed(),
   });
 
 export const ModalPanel = forwardRef(
@@ -130,8 +131,12 @@ export interface ModalProps extends ModalBaseProps {
 
 export const AnimatedModalBackdrop = animated(ModalBackdrop);
 
-export const Modal = ({ isOpen, children, onRequestClose }: ModalProps) => {
-  const transition = useModalTransition(isOpen);
+export interface ModalPropsWithOnDestroyed extends ModalProps {
+  onDestroyed?: () => void;
+}
+
+export const Modal = ({ isOpen, children, onRequestClose, onDestroyed }: ModalPropsWithOnDestroyed) => {
+  const transition = useModalTransition(isOpen, onDestroyed);
 
   return (
     <ModalBase onRequestClose={onRequestClose}>
@@ -148,8 +153,8 @@ export const Modal = ({ isOpen, children, onRequestClose }: ModalProps) => {
   );
 };
 
-export const ModalDialog = ({ isOpen, children, onRequestClose }: ModalProps) => {
-  const transition = useModalTransition(isOpen);
+export const ModalDialog = ({ isOpen, children, onRequestClose, onDestroyed }: ModalPropsWithOnDestroyed) => {
+  const transition = useModalTransition(isOpen, onDestroyed);
 
   return (
     <ModalDialogBase onRequestClose={onRequestClose}>
