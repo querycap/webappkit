@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.13](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.7.12...@querycap-ui/form-controls@0.7.13) (2020-04-14)
+
+
+### Bug Fixes
+
+* **overlays:** fix fullWidth ([31e6065](https://github.com/querycap/webappkit/commit/31e60659f464e0406af20cdfcef72c3447322e83))
+
+
+
+
+
 ## [0.7.12](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.7.11...@querycap-ui/form-controls@0.7.12) (2020-04-14)
 
 **Note:** Version bump only for package @querycap-ui/form-controls

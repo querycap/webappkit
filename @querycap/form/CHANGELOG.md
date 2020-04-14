@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/querycap/webappkit/compare/@querycap/form@0.4.0...@querycap/form@0.4.1) (2020-04-14)
+
+
+### Bug Fixes
+
+* **overlays:** fix fullWidth ([31e6065](https://github.com/querycap/webappkit/commit/31e60659f464e0406af20cdfcef72c3447322e83))
+
+
+
+
+
 # [0.4.0](https://github.com/querycap/webappkit/compare/@querycap/form@0.3.6...@querycap/form@0.4.0) (2020-04-14)
 
 

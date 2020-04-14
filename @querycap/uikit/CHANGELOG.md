@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.4](https://github.com/querycap/webappkit/compare/@querycap/uikit@0.2.3...@querycap/uikit@0.2.4) (2020-04-14)
+
+
+### Bug Fixes
+
+* **overlays:** fix fullWidth ([31e6065](https://github.com/querycap/webappkit/commit/31e60659f464e0406af20cdfcef72c3447322e83))
+
+
+
+
+
 ## [0.2.3](https://github.com/querycap/webappkit/compare/@querycap/uikit@0.2.2...@querycap/uikit@0.2.3) (2020-04-13)
 
 **Note:** Version bump only for package @querycap/uikit
