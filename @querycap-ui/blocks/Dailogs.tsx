@@ -2,20 +2,21 @@ import { preventDefault, select, shadows, stopPropagation, theme, withTextSize }
 import { Button } from "@querycap-ui/form-controls";
 import { IconX } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
-import { pipe } from "rxjs";
 import React, { ReactNode } from "react";
+import { pipe } from "rxjs";
 
 export const DialogContainer = withTextSize(theme.fontSizes.s)(
-  ({ width = 400, children }: { width?: number; children?: ReactNode }) => {
+  ({ width = 400, children, ...otherProps }: { width?: number; children?: ReactNode }) => {
     return (
       <div
         css={select()
           .position("relative")
           .fontSize(theme.state.fontSize)
           .borderRadius(theme.radii.s)
-          .width(width)
+          .minWidth(width)
           .backgroundColor(theme.state.backgroundColor)
-          .boxShadow(shadows.large)}>
+          .boxShadow(shadows.large)}
+        {...otherProps}>
         {children}
       </div>
     );
@@ -76,6 +77,7 @@ export const Dialog = ({
   onRequestConfirm,
   confirmText = "确定",
   cancelText = "取消",
+  ...otherProps
 }: {
   title: ReactNode;
   children?: ReactNode;
@@ -85,7 +87,7 @@ export const Dialog = ({
   cancelText?: ReactNode;
 }) => {
   return (
-    <DialogContainer>
+    <DialogContainer {...otherProps}>
       <DialogHeading>
         <h4>{title}</h4>
         <DialogClose onRequestClose={onRequestClose} />
@@ -111,6 +113,7 @@ export const DialogPrompt = ({
   onRequestConfirm,
   confirmText = "确定",
   cancelText = "取消",
+  ...otherProps
 }: {
   children?: ReactNode;
   onRequestClose: () => void;
@@ -119,7 +122,7 @@ export const DialogPrompt = ({
   cancelText?: ReactNode;
 }) => {
   return (
-    <DialogContainer>
+    <DialogContainer {...otherProps}>
       <DialogContent>
         <div>{children}</div>
         <DialogControls>
