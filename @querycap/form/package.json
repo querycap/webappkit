@@ -1,6 +1,6 @@
 {
   "name": "@querycap/form",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "files": [
     "dist/"
   ],
@@ -10,9 +10,9 @@
     "react": ">=16.13"
   },
   "dependencies": {
+    "@querycap/contexts": "^0.2.0",
     "@querycap/reactutils": "^0.5.1",
     "@reactorx/core": "^0.20.7",
-    "@querycap/contexts": "^0.2.0",
     "@types/lodash": "4.14.x",
     "lodash": "4.17.x",
     "uuid": "7.x"
