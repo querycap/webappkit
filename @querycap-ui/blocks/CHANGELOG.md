@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.5.0...@querycap-ui/blocks@0.5.1) (2020-04-14)
+
+
+### Bug Fixes
+
+* **blocks:** css overwritable of Dialogs ([e5e9dea](https://github.com/querycap/webappkit/commit/e5e9dea71a863cae89ec5ef05497972698796ca7))
+
+
+
+
+
 # [0.5.0](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.4.16...@querycap-ui/blocks@0.5.0) (2020-04-14)
 
 
