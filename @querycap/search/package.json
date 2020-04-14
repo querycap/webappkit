@@ -15,7 +15,8 @@
     "rxjs": "6.x"
   },
   "dependencies": {
-    "@querycap/request": "^0.4.1"
+    "@querycap/request": "^0.4.1",
+    "@querycap/contexts": "^0.2.0"
   },
   "publishConfig": {
     "access": "public"

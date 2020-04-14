@@ -1,4 +1,4 @@
-import { preventDefault } from "@querycap-ui/core/domHelpers";
+import { preventDefault } from "@querycap-ui/core";
 import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect } from "@querycap-ui/form-controls";
 import { useToggle } from "@querycap/uikit";
 import { useObservable, useObservableEffect } from "@reactorx/core";

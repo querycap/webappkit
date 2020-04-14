@@ -2452,10 +2452,10 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@querycap-dev/babel-preset@^0.3.5":
-  version "0.3.5"
-  resolved "https://registry.npmjs.org/@querycap-dev/babel-preset/-/babel-preset-0.3.5.tgz#3b595abc969008a859cd16cc4151f83d0b58d17d"
-  integrity sha512-jdjWumnImkS09DmuALM/FIQmSvW/ejGvbya5b0BcIJGcSDZfmZjGP9Hi9x0AGK0gXbA1FAiyIrAD0cpzLTvBeg==
+"@querycap-dev/babel-preset@^0.3.6":
+  version "0.3.6"
+  resolved "https://registry.npmjs.org/@querycap-dev/babel-preset/-/babel-preset-0.3.6.tgz#dda961c7a18fa049144b32d0ab0b722303a541dd"
+  integrity sha512-jzGp8w0SHGNFT2/hJlqm+SKoG50sdh0AhX6/jRv8bdaS8fbWNxM47DnHNoF7N4B2ChaVtNl7EIr+fiYpTH4iyg==
   dependencies:
     "@babel/plugin-proposal-class-properties" "7.8.x"
     "@babel/plugin-proposal-nullish-coalescing-operator" "7.8.x"
@@ -2468,17 +2468,17 @@
     babel-plugin-pure-calls-annotation "0.3.x"
     babel-plugin-typescript-iife-enum "0.2.x"
 
-"@querycap-dev/dev-deps@0.2.9":
-  version "0.2.9"
-  resolved "https://registry.npmjs.org/@querycap-dev/dev-deps/-/dev-deps-0.2.9.tgz#474187536ff30a6bff737dd0194068dee3689aa3"
-  integrity sha512-GGW/kH44FBc9JrQm4iAEChBxgiZVAe6DVvj2qWAwqiT1rre6xTCpnkx4Jm8OF3/0KcwZoTTWpiGu8M1vl7+38g==
+"@querycap-dev/dev-deps@0.2.10":
+  version "0.2.10"
+  resolved "https://registry.npmjs.org/@querycap-dev/dev-deps/-/dev-deps-0.2.10.tgz#a55852fea2e3a4209d4f4120746a3e36b0bb5576"
+  integrity sha512-F4ovDbg3h192LBjPEUEDjWVIdibxnUv4mLI4wWHgJ4oVFUBUqVqehq/hKZ6jfuZOJUIRBUKk3GT2Rffrscro0w==
   dependencies:
     "@babel/core" "7.9.x"
     "@babel/preset-env" "7.9.x"
     "@babel/runtime-corejs3" "7.9.x"
     "@commitlint/cli" "8.3.x"
     "@commitlint/config-conventional" "8.3.x"
-    "@querycap-dev/babel-preset" "^0.3.5"
+    "@querycap-dev/babel-preset" "^0.3.6"
     "@querycap-dev/eslint-config" "0.3.6"
     "@types/jest" "25.2.x"
     babel-jest "25.3.x"
@@ -2533,16 +2533,17 @@
     globby "11.0.0"
     prettier "*"
 
-"@querycap-dev/monobundle@0.6.4":
-  version "0.6.4"
-  resolved "https://registry.npmjs.org/@querycap-dev/monobundle/-/monobundle-0.6.4.tgz#11c0cd1c904307112ee2ec758be48b51bb245400"
-  integrity sha512-InGFQFEde8fXilMzoYv6r7Ddq6nnd1//zC23SZckpsiNW3CfU835bRS8i4R4gK5ATWeYKPZcp/E3qIAdc+OL3A==
+"@querycap-dev/monobundle@0.6.6":
+  version "0.6.6"
+  resolved "https://registry.npmjs.org/@querycap-dev/monobundle/-/monobundle-0.6.6.tgz#04d580622da0d862bcbd4cd42b7cf9648a7c6473"
+  integrity sha512-6fwiLqi9jaJVdPI6+bByeZ9ArDghQfeTuZuB7+ayRI0DTvZjGNc6Lrv2qWQ8ka5CfSQ5fqkjrFOcAN+59jxyCw==
   dependencies:
     "@rollup/plugin-json" "4.0.x"
     "@rollup/plugin-node-resolve" "7.1.x"
     "@types/yargs" "15.x"
     chalk "4.0.x"
     del "5.1.x"
+    lodash "4.x"
     minimatch "3.0.x"
     rollup "2.6.x"
     rollup-plugin-babel "4.4.x"

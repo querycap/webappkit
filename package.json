@@ -20,10 +20,10 @@
     "build": "webpack --config webpack.config.ts"
   },
   "dependencies": {
-    "@querycap-dev/dev-deps": "0.2.9",
+    "@querycap-dev/dev-deps": "0.2.10",
     "@querycap-dev/devkit": "0.3.2",
     "@querycap-dev/generate-svg2tsx": "0.3.6",
-    "@querycap-dev/monobundle": "0.6.4",
+    "@querycap-dev/monobundle": "0.6.6",
     "@querycap-dev/webpack-preset": "0.6.2",
     "@querycap-dev/webpack-preset-assets": "0.6.4",
     "@querycap-dev/webpack-preset-html": "0.6.1",
