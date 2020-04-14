@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.10](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.7.9...@querycap-ui/core@0.7.10) (2020-04-14)
+
+
+### Bug Fixes
+
+* **ui/core:** lineHeight in state ([8a46840](https://github.com/querycap/webappkit/commit/8a46840a4db2be1bc0afdc67bad5325e7bc9bcf5))
+
+
+
+
+
 ## [0.7.9](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.7.8...@querycap-ui/core@0.7.9) (2020-04-14)
 
 **Note:** Version bump only for package @querycap-ui/core
