@@ -2533,10 +2533,10 @@
     globby "11.0.0"
     prettier "*"
 
-"@querycap-dev/monobundle@0.6.3":
-  version "0.6.3"
-  resolved "https://registry.npmjs.org/@querycap-dev/monobundle/-/monobundle-0.6.3.tgz#416efefdc9be61b351c63ba97d07e2c6decf3883"
-  integrity sha512-ScuAkPZE2C+Cgyt7ZUf+gN5jzUwOUu+HnC/ZN2+C2FJKe6LU1BnkR1WCZR1ysGTsVZ0z0xB8ouXA9GZ7ISgh7Q==
+"@querycap-dev/monobundle@0.6.4":
+  version "0.6.4"
+  resolved "https://registry.npmjs.org/@querycap-dev/monobundle/-/monobundle-0.6.4.tgz#11c0cd1c904307112ee2ec758be48b51bb245400"
+  integrity sha512-InGFQFEde8fXilMzoYv6r7Ddq6nnd1//zC23SZckpsiNW3CfU835bRS8i4R4gK5ATWeYKPZcp/E3qIAdc+OL3A==
   dependencies:
     "@rollup/plugin-json" "4.0.x"
     "@rollup/plugin-node-resolve" "7.1.x"
@@ -2544,17 +2544,17 @@
     chalk "4.0.x"
     del "5.1.x"
     minimatch "3.0.x"
-    rollup "2.4.x"
+    rollup "2.6.x"
     rollup-plugin-babel "4.4.x"
-    rollup-plugin-dts "1.3.x"
+    rollup-plugin-dts "1.4.x"
     yargs "15.3.x"
 
-"@querycap-dev/webpack-preset-assets@0.6.3":
-  version "0.6.3"
-  resolved "https://registry.npmjs.org/@querycap-dev/webpack-preset-assets/-/webpack-preset-assets-0.6.3.tgz#75a0fe85ec75af72fce4289952a797078b66b946"
-  integrity sha512-nZS7C0QzJ5c+x04tw33kaLGba8hd5WKdXe6+2QU3KskWB6OlbaLPlGVSxo4M20rYiKUzwWz+E4UFGlmGldx62g==
+"@querycap-dev/webpack-preset-assets@0.6.4":
+  version "0.6.4"
+  resolved "https://registry.npmjs.org/@querycap-dev/webpack-preset-assets/-/webpack-preset-assets-0.6.4.tgz#4d7fc4eb2af59d888071d96d009a7fa8a2b878ac"
+  integrity sha512-mGQ4iYs6fQEuZsn8sho3pnUUYZAbDvi3qrwKS9ZL6rddRXXxr3HYzTbDXTUd92+pqhA523D2uRqVN2Ux7g3Baw==
   dependencies:
-    css-loader "3.5.1"
+    css-loader "3.5.2"
     file-loader "6.0.0"
     glsl-shader-loader "0.1.6"
     html-loader "1.1.0"
@@ -5134,10 +5134,10 @@ css-color-names@^1.0.0:
   resolved "https://registry.npmjs.org/css-color-names/-/css-color-names-1.0.1.tgz#6ff7ee81a823ad46e020fa2fd6ab40a887e2ba67"
   integrity sha512-/loXYOch1qU1biStIFsHH8SxTmOseh1IJqFvy8IujXOm1h+QjUdDhkzOrR5HG8K8mlxREj0yfi8ewCHx0eMxzA==
 
-css-loader@3.5.1:
-  version "3.5.1"
-  resolved "https://registry.npmjs.org/css-loader/-/css-loader-3.5.1.tgz#db2b2336f4169edb68e6a829ad4fd36552647b77"
-  integrity sha512-0G4CbcZzQ9D1Q6ndOfjFuMDo8uLYMu5vc9Abs5ztyHcKvmil6GJrMiNjzzi3tQvUF+mVRuDg7bE6Oc0Prolgig==
+css-loader@3.5.2:
+  version "3.5.2"
+  resolved "https://registry.npmjs.org/css-loader/-/css-loader-3.5.2.tgz#6483ae56f48a7f901fbe07dde2fc96b01eafab3c"
+  integrity sha512-hDL0DPopg6zQQSRlZm0hyeaqIRnL0wbWjay9BZxoiJBpbfOW4WHfbaYQhwnDmEa0kZUc1CJ3IFo15ot1yULMIQ==
   dependencies:
     camelcase "^5.3.1"
     cssesc "^3.0.0"
@@ -11407,10 +11407,10 @@ rollup-plugin-babel@4.4.x:
     "@babel/helper-module-imports" "^7.0.0"
     rollup-pluginutils "^2.8.1"
 
-rollup-plugin-dts@1.3.x:
-  version "1.3.0"
-  resolved "https://registry.npmjs.org/rollup-plugin-dts/-/rollup-plugin-dts-1.3.0.tgz#34de28ea8c9464392f2b0d4cb8cd0fe7c51d482e"
-  integrity sha512-G08HZvwliQdRbAOwNb1VnyKuRSp1EXpKPW5FrvRcHbxsmPP2Co443zZ0p8tSCTjuC5xNYyZ9VMzjcwtqrPn6Ew==
+rollup-plugin-dts@1.4.x:
+  version "1.4.0"
+  resolved "https://registry.npmjs.org/rollup-plugin-dts/-/rollup-plugin-dts-1.4.0.tgz#85a66618948caff6e89a3344d939648487fa34fa"
+  integrity sha512-Yvag9u/uXgX+49qascRe4aFSrSMrY3rUAnbXrl6Y/08GL2cylosfCd5a1siOhHM6u1n4wyR9Nnc04cjceeedfw==
   optionalDependencies:
     "@babel/code-frame" "^7.8.3"
 
@@ -11421,10 +11421,10 @@ rollup-pluginutils@^2.8.1:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@2.4.x:
-  version "2.4.0"
-  resolved "https://registry.npmjs.org/rollup/-/rollup-2.4.0.tgz#b136a4d701d24dd79ec9551ee0330e7f632ee9d2"
-  integrity sha512-dYE2ZKl9+kxuFKDaaSuauZjIPa8hcKDqI7WrOq1pTXYG4GJw+6ypLifGIvCKw5yJpSmuFohuimYpg0wfRXTCLw==
+rollup@2.6.x:
+  version "2.6.1"
+  resolved "https://registry.npmjs.org/rollup/-/rollup-2.6.1.tgz#8354e67caa7b8bf24c2488d9e2f64da2be62eebe"
+  integrity sha512-1RhFDRJeg027YjBO6+JxmVWkEZY0ASztHhoEUEWxOwkh4mjO58TFD6Uo7T7Y3FbmDpRTfKhM5NVxJyimCn0Elg==
   optionalDependencies:
     fsevents "~2.1.2"
 

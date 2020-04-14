@@ -6,11 +6,12 @@ import { Dictionary, isEqual, isUndefined, mapKeys, omit, omitBy, pick, pickBy, 
 import React, { ReactNode, useEffect, useMemo } from "react";
 import { Observable } from "rxjs";
 import { distinctUntilChanged, map as rxMap, tap } from "rxjs/operators";
-import { IPager, ISearchState, SearchContextProvider, useSearch, useSearchContext } from "./SearchContext";
+import { SearchProvider, useSearch, useSearchContext } from "./SearchContext";
+import { Pager, SearchState } from "./SearchStore";
 
 export function useNewSearch<TFilters extends Dictionary<any>, T>(
   name: string,
-  query = {} as TFilters & Omit<IPager, "total">,
+  query = {} as TFilters & Omit<Pager, "total">,
   syncFromURL?: boolean,
 ) {
   const { location } = useRouter();
@@ -32,11 +33,11 @@ export function useNewSearch<TFilters extends Dictionary<any>, T>(
   const Search = useMemo(() => {
     return function Search({ children }: { children: ReactNode }) {
       return (
-        <SearchContextProvider value={{ search: ctx }} key={name}>
+        <SearchProvider value={{ search: ctx }} key={name}>
           <SearchInit />
           {syncFromURL && <SyncToURL key={name} name={name} />}
           {children}
-        </SearchContextProvider>
+        </SearchProvider>
       );
     };
   }, [ctx]);
@@ -44,7 +45,7 @@ export function useNewSearch<TFilters extends Dictionary<any>, T>(
   return [ctx, Search] as const;
 }
 
-export const queryFromState = (state: ISearchState) =>
+export const queryFromState = (state: SearchState) =>
   omitBy(
     {
       ...state.filters,
@@ -98,10 +99,10 @@ function SearchInit() {
   return null;
 }
 
-export function useSearchQuerySelector<TFilter>(state$: Observable<ISearchState<TFilter, any>>, deps: any[] = []) {
+export function useSearchQuerySelector<TFilter>(state$: Observable<SearchState<TFilter, any>>, deps: any[] = []) {
   return useSelector(
     state$,
-    (state): TFilter & Omit<IPager, "total"> => ({
+    (state): TFilter & Omit<Pager, "total"> => ({
       ...state.filters,
       ...omit(state.pager, "total"),
     }),
@@ -126,7 +127,7 @@ export function useNewSearchOfRequest<TRequestActor extends RequestActor, TFilte
     offset?: number;
     name?: string;
     syncURL?: boolean;
-    queryToArg?: (filters: TFilters, pager: Omit<IPager, "total">) => TRequestActor["arg"];
+    queryToArg?: (filters: TFilters, pager: Omit<Pager, "total">) => TRequestActor["arg"];
   } = {} as any,
 ) {
   const [ctx, Search] = useNewSearch<TFilters, TRequestActor["done"]["arg"]["data"]["data"][0]>(

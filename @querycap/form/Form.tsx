@@ -1,41 +1,7 @@
-import { useStore, Volume } from "@reactorx/core";
-import {
-  cloneDeep,
-  Dictionary,
-  filter,
-  forEach,
-  get,
-  isArray,
-  isEmpty,
-  isObject,
-  map,
-  mapValues,
-  pickBy,
-} from "lodash";
-import React, {
-  createContext,
-  FormHTMLAttributes,
-  SyntheticEvent,
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-} from "react";
-import { Observable } from "rxjs";
-import { v4 as uuid } from "uuid";
-import {
-  formAddField,
-  formBlurField,
-  formDestroy,
-  formEndSubmit,
-  formFocusField,
-  formInitial,
-  formKey,
-  formRemoveField,
-  formSetErrors,
-  formStartSubmit,
-  formUpdateField,
-} from "./Actors";
+import { Dictionary, filter, forEach, get, isArray, isEmpty, isObject, map, mapValues, pickBy } from "lodash";
+import React, { createContext, FormHTMLAttributes, useContext, useEffect, useLayoutEffect, useMemo } from "react";
+import { formStore } from "./FormStore";
+
 import { FieldState, FormState } from "./State";
 
 const FieldPrefixContext = createContext({ prefix: "" });
@@ -46,40 +12,6 @@ export const useFieldNameMayWithPrefix = (name: string) => {
   const prefix = useContext(FieldPrefixContext).prefix;
   return `${prefix || ""}${name}`;
 };
-
-export interface FormContexts<TFormValues = any> {
-  formName: string;
-
-  initial: () => void;
-  destroy: () => void;
-  reset: () => void;
-
-  addField: (fieldName: string, validate: FieldState["validate"]) => void;
-  removeField: (fieldName: string) => void;
-
-  updateField: (fieldName: string, value: any | ((value: any) => any), error?: string, initial?: boolean) => void;
-  focusField: (fieldName: string) => void;
-  blurField: (fieldName: string) => void;
-
-  setErrors: (errors: Dictionary<string>) => void;
-  getErrors: () => Dictionary<string>;
-  validateAndErrors: () => Dictionary<string>;
-  getValues: () => TFormValues;
-
-  createSubmit: (cb: (values: TFormValues) => void) => (evt: SyntheticEvent<any>) => void;
-  startSubmit: () => void;
-  endSubmit: () => void;
-
-  state$: Observable<FormState<TFormValues>>;
-}
-
-const FormContext = createContext<{ form: FormContexts<any> }>({} as any);
-
-const FormProvider = FormContext.Provider;
-
-export function useForm<TFormValues extends any>(): FormContexts<TFormValues> {
-  return useContext(FormContext).form;
-}
 
 export function pickValidValues(values: any): any {
   if (values instanceof Blob || values instanceof File) {
@@ -101,22 +33,22 @@ export function pickValidValues(values: any): any {
 }
 
 const FormInitial = () => {
-  const { initial, formName } = useForm();
+  const { reset } = useForm();
 
   // to make sure before autoFocus
   useLayoutEffect(() => {
-    initial();
-  }, [formName]);
+    reset();
+  }, [reset]);
 
   return null;
 };
 
 const FormDestroy = () => {
-  const { destroy, formName } = useForm();
+  const { destroy } = useForm();
 
   useEffect(() => {
     return () => destroy();
-  }, [formName]);
+  }, [destroy]);
 
   return null;
 };
@@ -136,69 +68,56 @@ const validateAll = (fields: FormState["fields"], values: any) => {
   return errors;
 };
 
-export function useNewForm<TFormValues extends object>(formName: string, initialValues = {} as Partial<TFormValues>) {
-  const store$ = useStore();
+export const useNewFormContext = <TFormValues extends object>(
+  formName: string,
+  initialValues: Partial<TFormValues>,
+) => {
+  const [state$, actions] = formStore.useState({ form: formName }, () => ({
+    id: "",
+    fields: {},
+    initials: initialValues,
+    values: {},
+  }));
 
-  const ctx = useMemo(() => {
-    const formState: FormState = {
-      id: uuid(),
-      fields: {},
-      initials: initialValues,
-      values: cloneDeep(initialValues),
-    };
-
+  return useMemo(() => {
     const startSubmit = () => {
-      return formStartSubmit.with(undefined, { form: formName }).invoke(store$);
+      return actions.startSubmit(undefined);
     };
 
     const endSubmit = () => {
-      return formEndSubmit.with(undefined, { form: formName }).invoke(store$);
+      return actions.endSubmit(undefined);
     };
 
     const setErrors = (errors: Dictionary<string>) => {
-      return formSetErrors.with(errors, { form: formName }).invoke(store$);
+      return actions.setErrors(errors);
     };
 
     const getFormState = () => {
-      return store$.getState()[formKey(formName)] || ({} as FormState<TFormValues>);
+      return (state$ as any).value || ({} as FormState<TFormValues>);
     };
 
     const addField = (fieldName: string, validate: FieldState["validate"]) => {
-      formAddField
-        .with(
-          {
-            validate,
-          },
-          { form: formName, field: fieldName },
-        )
-        .invoke(store$);
-    };
-
-    const initial = () => {
-      formInitial.with(formState, { form: formName }).invoke(store$);
-    };
-
-    const destroy = () => {
-      formDestroy.with(undefined, { form: formName }).invoke(store$);
+      actions.addField({ validate }, { field: fieldName });
     };
 
     const reset = () => {
-      formState.id = uuid();
+      actions.initial(initialValues);
+    };
 
-      destroy();
-      initial();
+    const destroy = () => {
+      actions.destroy(undefined);
     };
 
     const removeField = (fieldName: string) => {
-      formRemoveField.with(undefined, { form: formName, field: fieldName }).invoke(store$);
+      actions.removeField(undefined, { field: fieldName });
     };
 
     const focusField = (fieldName: string) => {
-      formFocusField.with(undefined, { form: formName, field: fieldName }).invoke(store$);
+      actions.focusField(undefined, { field: fieldName });
     };
 
     const blurField = (fieldName: string) => {
-      formBlurField.with(undefined, { form: formName, field: fieldName }).invoke(store$);
+      actions.blurField(undefined, { field: fieldName });
     };
 
     const updateField = (
@@ -207,19 +126,7 @@ export function useNewForm<TFormValues extends object>(formName: string, initial
       error?: string,
       initial?: boolean,
     ) => {
-      formUpdateField
-        .with(
-          {
-            value: nextValue,
-            error,
-            initial,
-          },
-          {
-            field: fieldName,
-            form: formName,
-          },
-        )
-        .invoke(store$);
+      actions.updateField({ value: nextValue, error, initial }, { field: fieldName });
     };
 
     const getValues = () => {
@@ -277,14 +184,27 @@ export function useNewForm<TFormValues extends object>(formName: string, initial
       startSubmit,
       endSubmit,
 
-      initial,
       destroy,
-
       reset,
 
-      state$: Volume.from(store$, (state) => get(state, formKey(formName), formState)),
+      state$: state$,
     };
-  }, [store$, formName]);
+  }, [state$, formName]);
+};
+
+const FormContext = createContext<{ form: ReturnType<typeof useNewFormContext> }>({} as any);
+
+const FormProvider = FormContext.Provider;
+
+export function useForm() {
+  return useContext(FormContext).form;
+}
+
+export const useNewForm = <TFormValues extends object>(
+  formName: string,
+  initialValues = {} as Partial<TFormValues>,
+) => {
+  const ctx = useNewFormContext<TFormValues>(formName, initialValues);
 
   const Form = useMemo(() => {
     return function Form({
@@ -316,4 +236,4 @@ export function useNewForm<TFormValues extends object>(formName: string, initial
   }, [ctx]);
 
   return [ctx, Form] as const;
-}
+};
