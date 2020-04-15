@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.18](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.1.17...@querycap-ui/layouts@0.1.18) (2020-04-15)
+
+
+### Bug Fixes
+
+* **ui/layouts:** fix Stacks ([ab2900b](https://github.com/querycap/webappkit/commit/ab2900b9f92a35ae9f7a8ee9d394e6a1c0bc6a16))
+
+
+
+
+
 ## [0.1.17](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.1.16...@querycap-ui/layouts@0.1.17) (2020-04-14)
 
 **Note:** Version bump only for package @querycap-ui/layouts

@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/layouts",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
