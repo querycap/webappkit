@@ -13,6 +13,9 @@
     "rxjs": "6.x",
     "uuid": "7.x"
   },
+  "dependencies": {
+    "@querycap/contexts": "0.x"
+  },
   "publishConfig": {
     "access": "public"
   },

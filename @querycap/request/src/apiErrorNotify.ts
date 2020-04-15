@@ -1,4 +1,4 @@
-import { Msg, notify } from "@querycap/notify";
+import { Msg, notificationStore } from "@querycap/notify";
 import { Actor } from "@reactorx/core";
 import { Observable } from "rxjs";
 import { filter, map } from "rxjs/operators";
@@ -15,7 +15,7 @@ export const createApiErrorNotify = () => {
       }),
       map((action) => {
         const { msg, desc } = action.arg.data;
-        return notify.with({ type: "error", summary: msg, description: desc });
+        return notificationStore.actors.notify.with({ type: "error", summary: msg, description: desc });
       }),
     );
 };

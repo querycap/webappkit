@@ -1,13 +1,13 @@
 import { DialogPrompt, ModalDialog } from "@querycap-ui/blocks";
 import { preventDefault } from "@querycap-ui/core";
-import { useConfirm, useConfirmContext } from "@querycap/bootstrap";
+import { confirmationStore, useConfirm } from "@querycap/notify";
 import { useObservable } from "@reactorx/core";
 import { isUndefined, map } from "lodash";
 import React from "react";
 import { pipe } from "rxjs";
 
 const Confirmations = () => {
-  const { confirmations$, confirm, destroy } = useConfirmContext();
+  const [confirmations$, { confirm, destroy }] = confirmationStore.useState();
 
   const confirmations = useObservable(confirmations$);
 
@@ -17,9 +17,11 @@ const Confirmations = () => {
         <ModalDialog
           key={id}
           isOpen={isUndefined(confirmed)}
-          onRequestClose={() => confirm(id, false)}
+          onRequestClose={() => confirm({ id, confirmed: false })}
           onDestroyed={() => destroy(id)}>
-          <DialogPrompt onRequestClose={() => confirm(id, false)} onRequestConfirm={() => confirm(id, true)}>
+          <DialogPrompt
+            onRequestClose={() => confirm({ id, confirmed: false })}
+            onRequestConfirm={() => confirm({ id, confirmed: true })}>
             {content}
           </DialogPrompt>
         </ModalDialog>
@@ -37,9 +39,8 @@ export const Confirmation = () => {
       <a
         href="#"
         onClick={pipe(preventDefault, () => {
-          confirm("hello", (confirmed) => {
-            confirmed && console.log("111");
-          });
+          confirm("hello", console.log);
+          confirm("hello", console.log);
         })}>
         trigger confirm
       </a>

@@ -8,7 +8,7 @@ import React, { ReactElement, ReactNode, StrictMode, useEffect, useMemo } from "
 import ReactDOM, { render } from "react-dom";
 // @ts-ignore
 import { createLogger } from "redux-logger";
-import { ConfirmProvider, useConfirm } from "./Confirmation";
+import { useConfirm } from "@querycap/notify";
 
 function PersisterConnect({ persister }: { persister: ReturnType<typeof createPersister> }) {
   const store$ = useStore();
@@ -89,9 +89,7 @@ export const createBootstrap = <T extends BaseConfig>(config: T) => (e: ReactEle
           <StoreProvider value={store$}>
             <ConfigProvider value={{ config }}>
               <PersisterConnect persister={persister} />
-              <ConfirmProvider>
-                <HistoryProvider>{isFunction(e) ? e() : e}</HistoryProvider>
-              </ConfirmProvider>
+              <HistoryProvider>{isFunction(e) ? e() : e}</HistoryProvider>
             </ConfigProvider>
           </StoreProvider>
         </StrictMode>,
