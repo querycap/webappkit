@@ -1,5 +1,5 @@
 import { roundedEm, select } from "@querycap-ui/core";
-import { theme } from "@querycap-ui/core/theme";
+import { theme } from "@querycap-ui/core/macro";
 import { must } from "@querycap/reactutils";
 import { useObservable } from "@reactorx/core";
 import { Dictionary, mapValues, noop } from "lodash";
