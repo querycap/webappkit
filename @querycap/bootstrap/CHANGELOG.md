@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/querycap/webappkit/compare/@querycap/bootstrap@0.2.4...@querycap/bootstrap@0.3.0) (2020-04-15)
+
+
+### Features
+
+* **bootstrap:** stylable confirm ([a738fde](https://github.com/querycap/webappkit/commit/a738fde046cddae6b1aff4c9b43fa9e66462212a))
+
+
+
+
+
 ## [0.2.4](https://github.com/querycap/webappkit/compare/@querycap/bootstrap@0.2.3...@querycap/bootstrap@0.2.4) (2020-04-10)
 
 **Note:** Version bump only for package @querycap/bootstrap
