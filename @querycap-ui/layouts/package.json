@@ -1,12 +1,12 @@
 {
   "name": "@querycap-ui/layouts",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
     "@emotion/core": "10.x",
-    "react": "16.x",
-    "lodash": "4.x"
+    "lodash": "4.x",
+    "react": "16.x"
   },
   "dependencies": {
     "@querycap-ui/core": "^0.7.10"
