@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/querycap/webappkit/compare/@querycap/reactutils@0.6.0...@querycap/reactutils@0.6.1) (2020-04-15)
+
+
+### Bug Fixes
+
+* **reactutils:** fix HTMLComment ([03bdddd](https://github.com/querycap/webappkit/commit/03bdddd7948c31cf9146c482239cfed2c7e89659))
+
+
+
+
+
 # [0.6.0](https://github.com/querycap/webappkit/compare/@querycap/reactutils@0.5.1...@querycap/reactutils@0.6.0) (2020-04-15)
 
 
