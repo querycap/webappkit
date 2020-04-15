@@ -98,11 +98,13 @@ const FilterLabel = ({
               defaultValue: value,
             });
         }}>
-        <span css={select().display("block").paddingX("0.3em")}>{filterMeta.label}</span>
+        <span css={select().display("block").paddingX(roundedEm(0.3))}>{filterMeta.label}</span>
       </div>
       {value && (
         <div>
-          <span css={select().display("block").paddingX("0.3em")}>{displayValue(value, filterMeta.display)}</span>
+          <span css={select().display("block").paddingX(roundedEm(0.3))}>
+            {displayValue(value, filterMeta.display)}
+          </span>
         </div>
       )}
       {value && <CloseBtn onClick={() => onRemoveClick && onRemoveClick(filterMeta.key, value)} />}
@@ -144,13 +146,13 @@ export const SearchInputContainer = (_: {}) => {
           .display("flex")
           .alignItems("center")
           .flexWrap("wrap")
-          .paddingX("0.4em")
           .lineHeight(theme.lineHeights.condensed)
-          .with(select("& input", "& [role=input]").width("100%").paddingX(theme.space.s1))
-          .margin(-2)
-          .with(select("& > *").margin(2))}>
+          .marginY(roundedEm(-0.2))
+          .paddingX(roundedEm(0.2))
+          .with(select("& > *").marginX(roundedEm(0.2)).marginY(roundedEm(0.4)))
+          .with(select("& input", "& [role=input]").width("100%").paddingY(roundedEm(0.4)))}>
         <FilterLabelList />
-        <div css={select().flex(1).with(select("& input", "& [role=input]").paddingX(0))}>
+        <div css={select().flex(1)}>
           <FilterInput />
         </div>
       </div>

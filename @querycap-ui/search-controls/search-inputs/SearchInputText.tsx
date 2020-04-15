@@ -19,5 +19,5 @@ export const SearchInputText = ({
     }
   }, []);
 
-  return <input ref={inputElmRef} type={"text"} {...otherProps} />;
+  return <input role={"input"} ref={inputElmRef} type={"text"} {...otherProps} />;
 };

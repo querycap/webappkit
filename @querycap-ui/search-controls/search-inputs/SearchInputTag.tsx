@@ -58,6 +58,7 @@ export const SearchInputTag = ({ onSubmit, onCancel, defaultValue }: SearchInput
     <input
       ref={inputElmRef}
       type={"text"}
+      role={"input"}
       css={select().with(select().color(valid ? "inherit" : theme.colors.danger))}
     />
   );

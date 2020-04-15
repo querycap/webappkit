@@ -13,6 +13,7 @@ import React, { useState } from "react";
 
 const SearchBox = createSearchBox<any>({
   name: searchInput("wild").label("名称"),
+  keyword: searchInput().label("关键字"),
   type: searchInput().type(SearchInputSelect).enum(["A", "B", "C", "D"]).multiple(true),
   tag: searchInput().type(SearchInputTag).label("tag"),
   createdAt: searchInput()

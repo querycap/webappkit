@@ -1,4 +1,5 @@
-import { Input } from "@querycap-ui/form-controls";
+import { roundedEm, select } from "@querycap-ui/core";
+import { theme } from "@querycap-ui/core/theme";
 import { must } from "@querycap/reactutils";
 import { useObservable } from "@reactorx/core";
 import { Dictionary, mapValues, noop } from "lodash";
@@ -68,11 +69,37 @@ export const createSearchBox = <TFilters extends Dictionary<any>>(
     return (
       <SearchBox>
         <div ref={containerElmRef}>
-          <label>
-            <Input small>
-              <SearchInputContainer />
-              <MaybeSortable />
-            </Input>
+          <label
+            css={select()
+              .lineHeight(theme.lineHeights.normal)
+              .borderWidth(1)
+              .borderStyle("solid")
+              .boxSizing("border-box")
+              .fontSize(theme.state.fontSize)
+              .fontFamily("inherit")
+              .verticalAlign("baseline")
+              .borderRadius(theme.radii.s)
+              .appearance("none")
+              .textDecoration("none")
+              .display("flex")
+              .alignItems("center")
+              .borderColor(theme.state.borderColor)
+              .colorFill(theme.state.color)
+              .backgroundColor(theme.state.backgroundColor)
+              .with(
+                select("& [role=input]", "& input", "& textarea")
+                  .flex(1)
+                  .outline(0)
+                  .width("100%")
+                  .maxWidth("100%")
+                  .background("none")
+                  .lineHeight("inherit")
+                  .border("none")
+                  .colorFill("inherit")
+                  .paddingX(roundedEm(0.2)),
+              )}>
+            <SearchInputContainer />
+            <MaybeSortable />
           </label>
         </div>
       </SearchBox>

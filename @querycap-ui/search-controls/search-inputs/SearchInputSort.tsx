@@ -1,3 +1,4 @@
+import { roundedEm } from "@querycap-ui/core";
 import { preventDefault, select, theme } from "@querycap-ui/core/macro";
 import { MenuOptGroup, OptionFocusedAttr, SelectMenuPopover, useNewSelect } from "@querycap-ui/form-controls";
 import { IconArrowDown, IconArrowUp } from "@querycap-ui/icons";
@@ -22,20 +23,9 @@ const SortLabel = forwardRef(
     ref,
   ) => {
     return (
-      <div
-        ref={ref as any}
-        css={{
-          flex: 1,
-          cursor: "pointer",
-          padding: "0.4em 0.9em",
-          "& > i": {
-            opacity: 0.7,
-          },
-        }}
-        {...otherProps}>
-        <i>以</i>
-        <span css={{ opacity: 1 }}>&nbsp;{children}&nbsp;</span>
-        <i>{asc ? "升序排" : "降序排"}</i>
+      <div ref={ref as any} css={select("& > [role=desc]").opacity(0.4)} {...otherProps}>
+        <span>&nbsp;{children}&nbsp;</span>
+        <span role={"desc"}>{asc ? "升序排" : "降序排"}</span>
       </div>
     );
   },
@@ -93,26 +83,22 @@ export const SearchInputSort = ({ defaultValue, display, enum: values = [], onSu
 
   return (
     <div
+      ref={triggerElmRef}
       css={select()
         .display("flex")
         .alignItems("center")
         .height("100%")
         .userSelect("none")
         .borderLeft("1px solid")
-        .borderColor(theme.state.borderColor)}>
-      <SortLabel
-        ref={triggerElmRef}
-        asc={asc}
-        onClick={pipe(preventDefault, () => (isOpened ? closePopover() : openPopover()))}>
+        .borderColor(theme.state.borderColor)
+        .paddingX(roundedEm(0.2))
+        .paddingY(roundedEm(0.2))
+        .cursor("pointer")
+        .with(select("& > *").paddingX(roundedEm(0.2)))}>
+      <SortLabel asc={asc} onClick={pipe(preventDefault, () => (isOpened ? closePopover() : openPopover()))}>
         {displayValue(by, display)}
       </SortLabel>
-      <div
-        css={{
-          opacity: 0.6,
-          cursor: "pointer",
-          padding: "0.4em 0.9em 0.4em 0",
-        }}
-        onClick={pipe(preventDefault, toggleAsc)}>
+      <div css={select().opacity(0.6)} onClick={pipe(preventDefault, toggleAsc)}>
         {asc ? <IconArrowDown /> : <IconArrowUp />}
       </div>
       {isOpened && (
