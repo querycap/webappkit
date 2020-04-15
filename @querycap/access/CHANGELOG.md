@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/querycap/webappkit/compare/@querycap/access@0.4.3...@querycap/access@0.5.0) (2020-04-15)
+
+
+### Features
+
+* **access:** acl as html comment ([b4cb3f4](https://github.com/querycap/webappkit/commit/b4cb3f40ba3056b617904eea37491706fd34f2d7))
+
+
+
+
+
 ## [0.4.3](https://github.com/querycap/webappkit/compare/@querycap/access@0.4.2...@querycap/access@0.4.3) (2020-04-15)
 
 **Note:** Version bump only for package @querycap/access
