@@ -1,1 +1,2 @@
-export * from "./Bootstrap"
+export * from "./Bootstrap";
+export * from "./Confirmation";

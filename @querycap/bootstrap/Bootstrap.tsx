@@ -4,10 +4,11 @@ import { Actor, AsyncStage, Store, StoreProvider, useStore } from "@reactorx/cor
 import { ReactorxRouter } from "@reactorx/router";
 import { createBrowserHistory } from "history";
 import { isFunction } from "lodash";
-import React, { ReactElement, ReactNode, StrictMode, useEffect } from "react";
+import React, { ReactElement, ReactNode, StrictMode, useEffect, useMemo } from "react";
 import ReactDOM, { render } from "react-dom";
 // @ts-ignore
 import { createLogger } from "redux-logger";
+import { ConfirmProvider, useConfirm } from "./Confirmation";
 
 function PersisterConnect({ persister }: { persister: ReturnType<typeof createPersister> }) {
   const store$ = useStore();
@@ -23,18 +24,26 @@ function PersisterConnect({ persister }: { persister: ReturnType<typeof createPe
   return null;
 }
 
-export const createBootstrap = <T extends BaseConfig>(config: T) => (
-  e: ReactElement<any> | (() => ReactElement<any>),
-) => {
+const HistoryProvider = ({ children }: { children: ReactNode }) => {
+  const confirm = useConfirm();
+
+  const history = useMemo(
+    () =>
+      createBrowserHistory({
+        basename: "",
+        forceRefresh: false,
+        keyLength: 6,
+        getUserConfirmation: (message, callback) => confirm(message, callback),
+      }),
+    [],
+  );
+
+  return <ReactorxRouter history={history}>{children}</ReactorxRouter>;
+};
+
+export const createBootstrap = <T extends BaseConfig>(config: T) => (e: ReactElement | (() => ReactElement)) => {
   const persister = createPersister({
     name: config.appName || "app",
-  });
-
-  const history = createBrowserHistory({
-    basename: "",
-    forceRefresh: false,
-    keyLength: 6,
-    getUserConfirmation: (message, callback) => callback(globalThis.confirm(message)),
   });
 
   return ($root: Element, async = false) => {
@@ -80,7 +89,9 @@ export const createBootstrap = <T extends BaseConfig>(config: T) => (
           <StoreProvider value={store$}>
             <ConfigProvider value={{ config }}>
               <PersisterConnect persister={persister} />
-              <ReactorxRouter history={history}>{isFunction(e) ? e() : e}</ReactorxRouter>
+              <ConfirmProvider>
+                <HistoryProvider>{isFunction(e) ? e() : e}</HistoryProvider>
+              </ConfirmProvider>
             </ConfigProvider>
           </StoreProvider>
         </StrictMode>,

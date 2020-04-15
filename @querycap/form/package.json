@@ -7,15 +7,15 @@
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "react": ">=16.13"
+    "react": ">=16.13",
+    "uuid": "7.x"
   },
   "dependencies": {
     "@querycap/contexts": "^0.2.0",
     "@querycap/reactutils": "^0.5.1",
     "@reactorx/core": "^0.20.7",
     "@types/lodash": "4.14.x",
-    "lodash": "4.17.x",
-    "uuid": "7.x"
+    "lodash": "4.17.x"
   },
   "publishConfig": {
     "access": "public"
