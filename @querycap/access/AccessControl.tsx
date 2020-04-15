@@ -1,17 +1,9 @@
+import { HTMLComment } from "@querycap/reactutils";
 import { RequestActor } from "@querycap/request";
 import { RequestActor as RequestActorOrigin } from "@reactorx/request";
 import { AxiosRequestConfig } from "axios";
 import { Dictionary, every, filter, forEach, map, some } from "lodash";
-import React, {
-  Children,
-  cloneElement,
-  createContext,
-  FunctionComponent,
-  lazy,
-  ReactNode,
-  Suspense,
-  useContext,
-} from "react";
+import React, { createContext, FunctionComponent, lazy, ReactNode, Suspense, useContext } from "react";
 
 const AccessControlContext = createContext({
   permissions: {},
@@ -72,13 +64,15 @@ function withAccessControl(method: "some" | "every", ...deps: Array<ShouldEnterR
   });
 
   const resolveShouldRender = (): Promise<TShouldRender> =>
-    Promise.all(map(dependentResolveShouldRenders, (call) => call())).then((dependentShouldRenders) => {
+    Promise.all(map(dependentResolveShouldRenders, (call) => call())).then((dependentShouldRenders = []) => {
       const shouldRender: TShouldRender =
         method === "some"
           ? (permissions: Dictionary<boolean>, attrs: Dictionary<string[]>) => {
-              return some(dependentShouldRenders, (shouldRender) =>
-                shouldRender ? shouldRender(permissions, attrs) : false,
-              );
+              return dependentShouldRenders.length == 0
+                ? true
+                : some(dependentShouldRenders, (shouldRender) =>
+                    shouldRender ? shouldRender(permissions, attrs) : false,
+                  );
             }
           : (permissions: Dictionary<boolean>, attrs: Dictionary<string[]>) => {
               return every(dependentShouldRenders, (shouldRender) =>
@@ -105,26 +99,21 @@ function withAccessControl(method: "some" | "every", ...deps: Array<ShouldEnterR
 
     const L = lazy(() =>
       resolveShouldRender().then((shouldRender) => {
-        function Ac({ children }: { children: ReactNode }): JSX.Element | null {
+        const ac = `ac(${shouldRender?.ac || "any"})`;
+
+        function AccessControl({ children }: { children: ReactNode }): JSX.Element | null {
           const { permissions, attrs } = useAccessControl();
 
-          if (shouldRender(permissions || {}, attrs || ({} as any))) {
-            return (
-              <>
-                {cloneElement(Children.only(children as any), {
-                  ["data-access-control"]: shouldRender?.ac,
-                })}
-              </>
-            );
-          }
-
-          return null;
+          return (
+            <>
+              <HTMLComment text={ac} />
+              {shouldRender(permissions || {}, attrs || ({} as any)) && children}
+            </>
+          );
         }
 
-        Ac.displayName = `Ac<${shouldRender.ac}>`;
-
         return {
-          default: Ac,
+          default: AccessControl,
         };
       }),
     );
