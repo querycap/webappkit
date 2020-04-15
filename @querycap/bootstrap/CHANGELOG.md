@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/querycap/webappkit/compare/@querycap/bootstrap@0.3.0...@querycap/bootstrap@0.4.0) (2020-04-15)
+
+
+### Features
+
+* **notify:** mv confirmation as store into notify ([be6cbed](https://github.com/querycap/webappkit/commit/be6cbedb6fa3450214c8742f61497a9335373818))
+
+
+
+
+
 # [0.3.0](https://github.com/querycap/webappkit/compare/@querycap/bootstrap@0.2.4...@querycap/bootstrap@0.3.0) (2020-04-15)
 
 

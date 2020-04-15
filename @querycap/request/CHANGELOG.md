@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/querycap/webappkit/compare/@querycap/request@0.4.1...@querycap/request@0.5.0) (2020-04-15)
+
+
+### Features
+
+* **notify:** mv confirmation as store into notify ([be6cbed](https://github.com/querycap/webappkit/commit/be6cbedb6fa3450214c8742f61497a9335373818))
+
+
+
+
+
 ## [0.4.1](https://github.com/querycap/webappkit/compare/@querycap/request@0.4.0...@querycap/request@0.4.1) (2020-04-10)
 
 **Note:** Version bump only for package @querycap/request

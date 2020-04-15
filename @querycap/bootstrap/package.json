@@ -1,20 +1,20 @@
 {
   "name": "@querycap/bootstrap",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "files": [
     "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
     "@reactorx/core": "0.x",
-    "react": "16.x",
     "lodash": "4.x",
+    "react": "16.x",
     "react-dom": "16.x"
   },
   "dependencies": {
     "@querycap/config": "^0.6.1",
+    "@querycap/notify": "^0.5.0",
     "@querycap/persister": "^0.5.0",
-    "@querycap/notify": "^0.4.0",
     "@reactorx/router": "0.20.x",
     "@types/history": "4.7.5",
     "history": "4.10.x",
