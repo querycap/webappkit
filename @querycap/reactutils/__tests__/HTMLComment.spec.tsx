@@ -11,7 +11,6 @@ describe("HTMLComment", () => {
         <HTMLComment text={TEXT} />
       </span>,
     );
-
     expect(container.innerHTML).toContain(TEXT);
   });
 });

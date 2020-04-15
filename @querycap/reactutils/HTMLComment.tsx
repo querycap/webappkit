@@ -1,7 +1,8 @@
-import React, { memo, useLayoutEffect, useRef } from "react";
+import React, { memo, useLayoutEffect, useRef, useState } from "react";
 
 export const HTMLComment = memo(({ text = "" }: { text: string }) => {
   const ref = useRef<HTMLSpanElement>(null);
+  const [ready, setReady] = useState(false);
 
   useLayoutEffect(() => {
     if (!ref.current) {
@@ -10,22 +11,31 @@ export const HTMLComment = memo(({ text = "" }: { text: string }) => {
 
     const el = ref.current;
     const parent = el.parentNode;
+
+    if (!parent) {
+      return;
+    }
+
     const comm = globalThis.document.createComment(` ${text.trim()} `);
 
     try {
-      if (parent && parent.contains(el)) {
-        parent.replaceChild(comm, el);
-      }
+      parent.insertBefore(comm, el);
     } catch (err) {
       console.error(err);
     }
 
+    setReady(true);
+
     return () => {
-      if (parent && el && comm) {
-        parent.replaceChild(el, comm);
+      if (comm) {
+        try {
+          comm.remove();
+        } catch (err) {
+          console.error(err);
+        }
       }
     };
   }, []);
 
-  return <span ref={ref} style={{ display: "none" }} />;
+  return <>{ready ? null : <span ref={ref} style={{ display: "none" }} />}</>;
 });
