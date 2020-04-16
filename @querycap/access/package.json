@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@querycap/request": "^0.5.0",
+    "@querycap/reactutils": "^0.6.1",
     "public-encrypt": "4.0.3"
   },
   "publishConfig": {
