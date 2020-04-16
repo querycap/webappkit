@@ -1,5 +1,5 @@
 import { roundedEm, select, theme } from "@querycap-ui/core/macro";
-import { Stack } from "@querycap-ui/layouts/Stack";
+import { Stack } from "@querycap-ui/layouts";
 import { asField, FieldInput, useField } from "@querycap/form";
 import React, { ReactNode } from "react";
 import { Input, InputProps } from "./Input";

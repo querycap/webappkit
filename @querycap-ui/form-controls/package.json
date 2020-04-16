@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@querycap-ui/core": "^0.7.10",
+    "@querycap-ui/layouts": "^0.1.19",
     "@querycap-ui/icons": "^0.2.0",
     "@querycap/form": "^0.5.3",
     "@querycap/reactutils": "^0.6.1",
