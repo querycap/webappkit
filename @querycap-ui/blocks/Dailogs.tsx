@@ -44,7 +44,7 @@ export const DialogHeading = ({ children }: { children?: ReactNode }) => {
       role={"title"}
       css={select()
         .paddingX(roundedEm(1.2))
-        .paddingY(roundedEm(0.4))
+        .paddingY(roundedEm(0.6))
         .borderBottom("1px solid")
         .display("flex")
         .alignItems("center")
@@ -58,7 +58,7 @@ export const DialogHeading = ({ children }: { children?: ReactNode }) => {
 
 export const DialogContent = ({ children }: { children?: ReactNode }) => {
   return (
-    <Stack spacing={roundedEm(1.2)} css={select().paddingX(theme.space.s3).paddingY(theme.space.s3)} role={"title"}>
+    <Stack spacing={roundedEm(1.2)} css={select().padding(roundedEm(1.2))} role={"content"}>
       {children}
     </Stack>
   );
