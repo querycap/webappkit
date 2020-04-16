@@ -1,7 +1,7 @@
 import { preventDefault, roundedEm, select, theme } from "@querycap-ui/core/macro";
 import { Stack } from "@querycap-ui/layouts";
 import { times } from "lodash";
-import React, { ReactNode } from "react";
+import React, { memo, ReactNode } from "react";
 import { pipe } from "rxjs";
 
 export interface Pager {
@@ -63,6 +63,16 @@ const NavBtn = ({
   </a>
 );
 
+const Options = memo(({ value }: { value: number }) => (
+  <>
+    {times(value).map((_, i) => (
+      <option key={i + 1} value={i + 1}>
+        {i + 1}
+      </option>
+    ))}
+  </>
+));
+
 export const Pagination = ({ total, pager, onPagerChange, onShowSizeChange, ...otherProps }: PaginationProps) => {
   const { size = 10, offset = 0 } = pager;
   const totalPage = Math.ceil(total / size);
@@ -76,10 +86,9 @@ export const Pagination = ({ total, pager, onPagerChange, onShowSizeChange, ...o
   };
 
   return (
-    <div css={select().marginY(roundedEm(1))} {...otherProps}>
+    <div css={select().fontSize(theme.state.fontSize).marginY(roundedEm(1))} {...otherProps}>
       <Stack
         inline
-        justify={"flex-end"}
         spacing={roundedEm(0.6)}
         wrap={"wrap"}
         css={select("& > *")
@@ -87,7 +96,6 @@ export const Pagination = ({ total, pager, onPagerChange, onShowSizeChange, ...o
           .borderRadius(theme.radii.s)
           .whiteSpace("nowrap")
           .with(select("&[data-disabled=true]").opacity(0.5).colorFill(theme.state.color).cursor("not-allowed"))}>
-        <div>共 {total} 条</div>
         <NavBtn
           disabled={currentPage === 1}
           onRequestNav={() => {
@@ -101,17 +109,12 @@ export const Pagination = ({ total, pager, onPagerChange, onShowSizeChange, ...o
               .borderRadius(theme.radii.s)
               .borderWidth(1)
               .outline("none")
-              .borderColor(theme.state.borderColor)
-              .width(roundedEm(String(totalPage).length + 0.5))}
+              .borderColor(theme.state.borderColor)}
             value={currentPage}
             onChange={pipe(preventDefault, (e) => {
               updatePage(Number((e as any).target?.value));
             })}>
-            {times(totalPage).map((_, i) => (
-              <option key={i + 1} value={i + 1}>
-                {i + 1}
-              </option>
-            ))}
+            <Options value={totalPage} />
           </select>
           &nbsp;/&nbsp;{totalPage}
         </div>
@@ -122,6 +125,7 @@ export const Pagination = ({ total, pager, onPagerChange, onShowSizeChange, ...o
           }}>
           下页
         </NavBtn>
+        <div>共 {total} 条</div>
       </Stack>
     </div>
   );
