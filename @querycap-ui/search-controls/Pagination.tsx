@@ -1,7 +1,8 @@
-import { preventDefault, roundedEm, select, theme, ThemeState } from "@querycap-ui/core/macro";
+import { preventDefault, roundedEm, select, theme } from "@querycap-ui/core/macro";
+import { Stack } from "@querycap-ui/layouts";
+import { times } from "lodash";
+import React, { ReactNode } from "react";
 import { pipe } from "rxjs";
-import { map } from "lodash";
-import React from "react";
 
 export interface Pager {
   size: number;
@@ -40,12 +41,32 @@ export const getPageNums = (total: number, current: number, offset = 3): Array<n
   return nums.reverse();
 };
 
+const NavBtn = ({
+  children,
+  disabled,
+  onRequestNav,
+}: {
+  children?: ReactNode;
+  disabled?: boolean;
+  onRequestNav: () => void;
+}) => (
+  <a
+    role={"nav"}
+    href={"#"}
+    data-disabled={disabled}
+    onClick={pipe(preventDefault, () => {
+      if (!disabled) {
+        onRequestNav();
+      }
+    })}>
+    {children}
+  </a>
+);
+
 export const Pagination = ({ total, pager, onPagerChange, onShowSizeChange, ...otherProps }: PaginationProps) => {
   const { size = 10, offset = 0 } = pager;
   const totalPage = Math.ceil(total / size);
   const currentPage = Math.floor(offset / size) + 1;
-
-  const pageNums = getPageNums(totalPage, currentPage, 2);
 
   const updatePage = (nextPage: number) => {
     onPagerChange({
@@ -54,69 +75,54 @@ export const Pagination = ({ total, pager, onPagerChange, onShowSizeChange, ...o
     });
   };
 
-  const itemStyle = select()
-    .textDecoration("none")
-    .colorFill(theme.state.color)
-    .backgroundColor(theme.state.backgroundColor)
-    .paddingX("0.6em")
-    .borderRadius(theme.radii.s)
-    .paddingY(roundedEm(0.3));
-
-  const pageNumItems = map(pageNums, (pageNum, idx) => {
-    const active = currentPage === pageNum;
-
-    return (
-      <ThemeState key={idx} backgroundColor={active ? theme.colors.primary : theme.state.backgroundColor} autoColor>
-        <a
-          href={"#"}
-          onClick={pipe(preventDefault, () => {
-            !!pageNum && currentPage !== pageNum && updatePage(pageNum);
-          })}
-          css={select().with(itemStyle).cursor("pointer")}>
-          {pageNum ? pageNum : "..."}
-        </a>
-      </ThemeState>
-    );
-  });
-
   return (
-    <div
-      css={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "flex-end",
-        width: "100%",
-        margin: "2em 0",
-      }}
-      {...otherProps}>
-      {pageNumItems.length > 0 && (
-        <>
-          {currentPage !== 1 && (
-            <a
-              css={select().with(itemStyle).marginRight("0.2em")}
-              href={"#"}
-              onClick={(e) => {
-                e.preventDefault();
-                updatePage(currentPage - 1);
-              }}>
-              上一页
-            </a>
-          )}
-          <div css={select().with(itemStyle).marginRight("0.2em")}>{total} 条</div>
-          <div css={{ "& > *": { margin: "0 0.2em" } }}>{pageNumItems}</div>
-          {currentPage !== totalPage && (
-            <a
-              css={select().with(itemStyle)}
-              href={"#"}
-              onClick={(e) => {
-                e.preventDefault();
-                updatePage(currentPage + 1);
-              }}>
-              下一页
-            </a>
-          )}
-        </>
-      )}
+    <div css={select().marginY(roundedEm(1))} {...otherProps}>
+      <Stack
+        inline
+        justify={"flex-end"}
+        spacing={roundedEm(0.6)}
+        wrap={"wrap"}
+        css={select("& > *")
+          .textDecoration("none")
+          .borderRadius(theme.radii.s)
+          .whiteSpace("nowrap")
+          .with(select("&[data-disabled=true]").opacity(0.5).colorFill(theme.state.color).cursor("not-allowed"))}>
+        <div>共 {total} 条</div>
+        <NavBtn
+          disabled={currentPage === 1}
+          onRequestNav={() => {
+            updatePage(currentPage - 1);
+          }}>
+          上页
+        </NavBtn>
+        <div>
+          <select
+            css={select()
+              .borderRadius(theme.radii.s)
+              .borderWidth(1)
+              .outline("none")
+              .borderColor(theme.state.borderColor)
+              .width(roundedEm(String(totalPage).length + 0.5))}
+            value={currentPage}
+            onChange={pipe(preventDefault, (e) => {
+              updatePage(Number((e as any).target?.value));
+            })}>
+            {times(totalPage).map((_, i) => (
+              <option key={i + 1} value={i + 1}>
+                {i + 1}
+              </option>
+            ))}
+          </select>
+          &nbsp;/&nbsp;{totalPage}
+        </div>
+        <NavBtn
+          disabled={currentPage === totalPage}
+          onRequestNav={() => {
+            updatePage(currentPage + 1);
+          }}>
+          下页
+        </NavBtn>
+      </Stack>
     </div>
   );
 };
