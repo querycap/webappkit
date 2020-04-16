@@ -20,6 +20,7 @@ const SearchBox = createSearchBox<any>({
     .label("日期")
     .sortable()
     .display(createTimeRangeDisplay("yyyy-MM-dd")),
+  sort: searchInput().defaultValue("createdAt"),
 });
 
 export const SearchBoxDemo = () => {

@@ -4,6 +4,7 @@ import { must } from "@querycap/reactutils";
 import { useObservable } from "@reactorx/core";
 import { Dictionary, noop } from "lodash";
 import React, { useRef } from "react";
+import { isUndefined } from "lodash";
 import { FilterMeta, FilterMetaBuilder, useNewSearchBox, useSearchBox } from "./search-box";
 import { SearchInputContainer } from "./search-inputs";
 import { SearchInputSort } from "./search-inputs/SearchInputSort";
@@ -37,8 +38,8 @@ export const MaybeSortable = must(() => {
 export const createSearchBox = <TFilters extends Dictionary<any>>(
   filterMetaBuilders: { [k in keyof TFilters]: FilterMetaBuilder },
 ) => {
+  const defaultFilters = {} as any;
   const filterLabels: { [k: string]: string } = {};
-
   const filterMetas: { [k: string]: FilterMeta } = {};
 
   const sortables: string[] = [];
@@ -46,12 +47,12 @@ export const createSearchBox = <TFilters extends Dictionary<any>>(
   for (const key in filterMetaBuilders) {
     const filterMeta = filterMetaBuilders[key]();
 
-    if (key === "sort") {
-      continue;
-    }
-
     if (filterMeta.sortable) {
       sortables.push(key);
+    }
+
+    if (!isUndefined(filterMeta.defaultValue)) {
+      defaultFilters[key] = filterMeta.defaultValue;
     }
 
     filterLabels[key] = filterMeta.label || key;
@@ -66,6 +67,7 @@ export const createSearchBox = <TFilters extends Dictionary<any>>(
 
   if (sortables.length >= 0) {
     filterMetas["sort"] = {
+      ...(filterMetas["sort"] || {}),
       key: "sort",
       enum: sortables,
       display: displayFromOpts(filterLabels),
@@ -77,10 +79,16 @@ export const createSearchBox = <TFilters extends Dictionary<any>>(
 
     const containerElmRef = useRef<HTMLDivElement>(null);
 
-    const [, SearchBox] = useNewSearchBox(filters, {
-      filterMetas,
-      onSubmit,
-    });
+    const [, SearchBox] = useNewSearchBox(
+      {
+        ...defaultFilters,
+        ...filters,
+      },
+      {
+        filterMetas,
+        onSubmit,
+      },
+    );
 
     return (
       <SearchBox>
@@ -122,7 +130,7 @@ export const createSearchBox = <TFilters extends Dictionary<any>>(
     );
   }
 
-  SearchBoxContainer.defaultFilters = {} as TFilters;
+  SearchBoxContainer.defaultFilters = defaultFilters as TFilters;
   SearchBoxContainer.labels = filterLabels;
 
   return SearchBoxContainer as typeof SearchBoxContainer & {
