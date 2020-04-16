@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.10](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.5.9...@querycap-ui/blocks@0.5.10) (2020-04-16)
+
+
+### Bug Fixes
+
+* **ui/blocks:** fix DialogContent ([f8ccad8](https://github.com/querycap/webappkit/commit/f8ccad8b5dfed74fd6809a08e2a74951b4d9eddb))
+
+
+
+
+
 ## [0.5.9](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.5.8...@querycap-ui/blocks@0.5.9) (2020-04-16)
 
 
