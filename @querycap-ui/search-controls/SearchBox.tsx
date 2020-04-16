@@ -46,7 +46,7 @@ export const createSearchBox = <TFilters extends Dictionary<any>>(
   for (const key in filterMetaBuilders) {
     const filterMeta = filterMetaBuilders[key]();
 
-    if (filterMeta.target === "sort") {
+    if (key === "sort") {
       continue;
     }
 
@@ -66,14 +66,11 @@ export const createSearchBox = <TFilters extends Dictionary<any>>(
 
   if (sortables.length >= 0) {
     filterMetas["sort"] = {
-      target: "sort",
       key: "sort",
       enum: sortables,
       display: displayFromOpts(filterLabels),
     };
   }
-
-  console.log(filterMetas);
 
   function SearchBoxContainer(props: { filters?: TFilters; onSubmit: (filters: TFilters) => void }) {
     const { onSubmit, filters } = props;

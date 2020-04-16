@@ -12,14 +12,13 @@ import { formatRFC3339 } from "date-fns";
 import React, { useState } from "react";
 
 const SearchBox = createSearchBox<any>({
-  name: searchInput("wild").label("名称"),
+  name: searchInput().label("名称").wildcard(),
   keyword: searchInput().label("关键字"),
-  type: searchInput().type(SearchInputSelect).enum(["A", "B", "C", "D"]).multiple(),
-  tag: searchInput().sortable().type(SearchInputTag).label("tag"),
-  createdAt: searchInput()
-    .sortable()
+  type: searchInput(SearchInputSelect).enum(["A", "B", "C", "D"]).multiple(),
+  tag: searchInput(SearchInputTag).label("标签").sortable(),
+  createdAt: searchInput((props) => <SearchInputTimeRange {...props} maxValue={formatRFC3339(Date.now())} />)
     .label("日期")
-    .type((props) => <SearchInputTimeRange {...props} maxValue={formatRFC3339(Date.now())} />)
+    .sortable()
     .display(createTimeRangeDisplay("yyyy-MM-dd")),
 });
 

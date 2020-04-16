@@ -6,6 +6,7 @@ export const SearchInputText = ({
   onSubmit,
   onCancel,
   defaultValue,
+  usedValues,
   ...otherProps
 }: SearchInputProps & Omit<React.InputHTMLAttributes<HTMLInputElement>, "onSubmit" | "onCancel">) => {
   const inputElmRef = useRef<HTMLInputElement>(null);

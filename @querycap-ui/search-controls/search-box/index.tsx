@@ -46,8 +46,8 @@ export interface FilterMeta {
   multiple?: boolean;
   // 可排序
   sortable?: boolean;
-  //
-  target?: "wild" | "sort";
+  // 通配
+  wildcard?: boolean;
 
   defaultValue?: string;
   enum?: string[];
@@ -56,17 +56,17 @@ export interface FilterMeta {
   type?: SearchInput;
 }
 
-export type FilterMetaBuilder = {
-  [k in keyof FilterMeta]-?: FilterMeta[k] extends boolean | undefined
-    ? () => FilterMetaBuilder
-    : (arg: FilterMeta[k]) => FilterMetaBuilder;
+export type FilterMetaBuilder<TFilterMeta extends any = Omit<FilterMeta, "key" | "type">> = {
+  [K in keyof TFilterMeta]-?: TFilterMeta[K] extends boolean | undefined
+    ? () => FilterMetaBuilder<TFilterMeta>
+    : (arg: TFilterMeta[K]) => FilterMetaBuilder<TFilterMeta>;
 } & {
   (): FilterMeta;
 };
 
-export const searchInput = (target?: "wild" | "sort") => {
+export const searchInput = (type?: SearchInput) => {
   const filterMeta: any = {
-    target: target,
+    type,
   };
 
   const build = () => filterMeta;
@@ -118,6 +118,10 @@ export const filterObjectToList = (o: Dictionary<string[]>, filterMetas: Diction
   return filterList;
 };
 
+export const isNormalFilter = (m: FilterMeta) => {
+  return !m.wildcard && m.key !== "sort";
+};
+
 export const useSearchBoxMgr = (
   defaultFilters: any = {},
   {
@@ -131,15 +135,13 @@ export const useSearchBoxMgr = (
   const onSubmitRef = useValueRef(onSubmit);
 
   const ctx = useMemo(() => {
-    const wildSearchMeta = find(values(filterMetas), (v) => v.target === "wild") as FilterMeta;
-    const sortByMeta = find(values(filterMetas), (v) => v.target === "sort") as FilterMeta;
+    const wildSearchMeta = find(values(filterMetas), (m) => m.wildcard) as FilterMeta;
+    const sortByMeta = find(values(filterMetas), (m) => m.key === "sort") as FilterMeta;
 
     const submit$ = new BehaviorSubject({});
+
     const filters$ = new BehaviorSubject<FilterValue[]>(
-      filterObjectToList(
-        defaultFilters,
-        pickBy(filterMetas, (m) => !m.target),
-      ),
+      filterObjectToList(defaultFilters, pickBy(filterMetas, isNormalFilter)),
     );
 
     const wildSearch$ = new BehaviorSubject<string>(wildSearchMeta ? defaultFilters[wildSearchMeta.key] : "");
@@ -150,7 +152,7 @@ export const useSearchBoxMgr = (
     const focusedFilter$ = new BehaviorSubject<FilterMeta | null>(null);
 
     const focusFilter = (filterMeta: FilterMeta | null) => {
-      if (filterMeta?.target === "wild") {
+      if (filterMeta?.wildcard) {
         return;
       }
       focusedFilter$.next(filterMeta);
@@ -164,13 +166,14 @@ export const useSearchBoxMgr = (
         return;
       }
 
-      switch (filterMeta.target) {
-        case "sort":
-          sortBy$.next(value);
-          return;
-        case "wild":
-          wildSearch$.next(value);
-          return;
+      if (filterMeta.key === "sort") {
+        sortBy$.next(value);
+        return;
+      }
+
+      if (filterMeta.wildcard) {
+        wildSearch$.next(value);
+        return;
       }
 
       if (!value) {
@@ -227,7 +230,7 @@ export const useSearchBoxMgr = (
       if (matchedFilter) {
         const v = trim(value);
 
-        if (matchedFilter.target === "wild") {
+        if (matchedFilter.wildcard) {
           putFilter(matchedFilter.key, v);
         } else {
           if (v) {

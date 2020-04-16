@@ -6,7 +6,7 @@ import { Dictionary, every, forEach, last, map, size, startsWith } from "lodash"
 import React, { useEffect, useRef } from "react";
 import { fromEvent, merge } from "rxjs";
 import { buffer, debounceTime, filter as rxFilter, tap } from "rxjs/operators";
-import { FilterMeta, FilterValue, useSearchBox } from "../search-box";
+import { FilterMeta, FilterValue, useSearchBox, isNormalFilter } from "../search-box";
 import { useKeyboardControlsOfSearchBox } from "./hooks";
 
 export const SearchInputWild = () => {
@@ -166,14 +166,14 @@ export const SearchInputWild = () => {
             {!wildSearchInput && (
               <MenuOptGroup>
                 {map(filterMetas, (filterMeta) =>
-                  filterMeta.target ? null : (
+                  isNormalFilter(filterMeta) ? (
                     <FilterRule
                       data-opt={`filter:${filterMeta.key}`}
                       key={`filter:${filterMeta.key}`}
                       filter={filterMeta}
                       hidden={isFilterHidden(filterValues, filterMeta)}
                     />
-                  ),
+                  ) : null,
                 )}
               </MenuOptGroup>
             )}
