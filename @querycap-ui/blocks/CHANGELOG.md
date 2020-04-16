@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.9](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.5.8...@querycap-ui/blocks@0.5.9) (2020-04-16)
+
+
+### Bug Fixes
+
+* **blocks:** styling updates of Dailog ([eedabde](https://github.com/querycap/webappkit/commit/eedabde66d5ff184e472d035f6d8699d1a80dbd8))
+
+
+
+
+
 ## [0.5.8](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.5.7...@querycap-ui/blocks@0.5.8) (2020-04-16)
 
 **Note:** Version bump only for package @querycap-ui/blocks
