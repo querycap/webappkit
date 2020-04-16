@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.19](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.7.18...@querycap-ui/form-controls@0.7.19) (2020-04-16)
+
+
+### Bug Fixes
+
+* **form:** fix missing prop proxy ([73c1aa0](https://github.com/querycap/webappkit/commit/73c1aa0de3158a346f4afbf635fecce30154075a))
+
+
+
+
+
 ## [0.7.18](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.7.17...@querycap-ui/form-controls@0.7.18) (2020-04-15)
 
 **Note:** Version bump only for package @querycap-ui/form-controls
