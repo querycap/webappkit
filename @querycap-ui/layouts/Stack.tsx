@@ -1,8 +1,8 @@
+import type { ValueOrThemeGetter } from "@querycap-ui/core";
 import { fromTheme, negative } from "@querycap-ui/core";
 import { select } from "@querycap-ui/core/macro";
-import type { ValueOrThemeGetter } from "@querycap-ui/core";
-import React, { CSSProperties, ReactNode } from "react";
 import { flow } from "lodash";
+import React, { CSSProperties, HTMLAttributes, ReactNode } from "react";
 
 export const Stack = ({
   inline,
@@ -12,7 +12,7 @@ export const Stack = ({
   justify,
   children,
   ...otherProps
-}: {
+}: HTMLAttributes<HTMLDivElement> & {
   inline?: boolean;
   align?: ValueOrThemeGetter<CSSProperties["alignItems"]>;
   justify?: ValueOrThemeGetter<CSSProperties["justifyContent"]>;

@@ -1,3 +1,4 @@
+import { roundedEm } from "@querycap-ui/core";
 import { preventDefault, select, shadows, stopPropagation, theme, withTextSize } from "@querycap-ui/core/macro";
 import { Button } from "@querycap-ui/form-controls";
 import { IconX } from "@querycap-ui/icons";
@@ -40,9 +41,10 @@ export const DialogClose = ({ float, onRequestClose }: { float?: boolean; onRequ
 export const DialogHeading = ({ children }: { children?: ReactNode }) => {
   return (
     <div
+      role={"title"}
       css={select()
-        .paddingX(theme.space.s3)
-        .paddingY(theme.space.s2)
+        .paddingX(roundedEm(1.2))
+        .paddingY(roundedEm(0.4))
         .borderBottom("1px solid")
         .display("flex")
         .alignItems("center")
@@ -56,7 +58,7 @@ export const DialogHeading = ({ children }: { children?: ReactNode }) => {
 
 export const DialogContent = ({ children }: { children?: ReactNode }) => {
   return (
-    <Stack spacing={theme.space.s4} css={select().paddingX(theme.space.s3).paddingY(theme.space.s3)}>
+    <Stack spacing={roundedEm(1.2)} css={select().paddingX(theme.space.s3).paddingY(theme.space.s3)} role={"title"}>
       {children}
     </Stack>
   );
