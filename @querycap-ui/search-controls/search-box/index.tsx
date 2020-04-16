@@ -1,6 +1,19 @@
 import { useValueRef } from "@querycap/reactutils";
 import { useObservableEffect } from "@reactorx/core";
-import { concat, Dictionary, filter, find, forEach, isEqual, pickBy, split, trim, uniqBy, values } from "lodash";
+import {
+  concat,
+  Dictionary,
+  filter,
+  find,
+  forEach,
+  isEqual,
+  isUndefined,
+  pickBy,
+  split,
+  trim,
+  uniqBy,
+  values,
+} from "lodash";
 import React, { createContext, FunctionComponent, ReactNode, useContext, useMemo } from "react";
 import { BehaviorSubject, merge } from "rxjs";
 import { distinctUntilChanged, tap } from "rxjs/operators";
@@ -31,6 +44,8 @@ export interface FilterMeta {
   label?: string;
   // 多值
   multiple?: boolean;
+  // 可排序
+  sortable?: boolean;
   //
   target?: "wild" | "sort";
 
@@ -42,7 +57,9 @@ export interface FilterMeta {
 }
 
 export type FilterMetaBuilder = {
-  [k in keyof FilterMeta]-?: (arg: FilterMeta[k]) => FilterMetaBuilder;
+  [k in keyof FilterMeta]-?: FilterMeta[k] extends boolean | undefined
+    ? () => FilterMetaBuilder
+    : (arg: FilterMeta[k]) => FilterMetaBuilder;
 } & {
   (): FilterMeta;
 };
@@ -57,7 +74,7 @@ export const searchInput = (target?: "wild" | "sort") => {
   const builder = new Proxy(build, {
     get(_, prop) {
       return (v: any): any => {
-        filterMeta[prop as any] = v;
+        filterMeta[prop as any] = isUndefined(v) ? true : v;
         return builder;
       };
     },

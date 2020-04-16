@@ -2,9 +2,9 @@ import { roundedEm, select } from "@querycap-ui/core";
 import { theme } from "@querycap-ui/core/macro";
 import { must } from "@querycap/reactutils";
 import { useObservable } from "@reactorx/core";
-import { Dictionary, mapValues, noop } from "lodash";
+import { Dictionary, noop } from "lodash";
 import React, { useRef } from "react";
-import { FilterMetaBuilder, useNewSearchBox, useSearchBox } from "./search-box";
+import { FilterMeta, FilterMetaBuilder, useNewSearchBox, useSearchBox } from "./search-box";
 import { SearchInputContainer } from "./search-inputs";
 import { SearchInputSort } from "./search-inputs/SearchInputSort";
 
@@ -35,26 +35,45 @@ export const MaybeSortable = must(() => {
 });
 
 export const createSearchBox = <TFilters extends Dictionary<any>>(
-  filterMetaSettings: { [k in keyof TFilters]: FilterMetaBuilder },
+  filterMetaBuilders: { [k in keyof TFilters]: FilterMetaBuilder },
 ) => {
-  const labels: { [k: string]: string } = {};
+  const filterLabels: { [k: string]: string } = {};
 
-  const filterMetas = mapValues(filterMetaSettings, (filterMetaBuilder, key) => {
-    const filterMeta = filterMetaBuilder();
+  const filterMetas: { [k: string]: FilterMeta } = {};
 
-    const meta = {
+  const sortables: string[] = [];
+
+  for (const key in filterMetaBuilders) {
+    const filterMeta = filterMetaBuilders[key]();
+
+    if (filterMeta.target === "sort") {
+      continue;
+    }
+
+    if (filterMeta.sortable) {
+      sortables.push(key);
+    }
+
+    filterLabels[key] = filterMeta.label || key;
+
+    filterMetas[key] = {
       ...filterMeta,
       key,
-      label: filterMeta.label || key,
-      display:
-        filterMeta.display ||
-        (filterMeta.type && (filterMeta.type as any).display) ||
-        (filterMeta.target === "sort" ? displayFromOpts(labels) : undefined),
+      label: filterLabels[key],
+      display: filterMeta.display || (filterMeta.type && (filterMeta.type as any).display),
     };
+  }
 
-    labels[key] = meta.label;
-    return meta;
-  });
+  if (sortables.length >= 0) {
+    filterMetas["sort"] = {
+      target: "sort",
+      key: "sort",
+      enum: sortables,
+      display: displayFromOpts(filterLabels),
+    };
+  }
+
+  console.log(filterMetas);
 
   function SearchBoxContainer(props: { filters?: TFilters; onSubmit: (filters: TFilters) => void }) {
     const { onSubmit, filters } = props;
@@ -107,11 +126,11 @@ export const createSearchBox = <TFilters extends Dictionary<any>>(
   }
 
   SearchBoxContainer.defaultFilters = {} as TFilters;
-  SearchBoxContainer.labels = labels;
+  SearchBoxContainer.labels = filterLabels;
 
   return SearchBoxContainer as typeof SearchBoxContainer & {
     defaultFilters: TFilters;
-    labels: typeof labels;
+    labels: typeof filterLabels;
   };
 };
 

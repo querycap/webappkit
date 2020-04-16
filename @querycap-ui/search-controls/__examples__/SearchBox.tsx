@@ -14,13 +14,13 @@ import React, { useState } from "react";
 const SearchBox = createSearchBox<any>({
   name: searchInput("wild").label("名称"),
   keyword: searchInput().label("关键字"),
-  type: searchInput().type(SearchInputSelect).enum(["A", "B", "C", "D"]).multiple(true),
-  tag: searchInput().type(SearchInputTag).label("tag"),
+  type: searchInput().type(SearchInputSelect).enum(["A", "B", "C", "D"]).multiple(),
+  tag: searchInput().sortable().type(SearchInputTag).label("tag"),
   createdAt: searchInput()
+    .sortable()
     .label("日期")
     .type((props) => <SearchInputTimeRange {...props} maxValue={formatRFC3339(Date.now())} />)
     .display(createTimeRangeDisplay("yyyy-MM-dd")),
-  sort: searchInput("sort").enum(["createdAt", "type"]),
 });
 
 export const SearchBoxDemo = () => {
