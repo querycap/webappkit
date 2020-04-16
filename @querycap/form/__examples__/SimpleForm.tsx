@@ -1,6 +1,5 @@
-import { preventDefault, theme, ThemeState } from "@querycap-ui/core";
-import { Button, FormControlWithField, InputSelect } from "@querycap-ui/form-controls";
-import { Stack } from "@querycap-ui/layouts";
+import { preventDefault, ThemeState } from "@querycap-ui/core";
+import { Button, FormControls, FormControlWithField, InputSelect } from "@querycap-ui/form-controls";
 import { SimpleInputText, useNewForm } from "@querycap/form";
 import { once, required, validCellPhone, validEmail } from "@querycap/validators";
 import React from "react";
@@ -47,12 +46,12 @@ export const SimpleForm = () => {
         <FormControlWithField name="email" desc="邮箱" validate={once(required(), validEmail())}>
           {SimpleInputText}
         </FormControlWithField>
-        <Stack inline spacing={theme.space.s2}>
+        <FormControls>
           <Button type="submit" primary>
             Submit
           </Button>
           <Button onClick={pipe(preventDefault, reset)}>Reset</Button>
-        </Stack>
+        </FormControls>
       </Form>
     </ThemeState>
   );

@@ -1,4 +1,5 @@
 import { roundedEm, select, theme } from "@querycap-ui/core/macro";
+import { Stack } from "@querycap-ui/layouts/Stack";
 import { asField, FieldInput, useField } from "@querycap/form";
 import React, { ReactNode } from "react";
 import { Input, InputProps } from "./Input";
@@ -9,6 +10,14 @@ export interface FormControlProps {
   desc?: ReactNode;
   children?: ReactNode;
 }
+
+export const FormControls = ({ children, ...otherProps }: { children: ReactNode }) => {
+  return (
+    <Stack {...otherProps} inline spacing={theme.space.s2} css={select().marginTop(roundedEm(1.2))}>
+      {children}
+    </Stack>
+  );
+};
 
 export const FormControl = ({ label, error, desc, children }: FormControlProps) => {
   return (

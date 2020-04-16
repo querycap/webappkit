@@ -108,9 +108,9 @@ export const Field = (props: FieldProps) => {
 };
 
 export const asField = <TProps extends {}>(Comp: FunctionComponent<TProps>) => {
-  return ({ name, validate, ...props }: TProps & Omit<FieldProps, "children">) => {
+  return ({ name, validate, readOnly, disabled, ...props }: TProps & Omit<FieldProps, "children">) => {
     return (
-      <Field name={name} validate={validate}>
+      <Field name={name} readOnly={readOnly} disabled={disabled} validate={validate}>
         <Comp {...(props as any)} />
       </Field>
     );
