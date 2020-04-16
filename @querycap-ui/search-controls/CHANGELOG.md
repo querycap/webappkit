@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.4.22...@querycap-ui/search-controls@0.5.0) (2020-04-16)
+
+
+### Features
+
+* **ui/search-controls:** search-box filter meta with sortable ([78d8208](https://github.com/querycap/webappkit/commit/78d8208548dfea8660088b8108f26b53028d1434))
+
+
+
+
+
 ## [0.4.22](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.4.21...@querycap-ui/search-controls@0.4.22) (2020-04-16)
 
 **Note:** Version bump only for package @querycap-ui/search-controls
