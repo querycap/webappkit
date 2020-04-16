@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.20](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.7.19...@querycap-ui/form-controls@0.7.20) (2020-04-16)
+
+
+### Bug Fixes
+
+* **form-controls:** fix deps ([2086f84](https://github.com/querycap/webappkit/commit/2086f842d226f050aed992f441f609513a752cf7))
+
+
+
+
+
 ## [0.7.19](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.7.18...@querycap-ui/form-controls@0.7.19) (2020-04-16)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/querycap/webappkit/compare/@querycap/access@0.5.0...@querycap/access@0.5.1) (2020-04-16)
+
+
+### Bug Fixes
+
+* **access:** fix deps ([4390943](https://github.com/querycap/webappkit/commit/4390943f5fe9ccf8c0579fd8c5f1823b420eb1cf))
+
+
+
+
+
 # [0.5.0](https://github.com/querycap/webappkit/compare/@querycap/access@0.4.3...@querycap/access@0.5.0) (2020-04-15)
 
 
