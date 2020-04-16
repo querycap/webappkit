@@ -99,8 +99,11 @@ function SearchInit() {
   return null;
 }
 
-export function useSearchQuerySelector<TFilter>(state$: Observable<SearchState<TFilter, any>>, deps: any[] = []) {
-  return useSelector(
+export const useSearchQuerySelector = <TFilter extends any>(
+  state$: Observable<SearchState<TFilter, any>>,
+  deps: any[] = [],
+) =>
+  useSelector(
     state$,
     (state): TFilter & Omit<Pager, "total"> => ({
       ...state.filters,
@@ -108,9 +111,8 @@ export function useSearchQuerySelector<TFilter>(state$: Observable<SearchState<T
     }),
     deps,
   );
-}
 
-export function useNewSearchOfRequest<TRequestActor extends RequestActor, TFilters = TRequestActor["arg"]>(
+export const useNewSearchOfRequest = <TRequestActor extends RequestActor, TFilters = TRequestActor["arg"]>(
   requestActor: TRequestActor,
   defaultFilters: TFilters,
   {
@@ -129,7 +131,7 @@ export function useNewSearchOfRequest<TRequestActor extends RequestActor, TFilte
     syncURL?: boolean;
     queryToArg?: (filters: TFilters, pager: Omit<Pager, "total">) => TRequestActor["arg"];
   } = {} as any,
-) {
+) => {
   const [ctx, Search] = useNewSearch<TFilters, TRequestActor["done"]["arg"]["data"]["data"][0]>(
     snakeCase(name || requestActor.name),
     {
@@ -166,4 +168,4 @@ export function useNewSearchOfRequest<TRequestActor extends RequestActor, TFilte
   }, [ctx]);
 
   return [ctx, Search, fetch, requesting$] as const;
-}
+};

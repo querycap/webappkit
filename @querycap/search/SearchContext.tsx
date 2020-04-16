@@ -1,3 +1,4 @@
+import { Volume } from "@reactorx/core";
 import { parseSearchString } from "@reactorx/router";
 import { Dictionary, mapKeys, omit, pick, pickBy, split, startsWith } from "lodash";
 import { createContext, useContext, useMemo } from "react";
@@ -69,7 +70,7 @@ export const useSearchContext = <TFilters extends Dictionary<any>, TItem>(
 
   return useMemo(() => {
     return {
-      state$: state$,
+      state$: state$ as Volume<any, SearchState<TFilters, TItem>>,
       initial: () => actions.initial(state$.value),
       destroy: () => actions.destroy(undefined),
       setFilters: actions.setFilters,

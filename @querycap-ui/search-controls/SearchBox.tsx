@@ -65,7 +65,7 @@ export const createSearchBox = <TFilters extends Dictionary<any>>(
     };
   }
 
-  if (sortables.length >= 0) {
+  if (sortables.length > 0) {
     filterMetas["sort"] = {
       ...(filterMetas["sort"] || {}),
       key: "sort",
