@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.4](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.6.3...@querycap-ui/search-controls@0.6.4) (2020-04-16)
+
+
+### Bug Fixes
+
+* **ui/search-controls:** fix Pagination ([15b947e](https://github.com/querycap/webappkit/commit/15b947e4cd1ab6a25c5d3590432fea6a3860efdb))
+
+
+
+
+
 ## [0.6.3](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.6.2...@querycap-ui/search-controls@0.6.3) (2020-04-16)
 
 
