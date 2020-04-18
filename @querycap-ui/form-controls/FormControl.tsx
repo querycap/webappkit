@@ -25,7 +25,7 @@ export const FormControl = ({ label, error, desc, children }: FormControlProps) 
       css={select()
         .display("block")
         .position("relative")
-        .paddingY(roundedEm(1.5))
+        .paddingY(roundedEm(1.8))
         .with(!label && select().paddingTop(0))}>
       <div
         css={select()
