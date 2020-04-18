@@ -1,59 +1,55 @@
-import { transform } from "@babel/core";
+import { transformSync } from "@babel/core";
 import accessControlAutocomplete from "../";
 
-describe("test cases", () => {
+const compileToSnapshot = (code: string) => {
+  const t = transformSync(code, {
+    root: __dirname,
+    parserOpts: {
+      plugins: ["jsx"],
+    },
+    plugins: [[accessControlAutocomplete, { libAccessControl: "@querycap/access" }]],
+  });
+
+  return `
+${code}
+    
+↓ ↓ ↓ ↓ ↓ ↓
+
+${t?.code}  
+`;
+};
+
+describe("babel-plugin-access-control-autocomplete", () => {
   it("should skip mark if marked", () => {
-    expect(
-      transformCode(`
+    const result = compileToSnapshot(`
 import { mustAllOfPermissions } from "@querycap/access"; 
 const AcComponent = mustAllOfPermissions()(() => null);
-`),
-    ).toEqual(
-      unPad(`
-import { mustAllOfPermissions } from "@querycap/access";
-const AcComponent = mustAllOfPermissions()(() => null);
-`),
-    );
+`);
+    expect(result).toMatchSnapshot();
   });
 
   it("should mark", () => {
-    expect(
-      transformCode(`
+    const result = compileToSnapshot(`
 export const AcComponent = hoc()(() => null);
 export const AcSomeComponent = create(() => null);
-    `),
-    ).toEqual(
-      unPad(`
-import { mustAllOfPermissions } from "@querycap/access";
-import { mustOneOfPermissions } from "@querycap/access";
-export const AcComponent = mustAllOfPermissions()(hoc()(() => null));
-export const AcSomeComponent = mustOneOfPermissions()(create(() => null));
-`),
-    );
+`);
+
+    expect(result).toMatchSnapshot();
   });
 
   it("should mark with access control component", () => {
-    expect(
-      transformCode(`
+    const result = compileToSnapshot(`
 export const AcComponent = () => <div>
   <AcComponent />
   <AcComponent2 />
 </div>;
-    `),
-    ).toEqual(
-      unPad(`
-import { mustAllOfPermissions } from "@querycap/access";
-export const AcComponent = mustAllOfPermissions(AcComponent2)(() => <div>
-  <AcComponent />
-  <AcComponent2 />
-</div>);
-`),
-    );
+`);
+
+    expect(result).toMatchSnapshot();
   });
 
-  it("should mark with useXRequest hook arg and useAcX", () => {
-    expect(
-      transformCode(`
+  it("should mark with hook arg and useAcX", () => {
+    const result = compileToSnapshot(`
 import { mustAllOfPermissions } from "@querycap/access";
 const useAcHook = () => useTempDataForRequest(listApp, {});
 export const AcComponent = () => {
@@ -62,71 +58,29 @@ export const AcComponent = () => {
   useAcHook();
   return null;
 };
-`),
-    ).toEqual(
-      unPad(`
-import { mustAllOfPermissions } from "@querycap/access";
-const useAcHook = mustAllOfPermissions(listApp)(() => useTempDataForRequest(listApp, {}), true);
-export const AcComponent = mustAllOfPermissions(listApp, putApp, useAcHook)(() => {
-  useRequest(putApp, {});
-  useTempDataForRequest(listApp, {});
-  useAcHook();
-  return null;
-});`),
-    );
+`);
+
+    expect(result).toMatchSnapshot();
   });
 
   it("should mark with createXRequest hoc arg", () => {
-    expect(
-      transformCode(`
+    const result = compileToSnapshot(`
 export const AcComponent = createSearchInputOfRequest(listApp)(() => null);
 export const AcComponent2 = createSearchInputOfRequest(listApp, {});
-`),
-    ).toEqual(
-      unPad(`
-import { mustAllOfPermissions } from "@querycap/access";
-export const AcComponent = mustAllOfPermissions(listApp)(createSearchInputOfRequest(listApp)(() => null));
-export const AcComponent2 = mustAllOfPermissions(listApp)(createSearchInputOfRequest(listApp, {}));
-`),
-    );
+`);
+
+    expect(result).toMatchSnapshot();
   });
 
   it("should mark mixed", () => {
-    expect(
-      transformCode(`
+    const result = compileToSnapshot(`
 export const AcComponent = () => {
   useRequest(putApp, {});
   useTempDataForRequest(listApp, {})
   return <AcComponent2 />;
 };
-`),
-    ).toEqual(
-      unPad(`
-import { mustAllOfPermissions } from "@querycap/access";
-export const AcComponent = mustAllOfPermissions(AcComponent2, listApp, putApp)(() => {
-  useRequest(putApp, {});
-  useTempDataForRequest(listApp, {});
-  return <AcComponent2 />;
-});`),
-    );
+`);
+
+    expect(result).toMatchSnapshot();
   });
 });
-
-function transformCode(src: string): string {
-  return unPad(
-    transform(src, {
-      root: __filename,
-      parserOpts: {
-        plugins: ["jsx"],
-      },
-      plugins: [[accessControlAutocomplete, { libAccessControl: "@querycap/access" }]],
-    })!.code || "",
-  );
-}
-
-function unPad(str: string) {
-  return str
-    .replace(/^\n+|\n+$/, "")
-    .replace(/\n+/g, "\n")
-    .trim();
-}

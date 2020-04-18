@@ -20,10 +20,11 @@ export const useAccessControl = () => useContext(AccessControlContext);
 export interface TShouldRender {
   (permissions: Dictionary<boolean>, attrs: Dictionary<string[]>): boolean;
 
+  scope: string;
   ac?: string;
 }
 
-export type ResolveShouldRender = () => Promise<TShouldRender>;
+export type ResolveShouldRender = (scope: string) => Promise<TShouldRender>;
 
 export interface ShouldEnterResolver {
   // RequestActor
@@ -33,19 +34,30 @@ export interface ShouldEnterResolver {
 
 export interface AccessControlFunctionComponent<P = {}> extends FunctionComponent<P>, ShouldEnterResolver {}
 
-function createShouldRenderBy(requestActor: RequestActor): TShouldRender {
+const createShouldRenderBy = (requestActor: RequestActor, scope: string): TShouldRender => {
   const name = requestActor.name;
 
   const shouldRender: TShouldRender = (permissions: Dictionary<boolean>, _: Dictionary<string[]>) => {
     return permissions[name];
   };
 
+  shouldRender.scope = scope;
   shouldRender.ac = name;
 
   return shouldRender;
-}
+};
 
-function withAccessControl(method: "some" | "every", ...deps: Array<ShouldEnterResolver>) {
+export const displayPermissions = (joiner: string, ac: string[] = []): string => {
+  if (ac.length === 0) {
+    return "";
+  }
+  if (ac.length === 1) {
+    return ac[0];
+  }
+  return `(${ac.join(joiner)})`;
+};
+
+const withAccessControl = (method: "some" | "every", ...deps: Array<ShouldEnterResolver>) => {
   const dependentResolveShouldRenders: ResolveShouldRender[] = [];
 
   forEach(deps, (c, i) => {
@@ -54,7 +66,7 @@ function withAccessControl(method: "some" | "every", ...deps: Array<ShouldEnterR
     }
 
     if (c instanceof RequestActorOrigin) {
-      dependentResolveShouldRenders.push(() => Promise.resolve(createShouldRenderBy(c)));
+      dependentResolveShouldRenders.push((scope: string) => Promise.resolve(createShouldRenderBy(c, scope)));
       return;
     }
 
@@ -63,45 +75,48 @@ function withAccessControl(method: "some" | "every", ...deps: Array<ShouldEnterR
     }
   });
 
-  const resolveShouldRender = (): Promise<TShouldRender> =>
-    Promise.all(map(dependentResolveShouldRenders, (call) => call())).then((dependentShouldRenders = []) => {
-      const shouldRender: TShouldRender =
-        method === "some"
-          ? (permissions: Dictionary<boolean>, attrs: Dictionary<string[]>) => {
-              return dependentShouldRenders.length == 0
-                ? true
-                : some(dependentShouldRenders, (shouldRender) =>
-                    shouldRender ? shouldRender(permissions, attrs) : false,
-                  );
-            }
-          : (permissions: Dictionary<boolean>, attrs: Dictionary<string[]>) => {
-              return every(dependentShouldRenders, (shouldRender) =>
-                shouldRender ? shouldRender(permissions, attrs) : true,
-              );
-            };
+  const resolveShouldRender = (scope: string): Promise<TShouldRender> =>
+    Promise.all(map(dependentResolveShouldRenders, (call) => call(scope))).then(
+      (dependentShouldRenders = []): TShouldRender => {
+        const shouldRender: any =
+          method === "some"
+            ? (permissions: Dictionary<boolean>, attrs: Dictionary<string[]>) => {
+                return dependentShouldRenders.length == 0
+                  ? true
+                  : some(dependentShouldRenders, (shouldRender) =>
+                      shouldRender ? shouldRender(permissions, attrs) : false,
+                    );
+              }
+            : (permissions: Dictionary<boolean>, attrs: Dictionary<string[]>) => {
+                return every(dependentShouldRenders, (shouldRender) =>
+                  shouldRender ? shouldRender(permissions, attrs) : true,
+                );
+              };
 
-      shouldRender.ac = displayPermissions(
-        method === "some" ? " | " : " & ",
-        filter(
-          map(dependentShouldRenders, (shouldRender) => shouldRender.ac || ""),
-          (v) => !!v,
-        ),
-      );
+        shouldRender.scope = scope;
+        shouldRender.ac = displayPermissions(
+          method === "some" ? " | " : " & ",
+          filter(
+            map(dependentShouldRenders, (shouldRender) => shouldRender.ac || ""),
+            (v) => !!v,
+          ),
+        );
 
-      return shouldRender;
-    });
+        return shouldRender;
+      },
+    );
 
-  return function <TFn extends Function>(CompOrHook: TFn, isHook?: boolean) {
+  return function <TFn extends Function>(CompOrHook: TFn, isHook?: boolean, scope?: string) {
     if (isHook) {
       (CompOrHook as any).resolveShouldRender = resolveShouldRender;
       return CompOrHook;
     }
 
     const L = lazy(() =>
-      resolveShouldRender().then((shouldRender) => {
-        const ac = `ac(${shouldRender?.ac || "any"})`;
+      resolveShouldRender(scope || "AccessControl").then((shouldRender) => {
+        const ac = `@${shouldRender.scope || "Ac"}(${shouldRender?.ac || "any"})`;
 
-        function AccessControl({ children }: { children: ReactNode }): JSX.Element | null {
+        const AccessControl = ({ children }: { children: ReactNode }): JSX.Element | null => {
           const { permissions, attrs } = useAccessControl();
 
           return (
@@ -110,7 +125,7 @@ function withAccessControl(method: "some" | "every", ...deps: Array<ShouldEnterR
               {shouldRender(permissions || {}, attrs || ({} as any)) && children}
             </>
           );
-        }
+        };
 
         return {
           default: AccessControl,
@@ -132,22 +147,8 @@ function withAccessControl(method: "some" | "every", ...deps: Array<ShouldEnterR
 
     return (AC as any) as TFn;
   };
-}
+};
 
-export function mustOneOfPermissions(...deps: Array<ShouldEnterResolver>) {
-  return withAccessControl("some", ...deps);
-}
+export const mustOneOfPermissions = (...deps: Array<ShouldEnterResolver>) => withAccessControl("some", ...deps);
 
-export function mustAllOfPermissions(...deps: Array<ShouldEnterResolver>) {
-  return withAccessControl("every", ...deps);
-}
-
-export function displayPermissions(joiner: string, ac: string[] = []): string {
-  if (ac.length === 0) {
-    return "";
-  }
-  if (ac.length === 1) {
-    return ac[0];
-  }
-  return `(${ac.join(joiner)})`;
-}
+export const mustAllOfPermissions = (...deps: Array<ShouldEnterResolver>) => withAccessControl("every", ...deps);

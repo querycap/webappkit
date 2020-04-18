@@ -1,72 +1,81 @@
 import { displayPermissions, ShouldEnterResolver, TShouldRender, useAccessControl } from "@querycap/access";
 import { generatePath, useRouter } from "@reactorx/router";
-import { Dictionary, forEach, reduce, some } from "lodash";
+import { Dictionary, forEach, map, reduce, some, assign } from "lodash";
 import React, { Children, cloneElement, lazy, ReactNode, Suspense, useEffect, useMemo } from "react";
 import { RouteTree } from "./RouteTree";
 
-function resolveShouldRender(route: RouteTree): Promise<TShouldRender> {
+const resolveShouldRender = (route: RouteTree): ((scope: string) => Promise<TShouldRender>) => {
   if (!route.state) {
     route.state = {};
   }
-  if (!(route.state as any).resolveShouldRender) {
-    (route.state as any).resolveShouldRender = resolveShouldRenderBase(route);
-  }
-  return (route.state as any).resolveShouldRender;
-}
 
-function resolveShouldRenderBase(route: RouteTree): Promise<TShouldRender> {
-  if (route.Component) {
-    if ((route.Component as ShouldEnterResolver).resolveShouldRender) {
-      // route Component 自己已经定义，则直接使用
-      return (route.Component as ShouldEnterResolver).resolveShouldRender!();
-    }
+  if ((route.state as any).resolveShouldRender) {
+    return (route.state as any).resolveShouldRender;
   }
 
-  // 找子路由
-  const subShouldRenders: Promise<TShouldRender>[] = [];
-
-  let hasIndex = false;
-
-  forEach(route.routes, (subRoute) => {
-    // 辅助类不处理
-    if (subRoute.Component && (subRoute.Component as any).assistant) {
-      return;
+  const resolve = (scope: string): Promise<TShouldRender> => {
+    if (route.Component) {
+      if ((route.Component as ShouldEnterResolver).resolveShouldRender) {
+        // route Component 自己已经定义，则直接使用
+        return (route.Component as ShouldEnterResolver).resolveShouldRender!(scope);
+      }
     }
 
-    // 无 index 路由找其他路由
-    // 否则使用子路由权限
-    if (!hasIndex) {
-      subShouldRenders.push(resolveShouldRender(subRoute));
-    }
+    // 找子路由
+    const subShouldRenders: Array<(scope: string) => Promise<TShouldRender>> = [];
 
-    if (subRoute.exact) {
-      hasIndex = true;
-    }
-  });
+    let hasIndex = false;
 
-  if (subShouldRenders.length !== 0) {
-    return Promise.all(subShouldRenders).then((subShouldRenders) => {
-      const needPermissions: string[] = [];
+    forEach(route.routes, (subRoute) => {
+      // 辅助类不处理
+      if (subRoute.Component && (subRoute.Component as any).assistant) {
+        return;
+      }
 
-      forEach(subShouldRenders, (shouldRender) => {
-        needPermissions.push(shouldRender && shouldRender.ac ? shouldRender.ac : "any");
-      });
+      // 无 index 路由找其他路由
+      // 否则使用子路由权限
+      if (!hasIndex) {
+        subShouldRenders.push(resolveShouldRender(subRoute));
+      }
 
-      const shouldRender = (permissions: Dictionary<boolean>, context: Dictionary<string[]>) =>
-        some(subShouldRenders, (shouldRender) => {
-          return shouldRender ? shouldRender(permissions, context) : true;
+      if (subRoute.exact) {
+        hasIndex = true;
+      }
+    });
+
+    if (subShouldRenders.length !== 0) {
+      return Promise.all(map(subShouldRenders, (call) => call(scope))).then((subShouldRenders) => {
+        const needPermissions: string[] = [];
+
+        forEach(subShouldRenders, (shouldRender) => {
+          needPermissions.push(shouldRender && shouldRender.ac ? shouldRender.ac : "any");
         });
 
-      shouldRender.needPermissions = displayPermissions(" | ", needPermissions);
+        const shouldRender = (permissions: Dictionary<boolean>, context: Dictionary<string[]>) =>
+          some(subShouldRenders, (shouldRender) => {
+            return shouldRender ? shouldRender(permissions, context) : true;
+          });
 
-      return shouldRender;
-    });
-  }
+        shouldRender.ac = displayPermissions(" | ", needPermissions);
+        shouldRender.scope = scope;
 
-  return Promise.resolve(() => true);
-}
+        return shouldRender as TShouldRender;
+      });
+    }
 
-export function RBACShouldEnter({ children, route }: { children: ReactNode; route: RouteTree }) {
+    return Promise.resolve(
+      assign(() => true, {
+        scope: scope,
+      }),
+    );
+  };
+
+  (route.state as any).resolveShouldRender = resolve;
+
+  return resolve;
+};
+
+export const RBACShouldEnter = ({ children, route }: { children: ReactNode; route: RouteTree }) => {
   const C = useMemo(() => {
     return lazy(() => {
       if (!route.state) {
@@ -78,7 +87,7 @@ export function RBACShouldEnter({ children, route }: { children: ReactNode; rout
       }
 
       return (route.state as any).resolveShouldRender.then((shouldRender: TShouldRender) => {
-        function RBACShouldEnter({ children }: { children: ReactNode }) {
+        const RBACShouldEnter = ({ children }: { children: ReactNode }) => {
           const { permissions, attrs } = useAccessControl();
 
           if (!shouldRender || shouldRender(permissions || {}, attrs || ({} as any))) {
@@ -92,7 +101,7 @@ export function RBACShouldEnter({ children, route }: { children: ReactNode; rout
           }
 
           return null;
-        }
+        };
 
         return {
           default: RBACShouldEnter,
@@ -106,7 +115,7 @@ export function RBACShouldEnter({ children, route }: { children: ReactNode; rout
       <C>{children}</C>
     </Suspense>
   );
-}
+};
 
 export const indexAutoRedirectByRBAC = () => {
   const AutoRedirectByRBAC = ({ route }: { route: RouteTree }) => {
@@ -132,7 +141,7 @@ export const indexAutoRedirectByRBAC = () => {
               return prev;
             }
 
-            return resolveShouldRender(subRoute).then((shouldRender: TShouldRender) => ({
+            return resolveShouldRender(subRoute)("").then((shouldRender: TShouldRender) => ({
               path: generatePath(subRoute.path, match.params),
               shouldRender: shouldRender(permissions || {}, attrs || ({} as any)),
             }));

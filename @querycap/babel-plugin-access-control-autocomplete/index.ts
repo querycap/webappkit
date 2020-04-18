@@ -1,21 +1,60 @@
+// @ts-ignore
+import { addDefault, addNamed } from "@babel/helper-module-imports";
 import { NodePath } from "@babel/traverse";
-
 import {
   callExpression,
   Expression,
   Identifier,
   identifier,
-  importDeclaration,
-  importSpecifier,
   isArrowFunctionExpression,
   isCallExpression,
   isIdentifier,
-  isImportDeclaration,
   JSXIdentifier,
   Program,
   stringLiteral,
   VariableDeclarator,
 } from "@babel/types";
+
+const createImporter = (path: NodePath, source: string) => {
+  const exports: { [k: string]: Identifier } = {};
+  const locals: { [k: string]: Identifier } = {};
+
+  const program = path.isProgram() ? path : path.findParent((p) => p.isProgram());
+
+  const collect = (exportName: string, local: Identifier) => {
+    exports[exportName] = local;
+    locals[local.name] = local;
+  };
+
+  return {
+    has: (ident: Identifier) => {
+      return !!locals[ident.name];
+    },
+    use: (method: string): Identifier => {
+      if (!exports[method]) {
+        const importDeclaration = program
+          .get("body")
+          .find((p) => p.isImportDeclaration() && p.node.source.value === source);
+
+        // already imported
+        if (importDeclaration) {
+          const importSpecifier = importDeclaration
+            .get("specifiers")
+            .find((n) => n.isImportSpecifier() && n.node.imported.name === method);
+
+          if (importSpecifier && importSpecifier.isImportSpecifier()) {
+            collect(method, importSpecifier.node.local);
+          }
+        }
+
+        if (!exports[method]) {
+          collect(method, method === "default" ? addDefault(path, source) : addNamed(path, method, source));
+        }
+      }
+      return exports[method];
+    },
+  };
+};
 
 const isAccessControlEveryComponentOrHook = (id = "") => /^(use)?Ac(Every)?[A-Z].+/.test(id);
 const isAccessControlSomeComponentOrHook = (id = "") => /^(use)?AcSome[A-Z].+/.test(id);
@@ -27,22 +66,22 @@ const isUseRequestHook = (id = "") => /^use(\w+)?Request$/.test(id);
 
 const isCreateRequestMethod = (id = "") => /create(\w+)?Request$/.test(id);
 
-const isNeedToMarkedAccessControlExpression = (opts: State["opts"], e: Expression | null): boolean => {
+const isNeedToMarkedAccessControlExpression = (
+  importer: ReturnType<typeof createImporter>,
+  e: Expression | null,
+): boolean => {
   if (isArrowFunctionExpression(e)) {
     return true;
   }
 
   if (isCallExpression(e)) {
     if (isIdentifier(e.callee)) {
-      const callName = e.callee.name;
-
-      return !(callName === opts.methodAccessControlEvery || callName === opts.methodAccessControlSome);
+      return !importer.has(e.callee);
     } else if (isCallExpression(e.callee) && isIdentifier(e.callee.callee)) {
-      const callName = e.callee.callee.name;
-
-      return !(callName === opts.methodAccessControlEvery || callName === opts.methodAccessControlSome);
+      return !importer.has(e.callee.callee);
     }
   }
+
   return false;
 };
 
@@ -77,29 +116,6 @@ const scanDeps = (nodePath: NodePath, ...excludes: string[]): Identifier[] => {
     .map((id) => identifier(id));
 };
 
-function importMethodTo(path: NodePath<Program>, method: string, mod: string) {
-  const importDecl = importDeclaration([importSpecifier(identifier(method), identifier(method))], stringLiteral(mod));
-
-  const targetPath = findLast(path.get("body") as NodePath[], (p) => isImportDeclaration(p));
-
-  if (targetPath) {
-    targetPath.insertAfter([importDecl]);
-  } else {
-    if (path.get("body")) {
-      (path.get("body") as NodePath[])[0].insertBefore(importDecl);
-    }
-  }
-}
-
-function findLast<T>(arr: T[], predicate: (item: T) => boolean): T | null {
-  for (let i = arr.length - 1; i >= 0; i--) {
-    if (predicate(arr[i])) {
-      return arr[i];
-    }
-  }
-  return null;
-}
-
 interface State {
   opts: {
     libAccessControl: string;
@@ -110,75 +126,53 @@ interface State {
   methodAccessControlEveryUsed?: boolean;
 }
 
-function resolveOpts(opts: State["opts"] = {} as any) {
-  return {
-    libAccessControl: opts.libAccessControl || "@querycap/access",
-    methodAccessControlSome: opts.methodAccessControlSome || "mustOneOfPermissions",
-    methodAccessControlEvery: opts.methodAccessControlEvery || "mustAllOfPermissions",
-  };
-}
-
-function argsFromExpr(e: Expression, id: Identifier) {
-  if (id.name.startsWith("use")) {
-    return [e as any, identifier("true")];
-  }
-  return [e];
-}
+const resolveOpts = (opts: State["opts"] = {} as any) => ({
+  libAccessControl: opts.libAccessControl || "@querycap/access",
+  methodAccessControlSome: opts.methodAccessControlSome || "mustOneOfPermissions",
+  methodAccessControlEvery: opts.methodAccessControlEvery || "mustAllOfPermissions",
+});
 
 export default () => ({
   name: "access-control-autocomplete",
   visitor: {
-    Program: {
-      exit(nodePath: NodePath<Program>, state: State) {
-        const opts = resolveOpts(state.opts);
+    Program(programNodePath: NodePath<Program>, state: State) {
+      const opts = resolveOpts(state.opts);
+      const pkg = createImporter(programNodePath, opts.libAccessControl);
 
-        if (state.methodAccessControlEveryUsed && !nodePath.scope.hasBinding(opts.methodAccessControlEvery)) {
-          importMethodTo(nodePath, opts.methodAccessControlEvery, opts.libAccessControl);
-        }
+      programNodePath.traverse({
+        VariableDeclarator: {
+          enter(variableDeclPath: NodePath<VariableDeclarator>) {
+            if (
+              isIdentifier(variableDeclPath.node.id) &&
+              isAccessControlComponentOrHook(variableDeclPath.node.id.name)
+            ) {
+              const id = variableDeclPath.node.id;
 
-        if (state.methodAccessControlSomeUsed && !nodePath.scope.hasBinding(opts.methodAccessControlSome)) {
-          importMethodTo(nodePath, opts.methodAccessControlSome, opts.libAccessControl);
-        }
-      },
-    },
-    VariableDeclarator: {
-      enter(nodePath: NodePath<VariableDeclarator>, state: State) {
-        const opts = resolveOpts(state.opts);
+              const wrap = (method: string) => {
+                const ident = pkg.use(method);
 
-        if (
-          isIdentifier(nodePath.node.id) &&
-          isAccessControlComponentOrHook(nodePath.node.id.name) &&
-          isNeedToMarkedAccessControlExpression(opts, nodePath.node.init)
-        ) {
-          if (isAccessControlSomeComponentOrHook(nodePath.node.id.name)) {
-            state.methodAccessControlSomeUsed = true;
+                if (isNeedToMarkedAccessControlExpression(pkg, variableDeclPath.node.init)) {
+                  const isHook = id.name.startsWith("use");
 
-            nodePath.replaceWith({
-              ...nodePath.node,
-              init: callExpression(
-                callExpression(
-                  identifier(opts.methodAccessControlSome),
-                  scanDeps(nodePath.get("init") as NodePath, nodePath.node.id.name),
-                ),
-                argsFromExpr(nodePath.node.init!, nodePath.node.id),
-              ),
-            });
-          } else if (isAccessControlEveryComponentOrHook(nodePath.node.id.name)) {
-            state.methodAccessControlEveryUsed = true;
+                  variableDeclPath.replaceWith({
+                    ...variableDeclPath.node,
+                    init: callExpression(
+                      callExpression(ident, scanDeps(variableDeclPath.get("init") as NodePath, id.name)),
+                      [variableDeclPath.node.init!, identifier(isHook ? "true" : "false"), stringLiteral(id.name)],
+                    ),
+                  });
+                }
+              };
 
-            nodePath.replaceWith({
-              ...nodePath.node,
-              init: callExpression(
-                callExpression(
-                  identifier(opts.methodAccessControlEvery),
-                  scanDeps(nodePath.get("init") as NodePath, nodePath.node.id.name),
-                ),
-                argsFromExpr(nodePath.node.init!, nodePath.node.id),
-              ),
-            });
-          }
-        }
-      },
+              if (isAccessControlSomeComponentOrHook(id.name)) {
+                wrap(opts.methodAccessControlSome);
+              } else if (isAccessControlEveryComponentOrHook(id.name)) {
+                wrap(opts.methodAccessControlEvery);
+              }
+            }
+          },
+        },
+      });
     },
   },
 });

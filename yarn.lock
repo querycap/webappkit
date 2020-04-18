@@ -2468,10 +2468,10 @@
     babel-plugin-pure-calls-annotation "0.3.x"
     babel-plugin-typescript-iife-enum "0.2.x"
 
-"@querycap-dev/dev-deps@0.2.10":
-  version "0.2.10"
-  resolved "https://registry.npmjs.org/@querycap-dev/dev-deps/-/dev-deps-0.2.10.tgz#a55852fea2e3a4209d4f4120746a3e36b0bb5576"
-  integrity sha512-F4ovDbg3h192LBjPEUEDjWVIdibxnUv4mLI4wWHgJ4oVFUBUqVqehq/hKZ6jfuZOJUIRBUKk3GT2Rffrscro0w==
+"@querycap-dev/dev-deps@0.2.11":
+  version "0.2.11"
+  resolved "https://registry.npmjs.org/@querycap-dev/dev-deps/-/dev-deps-0.2.11.tgz#7bfa1360ed3b6ed0e08db24be7fd8962789dd8f3"
+  integrity sha512-WY5fH2PCRHX0PJRP5GJrki/5LgOV1aHCtZzz4HlkJ9bKYtgfeiR5tGbQ/iyyflFeBt1zmLFxUdWGVMUZ5aga5w==
   dependencies:
     "@babel/core" "7.9.x"
     "@babel/preset-env" "7.9.x"
@@ -2479,7 +2479,7 @@
     "@commitlint/cli" "8.3.x"
     "@commitlint/config-conventional" "8.3.x"
     "@querycap-dev/babel-preset" "^0.3.6"
-    "@querycap-dev/eslint-config" "0.3.6"
+    "@querycap-dev/eslint-config" "^0.4.0"
     "@types/jest" "25.2.x"
     babel-jest "25.3.x"
     husky "4.2.x"
@@ -2491,10 +2491,10 @@
     ts-node "*"
     typescript "3.8.x"
 
-"@querycap-dev/devkit@0.3.2", "@querycap-dev/devkit@^0.3.2":
-  version "0.3.2"
-  resolved "https://registry.npmjs.org/@querycap-dev/devkit/-/devkit-0.3.2.tgz#7bc0cf525324a0e089718e1db0249eb6336b071d"
-  integrity sha512-x+kWADeQ/lmA7+SmnuCoUYRjfxsLGP8QU9aCftk2x0FSxLCqPMjHAqCmhDF6VgMiVDrFdw2STINWuX29spOtzw==
+"@querycap-dev/devkit@0.4.0", "@querycap-dev/devkit@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.npmjs.org/@querycap-dev/devkit/-/devkit-0.4.0.tgz#b040d5d24a3e1ab848473de4952ba25e4606f200"
+  integrity sha512-sSuN4tK6bAEouqg87HWCURMc8X0xnVY0I8PZPEesX1APH3OYuOtQBeBR1TmRZbCea2wnM1BZQjZQx77TKZ1GKw==
   dependencies:
     "@querycap-dev/generate" "0.4.0"
     "@types/cross-spawn" "6.0.x"
@@ -2506,10 +2506,10 @@
     ts-node "8.8.2"
     yargs "15.3.x"
 
-"@querycap-dev/eslint-config@0.3.6":
-  version "0.3.6"
-  resolved "https://registry.npmjs.org/@querycap-dev/eslint-config/-/eslint-config-0.3.6.tgz#300f3ac134fe08f59589a8fbd8768ac77da79224"
-  integrity sha512-OTB1VreCIj2erezTaWViX/V2vAA2t+kUtE4fpOGJaW03Yv/M5I9H9ZFNdeanwstWs/q4cV+Kk7bjVK3D4lL4aw==
+"@querycap-dev/eslint-config@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.npmjs.org/@querycap-dev/eslint-config/-/eslint-config-0.4.0.tgz#c2c2ed926ef7d57609abd566464dfdd94e4353c6"
+  integrity sha512-O0POPlCLybCWxfX7ASkTywde/qh8ZULBkzceSQQT2MFMpulhaJ04Ts1WPQJoJQyKmn6MmxyEzcRR77Un9/nfog==
   dependencies:
     "@typescript-eslint/eslint-plugin" "2.x"
     "@typescript-eslint/parser" "2.x"
@@ -2533,10 +2533,10 @@
     globby "11.0.0"
     prettier "*"
 
-"@querycap-dev/monobundle@0.6.6":
-  version "0.6.6"
-  resolved "https://registry.npmjs.org/@querycap-dev/monobundle/-/monobundle-0.6.6.tgz#04d580622da0d862bcbd4cd42b7cf9648a7c6473"
-  integrity sha512-6fwiLqi9jaJVdPI6+bByeZ9ArDghQfeTuZuB7+ayRI0DTvZjGNc6Lrv2qWQ8ka5CfSQ5fqkjrFOcAN+59jxyCw==
+"@querycap-dev/monobundle@0.7.0":
+  version "0.7.0"
+  resolved "https://registry.npmjs.org/@querycap-dev/monobundle/-/monobundle-0.7.0.tgz#5ae7686b82b73b7928b5bcd7fbbe467d58d5cb21"
+  integrity sha512-N37T3J4bo4of8uoax0TIKWXppnLS1DK3JPbqD5zMkWO4mUJzoPpfd/xpsFAaNXei+8lA4E7RHAz0x4O1ZwQNpw==
   dependencies:
     "@rollup/plugin-json" "4.0.x"
     "@rollup/plugin-node-resolve" "7.1.x"
@@ -2584,13 +2584,13 @@
     terser-webpack-plugin "2.3.x"
     worker-loader "2.0.x"
 
-"@querycap-dev/webpack-preset@0.6.2":
-  version "0.6.2"
-  resolved "https://registry.npmjs.org/@querycap-dev/webpack-preset/-/webpack-preset-0.6.2.tgz#4ca3aeb41c60b6efc44e7d50181cfc8a98cdc323"
-  integrity sha512-EQ5Z2kDgf+F3H4vrBoZFfaXPAUJeNLy7ofvuwl0q+R4xmZ0PUHUhszQdzhiLEn5CER1v5M5T5K0rsecnfmuIQw==
+"@querycap-dev/webpack-preset@0.6.3":
+  version "0.6.3"
+  resolved "https://registry.npmjs.org/@querycap-dev/webpack-preset/-/webpack-preset-0.6.3.tgz#03258bafaec683a1cc65346f1d3e621c645ecb49"
+  integrity sha512-T+wp8DKAB88ne+qo9x/GqW9Zm8HFi/Y7ngvNVolWKypCuhx+5PQDqSzDj8RqW/CfH2K93kvQt7ptbGk8R0EFZQ==
   dependencies:
     "@morlay/webpack-browser-sync" "*"
-    "@querycap-dev/devkit" "^0.3.2"
+    "@querycap-dev/devkit" "^0.4.0"
     "@types/webpack" "4.x"
     webpack "4.x"
     webpack-bundle-analyzer "3.6.1"
@@ -2920,10 +2920,10 @@
   resolved "https://registry.npmjs.org/@types/node/-/node-13.9.8.tgz#09976420fc80a7a00bf40680c63815ed8c7616f4"
   integrity sha512-1WgO8hsyHynlx7nhP1kr0OFzsgKz5XDQL+Lfc3b1Q3qIln/n8cKD4m09NJ0+P1Rq7Zgnc7N0+SsMnoD1rEb0kA==
 
-"@types/node@13.11.x":
-  version "13.11.0"
-  resolved "https://registry.npmjs.org/@types/node/-/node-13.11.0.tgz#390ea202539c61c8fa6ba4428b57e05bc36dc47b"
-  integrity sha512-uM4mnmsIIPK/yeO+42F2RQhGUIs39K2RFmugcJANppXe6J1nvH87PvzPZYpza7Xhhs8Yn9yIAVdLZ84z61+0xQ==
+"@types/node@13.13.x":
+  version "13.13.0"
+  resolved "https://registry.npmjs.org/@types/node/-/node-13.13.0.tgz#30d2d09f623fe32cde9cb582c7a6eda2788ce4a8"
+  integrity sha512-WE4IOAC6r/yBZss1oQGM5zs2D7RuKR6Q+w+X2SouPofnWn+LbCqClRyhO3ZE7Ix8nmFgo/oVuuE01cJT2XB13A==
 
 "@types/parse-glob@*":
   version "3.0.29"

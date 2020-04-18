@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`babel-plugin-access-control-autocomplete should mark 1`] = `
+"
+
+export const AcComponent = hoc()(() => null);
+export const AcSomeComponent = create(() => null);
+
+    
+↓ ↓ ↓ ↓ ↓ ↓
+
+import { mustOneOfPermissions as _mustOneOfPermissions } from \\"@querycap/access\\";
+import { mustAllOfPermissions as _mustAllOfPermissions } from \\"@querycap/access\\";
+export const AcComponent = _mustAllOfPermissions()(hoc()(() => null), false, \\"AcComponent\\");
+export const AcSomeComponent = _mustOneOfPermissions()(create(() => null), false, \\"AcSomeComponent\\");  
+"
+`;
+
+exports[`babel-plugin-access-control-autocomplete should mark mixed 1`] = `
+"
+
+export const AcComponent = () => {
+  useRequest(putApp, {});
+  useTempDataForRequest(listApp, {})
+  return <AcComponent2 />;
+};
+
+    
+↓ ↓ ↓ ↓ ↓ ↓
+
+import { mustAllOfPermissions as _mustAllOfPermissions } from \\"@querycap/access\\";
+export const AcComponent = _mustAllOfPermissions(AcComponent2, listApp, putApp)(() => {
+  useRequest(putApp, {});
+  useTempDataForRequest(listApp, {});
+  return <AcComponent2 />;
+}, false, \\"AcComponent\\");  
+"
+`;
+
+exports[`babel-plugin-access-control-autocomplete should mark with access control component 1`] = `
+"
+
+export const AcComponent = () => <div>
+  <AcComponent />
+  <AcComponent2 />
+</div>;
+
+    
+↓ ↓ ↓ ↓ ↓ ↓
+
+import { mustAllOfPermissions as _mustAllOfPermissions } from \\"@querycap/access\\";
+export const AcComponent = _mustAllOfPermissions(AcComponent2)(() => <div>
+  <AcComponent />
+  <AcComponent2 />
+</div>, false, \\"AcComponent\\");  
+"
+`;
+
+exports[`babel-plugin-access-control-autocomplete should mark with createXRequest hoc arg 1`] = `
+"
+
+export const AcComponent = createSearchInputOfRequest(listApp)(() => null);
+export const AcComponent2 = createSearchInputOfRequest(listApp, {});
+
+    
+↓ ↓ ↓ ↓ ↓ ↓
+
+import { mustAllOfPermissions as _mustAllOfPermissions } from \\"@querycap/access\\";
+export const AcComponent = _mustAllOfPermissions(listApp)(createSearchInputOfRequest(listApp)(() => null), false, \\"AcComponent\\");
+export const AcComponent2 = _mustAllOfPermissions(listApp)(createSearchInputOfRequest(listApp, {}), false, \\"AcComponent2\\");  
+"
+`;
+
+exports[`babel-plugin-access-control-autocomplete should mark with hook arg and useAcX 1`] = `
+"
+
+import { mustAllOfPermissions } from \\"@querycap/access\\";
+const useAcHook = () => useTempDataForRequest(listApp, {});
+export const AcComponent = () => {
+  useRequest(putApp, {});
+  useTempDataForRequest(listApp, {});
+  useAcHook();
+  return null;
+};
+
+    
+↓ ↓ ↓ ↓ ↓ ↓
+
+import { mustAllOfPermissions } from \\"@querycap/access\\";
+const useAcHook = mustAllOfPermissions(listApp)(() => useTempDataForRequest(listApp, {}), true, \\"useAcHook\\");
+export const AcComponent = mustAllOfPermissions(listApp, putApp, useAcHook)(() => {
+  useRequest(putApp, {});
+  useTempDataForRequest(listApp, {});
+  useAcHook();
+  return null;
+}, false, \\"AcComponent\\");  
+"
+`;
+
+exports[`babel-plugin-access-control-autocomplete should skip mark if marked 1`] = `
+"
+
+import { mustAllOfPermissions } from \\"@querycap/access\\"; 
+const AcComponent = mustAllOfPermissions()(() => null);
+
+    
+↓ ↓ ↓ ↓ ↓ ↓
+
+import { mustAllOfPermissions } from \\"@querycap/access\\";
+const AcComponent = mustAllOfPermissions()(() => null);  
+"
+`;
