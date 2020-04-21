@@ -5,7 +5,7 @@ import { Stack } from "@querycap-ui/layouts";
 import { FieldArray, FormSection, SimpleInputText, useNewForm } from "@querycap/form";
 import React from "react";
 
-export function NestedForm() {
+export const NestedForm = () => {
   const [, Form] = useNewForm("NestedForm");
 
   return (
@@ -62,4 +62,4 @@ export function NestedForm() {
       </div>
     </Form>
   );
-}
+};

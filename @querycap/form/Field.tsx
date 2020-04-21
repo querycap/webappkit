@@ -1,4 +1,5 @@
 import { useValueRef } from "@querycap/reactutils";
+import { errorMsg, Validator } from "@querycap/validators";
 import { useSelector } from "@reactorx/core";
 import { get, noop } from "lodash";
 import React, {
@@ -11,7 +12,7 @@ import React, {
   useMemo,
 } from "react";
 import { useFieldNameMayWithPrefix, useForm } from "./Form";
-import { FieldState, Validate } from "./State";
+import { FieldState } from "./State";
 
 export interface FieldMeta {
   name: string;
@@ -20,7 +21,7 @@ export interface FieldMeta {
 }
 
 export interface FieldProps extends Partial<FieldMeta> {
-  validate?: Validate;
+  validate?: Validator;
   children: ReactNode;
 }
 
@@ -83,14 +84,14 @@ export const Field = (props: FieldProps) => {
 
   const validateRef = useValueRef(props.validate || (() => ""));
 
-  const validate = (value: any) => {
+  const validate: Validator = (value: any) => {
     return validateRef.current(value);
   };
 
   const controls = useMemo(() => {
     return {
       handleValueChange: (value: any, initial?: boolean) => {
-        updateField(name, value, validate(value), initial);
+        updateField(name, value, errorMsg(validate(value)), initial);
       },
       handleFocus: () => focusField(name),
       handleBlur: () => blurField(name),

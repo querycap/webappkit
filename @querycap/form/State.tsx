@@ -1,3 +1,4 @@
+import { Validator } from "@querycap/validators";
 import { Dictionary } from "lodash";
 
 export interface FieldState {
@@ -7,7 +8,7 @@ export interface FieldState {
   touched?: boolean; // blured
   visited?: boolean; // focused
   error?: string;
-  validate?: (v: any) => string | undefined;
+  validate?: Validator;
 }
 
 export interface FormState<TFormValues = any> {
@@ -19,5 +20,3 @@ export interface FormState<TFormValues = any> {
 }
 
 export type FormErrors = Dictionary<string>;
-
-export type Validate = (value: any) => string | undefined;

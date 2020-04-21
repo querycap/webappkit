@@ -1,3 +1,4 @@
+import { errorMsg } from "@querycap/validators";
 import { Dictionary, filter, forEach, get, isArray, isEmpty, isObject, map, mapValues, pickBy } from "lodash";
 import React, { createContext, FormHTMLAttributes, useContext, useEffect, useLayoutEffect, useMemo } from "react";
 import { formStore } from "./FormStore";
@@ -13,7 +14,7 @@ export const useFieldNameMayWithPrefix = (name: string) => {
   return `${prefix || ""}${name}`;
 };
 
-export function pickValidValues(values: any): any {
+export const pickValidValues = (values: any): any => {
   if (values instanceof Blob || values instanceof File) {
     return values;
   }
@@ -30,27 +31,6 @@ export function pickValidValues(values: any): any {
   }
 
   return values;
-}
-
-const FormInitial = () => {
-  const { reset } = useForm();
-
-  // to make sure before autoFocus
-  useLayoutEffect(() => {
-    reset();
-  }, [reset]);
-
-  return null;
-};
-
-const FormDestroy = () => {
-  const { destroy } = useForm();
-
-  useEffect(() => {
-    return () => destroy();
-  }, [destroy]);
-
-  return null;
 };
 
 const validateAll = (fields: FormState["fields"], values: any) => {
@@ -58,7 +38,7 @@ const validateAll = (fields: FormState["fields"], values: any) => {
 
   forEach(fields, ({ validate }, fieldName) => {
     if (validate) {
-      const err = validate(get(values, fieldName));
+      const err = errorMsg(validate(get(values, fieldName)));
       if (err) {
         errors[fieldName] = err;
       }
@@ -196,9 +176,28 @@ const FormContext = createContext<{ form: ReturnType<typeof useNewFormContext> }
 
 const FormProvider = FormContext.Provider;
 
-export function useForm() {
-  return useContext(FormContext).form;
-}
+export const useForm = () => useContext(FormContext).form;
+
+const FormInitial = () => {
+  const { reset } = useForm();
+
+  // to make sure before autoFocus
+  useLayoutEffect(() => {
+    reset();
+  }, [reset]);
+
+  return null;
+};
+
+const FormDestroy = () => {
+  const { destroy } = useForm();
+
+  useEffect(() => {
+    return () => destroy();
+  }, [destroy]);
+
+  return null;
+};
 
 export const useNewForm = <TFormValues extends object>(
   formName: string,

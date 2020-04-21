@@ -1,44 +1,44 @@
-import { isEmpty } from "lodash";
+import { isError } from "lodash";
 
-export type Validator<T = any> = (value: T) => string | undefined;
+export type Validator<T = any> = (valueOrError: T | Error) => T | Error;
+
+export const errorMsg = <T extends any>(v: T | Error) => {
+  if (isError(v)) {
+    return v.message;
+  }
+  return undefined;
+};
 
 export const createValidator = <T = any>(defaultError: string, test: (v: T) => boolean) => (error = defaultError) => {
-  return (value: T) => {
-    if (isEmpty(value)) {
-      return undefined;
+  return (valueOrError: T | Error) => {
+    if (isError(valueOrError)) {
+      return valueOrError;
     }
-    if (test(value)) {
-      return undefined;
+
+    if (!test(valueOrError)) {
+      return new Error(error);
     }
-    return error;
+
+    return valueOrError;
   };
 };
 
-export const once = (...validators: Validator[]) => {
-  return (value: any) => {
-    for (const v of validators) {
-      const err = v(value);
-
-      if (err) {
-        return err;
-      }
+export const all = <T extends any>(...validators: Validator[]) => {
+  return (valueOrError: T | Error) => {
+    if (isError(valueOrError)) {
+      return valueOrError;
     }
-    return undefined;
-  };
-};
 
-export const all = (...validators: Validator[]) => {
-  return (value: any) => {
     const e: string[] = [];
 
     for (const v of validators) {
-      const err = v(value);
+      const ret = v(valueOrError);
 
-      if (err) {
-        e.push(err);
+      if (isError(ret)) {
+        e.push(ret.message);
       }
     }
 
-    return e.join("; ");
+    return new Error(e.join("; "));
   };
 };
