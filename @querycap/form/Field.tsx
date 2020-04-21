@@ -77,12 +77,12 @@ const FieldRegister = ({ name, validate }: { name: string; validate: FieldState[
   return null;
 };
 
-export const Field = (props: FieldProps) => {
+export const Field = ({ name: n, validate: v, disabled, readOnly, children }: FieldProps) => {
   const { formName, updateField, focusField, blurField } = useForm();
 
-  const name = useFieldNameMayWithPrefix(props.name || "");
+  const name = useFieldNameMayWithPrefix(n || "");
 
-  const validateRef = useValueRef(props.validate || (() => ""));
+  const validateRef = useValueRef(v || (() => ""));
 
   const validate: Validator = (value: any) => {
     return validateRef.current(value);
@@ -101,9 +101,11 @@ export const Field = (props: FieldProps) => {
   const fieldState = useFieldState(name);
 
   return (
-    <FieldProvider key={`${fieldState.formID}/${fieldState.name}`} value={{ ...fieldState, controls }}>
+    <FieldProvider
+      key={`${fieldState.formID}/${fieldState.name}`}
+      value={{ ...fieldState, disabled, readOnly, controls }}>
       <FieldRegister name={name} validate={validate} />
-      {props.children}
+      {children}
     </FieldProvider>
   );
 };
