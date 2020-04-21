@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/querycap/webappkit/compare/@querycap/form@0.6.0...@querycap/form@0.6.1) (2020-04-21)
+
+
+### Bug Fixes
+
+* **form:** disabled and readOnly should provide by Field ([3984ee8](https://github.com/querycap/webappkit/commit/3984ee8e1af2f993e7f7a6e31f9a00f871adbfd2))
+
+
+
+
+
 # [0.6.0](https://github.com/querycap/webappkit/compare/@querycap/form@0.5.3...@querycap/form@0.6.0) (2020-04-21)
 
 
