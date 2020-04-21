@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/querycap/webappkit/compare/@querycap/form@0.5.3...@querycap/form@0.6.0) (2020-04-21)
+
+
+### Features
+
+* **validators:** pipe able validator ([cf74a49](https://github.com/querycap/webappkit/commit/cf74a499633af8593dba4749734ac625fc0df1bf))
+
+
+
+
+
 ## [0.5.3](https://github.com/querycap/webappkit/compare/@querycap/form@0.5.2...@querycap/form@0.5.3) (2020-04-16)
 
 

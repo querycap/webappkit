@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.22](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.7.21...@querycap-ui/form-controls@0.7.22) (2020-04-21)
+
+
+### Bug Fixes
+
+* **form-controls:** more paddingY ([e368df4](https://github.com/querycap/webappkit/commit/e368df40b2f98baec6e793a373312948ed262af8))
+
+
+
+
+
 ## [0.7.21](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.7.20...@querycap-ui/form-controls@0.7.21) (2020-04-16)
 
 **Note:** Version bump only for package @querycap-ui/form-controls

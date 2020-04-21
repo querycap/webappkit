@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/querycap/webappkit/compare/@querycap/validators@0.1.2...@querycap/validators@0.2.0) (2020-04-21)
+
+
+### Features
+
+* **validators:** pipe able validator ([cf74a49](https://github.com/querycap/webappkit/commit/cf74a499633af8593dba4749734ac625fc0df1bf))
+
+
+
+
+
 ## [0.1.2](https://github.com/querycap/webappkit/compare/@querycap/validators@0.1.1...@querycap/validators@0.1.2) (2020-04-13)
 
 **Note:** Version bump only for package @querycap/validators
