@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/querycap/webappkit/compare/@querycap-ui/icons@0.2.0...@querycap-ui/icons@0.3.0) (2020-04-23)
+
+
+### Features
+
+* **ui/core:** drop theme space ([4aa3ac3](https://github.com/querycap/webappkit/commit/4aa3ac38d3dadcb124b83ac0d8e101213f14058a))
+
+
+
+
+
 # [0.2.0](https://github.com/querycap/webappkit/compare/@querycap-ui/icons@0.1.2...@querycap-ui/icons@0.2.0) (2020-03-27)
 
 

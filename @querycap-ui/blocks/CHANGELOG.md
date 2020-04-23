@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.5.12...@querycap-ui/blocks@0.6.0) (2020-04-23)
+
+
+### Features
+
+* **ui/core:** drop theme space ([4aa3ac3](https://github.com/querycap/webappkit/commit/4aa3ac38d3dadcb124b83ac0d8e101213f14058a))
+
+
+
+
+
 ## [0.5.12](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.5.11...@querycap-ui/blocks@0.5.12) (2020-04-21)
 
 **Note:** Version bump only for package @querycap-ui/blocks
