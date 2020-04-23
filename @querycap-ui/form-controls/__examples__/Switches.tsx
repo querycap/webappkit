@@ -1,4 +1,4 @@
-import { theme } from "@querycap-ui/core/macro";
+import { roundedEm } from "@querycap-ui/core/macro";
 import { Switch } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 import React, { useState } from "react";
@@ -7,7 +7,7 @@ export const Switches = () => {
   const [checked, setCheck] = useState(true);
 
   return (
-    <Stack spacing={theme.space.s2}>
+    <Stack spacing={roundedEm(0.6)}>
       <div>
         <Switch value={checked} disabled onValueChange={setCheck} /> <span>文本</span>
       </div>

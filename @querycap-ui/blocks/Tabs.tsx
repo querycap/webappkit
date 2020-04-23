@@ -1,4 +1,4 @@
-import { preventDefault, select, stopPropagation, theme } from "@querycap-ui/core/macro";
+import { preventDefault, select, roundedEm, stopPropagation, theme } from "@querycap-ui/core/macro";
 import { pipe } from "rxjs";
 import { map } from "lodash";
 import React, { Children, isValidElement, ReactElement, ReactNode, useEffect, useState } from "react";
@@ -49,11 +49,11 @@ export const Tabs = ({
           .display("flex")
           .borderBottom("1px solid")
           .borderColor(theme.state.borderColor)
-          .with(select("& > * + *").marginLeft(theme.space.s2))
+          .with(select("& > * + *").marginLeft(roundedEm(0.6)))
           .with(
             select("& > *")
               .position("relative")
-              .paddingY(theme.space.s2)
+              .paddingY(roundedEm(0.6))
               .color("inherit")
               .textDecoration("none")
               .with(

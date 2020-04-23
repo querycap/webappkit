@@ -5,6 +5,7 @@ import {
   select,
   simpleShadow,
   theme,
+  roundedEm,
   ThemeState,
   tint,
   tintOrShade,
@@ -50,7 +51,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             .with(block && select().width("100%").justifyContent("center"))
             .with(invisible && select().borderColor("transparent"))
             .with(select("&:hover").opacity(0.8).cursor("pointer"))
-            .with(select("& > * + *").marginLeft(theme.space.s1))
+            .with(select("& > * + *").marginLeft(roundedEm(0.3)))
             .with(
               invisible
                 ? select().color("inherit").opacity(0.9).backgroundColor("transparent")

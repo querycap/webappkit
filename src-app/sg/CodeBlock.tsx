@@ -1,4 +1,4 @@
-import { colors, safeTextColor, select, theme } from "@querycap-ui/core";
+import { colors, roundedEm, safeTextColor, select, theme } from "@querycap-ui/core";
 import { highlight, languages } from "prismjs";
 import "prismjs/components/prism-typescript";
 import "prismjs/themes/prism-tomorrow.css";
@@ -12,7 +12,7 @@ export const CodeBlock = memo(({ children, ...otherProps }: { children: string }
       .borderRadius(theme.radii.normal)
       .margin(0)
       .fontFamily(theme.fonts.mono)
-      .padding(theme.space.s4)
+      .padding(roundedEm(1.2))
       .overflow("auto")
       .color(safeTextColor(colors.gray9))
       .backgroundColor(colors.gray9)}>

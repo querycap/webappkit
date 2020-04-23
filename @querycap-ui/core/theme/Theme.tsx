@@ -48,22 +48,6 @@ export const defaultTheme = {
     info: colors.gray5,
   },
 
-  space: {
-    s0: 0,
-    s1: 4,
-    s2: 8,
-    s3: 16,
-    s4: 24,
-    s5: 32,
-    s6: 40,
-    s7: 48,
-    s8: 64,
-    s9: 80,
-    s10: 96,
-    s11: 112,
-    s12: 128,
-  },
-
   fonts: {
     normal: fontStack(
       "-apple-system",

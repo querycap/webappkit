@@ -1,4 +1,4 @@
-import { theme, ThemeState } from "@querycap-ui/core/macro";
+import { theme, ThemeState, roundedEm } from "@querycap-ui/core/macro";
 import { Stack } from "@querycap-ui/layouts";
 import {
   createSearchBox,
@@ -30,7 +30,7 @@ export const SearchBoxDemo = () => {
   });
 
   return (
-    <Stack spacing={theme.space.s2}>
+    <Stack spacing={roundedEm(0.6)}>
       <ThemeState fontSize={theme.fontSizes.xs}>
         <SearchBox filters={filters} onSubmit={setFilters} />
         <div>{JSON.stringify(filters, null, 2)}</div>

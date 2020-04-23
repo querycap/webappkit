@@ -1,4 +1,4 @@
-import { select, theme } from "@querycap-ui/core/macro";
+import { select, theme, roundedEm } from "@querycap-ui/core/macro";
 import { IconCheckSquare, IconMinusSquare, IconSquare } from "@querycap-ui/icons";
 import React, { forwardRef, ReactNode } from "react";
 import { ControlledInput } from "./Input";
@@ -35,7 +35,7 @@ export const Checkbox = forwardRef(
             <IconSquare scale={1.2} />
           )}
         </span>
-        {children && <span css={select().flex(1).marginLeft(theme.space.s2)}>{children}</span>}
+        {children && <span css={select().flex(1).marginLeft(roundedEm(0.6))}>{children}</span>}
       </label>
     );
   },

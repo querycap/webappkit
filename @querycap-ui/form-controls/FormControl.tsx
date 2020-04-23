@@ -13,7 +13,7 @@ export interface FormControlProps {
 
 export const FormControls = ({ children, ...otherProps }: { children: ReactNode }) => {
   return (
-    <Stack {...otherProps} inline spacing={theme.space.s2} css={select().marginTop(roundedEm(1.2))}>
+    <Stack {...otherProps} inline spacing={roundedEm(0.6)} css={select().marginTop(roundedEm(1.2))}>
       {children}
     </Stack>
   );

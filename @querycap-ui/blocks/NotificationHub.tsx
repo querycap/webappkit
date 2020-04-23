@@ -1,4 +1,4 @@
-import { animated, select, theme, useTransition } from "@querycap-ui/core/macro";
+import { animated, select, roundedEm, useTransition } from "@querycap-ui/core/macro";
 import { Portal } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
 import React from "react";
@@ -62,7 +62,7 @@ export const NotificationHub = ({
           <animated.div
             style={style}
             css={select().position("absolute").top(0).left(0).right(0).zIndex(10).pointerEvents("none")}>
-            <div css={select().maxWidth(320).margin("0 auto").pointerEvents("auto").padding(theme.space.s2)}>
+            <div css={select().maxWidth(320).margin("0 auto").pointerEvents("auto").padding(roundedEm(0.6))}>
               <Notification msg={item} closeRequestIn={closeRequestIn} onRequestClose={onRequestClose} />
             </div>
           </animated.div>

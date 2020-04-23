@@ -1,5 +1,15 @@
-import { animated, cover, select, theme, ThemeState, tintOrShade, useSpring, useTheme } from "@querycap-ui/core/macro";
-import { flow } from "lodash";
+import {
+  animated,
+  cover,
+  roundedEm,
+  select,
+  theme,
+  ThemeState,
+  tintOrShade,
+  useSpring,
+  useTheme,
+} from "@querycap-ui/core/macro";
+import { pipe } from "rxjs";
 import React, { forwardRef, ReactNode, useEffect } from "react";
 import { ControlledInput } from "./Input";
 
@@ -56,7 +66,7 @@ const SwitchCore = ({ value, tips }: { value: boolean; tips?: [ReactNode, ReactN
             .fontSize("0.6em")
             .textTransform("uppercase")
             .color(theme.state.color)
-            .with(select("& > *").paddingX(theme.space.s1).with(cover()))}>
+            .with(select("& > *").paddingX(roundedEm(0.3)).with(cover()))}>
           <animated.span style={{ opacity: styles.onOpacity }} css={{ textAlign: "left" }}>
             {tips[0]}
           </animated.span>
@@ -87,7 +97,7 @@ const SwitchCore = ({ value, tips }: { value: boolean; tips?: [ReactNode, ReactN
               .content(`""`)
               .with(cover())
               .zIndex(1)
-              .backgroundColor(flow(theme.state.color, tintOrShade(-0.15)))
+              .backgroundColor(pipe(theme.state.backgroundColor, tintOrShade(-0.1)))
               .borderRadius("100%")
               .boxShadow("0 2px 4px 0 rgba(0,0,0,0.3)"),
           )}
@@ -111,10 +121,10 @@ export const Switch = forwardRef(({ name, value, tips, onValueChange, disabled, 
       <ThemeState
         backgroundColor={
           disabled
-            ? flow(theme.state.backgroundColor, tintOrShade(0.1))
+            ? pipe(theme.state.backgroundColor, tintOrShade(0.1))
             : value
             ? theme.colors.primary
-            : flow(theme.state.backgroundColor, tintOrShade(0.3))
+            : pipe(theme.state.backgroundColor, tintOrShade(0.3))
         }
         autoColor>
         <SwitchCore value={value} tips={tips} />

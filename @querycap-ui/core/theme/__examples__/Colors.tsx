@@ -1,4 +1,4 @@
-import { safeTextColor, select, defaultTheme, theme, ThemeState, negative } from "@querycap-ui/core/macro";
+import { safeTextColor, select, defaultTheme, theme, ThemeState, negative, roundedEm } from "@querycap-ui/core/macro";
 import { map, flow } from "lodash";
 import React, { Fragment } from "react";
 import { colors } from "../colors";
@@ -23,7 +23,7 @@ export const Color_system = () => {
                 css={select()
                   .lineHeight(theme.lineHeights.normal)
                   .fontFamily(theme.fonts.mono)
-                  .paddingY(theme.space.s2)
+                  .paddingY(roundedEm(0.6))
                   .color(theme.state.color)
                   .backgroundColor(theme.state.backgroundColor)}>
                 {stateColor}
@@ -45,7 +45,7 @@ export const Color_system = () => {
                 css={select()
                   .lineHeight(theme.lineHeights.normal)
                   .fontFamily(theme.fonts.mono)
-                  .paddingY(theme.space.s2)
+                  .paddingY(roundedEm(0.6))
                   .color(theme.state.color)
                   .backgroundColor(theme.state.backgroundColor)}>
                 {baseColor}
@@ -59,10 +59,10 @@ export const Color_system = () => {
         css={select()
           .display("flex")
           .flexWrap("wrap")
-          .margin(flow(theme.space.s1, negative))
+          .margin(flow(roundedEm(0.3), negative))
           .with(select("& > *").width("50%").textAlign("center"))}>
         {map(baseColors.slice(2), (colorName, key) => (
-          <div css={select().padding(theme.space.s1)} key={key}>
+          <div css={select().padding(roundedEm(0.3))} key={key}>
             {map(["", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"], (k) => {
               const colorValue = (colors as any)[`${colorName}${k}`];
 
@@ -74,7 +74,7 @@ export const Color_system = () => {
                         .display("flex")
                         .flexWrap("wrap")
                         .lineHeight(theme.lineHeights.normal)
-                        .padding(theme.space.s2)
+                        .padding(roundedEm(0.6))
                         .fontFamily(theme.fonts.mono)
                         .justifyContent("space-between")
                         .color(theme.state.color)

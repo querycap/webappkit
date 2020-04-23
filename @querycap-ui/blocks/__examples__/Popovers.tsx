@@ -1,5 +1,5 @@
 import { Popover } from "@querycap-ui/blocks";
-import { select, theme } from "@querycap-ui/core/macro";
+import { select, theme, roundedEm } from "@querycap-ui/core/macro";
 import { Stack } from "@querycap-ui/layouts";
 import { useToggle, useToggleControlOnClick } from "@querycap/uikit";
 import React, { useRef } from "react";
@@ -23,7 +23,7 @@ const PopoverDemo = ({ placement }: { placement: string }) => {
 };
 
 export const Popovers = () => (
-  <Stack spacing={theme.space.s2} align={"center"} css={select("& > *").width("50%")}>
+  <Stack spacing={roundedEm(0.6)} align={"center"} css={select("& > *").width("50%")}>
     {[
       "left",
       "right",

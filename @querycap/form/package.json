@@ -15,7 +15,7 @@
     "@querycap/reactutils": "^0.6.1",
     "@querycap/validators": "^0.2.0",
     "@reactorx/core": "^0.20.7",
-    "@types/lodash": "4.14.x",
+    "@types/lodash": "4.14.150",
     "lodash": "4.17.x"
   },
   "publishConfig": {

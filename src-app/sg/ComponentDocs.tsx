@@ -1,4 +1,14 @@
-import { colors, cover, rgba, select, shadows, theme, ThemeState, withBackground } from "@querycap-ui/core";
+import {
+  colors,
+  cover,
+  rgba,
+  select,
+  shadows,
+  roundedEm,
+  theme,
+  ThemeState,
+  withBackground,
+} from "@querycap-ui/core/macro";
 import { Switch } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 import { IRoute, NavLink, parseSearchString, Redirect, useRouter } from "@reactorx/router";
@@ -10,7 +20,11 @@ import { CodeBlock } from "./CodeBlock";
 import { examples, IExample } from "./exmaple";
 
 const ExampleSection = ({ children }: { children?: ReactNode }) => (
-  <div css={select().position("relative").padding(theme.space.s4).with(select("& + &").marginTop(theme.space.s4))}>
+  <div
+    css={select()
+      .position("relative")
+      .padding(roundedEm(1.2))
+      .with(select("& + &").marginTop(roundedEm(0.4)))}>
     {children}
   </div>
 );
@@ -22,21 +36,21 @@ const ExampleBlock = ({ name, module, group, source, examples }: IExample) => {
         .position("relative")
         .backgroundColor(theme.state.backgroundColor)
         .color(theme.state.color)
-        .paddingY(theme.space.s5)
-        .paddingX(theme.space.s4)
+        .paddingY(roundedEm(1.5))
+        .paddingX(roundedEm(1.2))
         .with(select("& + &").borderTopWidth(1).borderTopStyle("solid").borderColor(theme.state.borderColor))}>
       <div
         css={select()
           .position("absolute")
           .top(0)
           .right(0)
-          .paddingX(theme.space.s4)
-          .paddingY(theme.space.s2)
+          .paddingX(roundedEm(1.2))
+          .paddingY(roundedEm(0.6))
           .fontSize(theme.fontSizes.s)
           .opacity(0.3)}>
         {group}/{module}/{name}
       </div>
-      <Stack inline spacing={theme.space.s2}>
+      <Stack inline spacing={roundedEm(0.6)}>
         <div
           css={select()
             .flex(1)
@@ -66,7 +80,7 @@ const Sidebar = withBackground(colors.gray9)(({ group, examples }: { group: stri
   return (
     <ul
       css={select()
-        .padding(theme.space.s3)
+        .padding(roundedEm(0.9))
         .fontSize(theme.fontSizes.s)
         .backgroundColor(theme.state.backgroundColor)
         .color(theme.state.color)
@@ -80,8 +94,8 @@ const Sidebar = withBackground(colors.gray9)(({ group, examples }: { group: stri
         .with(
           select("& ul")
             .color("inherit")
-            .paddingLeft(theme.space.s1)
-            .paddingY(theme.space.s1)
+            .paddingLeft(roundedEm(0.3))
+            .paddingY(roundedEm(0.3))
             .margin(0)
             .listStyle("none"),
         )
@@ -90,7 +104,7 @@ const Sidebar = withBackground(colors.gray9)(({ group, examples }: { group: stri
             .color("inherit")
             .textDecoration("none")
             .opacity(0.8)
-            .paddingY(theme.space.s1)
+            .paddingY(roundedEm(0.3))
             .with(select("&:hover", "&[data-current=true]").opacity(1)),
         )}>
       {map(
@@ -153,14 +167,14 @@ const Nav = withBackground(colors.gray9)(({ groups }: { groups: string[] }) => {
     <Stack
       inline
       justify={"flex-end"}
-      spacing={theme.space.s3}
+      spacing={roundedEm(0.9)}
       css={select()
-        .paddingX(theme.space.s3)
+        .paddingX(roundedEm(0.9))
         .fontSize(theme.fontSizes.s)
         .position("relative")
         .zIndex(10)
         .boxShadow(shadows.medium)
-        .paddingY(theme.space.s2)
+        .paddingY(roundedEm(0.6))
         .backgroundColor(theme.state.backgroundColor)
         .color(theme.state.color)
         .with(select("& a").color(theme.state.color).textDecoration("none"))}>

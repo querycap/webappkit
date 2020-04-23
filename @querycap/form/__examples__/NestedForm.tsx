@@ -1,4 +1,4 @@
-import { select, theme } from "@querycap-ui/core";
+import { select, roundedEm } from "@querycap-ui/core/macro";
 import { Button, FormControlWithField, InputIcon } from "@querycap-ui/form-controls";
 import { IconTrash } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
@@ -21,7 +21,7 @@ export const NestedForm = () => {
         {({ each, remove, add }) => (
           <>
             {each((i) => (
-              <Stack inline spacing={theme.space.s1}>
+              <Stack inline spacing={roundedEm(0.3)}>
                 <div css={select().flex(1)}>
                   <FormControlWithField>
                     {(props) => (

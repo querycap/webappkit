@@ -32,7 +32,7 @@ export const DialogClose = ({ float, onRequestClose }: { float?: boolean; onRequ
       css={select()
         .opacity(0.3)
         .colorFill(theme.state.color)
-        .with(float && select().position("absolute").right(0).top(0).padding(theme.space.s3))}>
+        .with(float && select().position("absolute").right(0).top(0).padding(roundedEm(0.9)))}>
       <IconX />
     </a>
   );
@@ -66,7 +66,7 @@ export const DialogContent = ({ children }: { children?: ReactNode }) => {
 
 export const DialogControls = ({ children }: { children?: ReactNode }) => {
   return (
-    <Stack spacing={theme.space.s2} inline justify="flex-end">
+    <Stack spacing={roundedEm(0.6)} inline justify="flex-end">
       {children}
     </Stack>
   );
@@ -144,7 +144,7 @@ export const DialogAlert = ({ children, onRequestClose }: { children?: ReactNode
   return (
     <DialogContainer>
       <DialogClose float onRequestClose={onRequestClose} />
-      <div css={select().padding(theme.space.s4)}>{children}</div>
+      <div css={select().padding(roundedEm(1.4))}>{children}</div>
     </DialogContainer>
   );
 };

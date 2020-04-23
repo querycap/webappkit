@@ -13,7 +13,7 @@
     "@querycap/reactutils": "^0.6.1",
     "@types/uuid": "7.0.x",
     "hey-listen": "1.x",
-    "uuid": "7.0.x"
+    "uuid": "7.0.3"
   },
   "publishConfig": {
     "access": "public"

@@ -1,4 +1,4 @@
-import { select, theme } from "@querycap-ui/core/macro";
+import { select, theme, roundedEm } from "@querycap-ui/core/macro";
 import { Button, Input, InputIcon, InputPrefix, InputSuffix } from "@querycap-ui/form-controls";
 import { IconAirplay, IconEyeOff } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
@@ -9,7 +9,7 @@ export const Inputs = () => {
   return (
     <>
       <h2 css={headings.h2}> 输入状态 </h2>
-      <Stack spacing={theme.space.s2} css={select().fontSize(theme.fontSizes.xs)}>
+      <Stack spacing={roundedEm(0.6)} css={select().fontSize(theme.fontSizes.xs)}>
         <Input>
           <input type="text" />
         </Input>
@@ -27,7 +27,7 @@ export const Inputs = () => {
         </Input>
       </Stack>
       <h2 css={headings.h2}> input 套件 </h2>
-      <Stack spacing={theme.space.s2} css={select().fontSize(theme.fontSizes.xs)}>
+      <Stack spacing={roundedEm(0.6)} css={select().fontSize(theme.fontSizes.xs)}>
         <Input>
           <InputPrefix css={select().fontFamily(theme.fonts.mono)}>https://</InputPrefix>
           <input type="text" placeholder={"www.github.com"} />
@@ -51,14 +51,14 @@ export const Inputs = () => {
       </Stack>
 
       <h2 css={headings.h2}> 与 Button 组合 </h2>
-      <Stack spacing={theme.space.s2} css={select().fontSize(theme.fontSizes.xs)}>
-        <Stack inline spacing={theme.space.s1}>
+      <Stack spacing={roundedEm(0.6)} css={select().fontSize(theme.fontSizes.xs)}>
+        <Stack inline spacing={roundedEm(0.3)}>
           <Input>
             <input type="text" />
           </Input>
           <Button primary>提交</Button>
         </Stack>
-        <Stack inline spacing={theme.space.s1}>
+        <Stack inline spacing={roundedEm(0.3)}>
           <Input small>
             <input type="text" />
           </Input>
