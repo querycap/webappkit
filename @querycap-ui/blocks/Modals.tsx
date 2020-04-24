@@ -62,7 +62,7 @@ export const ModalDialogBase = withPortal(({ onRequestClose, ...otherProps }: Mo
 
 export const useModalTransition = (isOpen = false, onDestroyed?: () => void) =>
   useTransition(isOpen, null, {
-    from: { opacity: 0, transform: "translate3d(0,30px,0) scale(1)" },
+    from: { opacity: 0.5, transform: "translate3d(0,30px,0) scale(1)" },
     enter: { opacity: 1, transform: "translate3d(0,0,0) scale(1)" },
     leave: { opacity: 0, transform: "translate3d(0,0,0) scale(0.9)" },
     config: { mass: 1, tension: 500, friction: 40 },
