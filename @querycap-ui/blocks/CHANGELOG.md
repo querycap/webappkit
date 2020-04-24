@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.6.0...@querycap-ui/blocks@0.6.1) (2020-04-24)
+
+
+### Bug Fixes
+
+* **ui/blocks:** opacity at start fix ([4f24501](https://github.com/querycap/webappkit/commit/4f24501759c4c23c8fa8d31c9c115b89d46bbf99))
+
+
+
+
+
 # [0.6.0](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.5.12...@querycap-ui/blocks@0.6.0) (2020-04-23)
 
 
