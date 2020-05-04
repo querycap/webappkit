@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/layouts",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
@@ -9,7 +9,7 @@
     "react": "16.x"
   },
   "dependencies": {
-    "@querycap-ui/core": "^0.8.0"
+    "@querycap-ui/core": "^0.8.1"
   },
   "publishConfig": {
     "access": "public"
