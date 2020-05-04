@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@querycap-ui/core": "^0.8.0",
-    "remark-parse": "8.0.1",
+    "remark-parse": "^8.0.2",
     "remark-react": "7.0.x",
     "unified": "9.0.x"
   },

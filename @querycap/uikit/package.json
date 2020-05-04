@@ -11,9 +11,9 @@
   },
   "dependencies": {
     "@querycap/reactutils": "^0.6.1",
-    "@types/uuid": "7.0.x",
+    "@types/uuid": "^7.0.3",
     "hey-listen": "1.x",
-    "uuid": "7.0.3"
+    "uuid": "^8.0.0"
   },
   "publishConfig": {
     "access": "public"
