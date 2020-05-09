@@ -23,7 +23,7 @@ export = withPresets(
     styling: /polished|emotion|react-spring/,
     core: /react|reactorx|scheduler|history|axios/,
     utils: /buffer|date-fns|lodash|rxjs/,
-  }),
+  }) as any,
   (c) => {
     c.resolve!.alias = {
       lodash$: "lodash-es",
@@ -36,6 +36,6 @@ export = withPresets(
         (c.resolve!.alias as any)[`${k}$`] = `${k}/index`;
       });
   },
-  withAssetsPreset(),
-  withHTMLPreset(),
+  withAssetsPreset() as any,
+  withHTMLPreset() as any,
 );
