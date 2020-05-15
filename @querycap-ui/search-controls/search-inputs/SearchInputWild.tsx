@@ -9,6 +9,30 @@ import { buffer, debounceTime, filter as rxFilter, tap } from "rxjs/operators";
 import { FilterMeta, FilterValue, useSearchBox, isNormalFilter } from "../search-box";
 import { useKeyboardControlsOfSearchBox } from "./hooks";
 
+const isFilterHidden = (filterValues: FilterValue[], f: FilterMeta) => {
+  const getValues = () => {
+    const values: Dictionary<boolean> = {};
+
+    forEach(filterValues, (fv) => {
+      if (fv.key === f.key) {
+        values[fv.value] = true;
+      }
+    });
+
+    return values;
+  };
+
+  if (f.multiple) {
+    if (f.enum) {
+      const usedValues = getValues();
+      return every(f.enum, (v) => usedValues[v]);
+    }
+    return false;
+  }
+
+  return size(getValues()) > 0;
+};
+
 export const SearchInputWild = () => {
   const ctx = useSearchBox();
   const inputElmRef = useRef<HTMLInputElement>(null);
@@ -57,6 +81,7 @@ export const SearchInputWild = () => {
     return selectCtx.selectValue$.pipe(
       tap((opt) => {
         if (opt === "submit") {
+          putOrFocusFilter(inputElmRef.current!.value);
           closePopover();
           inputElmRef.current!.blur();
           return;
@@ -184,7 +209,7 @@ export const SearchInputWild = () => {
   );
 };
 
-function FilterRule({
+const FilterRule = ({
   hidden,
   filter,
   onClick,
@@ -193,34 +218,10 @@ function FilterRule({
   filter: FilterMeta;
   hidden: boolean;
   onClick?: () => void;
-}) {
+}) => {
   return hidden ? null : (
     <div onClick={onClick} {...otherProps}>
       按 {filter.label} 筛选
     </div>
   );
-}
-
-function isFilterHidden(filterValues: FilterValue[], f: FilterMeta) {
-  const getValues = () => {
-    const values: Dictionary<boolean> = {};
-
-    forEach(filterValues, (fv) => {
-      if (fv.key === f.key) {
-        values[fv.value] = true;
-      }
-    });
-
-    return values;
-  };
-
-  if (f.multiple) {
-    if (f.enum) {
-      const usedValues = getValues();
-      return every(f.enum, (v) => usedValues[v]);
-    }
-    return false;
-  }
-
-  return size(getValues()) > 0;
-}
+};
