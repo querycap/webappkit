@@ -23,8 +23,7 @@ export function useNewSearch<TFilters extends Dictionary<any>, T>(
         ...omit(query, ["size", "offset"]),
       },
       pager: {
-        offset: Number(query.offset),
-        size: Number(query.size),
+        ...pick(query, ["size", "offset"]),
       },
       data: [],
     },
