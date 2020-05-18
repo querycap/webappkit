@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.5](https://github.com/querycap/webappkit/compare/@querycap/search@0.5.4...@querycap/search@0.5.5) (2020-05-18)
+
+
+### Bug Fixes
+
+* **search:** fix pager offset NaN ([77be946](https://github.com/querycap/webappkit/commit/77be946fb6cc548cbd0f1779446bc411875d8c19))
+
+
+
+
+
 ## [0.5.4](https://github.com/querycap/webappkit/compare/@querycap/search@0.5.3...@querycap/search@0.5.4) (2020-05-18)
 
 
