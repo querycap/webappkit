@@ -1,6 +1,6 @@
 import { Volume } from "@reactorx/core";
 import { parseSearchString } from "@reactorx/router";
-import { Dictionary, mapKeys, omit, pick, pickBy, split, startsWith } from "lodash";
+import { Dictionary, mapKeys, omit, pickBy, split, startsWith } from "lodash";
 import { createContext, useContext, useMemo } from "react";
 import { Observable } from "rxjs";
 import { Pager, SearchState, searchStore } from "./SearchStore";
@@ -30,7 +30,10 @@ const fromLocationSearch = (searchName: string, locationSearch: string) => {
 
   return {
     filters: omit(query, ["size", "offset"]),
-    pager: pick(query, ["size", "offset"]),
+    pager: {
+      offset: Number(query.offset),
+      size: Number(query.size),
+    },
   };
 };
 
