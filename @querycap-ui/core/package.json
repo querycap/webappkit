@@ -11,7 +11,7 @@
     "@emotion/core": "10.x",
     "@querycap-ui/core.macro": "^0.1.1",
     "@querycap-ui/css-aliases": "^0.2.0",
-    "polished": "^3.6.2",
+    "polished": "^3.6.3",
     "react-spring": "8.0.x"
   },
   "publishConfig": {

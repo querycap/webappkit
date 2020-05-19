@@ -16,7 +16,7 @@
     "@querycap/notify": "^0.5.0",
     "@querycap/persister": "^0.5.0",
     "@reactorx/router": "0.20.x",
-    "@types/history": "4.7.5",
+    "@types/history": "^4.7.6",
     "history": "4.10.x",
     "redux-logger": "*"
   },
