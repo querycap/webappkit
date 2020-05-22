@@ -6,7 +6,7 @@ export const isHttps = () => getProtocol() == "https:";
 
 export const protocolPrefix = (url = "") => {
   if (url.startsWith("http:") || url.startsWith("https:")) {
-    url = url.replace(/https?:/, "");
+    return url;
   }
   return getProtocol() + url;
 };
@@ -24,10 +24,7 @@ export const baseURLsFromConfig = (config: Dictionary<string>): Dictionary<strin
 
   forEach(config, (v, k) => {
     if (startsWith(k, "SRV_")) {
-      const basePath = k
-        .replace("SRV_", "")
-        .replace(/_/g, "-")
-        .toLowerCase();
+      const basePath = k.replace("SRV_", "").replace(/_/g, "-").toLowerCase();
       baseURLs[basePath] = v;
     }
   });
