@@ -86,7 +86,7 @@ export const Portal = ({ pid = uuid(), children }: { pid?: string; children: Rea
   );
 };
 
-export const withPortal = <TProps extends any = {}>(Comp: FunctionComponent<TProps & { children?: ReactNode }>) => {
+export const withPortal = <TProps extends {} = {}>(Comp: FunctionComponent<TProps & { children?: ReactNode }>) => {
   return ({ children, ...otherProps }: TProps & { children?: ReactNode }) => {
     return some(Children.toArray(children), (e) => isValidElement(e)) ? (
       <Portal>

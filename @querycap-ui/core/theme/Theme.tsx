@@ -172,7 +172,7 @@ export const withThemeState = (
     [V in keyof Theme["state"]]?: Theme["state"][V] | ((t: Theme) => Theme["state"][V]);
   },
 ) => {
-  return <T extends any>(Comp: FunctionComponent<T>) => (props: T) => {
+  return <T extends {}>(Comp: FunctionComponent<T>) => (props: T) => {
     return (
       <ThemeState {...state}>
         <Comp {...props} />

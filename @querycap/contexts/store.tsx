@@ -44,7 +44,7 @@ export const createStore = <TMeta extends any, TState extends any>({
     }
 
     const key = storageKey({
-      ...meta,
+      ...((meta as any) || {}),
       group,
     });
 
@@ -61,7 +61,7 @@ export const createStore = <TMeta extends any, TState extends any>({
           actor
             .with(arg, {
               ...opts,
-              ...meta,
+              ...((meta as any) || {}),
             })
             .invoke(store$);
         };

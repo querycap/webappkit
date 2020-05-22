@@ -103,7 +103,7 @@ export const useKeyboardArrowControls = (
 
     const inputKeydown$ = fromEvent<KeyboardEvent>(inputElem, "keydown");
 
-    const onKey = <T extends any>(key: string) => rxFilter((e: T) => e.key === key);
+    const onKey = <T extends {}>(key: string) => rxFilter((e: T) => (e as any).key === key);
 
     const inputKeydownArrowDown$ = inputKeydown$.pipe(onKey("ArrowDown"));
     const inputKeydownArrowUp$ = inputKeydown$.pipe(onKey("ArrowUp"));

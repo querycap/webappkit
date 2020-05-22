@@ -99,7 +99,7 @@ function SearchInit() {
   return null;
 }
 
-export const useSearchQuerySelector = <TFilter extends any>(
+export const useSearchQuerySelector = <TFilter extends {}>(
   state$: Observable<SearchState<TFilter, any>>,
   deps: any[] = [],
 ) =>
