@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/blocks",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
@@ -13,10 +13,10 @@
     "rxjs": "*"
   },
   "dependencies": {
-    "@querycap-ui/form-controls": "^0.8.3",
+    "@querycap-ui/form-controls": "^0.8.4",
     "@querycap-ui/icons": "^0.3.0",
-    "@querycap-ui/layouts": "^0.1.24",
-    "@querycap/uikit": "^0.3.1"
+    "@querycap-ui/layouts": "^0.1.25",
+    "@querycap/uikit": "^0.3.2"
   },
   "publishConfig": {
     "access": "public"

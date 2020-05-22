@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/querycap/webappkit/compare/@querycap/request@0.5.0...@querycap/request@0.5.1) (2020-05-22)
+
+
+### Bug Fixes
+
+* **request:** respect url protocol in protocolPrefix ([550b1a7](https://github.com/querycap/webappkit/commit/550b1a7bee0e32e6bad258d13eca85f8038c6643))
+
+
+
+
+
 # [0.5.0](https://github.com/querycap/webappkit/compare/@querycap/request@0.4.1...@querycap/request@0.5.0) (2020-04-15)
 
 
