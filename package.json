@@ -29,7 +29,7 @@
     "@querycap-dev/monobundle": "^0.7.7",
     "@querycap-dev/webpack-preset": "^0.6.14",
     "@querycap-dev/webpack-preset-assets": "^0.6.6",
-    "@querycap-dev/webpack-preset-html": "^0.7.0",
+    "@querycap-dev/webpack-preset-html": "^0.7.1",
     "@querycap-dev/webpack-preset-ts": "^0.7.0",
     "@reactorx/core": "0.20.x",
     "@reactorx/request": "0.20.x",

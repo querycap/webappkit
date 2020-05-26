@@ -2747,10 +2747,10 @@
     style-loader "^1.2.1"
     url-loader "4.1.0"
 
-"@querycap-dev/webpack-preset-html@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.npmjs.org/@querycap-dev/webpack-preset-html/-/webpack-preset-html-0.7.0.tgz#03694dfa4dd1fefced4c2693b5df928c14007b72"
-  integrity sha512-lSMpvNaiXcKRk9Wv5clHJsGBjOOXFHIMmliKunvWSS9UhtnEbmrpoVsktc0Z9n+uSPTDNdFVWyYipX/aeoDMZg==
+"@querycap-dev/webpack-preset-html@^0.7.1":
+  version "0.7.1"
+  resolved "https://registry.npmjs.org/@querycap-dev/webpack-preset-html/-/webpack-preset-html-0.7.1.tgz#f9bc06c7d44cbae8b02a9c00d57c83c24e41ccac"
+  integrity sha512-Zw8kg69BxPWb9/26B+Cu8TPlsXGul6U6WrZBl2QTwoOO8Cv98GRxi2fp0Qs5z8bBISrPPqPyOLDqSsnRKN0/UA==
   dependencies:
     "@types/workbox-webpack-plugin" "5.1.1"
     html-webpack-plugin "^4.3.0"
