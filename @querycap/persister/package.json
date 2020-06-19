@@ -13,7 +13,7 @@
     "rxjs": "6.x"
   },
   "dependencies": {
-    "localforage": "1.7.3"
+    "localforage": "^1.7.4"
   },
   "publishConfig": {
     "access": "public"

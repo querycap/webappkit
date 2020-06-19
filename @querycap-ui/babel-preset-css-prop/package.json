@@ -3,9 +3,9 @@
   "version": "0.6.0",
   "license": "MIT",
   "dependencies": {
-    "@babel/helper-module-imports": "7.x",
-    "@babel/plugin-syntax-jsx": "7.x",
-    "@babel/plugin-transform-react-jsx": "7.9.x",
+    "@babel/helper-module-imports": "^7.10.1",
+    "@babel/plugin-syntax-jsx": "^7.10.1",
+    "@babel/plugin-transform-react-jsx": "^7.10.1",
     "babel-plugin-emotion": "10.0.33"
   },
   "publishConfig": {
