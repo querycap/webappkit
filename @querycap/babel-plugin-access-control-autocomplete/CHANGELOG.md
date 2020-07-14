@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.4](https://github.com/querycap/webappkit/compare/@querycap/babel-plugin-access-control-autocomplete@0.0.3...@querycap/babel-plugin-access-control-autocomplete@0.0.4) (2020-07-14)
+
+**Note:** Version bump only for package @querycap/babel-plugin-access-control-autocomplete
+
+
+
+
+
 ## [0.0.3](https://github.com/querycap/webappkit/compare/@querycap/babel-plugin-access-control-autocomplete@0.0.2...@querycap/babel-plugin-access-control-autocomplete@0.0.3) (2020-06-19)
 
 **Note:** Version bump only for package @querycap/babel-plugin-access-control-autocomplete
