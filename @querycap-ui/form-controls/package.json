@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/form-controls",
-  "version": "0.8.5",
+  "version": "0.8.6",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
@@ -11,12 +11,12 @@
     "rxjs": "6.x"
   },
   "dependencies": {
-    "@querycap-ui/core": "^0.8.5",
+    "@querycap-ui/core": "^0.8.6",
     "@querycap-ui/icons": "^0.3.0",
-    "@querycap-ui/layouts": "^0.1.26",
-    "@querycap/form": "^0.7.3",
+    "@querycap-ui/layouts": "^0.1.27",
+    "@querycap/form": "^0.7.4",
     "@querycap/reactutils": "^0.6.1",
-    "@querycap/uikit": "^0.3.2"
+    "@querycap/uikit": "^0.3.3"
   },
   "publishConfig": {
     "access": "public"
