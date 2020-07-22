@@ -107,7 +107,8 @@
     },
     "rules": {
       "@typescript-eslint/ban-ts-ignore": "off",
-      "func-style": "off"
+      "func-style": "off",
+      "@typescript-eslint/no-unsafe-assignment": "off"
     }
   }
 }

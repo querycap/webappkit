@@ -4,6 +4,7 @@ import { usePortalCloseOnEsc, usePortalCloseOnOutsideClick } from "./portal-cont
 import { calcPosition, useRectOfElement } from "./position";
 
 export interface IOverlayProps {
+  isOpen?: boolean;
   triggerRef: RefObject<Element>;
   placement?:
     | "top"
@@ -30,7 +31,7 @@ export interface IOverlayProps {
 
 export const withAutoPlacement = <TProps extends IOverlayProps = IOverlayProps>(Comp: FunctionComponent<TProps>) => {
   return (props: TProps) => {
-    const [triggerRect] = useRectOfElement(props.triggerRef, true, []);
+    const [triggerRect] = useRectOfElement(props.triggerRef, props.isOpen, []);
 
     const placement = useMemo(
       () =>
