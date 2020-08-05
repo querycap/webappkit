@@ -1,7 +1,7 @@
 import { useValueRef } from "@querycap/reactutils";
 import { errorMsg, Validator } from "@querycap/validators";
 import { useSelector } from "@reactorx/core";
-import { get, noop } from "lodash";
+import { get, noop, isUndefined } from "lodash";
 import React, {
   createContext,
   FunctionComponent,
@@ -84,7 +84,7 @@ export const Field = ({ name: n, validate: v, disabled, readOnly, children }: Fi
 
   const validateRef = useValueRef(v || (() => ""));
 
-  const validate: Validator = (value: any) => {
+  const validate: Validator = (value: any): any => {
     return validateRef.current(value);
   };
 
@@ -100,6 +100,10 @@ export const Field = ({ name: n, validate: v, disabled, readOnly, children }: Fi
 
   const fieldState = useFieldState(name);
 
+  if(!fieldState.formID) {
+    return null;
+  }
+
   return (
     <FieldProvider
       key={`${fieldState.formID}/${fieldState.name}`}
@@ -110,7 +114,7 @@ export const Field = ({ name: n, validate: v, disabled, readOnly, children }: Fi
   );
 };
 
-export const asField = <TProps extends {}>(Comp: FunctionComponent<TProps>) => {
+export const asField = <TProps extends Record<string, unknown>>(Comp: FunctionComponent<TProps>) => {
   return ({ name, validate, readOnly, disabled, ...props }: TProps & Omit<FieldProps, "children">) => {
     return (
       <Field name={name} readOnly={readOnly} disabled={disabled} validate={validate}>
@@ -136,7 +140,7 @@ export const FieldInput = ({ children }: { children: (props: FieldInputCommonPro
         name,
         readOnly,
         disabled,
-        value: value || "",
+        value: isUndefined(value) ? "" : value,
         onValueChange: controls.handleValueChange || noop,
         onFocus: controls.handleFocus,
         onBlur: controls.handleBlur,

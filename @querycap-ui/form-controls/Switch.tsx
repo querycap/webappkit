@@ -10,7 +10,7 @@ import {
   useTheme,
 } from "@querycap-ui/core/macro";
 import { pipe } from "rxjs";
-import React, { forwardRef, ReactNode, useEffect } from "react";
+import React, {forwardRef, ReactNode, useEffect} from "react";
 import { ControlledInput } from "./Input";
 
 export interface SwitchProps extends ControlledInput<boolean> {
@@ -31,7 +31,7 @@ const SwitchCore = ({ value, tips }: { value: boolean; tips?: [ReactNode, ReactN
     }
 
     return {
-      transform: `translate3d(0,0,0)`,
+      transform: `translate3d(0%,0,0)`,
       backgroundColor: ds.state.backgroundColor,
       onOpacity: 0,
       offOpacity: 1,
@@ -100,8 +100,7 @@ const SwitchCore = ({ value, tips }: { value: boolean; tips?: [ReactNode, ReactN
               .backgroundColor(pipe(theme.state.backgroundColor, tintOrShade(-0.1)))
               .borderRadius("100%")
               .boxShadow("0 2px 4px 0 rgba(0,0,0,0.3)"),
-          )}
-      />
+          )}/>
     </animated.div>
   );
 };

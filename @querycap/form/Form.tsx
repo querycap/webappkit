@@ -4,6 +4,7 @@ import React, { createContext, FormHTMLAttributes, useContext, useEffect, useLay
 import { formStore } from "./FormStore";
 
 import { FieldState, FormState } from "./State";
+import {v4 as uuid} from "uuid";
 
 const FieldPrefixContext = createContext({ prefix: "" });
 
@@ -48,7 +49,7 @@ const validateAll = (fields: FormState["fields"], values: any) => {
   return errors;
 };
 
-export const useNewFormContext = <TFormValues extends object>(
+export const useNewFormContext = <TFormValues extends Record<string, any>>(
   formName: string,
   initialValues: Partial<TFormValues>,
 ) => {
@@ -81,7 +82,10 @@ export const useNewFormContext = <TFormValues extends object>(
     };
 
     const reset = () => {
-      actions.initial(initialValues);
+      actions.initial({
+        ...initialValues,
+        id: uuid(),
+      });
     };
 
     const destroy = () => {
@@ -199,7 +203,7 @@ const FormDestroy = () => {
   return null;
 };
 
-export const useNewForm = <TFormValues extends object>(
+export const useNewForm = <TFormValues extends Record<string, any>>(
   formName: string,
   initialValues = {} as Partial<TFormValues>,
 ) => {
