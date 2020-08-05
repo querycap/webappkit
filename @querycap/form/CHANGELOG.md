@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.6](https://github.com/querycap/webappkit/compare/@querycap/form@0.7.5...@querycap/form@0.7.6) (2020-08-05)
+
+
+### Bug Fixes
+
+* **form:** fix animation of switch and formID ([8258a87](https://github.com/querycap/webappkit/commit/8258a87db1a2b2714cc775bf63348b8826b81dc9))
+
+
+
+
+
 ## [0.7.5](https://github.com/querycap/webappkit/compare/@querycap/form@0.7.4...@querycap/form@0.7.5) (2020-08-04)
 
 **Note:** Version bump only for package @querycap/form
