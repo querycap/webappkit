@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.7](https://github.com/querycap/webappkit/compare/@querycap/form@0.7.6...@querycap/form@0.7.7) (2020-08-06)
+
+
+### Bug Fixes
+
+* fix type ([db89a9a](https://github.com/querycap/webappkit/commit/db89a9a788e7459542c0c0cdfd252e3c44e330bd))
+
+
+
+
+
 ## [0.7.6](https://github.com/querycap/webappkit/compare/@querycap/form@0.7.5...@querycap/form@0.7.6) (2020-08-05)
 
 
