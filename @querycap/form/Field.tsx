@@ -114,7 +114,7 @@ export const Field = ({ name: n, validate: v, disabled, readOnly, children }: Fi
   );
 };
 
-export const asField = <TProps extends Record<string, unknown>>(Comp: FunctionComponent<TProps>) => {
+export const asField = <TProps extends {}>(Comp: FunctionComponent<TProps>) => {
   return ({ name, validate, readOnly, disabled, ...props }: TProps & Omit<FieldProps, "children">) => {
     return (
       <Field name={name} readOnly={readOnly} disabled={disabled} validate={validate}>

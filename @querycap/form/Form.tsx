@@ -49,7 +49,7 @@ const validateAll = (fields: FormState["fields"], values: any) => {
   return errors;
 };
 
-export const useNewFormContext = <TFormValues extends Record<string, any>>(
+export const useNewFormContext = <TFormValues extends object>(
   formName: string,
   initialValues: Partial<TFormValues>,
 ) => {
@@ -203,7 +203,7 @@ const FormDestroy = () => {
   return null;
 };
 
-export const useNewForm = <TFormValues extends Record<string, any>>(
+export const useNewForm = <TFormValues extends object>(
   formName: string,
   initialValues = {} as Partial<TFormValues>,
 ) => {
