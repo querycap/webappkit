@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/webpack-preset-ts",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "files": [
     "dist/"
   ],
@@ -10,7 +10,7 @@
     "webpack": "4.x"
   },
   "dependencies": {
-    "@querycap-dev/devkit": "^0.4.11",
+    "@querycap-dev/devkit": "^0.4.12",
     "@types/terser-webpack-plugin": "^4.0.0",
     "babel-loader": "^8.1.0",
     "source-map-loader": "^1.0.1",

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.11](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.8.10...@querycap-ui/form-controls@0.8.11) (2020-08-07)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+
+
+
+
 ## [0.8.10](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.8.9...@querycap-ui/form-controls@0.8.10) (2020-08-06)
 
 **Note:** Version bump only for package @querycap-ui/form-controls

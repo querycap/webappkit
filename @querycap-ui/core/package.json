@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/core",
-  "version": "0.8.7",
+  "version": "0.8.8",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
-    "@querycap-ui/core.macro": "^0.1.4",
+    "@querycap-ui/core.macro": "^0.1.5",
     "@querycap-ui/css-aliases": "^0.2.0",
     "polished": "^3.6.5",
     "react-spring": "^8.0.27"
