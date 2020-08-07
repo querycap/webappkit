@@ -14,7 +14,7 @@
     "@babel/runtime-corejs3": "*"
   },
   "scripts": {
-    "prepare": "monobundle"
+    "prepare": "node ../../node_modules/.bin/monobundle"
   },
   "types": "dist/index.d.ts",
   "main": "dist/index.js",

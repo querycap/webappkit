@@ -26,7 +26,7 @@
     "dist/"
   ],
   "scripts": {
-    "prepare": "monobundle"
+    "prepare": "node ../../node_modules/.bin/monobundle"
   },
   "monobundle": {
     "sideDependencies": [

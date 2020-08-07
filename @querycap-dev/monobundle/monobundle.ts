@@ -196,7 +196,7 @@ export const monobundle = async ({ cwd = process.cwd(), dryRun }: { cwd?: string
         ],
         scripts: {
           ...(pkg.scripts as { [k: string]: string }),
-          prepare: "monobundle",
+          prepare: "node ../../node_modules/.bin/monobundle",
         },
       },
       null,

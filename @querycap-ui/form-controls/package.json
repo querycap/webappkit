@@ -25,7 +25,7 @@
     "env": "browser"
   },
   "scripts": {
-    "prepare": "monobundle"
+    "prepare": "node ../../node_modules/.bin/monobundle"
   },
   "files": [
     "dist/"
