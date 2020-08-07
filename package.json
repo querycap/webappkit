@@ -16,8 +16,7 @@
     "fmt": "prettier --write @querycap*/{,**/}{,**/}*.{ts,tsx,json,md}",
     "test": "jest --coverage",
     "build": "lerna exec monobundle",
-    "pkg": "node ./@querycap-dev/devkit/bin/devkit.js build --prod sg",
-    "start": "node ./@querycap-dev/devkit/bin/devkit.js dev sg",
+    "start": "yarn devkit dev sg",
     "prepare": "yarn test"
   },
   "devkit": {

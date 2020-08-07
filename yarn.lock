@@ -4580,11 +4580,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-dev/devkit@^0.4.11, @querycap-dev/devkit@workspace:@querycap-dev/devkit":
+"@querycap-dev/devkit@^0.4.12, @querycap-dev/devkit@workspace:@querycap-dev/devkit":
   version: 0.0.0-use.local
   resolution: "@querycap-dev/devkit@workspace:@querycap-dev/devkit"
   dependencies:
-    "@querycap-dev/generate": ^0.4.2
+    "@querycap-dev/generate": ^0.4.3
     "@types/cross-spawn": ^6.0.2
     "@types/js-yaml": ^3.12.5
     cross-spawn: ^7.0.3
@@ -4618,7 +4618,7 @@ __metadata:
   dependencies:
     "@morlay/ts-gen-client-from-openapi": ^1.2.2
     "@morlay/ts-gen-core": ^1.2.2
-    "@querycap-dev/generate": ^0.4.2
+    "@querycap-dev/generate": ^0.4.3
     "@types/lodash": ^4.14.159
     axios: ^0.19.2
     lodash: ^4.17.19
@@ -4649,7 +4649,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-dev/generate@^0.4.2, @querycap-dev/generate@workspace:@querycap-dev/generate":
+"@querycap-dev/generate@^0.4.3, @querycap-dev/generate@workspace:@querycap-dev/generate":
   version: 0.0.0-use.local
   resolution: "@querycap-dev/generate@workspace:@querycap-dev/generate"
   dependencies:
@@ -4726,7 +4726,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-dev/webpack-preset-ts@workspace:@querycap-dev/webpack-preset-ts"
   dependencies:
-    "@querycap-dev/devkit": ^0.4.11
+    "@querycap-dev/devkit": ^0.4.12
     "@types/terser-webpack-plugin": ^4.0.0
     babel-loader: ^8.1.0
     source-map-loader: ^1.0.1
@@ -4767,10 +4767,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/blocks@workspace:@querycap-ui/blocks"
   dependencies:
-    "@querycap-ui/form-controls": ^0.8.10
-    "@querycap-ui/icons": ^0.3.0
-    "@querycap-ui/layouts": ^0.1.28
-    "@querycap/uikit": ^0.3.5
+    "@querycap-ui/form-controls": ^0.8.11
+    "@querycap-ui/icons": ^0.3.1
+    "@querycap-ui/layouts": ^0.1.29
+    "@querycap/uikit": ^0.3.6
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@emotion/core": 10.x
@@ -4798,7 +4798,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/core.macro@^0.1.4, @querycap-ui/core.macro@workspace:@querycap-ui/core.macro":
+"@querycap-ui/core.macro@^0.1.5, @querycap-ui/core.macro@workspace:@querycap-ui/core.macro":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/core.macro@workspace:@querycap-ui/core.macro"
   dependencies:
@@ -4813,12 +4813,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/core@^0.8.7, @querycap-ui/core@workspace:@querycap-ui/core":
+"@querycap-ui/core@^0.8.8, @querycap-ui/core@workspace:@querycap-ui/core":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/core@workspace:@querycap-ui/core"
   dependencies:
     "@emotion/core": ^10.0.28
-    "@querycap-ui/core.macro": ^0.1.4
+    "@querycap-ui/core.macro": ^0.1.5
     "@querycap-ui/css-aliases": ^0.2.0
     polished: ^3.6.5
     react-spring: ^8.0.27
@@ -4835,12 +4835,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/date-pickers@^0.3.2, @querycap-ui/date-pickers@workspace:@querycap-ui/date-pickers":
+"@querycap-ui/date-pickers@^0.3.3, @querycap-ui/date-pickers@workspace:@querycap-ui/date-pickers":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/date-pickers@workspace:@querycap-ui/date-pickers"
   dependencies:
     "@querycap-ui/containers": ^0.3.0
-    "@querycap-ui/icons": ^0.3.0
+    "@querycap-ui/icons": ^0.3.1
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@emotion/core": 10.0.x
@@ -4852,16 +4852,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/form-controls@^0.8.10, @querycap-ui/form-controls@workspace:@querycap-ui/form-controls":
+"@querycap-ui/form-controls@^0.8.11, @querycap-ui/form-controls@workspace:@querycap-ui/form-controls":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/form-controls@workspace:@querycap-ui/form-controls"
   dependencies:
-    "@querycap-ui/core": ^0.8.7
-    "@querycap-ui/icons": ^0.3.0
-    "@querycap-ui/layouts": ^0.1.28
-    "@querycap/form": ^0.7.7
+    "@querycap-ui/core": ^0.8.8
+    "@querycap-ui/icons": ^0.3.1
+    "@querycap-ui/layouts": ^0.1.29
+    "@querycap/form": ^0.7.8
     "@querycap/reactutils": ^0.6.1
-    "@querycap/uikit": ^0.3.5
+    "@querycap/uikit": ^0.3.6
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@emotion/core": 10.x
@@ -4872,7 +4872,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/icons@^0.3.0, @querycap-ui/icons@workspace:@querycap-ui/icons":
+"@querycap-ui/icons@^0.3.1, @querycap-ui/icons@workspace:@querycap-ui/icons":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/icons@workspace:@querycap-ui/icons"
   dependencies:
@@ -4884,11 +4884,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/layouts@^0.1.28, @querycap-ui/layouts@workspace:@querycap-ui/layouts":
+"@querycap-ui/layouts@^0.1.29, @querycap-ui/layouts@workspace:@querycap-ui/layouts":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/layouts@workspace:@querycap-ui/layouts"
   dependencies:
-    "@querycap-ui/core": ^0.8.7
+    "@querycap-ui/core": ^0.8.8
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@emotion/core": 10.x
@@ -4913,12 +4913,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/search-controls@workspace:@querycap-ui/search-controls"
   dependencies:
-    "@querycap-ui/date-pickers": ^0.3.2
-    "@querycap-ui/form-controls": ^0.8.10
-    "@querycap-ui/icons": ^0.3.0
+    "@querycap-ui/date-pickers": ^0.3.3
+    "@querycap-ui/form-controls": ^0.8.11
+    "@querycap-ui/icons": ^0.3.1
     "@querycap/reactutils": ^0.6.1
     "@querycap/strfmt": ^0.x
-    "@querycap/uikit": ^0.3.5
+    "@querycap/uikit": ^0.3.6
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@emotion/core": 10.x
@@ -4937,7 +4937,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/texts@workspace:@querycap-ui/texts"
   dependencies:
-    "@querycap-ui/core": ^0.8.7
+    "@querycap-ui/core": ^0.8.8
     remark-parse: ^8.0.3
     remark-react: ^7.0.1
     unified: ^9.1.0
@@ -5022,7 +5022,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap/form@^0.7.7, @querycap/form@workspace:@querycap/form":
+"@querycap/form@^0.7.8, @querycap/form@workspace:@querycap/form":
   version: 0.0.0-use.local
   resolution: "@querycap/form@workspace:@querycap/form"
   dependencies:
@@ -5132,7 +5132,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap/uikit@^0.3.5, @querycap/uikit@workspace:@querycap/uikit":
+"@querycap/uikit@^0.3.6, @querycap/uikit@workspace:@querycap/uikit":
   version: 0.0.0-use.local
   resolution: "@querycap/uikit@workspace:@querycap/uikit"
   dependencies:
