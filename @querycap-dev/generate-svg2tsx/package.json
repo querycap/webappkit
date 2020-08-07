@@ -5,7 +5,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@morlay/simplify-svg": "1.x"
+    "@morlay/simplify-svg": "^1.0.0"
   },
   "license": "MIT",
   "publishConfig": {

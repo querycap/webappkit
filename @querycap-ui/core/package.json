@@ -8,11 +8,11 @@
     "react": "16.x"
   },
   "dependencies": {
-    "@emotion/core": "10.x",
+    "@emotion/core": "^10.0.28",
     "@querycap-ui/core.macro": "^0.1.4",
     "@querycap-ui/css-aliases": "^0.2.0",
     "polished": "^3.6.5",
-    "react-spring": "8.0.x"
+    "react-spring": "^8.0.27"
   },
   "publishConfig": {
     "access": "public"

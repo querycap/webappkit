@@ -7,16 +7,16 @@
     "@babel/types": "*"
   },
   "dependencies": {
-    "@rollup/plugin-babel": "^5.1.x",
+    "@rollup/plugin-babel": "^5.1.0",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^8.4.0",
     "@types/yargs": "^15.0.5",
     "chalk": "^4.1.0",
-    "del": "5.1.x",
+    "del": "^5.1.0",
     "lodash": "^4.17.19",
-    "minimatch": "3.0.x",
-    "rollup": "^2.21.0",
-    "rollup-plugin-dts": "^1.4.8",
+    "minimatch": "^3.0.4",
+    "rollup": "^2.23.0",
+    "rollup-plugin-dts": "^1.4.10",
     "yargs": "^15.4.1"
   },
   "license": "MIT",

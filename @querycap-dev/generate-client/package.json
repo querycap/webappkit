@@ -9,11 +9,11 @@
     "@babel/runtime-corejs3": "*"
   },
   "dependencies": {
-    "@morlay/ts-gen-client-from-openapi": "^1.2.1",
-    "@morlay/ts-gen-core": "^1.2.1",
+    "@morlay/ts-gen-client-from-openapi": "^1.2.2",
+    "@morlay/ts-gen-core": "^1.2.2",
     "@querycap-dev/generate": "^0.4.2",
-    "@types/lodash": "^4.14.158",
-    "axios": "0.19.x",
+    "@types/lodash": "^4.14.159",
+    "axios": "^0.19.2",
     "lodash": "^4.17.19"
   },
   "publishConfig": {

@@ -5,7 +5,7 @@
     "dist/"
   ],
   "dependencies": {
-    "lodash": "*",
+    "lodash": "^4.17.19",
     "postcss": "^7.0.32"
   },
   "license": "MIT",

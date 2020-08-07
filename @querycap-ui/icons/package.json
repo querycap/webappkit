@@ -7,8 +7,8 @@
     "react": "16.x"
   },
   "dependencies": {
-    "@emotion/core": "10.0.x",
-    "@emotion/css": "10.0.x"
+    "@emotion/core": "^10.0.28",
+    "@emotion/css": "^10.0.27"
   },
   "publishConfig": {
     "access": "public"

@@ -6,11 +6,11 @@
   ],
   "license": "MIT",
   "peerDependencies": {
+    "@babel/runtime-corejs3": "*",
     "@morlay/webpack-browser-sync": "*",
     "@querycap-dev/devkit": "^0.4.11",
     "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12",
-    "@babel/runtime-corejs3": "*"
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "webpack-bundle-analyzer": "^3.8.0"

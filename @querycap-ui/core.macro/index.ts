@@ -282,11 +282,11 @@ const createScanner = (program: NodePath<Program>) => {
             const arg = memberExpression.parentPath.get("arguments")[0] as NodePath<Expression>;
 
             if (arg) {
-              if (memberExpression.node.property.name === "with") {
+              if ((memberExpression.node.property as Identifier).name === "with") {
                 collector.addWith(arg);
               } else {
                 collector[t.isLiteral(arg) && !t.isTemplateLiteral(arg) ? "addStatic" : "addThemeGetter"](
-                  memberExpression.node.property.name,
+                  (memberExpression.node.property as Identifier).name,
                   arg,
                 );
               }

@@ -11,11 +11,11 @@
   },
   "dependencies": {
     "@querycap-dev/devkit": "^0.4.11",
-    "@types/terser-webpack-plugin": "^3.0.0",
-    "babel-loader": "8.1.x",
-    "source-map-loader": "^1.0.0",
-    "terser-webpack-plugin": "^3.0.6",
-    "worker-loader": "2.0.x"
+    "@types/terser-webpack-plugin": "^4.0.0",
+    "babel-loader": "^8.1.0",
+    "source-map-loader": "^1.0.1",
+    "terser-webpack-plugin": "^4.0.0",
+    "worker-loader": "^3.0.1"
   },
   "publishConfig": {
     "access": "public"

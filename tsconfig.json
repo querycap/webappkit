@@ -5,6 +5,7 @@
     "rootDir": ".",
     "outDir": ".tmp",
     "paths": {
+      "@babel/types": ["node_modules/@babel/types"],
       "*": ["__types__/*", "*/index.ts", "*"]
     },
     "resolveJsonModule": true,
