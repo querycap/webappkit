@@ -1,0 +1,6 @@
+project:
+  version: 0.0.0
+  name: "${PROJECT_NAME}"
+  feature: "${PROJECT_FEATURE}"
+  group: "${PROJECT_GROUP}"
+  description: "${PROJECT_DESCRIPTION}"

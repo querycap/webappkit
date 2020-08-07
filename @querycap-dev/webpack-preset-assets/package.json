@@ -1,0 +1,31 @@
+{
+  "name": "@querycap-dev/webpack-preset-assets",
+  "version": "0.6.8",
+  "files": [
+    "dist/"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@querycap-dev/devkit": "*",
+    "webpack": "4.x"
+  },
+  "dependencies": {
+    "css-loader": "^4.2.0",
+    "file-loader": "6.0.0",
+    "glsl-shader-loader": "0.1.6",
+    "html-loader": "1.1.0",
+    "markdownit-loader": "2.0.0",
+    "raw-loader": "4.0.1",
+    "style-loader": "^1.2.1",
+    "url-loader": "4.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepare": "monobundle"
+  },
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
+}

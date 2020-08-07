@@ -1,0 +1,26 @@
+{
+  "name": "@querycap-dev/generate",
+  "version": "0.4.2",
+  "files": [
+    "dist/"
+  ],
+  "peerDependencies": {
+    "@babel/runtime-corejs3": "*",
+    "prettier": "*"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "globby": "^11.0.1",
+    "prettier": "^2.0.5"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepare": "monobundle"
+  },
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
+}

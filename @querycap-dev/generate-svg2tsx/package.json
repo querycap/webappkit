@@ -1,0 +1,24 @@
+{
+  "name": "@querycap-dev/generate-svg2tsx",
+  "version": "0.3.6",
+  "files": [
+    "dist/"
+  ],
+  "dependencies": {
+    "@morlay/simplify-svg": "1.x"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@babel/runtime-corejs3": "*",
+    "lodash": "*"
+  },
+  "scripts": {
+    "prepare": "monobundle"
+  },
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
+}

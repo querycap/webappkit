@@ -1,6 +1,6 @@
 {
   "presets": [
-    "@querycap-dev/babel-preset",
+    "@querycap-dev/babel-preset/register",
     "@querycap-ui/babel-preset-css-prop/register",
     [
       "@babel/preset-env",

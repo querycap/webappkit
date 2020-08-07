@@ -1,0 +1,6 @@
+{
+  "devkit": {
+    "dev": "echo ${PATH}",
+    "build": "base64 -d <<< ${DEVKIT}"
+  }
+}

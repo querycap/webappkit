@@ -1,0 +1,32 @@
+{
+  "name": "@querycap-dev/devkit",
+  "version": "0.4.11",
+  "bin": "bin/devkit.js",
+  "peerDependencies": {
+    "@babel/runtime-corejs3": "*"
+  },
+  "dependencies": {
+    "@querycap-dev/generate": "^0.4.2",
+    "@types/cross-spawn": "^6.0.2",
+    "@types/js-yaml": "^3.12.5",
+    "cross-spawn": "^7.0.3",
+    "js-yaml": "^3.14.0",
+    "lodash": "^4.17.19",
+    "npm-path": "2.0.x",
+    "ts-node": "^8.10.2",
+    "yargs": "^15.4.1"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "prepare": "monobundle"
+  },
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
+}

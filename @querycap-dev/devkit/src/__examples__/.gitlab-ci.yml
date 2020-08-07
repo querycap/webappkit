@@ -1,0 +1,3 @@
+include:
+  - project: infra/hx
+    file: /ci/webapp.gitlab-ci.yml

@@ -1,0 +1,29 @@
+{
+  "name": "@querycap-dev/webpack-preset-ts",
+  "version": "0.7.2",
+  "files": [
+    "dist/"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@babel/runtime-corejs3": "*",
+    "webpack": "4.x"
+  },
+  "dependencies": {
+    "@querycap-dev/devkit": "^0.4.11",
+    "@types/terser-webpack-plugin": "^3.0.0",
+    "babel-loader": "8.1.x",
+    "source-map-loader": "^1.0.0",
+    "terser-webpack-plugin": "^3.0.6",
+    "worker-loader": "2.0.x"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepare": "monobundle"
+  },
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
+}

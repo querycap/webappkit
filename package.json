@@ -3,7 +3,8 @@
   "private": true,
   "workspaces": [
     "@querycap/*",
-    "@querycap-ui/*"
+    "@querycap-ui/*",
+    "@querycap-dev/*"
   ],
   "engines": {
     "node": ">=14"
@@ -28,6 +29,7 @@
       "^.+\\.[t|j]sx?$": "babel-jest"
     },
     "moduleNameMapper": {
+      "^@querycap-dev/([^/]+)$": "<rootDir>/@querycap-dev/$1/index.ts",
       "^@querycap/([^/]+)$": "<rootDir>/@querycap/$1/index.ts",
       "^@querycap-ui/([^/]+)$": "<rootDir>/@querycap-ui/$1/index.ts"
     },
@@ -78,7 +80,9 @@
     "rules": {
       "@typescript-eslint/ban-ts-ignore": "off",
       "func-style": "off",
+      "@typescript-eslint/no-unsafe-return": "off",
       "@typescript-eslint/ban-types": "off",
+      "@typescript-eslint/restrict-template-expressions": "off",
       "@typescript-eslint/no-unsafe-assignment": "off",
       "@typescript-eslint/no-unsafe-call": "off",
       "@typescript-eslint/no-unsafe-member-access": "off"
@@ -92,14 +96,6 @@
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
     "@morlay/webpack-browser-sync": "*",
-    "@querycap-dev/babel-preset": "^0.3.10",
-    "@querycap-dev/devkit": "^0.4.11",
-    "@querycap-dev/eslint-config": "^0.4.8",
-    "@querycap-dev/generate-svg2tsx": "0.3.6",
-    "@querycap-dev/monobundle": "^0.7.10",
-    "@querycap-dev/webpack-preset-assets": "^0.6.8",
-    "@querycap-dev/webpack-preset-html": "^0.7.2",
-    "@querycap-dev/webpack-preset-ts": "^0.7.2",
     "@reactorx/core": "0.20.x",
     "@reactorx/request": "0.20.x",
     "@testing-library/react": "^10.4.7",

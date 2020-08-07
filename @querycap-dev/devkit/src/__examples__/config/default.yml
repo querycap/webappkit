@@ -1,0 +1,6 @@
+APP: demo--test
+ENV: demo
+APP_CONFIG: SRV_TEST=//demo.querycap.com
+PROJECT_NAME: web-demo
+PROJECT_FEATURE: test
+PROJECT_DESCRIPTION: 测试

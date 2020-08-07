@@ -1,0 +1,39 @@
+{
+  "name": "@querycap-dev/webpack-preset-html",
+  "version": "0.7.2",
+  "license": "MIT",
+  "peerDependencies": {
+    "@babel/runtime-corejs3": "*",
+    "@querycap-dev/devkit": "*",
+    "webpack": "4.x"
+  },
+  "dependencies": {
+    "@types/workbox-webpack-plugin": "^5.1.4",
+    "html-webpack-plugin": "^4.3.0",
+    "webpack-pwa-manifest": "4.2.0",
+    "workbox-core": "^5.1.3",
+    "workbox-navigation-preload": "^5.1.3",
+    "workbox-precaching": "^5.1.3",
+    "workbox-strategies": "^5.1.3",
+    "workbox-webpack-plugin": "^5.1.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "index-default.html",
+    "service-worker-default.ts",
+    "dist/"
+  ],
+  "scripts": {
+    "prepare": "monobundle"
+  },
+  "monobundle": {
+    "sideDependencies": [
+      "workbox-*"
+    ]
+  },
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
+}

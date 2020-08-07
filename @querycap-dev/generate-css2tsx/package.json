@@ -1,0 +1,24 @@
+{
+  "name": "@querycap-dev/generate-css2tsx",
+  "version": "0.3.9",
+  "files": [
+    "dist/"
+  ],
+  "dependencies": {
+    "lodash": "*",
+    "postcss": "^7.0.32"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@babel/runtime-corejs3": "*"
+  },
+  "scripts": {
+    "prepare": "monobundle"
+  },
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
+}

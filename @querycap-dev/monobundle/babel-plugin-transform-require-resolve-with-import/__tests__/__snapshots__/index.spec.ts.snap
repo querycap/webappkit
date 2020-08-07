@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`babel-plugin-transform-require-resolve-with-import require.resolve 1`] = `
+"
+
+const v = require.resolve(\\"rollup-plugin-dts\\")
+
+    
+ ↓ ↓ ↓ ↓ ↓ ↓
+
+const v = [
+/*__require_resolve_with_import__*/
+require.resolve(\\"rollup-plugin-dts\\"), () => import(\\"rollup-plugin-dts\\")][0];  
+  "
+`;

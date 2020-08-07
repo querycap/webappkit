@@ -4285,6 +4285,44 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@morlay/ts-gen-client-from-openapi@npm:^1.2.1":
+  version: 1.2.2
+  resolution: "@morlay/ts-gen-client-from-openapi@npm:1.2.2"
+  dependencies:
+    "@morlay/ts-gen-core": ^1.2.2
+    "@morlay/ts-gen-definitions-from-json-schema": ^1.2.2
+  peerDependencies:
+    "@babel/runtime-corejs3": "*"
+    "@types/lodash": 4.x
+    lodash: 4.x
+  checksum: 9a83525249d987df2be53b9995459e6a1333775dd375b39f2f879ac4da089aba94d8efdbbaa48245ed40fb91904b38cb106d090f874f4cb33fa9cd99c9ea82d6
+  languageName: node
+  linkType: hard
+
+"@morlay/ts-gen-core@npm:^1.2.1, @morlay/ts-gen-core@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "@morlay/ts-gen-core@npm:1.2.2"
+  peerDependencies:
+    "@babel/runtime-corejs3": "*"
+    "@types/lodash": 4.x
+    lodash: 4.x
+  checksum: 23f151361ad0a814c16bf30a3805a2f382c5a559794460737400a2f831462c72c0715ee66a3cff1923ca5dd2e0698d14ed5175e7a4a7cd50ba56dba42c1972b5
+  languageName: node
+  linkType: hard
+
+"@morlay/ts-gen-definitions-from-json-schema@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "@morlay/ts-gen-definitions-from-json-schema@npm:1.2.2"
+  dependencies:
+    "@morlay/ts-gen-core": ^1.2.2
+  peerDependencies:
+    "@babel/runtime-corejs3": "*"
+    "@types/lodash": 4.x
+    lodash: 4.x
+  checksum: b9921fe66e3e3f9b61de44ed8db087c7e292bbfa587a54144d6e1829a41ca848d35778549e9fdaec95431da32db8c136ec6383e118901ae9f9fa792646313d95
+  languageName: node
+  linkType: hard
+
 "@morlay/webpack-browser-sync@npm:*":
   version: 0.0.0
   resolution: "@morlay/webpack-browser-sync@npm:0.0.0"
@@ -4492,9 +4530,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@querycap-dev/babel-preset@npm:^0.3.10":
-  version: 0.3.10
-  resolution: "@querycap-dev/babel-preset@npm:0.3.10"
+"@querycap-dev/babel-preset@workspace:@querycap-dev/babel-preset":
+  version: 0.0.0-use.local
+  resolution: "@querycap-dev/babel-preset@workspace:@querycap-dev/babel-preset"
   dependencies:
     "@babel/plugin-proposal-class-properties": ^7.10.4
     "@babel/plugin-proposal-nullish-coalescing-operator": ^7.10.4
@@ -4506,13 +4544,36 @@ __metadata:
     babel-plugin-macros: 2.8.x
     babel-plugin-pure-calls-annotation: 0.3.x
     babel-plugin-typescript-iife-enum: 0.2.x
-  checksum: 96578ed970421e51de1d89d7526f9b9edf2d17851fb429cb2419fb0a0190a1e66e3e938993c323c5c5aa8af86672397c8e7e7a00d74c062193a537a102af563e
-  languageName: node
-  linkType: hard
+  languageName: unknown
+  linkType: soft
 
-"@querycap-dev/devkit@npm:^0.4.11":
-  version: 0.4.11
-  resolution: "@querycap-dev/devkit@npm:0.4.11"
+"@querycap-dev/dev-deps@workspace:@querycap-dev/dev-deps":
+  version: 0.0.0-use.local
+  resolution: "@querycap-dev/dev-deps@workspace:@querycap-dev/dev-deps"
+  peerDependencies:
+    "@babel/core": ^7.11.0
+    "@babel/preset-env": ^7.11.0
+    "@babel/runtime-corejs3": ^7.11.0
+    "@commitlint/cli": ^9.1.1
+    "@commitlint/config-conventional": ^9.1.1
+    "@querycap-dev/babel-preset": ^0.3.10
+    "@querycap-dev/eslint-config": ^0.4.8
+    "@types/jest": ^26.0.8
+    babel-jest: ^26.2.2
+    husky: ^4.2.5
+    jest: ^26.2.2
+    lerna: ^3.22.1
+    lint-staged: ^10.2.11
+    prettier: ^2.0.5
+    pretty-quick: 2.0.x
+    ts-node: ^8.10.2
+    typescript: ^3.9.7
+  languageName: unknown
+  linkType: soft
+
+"@querycap-dev/devkit@^0.4.11, @querycap-dev/devkit@workspace:@querycap-dev/devkit":
+  version: 0.0.0-use.local
+  resolution: "@querycap-dev/devkit@workspace:@querycap-dev/devkit"
   dependencies:
     "@querycap-dev/generate": ^0.4.2
     "@types/cross-spawn": ^6.0.2
@@ -4527,38 +4588,61 @@ __metadata:
     "@babel/runtime-corejs3": "*"
   bin:
     devkit: bin/devkit.js
-  checksum: 1dc749fac91a0536cf8650f428da502cddd81628aee1ae41da3a7e8cf3e7029b8ab2c87c2c3c0d6a52451ed814c75234ae917d4ecdf8bea873b6ff4f6ab3736a
-  languageName: node
-  linkType: hard
+  languageName: unknown
+  linkType: soft
 
-"@querycap-dev/eslint-config@npm:^0.4.8":
-  version: 0.4.8
-  resolution: "@querycap-dev/eslint-config@npm:0.4.8"
+"@querycap-dev/eslint-config@workspace:@querycap-dev/eslint-config":
+  version: 0.0.0-use.local
+  resolution: "@querycap-dev/eslint-config@workspace:@querycap-dev/eslint-config"
   dependencies:
     "@typescript-eslint/eslint-plugin": ^3.8.0
     "@typescript-eslint/parser": ^3.8.0
     eslint: ^7.6.0
     eslint-plugin-react: ^7.20.5
     eslint-plugin-react-hooks: ^4.0.8
-  checksum: 3b786d05412f0f1bec42af5a30511dbfcd485091e5335e7453046f23642f6386338befb5d087404115550623184be9542c2856c45c43f7ca0dbdc2f384bfbb36
-  languageName: node
-  linkType: hard
+  languageName: unknown
+  linkType: soft
 
-"@querycap-dev/generate-svg2tsx@npm:0.3.6":
-  version: 0.3.6
-  resolution: "@querycap-dev/generate-svg2tsx@npm:0.3.6"
+"@querycap-dev/generate-client@workspace:@querycap-dev/generate-client":
+  version: 0.0.0-use.local
+  resolution: "@querycap-dev/generate-client@workspace:@querycap-dev/generate-client"
+  dependencies:
+    "@morlay/ts-gen-client-from-openapi": ^1.2.1
+    "@morlay/ts-gen-core": ^1.2.1
+    "@querycap-dev/generate": ^0.4.2
+    "@types/lodash": ^4.14.158
+    axios: 0.19.x
+    lodash: ^4.17.19
+  peerDependencies:
+    "@babel/runtime-corejs3": "*"
+  languageName: unknown
+  linkType: soft
+
+"@querycap-dev/generate-css2tsx@workspace:@querycap-dev/generate-css2tsx":
+  version: 0.0.0-use.local
+  resolution: "@querycap-dev/generate-css2tsx@workspace:@querycap-dev/generate-css2tsx"
+  dependencies:
+    lodash: "*"
+    postcss: ^7.0.32
+  peerDependencies:
+    "@babel/runtime-corejs3": "*"
+  languageName: unknown
+  linkType: soft
+
+"@querycap-dev/generate-svg2tsx@workspace:@querycap-dev/generate-svg2tsx":
+  version: 0.0.0-use.local
+  resolution: "@querycap-dev/generate-svg2tsx@workspace:@querycap-dev/generate-svg2tsx"
   dependencies:
     "@morlay/simplify-svg": 1.x
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     lodash: "*"
-  checksum: bb1d14bdc6f076e94fba3d4d2220227645405bf378851632269acbef26e3943154caeadd117e7f2d6bf06bf863f35ab4704589e4542f252123eb63562934b5f3
-  languageName: node
-  linkType: hard
+  languageName: unknown
+  linkType: soft
 
-"@querycap-dev/generate@npm:^0.4.2":
-  version: 0.4.2
-  resolution: "@querycap-dev/generate@npm:0.4.2"
+"@querycap-dev/generate@^0.4.2, @querycap-dev/generate@workspace:@querycap-dev/generate":
+  version: 0.0.0-use.local
+  resolution: "@querycap-dev/generate@workspace:@querycap-dev/generate"
   dependencies:
     chalk: ^4.1.0
     globby: ^11.0.1
@@ -4566,13 +4650,12 @@ __metadata:
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     prettier: "*"
-  checksum: 39d6bc8079c6e9f200e4506af856bb39b9f379f5c3198fdaa99ffd067768d907c36138c5c351eaaee8555af58f450d586b65dd89c02797963facf26cdf6ddd54
-  languageName: node
-  linkType: hard
+  languageName: unknown
+  linkType: soft
 
-"@querycap-dev/monobundle@npm:^0.7.10":
-  version: 0.7.10
-  resolution: "@querycap-dev/monobundle@npm:0.7.10"
+"@querycap-dev/monobundle@workspace:@querycap-dev/monobundle":
+  version: 0.0.0-use.local
+  resolution: "@querycap-dev/monobundle@workspace:@querycap-dev/monobundle"
   dependencies:
     "@rollup/plugin-babel": ^5.1.x
     "@rollup/plugin-json": ^4.1.0
@@ -4590,13 +4673,12 @@ __metadata:
     "@babel/types": "*"
   bin:
     monobundle: bin/monobundle.js
-  checksum: 48c7069a79b94fe7dd5bdf9dae80a0802066633c267390e4491f0b9a831515966c5537ead902f8cc4cd5fd9a5005b25802066ba199999a9bae9f3ef8cf9c69f3
-  languageName: node
-  linkType: hard
+  languageName: unknown
+  linkType: soft
 
-"@querycap-dev/webpack-preset-assets@npm:^0.6.8":
-  version: 0.6.8
-  resolution: "@querycap-dev/webpack-preset-assets@npm:0.6.8"
+"@querycap-dev/webpack-preset-assets@workspace:@querycap-dev/webpack-preset-assets":
+  version: 0.0.0-use.local
+  resolution: "@querycap-dev/webpack-preset-assets@workspace:@querycap-dev/webpack-preset-assets"
   dependencies:
     css-loader: ^4.2.0
     file-loader: 6.0.0
@@ -4609,13 +4691,12 @@ __metadata:
   peerDependencies:
     "@querycap-dev/devkit": "*"
     webpack: 4.x
-  checksum: e6af491c21b1384cad3c8a389160257c1b95c55f9f19632ea187e90956ac620b8438b733c1e17b13821f181d80cec6ffc825de559396a3f66eb25523e0f4f140
-  languageName: node
-  linkType: hard
+  languageName: unknown
+  linkType: soft
 
-"@querycap-dev/webpack-preset-html@npm:^0.7.2":
-  version: 0.7.2
-  resolution: "@querycap-dev/webpack-preset-html@npm:0.7.2"
+"@querycap-dev/webpack-preset-html@workspace:@querycap-dev/webpack-preset-html":
+  version: 0.0.0-use.local
+  resolution: "@querycap-dev/webpack-preset-html@workspace:@querycap-dev/webpack-preset-html"
   dependencies:
     "@types/workbox-webpack-plugin": ^5.1.4
     html-webpack-plugin: ^4.3.0
@@ -4629,13 +4710,12 @@ __metadata:
     "@babel/runtime-corejs3": "*"
     "@querycap-dev/devkit": "*"
     webpack: 4.x
-  checksum: 664c71e84e20ef5e345dadf71730339209d82b53edb10d42439f968c3671c810cddcd3f51e0646d46d6588b018f2b572e75bfb4cef65a690dca46e91984a045a
-  languageName: node
-  linkType: hard
+  languageName: unknown
+  linkType: soft
 
-"@querycap-dev/webpack-preset-ts@npm:^0.7.2":
-  version: 0.7.2
-  resolution: "@querycap-dev/webpack-preset-ts@npm:0.7.2"
+"@querycap-dev/webpack-preset-ts@workspace:@querycap-dev/webpack-preset-ts":
+  version: 0.0.0-use.local
+  resolution: "@querycap-dev/webpack-preset-ts@workspace:@querycap-dev/webpack-preset-ts"
   dependencies:
     "@querycap-dev/devkit": ^0.4.11
     "@types/terser-webpack-plugin": ^3.0.0
@@ -4646,9 +4726,20 @@ __metadata:
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     webpack: 4.x
-  checksum: 0b95a30f1cef1e8e5ef1aacb9e3e4606e3a491685a35c0a015672ea5d516a085f780a8e233864be135766e85e37af08b58dac2390475a329b45e7a414d26698d
-  languageName: node
-  linkType: hard
+  languageName: unknown
+  linkType: soft
+
+"@querycap-dev/webpack-preset@workspace:@querycap-dev/webpack-preset":
+  version: 0.0.0-use.local
+  resolution: "@querycap-dev/webpack-preset@workspace:@querycap-dev/webpack-preset"
+  peerDependencies:
+    "@morlay/webpack-browser-sync": "*"
+    "@querycap-dev/devkit": ^0.4.11
+    webpack: ^4.44.1
+    webpack-bundle-analyzer: ^3.8.0
+    webpack-cli: ^3.3.12
+  languageName: unknown
+  linkType: soft
 
 "@querycap-ui/babel-preset-css-prop@workspace:@querycap-ui/babel-preset-css-prop":
   version: 0.0.0-use.local
@@ -9207,14 +9298,6 @@ __metadata:
     "@commitlint/cli": ^9.1.1
     "@commitlint/config-conventional": ^9.1.1
     "@morlay/webpack-browser-sync": "*"
-    "@querycap-dev/babel-preset": ^0.3.10
-    "@querycap-dev/devkit": ^0.4.11
-    "@querycap-dev/eslint-config": ^0.4.8
-    "@querycap-dev/generate-svg2tsx": 0.3.6
-    "@querycap-dev/monobundle": ^0.7.10
-    "@querycap-dev/webpack-preset-assets": ^0.6.8
-    "@querycap-dev/webpack-preset-html": ^0.7.2
-    "@querycap-dev/webpack-preset-ts": ^0.7.2
     "@reactorx/core": 0.20.x
     "@reactorx/request": 0.20.x
     "@testing-library/react": ^10.4.7
@@ -13761,17 +13844,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"lodash@npm:*, lodash@npm:^4.17.19":
+  version: 4.17.19
+  resolution: "lodash@npm:4.17.19"
+  checksum: ff2b7a95f0129dba9101e346d44e0eda0f159d76bbbf23721eec1969b87a32bde3de0cfef0733218c64620e9be08040a973278d46a686540233b356115f3527c
+  languageName: node
+  linkType: hard
+
 "lodash@npm:4.17.x, lodash@npm:4.x, lodash@npm:^4.15.0, lodash@npm:^4.17.10, lodash@npm:^4.17.12, lodash@npm:^4.17.13, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.4, lodash@npm:^4.2.1":
   version: 4.17.15
   resolution: "lodash@npm:4.17.15"
   checksum: aec3fbb7570aa67bda500b8299b1b1821d60646bede87f76a74dfcc7666ab3445267d734ec71424d70809d52ad67a1356fab5ab694a3faa1908d68e9d48f00f5
-  languageName: node
-  linkType: hard
-
-"lodash@npm:^4.17.19":
-  version: 4.17.19
-  resolution: "lodash@npm:4.17.19"
-  checksum: ff2b7a95f0129dba9101e346d44e0eda0f159d76bbbf23721eec1969b87a32bde3de0cfef0733218c64620e9be08040a973278d46a686540233b356115f3527c
   languageName: node
   linkType: hard
 

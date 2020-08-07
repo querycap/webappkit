@@ -1,0 +1,11 @@
+service:
+  ports:
+    - "80:80"
+  readinessProbe:
+    action: "http://:80/"
+    initialDelaySeconds: 5
+    periodSeconds: 5
+  livenessProbe:
+    action: "http://:80/"
+    initialDelaySeconds: 5
+    periodSeconds: 5

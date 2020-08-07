@@ -1,0 +1,6 @@
+from: "querycap/webappserve:latest"
+env:
+  APP_CONFIG: "${APP_CONFIG}"
+  ENV: "${ENV}"
+add:
+  "./public/${PROJECT_NAME}": /app
