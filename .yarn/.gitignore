@@ -1,0 +1,7 @@
+!releases/*.js
+!plugins/
+
+unplugged/
+cache/
+build-state.yml
+install-state.gz
