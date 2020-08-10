@@ -17,7 +17,7 @@
     "test": "jest --coverage",
     "build": "lerna exec monobundle",
     "start": "devkit dev sg",
-    "prepare": "yarn test"
+    "prepare": "yarn test && yarn build"
   },
   "devkit": {
     "dev": "webpack-browser-sync --config webpack.config.ts --historyApiFallback --index=../index.html",
