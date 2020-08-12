@@ -1,6 +1,6 @@
 import { preventDefault, roundedEm, select, shadows, theme, transparentize } from "@querycap-ui/core/macro";
 import { useValueRef } from "@querycap/reactutils";
-import { getBoundingClientRect, Overlay, position } from "@querycap/uikit";
+import { getBoundingClientRect, Overlay, position, useRectOfElement } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
 import { Dictionary, filter, flow, indexOf, isUndefined, replace, toLower } from "lodash";
 import React, {
@@ -176,6 +176,12 @@ export const Option = ({ value, children }: { value: string; children: ReactElem
 };
 
 export const Menu = forwardRef(({ children, ...otherProps }: { children: ReactNode }, containerRef) => {
+  const bodyRect = document.body.getBoundingClientRect();
+  const [triggerRect] = useRectOfElement(containerRef as any, true, []);
+  const targetHeight = bodyRect.height - triggerRect.top;
+  const MAX_HEIGHT = 320;
+  const maxHeight = Math.min(MAX_HEIGHT, targetHeight);
+
   return (
     <div css={select().paddingTop(1)} {...otherProps}>
       <div
@@ -187,7 +193,7 @@ export const Menu = forwardRef(({ children, ...otherProps }: { children: ReactNo
           .borderRadius(theme.radii.s)
           .minWidth(100)
           .width("100%")
-          .maxHeight(320)
+          .maxHeight(maxHeight)
           .boxShadow(shadows.medium)
           .padding("0.2em 0")
           .overflowY("auto")}>
