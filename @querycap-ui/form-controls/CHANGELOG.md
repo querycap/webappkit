@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.8.11...@querycap-ui/form-controls@0.9.0) (2020-08-13)
+
+
+### Bug Fixes
+
+* **form-control:** fix select height ([4e53763](https://github.com/querycap/webappkit/commit/4e537637e7c11869537848c67dfef98e6aacace9))
+
+
+### Features
+
+* **form:** add clear for select ([5ca67f3](https://github.com/querycap/webappkit/commit/5ca67f38ecccae96bef2367d30f5a9ddc156edb8))
+
+
+
+
+
 ## [0.8.11](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.8.10...@querycap-ui/form-controls@0.8.11) (2020-08-07)
 
 **Note:** Version bump only for package @querycap-ui/form-controls

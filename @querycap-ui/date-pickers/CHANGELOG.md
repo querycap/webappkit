@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.4](https://github.com/querycap/webappkit/compare/@querycap-ui/date-pickers@0.3.3...@querycap-ui/date-pickers@0.3.4) (2020-08-13)
+
+**Note:** Version bump only for package @querycap-ui/date-pickers
+
+
+
+
+
 ## [0.3.3](https://github.com/querycap/webappkit/compare/@querycap-ui/date-pickers@0.3.2...@querycap-ui/date-pickers@0.3.3) (2020-08-07)
 
 **Note:** Version bump only for package @querycap-ui/date-pickers

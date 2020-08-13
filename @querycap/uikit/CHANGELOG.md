@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.7](https://github.com/querycap/webappkit/compare/@querycap/uikit@0.3.6...@querycap/uikit@0.3.7) (2020-08-13)
+
+**Note:** Version bump only for package @querycap/uikit
+
+
+
+
+
 ## [0.3.6](https://github.com/querycap/webappkit/compare/@querycap/uikit@0.3.5...@querycap/uikit@0.3.6) (2020-08-07)
 
 **Note:** Version bump only for package @querycap/uikit

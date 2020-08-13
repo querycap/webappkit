@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/querycap/webappkit/compare/@querycap/form@0.7.8...@querycap/form@0.8.0) (2020-08-13)
+
+
+### Features
+
+* **form:** add clear for select ([5ca67f3](https://github.com/querycap/webappkit/commit/5ca67f38ecccae96bef2367d30f5a9ddc156edb8))
+
+
+
+
+
 ## [0.7.8](https://github.com/querycap/webappkit/compare/@querycap/form@0.7.7...@querycap/form@0.7.8) (2020-08-07)
 
 **Note:** Version bump only for package @querycap/form

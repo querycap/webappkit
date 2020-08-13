@@ -1,6 +1,6 @@
 {
   "name": "@querycap/notify",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "files": [
     "dist/"
   ],
@@ -14,7 +14,7 @@
     "uuid": "7.x"
   },
   "dependencies": {
-    "@querycap/contexts": "^0.2.1"
+    "@querycap/contexts": "^0.2.2"
   },
   "publishConfig": {
     "access": "public"

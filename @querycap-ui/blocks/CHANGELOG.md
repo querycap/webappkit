@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.6.12...@querycap-ui/blocks@0.7.0) (2020-08-13)
+
+
+### Features
+
+* **blocks:** tab for syncUrl ([c60e241](https://github.com/querycap/webappkit/commit/c60e2411598714ea9fa87b82bc8270cd095fa45c))
+
+
+
+
+
 ## [0.6.12](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.6.11...@querycap-ui/blocks@0.6.12) (2020-08-07)
 
 **Note:** Version bump only for package @querycap-ui/blocks
