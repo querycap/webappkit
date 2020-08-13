@@ -156,6 +156,7 @@ export const InputIcon = ({ pullRight, children, ...otherProps }: { children?: R
         .paddingX(paddingX)
         .colorFill(flow(theme.state.color, transparentize(0.5)))
         .backgroundColor(flow(theme.state.color, transparentize(0.97)))
+        .cursor("pointer")
         .with(pullRight && select().position("absolute").backgroundColor("transparent").right(0))}>
       {children}
     </span>

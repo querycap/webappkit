@@ -4,7 +4,7 @@ import { IconAirplay, IconEyeOff } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
 import { headings } from "@querycap-ui/texts";
 import React, { useState } from "react";
-import { times, noop } from "lodash";
+import { times } from "lodash";
 
 export const Inputs = () => {
   const [value, setValue] = useState("");
@@ -77,14 +77,7 @@ export const Inputs = () => {
       <Stack spacing={roundedEm(0.6)} css={select().fontSize(theme.fontSizes.xs)}>
         <div css={select().position("relative")}>
           <Input>
-            <InputSelect
-              enum={enums}
-              value={value}
-              onValueChange={setValue}
-              onFocus={noop}
-              onBlur={noop}
-              name={"select"}
-            />
+            <InputSelect allowClear enum={enums} value={value} onValueChange={setValue} name={"select"} />
           </Input>
         </div>
       </Stack>

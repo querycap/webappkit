@@ -1,6 +1,6 @@
 import { cover, preventDefault } from "@querycap-ui/core";
 import { select } from "@querycap-ui/core/macro";
-import { IconChevronDown } from "@querycap-ui/icons";
+import { IconChevronDown, IconX } from "@querycap-ui/icons";
 import { FieldInputCommonProps } from "@querycap/form";
 import { useValueRef } from "@querycap/reactutils";
 import { useToggle } from "@querycap/uikit";
@@ -15,6 +15,7 @@ import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect
 export interface InputSelectProps<T extends any = any> extends FieldInputCommonProps<T> {
   enum: any[];
   display?: (v: T) => ReactNode;
+  allowClear?: boolean;
 }
 
 export const InputSelect = (props: InputSelectProps) => {
@@ -27,6 +28,7 @@ export const InputSelect = (props: InputSelectProps) => {
     onFocus,
     disabled,
     readOnly,
+    allowClear,
   } = props;
 
   const inputElmRef = useRef<HTMLInputElement>(null);
@@ -122,10 +124,14 @@ export const InputSelect = (props: InputSelectProps) => {
     <>
       <div role="input" css={select().position("relative")}>
         <input ref={inputElmRef} type="text" value={value} css={select().with(cover()).opacity(0)} onChange={noop} />
-        <span>{display(value)}</span>&nbsp;
+        <span>{value && display(value)}</span>&nbsp;
       </div>
       <InputIcon pullRight>
-        <IconChevronDown />
+        {allowClear && value && !valuesRef.current.disabled ? (
+          <IconX onClick={() => onValueChange("")} />
+        ) : (
+          <IconChevronDown />
+        )}
       </InputIcon>
       {!valuesRef.current.disabled && isOpened && (
         <Select>

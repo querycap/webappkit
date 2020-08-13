@@ -100,7 +100,7 @@ export const Field = ({ name: n, validate: v, disabled, readOnly, children }: Fi
 
   const fieldState = useFieldState(name);
 
-  if(!fieldState.formID) {
+  if (!fieldState.formID) {
     return null;
   }
 
@@ -127,8 +127,8 @@ export const asField = <TProps extends {}>(Comp: FunctionComponent<TProps>) => {
 export interface FieldInputCommonProps<T = any> extends FieldMeta {
   value: T;
   onValueChange: (v: T, initial?: boolean) => void;
-  onFocus: () => void;
-  onBlur: () => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
 }
 
 export const FieldInput = ({ children }: { children: (props: FieldInputCommonProps) => JSX.Element | number }) => {
