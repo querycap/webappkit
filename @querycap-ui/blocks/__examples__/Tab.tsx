@@ -4,7 +4,7 @@ import React from "react";
 export const TabDemo = () => {
   return (
     <div>
-      <Tabs>
+      <Tabs cacheKey={"tab"}>
         <Tab name={"a"} title={"短信验证"}>
           123123
         </Tab>

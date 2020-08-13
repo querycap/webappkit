@@ -2,6 +2,7 @@ import { preventDefault, select, roundedEm, stopPropagation, theme } from "@quer
 import { pipe } from "rxjs";
 import { map } from "lodash";
 import React, { Children, isValidElement, ReactElement, ReactNode, useEffect, useState } from "react";
+import { parseSearchString, toSearchString, useRouter } from "@reactorx/router";
 
 export interface TabProps {
   name: string;
@@ -14,15 +15,20 @@ export const Tab = (_: TabProps) => null;
 export const Tabs = ({
   defaultActive,
   children,
+  cacheKey,
 }: {
   defaultActive?: string;
   children: Array<ReactElement<TabProps>>;
+  cacheKey?: string;
 }) => {
+  const { location, history } = useRouter();
+  const query = parseSearchString(location.search);
+
   const [state, setState] = useState<{
     tabs: { [k: string]: TabProps };
     orders: string[];
     active: string;
-  }>({ orders: [], tabs: {}, active: defaultActive || "" });
+  }>({ orders: [], tabs: {}, active: cacheKey && query[cacheKey] ? query[cacheKey] : defaultActive || "" });
 
   useEffect(() => {
     const tabs: { [k: string]: TabProps } = {};
@@ -41,6 +47,17 @@ export const Tabs = ({
       orders: orders,
     }));
   }, children);
+
+  useEffect(() => {
+    if (cacheKey) {
+      history.replace({
+        search: toSearchString({
+          ...query,
+          [cacheKey]: state.active,
+        }),
+      });
+    }
+  }, [state.active]);
 
   return (
     <div css={select().position("relative").fontSize(theme.state.fontSize)}>
