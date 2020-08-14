@@ -18,7 +18,7 @@ import { createMacro } from "babel-plugin-macros";
 
 const aliases: { [k: string]: string[] } = aliasesOrigin;
 
-const createImporter = (path: NodePath, source: string) => {
+const createImporter = (path: NodePath<any>, source: string) => {
   const exports: { [k: string]: Identifier } = {};
   const program = path.isProgram() ? path : path.findParent((p) => p.isProgram());
 
@@ -119,7 +119,7 @@ const createScanner = (program: NodePath<Program>) => {
     return variableDeclarator.node.id as Identifier;
   };
 
-  const createCollector = (nodePath: NodePath, selectors: any[]) => {
+  const createCollector = (nodePath: NodePath<any>, selectors: any[]) => {
     const parts: any[] = [];
 
     let needTheme = false;
@@ -274,12 +274,12 @@ const createScanner = (program: NodePath<Program>) => {
     scan: (path: NodePath<CallExpression>) => {
       const collector = createCollector(path, path.node.arguments);
 
-      const resolveCallChain = (path: NodePath<CallExpression>): NodePath => {
+      const resolveCallChain = (path: NodePath<CallExpression>): NodePath<CallExpression> => {
         const memberExpression = path.parentPath;
 
         if (memberExpression.isMemberExpression()) {
           if (memberExpression.parentPath.isCallExpression()) {
-            const arg = memberExpression.parentPath.get("arguments")[0] as NodePath<Expression>;
+            const arg = (memberExpression.parentPath.get("arguments") as NodePath<Expression>[])[0];
 
             if (arg) {
               if ((memberExpression.node.property as Identifier).name === "with") {
@@ -305,7 +305,7 @@ const createScanner = (program: NodePath<Program>) => {
       const chainRoot = resolveCallChain(path);
 
       if (chainRoot) {
-        collector.emitTo(chainRoot);
+        collector.emitTo(chainRoot as NodePath);
       }
     },
   };

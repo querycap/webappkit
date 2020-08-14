@@ -1,22 +1,14 @@
 {
-  "name": "@querycap/form",
-  "version": "0.8.0",
+  "name": "@reactorx/core",
+  "version": "0.20.7",
   "files": [
     "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "react": ">=16.13",
-    "uuid": "7.x"
-  },
-  "dependencies": {
-    "@querycap/contexts": "^0.2.2",
-    "@querycap/reactutils": "^0.6.2",
-    "@querycap/validators": "^0.2.1",
-    "@reactorx/core": "^0.20.7",
-    "@types/lodash": "^4.14.159",
-    "lodash": "^4.17.20"
+    "react": ">=16.x",
+    "rxjs": ">= 6.x"
   },
   "publishConfig": {
     "access": "public"

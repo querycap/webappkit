@@ -1,6 +1,6 @@
 // @ts-ignore
 import { addDefault, addNamed } from "@babel/helper-module-imports";
-import { NodePath } from "@babel/traverse";
+import type { NodePath } from "@babel/core";
 import {
   callExpression,
   Expression,
@@ -15,7 +15,7 @@ import {
   VariableDeclarator,
 } from "@babel/types";
 
-const createImporter = (path: NodePath, source: string) => {
+const createImporter = (path: NodePath<any>, source: string) => {
   const exports: { [k: string]: Identifier } = {};
   const locals: { [k: string]: Identifier } = {};
 

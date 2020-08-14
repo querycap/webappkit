@@ -14,7 +14,7 @@
     "@querycap-dev/generate": "^0.4.4",
     "@types/lodash": "^4.14.159",
     "axios": "^0.19.2",
-    "lodash": "^4.17.19"
+    "lodash": "^4.17.20"
   },
   "publishConfig": {
     "access": "public"
