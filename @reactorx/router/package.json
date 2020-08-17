@@ -1,6 +1,6 @@
 {
   "name": "@reactorx/router",
-  "version": "0.20.7",
+  "version": "0.20.8",
   "files": [
     "dist/"
   ],
@@ -11,7 +11,7 @@
     "rxjs": "6.x"
   },
   "dependencies": {
-    "@reactorx/core": "^0.20.7",
+    "@reactorx/core": "^0.20.8",
     "path-to-regexp": "6.1.0"
   },
   "publishConfig": {

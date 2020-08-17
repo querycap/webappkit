@@ -1,6 +1,6 @@
 {
   "name": "@querycap/bootstrap",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "files": [
     "dist/"
   ],
@@ -15,7 +15,7 @@
     "@querycap/config": "^0.6.2",
     "@querycap/notify": "^0.5.2",
     "@querycap/persister": "^0.5.3",
-    "@reactorx/router": "^0.20.7",
+    "@reactorx/router": "^0.20.8",
     "@types/history": "^4.7.7",
     "history": "^4.10.1",
     "redux-logger": "^4.0.0"
