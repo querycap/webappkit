@@ -3393,7 +3393,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-dev/devkit@^0.4.13, @querycap-dev/devkit@workspace:@querycap-dev/devkit":
+"@querycap-dev/devkit@^0.4.14, @querycap-dev/devkit@workspace:@querycap-dev/devkit":
   version: 0.0.0-use.local
   resolution: "@querycap-dev/devkit@workspace:@querycap-dev/devkit"
   dependencies:
@@ -3539,7 +3539,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-dev/webpack-preset-ts@workspace:@querycap-dev/webpack-preset-ts"
   dependencies:
-    "@querycap-dev/devkit": ^0.4.13
+    "@querycap-dev/devkit": ^0.4.14
     "@types/terser-webpack-plugin": ^4.1.0
     babel-loader: ^8.1.0
     source-map-loader: ^1.0.1
@@ -3580,10 +3580,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/blocks@workspace:@querycap-ui/blocks"
   dependencies:
-    "@querycap-ui/form-controls": ^0.9.0
-    "@querycap-ui/icons": ^0.3.2
-    "@querycap-ui/layouts": ^0.1.30
-    "@querycap/uikit": ^0.3.7
+    "@querycap-ui/form-controls": ^0.9.1
+    "@querycap-ui/icons": ^0.3.3
+    "@querycap-ui/layouts": ^0.1.31
+    "@querycap/uikit": ^0.3.8
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@emotion/core": 10.x
@@ -3611,7 +3611,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/core.macro@^0.1.6, @querycap-ui/core.macro@workspace:@querycap-ui/core.macro":
+"@querycap-ui/core.macro@^0.1.7, @querycap-ui/core.macro@workspace:@querycap-ui/core.macro":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/core.macro@workspace:@querycap-ui/core.macro"
   dependencies:
@@ -3626,12 +3626,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/core@^0.8.9, @querycap-ui/core@workspace:@querycap-ui/core":
+"@querycap-ui/core@^0.8.10, @querycap-ui/core@workspace:@querycap-ui/core":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/core@workspace:@querycap-ui/core"
   dependencies:
     "@emotion/core": ^10.0.34
-    "@querycap-ui/core.macro": ^0.1.6
+    "@querycap-ui/core.macro": ^0.1.7
     "@querycap-ui/css-aliases": ^0.2.1
     polished: ^3.6.5
     react-spring: ^8.0.27
@@ -3648,12 +3648,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/date-pickers@^0.3.4, @querycap-ui/date-pickers@workspace:@querycap-ui/date-pickers":
+"@querycap-ui/date-pickers@^0.3.5, @querycap-ui/date-pickers@workspace:@querycap-ui/date-pickers":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/date-pickers@workspace:@querycap-ui/date-pickers"
   dependencies:
     "@querycap-ui/containers": ^0.3.1
-    "@querycap-ui/icons": ^0.3.2
+    "@querycap-ui/icons": ^0.3.3
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@emotion/core": 10.0.x
@@ -3665,16 +3665,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/form-controls@^0.9.0, @querycap-ui/form-controls@workspace:@querycap-ui/form-controls":
+"@querycap-ui/form-controls@^0.9.1, @querycap-ui/form-controls@workspace:@querycap-ui/form-controls":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/form-controls@workspace:@querycap-ui/form-controls"
   dependencies:
-    "@querycap-ui/core": ^0.8.9
-    "@querycap-ui/icons": ^0.3.2
-    "@querycap-ui/layouts": ^0.1.30
-    "@querycap/form": ^0.8.0
+    "@querycap-ui/core": ^0.8.10
+    "@querycap-ui/icons": ^0.3.3
+    "@querycap-ui/layouts": ^0.1.31
+    "@querycap/form": ^0.8.1
     "@querycap/reactutils": ^0.6.2
-    "@querycap/uikit": ^0.3.7
+    "@querycap/uikit": ^0.3.8
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@emotion/core": 10.x
@@ -3685,7 +3685,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/icons@^0.3.2, @querycap-ui/icons@workspace:@querycap-ui/icons":
+"@querycap-ui/icons@^0.3.3, @querycap-ui/icons@workspace:@querycap-ui/icons":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/icons@workspace:@querycap-ui/icons"
   dependencies:
@@ -3697,11 +3697,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/layouts@^0.1.30, @querycap-ui/layouts@workspace:@querycap-ui/layouts":
+"@querycap-ui/layouts@^0.1.31, @querycap-ui/layouts@workspace:@querycap-ui/layouts":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/layouts@workspace:@querycap-ui/layouts"
   dependencies:
-    "@querycap-ui/core": ^0.8.9
+    "@querycap-ui/core": ^0.8.10
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@emotion/core": 10.x
@@ -3726,12 +3726,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/search-controls@workspace:@querycap-ui/search-controls"
   dependencies:
-    "@querycap-ui/date-pickers": ^0.3.4
-    "@querycap-ui/form-controls": ^0.9.0
-    "@querycap-ui/icons": ^0.3.2
+    "@querycap-ui/date-pickers": ^0.3.5
+    "@querycap-ui/form-controls": ^0.9.1
+    "@querycap-ui/icons": ^0.3.3
     "@querycap/reactutils": ^0.6.2
     "@querycap/strfmt": ^0.4.0
-    "@querycap/uikit": ^0.3.7
+    "@querycap/uikit": ^0.3.8
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@emotion/core": 10.x
@@ -3750,7 +3750,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/texts@workspace:@querycap-ui/texts"
   dependencies:
-    "@querycap-ui/core": ^0.8.9
+    "@querycap-ui/core": ^0.8.10
     remark-parse: ^8.0.3
     remark-react: ^7.0.1
     unified: ^9.1.0
@@ -3799,7 +3799,7 @@ __metadata:
     "@querycap/config": ^0.6.2
     "@querycap/notify": ^0.5.2
     "@querycap/persister": ^0.5.3
-    "@reactorx/router": ^0.20.7
+    "@reactorx/router": ^0.20.8
     "@types/history": ^4.7.7
     history: ^4.10.1
     redux-logger: ^4.0.0
@@ -3835,14 +3835,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap/form@^0.8.0, @querycap/form@workspace:@querycap/form":
+"@querycap/form@^0.8.1, @querycap/form@workspace:@querycap/form":
   version: 0.0.0-use.local
   resolution: "@querycap/form@workspace:@querycap/form"
   dependencies:
     "@querycap/contexts": ^0.2.2
     "@querycap/reactutils": ^0.6.2
     "@querycap/validators": ^0.2.1
-    "@reactorx/core": ^0.20.7
+    "@reactorx/core": ^0.20.8
     "@types/lodash": ^4.14.159
     lodash: ^4.17.20
   peerDependencies:
@@ -3945,7 +3945,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap/uikit@^0.3.7, @querycap/uikit@workspace:@querycap/uikit":
+"@querycap/uikit@^0.3.8, @querycap/uikit@workspace:@querycap/uikit":
   version: 0.0.0-use.local
   resolution: "@querycap/uikit@workspace:@querycap/uikit"
   dependencies:
@@ -3979,7 +3979,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reactorx/core@^0.20.7, @reactorx/core@workspace:@reactorx/core":
+"@reactorx/core@^0.20.8, @reactorx/core@workspace:@reactorx/core":
   version: 0.0.0-use.local
   resolution: "@reactorx/core@workspace:@reactorx/core"
   peerDependencies:
@@ -3993,7 +3993,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reactorx/request@workspace:@reactorx/request"
   dependencies:
-    "@reactorx/core": ^0.20.7
+    "@reactorx/core": ^0.20.8
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     axios: 0.19.x
@@ -4003,11 +4003,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reactorx/router@^0.20.7, @reactorx/router@workspace:@reactorx/router":
+"@reactorx/router@^0.20.8, @reactorx/router@workspace:@reactorx/router":
   version: 0.0.0-use.local
   resolution: "@reactorx/router@workspace:@reactorx/router"
   dependencies:
-    "@reactorx/core": ^0.20.7
+    "@reactorx/core": ^0.20.8
     path-to-regexp: 6.1.0
   peerDependencies:
     "@babel/runtime-corejs3": "*"
@@ -4423,12 +4423,12 @@ __metadata:
   linkType: hard
 
 "@types/jest@npm:^26.0.9":
-  version: 26.0.9
-  resolution: "@types/jest@npm:26.0.9"
+  version: 26.0.10
+  resolution: "@types/jest@npm:26.0.10"
   dependencies:
     jest-diff: ^25.2.1
     pretty-format: ^25.2.1
-  checksum: 5d2b5fb5122d384f1857c5f7f52643957ba0494db44f4eee22323f3d548e069cf1389a8985f60710cea4abc6fc31d50e3a7ead5ad02a9d00a092744cb66aecea
+  checksum: bb9f6b06c8c22b05d139b0193110a56cf47f1a912e2ab65ef501ba1888d948660be774204f183bf7ab4c94d59fc3ba8e20f4795dce5f637553bf7750f27a2a4f
   languageName: node
   linkType: hard
 
@@ -5167,14 +5167,14 @@ __metadata:
   linkType: hard
 
 "ajv@npm:^6.1.0, ajv@npm:^6.10.0, ajv@npm:^6.10.2, ajv@npm:^6.12.2, ajv@npm:^6.12.3":
-  version: 6.12.3
-  resolution: "ajv@npm:6.12.3"
+  version: 6.12.4
+  resolution: "ajv@npm:6.12.4"
   dependencies:
     fast-deep-equal: ^3.1.1
     fast-json-stable-stringify: ^2.0.0
     json-schema-traverse: ^0.4.1
     uri-js: ^4.2.2
-  checksum: b20a171bf30ede1635c6b1955bcc1db5a6b3e7dfa77f75aace9fb0db87375430c46d5cdd84158a0bf0a8da91e4da97bdb1afe5604a0969d8468b7c11143fdbba
+  checksum: 50d72b0a10326732072f5481b1b6bd5a43f8d770878b8f88ba5bb232abb745cefbf7f87a0e64679bd477d4a8bba0b3aea084675bd34943db5279c15907ee658f
   languageName: node
   linkType: hard
 
@@ -6008,9 +6008,9 @@ __metadata:
   linkType: hard
 
 "bn.js@npm:^5.1.1":
-  version: 5.1.2
-  resolution: "bn.js@npm:5.1.2"
-  checksum: ed0f337a224d874c8c58c604f8454184cd7069a6619c65a556e1b3a9544f7d22013add4460381288a9676e188e9f0e6e672a4ab8676d4834119d20f8ad782892
+  version: 5.1.3
+  resolution: "bn.js@npm:5.1.3"
+  checksum: 991c1fefb03bd69315297d454b379d5a5dd4834ab97db3ec985714f00ff7d3cc19642e1ac6bdf0d9f04946cc9f1ad26a5b497b7f4e7fa1230caf68af46fbefe6
   languageName: node
   linkType: hard
 
@@ -6546,9 +6546,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001111":
-  version: 1.0.30001113
-  resolution: "caniuse-lite@npm:1.0.30001113"
-  checksum: 8409f81f6aa3c2a927aa6b0b96b76ed050266f5cc00582e1be3c3183f14c31f414cd6cdbebeda4aef86994be8001e30f1ea7b13bf71537f73c606166b44f78de
+  version: 1.0.30001114
+  resolution: "caniuse-lite@npm:1.0.30001114"
+  checksum: 23b73c98d7cc1bffb3e975ad73ebc927d8ad204c549597a531d41e34a29a91816fc51ab4cda7d45ba221e7cca7b0d124a9def647e6461fe24f6f3e88af95bf51
   languageName: node
   linkType: hard
 
@@ -8190,11 +8190,11 @@ __metadata:
   linkType: hard
 
 "dot-prop@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "dot-prop@npm:4.2.0"
+  version: 4.2.1
+  resolution: "dot-prop@npm:4.2.1"
   dependencies:
     is-obj: ^1.0.0
-  checksum: 6dadca2215c4844f8313828a67f4398c87e1dae263a111aa7e9255aecf31647bb4a6e80efdd7a768bb170d47c96265bb744ff659dbf1aa7c8c78d4cfe69be20c
+  checksum: 49b998ca7b244c0e167070efa07b1d498873383aeb5170454a32272e37824141fc8d1203bece6966944ffe44c5096dfc846d3affadc4b05b0baae70fd36a7440
   languageName: node
   linkType: hard
 
@@ -8658,8 +8658,8 @@ __metadata:
   linkType: hard
 
 "eslint@npm:^7.6.0":
-  version: 7.6.0
-  resolution: "eslint@npm:7.6.0"
+  version: 7.7.0
+  resolution: "eslint@npm:7.7.0"
   dependencies:
     "@babel/code-frame": ^7.0.0
     ajv: ^6.10.0
@@ -8699,7 +8699,7 @@ __metadata:
     v8-compile-cache: ^2.0.3
   bin:
     eslint: bin/eslint.js
-  checksum: 1b73da24232b5796a84caac4d01e39fecc6b89690e0c27b33570f898cb7f6b5d41ed255db9d8880d2eb85cda03d2379d6667abdb8a2d05c45fd17abc0beca8a6
+  checksum: 6f47e20ec67a8ad58ed79ad350373142fb30387f4b9847f43943d80a2307e74252ea8739a9f53ec850ef5eaf689103c3d7b8bbc71e04e06444687cfda51fe3b7
   languageName: node
   linkType: hard
 
@@ -12131,8 +12131,8 @@ fsevents@^1.2.7:
   linkType: hard
 
 "listr2@npm:^2.1.0":
-  version: 2.5.1
-  resolution: "listr2@npm:2.5.1"
+  version: 2.6.0
+  resolution: "listr2@npm:2.6.0"
   dependencies:
     chalk: ^4.1.0
     cli-truncate: ^2.1.0
@@ -12144,7 +12144,7 @@ fsevents@^1.2.7:
     through: ^2.3.8
   peerDependencies:
     enquirer: ">= 2.3.0 < 3"
-  checksum: e746edec471ade98aed1e6bfb4ca920e71d414a8be61a2bdcd8d090ceb63540ac732ecde6d0087953095bac08f49143fc912f8789855dad519b528bfcc65821a
+  checksum: c0d47e8a6c76ff8d7398ff67fb826c6b602cb834fd598bfd6e1956ca65c33b41c177f7f4cdc9df32e9b2c58c685e0e399a642feeb763eea45aebf50b18cf1d5c
   languageName: node
   linkType: hard
 
@@ -12997,13 +12997,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"minizlib@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "minizlib@npm:2.1.0"
+"minizlib@npm:^2.1.1":
+  version: 2.1.2
+  resolution: "minizlib@npm:2.1.2"
   dependencies:
     minipass: ^3.0.0
     yallist: ^4.0.0
-  checksum: 665346bad842df6fbfd59aa24f49a12d7971e72d8ccd4078f6e3167ad6185b64dec37d6f2cc053fe778230dd54f2a55550454ffec00b4460e14c3f20fe83be6e
+  checksum: 5a45b57b3467e5a743d87a96d7be57598a6f72eb3b7eeac237074c566bd04278766ae03bb523c32f34581c565a19e74e54ec90c6ce0630a540787c755b4c4b4e
   languageName: node
   linkType: hard
 
@@ -15744,8 +15744,8 @@ fsevents@^1.2.7:
   linkType: hard
 
 "rollup@npm:^2.24.0":
-  version: 2.24.0
-  resolution: "rollup@npm:2.24.0"
+  version: 2.26.3
+  resolution: "rollup@npm:2.26.3"
   dependencies:
     fsevents: ~2.1.2
   dependenciesMeta:
@@ -15753,7 +15753,7 @@ fsevents@^1.2.7:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 79f9b5403826cca97d23f62dfc3c4f9f82cc4c67998ee74fa6f9dbb4c1c132befa9c62ebdfa69c8c2d9d4c51f20fdb4604255a7062f5b8dcaa56ef5d529f45ef
+  checksum: ebcf760a0dc73d9f9d2adedc87db4227f36059ce7a0c83c89ce4f37837f3c7aa3ce7c62699604ea9e6ac85573956a071237c8f91e2b441545721088b0de19ab4
   languageName: node
   linkType: hard
 
@@ -17088,16 +17088,16 @@ fsevents@^1.2.7:
   linkType: hard
 
 "tar@npm:^6.0.1, tar@npm:^6.0.2":
-  version: 6.0.2
-  resolution: "tar@npm:6.0.2"
+  version: 6.0.5
+  resolution: "tar@npm:6.0.5"
   dependencies:
     chownr: ^2.0.0
     fs-minipass: ^2.0.0
     minipass: ^3.0.0
-    minizlib: ^2.1.0
+    minizlib: ^2.1.1
     mkdirp: ^1.0.3
     yallist: ^4.0.0
-  checksum: 7d28cc13d74a87d0dcd9fa89038225f171e506882f9e4d6f44bfd3943f868e6ae9f46a6f03c82cca8ad2d4dde3384862cb7e789bfa06e3af602eec561c765787
+  checksum: 7ae26210927bdf590686db21e66d5579020ccbebda93a1adffe266eb88ca8b152c56dd8ce0df87d81e3dbe709bfe8562b29c584871ba015ec868dec9062e91ea
   languageName: node
   linkType: hard
 
@@ -17195,15 +17195,15 @@ fsevents@^1.2.7:
   linkType: hard
 
 "terser@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "terser@npm:5.0.0"
+  version: 5.1.0
+  resolution: "terser@npm:5.1.0"
   dependencies:
     commander: ^2.20.0
     source-map: ~0.6.1
     source-map-support: ~0.5.12
   bin:
     terser: bin/terser
-  checksum: 807c19a8f5c5d67fbf4c463251351b9c1dfd3297fa5bf1d6e455ff0be1d1a86364e66c05872d0222d39633d5b91867c8e74d4e7a75fb54d53a387dcf5bd4b3c8
+  checksum: aa79cc0b8a4cfb93da1e00d3b497202a46bf99b7aa8a629eb16f8ec67986fc0d25ac7800fbe98dd9cf52276310eb2d219af642fb548e24eefe74a4c6ed575aae
   languageName: node
   linkType: hard
 
