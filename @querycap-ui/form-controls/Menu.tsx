@@ -293,6 +293,7 @@ export function MenuPopover({
   placement?: string;
   updateBy?: any[];
 }) {
+  const ref = useRef(null);
   return (
     <Overlay
       updateBy={updateBy}
@@ -300,7 +301,7 @@ export function MenuPopover({
       placement={placement as any}
       fullWidth={fullWidth}
       onRequestClose={onRequestClose}>
-      <Menu>{children}</Menu>
+      <Menu ref={ref}>{children}</Menu>
     </Overlay>
   );
 }

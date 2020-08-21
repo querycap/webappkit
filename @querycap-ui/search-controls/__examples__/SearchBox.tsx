@@ -27,6 +27,7 @@ export const SearchBoxDemo = () => {
   const [filters, setFilters] = useState({
     type: "A",
     tag: "id = 1",
+    createdAt: "",
   });
 
   return (
