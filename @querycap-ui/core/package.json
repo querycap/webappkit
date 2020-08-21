@@ -8,8 +8,8 @@
     "react": "16.x"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.34",
-    "@querycap-ui/core.macro": "^0.1.7",
+    "@emotion/core": "^10.0.35",
+    "@querycap-ui/core.macro": "^0.1.6",
     "@querycap-ui/css-aliases": "^0.2.1",
     "polished": "^3.6.5",
     "react-spring": "^8.0.27"

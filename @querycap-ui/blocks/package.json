@@ -8,6 +8,7 @@
     "@emotion/css": "10.x",
     "@querycap-ui/core": "^0.x",
     "@reactorx/core": "*",
+    "@reactorx/router": "*",
     "lodash": "4.x",
     "react": "16.x",
     "rxjs": "*"

@@ -11,7 +11,7 @@
     "@querycap-ui/core": "^0.8.10",
     "remark-parse": "^8.0.3",
     "remark-react": "^7.0.1",
-    "unified": "^9.1.0"
+    "unified": "^9.2.0"
   },
   "publishConfig": {
     "access": "public"

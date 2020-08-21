@@ -12,7 +12,7 @@ const getDevKitValue = (key: string) => {
   return globalThis.document?.querySelector(`meta[name="devkit:${key}"]`)?.getAttribute("content") || "";
 };
 
-export function confLoader<TKeys extends string>() {
+export const confLoader = <TKeys extends string>() => {
   const app = parse(getDevKitValue("app"), ",", "=", {
     decodeURIComponent: (v) => v,
   });
@@ -33,4 +33,4 @@ export function confLoader<TKeys extends string>() {
   conf.useConfig = useConfigWithTypes;
 
   return conf;
-}
+};

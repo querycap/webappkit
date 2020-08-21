@@ -94,6 +94,7 @@ export const monobundle = async ({ cwd = process.cwd(), dryRun }: { cwd?: string
           {
             dir: path.join(cwd, path.dirname(outputs.main)),
             format: "cjs",
+            exports: "named",
           },
         ],
         plugins: [

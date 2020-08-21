@@ -1,6 +1,6 @@
 // @ts-ignore
 import { addDefault, addNamed } from "@babel/helper-module-imports";
-import type { NodePath } from "@babel/core";
+import type { NodePath } from "@babel/traverse";
 import {
   callExpression,
   Expression,

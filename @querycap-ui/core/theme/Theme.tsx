@@ -1,7 +1,8 @@
 import { ThemeContext } from "@emotion/core";
 import { flow, forEach, isFunction, keys, mapValues } from "lodash";
 import { rgba, transparentize } from "polished";
-import React, { FunctionComponent, ReactNode, useContext, useMemo } from "react";
+import React, { useContext, useMemo } from "react";
+import type { FunctionComponent, ReactNode } from "react";
 import { colors } from "./colors";
 import { safeTextColor, simpleShadow, tintOrShade } from "./helpers";
 

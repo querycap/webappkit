@@ -6,7 +6,7 @@
     "@babel/runtime-corejs3": "*"
   },
   "dependencies": {
-    "@babel/generator": "^7.11.0",
+    "@babel/generator": "^7.11.4",
     "@babel/helper-module-imports": "^7.10.4",
     "@babel/types": "^7.11.0",
     "@emotion/serialize": "^0.11.16",
