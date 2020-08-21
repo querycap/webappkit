@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.14](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.7.13...@querycap-ui/search-controls@0.7.14) (2020-08-21)
+
+
+### Bug Fixes
+
+* **search-control:** fix menu ref ([02a7c10](https://github.com/querycap/webappkit/commit/02a7c1055376424f05dad4e095e78407f2b9a5ba))
+
+
+
+
+
 ## [0.7.13](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.7.12...@querycap-ui/search-controls@0.7.13) (2020-08-17)
 
 **Note:** Version bump only for package @querycap-ui/search-controls

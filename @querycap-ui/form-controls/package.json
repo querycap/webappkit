@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/form-controls",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
