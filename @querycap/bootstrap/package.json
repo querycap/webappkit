@@ -1,6 +1,6 @@
 {
   "name": "@querycap/bootstrap",
-  "version": "0.4.7",
+  "version": "0.4.8",
   "files": [
     "dist/"
   ],
@@ -12,7 +12,7 @@
     "react-dom": "16.x"
   },
   "dependencies": {
-    "@querycap/config": "^0.6.2",
+    "@querycap/config": "^0.6.3",
     "@querycap/notify": "^0.5.2",
     "@querycap/persister": "^0.5.3",
     "@reactorx/router": "^0.20.8",
