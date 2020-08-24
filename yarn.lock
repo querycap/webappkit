@@ -3391,7 +3391,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-dev/devkit@^0.4.15, @querycap-dev/devkit@workspace:@querycap-dev/devkit":
+"@querycap-dev/devkit@^0.4.16, @querycap-dev/devkit@workspace:@querycap-dev/devkit":
   version: 0.0.0-use.local
   resolution: "@querycap-dev/devkit@workspace:@querycap-dev/devkit"
   dependencies:
@@ -3537,7 +3537,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-dev/webpack-preset-ts@workspace:@querycap-dev/webpack-preset-ts"
   dependencies:
-    "@querycap-dev/devkit": ^0.4.15
+    "@querycap-dev/devkit": ^0.4.16
     "@types/terser-webpack-plugin": ^4.1.0
     babel-loader: ^8.1.0
     source-map-loader: ^1.0.2
