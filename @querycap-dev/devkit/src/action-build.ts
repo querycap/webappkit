@@ -13,9 +13,9 @@ const toApp = (state: IState) =>
   `${state.project.group ? `__${state.project.group}` : ""}` +
   `${state.env && state.env !== "default" && state.env !== "demo" ? `--${state.env}` : ""}`;
 
-export const writeDefaultConfig = (cwd: string, state: IState) => {
+export const writeConfig = (cwd: string, state: IState, filename = "default.yml") => {
   generate(
-    join(cwd, "./config/default.yml"),
+    join(cwd, `./config/${filename}`),
     safeDump(
       omitEmpty({
         APP: toApp(state),

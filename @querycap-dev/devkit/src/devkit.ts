@@ -1,7 +1,7 @@
 import { existsSync, lstatSync, readdirSync, readFileSync } from "fs";
 import { has, isFunction, isObject, keys, mapKeys, mapValues, startsWith } from "lodash";
 import { join } from "path";
-import { writeDefaultConfig } from "./action-build";
+import { writeConfig } from "./action-build";
 import { initial } from "./action-initial";
 import { fromCommitRefName, release } from "./action-release";
 import { exec } from "./exec";
@@ -158,7 +158,7 @@ export const devkit = (cwd = process.cwd()) => {
         exec(actions[action], state);
 
         if (action === "build") {
-          writeDefaultConfig(cwd, state);
+          writeConfig(cwd, state);
         }
       }
     },
