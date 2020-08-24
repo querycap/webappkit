@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.17](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.4.16...@querycap-dev/devkit@0.4.17) (2020-08-24)
+
+
+### Bug Fixes
+
+* **devkit:** expose writeConfig ([edb71b7](https://github.com/querycap/webappkit/commit/edb71b76ccb2476dbb11088b115d1fee784134cf))
+
+
+
+
+
 ## [0.4.16](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.4.15...@querycap-dev/devkit@0.4.16) (2020-08-24)
 
 
