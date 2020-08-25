@@ -3,61 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.10](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.7.9...@querycap-dev/webpack-preset-ts@0.7.10) (2020-08-25)
+
+### Bug Fixes
+
+- work-loader option ([4b722ec](https://github.com/querycap/webappkit/commit/4b722ecdf2b507e6876c9d3d842a4c05a472432f))
+
 ## [0.7.9](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.7.8...@querycap-dev/webpack-preset-ts@0.7.9) (2020-08-25)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-ts
-
-
-
-
 
 ## [0.7.8](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.7.7...@querycap-dev/webpack-preset-ts@0.7.8) (2020-08-24)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-ts
 
-
-
-
-
 ## [0.7.7](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.7.6...@querycap-dev/webpack-preset-ts@0.7.7) (2020-08-24)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-ts
-
-
-
-
 
 ## [0.7.6](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.7.5...@querycap-dev/webpack-preset-ts@0.7.6) (2020-08-22)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-ts
 
-
-
-
-
 ## [0.7.5](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.7.4...@querycap-dev/webpack-preset-ts@0.7.5) (2020-08-17)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-ts
-
-
-
-
 
 ## [0.7.4](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.7.3...@querycap-dev/webpack-preset-ts@0.7.4) (2020-08-13)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-ts
 
-
-
-
-
 ## 0.7.3 (2020-08-07)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-ts
-
-
-
-
 
 ## [0.7.2](https://github.com/querycap/devkit/compare/@querycap-dev/webpack-preset-ts@0.7.1...@querycap-dev/webpack-preset-ts@0.7.2) (2020-07-14)
 
