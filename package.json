@@ -11,7 +11,7 @@
     "node": ">=14"
   },
   "scripts": {
-    "release": "lerna version --conventional-commits --no-commit-hooks",
+    "release": "lerna version --conventional-commits",
     "ncu": "lerna exec -- ncu -u",
     "clean": "rm -rf @querycap*/*/node_modules",
     "fmt": "prettier --write @querycap*/{,**/}{,**/}*.{ts,tsx,json,md}",

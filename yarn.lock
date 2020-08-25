@@ -3391,11 +3391,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-dev/devkit@^0.4.17, @querycap-dev/devkit@workspace:@querycap-dev/devkit":
+"@querycap-dev/devkit@^0.4.18, @querycap-dev/devkit@workspace:@querycap-dev/devkit":
   version: 0.0.0-use.local
   resolution: "@querycap-dev/devkit@workspace:@querycap-dev/devkit"
   dependencies:
-    "@querycap-dev/generate": ^0.4.4
+    "@querycap-dev/generate": ^0.4.5
     "@types/cross-spawn": ^6.0.2
     "@types/js-yaml": ^3.12.5
     cross-spawn: ^7.0.3
@@ -3429,7 +3429,7 @@ __metadata:
   dependencies:
     "@morlay/ts-gen-client-from-openapi": ^1.2.2
     "@morlay/ts-gen-core": ^1.2.2
-    "@querycap-dev/generate": ^0.4.4
+    "@querycap-dev/generate": ^0.4.5
     "@types/lodash": ^4.14.160
     axios: ^0.20.0
     lodash: ^4.17.20
@@ -3460,7 +3460,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-dev/generate@^0.4.4, @querycap-dev/generate@workspace:@querycap-dev/generate":
+"@querycap-dev/generate@^0.4.5, @querycap-dev/generate@workspace:@querycap-dev/generate":
   version: 0.0.0-use.local
   resolution: "@querycap-dev/generate@workspace:@querycap-dev/generate"
   dependencies:
@@ -3537,7 +3537,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-dev/webpack-preset-ts@workspace:@querycap-dev/webpack-preset-ts"
   dependencies:
-    "@querycap-dev/devkit": ^0.4.17
+    "@querycap-dev/devkit": ^0.4.18
     "@types/terser-webpack-plugin": ^4.1.0
     babel-loader: ^8.1.0
     source-map-loader: ^1.0.2
@@ -3578,7 +3578,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/blocks@workspace:@querycap-ui/blocks"
   dependencies:
-    "@querycap-ui/form-controls": ^0.9.3
+    "@querycap-ui/form-controls": ^0.9.4
     "@querycap-ui/icons": ^0.3.4
     "@querycap-ui/layouts": ^0.1.32
     "@querycap/uikit": ^0.3.8
@@ -3664,14 +3664,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/form-controls@^0.9.3, @querycap-ui/form-controls@workspace:@querycap-ui/form-controls":
+"@querycap-ui/form-controls@^0.9.4, @querycap-ui/form-controls@workspace:@querycap-ui/form-controls":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/form-controls@workspace:@querycap-ui/form-controls"
   dependencies:
     "@querycap-ui/core": ^0.8.11
     "@querycap-ui/icons": ^0.3.4
     "@querycap-ui/layouts": ^0.1.32
-    "@querycap/form": ^0.8.1
+    "@querycap/form": ^0.8.2
     "@querycap/reactutils": ^0.6.2
     "@querycap/uikit": ^0.3.8
   peerDependencies:
@@ -3726,7 +3726,7 @@ __metadata:
   resolution: "@querycap-ui/search-controls@workspace:@querycap-ui/search-controls"
   dependencies:
     "@querycap-ui/date-pickers": ^0.3.6
-    "@querycap-ui/form-controls": ^0.9.3
+    "@querycap-ui/form-controls": ^0.9.4
     "@querycap-ui/icons": ^0.3.4
     "@querycap/reactutils": ^0.6.2
     "@querycap/strfmt": ^0.4.0
@@ -3834,7 +3834,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap/form@^0.8.1, @querycap/form@workspace:@querycap/form":
+"@querycap/form@^0.8.2, @querycap/form@workspace:@querycap/form":
   version: 0.0.0-use.local
   resolution: "@querycap/form@workspace:@querycap/form"
   dependencies:
