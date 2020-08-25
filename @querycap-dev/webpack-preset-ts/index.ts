@@ -105,8 +105,7 @@ export const withTsPreset = (vendorGroups: { [key: string]: RegExp } = {}) => (
         {
           loader: require.resolve("worker-loader"),
           options: {
-            inline: true,
-            fallback: false,
+            inline: "fallback",
           },
         },
       ],
@@ -117,8 +116,7 @@ export const withTsPreset = (vendorGroups: { [key: string]: RegExp } = {}) => (
         {
           loader: require.resolve("worker-loader"),
           options: {
-            inline: true,
-            fallback: false,
+            inline: "fallback",
           },
         },
         babelLoader,
