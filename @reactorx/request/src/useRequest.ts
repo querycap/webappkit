@@ -17,7 +17,14 @@ export interface IUseRequestOpts<TReq, TRespBody, TError> {
 export function useRequest<TReq, TRespBody, TError>(
   requestActor: RequestActor<TReq, TRespBody, TError>,
   options: IUseRequestOpts<TReq, TRespBody, TError> = {},
-) {
+): readonly [
+  (
+    req: IUseRequestOpts<TReq, TRespBody, TError>["arg"],
+    opt?: IUseRequestOpts<TReq, TRespBody, TError>["opts"] &
+      Pick<IUseRequestOpts<TReq, TRespBody, TError>, "onSuccess" | "onFail">,
+  ) => void,
+  BehaviorSubject<boolean>,
+] {
   const { actor$, dispatch } = useStore();
   const requesting$ = useMemo(() => new BehaviorSubject(!!options.required), []);
 
