@@ -3,29 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.4.5](https://github.com/querycap/webappkit/compare/@querycap-dev/generate@0.4.4...@querycap-dev/generate@0.4.5) (2020-08-25)
+## [0.4.6](https://github.com/querycap/webappkit/compare/@querycap-dev/generate@0.4.5...@querycap-dev/generate@0.4.6) (2020-09-07)
 
 **Note:** Version bump only for package @querycap-dev/generate
 
+## [0.4.5](https://github.com/querycap/webappkit/compare/@querycap-dev/generate@0.4.4...@querycap-dev/generate@0.4.5) (2020-08-25)
 
-
-
+**Note:** Version bump only for package @querycap-dev/generate
 
 ## [0.4.4](https://github.com/querycap/webappkit/compare/@querycap-dev/generate@0.4.3...@querycap-dev/generate@0.4.4) (2020-08-13)
 
 **Note:** Version bump only for package @querycap-dev/generate
 
-
-
-
-
 ## 0.4.3 (2020-08-07)
 
 **Note:** Version bump only for package @querycap-dev/generate
-
-
-
-
 
 ## [0.4.2](https://github.com/querycap/devkit/compare/@querycap-dev/generate@0.4.1...@querycap-dev/generate@0.4.2) (2020-06-19)
 

@@ -3,45 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.16](https://github.com/querycap/webappkit/compare/@querycap-dev/monobundle@0.7.15...@querycap-dev/monobundle@0.7.16) (2020-09-07)
+
+### Bug Fixes
+
+- **monobundle:** handle abs path ([c598d76](https://github.com/querycap/webappkit/commit/c598d76ba4559c8d78297ad29168fa3c6c065baa))
+
 ## [0.7.15](https://github.com/querycap/webappkit/compare/@querycap-dev/monobundle@0.7.14...@querycap-dev/monobundle@0.7.15) (2020-08-25)
 
 **Note:** Version bump only for package @querycap-dev/monobundle
-
-
-
-
 
 ## [0.7.14](https://github.com/querycap/webappkit/compare/@querycap-dev/monobundle@0.7.13...@querycap-dev/monobundle@0.7.14) (2020-08-22)
 
 **Note:** Version bump only for package @querycap-dev/monobundle
 
-
-
-
-
 ## [0.7.13](https://github.com/querycap/webappkit/compare/@querycap-dev/monobundle@0.7.12...@querycap-dev/monobundle@0.7.13) (2020-08-17)
 
 **Note:** Version bump only for package @querycap-dev/monobundle
-
-
-
-
 
 ## [0.7.12](https://github.com/querycap/webappkit/compare/@querycap-dev/monobundle@0.7.11...@querycap-dev/monobundle@0.7.12) (2020-08-13)
 
 **Note:** Version bump only for package @querycap-dev/monobundle
 
-
-
-
-
 ## 0.7.11 (2020-08-07)
 
 **Note:** Version bump only for package @querycap-dev/monobundle
-
-
-
-
 
 ## [0.7.10](https://github.com/querycap/devkit/compare/@querycap-dev/monobundle@0.7.9...@querycap-dev/monobundle@0.7.10) (2020-07-14)
 

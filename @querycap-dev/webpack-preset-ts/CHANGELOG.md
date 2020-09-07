@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.11](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.7.10...@querycap-dev/webpack-preset-ts@0.7.11) (2020-09-07)
+
+### Bug Fixes
+
+- **monobundle:** handle abs path ([c598d76](https://github.com/querycap/webappkit/commit/c598d76ba4559c8d78297ad29168fa3c6c065baa))
+
 ## [0.7.10](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.7.9...@querycap-dev/webpack-preset-ts@0.7.10) (2020-08-25)
 
 ### Bug Fixes
