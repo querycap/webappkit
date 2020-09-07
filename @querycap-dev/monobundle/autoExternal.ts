@@ -97,7 +97,7 @@ export const createAutoExternal = (
           return true;
         }
 
-        if (!id.startsWith(".")) {
+        if (!(id.startsWith(".") || id.startsWith("/"))) {
           const parts = id.split("/");
 
           if (parts.length > 2 && existsSync(join(monoRoot, parts[0], parts[1]))) {
