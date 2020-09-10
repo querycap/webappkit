@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.17](https://github.com/querycap/webappkit/compare/@querycap-dev/monobundle@0.7.16...@querycap-dev/monobundle@0.7.17) (2020-09-10)
+
+**Note:** Version bump only for package @querycap-dev/monobundle
+
 ## [0.7.16](https://github.com/querycap/webappkit/compare/@querycap-dev/monobundle@0.7.15...@querycap-dev/monobundle@0.7.16) (2020-09-07)
 
 ### Bug Fixes
