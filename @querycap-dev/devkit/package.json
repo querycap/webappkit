@@ -14,7 +14,7 @@
     "lodash": "^4.17.20",
     "npm-path": "^2.0.4",
     "ts-node": "^9.0.0",
-    "yargs": "^15.4.1"
+    "yargs": "^16.0.3"
   },
   "license": "MIT",
   "publishConfig": {

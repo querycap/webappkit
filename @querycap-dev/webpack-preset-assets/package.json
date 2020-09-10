@@ -10,7 +10,7 @@
     "webpack": "4.x"
   },
   "dependencies": {
-    "css-loader": "^4.2.2",
+    "css-loader": "^4.3.0",
     "file-loader": "6.1.0",
     "glsl-shader-loader": "0.1.6",
     "html-loader": "1.3.0",
