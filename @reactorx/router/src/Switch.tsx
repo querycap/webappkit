@@ -1,4 +1,4 @@
-import { Location, LocationDescriptorObject } from "history";
+import { Location, PartialPath } from "history";
 import * as React from "react";
 import { IMatch, matchPath } from "./utils";
 import { useRouter } from "./RouterContext";
@@ -7,7 +7,7 @@ import { IRedirectProps } from "./Redirect";
 
 export interface ISwitchProps {
   children: React.ReactNode;
-  location?: LocationDescriptorObject;
+  location?: PartialPath;
 }
 
 export const Switch = (props: ISwitchProps) => {

@@ -1,11 +1,11 @@
 import React, { ReactNode } from "react";
-import { createLocation, LocationDescriptorObject } from "history";
+import { createLocation, PartialPath } from "history";
 import { useRouter } from "./RouterContext";
 
 export interface ILinkProps {
   onClick?: (evt: any) => void;
   replace?: boolean;
-  to: string | LocationDescriptorObject;
+  to: string | PartialPath;
   target?: string;
   className?: string;
   children?: ReactNode;

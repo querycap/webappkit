@@ -1,5 +1,5 @@
 import { Actor, useEpic, useStore } from "@reactorx/core";
-import { History, LocationDescriptorObject, Path } from "history";
+import { History, Location, LocationDescriptor } from "history";
 import { Observable } from "rxjs";
 import { filter, ignoreElements, tap } from "rxjs/operators";
 import { IRouterProps, Router } from "./Router";
@@ -8,8 +8,8 @@ import React, { useEffect, useMemo } from "react";
 export const RouterActor = Actor.of("router");
 
 export const routerActors = {
-  push: RouterActor.named<Path | LocationDescriptorObject>("push"),
-  replace: RouterActor.named<Path | LocationDescriptorObject>("replace"),
+  push: RouterActor.named<LocationDescriptor>("push"),
+  replace: RouterActor.named<LocationDescriptor>("replace"),
   go: RouterActor.named<number>("go"),
   goBack: RouterActor.named<void>("goBack"),
   goForward: RouterActor.named<void>("goForward"),
@@ -17,19 +17,7 @@ export const routerActors = {
 
 export const locationStorageKey = "_location";
 
-export const routerChanged = RouterActor.named<LocationDescriptorObject>("changed").effectOn(
-  locationStorageKey,
-  (_, { arg }) => arg,
-);
-
-export function ReactorxRouter({ history, ...otherProps }: IRouterProps) {
-  return (
-    <>
-      <ReactorxConnect history={history} />
-      <Router {...otherProps} history={history} />
-    </>
-  );
-}
+export const routerChanged = RouterActor.named<Location>("changed").effectOn(locationStorageKey, (_, { arg }) => arg);
 
 const createRouterEpic = (history: History) => {
   return (action$: Observable<typeof routerActors.push>) =>
@@ -81,4 +69,13 @@ export function ReactorxConnect({ history }: { history: History }) {
   useEpic(createRouterEpic(history));
 
   return null;
+}
+
+export function ReactorxRouter({ history, ...otherProps }: IRouterProps) {
+  return (
+    <>
+      <ReactorxConnect history={history} />
+      <Router {...otherProps} history={history} />
+    </>
+  );
 }
