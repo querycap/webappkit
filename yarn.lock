@@ -3302,36 +3302,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@morlay/webpack-browser-sync@npm:^0.0.0":
-  version: 0.0.0
-  resolution: "@morlay/webpack-browser-sync@npm:0.0.0"
-  dependencies:
-    "@types/browser-sync": 2.26.x
-    "@types/compression": 1.7.x
-    "@types/connect-history-api-fallback": 1.3.3
-    "@types/interpret": 1.1.1
-    "@types/lodash": 4.14.x
-    "@types/webpack-dev-middleware": 3.7.0
-    "@types/webpack-hot-middleware": 2.25.0
-    "@types/yargs": 15.0.x
-    browser-sync: 2.26.x
-    compression: 1.7.x
-    connect-history-api-fallback: 1.6.x
-    interpret: 2.0.x
-    lodash: 4.x
-    mime: 2.4.4
-    webpack-dev-middleware: 3.7.x
-    webpack-hot-middleware: 2.25.x
-    yargs: 15.x
-  peerDependencies:
-    "@babel/runtime-corejs3": "*"
-    webpack: 4.x
-  bin:
-    webpack-browser-sync: bin/webpack-browser-sync.js
-  checksum: 7bc3ec54d2b9ce03954824fe0e7f24ecbcb4701cc0a52397e54cf6a70fffe805ec0c1821c6fcd4d17f60850f6fa32d66e98a8d0ade89f6473635f4353bcf10c1
-  languageName: node
-  linkType: hard
-
 "@mrmlnc/readdir-enhanced@npm:^2.2.1":
   version: 2.2.1
   resolution: "@mrmlnc/readdir-enhanced@npm:2.2.1"
@@ -3661,6 +3631,35 @@ __metadata:
     "@babel/types": "*"
   bin:
     monobundle: bin/monobundle.js
+  languageName: unknown
+  linkType: soft
+
+"@querycap-dev/webpack-browser-sync@workspace:@querycap-dev/webpack-browser-sync":
+  version: 0.0.0-use.local
+  resolution: "@querycap-dev/webpack-browser-sync@workspace:@querycap-dev/webpack-browser-sync"
+  dependencies:
+    "@types/browser-sync": ^2.26.1
+    "@types/compression": ^1.7.0
+    "@types/connect-history-api-fallback": 1.3.3
+    "@types/interpret": 1.1.1
+    "@types/lodash": ^4.14.161
+    "@types/webpack-dev-middleware": 3.7.2
+    "@types/webpack-hot-middleware": 2.25.3
+    "@types/yargs": ^15.0.5
+    browser-sync: ^2.26.12
+    compression: ^1.7.4
+    connect-history-api-fallback: ^1.6.0
+    interpret: ^2.2.0
+    lodash: ^4.17.20
+    mime: 2.4.6
+    webpack-dev-middleware: 3.7.x
+    webpack-hot-middleware: 2.25.x
+    yargs: 15.x
+  peerDependencies:
+    "@babel/runtime-corejs3": "*"
+    webpack: 4.x
+  bin:
+    webpack-browser-sync: bin/webpack-browser-sync.js
   languageName: unknown
   linkType: soft
 
@@ -4412,7 +4411,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/browser-sync@npm:2.26.x":
+"@types/browser-sync@npm:^2.26.1":
   version: 2.26.1
   resolution: "@types/browser-sync@npm:2.26.1"
   dependencies:
@@ -4440,7 +4439,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/compression@npm:1.7.x":
+"@types/compression@npm:^1.7.0":
   version: 1.7.0
   resolution: "@types/compression@npm:1.7.0"
   dependencies:
@@ -4849,25 +4848,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/webpack-dev-middleware@npm:3.7.0":
-  version: 3.7.0
-  resolution: "@types/webpack-dev-middleware@npm:3.7.0"
+"@types/webpack-dev-middleware@npm:3.7.2":
+  version: 3.7.2
+  resolution: "@types/webpack-dev-middleware@npm:3.7.2"
   dependencies:
     "@types/connect": "*"
     "@types/memory-fs": "*"
     "@types/webpack": "*"
     loglevel: ^1.6.2
-  checksum: b861ddc32e42a80ce00f7a8a6a59ac8e33d5dcf32d9df1e6189a5fccd16aacdfc36e233df74846ed2783a2b0d023c304d4a5ae1d8be28a20e42b28e6cfeb4fdb
+  checksum: 9dc1452f874745f9607b3849082b653d9bd63c41c7a4e7ef74e05fc77803cf2d0800db9a32fb127b5c0d3664b78c37dc8b75cb86ecf2f42c97e385a4ecddd370
   languageName: node
   linkType: hard
 
-"@types/webpack-hot-middleware@npm:2.25.0":
-  version: 2.25.0
-  resolution: "@types/webpack-hot-middleware@npm:2.25.0"
+"@types/webpack-hot-middleware@npm:2.25.3":
+  version: 2.25.3
+  resolution: "@types/webpack-hot-middleware@npm:2.25.3"
   dependencies:
     "@types/connect": "*"
     "@types/webpack": "*"
-  checksum: 6b64be2ebc98f2d521f7bcb9c0beff859126960133e3b921888293484068bc41e144212e0ae53175654a655895630f0bfe7fb3aca802d71b15d669137cece1f5
+  checksum: e600c846aeef03450bd5a39944f1f775b36d339d89e084fa68815ba7443ede179fba5168fbc419c16884d852c889a7bb7520df01095d6622ef536fcefbfc9b05
   languageName: node
   linkType: hard
 
@@ -4924,7 +4923,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/yargs@npm:15.0.x, @types/yargs@npm:^15.0.0, @types/yargs@npm:^15.0.5":
+"@types/yargs@npm:^15.0.0, @types/yargs@npm:^15.0.5":
   version: 15.0.5
   resolution: "@types/yargs@npm:15.0.5"
   dependencies:
@@ -6342,7 +6341,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browser-sync@npm:2.26.x":
+"browser-sync@npm:^2.26.12":
   version: 2.26.12
   resolution: "browser-sync@npm:2.26.12"
   dependencies:
@@ -7300,7 +7299,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"compression@npm:1.7.x":
+"compression@npm:^1.7.4":
   version: 1.7.4
   resolution: "compression@npm:1.7.4"
   dependencies:
@@ -7356,7 +7355,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"connect-history-api-fallback@npm:1.6.x, connect-history-api-fallback@npm:^1":
+"connect-history-api-fallback@npm:^1, connect-history-api-fallback@npm:^1.6.0":
   version: 1.6.0
   resolution: "connect-history-api-fallback@npm:1.6.0"
   checksum: 298f60415d5f5480b76f98d8bf83737cae9f05921e3d3479452cae34ed3498fab35a1c4c8f19ca5b327bbbe759098f5f6e5fc097d829f607d0d642b075c93e21
@@ -8179,7 +8178,6 @@ __metadata:
     "@babel/types": ^7.11.5
     "@commitlint/cli": ^11.0.0
     "@commitlint/config-conventional": ^11.0.0
-    "@morlay/webpack-browser-sync": ^0.0.0
     "@testing-library/react": ^11.0.4
     "@types/babel-plugin-macros": ^2.8.2
     "@types/babel__preset-env": ^7.9.0
@@ -10952,17 +10950,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"interpret@npm:2.0.x":
-  version: 2.0.0
-  resolution: "interpret@npm:2.0.0"
-  checksum: e945c016e058af0e678667cadc12d743563048603260f4695d00d848f6acb293ad6aa0d368c35f8458003dfa3c45b814278d7c47c994cd996d673372c3556914
-  languageName: node
-  linkType: hard
-
 "interpret@npm:^1.4.0":
   version: 1.4.0
   resolution: "interpret@npm:1.4.0"
   checksum: f15725d76206525546f559030ddc967db025c6db904eb8798a70ec3c07e42c5537c5cbc73a15eafd4ae5cdabad35601abf8878261c03dcc8217747e8037575fe
+  languageName: node
+  linkType: hard
+
+"interpret@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "interpret@npm:2.2.0"
+  checksum: c89b6aa67f6957ab57e3f12c406043ea6a8a00bfd4b36bdb914080a973574bee40e25afc0b162bcab9793e39744c90cc03e23150a79ad6a4b9ea31291a23ced4
   languageName: node
   linkType: hard
 
@@ -12688,7 +12686,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lodash@npm:4.17.x, lodash@npm:4.x, lodash@npm:^4.15.0, lodash@npm:^4.17.10, lodash@npm:^4.17.12, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.4, lodash@npm:^4.2.1":
+"lodash@npm:4.17.x, lodash@npm:^4.15.0, lodash@npm:^4.17.10, lodash@npm:^4.17.12, lodash@npm:^4.17.14, lodash@npm:^4.17.15, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.4, lodash@npm:^4.2.1":
   version: 4.17.20
   resolution: "lodash@npm:4.17.20"
   checksum: c62101d2500c383b5f174a7e9e6fe8098149ddd6e9ccfa85f36d4789446195f5c4afd3cfba433026bcaf3da271256566b04a2bf2618e5a39f6e67f8c12030cb6
@@ -13150,16 +13148,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"mime@npm:2.4.4":
-  version: 2.4.4
-  resolution: "mime@npm:2.4.4"
-  bin:
-    mime: cli.js
-  checksum: 1507e1df9768d857cbae9871ff7888c9d40bac675e9c57ad5f7071faf62e2a4efed62aaf3134287b1e98a3446374cb2506fef48e7e3b45a2ea5715b0f6440d63
-  languageName: node
-  linkType: hard
-
-"mime@npm:^2.4.0, mime@npm:^2.4.4":
+"mime@npm:2.4.6, mime@npm:^2.4.0, mime@npm:^2.4.4":
   version: 2.4.6
   resolution: "mime@npm:2.4.6"
   bin:
