@@ -92,7 +92,7 @@ export const withTsPreset = (vendorGroups: { [key: string]: RegExp } = {}) => (
   // https://github.com/webpack/node-libs-browser
   c.plugins?.push(
     new ProvidePlugin({
-      Buffer: "buffer",
+      Buffer: ["buffer", "Buffer"],
       process: "process",
     }),
   );
