@@ -5,7 +5,7 @@
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
     "@querycap-dev/devkit": "*",
-    "webpack": "4.x"
+    "webpack": "*"
   },
   "dependencies": {
     "@types/workbox-webpack-plugin": "^5.1.4",

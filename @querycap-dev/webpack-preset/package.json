@@ -8,7 +8,7 @@
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
     "@querycap-dev/devkit": "^0.4.11",
-    "webpack": "5.0.0-beta.30",
+    "webpack": "*",
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {

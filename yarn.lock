@@ -3677,7 +3677,7 @@ __metadata:
     url-loader: 4.1.0
   peerDependencies:
     "@querycap-dev/devkit": "*"
-    webpack: 4.x
+    webpack: "*"
   languageName: unknown
   linkType: soft
 
@@ -3696,7 +3696,7 @@ __metadata:
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@querycap-dev/devkit": "*"
-    webpack: 4.x
+    webpack: "*"
   languageName: unknown
   linkType: soft
 
@@ -3712,7 +3712,7 @@ __metadata:
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@querycap-dev/devkit": "*"
-    webpack: 4.x
+    webpack: "*"
   languageName: unknown
   linkType: soft
 
@@ -3724,7 +3724,7 @@ __metadata:
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@querycap-dev/devkit": ^0.4.11
-    webpack: 5.0.0-beta.30
+    webpack: "*"
     webpack-cli: ^3.3.12
   languageName: unknown
   linkType: soft

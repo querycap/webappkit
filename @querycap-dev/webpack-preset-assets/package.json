@@ -7,7 +7,7 @@
   "license": "MIT",
   "peerDependencies": {
     "@querycap-dev/devkit": "*",
-    "webpack": "4.x"
+    "webpack": "*"
   },
   "dependencies": {
     "css-loader": "^4.3.0",
