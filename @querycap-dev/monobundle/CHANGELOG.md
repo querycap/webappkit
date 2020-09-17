@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/querycap/webappkit/compare/@querycap-dev/monobundle@0.7.17...@querycap-dev/monobundle@0.8.0) (2020-09-17)
+
+### Features
+
+- **webpack\*:** upgrade v5 ([f1f7314](https://github.com/querycap/webappkit/commit/f1f731455891400904d64eb44ebf3a94d8f414cb))
+
 ## [0.7.17](https://github.com/querycap/webappkit/compare/@querycap-dev/monobundle@0.7.16...@querycap-dev/monobundle@0.7.17) (2020-09-10)
 
 **Note:** Version bump only for package @querycap-dev/monobundle

@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/webpack-browser-sync",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "bin": "bin/webpack-browser-sync.js",
   "dependencies": {
     "@types/browser-sync": "^2.26.1",

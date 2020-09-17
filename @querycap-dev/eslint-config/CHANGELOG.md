@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.16](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.4.15...@querycap-dev/eslint-config@0.4.16) (2020-09-17)
+
+**Note:** Version bump only for package @querycap-dev/eslint-config
+
 ## [0.4.15](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.4.14...@querycap-dev/eslint-config@0.4.15) (2020-09-10)
 
 **Note:** Version bump only for package @querycap-dev/eslint-config

@@ -3,21 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset@0.6.19...@querycap-dev/webpack-preset@0.7.0) (2020-09-17)
+
+### Features
+
+- **webpack\*:** upgrade v5 ([f1f7314](https://github.com/querycap/webappkit/commit/f1f731455891400904d64eb44ebf3a94d8f414cb))
+
 ## [0.6.19](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset@0.6.18...@querycap-dev/webpack-preset@0.6.19) (2020-08-13)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset
 
-
-
-
-
 ## 0.6.18 (2020-08-07)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset
-
-
-
-
 
 ## [0.6.17](https://github.com/querycap/devkit/compare/@querycap-dev/webpack-preset@0.6.16...@querycap-dev/webpack-preset@0.6.17) (2020-08-04)
 
