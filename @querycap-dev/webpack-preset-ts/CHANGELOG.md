@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.1](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.8.0...@querycap-dev/webpack-preset-ts@0.8.1) (2020-09-17)
+
+### Bug Fixes
+
+- **webpack:** buffer ([3899583](https://github.com/querycap/webappkit/commit/38995831be0fa2c9c04b3b9611a925e38e56c0a5))
+
 # [0.8.0](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.7.12...@querycap-dev/webpack-preset-ts@0.8.0) (2020-09-17)
 
 ### Features
