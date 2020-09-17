@@ -1,4 +1,4 @@
-import { forEach, pickBy, last, isFunction } from "lodash";
+import { forEach, pickBy, values, last, isFunction } from "lodash";
 import { FunctionComponent } from "react";
 
 const groups = {
@@ -32,23 +32,25 @@ const getComponentName = (key: string) => {
 };
 
 const collect = (examples: { [k: string]: readonly [any, any] }): IExample[] => {
-  const results: IExample[] = [];
+  const results: { [k: string]: IExample } = {};
 
   forEach(examples, ([req, reqSrc], group) => {
     forEach(req.keys(), (key) => {
       const examples = req(key);
 
-      results.push({
+      const e = {
         group: group,
         module: getModuleName(key),
         name: getComponentName(key),
         source: examples.NOSRC ? undefined : reqSrc(key).default,
         examples: pickBy(examples, isFunction),
-      });
+      };
+
+      results[`${e.group}/${e.module}/${e.name}`] = e;
     });
   });
 
-  return results;
+  return values(results);
 };
 
 export const examples = collect(groups);

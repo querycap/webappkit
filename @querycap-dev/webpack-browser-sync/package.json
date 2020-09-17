@@ -17,13 +17,13 @@
     "interpret": "^2.2.0",
     "lodash": "^4.17.20",
     "mime": "2.4.6",
-    "webpack-dev-middleware": "3.7.x",
-    "webpack-hot-middleware": "2.25.x",
-    "yargs": "15.x"
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-hot-middleware": "^2.25.0",
+    "yargs": "^16.0.3"
   },
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "webpack": "4.x"
+    "webpack": "*"
   },
   "publishConfig": {
     "access": "public"
@@ -31,10 +31,10 @@
   "files": [
     "dist/"
   ],
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
   "scripts": {
     "prepare": "node ../../node_modules/.bin/monobundle"
-  }
+  },
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
 }

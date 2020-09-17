@@ -1,5 +1,5 @@
 import TerserPlugin from "terser-webpack-plugin";
-import { Configuration, HashedModuleIdsPlugin } from "webpack";
+import { Configuration, ProvidePlugin } from "webpack";
 
 export const withTsPreset = (vendorGroups: { [key: string]: RegExp } = {}) => (
   c: Configuration,
@@ -39,14 +39,10 @@ export const withTsPreset = (vendorGroups: { [key: string]: RegExp } = {}) => (
     mainFields: ["browser", "jsnext:main", "module", "main"],
   });
 
-  Object.assign(c.node, {
-    fs: "empty",
-  });
-
-  c.plugins?.push(new HashedModuleIdsPlugin());
-
   Object.assign(c.optimization, {
-    namedModules: !isProd,
+    // https://github.com/webpack/changelog-v5#automatic-nodejs-polyfills-removed
+    chunkIds: isProd ? "deterministic" : "named",
+    moduleIds: isProd ? "deterministic" : "named",
     minimize: isProd,
     minimizer: [
       new TerserPlugin({
@@ -93,7 +89,22 @@ export const withTsPreset = (vendorGroups: { [key: string]: RegExp } = {}) => (
     },
   });
 
-  c.module?.rules.push(
+  // https://github.com/webpack/node-libs-browser
+  c.plugins?.push(
+    new ProvidePlugin({
+      Buffer: "buffer",
+      process: "process",
+    }),
+  );
+
+  c.module?.rules!.push(
+    // https://github.com/webpack/webpack/issues/11467
+    {
+      test: /\.m?js/,
+      resolve: {
+        fullySpecified: false,
+      },
+    },
     {
       test: /\.js$/,
       use: [require.resolve("source-map-loader")],

@@ -26,6 +26,7 @@ export = withPresets(
   }) as any,
   (c) => {
     c.resolve!.alias = {
+      path: "path-browserify",
       lodash$: "lodash-es",
     };
 

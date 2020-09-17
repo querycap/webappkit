@@ -4,7 +4,6 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import { join } from "path";
 import { stringify } from "querystring";
 import { Configuration, DefinePlugin } from "webpack";
-// @ts-ignore
 import WebpackPwaManifest from "webpack-pwa-manifest";
 import { InjectManifest } from "workbox-webpack-plugin";
 
@@ -61,6 +60,7 @@ export const withHTMLPreset = ({ meta }: { meta?: { [key: string]: string } } = 
       new DefinePlugin({
         "process.env.PWA_ENABLED": `"true"`,
       }),
+      // todo fix
       new WebpackPwaManifest({
         ...(state.meta.manifest as any),
         short_name: state.name,
@@ -71,7 +71,7 @@ export const withHTMLPreset = ({ meta }: { meta?: { [key: string]: string } } = 
             sizes: [144, 256, 512],
           },
         ],
-      }),
+      }) as any,
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       new InjectManifest({
         swDest: "../sw.js",

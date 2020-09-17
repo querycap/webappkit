@@ -10,7 +10,7 @@
   "dependencies": {
     "@types/workbox-webpack-plugin": "^5.1.4",
     "html-webpack-plugin": "^4.4.1",
-    "webpack-pwa-manifest": "4.2.0",
+    "webpack-pwa-manifest": "^4.2.0",
     "workbox-core": "^5.1.4",
     "workbox-navigation-preload": "^5.1.4",
     "workbox-precaching": "^5.1.4",
