@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/webpack-preset",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "files": [
     "dist/"
   ],

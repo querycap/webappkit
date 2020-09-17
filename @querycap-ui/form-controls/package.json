@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/form-controls",
-  "version": "0.9.5",
+  "version": "0.9.6",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
@@ -16,7 +16,7 @@
     "@querycap-ui/layouts": "^0.1.33",
     "@querycap/form": "^0.8.3",
     "@querycap/reactutils": "^0.6.2",
-    "@querycap/uikit": "^0.3.8"
+    "@querycap/uikit": "^0.3.9"
   },
   "publishConfig": {
     "access": "public"
