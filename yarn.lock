@@ -3533,7 +3533,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-dev/devkit@workspace:@querycap-dev/devkit"
   dependencies:
-    "@querycap-dev/generate": ^0.4.6
+    "@querycap-dev/generate": ^0.4.7
     "@types/cross-spawn": ^6.0.2
     "@types/js-yaml": ^3.12.5
     cross-spawn: ^7.0.3
@@ -3567,7 +3567,7 @@ __metadata:
   dependencies:
     "@morlay/ts-gen-client-from-openapi": ^1.2.2
     "@morlay/ts-gen-core": ^1.2.2
-    "@querycap-dev/generate": ^0.4.6
+    "@querycap-dev/generate": ^0.4.7
     "@types/lodash": ^4.14.161
     axios: ^0.20.0
     lodash: ^4.17.20
@@ -3598,7 +3598,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-dev/generate@^0.4.6, @querycap-dev/generate@workspace:@querycap-dev/generate":
+"@querycap-dev/generate@^0.4.7, @querycap-dev/generate@workspace:@querycap-dev/generate":
   version: 0.0.0-use.local
   resolution: "@querycap-dev/generate@workspace:@querycap-dev/generate"
   dependencies:
@@ -3964,7 +3964,7 @@ __metadata:
     "@querycap/config": ^0.6.3
     "@querycap/notify": ^0.5.2
     "@querycap/persister": ^0.5.3
-    "@reactorx/router": ^0.20.8
+    "@reactorx/router": ^0.21.0
     "@types/history": ^4.7.8
     history: ^4.10.1
     redux-logger: ^3.0.6
@@ -4168,7 +4168,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reactorx/router@^0.20.8, @reactorx/router@workspace:@reactorx/router":
+"@reactorx/router@^0.21.0, @reactorx/router@workspace:@reactorx/router":
   version: 0.0.0-use.local
   resolution: "@reactorx/router@workspace:@reactorx/router"
   dependencies:

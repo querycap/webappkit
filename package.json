@@ -51,7 +51,7 @@
   "husky": {
     "hooks": {
       "post-merge": "yarn",
-      "pre-commit": "lint-staged && pretty-quick --staged && yarn",
+      "pre-commit": "lint-staged && pretty-quick --staged && yarn && git add yarn.lock",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
