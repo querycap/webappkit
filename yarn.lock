@@ -3931,7 +3931,7 @@ __metadata:
   resolution: "@querycap/access@workspace:@querycap/access"
   dependencies:
     "@querycap/reactutils": ^0.6.2
-    "@querycap/request": ^0.5.2
+    "@querycap/request": ^0.5.3
     public-encrypt: 4.0.3
   peerDependencies:
     "@babel/runtime-corejs3": "*"
@@ -4056,7 +4056,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap/request@^0.5.2, @querycap/request@workspace:@querycap/request":
+"@querycap/request@^0.5.3, @querycap/request@workspace:@querycap/request":
   version: 0.0.0-use.local
   resolution: "@querycap/request@workspace:@querycap/request"
   peerDependencies:
@@ -4088,7 +4088,7 @@ __metadata:
   resolution: "@querycap/search@workspace:@querycap/search"
   dependencies:
     "@querycap/contexts": ^0.2.2
-    "@querycap/request": ^0.5.2
+    "@querycap/request": ^0.5.3
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@reactorx/core": 0.x
