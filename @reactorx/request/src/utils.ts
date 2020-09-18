@@ -15,9 +15,14 @@ export const optionsFromEnum = (enums: any, displayFn: (val: string) => string):
   }));
 };
 
-export const isMultipartFormData = (contentType = "") => contentType.includes("multipart/form-data");
+const getContentType = (headers: any = {}) => headers["Content-Type"] || headers["content-type"] || "";
 
-export const isFormURLEncoded = (contentType = "") => contentType.includes("application/x-www-form-urlencoded");
+export const isContentTypeMultipartFormData = (headers: any) => getContentType(headers).includes("multipart/form-data");
+export const isContentTypeFormURLEncoded = (headers: any) =>
+  getContentType(headers).includes("application/x-www-form-urlencoded");
+export const isContentTypeJSON = (headers: any) => {
+  return getContentType(headers).includes("application/json");
+};
 
 export const paramsSerializer = (params: any) => {
   const data = {} as any;
@@ -51,9 +56,7 @@ export const paramsSerializer = (params: any) => {
 };
 
 export const transformRequest = (data: any, headers: any) => {
-  const contentType = headers["Content-Type"];
-
-  if (isMultipartFormData(contentType)) {
+  if (isContentTypeMultipartFormData(headers)) {
     const formData = new FormData();
 
     const appendValue = (k: string, v: any) => {
@@ -73,7 +76,7 @@ export const transformRequest = (data: any, headers: any) => {
     return formData;
   }
 
-  if (isFormURLEncoded(contentType)) {
+  if (isContentTypeFormURLEncoded(headers)) {
     return paramsSerializer(data);
   }
 
@@ -81,5 +84,12 @@ export const transformRequest = (data: any, headers: any) => {
     return JSON.stringify(data);
   }
 
+  return data;
+};
+
+export const transformResponse = (data: any, headers: any) => {
+  if (isContentTypeJSON(headers)) {
+    return JSON.parse(data);
+  }
   return data;
 };

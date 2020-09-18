@@ -19,7 +19,7 @@ import {
 } from "rxjs/operators";
 import { RequestActor } from "./RequestActor";
 
-import { paramsSerializer, transformRequest } from "./utils";
+import { paramsSerializer, transformRequest, transformResponse } from "./utils";
 import { asyncScheduler, from as observableFrom, merge, Observable, of as observableOf } from "rxjs";
 
 export type TRequestInterceptor = (
@@ -39,6 +39,7 @@ export const createAxiosInstance = (options: AxiosRequestConfig, ...interceptors
     ...options,
     paramsSerializer,
     transformRequest,
+    transformResponse,
   });
 
   client.interceptors.request.use(setDefaultContentType);

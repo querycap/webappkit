@@ -5,6 +5,7 @@ import {
   paramsSerializer,
   setDefaultContentType,
   transformRequest,
+  transformResponse,
   TRequestInterceptor,
 } from "@reactorx/request";
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
@@ -36,6 +37,7 @@ export const AxiosProvider = ({
     const c = axios.create({
       ...opts,
       paramsSerializer,
+      transformResponse,
       transformRequest,
     });
 

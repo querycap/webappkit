@@ -5,6 +5,8 @@ import { AxiosRequestConfig, AxiosResponse } from "axios";
 import React from "react";
 import { A, AxiosProvider, baseURLsFromConfig, createRequestActor, useTempDataOfRequest } from "..";
 
+const sleep = (period: number) => async () => await new Promise<void>((resolve) => setTimeout(resolve, period));
+
 const getEmojis = createRequestActor<void, { [k: string]: string }>("test.emojis", () => ({
   method: "GET",
   url: "/test/emojis",
@@ -66,7 +68,3 @@ describe("#requests", () => {
     expect(node.container.innerHTML).toContain("http://api.github.com/test/emojis");
   });
 });
-
-function sleep(period: number) {
-  return async () => await new Promise<void>((resolve) => setTimeout(resolve, period));
-}
