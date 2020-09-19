@@ -9,7 +9,7 @@
     "@babel/runtime-corejs3": "*",
     "@reactorx/core": "0.x",
     "@reactorx/request": "0.x",
-    "axios": "0.19.x",
+    "axios": "0.20.x",
     "date-fns": "2.x",
     "lodash": "4.x",
     "react": "16.x",
