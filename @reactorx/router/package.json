@@ -6,7 +6,7 @@
   ],
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "history": "4.10.x",
+    "history": "5.0.x",
     "react": "*",
     "rxjs": "6.x"
   },
