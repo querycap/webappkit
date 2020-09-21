@@ -3744,9 +3744,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/blocks@workspace:@querycap-ui/blocks"
   dependencies:
-    "@querycap-ui/form-controls": ^0.9.6
+    "@querycap-ui/form-controls": ^0.9.7
     "@querycap-ui/icons": ^0.3.4
-    "@querycap-ui/layouts": ^0.1.33
+    "@querycap-ui/layouts": ^0.1.34
     "@querycap/uikit": ^0.3.9
   peerDependencies:
     "@babel/runtime-corejs3": "*"
@@ -3791,7 +3791,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/core@^0.8.12, @querycap-ui/core@workspace:@querycap-ui/core":
+"@querycap-ui/core@^0.8.13, @querycap-ui/core@workspace:@querycap-ui/core":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/core@workspace:@querycap-ui/core"
   dependencies:
@@ -3830,13 +3830,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/form-controls@^0.9.6, @querycap-ui/form-controls@workspace:@querycap-ui/form-controls":
+"@querycap-ui/form-controls@^0.9.7, @querycap-ui/form-controls@workspace:@querycap-ui/form-controls":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/form-controls@workspace:@querycap-ui/form-controls"
   dependencies:
-    "@querycap-ui/core": ^0.8.12
+    "@querycap-ui/core": ^0.8.13
     "@querycap-ui/icons": ^0.3.4
-    "@querycap-ui/layouts": ^0.1.33
+    "@querycap-ui/layouts": ^0.1.34
     "@querycap/form": ^0.8.3
     "@querycap/reactutils": ^0.6.2
     "@querycap/uikit": ^0.3.9
@@ -3862,11 +3862,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/layouts@^0.1.33, @querycap-ui/layouts@workspace:@querycap-ui/layouts":
+"@querycap-ui/layouts@^0.1.34, @querycap-ui/layouts@workspace:@querycap-ui/layouts":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/layouts@workspace:@querycap-ui/layouts"
   dependencies:
-    "@querycap-ui/core": ^0.8.12
+    "@querycap-ui/core": ^0.8.13
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@emotion/core": 10.x
@@ -3892,7 +3892,7 @@ __metadata:
   resolution: "@querycap-ui/search-controls@workspace:@querycap-ui/search-controls"
   dependencies:
     "@querycap-ui/date-pickers": ^0.3.6
-    "@querycap-ui/form-controls": ^0.9.6
+    "@querycap-ui/form-controls": ^0.9.7
     "@querycap-ui/icons": ^0.3.4
     "@querycap/reactutils": ^0.6.2
     "@querycap/strfmt": ^0.4.0
@@ -3915,7 +3915,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/texts@workspace:@querycap-ui/texts"
   dependencies:
-    "@querycap-ui/core": ^0.8.12
+    "@querycap-ui/core": ^0.8.13
     remark-parse: ^8.0.3
     remark-react: ^7.0.1
     unified: ^9.2.0
