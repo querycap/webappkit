@@ -15,7 +15,7 @@
     "del": "^5.1.0",
     "lodash": "^4.17.20",
     "minimatch": "^3.0.4",
-    "rollup": "^2.27.0",
+    "rollup": "^2.27.1",
     "rollup-plugin-dts": "^1.4.13",
     "yargs": "^16.0.3"
   },

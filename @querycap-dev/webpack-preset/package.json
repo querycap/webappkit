@@ -12,7 +12,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
-    "webpack-bundle-analyzer": "^3.8.0"
+    "webpack-bundle-analyzer": "^3.9.0"
   },
   "publishConfig": {
     "access": "public"
