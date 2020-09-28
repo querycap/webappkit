@@ -60,33 +60,34 @@ export const withTsPreset = (vendorGroups: { [key: string]: RegExp } = {}) => (
         sourceMap: false,
       }),
     ],
-    // learn from https://hackernoon.com/the-100-correct-way-to-split-your-chunks-with-webpack-f8a9df5b7758
-    splitChunks: {
-      chunks: "all",
-      // in dev, should file not concat
-      minSize: isProd ? undefined : 0,
-      maxAsyncRequests: Infinity,
-      maxInitialRequests: Infinity,
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name(module: any) {
-            // get the name. E.g. node_modules/packageName/not/this/part.js
-            // or node_modules/packageName
-            // npm package names are URL-safe, but some servers don't like @ symbols
-            let packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1].replace("@", "");
+    // dev mode should without splitChunks for speed
+    splitChunks: !isProd
+      ? false
+      : {
+          chunks: "all",
+          maxAsyncRequests: Infinity,
+          maxInitialRequests: Infinity,
+          cacheGroups: {
+            vendor: {
+              test: /[\\/]node_modules[\\/]/,
+              name(module: any) {
+                // learn from https://hackernoon.com/the-100-correct-way-to-split-your-chunks-with-webpack-f8a9df5b7758
+                // get the name. E.g. node_modules/packageName/not/this/part.js
+                // or node_modules/packageName
+                // npm package names are URL-safe, but some servers don't like @ symbols
+                let packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1].replace("@", "");
 
-            for (const groupKey in vendorGroups) {
-              if (vendorGroups[groupKey].test(packageName)) {
-                packageName = groupKey;
-                break;
-              }
-            }
-            return `vendor~${packageName}`;
+                for (const groupKey in vendorGroups) {
+                  if (vendorGroups[groupKey].test(packageName)) {
+                    packageName = groupKey;
+                    break;
+                  }
+                }
+                return `vendor~${packageName}`;
+              },
+            },
           },
         },
-      },
-    },
   });
 
   // https://github.com/webpack/node-libs-browser
