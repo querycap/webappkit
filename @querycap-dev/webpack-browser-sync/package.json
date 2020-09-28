@@ -10,7 +10,7 @@
     "@types/lodash": "^4.14.161",
     "@types/webpack-dev-middleware": "3.7.2",
     "@types/webpack-hot-middleware": "2.25.3",
-    "@types/yargs": "^15.0.5",
+    "@types/yargs": "^15.0.7",
     "browser-sync": "^2.26.12",
     "compression": "^1.7.4",
     "connect-history-api-fallback": "^1.6.0",

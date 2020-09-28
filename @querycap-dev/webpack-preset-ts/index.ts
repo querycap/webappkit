@@ -40,7 +40,7 @@ export const withTsPreset = (vendorGroups: { [key: string]: RegExp } = {}) => (
   });
 
   Object.assign(c.optimization, {
-    // https://github.com/webpack/changelog-v5#automatic-nodejs-polyfills-removed
+    // https://github.com/webpack/changelog-v5#deterministic-chunk-module-ids-and-export-names
     chunkIds: isProd ? "deterministic" : "named",
     moduleIds: isProd ? "deterministic" : "named",
     minimize: isProd,
@@ -61,9 +61,10 @@ export const withTsPreset = (vendorGroups: { [key: string]: RegExp } = {}) => (
       }),
     ],
     // learn from https://hackernoon.com/the-100-correct-way-to-split-your-chunks-with-webpack-f8a9df5b7758
-    // with some enhance
     splitChunks: {
       chunks: "all",
+      // in dev, should file not concat
+      minSize: isProd ? undefined : 0,
       maxAsyncRequests: Infinity,
       maxInitialRequests: Infinity,
       cacheGroups: {
@@ -81,7 +82,6 @@ export const withTsPreset = (vendorGroups: { [key: string]: RegExp } = {}) => (
                 break;
               }
             }
-
             return `vendor~${packageName}`;
           },
         },
