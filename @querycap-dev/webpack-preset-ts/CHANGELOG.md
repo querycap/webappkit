@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.5](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.8.4...@querycap-dev/webpack-preset-ts@0.8.5) (2020-09-28)
+
+### Bug Fixes
+
+- **webpack-preset-ts:** should without splitChunks in dev mode ([da7d3d5](https://github.com/querycap/webappkit/commit/da7d3d5ea62f365307c00f9274742f1eb962128a))
+
 ## [0.8.4](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.8.3...@querycap-dev/webpack-preset-ts@0.8.4) (2020-09-28)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-ts
