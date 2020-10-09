@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@reactorx/core": "^0.20.8",
-    "path-to-regexp": "6.1.0"
+    "path-to-regexp": "6.2.0"
   },
   "publishConfig": {
     "access": "public"
