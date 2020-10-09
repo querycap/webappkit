@@ -105,7 +105,7 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
         onValueChange && onValueChange((options[selectIndex] || {}).value);
       }),
     );
-  }, []);
+  }, [onValueChange]);
 
   useObservableEffect(() => {
     if (!containerElmRef.current) {
