@@ -14,6 +14,7 @@ import {
   collapseGroups,
   convertToReactJSX,
 } from "@morlay/simplify-svg";
+import cheerio from "cheerio";
 
 const toUpperCamelCase = (str: string): string => upperFirst(camelCase(str));
 
@@ -28,7 +29,7 @@ const toJSX = (svg: string): string => {
       .map((s) => trim(s))
       .join(""),
     [
-      ($: CheerioStatic) => {
+      ($: typeof cheerio) => {
         $("#Adobe_OpacityMaskFilter").remove();
         $("[maskUnits=userSpaceOnUse]").remove();
         $("#Page-1").removeAttr("fill");
@@ -46,7 +47,7 @@ const toJSX = (svg: string): string => {
       removeDefs,
       collapseGroups,
       convertToReactJSX,
-      ($: CheerioStatic) => {
+      ($: typeof cheerio) => {
         $("[fill]").removeAttr("fill");
         $("[enableBackground]").removeAttr("enableBackground");
         $("[xmlns]").removeAttr("xmlns");

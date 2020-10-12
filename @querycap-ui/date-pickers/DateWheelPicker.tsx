@@ -172,12 +172,12 @@ export function DateWheelPicker({
           itemHeight={30}
           options={opts}
           value={(date as any)[key] ? `${(date as any)[key]}` : ""}
-          onValueChange={(year) =>
+          onValueChange={(value) => {
             setDate((date) => ({
               ...date,
-              [key]: Number(year),
-            }))
-          }
+              [key]: Number(value),
+            }));
+          }}
         />
       ))}
     </div>

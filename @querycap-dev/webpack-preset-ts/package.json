@@ -7,7 +7,6 @@
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@querycap-dev/devkit": "*",
     "webpack": "*"
   },
   "dependencies": {

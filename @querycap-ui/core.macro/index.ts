@@ -20,7 +20,7 @@ const aliases: { [k: string]: string[] } = aliasesOrigin;
 
 const createImporter = (path: NodePath<any>, source: string) => {
   const exports: { [k: string]: Identifier } = {};
-  const program = path.isProgram() ? path : path.findParent((p) => p.isProgram());
+  const program = path.isProgram() ? path : path.findParent((p) => p.isProgram())!;
 
   return (method: string): Identifier => {
     if (!exports[method]) {
@@ -92,7 +92,7 @@ const createScanner = (program: NodePath<Program>) => {
       const ident = t.identifier(`${generatedPrefix}ref_${styleIdx}`);
       const decl = t.variableDeclaration("var", [t.variableDeclarator(ident, expr)]);
 
-      const ownerDecl = nodePath.findParent((p) => p.parentPath.isProgram());
+      const ownerDecl = nodePath.findParent((p) => p.parentPath.isProgram())!;
       const inserted = ownerDecl.insertBefore([decl])[0];
 
       styleIdx++;

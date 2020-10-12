@@ -19,7 +19,7 @@ const createImporter = (path: NodePath<any>, source: string) => {
   const exports: { [k: string]: Identifier } = {};
   const locals: { [k: string]: Identifier } = {};
 
-  const program = path.isProgram() ? path : path.findParent((p) => p.isProgram());
+  const program = path.isProgram() ? path : path.findParent((p) => p.isProgram())!;
 
   const collect = (exportName: string, local: Identifier) => {
     exports[exportName] = local;

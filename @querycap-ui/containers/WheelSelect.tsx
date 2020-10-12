@@ -7,7 +7,7 @@ import { animationFrameScheduler, BehaviorSubject, fromEvent, merge } from "rxjs
 import {
   delay as rxDelay,
   distinctUntilChanged,
-  flatMap,
+  mergeMap,
   map as rxMap,
   observeOn,
   takeUntil,
@@ -102,10 +102,10 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
       rxMap((v) => rangeLimit(Math.round(v), 0, ctxRef.current.maxIndex)),
       distinctUntilChanged(),
       tap((selectIndex) => {
-        onValueChange && onValueChange((options[selectIndex] || {}).value);
+        ctxRef.current.onValueChange && ctxRef.current.onValueChange((options[selectIndex] || {}).value);
       }),
     );
-  }, [onValueChange]);
+  }, []);
 
   useObservableEffect(() => {
     if (!containerElmRef.current) {
@@ -131,7 +131,7 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
 
     return [
       mouseDown$.pipe(
-        flatMap((start) => {
+        mergeMap((start) => {
           const startIdx = selectedIndex$.value;
 
           return mouseMove$.pipe(
@@ -201,6 +201,7 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
             0,
             ctxRef.current.maxIndex,
           );
+
           selectedIndex$.next(nextIdx);
         }),
       ),
