@@ -3,7 +3,7 @@
 
 __metadata:
   version: 4
-  cacheKey: 6
+  cacheKey: 7
 
 "@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.10.4, @babel/code-frame@npm:^7.5.5":
   version: 7.10.4
@@ -1310,7 +1310,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/types@npm:^7.0.0, @babel/types@npm:^7.10.4, @babel/types@npm:^7.10.5, @babel/types@npm:^7.11.0, @babel/types@npm:^7.11.5, @babel/types@npm:^7.3.0, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.4":
+"@babel/types@npm:^7.0.0, @babel/types@npm:^7.10.4, @babel/types@npm:^7.10.5, @babel/types@npm:^7.11.0, @babel/types@npm:^7.11.5, @babel/types@npm:^7.3.0, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.4, @babel/types@npm:^7.8.3":
   version: 7.11.5
   resolution: "@babel/types@npm:7.11.5"
   dependencies:
@@ -3656,10 +3656,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/blocks@workspace:@querycap-ui/blocks"
   dependencies:
-    "@querycap-ui/form-controls": ^0.9.7
+    "@querycap-ui/form-controls": ^0.9.8
     "@querycap-ui/icons": ^0.3.4
-    "@querycap-ui/layouts": ^0.1.34
-    "@querycap/uikit": ^0.3.9
+    "@querycap-ui/layouts": ^0.1.35
+    "@querycap/uikit": ^0.3.10
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@emotion/core": 10.x
@@ -3703,7 +3703,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/core@^0.8.13, @querycap-ui/core@workspace:@querycap-ui/core":
+"@querycap-ui/core@^0.8.14, @querycap-ui/core@workspace:@querycap-ui/core":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/core@workspace:@querycap-ui/core"
   dependencies:
@@ -3742,16 +3742,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/form-controls@^0.9.7, @querycap-ui/form-controls@workspace:@querycap-ui/form-controls":
+"@querycap-ui/form-controls@^0.9.8, @querycap-ui/form-controls@workspace:@querycap-ui/form-controls":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/form-controls@workspace:@querycap-ui/form-controls"
   dependencies:
-    "@querycap-ui/core": ^0.8.13
+    "@querycap-ui/core": ^0.8.14
     "@querycap-ui/icons": ^0.3.4
-    "@querycap-ui/layouts": ^0.1.34
-    "@querycap/form": ^0.8.3
+    "@querycap-ui/layouts": ^0.1.35
+    "@querycap/form": ^0.8.4
     "@querycap/reactutils": ^0.6.2
-    "@querycap/uikit": ^0.3.9
+    "@querycap/uikit": ^0.3.10
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@emotion/core": 10.x
@@ -3774,11 +3774,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/layouts@^0.1.34, @querycap-ui/layouts@workspace:@querycap-ui/layouts":
+"@querycap-ui/layouts@^0.1.35, @querycap-ui/layouts@workspace:@querycap-ui/layouts":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/layouts@workspace:@querycap-ui/layouts"
   dependencies:
-    "@querycap-ui/core": ^0.8.13
+    "@querycap-ui/core": ^0.8.14
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@emotion/core": 10.x
@@ -3804,11 +3804,11 @@ __metadata:
   resolution: "@querycap-ui/search-controls@workspace:@querycap-ui/search-controls"
   dependencies:
     "@querycap-ui/date-pickers": ^0.3.7
-    "@querycap-ui/form-controls": ^0.9.7
+    "@querycap-ui/form-controls": ^0.9.8
     "@querycap-ui/icons": ^0.3.4
     "@querycap/reactutils": ^0.6.2
     "@querycap/strfmt": ^0.4.0
-    "@querycap/uikit": ^0.3.9
+    "@querycap/uikit": ^0.3.10
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@emotion/core": 10.x
@@ -3827,7 +3827,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/texts@workspace:@querycap-ui/texts"
   dependencies:
-    "@querycap-ui/core": ^0.8.13
+    "@querycap-ui/core": ^0.8.14
     remark-parse: ^8.0.3
     remark-react: ^8.0.0
     unified: ^9.2.0
@@ -3876,7 +3876,7 @@ __metadata:
     "@querycap/config": ^0.6.3
     "@querycap/notify": ^0.5.2
     "@querycap/persister": ^0.5.3
-    "@reactorx/router": ^0.21.0
+    "@reactorx/router": ^0.21.1
     "@types/history": ^4.7.8
     history: ^4.10.1
     redux-logger: ^3.0.6
@@ -3912,7 +3912,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap/form@^0.8.3, @querycap/form@workspace:@querycap/form":
+"@querycap/form@^0.8.4, @querycap/form@workspace:@querycap/form":
   version: 0.0.0-use.local
   resolution: "@querycap/form@workspace:@querycap/form"
   dependencies:
@@ -4022,7 +4022,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap/uikit@^0.3.9, @querycap/uikit@workspace:@querycap/uikit":
+"@querycap/uikit@^0.3.10, @querycap/uikit@workspace:@querycap/uikit":
   version: 0.0.0-use.local
   resolution: "@querycap/uikit@workspace:@querycap/uikit"
   dependencies:
@@ -4080,7 +4080,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reactorx/router@^0.21.0, @reactorx/router@workspace:@reactorx/router":
+"@reactorx/router@^0.21.1, @reactorx/router@workspace:@reactorx/router":
   version: 0.0.0-use.local
   resolution: "@reactorx/router@workspace:@reactorx/router"
   dependencies:
@@ -9908,20 +9908,20 @@ fsevents@^1.2.7:
 
 "fsevents@patch:fsevents@^1.2.7#builtin<compat/fsevents>":
   version: 1.2.13
-  resolution: "fsevents@patch:fsevents@npm%3A1.2.13#builtin<compat/fsevents>::version=1.2.13&hash=87eb42"
+  resolution: "fsevents@patch:fsevents@npm%3A1.2.13#builtin<compat/fsevents>::version=1.2.13&hash=127e8e"
   dependencies:
     bindings: ^1.5.0
     nan: ^2.12.1
-  checksum: 31c62373556f061f4b4c52ff61c91bc9080243ea074a38a81cf12c1f2c9098da731ea3d39705c805b738427e4284af6b8151efe65ce9ca6b11378d43f36db2c4
+  checksum: 7bc048c164eb72f91b18ba7cd2ba30679a0afe57e9cd6352eac4bdbc4ddd4ca2ea98674d0bd3a80e96427469adc433c13532494b36aea40fceab36e198982182
   languageName: node
   linkType: hard
 
 "fsevents@patch:fsevents@^2.1.2#builtin<compat/fsevents>, fsevents@patch:fsevents@~2.1.2#builtin<compat/fsevents>":
   version: 2.1.3
-  resolution: "fsevents@patch:fsevents@npm%3A2.1.3#builtin<compat/fsevents>::version=2.1.3&hash=87eb42"
+  resolution: "fsevents@patch:fsevents@npm%3A2.1.3#builtin<compat/fsevents>::version=2.1.3&hash=127e8e"
   dependencies:
     node-gyp: latest
-  checksum: d8ae862048fc127cdbd00d02b2feb7c25946c3ce4cbc44e958134be87e239577a16dafafa1c270d010b8624e1b1e0372e23f7865c55c6f83e83fc9f68b0a30d2
+  checksum: e2b8c379340e21a786d32c653854c8876f94eb1202dd5be378fd42c062bc123aab5051c32bf0011865257c85982c41ded203f9fe8c9f9c8f8c84dc4672abc0e0
   languageName: node
   linkType: hard
 
@@ -18539,7 +18539,7 @@ typescript@^4.0.3:
 
 "typescript@patch:typescript@^4.0.3#builtin<compat/typescript>":
   version: 4.0.3
-  resolution: "typescript@patch:typescript@npm%3A4.0.3#builtin<compat/typescript>::version=4.0.3&hash=5b02a2"
+  resolution: "typescript@patch:typescript@npm%3A4.0.3#builtin<compat/typescript>::version=4.0.3&hash=5bf698"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
