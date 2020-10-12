@@ -12,7 +12,7 @@
     "@morlay/ts-gen-client-from-openapi": "^1.2.2",
     "@morlay/ts-gen-core": "^1.2.2",
     "@querycap-dev/generate": "^0.4.7",
-    "@types/lodash": "^4.14.161",
+    "@types/lodash": "^4.14.162",
     "axios": "^0.20.0",
     "lodash": "^4.17.20"
   },

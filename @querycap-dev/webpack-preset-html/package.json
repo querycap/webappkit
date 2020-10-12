@@ -8,7 +8,7 @@
     "webpack": "*"
   },
   "dependencies": {
-    "@types/workbox-webpack-plugin": "^5.1.4",
+    "@types/workbox-webpack-plugin": "^5.1.5",
     "html-webpack-plugin": "^4.5.0",
     "webpack-pwa-manifest": "^4.2.0",
     "workbox-core": "^5.1.4",
