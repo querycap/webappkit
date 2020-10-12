@@ -1,6 +1,6 @@
 {
   "name": "@querycap/babel-plugin-access-control-autocomplete",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
     "@babel/traverse": "7.x",
