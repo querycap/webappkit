@@ -32,6 +32,10 @@
   "scripts": {
     "prepare": "node ../../node_modules/.bin/monobundle"
   },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:querycap/webappkit.git"
+  },
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "module": "dist/index.es.js"

@@ -3,7 +3,7 @@ import json from "@rollup/plugin-json";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import del from "del";
 import { existsSync, readFileSync, writeFileSync } from "fs";
-import { isEmpty } from "lodash";
+import { isEmpty,trim } from "lodash";
 import path, { join } from "path";
 import { OutputOptions, rollup, RollupOptions } from "rollup";
 import rollupBabel from "@rollup/plugin-babel";
@@ -12,6 +12,7 @@ import { createAutoExternal } from "./autoExternal";
 import transformRequireResolveWithImport from "./babel-plugin-transform-require-resolve-with-import";
 import { createLogger } from "./log";
 import { tscOnce } from "./tscOnce";
+import { execSync } from "child_process";
 
 export const resolveRoot = (p: string): string => {
   const lernaJSONFile = path.join(p, "./lerna.json");
@@ -198,6 +199,10 @@ export const monobundle = async ({ cwd = process.cwd(), dryRun }: { cwd?: string
         scripts: {
           ...(pkg.scripts as { [k: string]: string }),
           prepare: "node ../../node_modules/.bin/monobundle",
+        },
+        repository: {
+          "type": "git",
+          "url": `ssh://${trim(String(execSync("git remote get-url origin")), "\n")}`,
         },
       },
       null,
