@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3](https://github.com/querycap/webappkit/compare/@querycap/reactutils@0.6.2...@querycap/reactutils@0.6.3) (2020-10-14)
+
+**Note:** Version bump only for package @querycap/reactutils
+
+
+
+
+
 ## [0.6.2](https://github.com/querycap/webappkit/compare/@querycap/reactutils@0.6.1...@querycap/reactutils@0.6.2) (2020-08-13)
 
 **Note:** Version bump only for package @querycap/reactutils

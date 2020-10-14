@@ -1,6 +1,6 @@
 {
   "name": "@querycap/form",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "files": [
     "dist/"
   ],
@@ -11,10 +11,10 @@
     "uuid": "7.x"
   },
   "dependencies": {
-    "@querycap/contexts": "^0.2.2",
-    "@querycap/reactutils": "^0.6.2",
-    "@querycap/validators": "^0.2.1",
-    "@reactorx/core": "^0.20.8",
+    "@querycap/contexts": "^0.2.3",
+    "@querycap/reactutils": "^0.6.3",
+    "@querycap/validators": "^0.2.2",
+    "@reactorx/core": "^0.20.9",
     "@types/lodash": "^4.14.162",
     "lodash": "^4.17.20"
   },

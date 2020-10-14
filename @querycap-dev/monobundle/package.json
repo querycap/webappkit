@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/monobundle",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "bin": "bin/monobundle.js",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
