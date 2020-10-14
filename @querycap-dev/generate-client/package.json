@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/generate-client",
-  "version": "0.5.18",
+  "version": "0.5.19",
   "files": [
     "dist/"
   ],
@@ -11,7 +11,7 @@
   "dependencies": {
     "@morlay/ts-gen-client-from-openapi": "^1.2.2",
     "@morlay/ts-gen-core": "^1.2.2",
-    "@querycap-dev/generate": "^0.4.8",
+    "@querycap-dev/generate": "^0.4.9",
     "@types/lodash": "^4.14.162",
     "axios": "^0.20.0",
     "lodash": "^4.17.20"

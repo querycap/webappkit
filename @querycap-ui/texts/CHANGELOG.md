@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.17](https://github.com/querycap/webappkit/compare/@querycap-ui/texts@0.4.16...@querycap-ui/texts@0.4.17) (2020-10-14)
+
+**Note:** Version bump only for package @querycap-ui/texts
+
+
+
+
+
 ## [0.4.16](https://github.com/querycap/webappkit/compare/@querycap-ui/texts@0.4.15...@querycap-ui/texts@0.4.16) (2020-10-14)
 
 **Note:** Version bump only for package @querycap-ui/texts

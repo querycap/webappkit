@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.4](https://github.com/querycap/webappkit/compare/@querycap-ui/progresses@0.4.3...@querycap-ui/progresses@0.4.4) (2020-10-14)
+
+**Note:** Version bump only for package @querycap-ui/progresses
+
+
+
+
+
 ## [0.4.3](https://github.com/querycap/webappkit/compare/@querycap-ui/progresses@0.4.2...@querycap-ui/progresses@0.4.3) (2020-10-14)
 
 **Note:** Version bump only for package @querycap-ui/progresses

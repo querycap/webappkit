@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.12](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.1.11...@querycap-ui/core.macro@0.1.12) (2020-10-14)
+
+**Note:** Version bump only for package @querycap-ui/core.macro
+
+
+
+
+
 ## [0.1.11](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.1.10...@querycap-ui/core.macro@0.1.11) (2020-10-14)
 
 **Note:** Version bump only for package @querycap-ui/core.macro

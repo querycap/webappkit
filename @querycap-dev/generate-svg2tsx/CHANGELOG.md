@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.11](https://github.com/querycap/webappkit/compare/@querycap-dev/generate-svg2tsx@0.3.10...@querycap-dev/generate-svg2tsx@0.3.11) (2020-10-14)
+
+**Note:** Version bump only for package @querycap-dev/generate-svg2tsx
+
+
+
+
+
 ## [0.3.10](https://github.com/querycap/webappkit/compare/@querycap-dev/generate-svg2tsx@0.3.9...@querycap-dev/generate-svg2tsx@0.3.10) (2020-10-14)
 
 **Note:** Version bump only for package @querycap-dev/generate-svg2tsx
