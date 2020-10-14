@@ -200,7 +200,7 @@ export const monobundle = async ({ cwd = process.cwd(), dryRun }: { cwd?: string
           ...(pkg.scripts as { [k: string]: string }),
           prepare: "node ../../node_modules/.bin/monobundle",
         },
-        repository: {
+        repository: pkg.repository ? pkg.repository : {
           "type": "git",
           "url": `ssh://${trim(String(execSync("git remote get-url origin")), "\n")}`,
         },
