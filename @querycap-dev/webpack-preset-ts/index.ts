@@ -46,7 +46,6 @@ export const withTsPreset = (vendorGroups: { [key: string]: RegExp } = {}) => (
     minimize: isProd,
     minimizer: [
       new TerserPlugin({
-        cache: true,
         parallel: true,
         extractComments: false,
         terserOptions: {
@@ -57,7 +56,6 @@ export const withTsPreset = (vendorGroups: { [key: string]: RegExp } = {}) => (
             comments: false,
           },
         },
-        sourceMap: false,
       }),
     ],
     // dev mode should without splitChunks for speed
