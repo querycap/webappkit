@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.1.38...@querycap-ui/layouts@0.2.0) (2020-10-15)
+
+
+### Features
+
+* bump jsx-runtime ([453f52b](https://github.com/querycap/webappkit/commit/453f52b4a7b0e0f987de76da08c9bbb4d39802f8))
+
+
+
+
+
 ## [0.1.38](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.1.37...@querycap-ui/layouts@0.1.38) (2020-10-14)
 
 **Note:** Version bump only for package @querycap-ui/layouts

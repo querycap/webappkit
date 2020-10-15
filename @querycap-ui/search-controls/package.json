@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/search-controls",
-  "version": "0.7.24",
+  "version": "0.8.0",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
@@ -14,12 +14,12 @@
     "rxjs": "6.x"
   },
   "dependencies": {
-    "@querycap-ui/date-pickers": "^0.3.10",
-    "@querycap-ui/form-controls": "^0.9.11",
-    "@querycap-ui/icons": "^0.3.6",
-    "@querycap/reactutils": "^0.6.4",
-    "@querycap/strfmt": "^0.4.2",
-    "@querycap/uikit": "^0.3.12"
+    "@querycap-ui/date-pickers": "^0.4.0",
+    "@querycap-ui/form-controls": "^0.10.0",
+    "@querycap-ui/icons": "^0.4.0",
+    "@querycap/reactutils": "^0.7.0",
+    "@querycap/strfmt": "^0.5.0",
+    "@querycap/uikit": "^0.4.0"
   },
   "publishConfig": {
     "access": "public"

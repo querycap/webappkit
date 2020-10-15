@@ -1,6 +1,6 @@
 {
   "name": "@querycap/search",
-  "version": "0.5.10",
+  "version": "0.6.0",
   "files": [
     "dist/"
   ],
@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@querycap/contexts": "^0.2.4",
-    "@querycap/request": "^0.5.5"
+    "@querycap/request": "^0.6.0"
   },
   "publishConfig": {
     "access": "public"

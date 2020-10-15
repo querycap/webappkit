@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/querycap/webappkit/compare/@querycap/babel-plugin-access-control-autocomplete@0.0.10...@querycap/babel-plugin-access-control-autocomplete@0.1.0) (2020-10-15)
+
+
+### Features
+
+* bump jsx-runtime ([453f52b](https://github.com/querycap/webappkit/commit/453f52b4a7b0e0f987de76da08c9bbb4d39802f8))
+
+
+
+
+
 ## [0.0.10](https://github.com/querycap/webappkit/compare/@querycap/babel-plugin-access-control-autocomplete@0.0.9...@querycap/babel-plugin-access-control-autocomplete@0.0.10) (2020-10-14)
 
 **Note:** Version bump only for package @querycap/babel-plugin-access-control-autocomplete
