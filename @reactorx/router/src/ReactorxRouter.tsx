@@ -3,7 +3,7 @@ import { History, Location, LocationDescriptor } from "history";
 import { Observable } from "rxjs";
 import { filter, ignoreElements, tap } from "rxjs/operators";
 import { IRouterProps, Router } from "./Router";
-import React, { useEffect, useMemo } from "react";
+import  { useEffect, useMemo } from "react";
 
 export const RouterActor = Actor.of("router");
 

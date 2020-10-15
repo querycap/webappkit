@@ -1,6 +1,6 @@
 import { roundedEm, select, shadows, theme } from "@querycap-ui/core/macro";
 import { map } from "lodash";
-import React from "react";
+
 
 export const Shadows = () => {
   return (

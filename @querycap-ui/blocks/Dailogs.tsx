@@ -3,7 +3,7 @@ import { preventDefault, select, shadows, stopPropagation, theme, withTextSize }
 import { Button } from "@querycap-ui/form-controls";
 import { IconX } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
-import React, { ReactNode } from "react";
+import  { ReactNode } from "react";
 import { pipe } from "rxjs";
 
 export const DialogContainer = withTextSize(theme.fontSizes.s)(

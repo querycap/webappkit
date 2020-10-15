@@ -1,4 +1,3 @@
-import React from "react";
 import { Redirect, Route, Router, Switch } from "..";
 import { render } from "@testing-library/react";
 import { createMemoryHistory } from "history";

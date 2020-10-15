@@ -4,7 +4,7 @@ import { Actor, AsyncStage, Store, StoreProvider, useStore } from "@reactorx/cor
 import { ReactorxRouter } from "@reactorx/router";
 import { createBrowserHistory } from "history";
 import { isFunction } from "lodash";
-import React, { ReactElement, ReactNode, StrictMode, useEffect, useMemo } from "react";
+import  { ReactElement, ReactNode, StrictMode, useEffect, useMemo } from "react";
 import ReactDOM, { render } from "react-dom";
 // @ts-ignore
 import { createLogger } from "redux-logger";

@@ -1,6 +1,6 @@
 import { animated, useTransition } from "@querycap-ui/core/macro";
 import { IOverlayProps, Overlay as OverlayBase } from "@querycap/uikit";
-import React, { ReactNode } from "react";
+import  { ReactNode } from "react";
 
 export interface OverlayProps extends IOverlayProps {
   isOpen: boolean;

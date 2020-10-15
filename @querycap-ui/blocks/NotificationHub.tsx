@@ -1,7 +1,7 @@
 import { animated, select, roundedEm, useTransition } from "@querycap-ui/core/macro";
 import { Portal } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
-import React from "react";
+
 import { timer } from "rxjs";
 import { tap } from "rxjs/operators";
 import { AlertCard, AlertProps } from "./Alert";

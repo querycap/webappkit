@@ -4,7 +4,7 @@ import path, { join } from "path";
 
 const sleep = (time: number) =>
   new Promise((resolve) => {
-    setTimeout(() => resolve(), time);
+    setTimeout(() => resolve(time), time);
   });
 
 const runTscOnce = async (projectRoot: string, lockfile: string, tmpDir: string): Promise<any> => {

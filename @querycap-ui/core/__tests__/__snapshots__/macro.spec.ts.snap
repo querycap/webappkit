@@ -191,7 +191,6 @@ __macro_generated_ref_11(block, small, invisible);
 exports[`@querycap-ui/core/macro flow 1`] = `
 "
 
-import React from \\"react\\"
 import { flow } from \\"lodash\\"
 import { select, theme } from \\"@querycap-ui/core/macro\\"
 
@@ -214,7 +213,6 @@ const C = () => {
 
 import { theme as _theme } from \\"@querycap-ui/core\\";
 import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
-import React from \\"react\\";
 import { flow } from \\"lodash\\";
 
 var __macro_generated_ref_0 = v =>
@@ -249,7 +247,6 @@ const C = () => {
 exports[`@querycap-ui/core/macro nests 1`] = `
 "
 
-import React from \\"react\\"
 import { flow } from \\"lodash\\"
 import { select, roundedEm, theme, animated, cover } from \\"@querycap-ui/core/macro\\"
 
@@ -286,7 +283,6 @@ import { theme as _theme } from \\"@querycap-ui/core\\";
 import { roundedEm as _roundedEm } from \\"@querycap-ui/core\\";
 import { selectKeys as _selectKeys } from \\"@querycap-ui/core\\";
 import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
-import React from \\"react\\";
 import { flow } from \\"lodash\\";
 
 var __macro_generated_ref_0 =
@@ -359,7 +355,6 @@ const Animated = _animated(C);
 exports[`@querycap-ui/core/macro select 1`] = `
 "
 
-import React from \\"react\\"
 import { select, OptionFocusedAttr } from \\"@querycap-ui/core/macro\\"
 
 const v = \\"\\"
@@ -384,7 +379,6 @@ const C = () => {
 import { OptionFocusedAttr as _OptionFocusedAttr } from \\"@querycap-ui/core\\";
 import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
 import { selectKeys as _selectKeys } from \\"@querycap-ui/core\\";
-import React from \\"react\\";
 const v = \\"\\";
 var __macro_generated_ref_0 = {
   name: \\"tokvmb\\",
@@ -434,7 +428,6 @@ const C = () => {
 exports[`@querycap-ui/core/macro simple 1`] = `
 "
 
-import React from \\"react\\"
 import { select, animated } from \\"@querycap-ui/core/macro\\"
 import { css } from \\"@emotion/core\\";
 
@@ -451,7 +444,6 @@ const C = () => {
  ↓ ↓ ↓ ↓ ↓ ↓
 
 import { animated as _animated } from \\"@querycap-ui/core\\";
-import React from \\"react\\";
 import { css } from \\"@emotion/core\\";
 const v = {
   name: \\"4lnri7-v\\",
@@ -473,7 +465,6 @@ const C = () => {
 exports[`@querycap-ui/core/macro with variables 1`] = `
 "
 
-import React from \\"react\\"
 import { select, roundedEm } from \\"@querycap-ui/core/macro\\"
 
 const C = () => {
@@ -488,7 +479,6 @@ const C = () => {
 
 import { roundedEm as _roundedEm } from \\"@querycap-ui/core\\";
 import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
-import React from \\"react\\";
 var __macro_generated_ref_0 = {
   name: \\"k008qs\\",
   styles: \\"display:flex;\\"

@@ -3,7 +3,7 @@ import { theme } from "@querycap-ui/core/macro";
 import { must } from "@querycap/reactutils";
 import { useObservable } from "@reactorx/core";
 import { Dictionary, noop } from "lodash";
-import React, { useRef } from "react";
+import  { useRef } from "react";
 import { isUndefined } from "lodash";
 import { FilterMeta, FilterMetaBuilder, useNewSearchBox, useSearchBox } from "./search-box";
 import { SearchInputContainer } from "./search-inputs";

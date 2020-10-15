@@ -1,6 +1,6 @@
 import { errorMsg } from "@querycap/validators";
 import { Dictionary, filter, forEach, get, isArray, isEmpty, isObject, map, mapValues, pickBy } from "lodash";
-import React, { createContext, FormHTMLAttributes, useContext, useEffect, useLayoutEffect, useMemo } from "react";
+import  { createContext, FormHTMLAttributes, useContext, useEffect, useLayoutEffect, useMemo } from "react";
 import { formStore } from "./FormStore";
 
 import { FieldState, FormState } from "./State";

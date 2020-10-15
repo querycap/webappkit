@@ -101,7 +101,9 @@ export const createAutoExternal = (
           const parts = id.split("/");
 
           if (parts.length > 2 && existsSync(join(monoRoot, parts[0], parts[1]))) {
-            throw new Error(`import error at ${importer}, don't import sub file ${id}.`);
+            if (parts[2] !== "jsx-runtime") {
+              throw new Error(`import error at ${importer}, don't import sub file ${id}.`);
+            }
           }
 
           const isDep = deps.some((idx) => id.startsWith(idx));

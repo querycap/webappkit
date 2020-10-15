@@ -2,7 +2,7 @@ import type { ValueOrThemeGetter } from "@querycap-ui/core";
 import { fromTheme, negative } from "@querycap-ui/core";
 import { select } from "@querycap-ui/core/macro";
 import { flow } from "lodash";
-import React, { CSSProperties, HTMLAttributes, ReactNode } from "react";
+import  { CSSProperties, HTMLAttributes, ReactNode } from "react";
 
 export const Stack = ({
   inline,

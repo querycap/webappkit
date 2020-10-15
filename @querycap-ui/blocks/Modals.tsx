@@ -11,7 +11,7 @@ import {
 import { IconX } from "@querycap-ui/icons";
 import { useOnExactlyClick, usePortalCloseOnEsc, withPortal } from "@querycap/uikit";
 import { noop } from "lodash";
-import React, { forwardRef, Fragment, ReactNode, Ref, useRef } from "react";
+import  { forwardRef, Fragment, HTMLAttributes, ReactNode, Ref, useRef } from "react";
 import { pipe } from "rxjs";
 
 export interface ModalBaseProps {
@@ -71,7 +71,7 @@ export const useModalTransition = (isOpen = false, onDestroyed?: () => void) =>
 
 export const ModalPanel = forwardRef(
   (
-    { children, onRequestClose, ...otherProps }: ModalBaseProps & React.HTMLAttributes<HTMLDivElement>,
+    { children, onRequestClose, ...otherProps }: ModalBaseProps & HTMLAttributes<HTMLDivElement>,
     ref: Ref<HTMLDivElement>,
   ) => (
     <div
@@ -102,7 +102,7 @@ export const ModalPanel = forwardRef(
   ),
 );
 
-export const ModalBackdrop = ({ onRequestClose, ...others }: React.HTMLAttributes<any> & ModalBaseProps) => {
+export const ModalBackdrop = ({ onRequestClose, ...others }: HTMLAttributes<any> & ModalBaseProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useOnExactlyClick(ref, onRequestClose || noop, !onRequestClose);

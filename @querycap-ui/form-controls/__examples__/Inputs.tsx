@@ -3,7 +3,7 @@ import { Button, Input, InputIcon, InputPrefix, InputSelect, InputSuffix } from 
 import { IconAirplay, IconEyeOff } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
 import { headings } from "@querycap-ui/texts";
-import React, { useState } from "react";
+import  { useState } from "react";
 import { times } from "lodash";
 
 export const Inputs = () => {

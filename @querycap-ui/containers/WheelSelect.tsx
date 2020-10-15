@@ -2,7 +2,7 @@ import { cover, mix, rgba, select, theme, useTheme } from "@querycap-ui/core/mac
 import { useValueRef } from "@querycap/reactutils";
 import { useObservableEffect } from "@reactorx/core";
 import { assign, Dictionary, map, max, reduce } from "lodash";
-import React, { useEffect, useMemo, useRef } from "react";
+import  { useEffect, useMemo, useRef } from "react";
 import { animationFrameScheduler, BehaviorSubject, fromEvent, merge } from "rxjs";
 import {
   delay as rxDelay,

@@ -1,6 +1,6 @@
 import { DateHistoryRangePicker } from "@querycap-ui/date-pickers";
 import { formatRFC3339 } from "date-fns";
-import React, { useState } from "react";
+import  { useState } from "react";
 
 export const DateHistoryRangePickersWithLimits = () => {
   const [value, setValue] = useState(["", ""] as [string, string]);

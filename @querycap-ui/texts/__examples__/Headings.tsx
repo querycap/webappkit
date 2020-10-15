@@ -1,5 +1,5 @@
 import { headings } from "@querycap-ui/texts";
-import React from "react";
+
 
 export const Headings = () => {
   return (

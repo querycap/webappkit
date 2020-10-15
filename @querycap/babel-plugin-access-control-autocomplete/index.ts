@@ -40,7 +40,7 @@ const createImporter = (path: NodePath<any>, source: string) => {
         if (importDeclaration) {
           const importSpecifier = importDeclaration
             .get("specifiers")
-            .find((n) => n.isImportSpecifier() && n.node.imported.name === method);
+            .find((n) => n.isImportSpecifier() && isIdentifier(n.node.imported) && n.node.imported.name === method);
 
           if (importSpecifier && importSpecifier.isImportSpecifier()) {
             collect(method, importSpecifier.node.local);

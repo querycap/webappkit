@@ -1,6 +1,5 @@
 import { filter, map } from "rxjs/operators";
 import { Actor, AsyncActor, renderOn, Store, StoreProvider, useConn, useEpic, useSelector, useStore, Volume } from "..";
-import React from "react";
 import { Observable } from "rxjs";
 import { act, render } from "@testing-library/react";
 

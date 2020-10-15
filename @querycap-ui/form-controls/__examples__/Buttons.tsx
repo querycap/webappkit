@@ -3,7 +3,7 @@ import { Button } from "@querycap-ui/form-controls";
 import { IconCamera } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
 import { headings } from "@querycap-ui/texts";
-import React from "react";
+
 
 export const Buttons = () => {
   return (

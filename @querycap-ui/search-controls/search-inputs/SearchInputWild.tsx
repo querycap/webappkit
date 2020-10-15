@@ -3,7 +3,7 @@ import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect
 import { useToggle } from "@querycap/uikit";
 import { useObservable, useObservableEffect } from "@reactorx/core";
 import { Dictionary, every, forEach, last, map, size, startsWith } from "lodash";
-import React, { useEffect, useRef } from "react";
+import  { useEffect, useRef } from "react";
 import { fromEvent, merge } from "rxjs";
 import { buffer, debounceTime, filter as rxFilter, tap } from "rxjs/operators";
 import { FilterMeta, FilterValue, useSearchBox, isNormalFilter } from "../search-box";

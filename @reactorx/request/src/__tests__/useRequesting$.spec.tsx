@@ -1,7 +1,6 @@
 import { createRequestActor } from "../RequestActor";
 import { useRequesting$ } from "../useRequesting$";
 import { Store, StoreProvider, useSelector } from "@reactorx/core";
-import React from "react";
 import { act, render } from "@testing-library/react";
 
 describe("useRequesting$", () => {

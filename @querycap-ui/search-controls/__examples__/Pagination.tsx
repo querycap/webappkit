@@ -1,5 +1,5 @@
 import { PaginationWithTotal } from "@querycap-ui/search-controls";
-import React, { useState } from "react";
+import  { useState } from "react";
 
 export const Paginations = () => {
   const [pager, setPager] = useState({

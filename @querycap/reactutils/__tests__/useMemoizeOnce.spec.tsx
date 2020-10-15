@@ -1,6 +1,6 @@
 import { useMemoizeOnce } from "@querycap/reactutils";
 import { render } from "@testing-library/react";
-import React, { memo, ReactNode } from "react";
+import  { memo, ReactNode } from "react";
 
 describe("#useMemoizeOnce", () => {
   it("called", () => {

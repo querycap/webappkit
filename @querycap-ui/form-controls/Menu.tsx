@@ -3,7 +3,7 @@ import { useValueRef } from "@querycap/reactutils";
 import { getBoundingClientRect, Overlay, position, useRectOfElement } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
 import { Dictionary, filter, flow, indexOf, isUndefined, replace, toLower } from "lodash";
-import React, {
+import  {
   Children,
   cloneElement,
   createContext,

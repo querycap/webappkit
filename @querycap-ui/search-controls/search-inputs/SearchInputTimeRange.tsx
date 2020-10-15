@@ -7,7 +7,7 @@ import { useToggle } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
 import { format, parseISO } from "date-fns";
 import { noop } from "lodash";
-import React, { useEffect, useRef, useState } from "react";
+import  { useEffect, useRef, useState } from "react";
 import { fromEvent, merge, pipe } from "rxjs";
 import { filter as rxFilter, tap } from "rxjs/operators";
 import { displayValue, SearchInputProps } from "../search-box";

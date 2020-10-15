@@ -8,6 +8,7 @@ import {
   Expression,
   Function,
   Identifier,
+  isIdentifier,
   Program,
   V8IntrinsicIdentifier,
   VariableDeclarator,
@@ -31,7 +32,7 @@ const createImporter = (path: NodePath<any>, source: string) => {
       if (importDeclaration) {
         const importSpecifier = importDeclaration
           .get("specifiers")
-          .find((n) => n.isImportSpecifier() && n.node.imported.name === method);
+          .find((n) => n.isImportSpecifier() && isIdentifier(n.node.imported) && n.node.imported.name === method);
 
         if (importSpecifier && importSpecifier.isImportSpecifier()) {
           exports[method] = importSpecifier.node.local;

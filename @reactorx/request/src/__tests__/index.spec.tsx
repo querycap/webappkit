@@ -1,6 +1,6 @@
 import { createRequestActor, createRequestEpic, StatusOK, useRequest } from "..";
 import { composeEpics, Store, StoreProvider } from "@reactorx/core";
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { AxiosRequestConfig, AxiosResponse } from "axios";
 import { act, render } from "@testing-library/react";
 

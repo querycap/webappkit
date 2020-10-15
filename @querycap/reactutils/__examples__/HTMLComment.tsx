@@ -1,7 +1,7 @@
 import { preventDefault } from "@querycap-ui/core";
 import { HTMLComment } from "@querycap/reactutils";
 import { map } from "lodash";
-import React, { useState } from "react";
+import  { useState } from "react";
 import { pipe } from "rxjs";
 
 export const HTMLComments = () => {

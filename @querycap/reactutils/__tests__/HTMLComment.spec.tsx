@@ -1,6 +1,6 @@
 import { HTMLComment } from "@querycap/reactutils";
 import { render } from "@testing-library/react";
-import React from "react";
+
 
 const TEXT = "this is html comment";
 

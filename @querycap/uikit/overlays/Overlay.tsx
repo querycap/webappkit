@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode, RefObject, useMemo, useRef } from "react";
+import  { FunctionComponent, ReactNode, RefObject, useMemo, useRef } from "react";
 import { withPortal } from "./Portal";
 import { usePortalCloseOnEsc, usePortalCloseOnOutsideClick } from "./portal-controls";
 import { calcPosition, useRectOfElement } from "./position";

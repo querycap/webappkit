@@ -3,7 +3,7 @@ import { RequestActor } from "@querycap/request";
 import { RequestActor as RequestActorOrigin } from "@reactorx/request";
 import { AxiosRequestConfig } from "axios";
 import { Dictionary, every, filter, forEach, map, some } from "lodash";
-import React, { createContext, FunctionComponent, lazy, ReactNode, Suspense, useContext } from "react";
+import  { createContext, FunctionComponent, lazy, ReactNode, Suspense, useContext } from "react";
 
 const AccessControlContext = createContext({
   permissions: {},

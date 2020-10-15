@@ -2,9 +2,9 @@ import {
   colors,
   cover,
   rgba,
+  roundedEm,
   select,
   shadows,
-  roundedEm,
   theme,
   ThemeState,
   withBackground,
@@ -13,7 +13,7 @@ import { Switch } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 import { IRoute, NavLink, parseSearchString, Redirect, useRouter } from "@reactorx/router";
 import { filter, groupBy, keys, last, map, noop } from "lodash";
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { CSSReset } from "src-app/sg/Reset";
 import { CodeBlock } from "./CodeBlock";
 
@@ -140,20 +140,20 @@ const List = ({ filterBy }: { filterBy: { group?: string; module?: string; name?
   const matched =
     filterBy.group || filterBy.module || filterBy.name
       ? filter(examples, (e) => {
-          if (filterBy.name) {
-            return e.group === filterBy.group && e.module === filterBy.module && e.name === filterBy.name;
-          }
-          if (filterBy.module) {
-            return e.group === filterBy.group && e.module === filterBy.module;
-          }
-          return e.group === filterBy.group;
-        })
+        if (filterBy.name) {
+          return e.group === filterBy.group && e.module === filterBy.module && e.name === filterBy.name;
+        }
+        if (filterBy.module) {
+          return e.group === filterBy.group && e.module === filterBy.module;
+        }
+        return e.group === filterBy.group;
+      })
       : examples;
 
   return (
     <>
       {map(matched, (ex) => {
-        return <ExampleBlock {...ex} key={`${ex.group}:${ex.module}:${ex.name}`} />;
+        return <ExampleBlock key={`${ex.group}:${ex.module}:${ex.name}`} {...ex} />;
       })}
     </>
   );

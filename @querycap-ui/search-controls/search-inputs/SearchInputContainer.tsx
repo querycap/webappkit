@@ -1,7 +1,7 @@
 import { roundedEm, select, theme, transparentize } from "@querycap-ui/core/macro";
 import { useObservable } from "@reactorx/core";
 import { filter, flow, map, size } from "lodash";
-import React from "react";
+
 import { displayValue, FilterMeta, filterValueID, useSearchBox } from "../search-box";
 import { SearchInputText } from "./SearchInputText";
 import { SearchInputWild } from "./SearchInputWild";

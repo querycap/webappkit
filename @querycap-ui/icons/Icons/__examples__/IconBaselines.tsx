@@ -1,5 +1,5 @@
 import { IconSquare } from "@querycap-ui/icons";
-import React from "react";
+
 
 const scales = [1, 1.2, 1.8, 2];
 

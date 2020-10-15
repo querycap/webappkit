@@ -1,7 +1,7 @@
 import { select, theme, roundedEm } from "@querycap-ui/core/macro";
 import { Stack } from "@querycap-ui/layouts";
 import { Progress } from "@querycap-ui/progresses";
-import React from "react";
+
 
 export const Progresses = () => (
   <Stack spacing={roundedEm(0.2)} align={"stretch"}>

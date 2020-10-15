@@ -20,7 +20,7 @@ import {
 
 import { zhCN } from "date-fns/locale";
 import { Dictionary, floor, flow, forEach, map, set } from "lodash";
-import React, { ReactNode, useEffect, useMemo, useState } from "react";
+import  { HTMLAttributes, ReactNode, useEffect, useMemo, useState } from "react";
 
 export const format = (date: number | Date, formatStr: string) => {
   return originFormat(date, formatStr, {
@@ -28,7 +28,7 @@ export const format = (date: number | Date, formatStr: string) => {
   });
 };
 
-const NavBtn = ({ children, ...otherProps }: { disabled?: boolean } & React.HTMLAttributes<HTMLAnchorElement>) => {
+const NavBtn = ({ children, ...otherProps }: { disabled?: boolean } & HTMLAttributes<HTMLAnchorElement>) => {
   return (
     <a
       href={"#"}
@@ -175,7 +175,7 @@ interface IDayCellProps {
   onSelect(dateValue: Date): void;
 }
 
-export const WeekRow = (props: React.HTMLAttributes<any>) => (
+export const WeekRow = (props: HTMLAttributes<any>) => (
   <span
     css={{
       display: "flex",
@@ -186,7 +186,7 @@ export const WeekRow = (props: React.HTMLAttributes<any>) => (
   />
 );
 
-export const Cell = (props: React.HTMLAttributes<any>) => (
+export const Cell = (props: HTMLAttributes<any>) => (
   <span
     css={{
       lineHeight: 1,

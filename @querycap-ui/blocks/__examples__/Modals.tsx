@@ -3,7 +3,7 @@ import { roundedEm } from "@querycap-ui/core/macro";
 import { Button } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 import { useToggle } from "@querycap/uikit";
-import React from "react";
+
 
 const ModalDemo = () => {
   const [isOpen, show, hide] = useToggle();

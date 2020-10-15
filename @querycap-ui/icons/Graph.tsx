@@ -1,6 +1,6 @@
-import React from "react";
+import {  ReactElement, HTMLAttributes  } from "react";
 
-export interface GraphProps extends React.HTMLAttributes<any> {
+export interface GraphProps extends HTMLAttributes<any> {
   inline?: boolean;
   scale?: number;
 }
@@ -62,4 +62,4 @@ export const Icon = ({ inline = true, children, ...props }: GraphProps) => (
   </Graph>
 );
 
-export const createIcon = (svg: React.ReactElement) => (props: GraphProps) => <Icon {...props}>{svg}</Icon>;
+export const createIcon = (svg: ReactElement) => (props: GraphProps) => <Icon {...props}>{svg}</Icon>;

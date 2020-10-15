@@ -13,15 +13,18 @@ const SomeComponent = () => {
     
  ↓ ↓ ↓ ↓ ↓ ↓
 
-import { Fragment as _Fragment } from \\"react\\";
-import { jsx as _jsx } from \\"@emotion/core\\";
+import { jsx as _jsx } from \\"@querycap-ui/core/jsx-runtime\\";
+import { Fragment as _Fragment } from \\"@querycap-ui/core/jsx-runtime\\";
 
 const SomeComponent = () => {
-  return _jsx(_Fragment, null, _jsx(\\"div\\", {
-    css: t => ({
-      color: t.color.primary
+  return _jsx(_Fragment, {
+    children: _jsx(\\"div\\", {
+      css: t => ({
+        color: t.color.primary
+      }),
+      children: \\"123\\"
     })
-  }, \\"123\\"));
+  });
 };  
   "
 `;
@@ -31,20 +34,26 @@ exports[`babel-preset-css-prop css prop only 1`] = `
 
 const SomeComponent = () => {
   return (
-    <div css={(t) => ({ color: t.color.primary })}>123</div>
+    <div css={(t) => ({ color: t.color.primary })}><span key={\\"a\\"}>1</span><span key={\\"b\\"}>2</span></div>
   )
 }
     
  ↓ ↓ ↓ ↓ ↓ ↓
 
-import { jsx as _jsx } from \\"@emotion/core\\";
+import { jsx as _jsx } from \\"@querycap-ui/core/jsx-runtime\\";
+import { jsxs as _jsxs } from \\"@querycap-ui/core/jsx-runtime\\";
 
 const SomeComponent = () => {
-  return _jsx(\\"div\\", {
+  return _jsxs(\\"div\\", {
     css: t => ({
       color: t.color.primary
-    })
-  }, \\"123\\");
+    }),
+    children: [_jsx(\\"span\\", {
+      children: \\"1\\"
+    }, \\"a\\"), _jsx(\\"span\\", {
+      children: \\"2\\"
+    }, \\"b\\")]
+  });
 };  
   "
 `;
@@ -56,17 +65,29 @@ const SomeComponent = () => {
   return (
     <>
       <div>123</div>
+      <span>{undefined}</span>  
+      <span v=\\"v\\" key={\\"i\\"} {...v}  />
     </>
   )
 }
     
  ↓ ↓ ↓ ↓ ↓ ↓
 
-import { Fragment as _Fragment } from \\"react\\";
-import { createElement as _createElement } from \\"react\\";
+import { jsx as _jsx } from \\"react/jsx-runtime\\";
+import { jsxs as _jsxs } from \\"react/jsx-runtime\\";
+import { Fragment as _Fragment } from \\"react/jsx-runtime\\";
 
 const SomeComponent = () => {
-  return _createElement(_Fragment, null, _createElement(\\"div\\", null, \\"123\\"));
+  return /*#__PURE__*/_jsxs(_Fragment, {
+    children: [/*#__PURE__*/_jsx(\\"div\\", {
+      children: \\"123\\"
+    }), /*#__PURE__*/_jsx(\\"span\\", {
+      children: undefined
+    }), /*#__PURE__*/_jsx(\\"span\\", {
+      v: \\"v\\",
+      ...v
+    }, \\"i\\")]
+  });
 };  
   "
 `;

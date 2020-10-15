@@ -6,7 +6,7 @@ import { useValueRef } from "@querycap/reactutils";
 import { useToggle } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
 import { map, noop } from "lodash";
-import React, { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
+import  { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
 import { fromEvent, merge } from "rxjs";
 import { filter as rxFilter, tap } from "rxjs/operators";
 import { InputIcon } from "./Input";

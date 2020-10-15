@@ -1,5 +1,5 @@
 import { DateWheelPicker } from "@querycap-ui/date-pickers";
-import React, { useState } from "react";
+import  { useState } from "react";
 
 export const DateWheelPickers = () => {
   const [value, updateValue] = useState("");

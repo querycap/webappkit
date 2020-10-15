@@ -8,7 +8,7 @@ import { importEmotionJSXOnlyNeed } from "./import-emotion-jsx-only-need";
 export default (_: any, { sourceMap = false, autoLabel, labelFormat, instances }: any) => ({
   plugins: [
     importEmotionJSXOnlyNeed,
-    jsx,
+    [jsx, { "runtime": "automatic" }],
     [
       emotion,
       {

@@ -1,6 +1,6 @@
 import { select, theme, roundedEm } from "@querycap-ui/core/macro";
 import { map } from "lodash";
-import React from "react";
+
 import * as IconSets from "..";
 
 export const NOSRC = true;

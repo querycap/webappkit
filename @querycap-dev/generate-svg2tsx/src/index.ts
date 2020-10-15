@@ -72,7 +72,7 @@ export const svg2tsx = (
   const [iconCreateLib, iconCreateMethod] = libMethod(opts.iconCreator);
 
   return `
-import React from "react";
+
 import { ${iconCreateMethod} } from "${iconCreateLib}";
 
 ${map(

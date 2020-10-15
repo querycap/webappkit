@@ -1,7 +1,7 @@
 import { ThemeContext } from "@emotion/core";
 import { flow, forEach, isFunction, keys, mapValues } from "lodash";
 import { rgba, transparentize } from "polished";
-import React, { useContext, useMemo } from "react";
+import  { useContext, useMemo } from "react";
 import type { FunctionComponent, ReactNode } from "react";
 import { colors } from "./colors";
 import { safeTextColor, simpleShadow, tintOrShade } from "./helpers";
@@ -118,7 +118,7 @@ export const shadows = {
 
 export const roundedEm = (em: number) => (t: Theme) => Math.round(em * t.state.fontSize);
 
-export const ThemeProvider = (props: { theme?: Theme; children?: React.ReactNode }) => (
+export const ThemeProvider = (props: { theme?: Theme; children?: ReactNode }) => (
   <ThemeContext.Provider value={props.theme || defaultTheme}>{props.children}</ThemeContext.Provider>
 );
 

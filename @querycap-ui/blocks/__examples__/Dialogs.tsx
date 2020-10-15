@@ -3,7 +3,7 @@ import { select, theme, roundedEm } from "@querycap-ui/core/macro";
 import { Button } from "@querycap-ui/form-controls";
 import { IconCheckCircle } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
-import React from "react";
+
 
 export const Dialogs = () => {
   return (

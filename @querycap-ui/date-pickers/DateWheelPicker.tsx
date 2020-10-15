@@ -1,7 +1,7 @@
 import { WheelSelect } from "@querycap-ui/containers";
 import { formatRFC3339, getDate, getDaysInMonth, getHours, getMinutes, getMonth, getYear, parseISO } from "date-fns";
 import { isUndefined, map, padStart, times } from "lodash";
-import React, { useEffect, useMemo, useState } from "react";
+import  { useEffect, useMemo, useState } from "react";
 
 interface IDate {
   year?: number;

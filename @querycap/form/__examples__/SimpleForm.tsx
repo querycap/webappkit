@@ -2,7 +2,7 @@ import { preventDefault, ThemeState } from "@querycap-ui/core";
 import { Button, FormControls, FormControlWithField, InputSelect } from "@querycap-ui/form-controls";
 import { SimpleInputText, useNewForm } from "@querycap/form";
 import { required, validCellPhone, validEmail } from "@querycap/validators";
-import React from "react";
+
 import { pipe } from "rxjs";
 
 const displayGender = (v: string) => {

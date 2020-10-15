@@ -12,7 +12,7 @@ import {
   transparentize,
 } from "@querycap-ui/core/macro";
 import { flow } from "lodash";
-import React, { ButtonHTMLAttributes, forwardRef, ReactNode } from "react";
+import  { ButtonHTMLAttributes, forwardRef, ReactNode } from "react";
 import { base, fitPaddingY } from "./utils";
 
 export interface ButtonOptions {

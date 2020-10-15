@@ -128,7 +128,7 @@ export const monobundle = async ({ cwd = process.cwd(), dryRun }: { cwd?: string
           },
         ],
         plugins: [
-          autoExternal(),
+          autoExternal(false),
           dts({
             respectExternal: true,
           }),

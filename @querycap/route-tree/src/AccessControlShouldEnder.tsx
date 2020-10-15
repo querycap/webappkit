@@ -1,7 +1,7 @@
 import { displayPermissions, ShouldEnterResolver, TShouldRender, useAccessControl } from "@querycap/access";
 import { generatePath, useRouter } from "@reactorx/router";
 import { Dictionary, forEach, map, reduce, some, assign } from "lodash";
-import React, { Children, cloneElement, lazy, ReactNode, Suspense, useEffect, useMemo } from "react";
+import  { Children, cloneElement, lazy, ReactNode, Suspense, useEffect, useMemo } from "react";
 import { RouteTree } from "./RouteTree";
 
 const resolveShouldRender = (route: RouteTree): ((scope: string) => Promise<TShouldRender>) => {
