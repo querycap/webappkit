@@ -21,6 +21,7 @@ module.exports = {
   rules: {
     "func-style": ["error", "expression"],
     "react/display-name": "warn",
+    "react/jsx-key": ["error", { checkFragmentShorthand: false }],
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react-hooks/rules-of-hooks": "error",

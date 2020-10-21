@@ -3,8 +3,8 @@
   "version": "0.7.0",
   "license": "MIT",
   "dependencies": {
-    "@babel/plugin-syntax-jsx": "^7.10.4",
-    "@babel/plugin-transform-react-jsx": "^7.10.4",
+    "@babel/plugin-syntax-jsx": "^7.12.1",
+    "@babel/plugin-transform-react-jsx": "^7.12.1",
     "babel-plugin-emotion": "10.0.33"
   },
   "publishConfig": {

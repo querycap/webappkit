@@ -49,7 +49,7 @@ export const withTsPreset = (vendorGroups: { [key: string]: RegExp } = {}) => (
         parallel: true,
         extractComments: false,
         terserOptions: {
-          ecma: 6,
+          ecma: 2015,
           compress: true,
           mangle: true,
           output: {

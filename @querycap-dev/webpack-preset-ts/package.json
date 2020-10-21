@@ -10,11 +10,11 @@
     "webpack": "*"
   },
   "dependencies": {
-    "@types/terser-webpack-plugin": "^4.2.0",
+    "@types/terser-webpack-plugin": "^5.0.0",
     "babel-loader": "^8.1.0",
     "source-map-loader": "^1.1.1",
     "terser-webpack-plugin": "^5.0.0",
-    "worker-loader": "^3.0.4"
+    "worker-loader": "^3.0.5"
   },
   "publishConfig": {
     "access": "public"
