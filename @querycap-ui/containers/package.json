@@ -8,7 +8,7 @@
     "@querycap/reactutils": "*",
     "@reactorx/core": "*",
     "lodash": "4.x",
-    "react": "16.x",
+    "react": "17.x",
     "rxjs": "*"
   },
   "publishConfig": {

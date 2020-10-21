@@ -5,7 +5,7 @@
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
     "lodash": "4.x",
-    "react": "16.x"
+    "react": "17.x"
   },
   "dependencies": {
     "@querycap-ui/core": "^0.9.2"

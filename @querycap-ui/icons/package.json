@@ -5,7 +5,7 @@
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
     "@querycap-ui/core": "*",
-    "react": "16.x"
+    "react": "17.x"
   },
   "dependencies": {
     "@emotion/css": "^10.0.27"

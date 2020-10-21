@@ -6,7 +6,7 @@
   ],
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "react": "16.x"
+    "react": "17.x"
   },
   "license": "MIT",
   "publishConfig": {

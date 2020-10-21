@@ -11,7 +11,7 @@
     "@reactorx/request": "0.x",
     "@reactorx/router": "0.x",
     "lodash": "4.x",
-    "react": "16.x",
+    "react": "17.x",
     "rxjs": "6.x"
   },
   "dependencies": {

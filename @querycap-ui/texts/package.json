@@ -5,7 +5,7 @@
   "peerDependencies": {
     "@emotion/core": "10.x",
     "lodash": "4.x",
-    "react": "16.x"
+    "react": "17.x"
   },
   "dependencies": {
     "@querycap-ui/core": "^0.9.2",

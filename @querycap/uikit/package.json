@@ -6,7 +6,7 @@
     "@babel/runtime-corejs3": "*",
     "@reactorx/core": "0.x",
     "lodash": "4.x",
-    "react": "16.x",
+    "react": "17.x",
     "rxjs": "6.x"
   },
   "dependencies": {
