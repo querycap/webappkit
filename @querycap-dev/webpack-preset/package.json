@@ -9,7 +9,7 @@
     "@babel/runtime-corejs3": "*",
     "@querycap-dev/devkit": "^0.4.11",
     "webpack": "*",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^4.0.0"
   },
   "dependencies": {
     "webpack-bundle-analyzer": "^3.9.0"
