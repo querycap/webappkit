@@ -8,7 +8,7 @@
     "@querycap-ui/core": "*",
     "date-fns": "*",
     "lodash": "4.x",
-    "react": "16.x"
+    "react": "17.x"
   },
   "dependencies": {
     "@querycap-ui/containers": "^0.4.0",

@@ -9,7 +9,7 @@
     "@reactorx/core": "*",
     "@reactorx/router": "*",
     "lodash": "4.x",
-    "react": "16.x",
+    "react": "17.x",
     "rxjs": "*"
   },
   "dependencies": {

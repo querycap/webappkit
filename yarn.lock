@@ -4523,7 +4523,7 @@ __metadata:
     "@reactorx/core": "*"
     "@reactorx/router": "*"
     lodash: 4.x
-    react: 16.x
+    react: 17.x
     rxjs: "*"
   languageName: unknown
   linkType: soft
@@ -4537,7 +4537,7 @@ __metadata:
     "@querycap/reactutils": "*"
     "@reactorx/core": "*"
     lodash: 4.x
-    react: 16.x
+    react: 17.x
     rxjs: "*"
   languageName: unknown
   linkType: soft
@@ -4569,7 +4569,7 @@ __metadata:
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     lodash: 4.x
-    react: 16.x
+    react: 17.x
   languageName: unknown
   linkType: soft
 
@@ -4591,7 +4591,7 @@ __metadata:
     "@querycap-ui/core": "*"
     date-fns: "*"
     lodash: 4.x
-    react: 16.x
+    react: 17.x
   languageName: unknown
   linkType: soft
 
@@ -4609,7 +4609,7 @@ __metadata:
     "@babel/runtime-corejs3": "*"
     "@reactorx/core": 0.x
     lodash: 4.x
-    react: 16.x
+    react: 17.x
     rxjs: 6.x
   languageName: unknown
   linkType: soft
@@ -4622,7 +4622,7 @@ __metadata:
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@querycap-ui/core": "*"
-    react: 16.x
+    react: 17.x
   languageName: unknown
   linkType: soft
 
@@ -4634,7 +4634,7 @@ __metadata:
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     lodash: 4.x
-    react: 16.x
+    react: 17.x
   languageName: unknown
   linkType: soft
 
@@ -4645,7 +4645,7 @@ __metadata:
     "@babel/runtime-corejs3": "*"
     "@querycap-ui/core": ^0.x
     lodash: 4.x
-    react: 16.x
+    react: 17.x
   languageName: unknown
   linkType: soft
 
@@ -4667,7 +4667,7 @@ __metadata:
     "@reactorx/core": 0.x
     date-fns: 2.x
     lodash: 4.x
-    react: 16.x
+    react: 17.x
     rxjs: 6.x
   languageName: unknown
   linkType: soft
@@ -4683,7 +4683,7 @@ __metadata:
   peerDependencies:
     "@emotion/core": 10.x
     lodash: 4.x
-    react: 16.x
+    react: 17.x
   languageName: unknown
   linkType: soft
 
@@ -4701,7 +4701,7 @@ __metadata:
     axios: 0.19.x
     date-fns: 2.x
     lodash: 4.x
-    react: 16.x
+    react: 17.x
     rxjs: 6.x
   languageName: unknown
   linkType: soft
@@ -4732,8 +4732,8 @@ __metadata:
   peerDependencies:
     "@reactorx/core": 0.x
     lodash: 4.x
-    react: 16.x
-    react-dom: 16.x
+    react: 17.x
+    react-dom: 17.x
   languageName: unknown
   linkType: soft
 
@@ -4742,7 +4742,7 @@ __metadata:
   resolution: "@querycap/config@workspace:@querycap/config"
   peerDependencies:
     "@babel/runtime-corejs3": "*"
-    react: 16.x
+    react: 17.x
   languageName: unknown
   linkType: soft
 
@@ -4756,7 +4756,7 @@ __metadata:
     "@reactorx/router": 0.x
     date-fns: 2.x
     lodash: 4.x
-    react: 16.x
+    react: 17.x
     rxjs: 6.x
   languageName: unknown
   linkType: soft
@@ -4787,7 +4787,7 @@ __metadata:
     "@babel/runtime-corejs3": "*"
     "@reactorx/core": 0.x
     lodash: 4.x
-    react: 16.x
+    react: 17.x
     rxjs: 6.x
     uuid: 7.x
   languageName: unknown
@@ -4813,7 +4813,7 @@ __metadata:
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     lodash: 4.x
-    react: 16.x
+    react: 17.x
   languageName: unknown
   linkType: soft
 
@@ -4827,7 +4827,7 @@ __metadata:
     "@reactorx/request": 0.20.x
     axios: 0.19.x
     lodash: 4.x
-    react: 16.x
+    react: 17.x
     rxjs: 6.x
   languageName: unknown
   linkType: soft
@@ -4840,7 +4840,7 @@ __metadata:
     "@querycap/access": "*"
     "@reactorx/router": 0.x
     lodash: 4.x
-    react: 16.x
+    react: 17.x
   languageName: unknown
   linkType: soft
 
@@ -4856,7 +4856,7 @@ __metadata:
     "@reactorx/request": 0.x
     "@reactorx/router": 0.x
     lodash: 4.x
-    react: 16.x
+    react: 17.x
     rxjs: 6.x
   languageName: unknown
   linkType: soft
@@ -4867,7 +4867,7 @@ __metadata:
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     lodash: 4.x
-    react: 16.x
+    react: 17.x
   languageName: unknown
   linkType: soft
 
@@ -4883,7 +4883,7 @@ __metadata:
     "@babel/runtime-corejs3": "*"
     "@reactorx/core": 0.x
     lodash: 4.x
-    react: 16.x
+    react: 17.x
     rxjs: 6.x
   languageName: unknown
   linkType: soft

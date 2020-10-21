@@ -10,7 +10,7 @@
     "@querycap/access": "*",
     "@reactorx/router": "0.x",
     "lodash": "4.x",
-    "react": "16.x"
+    "react": "17.x"
   },
   "publishConfig": {
     "access": "public"
