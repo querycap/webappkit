@@ -10,7 +10,7 @@
     "@querycap/notify": "^0.x",
     "@reactorx/core": "0.20.x",
     "@reactorx/request": "0.20.x",
-    "axios": "0.20.x",
+    "axios": "0.21.x",
     "lodash": "4.x",
     "react": "17.x",
     "rxjs": "6.x"

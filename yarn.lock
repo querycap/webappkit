@@ -4339,7 +4339,7 @@ __metadata:
     "@morlay/ts-gen-core": ^1.2.2
     "@querycap-dev/generate": ^0.4.9
     "@types/lodash": ^4.14.162
-    axios: ^0.20.0
+    axios: ^0.21.0
     lodash: ^4.17.20
   peerDependencies:
     "@babel/runtime-corejs3": "*"
@@ -4698,7 +4698,7 @@ __metadata:
     "@babel/runtime-corejs3": "*"
     "@reactorx/core": 0.x
     "@reactorx/request": 0.x
-    axios: 0.20.x
+    axios: 0.21.x
     date-fns: 2.x
     lodash: 4.x
     react: 17.x
@@ -4825,7 +4825,7 @@ __metadata:
     "@querycap/notify": ^0.x
     "@reactorx/core": 0.20.x
     "@reactorx/request": 0.20.x
-    axios: 0.20.x
+    axios: 0.21.x
     lodash: 4.x
     react: 17.x
     rxjs: 6.x
@@ -4922,7 +4922,7 @@ __metadata:
     "@reactorx/core": ^0.21.0
   peerDependencies:
     "@babel/runtime-corejs3": "*"
-    axios: 0.20.x
+    axios: 0.21.x
     lodash: 4.x
     react: ">=16.x"
     rxjs: ">=6.x"
@@ -6076,7 +6076,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"acorn@npm:^8.0.3":
+"acorn@npm:^8.0.4":
   version: 8.0.4
   resolution: "acorn@npm:8.0.4"
   bin:
@@ -6600,12 +6600,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.20.0":
-  version: 0.20.0
-  resolution: "axios@npm:0.20.0"
+"axios@npm:^0.21.0":
+  version: 0.21.0
+  resolution: "axios@npm:0.21.0"
   dependencies:
     follow-redirects: ^1.10.0
-  checksum: 6cf2e963176a0d18fc457d7cb71cb6cf552193619b161fc61070d9a4db3a26a87ecfe760ba36e7af174c05a6a9898dc52cfeb5c0e62e19fddd9788739553ad73
+  checksum: 4b08ecab39040948c03cae5fa726fdcf8bc299679818179c146e779a922ce887fad9261d82ad57ad1a3aa1fcba3612f14b490fdfa2cd28fa23c190fd48517f5f
   languageName: node
   linkType: hard
 
@@ -7103,7 +7103,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.12.0, browserslist@npm:^4.14.3, browserslist@npm:^4.8.5":
+"browserslist@npm:^4.12.0, browserslist@npm:^4.14.5, browserslist@npm:^4.8.5":
   version: 4.14.5
   resolution: "browserslist@npm:4.14.5"
   dependencies:
@@ -8735,7 +8735,7 @@ __metadata:
     "@types/prismjs": ^1.16.1
     "@types/react": ^16.9.53
     "@types/react-dom": ^16.9.8
-    axios: ^0.20.0
+    axios: ^0.21.0
     babel-jest: ^26.6.0
     benchmark: 2.1.4
     date-fns: ^2.16.1
@@ -8756,7 +8756,7 @@ __metadata:
     rxjs: ^6.6.3
     ts-node: ^9.0.0
     typescript: ^4.1.0-beta
-    webpack: 5.1.3
+    webpack: 5.2.0
     webpack-bundle-analyzer: ^3.9.0
     webpack-cli: ^4.1.0
   languageName: unknown
@@ -9172,13 +9172,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"enhanced-resolve@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "enhanced-resolve@npm:5.2.0"
+"enhanced-resolve@npm:^5.3.0":
+  version: 5.3.1
+  resolution: "enhanced-resolve@npm:5.3.1"
   dependencies:
     graceful-fs: ^4.2.4
     tapable: ^2.0.0
-  checksum: 0cc81613ce4767c781958abf6301c3bfe3cc20ea776840c822aba6d3ac337662d3b1fb305bf291988a10e3613e8ba802afb439cb222cdd08159e7fa8686c00a6
+  checksum: 1689ec43477bc31b8fd78737ce3f278bebeab0e97426662d966fc722dc5d5dfac8c9279e3467b9918e7e51590e37eb84bc751a67b047e71e8ca34615c729f42e
   languageName: node
   linkType: hard
 
@@ -9398,7 +9398,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-scope@npm:^5.0.0, eslint-scope@npm:^5.1.0, eslint-scope@npm:^5.1.1":
+"eslint-scope@npm:^5.0.0, eslint-scope@npm:^5.1.1":
   version: 5.1.1
   resolution: "eslint-scope@npm:5.1.1"
   dependencies:
@@ -18836,9 +18836,9 @@ typescript@^4.1.0-beta:
   languageName: node
   linkType: hard
 
-"webpack@npm:5.1.3":
-  version: 5.1.3
-  resolution: "webpack@npm:5.1.3"
+"webpack@npm:5.2.0":
+  version: 5.2.0
+  resolution: "webpack@npm:5.2.0"
   dependencies:
     "@types/eslint-scope": ^3.7.0
     "@types/estree": ^0.0.45
@@ -18846,11 +18846,11 @@ typescript@^4.1.0-beta:
     "@webassemblyjs/helper-module-context": 1.9.0
     "@webassemblyjs/wasm-edit": 1.9.0
     "@webassemblyjs/wasm-parser": 1.9.0
-    acorn: ^8.0.3
-    browserslist: ^4.14.3
+    acorn: ^8.0.4
+    browserslist: ^4.14.5
     chrome-trace-event: ^1.0.2
-    enhanced-resolve: ^5.2.0
-    eslint-scope: ^5.1.0
+    enhanced-resolve: ^5.3.0
+    eslint-scope: ^5.1.1
     events: ^3.2.0
     glob-to-regexp: ^0.4.1
     graceful-fs: ^4.2.4
@@ -18869,7 +18869,7 @@ typescript@^4.1.0-beta:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: 4c741af3831bb216b8a51a3a5586f134318a0106fd38b6bbafdd609b65cb1e594d7ae58daa794b8de5bb5b1dcbf0b98b3f8e9fde848f95d5f2971657d57d581e
+  checksum: 1f91563c2512e9068c9d76f45479fd3c6d9652f490c428d36ce9f5311979609e363e58b0cf8f23019185cd335e72d00a48911a9c1da1b34f0d7a6265eab7e5c4
   languageName: node
   linkType: hard
 

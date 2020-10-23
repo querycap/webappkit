@@ -13,7 +13,7 @@
     "@morlay/ts-gen-core": "^1.2.2",
     "@querycap-dev/generate": "^0.4.9",
     "@types/lodash": "^4.14.162",
-    "axios": "^0.20.0",
+    "axios": "^0.21.0",
     "lodash": "^4.17.20"
   },
   "publishConfig": {
