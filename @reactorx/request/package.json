@@ -6,7 +6,7 @@
   ],
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "axios": "0.20.x",
+    "axios": "0.21.x",
     "lodash": "4.x",
     "react": ">=16.x",
     "rxjs": ">=6.x"
