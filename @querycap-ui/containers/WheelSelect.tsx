@@ -144,6 +144,7 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
               mouseUp$.pipe(
                 tap((end) => {
                   selectedIndex$.next(Math.round(selectedIndex$.value));
+
                   // as click event
                   if (end && Math.abs(end.clientY - start.clientY) < itemHeight) {
                     const target = end.target as HTMLElement;
@@ -158,14 +159,12 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
           );
         }),
         rxFilter(({ nextIdx }) => {
-          console.log(nextIdx);
           return nextIdx > 0 && nextIdx < options.length;
         }),
         tap(({ e, nextIdx }) => {
           if (!containerElmRef.current?.contains(e.target as HTMLElement)) {
             return;
           }
-          console.log(nextIdx);
 
           // disabled transition
           containerElmRef.current.setAttribute("data-transition", "false");
