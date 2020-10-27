@@ -4387,7 +4387,7 @@ __metadata:
   dependencies:
     "@rollup/plugin-babel": ^5.2.1
     "@rollup/plugin-json": ^4.1.0
-    "@rollup/plugin-node-resolve": ^9.0.0
+    "@rollup/plugin-node-resolve": ^10.0.0
     "@types/yargs": ^15.0.9
     chalk: ^4.1.0
     del: ^6.0.0
@@ -4968,6 +4968,22 @@ __metadata:
   peerDependencies:
     rollup: ^1.20.0 || ^2.0.0
   checksum: 07bc6bc83d07aefd35278e4e1a125e65210061b3dcab50c0f01273c54f43a60a3e01c1a0fed451e35d592ef1cbc8288ec8148a6229cf8cca9cdbf11a6d2d7d1c
+  languageName: node
+  linkType: hard
+
+"@rollup/plugin-node-resolve@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "@rollup/plugin-node-resolve@npm:10.0.0"
+  dependencies:
+    "@rollup/pluginutils": ^3.1.0
+    "@types/resolve": 1.17.1
+    builtin-modules: ^3.1.0
+    deepmerge: ^4.2.2
+    is-module: ^1.0.0
+    resolve: ^1.17.0
+  peerDependencies:
+    rollup: ^1.20.0||^2.0.0
+  checksum: 776f6707ccfebcfc4dea490852f9568414af0c7994281b3fcb5c57021e1623289c23a7790509640a8fe7c8670267aa8b11f23c7d794aaa439fba730ffb6c43c8
   languageName: node
   linkType: hard
 
