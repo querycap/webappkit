@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/date-pickers",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
@@ -11,8 +11,8 @@
     "react": "17.x"
   },
   "dependencies": {
-    "@querycap-ui/containers": "^0.4.0",
-    "@querycap-ui/icons": "^0.4.0"
+    "@querycap-ui/containers": "^0.4.1",
+    "@querycap-ui/icons": "^0.4.1"
   },
   "publishConfig": {
     "access": "public"

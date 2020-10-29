@@ -3,37 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.8.11](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.8.10...@querycap-dev/webpack-preset-ts@0.8.11) (2020-10-15)
+## [0.8.12](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.8.11...@querycap-dev/webpack-preset-ts@0.8.12) (2020-10-29)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-ts
 
+## [0.8.11](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.8.10...@querycap-dev/webpack-preset-ts@0.8.11) (2020-10-15)
 
-
-
+**Note:** Version bump only for package @querycap-dev/webpack-preset-ts
 
 ## [0.8.10](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.8.9...@querycap-dev/webpack-preset-ts@0.8.10) (2020-10-14)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-ts
 
-
-
-
-
 ## [0.8.9](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.8.8...@querycap-dev/webpack-preset-ts@0.8.9) (2020-10-14)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-ts
 
-
-
-
-
 ## [0.8.8](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.8.7...@querycap-dev/webpack-preset-ts@0.8.8) (2020-10-14)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-ts
-
-
-
-
 
 ## [0.8.7](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.8.6...@querycap-dev/webpack-preset-ts@0.8.7) (2020-10-12)
 

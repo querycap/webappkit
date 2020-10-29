@@ -3,32 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.4.0](https://github.com/querycap/webappkit/compare/@querycap-ui/containers@0.3.5...@querycap-ui/containers@0.4.0) (2020-10-15)
+## [0.4.1](https://github.com/querycap/webappkit/compare/@querycap-ui/containers@0.4.0...@querycap-ui/containers@0.4.1) (2020-10-29)
 
+### Bug Fixes
+
+- **@querycap-ui/container:** fix nextIdx overflow ([8a5672f](https://github.com/querycap/webappkit/commit/8a5672f9c6805b49bd3e425a4a959a0a5e787d08))
+
+# [0.4.0](https://github.com/querycap/webappkit/compare/@querycap-ui/containers@0.3.5...@querycap-ui/containers@0.4.0) (2020-10-15)
 
 ### Features
 
-* bump jsx-runtime ([453f52b](https://github.com/querycap/webappkit/commit/453f52b4a7b0e0f987de76da08c9bbb4d39802f8))
-
-
-
-
+- bump jsx-runtime ([453f52b](https://github.com/querycap/webappkit/commit/453f52b4a7b0e0f987de76da08c9bbb4d39802f8))
 
 ## [0.3.5](https://github.com/querycap/webappkit/compare/@querycap-ui/containers@0.3.4...@querycap-ui/containers@0.3.5) (2020-10-14)
 
 **Note:** Version bump only for package @querycap-ui/containers
 
-
-
-
-
 ## [0.3.4](https://github.com/querycap/webappkit/compare/@querycap-ui/containers@0.3.3...@querycap-ui/containers@0.3.4) (2020-10-14)
 
 **Note:** Version bump only for package @querycap-ui/containers
-
-
-
-
 
 ## [0.3.3](https://github.com/querycap/webappkit/compare/@querycap-ui/containers@0.3.2...@querycap-ui/containers@0.3.3) (2020-10-12)
 

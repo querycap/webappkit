@@ -4512,10 +4512,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/blocks@workspace:@querycap-ui/blocks"
   dependencies:
-    "@querycap-ui/form-controls": ^0.10.1
-    "@querycap-ui/icons": ^0.4.0
-    "@querycap-ui/layouts": ^0.2.1
-    "@querycap/uikit": ^0.4.0
+    "@querycap-ui/form-controls": ^0.10.2
+    "@querycap-ui/icons": ^0.4.1
+    "@querycap-ui/layouts": ^0.2.2
+    "@querycap/uikit": ^0.4.1
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@emotion/css": 10.x
@@ -4528,7 +4528,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/containers@^0.4.0, @querycap-ui/containers@workspace:@querycap-ui/containers":
+"@querycap-ui/containers@^0.4.1, @querycap-ui/containers@workspace:@querycap-ui/containers":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/containers@workspace:@querycap-ui/containers"
   peerDependencies:
@@ -4542,7 +4542,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/core.macro@^0.2.0, @querycap-ui/core.macro@workspace:@querycap-ui/core.macro":
+"@querycap-ui/core.macro@^0.2.1, @querycap-ui/core.macro@workspace:@querycap-ui/core.macro":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/core.macro@workspace:@querycap-ui/core.macro"
   dependencies:
@@ -4557,12 +4557,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/core@^0.9.2, @querycap-ui/core@workspace:@querycap-ui/core":
+"@querycap-ui/core@^0.9.3, @querycap-ui/core@workspace:@querycap-ui/core":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/core@workspace:@querycap-ui/core"
   dependencies:
     "@emotion/core": ^10.0.35
-    "@querycap-ui/core.macro": ^0.2.0
+    "@querycap-ui/core.macro": ^0.2.1
     "@querycap-ui/css-aliases": ^0.2.3
     polished: ^4.0.3
     react-spring: ^8.0.27
@@ -4579,12 +4579,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/date-pickers@^0.4.0, @querycap-ui/date-pickers@workspace:@querycap-ui/date-pickers":
+"@querycap-ui/date-pickers@^0.4.1, @querycap-ui/date-pickers@workspace:@querycap-ui/date-pickers":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/date-pickers@workspace:@querycap-ui/date-pickers"
   dependencies:
-    "@querycap-ui/containers": ^0.4.0
-    "@querycap-ui/icons": ^0.4.0
+    "@querycap-ui/containers": ^0.4.1
+    "@querycap-ui/icons": ^0.4.1
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@emotion/css": 10.0.x
@@ -4595,16 +4595,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/form-controls@^0.10.1, @querycap-ui/form-controls@workspace:@querycap-ui/form-controls":
+"@querycap-ui/form-controls@^0.10.2, @querycap-ui/form-controls@workspace:@querycap-ui/form-controls":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/form-controls@workspace:@querycap-ui/form-controls"
   dependencies:
-    "@querycap-ui/core": ^0.9.2
-    "@querycap-ui/icons": ^0.4.0
-    "@querycap-ui/layouts": ^0.2.1
-    "@querycap/form": ^0.9.0
-    "@querycap/reactutils": ^0.7.0
-    "@querycap/uikit": ^0.4.0
+    "@querycap-ui/core": ^0.9.3
+    "@querycap-ui/icons": ^0.4.1
+    "@querycap-ui/layouts": ^0.2.2
+    "@querycap/form": ^0.9.1
+    "@querycap/reactutils": ^0.7.1
+    "@querycap/uikit": ^0.4.1
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@reactorx/core": 0.x
@@ -4614,7 +4614,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/icons@^0.4.0, @querycap-ui/icons@workspace:@querycap-ui/icons":
+"@querycap-ui/icons@^0.4.1, @querycap-ui/icons@workspace:@querycap-ui/icons":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/icons@workspace:@querycap-ui/icons"
   dependencies:
@@ -4626,11 +4626,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/layouts@^0.2.1, @querycap-ui/layouts@workspace:@querycap-ui/layouts":
+"@querycap-ui/layouts@^0.2.2, @querycap-ui/layouts@workspace:@querycap-ui/layouts":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/layouts@workspace:@querycap-ui/layouts"
   dependencies:
-    "@querycap-ui/core": ^0.9.2
+    "@querycap-ui/core": ^0.9.3
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     lodash: 4.x
@@ -4653,12 +4653,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/search-controls@workspace:@querycap-ui/search-controls"
   dependencies:
-    "@querycap-ui/date-pickers": ^0.4.0
-    "@querycap-ui/form-controls": ^0.10.1
-    "@querycap-ui/icons": ^0.4.0
-    "@querycap/reactutils": ^0.7.0
-    "@querycap/strfmt": ^0.5.0
-    "@querycap/uikit": ^0.4.0
+    "@querycap-ui/date-pickers": ^0.4.1
+    "@querycap-ui/form-controls": ^0.10.2
+    "@querycap-ui/icons": ^0.4.1
+    "@querycap/reactutils": ^0.7.1
+    "@querycap/strfmt": ^0.5.1
+    "@querycap/uikit": ^0.4.1
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@querycap-ui/core": ^0.x
@@ -4676,7 +4676,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/texts@workspace:@querycap-ui/texts"
   dependencies:
-    "@querycap-ui/core": ^0.9.2
+    "@querycap-ui/core": ^0.9.3
     remark-parse: ^9.0.0
     remark-react: ^8.0.0
     unified: ^9.2.0
@@ -4691,8 +4691,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap/access@workspace:@querycap/access"
   dependencies:
-    "@querycap/reactutils": ^0.7.0
-    "@querycap/request": ^0.6.0
+    "@querycap/reactutils": ^0.7.1
+    "@querycap/request": ^0.6.1
     public-encrypt: 4.0.3
   peerDependencies:
     "@babel/runtime-corejs3": "*"
@@ -4722,8 +4722,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap/bootstrap@workspace:@querycap/bootstrap"
   dependencies:
-    "@querycap/config": ^0.6.5
-    "@querycap/notify": ^0.6.0
+    "@querycap/config": ^0.6.6
+    "@querycap/notify": ^0.6.1
     "@querycap/persister": ^0.5.5
     "@reactorx/router": ^0.22.0
     "@types/history": ^4.7.8
@@ -4737,7 +4737,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap/config@^0.6.5, @querycap/config@workspace:@querycap/config":
+"@querycap/config@^0.6.6, @querycap/config@workspace:@querycap/config":
   version: 0.0.0-use.local
   resolution: "@querycap/config@workspace:@querycap/config"
   peerDependencies:
@@ -4746,7 +4746,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap/contexts@^0.2.4, @querycap/contexts@workspace:@querycap/contexts":
+"@querycap/contexts@^0.2.5, @querycap/contexts@workspace:@querycap/contexts":
   version: 0.0.0-use.local
   resolution: "@querycap/contexts@workspace:@querycap/contexts"
   peerDependencies:
@@ -4761,12 +4761,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap/form@^0.9.0, @querycap/form@workspace:@querycap/form":
+"@querycap/form@^0.9.1, @querycap/form@workspace:@querycap/form":
   version: 0.0.0-use.local
   resolution: "@querycap/form@workspace:@querycap/form"
   dependencies:
-    "@querycap/contexts": ^0.2.4
-    "@querycap/reactutils": ^0.7.0
+    "@querycap/contexts": ^0.2.5
+    "@querycap/reactutils": ^0.7.1
     "@querycap/validators": ^0.2.3
     "@reactorx/core": ^0.21.0
     "@types/lodash": ^4.14.162
@@ -4778,11 +4778,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap/notify@^0.6.0, @querycap/notify@workspace:@querycap/notify":
+"@querycap/notify@^0.6.1, @querycap/notify@workspace:@querycap/notify":
   version: 0.0.0-use.local
   resolution: "@querycap/notify@workspace:@querycap/notify"
   dependencies:
-    "@querycap/contexts": ^0.2.4
+    "@querycap/contexts": ^0.2.5
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@reactorx/core": 0.x
@@ -4807,7 +4807,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap/reactutils@^0.7.0, @querycap/reactutils@workspace:@querycap/reactutils":
+"@querycap/reactutils@^0.7.1, @querycap/reactutils@workspace:@querycap/reactutils":
   version: 0.0.0-use.local
   resolution: "@querycap/reactutils@workspace:@querycap/reactutils"
   peerDependencies:
@@ -4817,7 +4817,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap/request@^0.6.0, @querycap/request@workspace:@querycap/request":
+"@querycap/request@^0.6.1, @querycap/request@workspace:@querycap/request":
   version: 0.0.0-use.local
   resolution: "@querycap/request@workspace:@querycap/request"
   peerDependencies:
@@ -4848,8 +4848,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap/search@workspace:@querycap/search"
   dependencies:
-    "@querycap/contexts": ^0.2.4
-    "@querycap/request": ^0.6.0
+    "@querycap/contexts": ^0.2.5
+    "@querycap/request": ^0.6.1
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@reactorx/core": 0.x
@@ -4861,7 +4861,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap/strfmt@^0.5.0, @querycap/strfmt@workspace:@querycap/strfmt":
+"@querycap/strfmt@^0.5.1, @querycap/strfmt@workspace:@querycap/strfmt":
   version: 0.0.0-use.local
   resolution: "@querycap/strfmt@workspace:@querycap/strfmt"
   peerDependencies:
@@ -4871,11 +4871,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap/uikit@^0.4.0, @querycap/uikit@workspace:@querycap/uikit":
+"@querycap/uikit@^0.4.1, @querycap/uikit@workspace:@querycap/uikit":
   version: 0.0.0-use.local
   resolution: "@querycap/uikit@workspace:@querycap/uikit"
   dependencies:
-    "@querycap/reactutils": ^0.7.0
+    "@querycap/reactutils": ^0.7.1
     "@types/uuid": ^8.3.0
     hey-listen: ^1.0.8
     uuid: ^8.3.1

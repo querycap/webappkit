@@ -3,40 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.9.0](https://github.com/querycap/webappkit/compare/@querycap-dev/monobundle@0.8.6...@querycap-dev/monobundle@0.9.0) (2020-10-15)
+## [0.9.1](https://github.com/querycap/webappkit/compare/@querycap-dev/monobundle@0.9.0...@querycap-dev/monobundle@0.9.1) (2020-10-29)
 
+**Note:** Version bump only for package @querycap-dev/monobundle
+
+# [0.9.0](https://github.com/querycap/webappkit/compare/@querycap-dev/monobundle@0.8.6...@querycap-dev/monobundle@0.9.0) (2020-10-15)
 
 ### Features
 
-* bump jsx-runtime ([453f52b](https://github.com/querycap/webappkit/commit/453f52b4a7b0e0f987de76da08c9bbb4d39802f8))
-
-
-
-
+- bump jsx-runtime ([453f52b](https://github.com/querycap/webappkit/commit/453f52b4a7b0e0f987de76da08c9bbb4d39802f8))
 
 ## [0.8.6](https://github.com/querycap/webappkit/compare/@querycap-dev/monobundle@0.8.5...@querycap-dev/monobundle@0.8.6) (2020-10-14)
 
 **Note:** Version bump only for package @querycap-dev/monobundle
 
-
-
-
-
 ## [0.8.5](https://github.com/querycap/webappkit/compare/@querycap-dev/monobundle@0.8.4...@querycap-dev/monobundle@0.8.5) (2020-10-14)
 
 **Note:** Version bump only for package @querycap-dev/monobundle
 
-
-
-
-
 ## [0.8.4](https://github.com/querycap/webappkit/compare/@querycap-dev/monobundle@0.8.3...@querycap-dev/monobundle@0.8.4) (2020-10-14)
 
 **Note:** Version bump only for package @querycap-dev/monobundle
-
-
-
-
 
 ## [0.8.3](https://github.com/querycap/webappkit/compare/@querycap-dev/monobundle@0.8.2...@querycap-dev/monobundle@0.8.3) (2020-10-12)
 

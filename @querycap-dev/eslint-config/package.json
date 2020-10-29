@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/eslint-config",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "main": "eslint.config.js",
   "license": "MIT",
   "dependencies": {

@@ -3,40 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.2](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.8.1...@querycap-ui/blocks@0.8.2) (2020-10-29)
+
+**Note:** Version bump only for package @querycap-ui/blocks
+
 ## [0.8.1](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.8.0...@querycap-ui/blocks@0.8.1) (2020-10-15)
 
 **Note:** Version bump only for package @querycap-ui/blocks
 
-
-
-
-
 # [0.8.0](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.7.11...@querycap-ui/blocks@0.8.0) (2020-10-15)
-
 
 ### Features
 
-* bump jsx-runtime ([453f52b](https://github.com/querycap/webappkit/commit/453f52b4a7b0e0f987de76da08c9bbb4d39802f8))
-
-
-
-
+- bump jsx-runtime ([453f52b](https://github.com/querycap/webappkit/commit/453f52b4a7b0e0f987de76da08c9bbb4d39802f8))
 
 ## [0.7.11](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.7.10...@querycap-ui/blocks@0.7.11) (2020-10-14)
 
 **Note:** Version bump only for package @querycap-ui/blocks
 
-
-
-
-
 ## [0.7.10](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.7.9...@querycap-ui/blocks@0.7.10) (2020-10-14)
 
 **Note:** Version bump only for package @querycap-ui/blocks
-
-
-
-
 
 ## [0.7.9](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.7.8...@querycap-ui/blocks@0.7.9) (2020-10-12)
 
