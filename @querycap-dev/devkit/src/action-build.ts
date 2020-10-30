@@ -7,19 +7,14 @@ import { IState } from "./state";
 
 const omitEmpty = <T extends object = any>(o: T) => omitBy(o, (v) => isUndefined(v));
 
-const toApp = (state: IState) =>
-  `${state.name}` +
-  `${state.feature ? `--${state.feature}` : ""}`;
-
 export const writeConfig = (cwd: string, state: IState) => {
   const baseConfig = {
-    APP: toApp(state),
+    APP: state.name,
     ENV: state.env,
 
     // for overwrite
     PROJECT_NAME: `web-${state.name}`,
     PROJECT_GROUP: state.project.group,
-    PROJECT_FEATURE: state.feature || "",
     PROJECT_DESCRIPTION: state.meta.manifest?.name,
   };
 
