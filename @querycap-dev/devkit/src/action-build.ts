@@ -81,8 +81,6 @@ FROM --platform=\${BUILDPLATFORM} build-env AS builder
 WORKDIR /src
 COPY ./ ./
 
-ARG CI_COMMIT_REF_NAME
-
 ENV YARN_CACHE_FOLDER=/tmp/yarn-cache
 RUN --mount=type=cache,sharing=locked,id=yarncache,target=/tmp/yarn-cache yarn
 
