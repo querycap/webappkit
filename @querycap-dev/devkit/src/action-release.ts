@@ -22,6 +22,6 @@ export const toCommitRefName = (state: IState) =>
 export const release = (state: IState) => {
   const tag = toCommitRefName(state)
   exec(`git tag --force --annotate ${tag} --message "${tag}"`, state);
-  exec(`git push --no-verify origin :refs/tags/${tag}`, state);
   exec(`git push --follow-tags`, state);
+  exec(`git push --no-verify --force origin refs/tags/${tag}`, state);
 };
