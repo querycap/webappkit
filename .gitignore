@@ -1,5 +1,6 @@
 dist/
-config/*.yml
+
+cmd/
 
 public/
 coverage/

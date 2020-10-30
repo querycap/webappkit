@@ -1,4 +1,4 @@
-// export const GROUP = "gis";
+export const GROUP = "gis";
 
 export const ENVS = {
   DEMO: "DEMO",

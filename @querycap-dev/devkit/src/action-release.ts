@@ -15,11 +15,11 @@ export const fromCommitRefName = (commitTag = "") => {
 };
 
 export const toCommitRefName = (state: IState) =>
-  `feat/${state.name}` +
-  `${state.feature ? `--${state.feature}` : ""}` +
+  `workspace/${state.name}` +
+  `${state.feature ? `/feat/${state.feature}` : ""}` +
   `${state.env && state.env !== "default" && state.env !== "staging" ? `.${state.env}` : ""}`;
 
 export const release = (state: IState) => {
-  exec(`git tag -f ${toCommitRefName(state)}`, state);
-  exec(`git push -f origin refs/tags/${toCommitRefName(state)}`, state);
+  exec(`git tag --force --annotate ${toCommitRefName(state)} --message "${toCommitRefName(state)}"`, state);
+  exec(`git push --follow-tags`, state);
 };

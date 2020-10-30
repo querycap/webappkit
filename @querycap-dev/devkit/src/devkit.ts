@@ -3,7 +3,7 @@ import { has, isFunction, isObject, keys, mapKeys, mapValues, startsWith } from 
 import { join } from "path";
 import { writeConfig } from "./action-build";
 import { initial } from "./action-initial";
-import { fromCommitRefName, release } from "./action-release";
+import { release } from "./action-release";
 import { exec } from "./exec";
 import { IState } from "./state";
 
@@ -117,15 +117,14 @@ export const devkit = (cwd = process.cwd()) => {
         throw new Error(`missing action ${keys(actions).join(", ")}`);
       }
 
-      const name = (app || "").toLowerCase().split("--")[0];
-      const feature = (app || "").toLowerCase().split("--")[1] || "";
+      const [name, feature] = (app || "").toLowerCase().split("--");
 
       const state: IState = {
         cwd,
         context: "",
 
         name,
-        feature,
+        feature: feature || "",
         env,
         project: {
           group: opts.projectGroup,
@@ -139,13 +138,6 @@ export const devkit = (cwd = process.cwd()) => {
         meta: {},
       };
 
-      if (process.env.CI_COMMIT_REF_NAME) {
-        const { name, feature, env } = fromCommitRefName(process.env.CI_COMMIT_REF_NAME);
-        state.name = name;
-        state.feature = feature;
-        state.env = env;
-      }
-
       if (!appBases[state.name]) {
         throw new Error(`missing <app>, should one of ${keys(appBases).join(", ")}`);
       }
@@ -154,13 +146,14 @@ export const devkit = (cwd = process.cwd()) => {
 
       if (action === "release") {
         release(state);
-      } else {
-        exec(actions[action], state);
-
-        if (action === "build") {
-          writeConfig(cwd, state);
-        }
+        return;
       }
+
+      if (action === "dev") {
+        writeConfig(join(cwd, "cmd", state.name), state);
+      }
+
+      exec(actions[action], state);
     },
   };
 };

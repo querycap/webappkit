@@ -1,0 +1,18 @@
+apiVersion: serving.octohelm.tech/v1alpha1
+kind: QService
+spec:
+  image: ${{ PROJECT_IMAGE }}
+  envs:
+    APP: ${{ APP }}
+    ENV: ${{ ENV }}
+    APP_CONFIG: ${{ APP_CONFIG }}
+  ports:
+    - "80"
+  livenessProbe:
+    action: "http://:80/"
+    initialDelaySeconds: 5
+    periodSeconds: 5
+  readinessProbe:
+    action: "http://:80/"
+    initialDelaySeconds: 5
+    periodSeconds: 5
