@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.5.0...@querycap-dev/devkit@0.5.1) (2020-10-30)
+
+
+### Bug Fixes
+
+* **devkit:** no need generate project feature ([f01a9d5](https://github.com/querycap/webappkit/commit/f01a9d59eba98cbad1e9a5eeab3e88aa5bd171ea))
+
+
+
+
+
 # [0.5.0](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.4.24...@querycap-dev/devkit@0.5.0) (2020-10-30)
 
 
