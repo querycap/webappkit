@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.4](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.5.3...@querycap-dev/devkit@0.5.4) (2020-10-30)
+
+
+### Bug Fixes
+
+* **devkit:** force push tag ([36a89d3](https://github.com/querycap/webappkit/commit/36a89d3cc4cea53bfc37f557bea380aafc55551d))
+
+
+
+
+
 ## [0.5.3](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.5.2...@querycap-dev/devkit@0.5.3) (2020-10-30)
 
 
