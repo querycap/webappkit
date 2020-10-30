@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.6](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.5.4...@querycap-dev/devkit@0.5.6) (2020-10-30)
+
+
+### Bug Fixes
+
+* **devkit:** config builder may name holder ([75df99f](https://github.com/querycap/webappkit/commit/75df99fdc19adf4db399cd87e093a7e6aca5fe11))
+* **devkit:** env fix ([8cfbd89](https://github.com/querycap/webappkit/commit/8cfbd890ec4a43d0e5deff61cb1811a4773a39d1))
+
+
+
+
+
 ## [0.5.4](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.5.3...@querycap-dev/devkit@0.5.4) (2020-10-30)
 
 
