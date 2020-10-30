@@ -12,8 +12,8 @@ export const APP_MANIFEST = {
 };
 
 export const APP_CONFIG = {
-  APPS: (_: string, _1: string, name: string) => {
-    if (name == "$") {
+  APPS: (env: string) => {
+    if (env == "$") {
       return "${{ keys.demo.demo.apps }}";
     }
     return "";

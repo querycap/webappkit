@@ -1,6 +1,6 @@
 import { generate } from "@querycap-dev/generate";
 import { safeDump } from "js-yaml";
-import { isUndefined, mapValues, omitBy } from "lodash";
+import { isUndefined, omitBy } from "lodash";
 import { join } from "path";
 import { stringify } from "querystring";
 import { IState } from "./state";
@@ -23,7 +23,6 @@ export const writeConfig = (cwd: string, state: IState) => {
     safeDump(
       omitEmpty({
         ...baseConfig,
-
         APP_CONFIG: stringify(state.meta.config || {}, ",", "=", {
           encodeURIComponent: (v) => v,
         }),
@@ -35,12 +34,7 @@ export const writeConfig = (cwd: string, state: IState) => {
     join(cwd, `./config/master.yml`),
     safeDump(
       omitEmpty({
-        APP_CONFIG: stringify(mapValues(state.meta.configHolder || {}, (v, k) => {
-          if (k.startsWith("SRV_")) {
-            return "${{ endpoints.api." + k.slice(4).replace(/_/g, "-").toLowerCase() + ".endpoint }}";
-          }
-          return v;
-        }), ",", "=", {
+        APP_CONFIG: stringify(state.meta.config$ || {}, ",", "=", {
           encodeURIComponent: (v) => v,
         }),
       }),
