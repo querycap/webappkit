@@ -20,6 +20,8 @@ export const toCommitRefName = (state: IState) =>
   `${state.env && state.env !== "default" && state.env !== "staging" ? `.${state.env}` : ""}`;
 
 export const release = (state: IState) => {
-  exec(`git tag --force --annotate ${toCommitRefName(state)} --message "${toCommitRefName(state)}"`, state);
+  const tag = toCommitRefName(state)
+  exec(`git tag --force --annotate ${tag} --message "${tag}"`, state);
+  exec(`git push --no-verify origin :refs/tags/${tag}`, state);
   exec(`git push --follow-tags`, state);
 };
