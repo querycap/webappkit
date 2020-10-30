@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.4.24...@querycap-dev/devkit@0.5.0) (2020-10-30)
+
+
+### Features
+
+* **devkit:** new ci flow ([92947f8](https://github.com/querycap/webappkit/commit/92947f89f0033af7bf85738d3d3db1e83269c8c3))
+
+
+
+
+
 ## [0.4.24](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.4.23...@querycap-dev/devkit@0.4.24) (2020-10-29)
 
 **Note:** Version bump only for package @querycap-dev/devkit

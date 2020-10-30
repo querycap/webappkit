@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.10](https://github.com/querycap/webappkit/compare/@querycap-dev/generate@0.4.9...@querycap-dev/generate@0.4.10) (2020-10-30)
+
+
+### Bug Fixes
+
+* **generate:** should be mkdir -p ([c99c71f](https://github.com/querycap/webappkit/commit/c99c71fcd30351b123e76d9182686556fe32ac4c))
+
+
+
+
+
 ## [0.4.9](https://github.com/querycap/webappkit/compare/@querycap-dev/generate@0.4.8...@querycap-dev/generate@0.4.9) (2020-10-14)
 
 **Note:** Version bump only for package @querycap-dev/generate
