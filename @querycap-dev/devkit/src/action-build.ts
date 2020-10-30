@@ -88,7 +88,7 @@ ARG APP
 ARG ENV
 ARG PROJECT_GROUP
 ARG PROJECT_VERSION
-RUN yarn devkit build --prod \${APP} \${ENV}
+RUN PROJECT_GROUP=\${PROJECT_GROUP} PROJECT_VERSION=\${PROJECT_VERSION} yarn devkit build --prod \${APP} \${ENV}
 
 FROM \${DOCKER_REGISTRY}/docker.io/querycap/webappserve:0.0.0
 
