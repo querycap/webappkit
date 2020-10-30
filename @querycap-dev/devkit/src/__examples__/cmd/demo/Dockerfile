@@ -13,10 +13,11 @@ RUN --mount=type=cache,sharing=locked,id=yarncache,target=/tmp/yarn-cache yarn
 
 ARG APP
 ARG ENV
+ARG PROJECT_GROUP
+ARG PROJECT_VERSION
 RUN yarn devkit build --prod ${APP} ${ENV}
 
 FROM ${DOCKER_REGISTRY}/docker.io/querycap/webappserve:0.0.0
 
 ARG PROJECT_NAME
 COPY --from=builder /src/public/${PROJECT_NAME} /app
-  
