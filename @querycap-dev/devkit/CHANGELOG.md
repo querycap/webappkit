@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.3](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.5.2...@querycap-dev/devkit@0.5.3) (2020-10-30)
+
+
+### Bug Fixes
+
+* **devkit:** arg PROJECT_GROUP & PROJECT_VERSION should be in Dockerfile for devkit build ([809b240](https://github.com/querycap/webappkit/commit/809b24099f8b6cf1bb355fc744ffb180fb5054f2))
+
+
+
+
+
 ## [0.5.2](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.5.1...@querycap-dev/devkit@0.5.2) (2020-10-30)
 
 
