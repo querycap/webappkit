@@ -25,7 +25,7 @@ const resolveApps = (cwd: string): { [key: string]: string } => {
   return appBases;
 };
 
-type TValueBuilder = (env: string, feature: string, name: string) => string;
+type TValueBuilder = (env: string, feature: string, nameOrHolder: string) => string;
 
 const loadConfigFromFile = (cwd: string, state: IState) => {
   state.context = join(cwd, "src-app", state.name);
@@ -63,6 +63,12 @@ const loadConfigFromFile = (cwd: string, state: IState) => {
       state.meta[metaKey] = mapValues(conf[key], (fnOrValue: TValueBuilder) =>
         isFunction(fnOrValue) ? fnOrValue(state.env, state.feature || "", state.name) : fnOrValue,
       ) as any;
+
+      if (metaKey === "config") {
+        state.meta[`configHolder`] = mapValues(conf[key], (fnOrValue: TValueBuilder) =>
+          isFunction(fnOrValue) ? fnOrValue(state.env, state.feature || "", "$") : fnOrValue,
+        ) as any;
+      }
     }
   }
 };

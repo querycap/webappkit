@@ -12,6 +12,12 @@ export const APP_MANIFEST = {
 };
 
 export const APP_CONFIG = {
+  APPS: (_: string, _1: string, name: string) => {
+    if (name == "$") {
+      return "${{ keys.demo.demo.apps }}";
+    }
+    return "";
+  },
   SRV_TEST: (env: string, feature: string) => {
     if (env === "local") {
       return `//127.0.0.1:80`;

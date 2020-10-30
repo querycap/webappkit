@@ -3,4 +3,4 @@ ENV: demo
 PROJECT_NAME: web-demo
 PROJECT_GROUP: gis
 PROJECT_DESCRIPTION: 测试
-APP_CONFIG: SRV_TEST=//demo.querycap.com
+APP_CONFIG: "APPS=,SRV_TEST=//demo.querycap.com"

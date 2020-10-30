@@ -35,7 +35,7 @@ export const writeConfig = (cwd: string, state: IState) => {
     join(cwd, `./config/master.yml`),
     safeDump(
       omitEmpty({
-        APP_CONFIG: stringify(mapValues(state.meta.config || {}, (v, k) => {
+        APP_CONFIG: stringify(mapValues(state.meta.configHolder || {}, (v, k) => {
           if (k.startsWith("SRV_")) {
             return "${{ endpoints.api." + k.slice(4).replace(/_/g, "-").toLowerCase() + ".endpoint }}";
           }
