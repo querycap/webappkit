@@ -1,2 +1,3 @@
 !macro/index.js
-!jsx-runtime/index.js
+
+!jsx-runtime/*.js

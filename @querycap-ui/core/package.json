@@ -8,7 +8,7 @@
     "react": "17.x"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.35",
+    "@emotion/core": "^10.1.0",
     "@querycap-ui/core.macro": "^0.2.1",
     "@querycap-ui/css-aliases": "^0.2.3",
     "polished": "^4.0.3",
