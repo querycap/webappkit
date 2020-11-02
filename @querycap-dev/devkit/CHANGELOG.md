@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.9](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.5.6...@querycap-dev/devkit@0.5.9) (2020-11-02)
+
+**Note:** Version bump only for package @querycap-dev/devkit
+
+
+
+
+
 ## [0.5.6](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.5.4...@querycap-dev/devkit@0.5.6) (2020-10-30)
 
 
