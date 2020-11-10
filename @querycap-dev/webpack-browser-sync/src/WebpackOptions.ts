@@ -2,6 +2,7 @@ import browserSync from "browser-sync";
 import { concat, dropWhile, isObject, map, mapValues, reduce } from "lodash";
 import mime from "mime";
 import webpack from "webpack";
+// @ts-ignore
 import webpackDevMiddleware from "webpack-dev-middleware";
 import webpackHotMiddleware from "webpack-hot-middleware";
 import path from "path";
@@ -57,16 +58,6 @@ export const createMiddlewaresForWebpack = (webpackConfig: webpack.Configuration
   const devMiddleware = webpackDevMiddleware(bundler, {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     publicPath: (patchedWebpackConfig.output || {}).publicPath! as string,
-    stats: patchedWebpackConfig.stats || {
-      colors: true,
-      reasons: false,
-      hash: false,
-      version: false,
-      timings: true,
-      chunks: false,
-      chunkModules: false,
-      cached: false,
-    },
   });
 
   const devServerMiddlewares = [
@@ -75,7 +66,7 @@ export const createMiddlewaresForWebpack = (webpackConfig: webpack.Configuration
       if (req.method === "GET" && req.url === "/") {
         devMiddleware.waitUntilValid(() => {
           const indexFile = path.join(webpackConfig.output!.path!, index);
-          res.end(devMiddleware.fileSystem.readFileSync(indexFile));
+          res.end(devMiddleware.context.outputFileSystem.readFileSync(indexFile));
         });
       } else {
         try {
@@ -83,7 +74,7 @@ export const createMiddlewaresForWebpack = (webpackConfig: webpack.Configuration
           const contentType = mime.getType(req.url!);
           contentType && res.setHeader("content-type", contentType);
           const filename = webpackConfig.output!.path! + ".." + req.url!;
-          res.end(devMiddleware.fileSystem.readFileSync(filename));
+          res.end(devMiddleware.context.outputFileSystem.readFileSync(filename));
         } catch (e) {
           next();
         }
