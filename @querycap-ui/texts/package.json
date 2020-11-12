@@ -3,7 +3,7 @@
   "version": "0.5.4",
   "license": "MIT",
   "peerDependencies": {
-    "@emotion/core": "10.x",
+    "@emotion/core": "11.x",
     "lodash": "4.x",
     "react": "17.x"
   },

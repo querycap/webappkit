@@ -4,7 +4,7 @@
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@emotion/css": "10.0.x",
+    "@emotion/css": "11.0.x",
     "@querycap-ui/core": "*",
     "date-fns": "*",
     "lodash": "4.x",
