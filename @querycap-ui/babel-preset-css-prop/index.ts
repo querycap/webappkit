@@ -1,7 +1,7 @@
 // @ts-ignore
 import jsx from "@babel/plugin-transform-react-jsx";
 // @ts-ignore
-import emotion from "babel-plugin-emotion";
+import emotion from "@emotion/babel-plugin";
 
 import { importEmotionJSXOnlyNeed } from "./import-emotion-jsx-only-need";
 

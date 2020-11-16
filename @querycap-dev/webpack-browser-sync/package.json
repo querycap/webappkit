@@ -16,9 +16,9 @@
     "interpret": "^2.2.0",
     "lodash": "^4.17.20",
     "mime": "2.4.6",
-    "webpack-dev-middleware": "^4.0.1",
+    "webpack-dev-middleware": "^4.0.2",
     "webpack-hot-middleware": "^2.25.0",
-    "yargs": "^16.1.0"
+    "yargs": "^16.1.1"
   },
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",

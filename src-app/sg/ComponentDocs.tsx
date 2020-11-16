@@ -225,8 +225,8 @@ export const ComponentDocs = (props: IRoute<{ group?: string; module?: string; n
       borderColor={dark ? rgba(colors.gray2, 0.15) : theme.state.borderColor}
       color={dark ? colors.gray2 : theme.state.color}
       backgroundColor={dark ? colors.gray8 : theme.state.backgroundColor}>
-      <ComponentDocsMain {...props} />
       <CSSReset />
+      <ComponentDocsMain {...props} />
     </ThemeState>
   );
 };

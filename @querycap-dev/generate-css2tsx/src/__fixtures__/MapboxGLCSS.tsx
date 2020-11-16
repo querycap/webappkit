@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { Global } from "@emotion/core";
+import { Global } from "@emotion/react";
 
 export const MapboxGLCSS = () => (
   <>

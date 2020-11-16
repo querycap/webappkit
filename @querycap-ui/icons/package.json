@@ -7,9 +7,6 @@
     "@querycap-ui/core": "*",
     "react": "17.x"
   },
-  "dependencies": {
-    "@emotion/css": "^10.0.27"
-  },
   "publishConfig": {
     "access": "public"
   },

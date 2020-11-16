@@ -1,3 +1,3 @@
-exports.Fragment = require("@emotion/core/jsx-runtime").Fragment;
-exports.jsx = require("@emotion/core/jsx-runtime").jsx;
-exports.jsxs = require("@emotion/core/jsx-runtime").jsxs;
+exports.Fragment = require("@emotion/react/jsx-runtime").Fragment;
+exports.jsx = require("@emotion/react/jsx-runtime").jsx;
+exports.jsxs = require("@emotion/react/jsx-runtime").jsxs;

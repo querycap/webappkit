@@ -3,7 +3,7 @@ import { transformSync } from "@babel/core";
 const compileToSnapshot = (code: string) => {
   const t = transformSync(code, {
     root: __dirname,
-    plugins: ["@babel/plugin-syntax-jsx", "babel-plugin-macros", "babel-plugin-emotion"],
+    plugins: ["@babel/plugin-syntax-jsx", "babel-plugin-macros", "@emotion/babel-plugin"],
   });
 
   return `
@@ -19,7 +19,7 @@ describe("@querycap-ui/core/macro", () => {
   it("simple", () => {
     const result = compileToSnapshot(`
 import { select, animated } from "@querycap-ui/core/macro"
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 
 const v = css({ color: "red" })
 

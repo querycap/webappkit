@@ -1,19 +1,22 @@
-import { Global } from "@emotion/core";
+import { Global } from "@emotion/react";
 import { cover, normalize, select, theme } from "@querycap-ui/core";
 import { headings } from "@querycap-ui/texts";
 import React from "react";
 
 export const CSSReset = () => {
+
+  console.log("CSSReset=========")
+
   return (
     <>
       <Global styles={normalize()} />
 
-      <Global styles={select("*,*::after,*::before").boxSizing("border-box")} />
+      <Global styles={select("*", "*::after", "*::before").boxSizing("border-box")} />
 
       <Global
         styles={select()
           .with(
-            select("html, body")
+            select("html", "body")
               .position("relative")
               .height("100%")
               .width("100%")

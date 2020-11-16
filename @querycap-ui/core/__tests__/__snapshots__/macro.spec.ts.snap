@@ -429,7 +429,7 @@ exports[`@querycap-ui/core/macro simple 1`] = `
 "
 
 import { select, animated } from \\"@querycap-ui/core/macro\\"
-import { css } from \\"@emotion/core\\";
+import { css } from \\"@emotion/react\\";
 
 const v = css({ color: \\"red\\" })
 
@@ -444,10 +444,17 @@ const C = () => {
  ↓ ↓ ↓ ↓ ↓ ↓
 
 import { animated as _animated } from \\"@querycap-ui/core\\";
-import { css } from \\"@emotion/core\\";
-const v = {
-  name: \\"4lnri7-v\\",
-  styles: \\"color:red;;label:v;\\"
+
+function _EMOTION_STRINGIFIED_CSS_ERROR__() { return \\"You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop).\\"; }
+
+import { css } from \\"@emotion/react\\";
+const v = process.env.NODE_ENV === \\"production\\" ? {
+  name: \\"hwfcu5\\",
+  styles: \\"color:red\\"
+} : {
+  name: \\"1a9uk2c-v\\",
+  styles: \\"color:red;label:v;\\",
+  toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
 var __macro_generated_ref_0 = {
   name: \\"1rr4qq7\\",
