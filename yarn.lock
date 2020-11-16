@@ -1446,7 +1446,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/babel-plugin@npm:11.0.0, @emotion/babel-plugin@npm:^11.0.0":
+"@emotion/babel-plugin@npm:11.0.0":
   version: 11.0.0
   resolution: "@emotion/babel-plugin@npm:11.0.0"
   dependencies:
@@ -1478,24 +1478,6 @@ __metadata:
     "@emotion/weak-memoize": ^0.2.5
     stylis: ^4.0.3
   checksum: 4b0a3d47e068aef7cba2f22b1acc52ffa855819269e6a4ab402f697060b2b829dbc9d410e1b6460071e7c48fbeadb1bd0a15340a0899934d921016388a6a5a38
-  languageName: node
-  linkType: hard
-
-"@emotion/css@npm:^11.0.0":
-  version: 11.0.0
-  resolution: "@emotion/css@npm:11.0.0"
-  dependencies:
-    "@emotion/babel-plugin": ^11.0.0
-    "@emotion/cache": ^11.0.0
-    "@emotion/serialize": ^1.0.0
-    "@emotion/sheet": ^1.0.0
-    "@emotion/utils": ^1.0.0
-  peerDependencies:
-    "@babel/core": ^7.0.0
-  peerDependenciesMeta:
-    "@babel/core":
-      optional: true
-  checksum: d09261487b8c04459ee25a5d00ecb4c66920f51ad46e7bbebbc6966290ef96f5d4fd225b6b4109b55db187f2c115ebff7625f795d9415e96e58eab8b0052e252
   languageName: node
   linkType: hard
 
@@ -3396,8 +3378,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-dev/eslint-config@workspace:@querycap-dev/eslint-config"
   dependencies:
-    "@typescript-eslint/eslint-plugin": ^4.6.1
-    "@typescript-eslint/parser": ^4.6.1
+    "@typescript-eslint/eslint-plugin": ^4.7.0
+    "@typescript-eslint/parser": ^4.7.0
     eslint: ^7.13.0
     eslint-plugin-react: ^7.21.5
     eslint-plugin-react-hooks: ^4.2.0
@@ -3584,13 +3566,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/blocks@workspace:@querycap-ui/blocks"
   dependencies:
-    "@querycap-ui/form-controls": ^0.10.4
-    "@querycap-ui/icons": ^0.4.1
-    "@querycap-ui/layouts": ^0.2.4
+    "@querycap-ui/form-controls": ^0.10.5
+    "@querycap-ui/icons": ^0.5.0
+    "@querycap-ui/layouts": ^0.2.5
     "@querycap/uikit": ^0.4.1
   peerDependencies:
     "@babel/runtime-corejs3": "*"
-    "@emotion/css": 10.x
     "@querycap-ui/core": ^0.x
     "@reactorx/core": "*"
     "@reactorx/router": "*"
@@ -3614,7 +3595,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/core.macro@^0.2.2, @querycap-ui/core.macro@workspace:@querycap-ui/core.macro":
+"@querycap-ui/core.macro@^0.3.0, @querycap-ui/core.macro@workspace:@querycap-ui/core.macro":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/core.macro@workspace:@querycap-ui/core.macro"
   dependencies:
@@ -3629,12 +3610,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/core@^0.9.5, @querycap-ui/core@workspace:@querycap-ui/core":
+"@querycap-ui/core@^0.10.0, @querycap-ui/core@workspace:@querycap-ui/core":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/core@workspace:@querycap-ui/core"
   dependencies:
     "@emotion/react": ^11.0.0
-    "@querycap-ui/core.macro": ^0.2.2
+    "@querycap-ui/core.macro": ^0.3.0
     "@querycap-ui/css-aliases": ^0.2.3
     polished: ^4.0.3
     react-spring: ^8.0.27
@@ -3651,15 +3632,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/date-pickers@^0.4.1, @querycap-ui/date-pickers@workspace:@querycap-ui/date-pickers":
+"@querycap-ui/date-pickers@^0.5.0, @querycap-ui/date-pickers@workspace:@querycap-ui/date-pickers":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/date-pickers@workspace:@querycap-ui/date-pickers"
   dependencies:
     "@querycap-ui/containers": ^0.4.1
-    "@querycap-ui/icons": ^0.4.1
+    "@querycap-ui/icons": ^0.5.0
   peerDependencies:
     "@babel/runtime-corejs3": "*"
-    "@emotion/css": 10.0.x
+    "@emotion/react": 11.x
     "@querycap-ui/core": "*"
     date-fns: "*"
     lodash: 4.x
@@ -3667,13 +3648,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/form-controls@^0.10.4, @querycap-ui/form-controls@workspace:@querycap-ui/form-controls":
+"@querycap-ui/form-controls@^0.10.5, @querycap-ui/form-controls@workspace:@querycap-ui/form-controls":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/form-controls@workspace:@querycap-ui/form-controls"
   dependencies:
-    "@querycap-ui/core": ^0.9.5
-    "@querycap-ui/icons": ^0.4.1
-    "@querycap-ui/layouts": ^0.2.4
+    "@querycap-ui/core": ^0.10.0
+    "@querycap-ui/icons": ^0.5.0
+    "@querycap-ui/layouts": ^0.2.5
     "@querycap/form": ^0.9.3
     "@querycap/reactutils": ^0.7.1
     "@querycap/uikit": ^0.4.1
@@ -3686,11 +3667,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/icons@^0.4.1, @querycap-ui/icons@workspace:@querycap-ui/icons":
+"@querycap-ui/icons@^0.5.0, @querycap-ui/icons@workspace:@querycap-ui/icons":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/icons@workspace:@querycap-ui/icons"
-  dependencies:
-    "@emotion/css": ^11.0.0
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@querycap-ui/core": "*"
@@ -3698,11 +3677,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/layouts@^0.2.4, @querycap-ui/layouts@workspace:@querycap-ui/layouts":
+"@querycap-ui/layouts@^0.2.5, @querycap-ui/layouts@workspace:@querycap-ui/layouts":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/layouts@workspace:@querycap-ui/layouts"
   dependencies:
-    "@querycap-ui/core": ^0.9.5
+    "@querycap-ui/core": ^0.10.0
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     lodash: 4.x
@@ -3725,9 +3704,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/search-controls@workspace:@querycap-ui/search-controls"
   dependencies:
-    "@querycap-ui/date-pickers": ^0.4.1
-    "@querycap-ui/form-controls": ^0.10.4
-    "@querycap-ui/icons": ^0.4.1
+    "@querycap-ui/date-pickers": ^0.5.0
+    "@querycap-ui/form-controls": ^0.10.5
+    "@querycap-ui/icons": ^0.5.0
     "@querycap/reactutils": ^0.7.1
     "@querycap/strfmt": ^0.5.1
     "@querycap/uikit": ^0.4.1
@@ -3748,12 +3727,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/texts@workspace:@querycap-ui/texts"
   dependencies:
-    "@querycap-ui/core": ^0.9.5
+    "@querycap-ui/core": ^0.10.0
     remark-parse: ^9.0.0
     remark-react: ^8.0.0
     unified: ^9.2.0
   peerDependencies:
-    "@emotion/react": 10.x
+    "@emotion/react": 11.x
     lodash: 4.x
     react: 17.x
   languageName: unknown
@@ -4710,7 +4689,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^4.6.1":
+"@typescript-eslint/eslint-plugin@npm:^4.7.0":
   version: 4.7.0
   resolution: "@typescript-eslint/eslint-plugin@npm:4.7.0"
   dependencies:
@@ -4747,7 +4726,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^4.6.1":
+"@typescript-eslint/parser@npm:^4.7.0":
   version: 4.7.0
   resolution: "@typescript-eslint/parser@npm:4.7.0"
   dependencies:
