@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.8.14...@querycap-dev/webpack-preset-ts@0.9.0) (2020-11-16)
+
+
+### Features
+
+* **@querycap-ui/*:** upgrade to [@emotion](https://github.com/emotion) to 11 ([5653bb6](https://github.com/querycap/webappkit/commit/5653bb63579fd592382fa4dd2ee709a838f6e944))
+
+
+
+
+
 ## [0.8.14](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-ts@0.8.13...@querycap-dev/webpack-preset-ts@0.8.14) (2020-11-10)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-ts
