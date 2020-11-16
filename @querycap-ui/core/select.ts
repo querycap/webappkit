@@ -1,5 +1,5 @@
-import { Interpolation } from "@emotion/serialize";
 import { isEmpty, isFunction } from "lodash";
+import { Interpolation } from "@emotion/react";
 import { CSSProperties } from "react";
 import { aliases } from "@querycap-ui/css-aliases";
 import { Theme } from "./theme";
@@ -130,6 +130,6 @@ export function select(...selectors: readonly string[]): CSSBuilder {
 
 declare module "react" {
   interface Attributes {
-    css?: Interpolation<Theme>
+    css?: Interpolation<any>
   }
 }
