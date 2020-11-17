@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.8](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-html@0.8.7...@querycap-dev/webpack-preset-html@0.8.8) (2020-11-17)
+
+
+### Bug Fixes
+
+* **deps:** update workbox monorepo to v6.0.0-rc.0 ([1ced761](https://github.com/querycap/webappkit/commit/1ced761cdd895e6ece26a0b10d1b964d856a063e))
+
+
+
+
+
 ## [0.8.7](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-html@0.8.6...@querycap-dev/webpack-preset-html@0.8.7) (2020-11-10)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-html
