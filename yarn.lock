@@ -3449,7 +3449,7 @@ __metadata:
     lodash: ^4.17.20
     minimatch: ^3.0.4
     rollup: ^2.33.2
-    rollup-plugin-dts: ^1.4.14
+    rollup-plugin-dts: ^2.0.0
     yargs: ^16.1.1
   peerDependencies:
     "@babel/runtime-corejs3": "*"
@@ -15267,18 +15267,19 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"rollup-plugin-dts@npm:^1.4.14":
-  version: 1.4.14
-  resolution: "rollup-plugin-dts@npm:1.4.14"
+"rollup-plugin-dts@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "rollup-plugin-dts@npm:2.0.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
+    magic-string: ^0.25.7
   peerDependencies:
-    rollup: ^2.33.1
-    typescript: ^4.0.5
+    rollup: ^2.33.3
+    typescript: ^4.1.2
   dependenciesMeta:
     "@babel/code-frame":
       optional: true
-  checksum: c7895edd745bd8a34b986f58c30e108607286940259d41da12cf806a68c05208d7c2b709833f86ce42a43d42cf7e3ffa6fcf01a4590bed8e783cfb1bbb9848a6
+  checksum: 858dea6359da9fd3926311f22591b51f4cd29669ab63a8556ff25eede91f2461107eec74b1d25447f9343243e21cc9091f924941baa4c9e1700ecbe4bdbe3d43
   languageName: node
   linkType: hard
 
