@@ -1,6 +1,6 @@
 {
   "name": "@querycap/form",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "files": [
     "dist/"
   ],
@@ -14,7 +14,7 @@
     "@querycap/contexts": "^0.2.5",
     "@querycap/reactutils": "^0.7.1",
     "@querycap/validators": "^0.2.3",
-    "@reactorx/core": "^0.21.0",
+    "@reactorx/core": "^0.21.1",
     "@types/lodash": "^4.14.165",
     "lodash": "^4.17.20"
   },

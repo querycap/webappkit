@@ -1,6 +1,6 @@
 {
   "name": "@querycap/access",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "files": [
     "dist/"
   ],
@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@querycap/reactutils": "^0.7.1",
-    "@querycap/request": "^0.6.1",
+    "@querycap/request": "^0.6.2",
     "public-encrypt": "4.0.3"
   },
   "publishConfig": {

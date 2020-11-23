@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.24](https://github.com/querycap/webappkit/compare/@querycap-dev/generate-client@0.5.23...@querycap-dev/generate-client@0.5.24) (2020-11-23)
+
+**Note:** Version bump only for package @querycap-dev/generate-client
+
+
+
+
+
 ## [0.5.23](https://github.com/querycap/webappkit/compare/@querycap-dev/generate-client@0.5.22...@querycap-dev/generate-client@0.5.23) (2020-11-10)
 
 **Note:** Version bump only for package @querycap-dev/generate-client

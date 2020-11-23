@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.22.1](https://github.com/querycap/webappkit/compare/@reactorx/router@0.22.0...@reactorx/router@0.22.1) (2020-11-23)
+
+**Note:** Version bump only for package @reactorx/router
+
+
+
+
+
 # [0.22.0](https://github.com/querycap/webappkit/compare/@reactorx/router@0.21.3...@reactorx/router@0.22.0) (2020-10-15)
 
 
