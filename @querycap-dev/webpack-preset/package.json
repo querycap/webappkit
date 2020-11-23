@@ -7,9 +7,9 @@
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@querycap-dev/devkit": "^0.4.11",
+    "@querycap-dev/devkit": "^0.6.0",
     "webpack": "*",
-    "webpack-cli": "^4.0.0"
+    "webpack-cli": "^4.2.0"
   },
   "dependencies": {
     "webpack-bundle-analyzer": "^4.1.0"

@@ -7,8 +7,8 @@
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "react": ">=16.13",
-    "uuid": "7.x"
+    "react": ">=17.0",
+    "uuid": "8.x"
   },
   "dependencies": {
     "@querycap/contexts": "^0.2.5",
