@@ -1245,6 +1245,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/traverse@npm:^7.12.9":
+  version: 7.12.9
+  resolution: "@babel/traverse@npm:7.12.9"
+  dependencies:
+    "@babel/code-frame": ^7.10.4
+    "@babel/generator": ^7.12.5
+    "@babel/helper-function-name": ^7.10.4
+    "@babel/helper-split-export-declaration": ^7.11.0
+    "@babel/parser": ^7.12.7
+    "@babel/types": ^7.12.7
+    debug: ^4.1.0
+    globals: ^11.1.0
+    lodash: ^4.17.19
+  checksum: 6797d3f42d3d27ba596c864c76b81a234a6df3c3079bf03207bdef56bff866e001135a271b114d9869ab78984f4408cb7252940ca0986ca40f2281b1626a5391
+  languageName: node
+  linkType: hard
+
 "@babel/types@npm:^7.0.0, @babel/types@npm:^7.10.4, @babel/types@npm:^7.10.5, @babel/types@npm:^7.11.0, @babel/types@npm:^7.12.1, @babel/types@npm:^7.12.5, @babel/types@npm:^7.12.7, @babel/types@npm:^7.3.0, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.4, @babel/types@npm:^7.8.3":
   version: 7.12.7
   resolution: "@babel/types@npm:7.12.7"
@@ -3405,7 +3422,7 @@ __metadata:
     "@babel/plugin-transform-react-jsx": ^7.12.7
     "@babel/plugin-transform-runtime": ^7.12.1
     "@babel/plugin-transform-typescript": ^7.12.1
-    babel-plugin-macros: ^2.8.0
+    babel-plugin-macros: ^3.0.0
     babel-plugin-pure-calls-annotation: ^0.3.1
     babel-plugin-typescript-iife-enum: ^0.2.1
   languageName: unknown
@@ -3415,7 +3432,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-dev/devkit@workspace:@querycap-dev/devkit"
   dependencies:
-    "@querycap-dev/generate": ^0.4.10
+    "@querycap-dev/generate": ^0.4.11
     "@types/cross-spawn": ^6.0.2
     "@types/js-yaml": ^3.12.5
     cross-spawn: ^7.0.3
@@ -3449,7 +3466,7 @@ __metadata:
   dependencies:
     "@morlay/ts-gen-client-from-openapi": ^1.2.2
     "@morlay/ts-gen-core": ^1.2.2
-    "@querycap-dev/generate": ^0.4.10
+    "@querycap-dev/generate": ^0.4.11
     "@types/lodash": ^4.14.165
     axios: ^0.21.0
     lodash: ^4.17.20
@@ -3480,7 +3497,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-dev/generate@^0.4.10, @querycap-dev/generate@workspace:@querycap-dev/generate":
+"@querycap-dev/generate@^0.4.11, @querycap-dev/generate@workspace:@querycap-dev/generate":
   version: 0.0.0-use.local
   resolution: "@querycap-dev/generate@workspace:@querycap-dev/generate"
   dependencies:
@@ -3623,9 +3640,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/blocks@workspace:@querycap-ui/blocks"
   dependencies:
-    "@querycap-ui/form-controls": ^0.10.6
+    "@querycap-ui/form-controls": ^0.10.7
     "@querycap-ui/icons": ^0.5.0
-    "@querycap-ui/layouts": ^0.2.6
+    "@querycap-ui/layouts": ^0.2.7
     "@querycap/uikit": ^0.4.1
   peerDependencies:
     "@babel/runtime-corejs3": "*"
@@ -3652,7 +3669,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/core.macro@^0.3.0, @querycap-ui/core.macro@workspace:@querycap-ui/core.macro":
+"@querycap-ui/core.macro@^0.3.1, @querycap-ui/core.macro@workspace:@querycap-ui/core.macro":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/core.macro@workspace:@querycap-ui/core.macro"
   dependencies:
@@ -3661,18 +3678,18 @@ __metadata:
     "@babel/types": ^7.12.7
     "@emotion/serialize": ^1.0.0
     "@querycap-ui/css-aliases": ^0.2.3
-    babel-plugin-macros: ^2.8.0
+    babel-plugin-macros: ^3.0.0
   peerDependencies:
     "@babel/runtime-corejs3": "*"
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/core@^0.10.1, @querycap-ui/core@workspace:@querycap-ui/core":
+"@querycap-ui/core@^0.10.2, @querycap-ui/core@workspace:@querycap-ui/core":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/core@workspace:@querycap-ui/core"
   dependencies:
     "@emotion/react": ^11.1.1
-    "@querycap-ui/core.macro": ^0.3.0
+    "@querycap-ui/core.macro": ^0.3.1
     "@querycap-ui/css-aliases": ^0.2.3
     polished: ^4.0.4
     react-spring: ^8.0.27
@@ -3705,14 +3722,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/form-controls@^0.10.6, @querycap-ui/form-controls@workspace:@querycap-ui/form-controls":
+"@querycap-ui/form-controls@^0.10.7, @querycap-ui/form-controls@workspace:@querycap-ui/form-controls":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/form-controls@workspace:@querycap-ui/form-controls"
   dependencies:
-    "@querycap-ui/core": ^0.10.1
+    "@querycap-ui/core": ^0.10.2
     "@querycap-ui/icons": ^0.5.0
-    "@querycap-ui/layouts": ^0.2.6
-    "@querycap/form": ^0.9.4
+    "@querycap-ui/layouts": ^0.2.7
+    "@querycap/form": ^0.9.5
     "@querycap/reactutils": ^0.7.1
     "@querycap/uikit": ^0.4.1
   peerDependencies:
@@ -3734,11 +3751,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/layouts@^0.2.6, @querycap-ui/layouts@workspace:@querycap-ui/layouts":
+"@querycap-ui/layouts@^0.2.7, @querycap-ui/layouts@workspace:@querycap-ui/layouts":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/layouts@workspace:@querycap-ui/layouts"
   dependencies:
-    "@querycap-ui/core": ^0.10.1
+    "@querycap-ui/core": ^0.10.2
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     lodash: 4.x
@@ -3762,7 +3779,7 @@ __metadata:
   resolution: "@querycap-ui/search-controls@workspace:@querycap-ui/search-controls"
   dependencies:
     "@querycap-ui/date-pickers": ^0.5.0
-    "@querycap-ui/form-controls": ^0.10.6
+    "@querycap-ui/form-controls": ^0.10.7
     "@querycap-ui/icons": ^0.5.0
     "@querycap/reactutils": ^0.7.1
     "@querycap/strfmt": ^0.5.1
@@ -3784,7 +3801,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/texts@workspace:@querycap-ui/texts"
   dependencies:
-    "@querycap-ui/core": ^0.10.1
+    "@querycap-ui/core": ^0.10.2
     remark-parse: ^9.0.0
     remark-react: ^8.0.0
     unified: ^9.2.0
@@ -3800,7 +3817,7 @@ __metadata:
   resolution: "@querycap/access@workspace:@querycap/access"
   dependencies:
     "@querycap/reactutils": ^0.7.1
-    "@querycap/request": ^0.6.1
+    "@querycap/request": ^0.6.2
     public-encrypt: 4.0.3
   peerDependencies:
     "@babel/runtime-corejs3": "*"
@@ -3831,9 +3848,9 @@ __metadata:
   resolution: "@querycap/bootstrap@workspace:@querycap/bootstrap"
   dependencies:
     "@querycap/config": ^0.6.6
-    "@querycap/notify": ^0.6.1
+    "@querycap/notify": ^0.6.2
     "@querycap/persister": ^0.5.5
-    "@reactorx/router": ^0.22.0
+    "@reactorx/router": ^0.22.1
     "@types/history": ^4.7.8
     history: ^4.10.1
     redux-logger: ^3.0.6
@@ -3869,14 +3886,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap/form@^0.9.4, @querycap/form@workspace:@querycap/form":
+"@querycap/form@^0.9.5, @querycap/form@workspace:@querycap/form":
   version: 0.0.0-use.local
   resolution: "@querycap/form@workspace:@querycap/form"
   dependencies:
     "@querycap/contexts": ^0.2.5
     "@querycap/reactutils": ^0.7.1
     "@querycap/validators": ^0.2.3
-    "@reactorx/core": ^0.21.0
+    "@reactorx/core": ^0.21.1
     "@types/lodash": ^4.14.165
     lodash: ^4.17.20
   peerDependencies:
@@ -3886,7 +3903,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap/notify@^0.6.1, @querycap/notify@workspace:@querycap/notify":
+"@querycap/notify@^0.6.2, @querycap/notify@workspace:@querycap/notify":
   version: 0.0.0-use.local
   resolution: "@querycap/notify@workspace:@querycap/notify"
   dependencies:
@@ -3925,7 +3942,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap/request@^0.6.1, @querycap/request@workspace:@querycap/request":
+"@querycap/request@^0.6.2, @querycap/request@workspace:@querycap/request":
   version: 0.0.0-use.local
   resolution: "@querycap/request@workspace:@querycap/request"
   peerDependencies:
@@ -3957,7 +3974,7 @@ __metadata:
   resolution: "@querycap/search@workspace:@querycap/search"
   dependencies:
     "@querycap/contexts": ^0.2.5
-    "@querycap/request": ^0.6.1
+    "@querycap/request": ^0.6.2
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@reactorx/core": 0.x
@@ -4013,7 +4030,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reactorx/core@^0.21.0, @reactorx/core@workspace:@reactorx/core":
+"@reactorx/core@^0.21.1, @reactorx/core@workspace:@reactorx/core":
   version: 0.0.0-use.local
   resolution: "@reactorx/core@workspace:@reactorx/core"
   peerDependencies:
@@ -4027,7 +4044,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@reactorx/request@workspace:@reactorx/request"
   dependencies:
-    "@reactorx/core": ^0.21.0
+    "@reactorx/core": ^0.21.1
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     axios: 0.21.x
@@ -4037,11 +4054,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@reactorx/router@^0.22.0, @reactorx/router@workspace:@reactorx/router":
+"@reactorx/router@^0.22.1, @reactorx/router@workspace:@reactorx/router":
   version: 0.0.0-use.local
   resolution: "@reactorx/router@workspace:@reactorx/router"
   dependencies:
-    "@reactorx/core": ^0.21.0
+    "@reactorx/core": ^0.21.1
     path-to-regexp: 6.2.0
   peerDependencies:
     "@babel/runtime-corejs3": "*"
@@ -5754,7 +5771,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-macros@npm:^2.6.1, babel-plugin-macros@npm:^2.8.0":
+"babel-plugin-macros@npm:^2.6.1":
   version: 2.8.0
   resolution: "babel-plugin-macros@npm:2.8.0"
   dependencies:
@@ -5762,6 +5779,18 @@ __metadata:
     cosmiconfig: ^6.0.0
     resolve: ^1.12.0
   checksum: fc4e1224df180d88f44f6f31e448cf51a75c8aa7e0fd828e30c4143f69af6d49ce933f36952478a4e372485db35b6219628bcff16d7f5add724230addbc19e7d
+  languageName: node
+  linkType: hard
+
+"babel-plugin-macros@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "babel-plugin-macros@npm:3.0.0"
+  dependencies:
+    "@babel/runtime": ^7.12.5
+    "@babel/traverse": ^7.12.9
+    cosmiconfig: ^7.0.0
+    resolve: ^1.19.0
+  checksum: 87f8ad06049385e6073853741936f138a70868ad9785c6f5d0f7a077932df6111b3e4f8c590887430ecca47653b4af00e93ad76c53f7802c4e4f65e43c5704bb
   languageName: node
   linkType: hard
 
@@ -15192,7 +15221,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"resolve@^1.10.0, resolve@^1.12.0, resolve@^1.17.0, resolve@^1.18.1, resolve@^1.3.2, resolve@^1.8.1, resolve@^1.9.0":
+"resolve@^1.10.0, resolve@^1.12.0, resolve@^1.17.0, resolve@^1.18.1, resolve@^1.19.0, resolve@^1.3.2, resolve@^1.8.1, resolve@^1.9.0":
   version: 1.19.0
   resolution: "resolve@npm:1.19.0"
   dependencies:
@@ -15202,7 +15231,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@^1.10.0#builtin<compat/resolve>, resolve@patch:resolve@^1.12.0#builtin<compat/resolve>, resolve@patch:resolve@^1.17.0#builtin<compat/resolve>, resolve@patch:resolve@^1.18.1#builtin<compat/resolve>, resolve@patch:resolve@^1.3.2#builtin<compat/resolve>, resolve@patch:resolve@^1.8.1#builtin<compat/resolve>, resolve@patch:resolve@^1.9.0#builtin<compat/resolve>":
+"resolve@patch:resolve@^1.10.0#builtin<compat/resolve>, resolve@patch:resolve@^1.12.0#builtin<compat/resolve>, resolve@patch:resolve@^1.17.0#builtin<compat/resolve>, resolve@patch:resolve@^1.18.1#builtin<compat/resolve>, resolve@patch:resolve@^1.19.0#builtin<compat/resolve>, resolve@patch:resolve@^1.3.2#builtin<compat/resolve>, resolve@patch:resolve@^1.8.1#builtin<compat/resolve>, resolve@patch:resolve@^1.9.0#builtin<compat/resolve>":
   version: 1.19.0
   resolution: "resolve@patch:resolve@npm%3A1.19.0#builtin<compat/resolve>::version=1.19.0&hash=3388aa"
   dependencies:
