@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.3](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.6.2...@querycap-dev/devkit@0.6.3) (2020-12-03)
+
+
+### Bug Fixes
+
+* **devkit:** add ARG YARN_HTTPS_PROXY ([ad91288](https://github.com/querycap/webappkit/commit/ad91288377db76aeb0e3dfe75333432ad28aeaf8))
+
+
+
+
+
 ## [0.6.2](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.6.1...@querycap-dev/devkit@0.6.2) (2020-12-01)
 
 **Note:** Version bump only for package @querycap-dev/devkit
