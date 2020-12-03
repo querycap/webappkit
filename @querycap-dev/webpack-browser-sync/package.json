@@ -9,7 +9,7 @@
     "@types/interpret": "1.1.1",
     "@types/lodash": "^4.14.165",
     "@types/webpack-hot-middleware": "2.25.3",
-    "@types/yargs": "^15.0.10",
+    "@types/yargs": "^15.0.11",
     "browser-sync": "^2.26.13",
     "compression": "^1.7.4",
     "connect-history-api-fallback": "^1.6.0",

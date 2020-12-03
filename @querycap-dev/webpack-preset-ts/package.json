@@ -14,7 +14,7 @@
     "babel-loader": "^8.2.2",
     "source-map-loader": "^1.1.2",
     "terser-webpack-plugin": "^5.0.3",
-    "worker-loader": "^3.0.5"
+    "worker-loader": "^3.0.6"
   },
   "publishConfig": {
     "access": "public"
