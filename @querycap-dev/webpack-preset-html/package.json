@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/webpack-preset-html",
-  "version": "0.8.10",
+  "version": "0.8.11",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",

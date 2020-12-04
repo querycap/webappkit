@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/generate-css2tsx",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "files": [
     "dist/"
   ],

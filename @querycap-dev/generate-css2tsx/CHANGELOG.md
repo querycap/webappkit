@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.4](https://github.com/querycap/webappkit/compare/@querycap-dev/generate-css2tsx@0.6.3...@querycap-dev/generate-css2tsx@0.6.4) (2020-12-04)
+
+**Note:** Version bump only for package @querycap-dev/generate-css2tsx
+
+
+
+
+
 ## [0.6.3](https://github.com/querycap/webappkit/compare/@querycap-dev/generate-css2tsx@0.6.2...@querycap-dev/generate-css2tsx@0.6.3) (2020-12-03)
 
 **Note:** Version bump only for package @querycap-dev/generate-css2tsx
