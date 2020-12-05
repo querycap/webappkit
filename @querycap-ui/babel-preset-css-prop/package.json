@@ -5,7 +5,7 @@
   "dependencies": {
     "@babel/plugin-syntax-jsx": "^7.12.1",
     "@babel/plugin-transform-react-jsx": "^7.12.7",
-    "@emotion/babel-plugin": "11.0.0"
+    "@emotion/babel-plugin": "11.1.2"
   },
   "publishConfig": {
     "access": "public"
