@@ -16,7 +16,7 @@ export const fromCommitRefName = (commitTag = "") => {
 
 export const toCommitRefName = (state: IState) =>
   `workspace/${state.name}` +
-  `${state.feature ? `/feat/${state.feature}` : ""}` +
+  `${state.feature ? `--${state.feature}` : ""}` +
   `${state.env && state.env !== "default" && state.env !== "staging" ? `.${state.env}` : ""}`;
 
 export const release = (state: IState) => {
