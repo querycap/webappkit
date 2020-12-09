@@ -10,11 +10,11 @@
     "@types/cross-spawn": "^6.0.2",
     "@types/js-yaml": "^3.12.5",
     "cross-spawn": "^7.0.3",
-    "js-yaml": "^3.14.0",
+    "js-yaml": "^3.14.1",
     "lodash": "^4.17.20",
     "npm-path": "^2.0.4",
-    "ts-node": "^9.1.0",
-    "yargs": "^16.1.1"
+    "ts-node": "^9.1.1",
+    "yargs": "^16.2.0"
   },
   "license": "MIT",
   "publishConfig": {

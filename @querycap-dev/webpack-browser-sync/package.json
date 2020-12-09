@@ -18,7 +18,7 @@
     "mime": "2.4.6",
     "webpack-dev-middleware": "^4.0.2",
     "webpack-hot-middleware": "^2.25.0",
-    "yargs": "^16.1.1"
+    "yargs": "^16.2.0"
   },
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
