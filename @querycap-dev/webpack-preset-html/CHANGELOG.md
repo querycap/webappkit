@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.12](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-html@0.8.11...@querycap-dev/webpack-preset-html@0.8.12) (2020-12-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency html-webpack-plugin to v5.0.0-alpha.15 ([c527e91](https://github.com/querycap/webappkit/commit/c527e919027410ce675ad8cfe4213cbad6e68acf))
+
+
+
+
+
 ## [0.8.11](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-html@0.8.10...@querycap-dev/webpack-preset-html@0.8.11) (2020-12-04)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-html

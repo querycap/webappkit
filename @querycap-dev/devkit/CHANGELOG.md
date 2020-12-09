@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.6.5...@querycap-dev/devkit@0.7.0) (2020-12-09)
+
+
+### Features
+
+* **devkit:** tag name rule updates to workspace/{name}[--{feature}][.{env}] ([8e45a10](https://github.com/querycap/webappkit/commit/8e45a103cec84efaf8bc229e5e942ce24373df69))
+
+
+
+
+
 ## [0.6.5](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.6.4...@querycap-dev/devkit@0.6.5) (2020-12-09)
 
 **Note:** Version bump only for package @querycap-dev/devkit
