@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.2](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.7.1...@querycap-dev/devkit@0.7.2) (2020-12-10)
+
+
+### Bug Fixes
+
+* **devkit:** arg YARN_NPM_REGISTRY_SERVER ([0f772df](https://github.com/querycap/webappkit/commit/0f772df49981421b657388d9b6962b6e705ea6b9))
+
+
+
+
+
 ## [0.7.1](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.7.0...@querycap-dev/devkit@0.7.1) (2020-12-10)
 
 
