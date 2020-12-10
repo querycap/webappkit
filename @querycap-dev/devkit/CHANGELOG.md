@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.7.0...@querycap-dev/devkit@0.7.1) (2020-12-10)
+
+
+### Bug Fixes
+
+* **devkit:** SRV_ prefix should be default config holder without force overwrites ([377ad72](https://github.com/querycap/webappkit/commit/377ad72f70febd60e23c465ae9d6109735cc4fee))
+
+
+
+
+
 # [0.7.0](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.6.5...@querycap-dev/devkit@0.7.0) (2020-12-09)
 
 
