@@ -7793,7 +7793,7 @@ __metadata:
     lint-staged: ^10.5.3
     localforage-memoryStorageDriver: 0.9.2
     lodash: ^4.17.20
-    lodash-es: 4.17.15
+    lodash-es: 4.17.20
     path-browserify: ^1.0.1
     prettier: ^2.2.1
     pretty-quick: ^3.1.0
@@ -11996,10 +11996,10 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lodash-es@npm:4.17.15":
-  version: 4.17.15
-  resolution: "lodash-es@npm:4.17.15"
-  checksum: ee2871b76deefd1754527e659a8c8b688f2e427e67b30709296878e18ad9cb54b4f0fc16a7161298156b4e0ebc2a37dfe501a3ea8725f195763f9de8a7ba6da6
+"lodash-es@npm:4.17.20":
+  version: 4.17.20
+  resolution: "lodash-es@npm:4.17.20"
+  checksum: b333b502ae1241244005bac3846c0744eed555f10d75a7b2628da67ff8d7a2695fa1213fa9f0ef36c99e719261eeb470e9d0573ead687ce9b14d0cdd47c46f15
   languageName: node
   linkType: hard
 
