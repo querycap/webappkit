@@ -13,8 +13,8 @@ const SomeComponent = () => {
     
  ↓ ↓ ↓ ↓ ↓ ↓
 
-import { jsx as _jsx } from \\"@querycap-ui/core/jsx-runtime\\";
 import { Fragment as _Fragment } from \\"@querycap-ui/core/jsx-runtime\\";
+import { jsx as _jsx } from \\"@querycap-ui/core/jsx-runtime\\";
 
 const SomeComponent = () => {
   return _jsx(_Fragment, {
@@ -40,8 +40,8 @@ const SomeComponent = () => {
     
  ↓ ↓ ↓ ↓ ↓ ↓
 
-import { jsx as _jsx } from \\"@querycap-ui/core/jsx-runtime\\";
 import { jsxs as _jsxs } from \\"@querycap-ui/core/jsx-runtime\\";
+import { jsx as _jsx } from \\"@querycap-ui/core/jsx-runtime\\";
 
 const SomeComponent = () => {
   return _jsxs(\\"div\\", {
@@ -73,9 +73,9 @@ const SomeComponent = () => {
     
  ↓ ↓ ↓ ↓ ↓ ↓
 
-import { jsx as _jsx } from \\"react/jsx-runtime\\";
 import { jsxs as _jsxs } from \\"react/jsx-runtime\\";
 import { Fragment as _Fragment } from \\"react/jsx-runtime\\";
+import { jsx as _jsx } from \\"react/jsx-runtime\\";
 
 const SomeComponent = () => {
   return /*#__PURE__*/_jsxs(_Fragment, {

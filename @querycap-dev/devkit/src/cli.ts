@@ -44,7 +44,7 @@ export const cliFor = <T>(argv: Argv<T>, cwd = process.cwd()) => {
     try {
       const commands = take(y.argv._, 3);
 
-      kit.run(commands[0], commands[1] || process.env.APP || "", commands[2] || process.env.ENV || "", y.argv);
+      kit.run(String(commands[0]), String(commands[1]) || process.env.APP || "", String(commands[2]) || process.env.ENV || "", y.argv);
     } catch (e) {
       console.error(e);
       y.showHelp();
