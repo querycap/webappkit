@@ -64,10 +64,8 @@ spec:
   );
 
   generate(
-    join(cwd, `./Dockerfile`),
-    `# syntax = hub-dev.rockontrol.com/docker.io/docker/dockerfile:experimental
-
-ARG DOCKER_REGISTRY=hub-dev.rockontrol.com
+    join(cwd, `./Dockerfile`), `
+ARG DOCKER_REGISTRY
 FROM --platform=\${BUILDPLATFORM} \${DOCKER_REGISTRY}/docker.io/library/node:15-buster as build-env
 
 FROM --platform=\${BUILDPLATFORM} build-env AS builder
@@ -77,8 +75,8 @@ COPY ./ ./
 
 ARG YARN_NPM_REGISTRY_SERVER
 ARG YARN_HTTPS_PROXY
-ENV YARN_CACHE_FOLDER=/tmp/yarn-cache
-RUN --mount=type=cache,sharing=locked,id=yarncache,target=/tmp/yarn-cache yarn
+ENV YARN_CACHE_FO:LDER=/tmp/yarn-cache
+RUN yarn
 
 ARG APP
 ARG ENV

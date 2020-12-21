@@ -1,6 +1,5 @@
-# syntax = hub-dev.rockontrol.com/docker.io/docker/dockerfile:experimental
 
-ARG DOCKER_REGISTRY=hub-dev.rockontrol.com
+ARG DOCKER_REGISTRY
 FROM --platform=${BUILDPLATFORM} ${DOCKER_REGISTRY}/docker.io/library/node:15-buster as build-env
 
 FROM --platform=${BUILDPLATFORM} build-env AS builder
@@ -11,7 +10,7 @@ COPY ./ ./
 ARG YARN_NPM_REGISTRY_SERVER
 ARG YARN_HTTPS_PROXY
 ENV YARN_CACHE_FOLDER=/tmp/yarn-cache
-RUN --mount=type=cache,sharing=locked,id=yarncache,target=/tmp/yarn-cache yarn
+RUN yarn
 
 ARG APP
 ARG ENV
