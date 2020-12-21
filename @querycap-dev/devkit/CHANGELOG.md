@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.3](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.7.2...@querycap-dev/devkit@0.7.3) (2020-12-21)
+
+
+### Bug Fixes
+
+* **devkit:** drop cache ([2bd4b1e](https://github.com/querycap/webappkit/commit/2bd4b1e93f0eb6770e4f75ac8a8ebf70762ae059))
+
+
+
+
+
 ## [0.7.2](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.7.1...@querycap-dev/devkit@0.7.2) (2020-12-10)
 
 
