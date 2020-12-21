@@ -6,12 +6,12 @@
     "@babel/runtime-corejs3": "*"
   },
   "dependencies": {
-    "@babel/generator": "^7.12.10",
+    "@babel/generator": "^7.12.11",
     "@babel/helper-module-imports": "^7.12.5",
-    "@babel/types": "^7.12.10",
+    "@babel/types": "^7.12.11",
     "@emotion/serialize": "^1.0.0",
     "@querycap-ui/css-aliases": "^0.2.3",
-    "babel-plugin-macros": "^3.0.0"
+    "babel-plugin-macros": "^3.0.1"
   },
   "publishConfig": {
     "access": "public"
