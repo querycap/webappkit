@@ -6,7 +6,7 @@ import { useValueRef } from "@querycap/reactutils";
 import { useToggle } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
 import { map, noop } from "lodash";
-import  { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
+import { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
 import { fromEvent, merge } from "rxjs";
 import { filter as rxFilter, tap } from "rxjs/operators";
 import { InputIcon } from "./Input";
@@ -123,7 +123,13 @@ export const InputSelect = (props: InputSelectProps) => {
   return (
     <>
       <div role="input" css={select().position("relative")}>
-        <input ref={inputElmRef} type="text" value={value} css={select().with(cover()).opacity(0)} onChange={noop} />
+        <input
+          ref={inputElmRef}
+          type="text"
+          value={value}
+          css={select().with(cover()).opacity(0).cursor("pointer")}
+          onChange={noop}
+        />
         <span>{value && display(value)}</span>&nbsp;
       </div>
       <InputIcon pullRight>
