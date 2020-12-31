@@ -7741,7 +7741,7 @@ __metadata:
     path-browserify: ^1.0.1
     prettier: ^2.2.1
     pretty-quick: ^3.1.0
-    prismjs: 1.22.0
+    prismjs: 1.23.0
     react: ^17.0.1
     react-dom: ^17.0.1
     rxjs: ^6.6.3
@@ -14148,15 +14148,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prismjs@npm:1.22.0":
-  version: 1.22.0
-  resolution: "prismjs@npm:1.22.0"
+"prismjs@npm:1.23.0":
+  version: 1.23.0
+  resolution: "prismjs@npm:1.23.0"
   dependencies:
     clipboard: ^2.0.0
   dependenciesMeta:
     clipboard:
       optional: true
-  checksum: c9370f1f6a8c419cf7d712527dede91de33080ecdd9265cf6a7f0938cfe75e954dae4a02915ac8b9df4485f0c9fbab94a7babfedb7076a83ed57b9b132255e34
+  checksum: 9d55785f1ea68e2a2e6b0a5ea1241811ed986182af76053ecf50245521414597d70b17dc5804a7ad961dfd459e6883a89ad3f86bb064ac3484e3ef24b7891f4f
   languageName: node
   linkType: hard
 
