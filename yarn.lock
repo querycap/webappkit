@@ -3424,7 +3424,7 @@ __metadata:
     "@types/cross-spawn": ^6.0.2
     "@types/js-yaml": ^3.12.5
     cross-spawn: ^7.0.3
-    js-yaml: ^3.14.1
+    js-yaml: ^4.0.0
     lodash: ^4.17.20
     npm-path: ^2.0.4
     ts-node: ^9.1.1
@@ -5388,6 +5388,13 @@ __metadata:
   dependencies:
     sprintf-js: ~1.0.2
   checksum: 435adaef5f6671c3ef1478a22be6fd54bdb99fdbbce8f5561b9cbbb05068ccce87b7df3b9f3322ff52a6ebb9cab2b427cbedac47a07611690a9beaa5184093e2
+  languageName: node
+  linkType: hard
+
+"argparse@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "argparse@npm:2.0.1"
+  checksum: 160b7a25d2a7097fd5fdf25eb8a99e037340078f70e6c7cfdef305837ed14d54570b2b13261bcae26c8cd44ad6e9a7136a0110d815ac65a7891c69c7bf2f4afd
   languageName: node
   linkType: hard
 
@@ -11325,7 +11332,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"js-yaml@npm:^3.13.1, js-yaml@npm:^3.14.1":
+"js-yaml@npm:^3.13.1":
   version: 3.14.1
   resolution: "js-yaml@npm:3.14.1"
   dependencies:
@@ -11334,6 +11341,17 @@ fsevents@^1.2.7:
   bin:
     js-yaml: bin/js-yaml.js
   checksum: 46b61f889796a20d16b0b64580a01b6a02b2e45c1a2744906346da54d07e14cde764e887ab6d1512d8b2541c63711bd4b75859c28eb99605baf59fa173fc38c2
+  languageName: node
+  linkType: hard
+
+"js-yaml@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "js-yaml@npm:4.0.0"
+  dependencies:
+    argparse: ^2.0.1
+  bin:
+    js-yaml: bin/js-yaml.js
+  checksum: ee9b16cdbba690ec70f46d61737b28b35e26e6d51606c466de7fa876d3517de0cfdffd2e1ef21263d5ca3b32659d2e4c65255f50d6e236f022305bce72242d46
   languageName: node
   linkType: hard
 
