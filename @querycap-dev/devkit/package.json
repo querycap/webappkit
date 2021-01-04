@@ -10,7 +10,7 @@
     "@types/cross-spawn": "^6.0.2",
     "@types/js-yaml": "^3.12.5",
     "cross-spawn": "^7.0.3",
-    "js-yaml": "^3.14.1",
+    "js-yaml": "^4.0.0",
     "lodash": "^4.17.20",
     "npm-path": "^2.0.4",
     "ts-node": "^9.1.1",
