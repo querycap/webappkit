@@ -3409,7 +3409,7 @@ __metadata:
   dependencies:
     "@querycap-dev/generate": ^0.4.12
     "@types/cross-spawn": ^6.0.2
-    "@types/js-yaml": ^3.12.5
+    "@types/js-yaml": ^4.0.0
     cross-spawn: ^7.0.3
     js-yaml: ^4.0.0
     lodash: ^4.17.20
@@ -4465,10 +4465,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/js-yaml@npm:^3.12.5":
-  version: 3.12.5
-  resolution: "@types/js-yaml@npm:3.12.5"
-  checksum: 82ca4b40ee1baf82961f75b7db8fae5a1d63410c066475424659c3bd1873cf02bf015ebdeb8751e7b6d0c87b4d3f09f20d2cc2075c4bdd4e7d58409ddd6ad925
+"@types/js-yaml@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@types/js-yaml@npm:4.0.0"
+  checksum: 7a4431db3069988c5fa7fd00be45f18f6e355ab227b3ba23c993eeb949ee6ee39bf7180663b94f5a2378bece277ec4c49f26a27189edc263da7eeb6cd4a09d27
   languageName: node
   linkType: hard
 

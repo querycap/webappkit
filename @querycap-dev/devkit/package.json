@@ -8,7 +8,7 @@
   "dependencies": {
     "@querycap-dev/generate": "^0.4.12",
     "@types/cross-spawn": "^6.0.2",
-    "@types/js-yaml": "^3.12.5",
+    "@types/js-yaml": "^4.0.0",
     "cross-spawn": "^7.0.3",
     "js-yaml": "^4.0.0",
     "lodash": "^4.17.20",
