@@ -1,5 +1,5 @@
 import { generate } from "@querycap-dev/generate";
-import { safeDump } from "js-yaml";
+import { dump } from "js-yaml";
 import { isUndefined, omitBy } from "lodash";
 import { join } from "path";
 import { stringify } from "querystring";
@@ -20,7 +20,7 @@ export const writeConfig = (cwd: string, state: IState) => {
 
   generate(
     join(cwd, `./config/default.yml`),
-    safeDump(
+    dump(
       omitEmpty({
         ...baseConfig,
         APP_CONFIG: stringify(state.meta.config || {}, ",", "=", {
@@ -32,7 +32,7 @@ export const writeConfig = (cwd: string, state: IState) => {
 
   generate(
     join(cwd, `./config/master.yml`),
-    safeDump(
+    dump(
       omitEmpty({
         APP_CONFIG: stringify(state.meta.config$ || {}, ",", "=", {
           encodeURIComponent: (v) => v,
@@ -42,7 +42,8 @@ export const writeConfig = (cwd: string, state: IState) => {
   );
 
   generate(
-    join(cwd, `./deploy/qservice.yml`), `apiVersion: serving.octohelm.tech/v1alpha1
+    join(cwd, `./deploy/qservice.yml`),
+    `apiVersion: serving.octohelm.tech/v1alpha1
 kind: QService
 spec:
   image: \${{ PROJECT_IMAGE }}
@@ -64,7 +65,8 @@ spec:
   );
 
   generate(
-    join(cwd, `./Dockerfile`), `
+    join(cwd, `./Dockerfile`),
+    `
 ARG DOCKER_REGISTRY
 FROM --platform=\${BUILDPLATFORM} \${DOCKER_REGISTRY}/docker.io/library/node:15-buster as build-env
 
@@ -88,5 +90,6 @@ FROM \${DOCKER_REGISTRY}/docker.io/querycap/webappserve:0.0.0
 
 ARG PROJECT_NAME
 COPY --from=builder /src/public/\${PROJECT_NAME} /app
-`);
+`,
+  );
 };
