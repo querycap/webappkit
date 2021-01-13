@@ -117,5 +117,8 @@ export const generate = (clientID: string, openAPI: IOpenAPI, clientCreator = ""
     },
   });
 
-  return `${writer.output()}`;
+  return `/* eslint-disable */
+
+${writer.output()}
+`;
 };
