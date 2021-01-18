@@ -1,0 +1,26 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2.1.4
+        with:
+          node-version: "14"
+
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+
+      - run: yarn
+
+      - run: yarn pkg
+
+      - run: cp ./public/web-sg/index.html  ./public/web-sg/404.html
+
+      - run: yarn deploy
