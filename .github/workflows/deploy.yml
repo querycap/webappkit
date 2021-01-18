@@ -19,6 +19,8 @@ jobs:
 
       - run: yarn
 
+      - run: yarn prepare
+
       - run: yarn pkg
 
       - run: cp ./public/web-sg/index.html  ./public/web-sg/404.html
