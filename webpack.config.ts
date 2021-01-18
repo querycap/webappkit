@@ -5,6 +5,7 @@ import { withTsPreset } from "@querycap-dev/webpack-preset-ts";
 import glob from "glob";
 // @ts-ignore
 import { set } from "lodash";
+import { join } from "path";
 // @ts-ignore
 import pkg from "./package.json";
 
@@ -25,6 +26,9 @@ export = withPresets(
     utils: /buffer|date-fns|lodash|rxjs/,
   }) as any,
   (c) => {
+    c.output!.path = join(__dirname, `./public/web-sg/static`);
+    c.output!.publicPath = `./static/`;
+
     c.resolve!.alias = {
       path: "path-browserify",
       lodash$: "lodash-es",
