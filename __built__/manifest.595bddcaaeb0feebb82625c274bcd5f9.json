@@ -1,0 +1,24 @@
+{
+  "icons": [
+    {
+      "src": "./__built__/icon_512x512.bea7ce331bce679c0850157b5166ec78.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "./__built__/icon_256x256.a4c10a3fb8238bcc61c34a692ce81ad9.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "./__built__/icon_144x144.8c759bb75656a8e0a79b17454c3094ef.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "name": "App",
+  "short_name": "sg",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "/"
+}
