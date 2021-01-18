@@ -25,4 +25,9 @@ jobs:
 
       - run: cp ./public/web-sg/index.html  ./public/web-sg/404.html
 
-      - run: yarn deploy
+      - uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: public/web-sg
+          CLEAN: true
