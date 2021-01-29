@@ -3492,7 +3492,7 @@ __metadata:
     "@rollup/plugin-babel": ^5.2.2
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^11.0.1
-    "@types/yargs": ^15.0.12
+    "@types/yargs": ^16.0.0
     chalk: ^4.1.0
     del: ^6.0.0
     lodash: ^4.17.20
@@ -3518,7 +3518,7 @@ __metadata:
     "@types/interpret": 1.1.1
     "@types/lodash": ^4.14.167
     "@types/webpack-hot-middleware": 2.25.3
-    "@types/yargs": ^15.0.12
+    "@types/yargs": ^16.0.0
     browser-sync: ^2.26.13
     compression: ^1.7.4
     connect-history-api-fallback: ^1.6.0
@@ -4729,12 +4729,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/yargs@npm:^15.0.0, @types/yargs@npm:^15.0.12":
+"@types/yargs@npm:^15.0.0":
   version: 15.0.12
   resolution: "@types/yargs@npm:15.0.12"
   dependencies:
     "@types/yargs-parser": "*"
   checksum: b67cf9e8f25865a6d6e72196fe7f47c6f328d2b7a54ed9fa0e60f9693abb332fec1a826f90310804f231bca28a2f71367956b3be2fdba2d4bf316f0394d84f4d
+  languageName: node
+  linkType: hard
+
+"@types/yargs@npm:^16.0.0":
+  version: 16.0.0
+  resolution: "@types/yargs@npm:16.0.0"
+  dependencies:
+    "@types/yargs-parser": "*"
+  checksum: a17fa2814a4c19b7d327c0d6e6ecb9ca6a68fbfded0c1966d0ef6557540c055f7b9c1c1eadde48acb584f75708d4ec96ba59e58e77b8edbb602c23ed3bee76b9
   languageName: node
   linkType: hard
 
