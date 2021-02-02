@@ -3,178 +3,104 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.7.3](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.7.2...@querycap-dev/devkit@0.7.3) (2020-12-21)
-
+## [0.7.4](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.7.3...@querycap-dev/devkit@0.7.4) (2021-02-02)
 
 ### Bug Fixes
 
-* **devkit:** drop cache ([2bd4b1e](https://github.com/querycap/webappkit/commit/2bd4b1e93f0eb6770e4f75ac8a8ebf70762ae059))
+- **devkit:** dump instead safeDump ([7337b03](https://github.com/querycap/webappkit/commit/7337b034ecc532265542fbde57c81d3e11fdb916))
 
+## [0.7.3](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.7.2...@querycap-dev/devkit@0.7.3) (2020-12-21)
 
+### Bug Fixes
 
-
+- **devkit:** drop cache ([2bd4b1e](https://github.com/querycap/webappkit/commit/2bd4b1e93f0eb6770e4f75ac8a8ebf70762ae059))
 
 ## [0.7.2](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.7.1...@querycap-dev/devkit@0.7.2) (2020-12-10)
 
-
 ### Bug Fixes
 
-* **devkit:** arg YARN_NPM_REGISTRY_SERVER ([0f772df](https://github.com/querycap/webappkit/commit/0f772df49981421b657388d9b6962b6e705ea6b9))
-
-
-
-
+- **devkit:** arg YARN_NPM_REGISTRY_SERVER ([0f772df](https://github.com/querycap/webappkit/commit/0f772df49981421b657388d9b6962b6e705ea6b9))
 
 ## [0.7.1](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.7.0...@querycap-dev/devkit@0.7.1) (2020-12-10)
 
-
 ### Bug Fixes
 
-* **devkit:** SRV_ prefix should be default config holder without force overwrites ([377ad72](https://github.com/querycap/webappkit/commit/377ad72f70febd60e23c465ae9d6109735cc4fee))
-
-
-
-
+- **devkit:** SRV\_ prefix should be default config holder without force overwrites ([377ad72](https://github.com/querycap/webappkit/commit/377ad72f70febd60e23c465ae9d6109735cc4fee))
 
 # [0.7.0](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.6.5...@querycap-dev/devkit@0.7.0) (2020-12-09)
 
-
 ### Features
 
-* **devkit:** tag name rule updates to workspace/{name}[--{feature}][.{env}] ([8e45a10](https://github.com/querycap/webappkit/commit/8e45a103cec84efaf8bc229e5e942ce24373df69))
-
-
-
-
+- **devkit:** tag name rule updates to workspace/{name}[--{feature}][.{env}] ([8e45a10](https://github.com/querycap/webappkit/commit/8e45a103cec84efaf8bc229e5e942ce24373df69))
 
 ## [0.6.5](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.6.4...@querycap-dev/devkit@0.6.5) (2020-12-09)
 
 **Note:** Version bump only for package @querycap-dev/devkit
 
-
-
-
-
 ## [0.6.4](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.6.3...@querycap-dev/devkit@0.6.4) (2020-12-04)
 
 **Note:** Version bump only for package @querycap-dev/devkit
 
-
-
-
-
 ## [0.6.3](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.6.2...@querycap-dev/devkit@0.6.3) (2020-12-03)
-
 
 ### Bug Fixes
 
-* **devkit:** add ARG YARN_HTTPS_PROXY ([ad91288](https://github.com/querycap/webappkit/commit/ad91288377db76aeb0e3dfe75333432ad28aeaf8))
-
-
-
-
+- **devkit:** add ARG YARN_HTTPS_PROXY ([ad91288](https://github.com/querycap/webappkit/commit/ad91288377db76aeb0e3dfe75333432ad28aeaf8))
 
 ## [0.6.2](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.6.1...@querycap-dev/devkit@0.6.2) (2020-12-01)
 
 **Note:** Version bump only for package @querycap-dev/devkit
 
-
-
-
-
 ## [0.6.1](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.6.0...@querycap-dev/devkit@0.6.1) (2020-11-23)
 
 **Note:** Version bump only for package @querycap-dev/devkit
 
-
-
-
-
 # [0.6.0](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.5.9...@querycap-dev/devkit@0.6.0) (2020-11-16)
-
 
 ### Features
 
-* **@querycap-ui/*:** upgrade to [@emotion](https://github.com/emotion) to 11 ([5653bb6](https://github.com/querycap/webappkit/commit/5653bb63579fd592382fa4dd2ee709a838f6e944))
-
-
-
-
+- **@querycap-ui/\*:** upgrade to [@emotion](https://github.com/emotion) to 11 ([5653bb6](https://github.com/querycap/webappkit/commit/5653bb63579fd592382fa4dd2ee709a838f6e944))
 
 ## [0.5.9](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.5.6...@querycap-dev/devkit@0.5.9) (2020-11-02)
 
 **Note:** Version bump only for package @querycap-dev/devkit
 
-
-
-
-
 ## [0.5.6](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.5.4...@querycap-dev/devkit@0.5.6) (2020-10-30)
-
 
 ### Bug Fixes
 
-* **devkit:** config builder may name holder ([75df99f](https://github.com/querycap/webappkit/commit/75df99fdc19adf4db399cd87e093a7e6aca5fe11))
-* **devkit:** env fix ([8cfbd89](https://github.com/querycap/webappkit/commit/8cfbd890ec4a43d0e5deff61cb1811a4773a39d1))
-
-
-
-
+- **devkit:** config builder may name holder ([75df99f](https://github.com/querycap/webappkit/commit/75df99fdc19adf4db399cd87e093a7e6aca5fe11))
+- **devkit:** env fix ([8cfbd89](https://github.com/querycap/webappkit/commit/8cfbd890ec4a43d0e5deff61cb1811a4773a39d1))
 
 ## [0.5.4](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.5.3...@querycap-dev/devkit@0.5.4) (2020-10-30)
 
-
 ### Bug Fixes
 
-* **devkit:** force push tag ([36a89d3](https://github.com/querycap/webappkit/commit/36a89d3cc4cea53bfc37f557bea380aafc55551d))
-
-
-
-
+- **devkit:** force push tag ([36a89d3](https://github.com/querycap/webappkit/commit/36a89d3cc4cea53bfc37f557bea380aafc55551d))
 
 ## [0.5.3](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.5.2...@querycap-dev/devkit@0.5.3) (2020-10-30)
 
-
 ### Bug Fixes
 
-* **devkit:** arg PROJECT_GROUP & PROJECT_VERSION should be in Dockerfile for devkit build ([809b240](https://github.com/querycap/webappkit/commit/809b24099f8b6cf1bb355fc744ffb180fb5054f2))
-
-
-
-
+- **devkit:** arg PROJECT_GROUP & PROJECT_VERSION should be in Dockerfile for devkit build ([809b240](https://github.com/querycap/webappkit/commit/809b24099f8b6cf1bb355fc744ffb180fb5054f2))
 
 ## [0.5.2](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.5.1...@querycap-dev/devkit@0.5.2) (2020-10-30)
 
-
 ### Bug Fixes
 
-* **devkit:** release tag should delete remote first ([bf5397f](https://github.com/querycap/webappkit/commit/bf5397fbcd921c441c446b76aa4b135436bb5efe))
-
-
-
-
+- **devkit:** release tag should delete remote first ([bf5397f](https://github.com/querycap/webappkit/commit/bf5397fbcd921c441c446b76aa4b135436bb5efe))
 
 ## [0.5.1](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.5.0...@querycap-dev/devkit@0.5.1) (2020-10-30)
 
-
 ### Bug Fixes
 
-* **devkit:** no need generate project feature ([f01a9d5](https://github.com/querycap/webappkit/commit/f01a9d59eba98cbad1e9a5eeab3e88aa5bd171ea))
-
-
-
-
+- **devkit:** no need generate project feature ([f01a9d5](https://github.com/querycap/webappkit/commit/f01a9d59eba98cbad1e9a5eeab3e88aa5bd171ea))
 
 # [0.5.0](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.4.24...@querycap-dev/devkit@0.5.0) (2020-10-30)
 
-
 ### Features
 
-* **devkit:** new ci flow ([92947f8](https://github.com/querycap/webappkit/commit/92947f89f0033af7bf85738d3d3db1e83269c8c3))
-
-
-
-
+- **devkit:** new ci flow ([92947f8](https://github.com/querycap/webappkit/commit/92947f89f0033af7bf85738d3d3db1e83269c8c3))
 
 ## [0.4.24](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.4.23...@querycap-dev/devkit@0.4.24) (2020-10-29)
 

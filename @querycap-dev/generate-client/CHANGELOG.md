@@ -3,45 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.26](https://github.com/querycap/webappkit/compare/@querycap-dev/generate-client@0.5.25...@querycap-dev/generate-client@0.5.26) (2021-02-02)
+
+### Bug Fixes
+
+- **client:** add eslint disable for client ([78c5ea2](https://github.com/querycap/webappkit/commit/78c5ea21096e518d1026e54f5fa26b91f9137d23))
+- **client:** drop client eslint disable ([34f2a2e](https://github.com/querycap/webappkit/commit/34f2a2ee1e27161862760890efe8751a51734d63))
+
 ## [0.5.25](https://github.com/querycap/webappkit/compare/@querycap-dev/generate-client@0.5.24...@querycap-dev/generate-client@0.5.25) (2020-12-01)
 
 **Note:** Version bump only for package @querycap-dev/generate-client
-
-
-
-
 
 ## [0.5.24](https://github.com/querycap/webappkit/compare/@querycap-dev/generate-client@0.5.23...@querycap-dev/generate-client@0.5.24) (2020-11-23)
 
 **Note:** Version bump only for package @querycap-dev/generate-client
 
-
-
-
-
 ## [0.5.23](https://github.com/querycap/webappkit/compare/@querycap-dev/generate-client@0.5.22...@querycap-dev/generate-client@0.5.23) (2020-11-10)
 
 **Note:** Version bump only for package @querycap-dev/generate-client
-
-
-
-
 
 ## [0.5.22](https://github.com/querycap/webappkit/compare/@querycap-dev/generate-client@0.5.21...@querycap-dev/generate-client@0.5.22) (2020-11-02)
 
 **Note:** Version bump only for package @querycap-dev/generate-client
 
-
-
-
-
 ## [0.5.21](https://github.com/querycap/webappkit/compare/@querycap-dev/generate-client@0.5.20...@querycap-dev/generate-client@0.5.21) (2020-10-30)
 
 **Note:** Version bump only for package @querycap-dev/generate-client
-
-
-
-
 
 ## [0.5.20](https://github.com/querycap/webappkit/compare/@querycap-dev/generate-client@0.5.19...@querycap-dev/generate-client@0.5.20) (2020-10-29)
 

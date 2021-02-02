@@ -3,45 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.4.6](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.4.5...@querycap-dev/babel-preset@0.4.6) (2020-12-21)
+## [0.4.7](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.4.6...@querycap-dev/babel-preset@0.4.7) (2021-02-02)
 
 **Note:** Version bump only for package @querycap-dev/babel-preset
 
+## [0.4.6](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.4.5...@querycap-dev/babel-preset@0.4.6) (2020-12-21)
 
-
-
+**Note:** Version bump only for package @querycap-dev/babel-preset
 
 ## [0.4.5](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.4.4...@querycap-dev/babel-preset@0.4.5) (2020-12-10)
 
 **Note:** Version bump only for package @querycap-dev/babel-preset
 
-
-
-
-
 ## [0.4.4](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.4.3...@querycap-dev/babel-preset@0.4.4) (2020-12-01)
 
 **Note:** Version bump only for package @querycap-dev/babel-preset
-
-
-
-
 
 ## [0.4.3](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.4.2...@querycap-dev/babel-preset@0.4.3) (2020-11-23)
 
 **Note:** Version bump only for package @querycap-dev/babel-preset
 
-
-
-
-
 ## [0.4.2](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.4.1...@querycap-dev/babel-preset@0.4.2) (2020-11-10)
 
 **Note:** Version bump only for package @querycap-dev/babel-preset
-
-
-
-
 
 ## [0.4.1](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.4.0...@querycap-dev/babel-preset@0.4.1) (2020-10-29)
 

@@ -3,77 +3,45 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.2.11](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.2.10...@querycap-ui/layouts@0.2.11) (2020-12-21)
+## [0.2.12](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.2.11...@querycap-ui/layouts@0.2.12) (2021-02-02)
 
 **Note:** Version bump only for package @querycap-ui/layouts
 
+## [0.2.11](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.2.10...@querycap-ui/layouts@0.2.11) (2020-12-21)
 
-
-
+**Note:** Version bump only for package @querycap-ui/layouts
 
 ## [0.2.10](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.2.9...@querycap-ui/layouts@0.2.10) (2020-12-10)
 
 **Note:** Version bump only for package @querycap-ui/layouts
 
-
-
-
-
 ## [0.2.9](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.2.8...@querycap-ui/layouts@0.2.9) (2020-12-09)
 
 **Note:** Version bump only for package @querycap-ui/layouts
-
-
-
-
 
 ## [0.2.8](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.2.7...@querycap-ui/layouts@0.2.8) (2020-12-01)
 
 **Note:** Version bump only for package @querycap-ui/layouts
 
-
-
-
-
 ## [0.2.7](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.2.6...@querycap-ui/layouts@0.2.7) (2020-11-23)
 
 **Note:** Version bump only for package @querycap-ui/layouts
-
-
-
-
 
 ## [0.2.6](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.2.5...@querycap-ui/layouts@0.2.6) (2020-11-16)
 
 **Note:** Version bump only for package @querycap-ui/layouts
 
-
-
-
-
 ## [0.2.5](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.2.4...@querycap-ui/layouts@0.2.5) (2020-11-16)
 
 **Note:** Version bump only for package @querycap-ui/layouts
-
-
-
-
 
 ## [0.2.4](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.2.3...@querycap-ui/layouts@0.2.4) (2020-11-10)
 
 **Note:** Version bump only for package @querycap-ui/layouts
 
-
-
-
-
 ## [0.2.3](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.2.2...@querycap-ui/layouts@0.2.3) (2020-11-02)
 
 **Note:** Version bump only for package @querycap-ui/layouts
-
-
-
-
 
 ## [0.2.2](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.2.1...@querycap-ui/layouts@0.2.2) (2020-10-29)
 

@@ -3,24 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/querycap/webappkit/compare/@querycap-ui/date-pickers@0.5.1...@querycap-ui/date-pickers@0.6.0) (2021-02-02)
+
+### Features
+
+- **ui:** table、loading、empty、radio、tag ([a71c686](https://github.com/querycap/webappkit/commit/a71c686ec3d309aaa5e565b362037165386a934a))
+
 ## [0.5.1](https://github.com/querycap/webappkit/compare/@querycap-ui/date-pickers@0.5.0...@querycap-ui/date-pickers@0.5.1) (2020-12-21)
 
 **Note:** Version bump only for package @querycap-ui/date-pickers
 
-
-
-
-
 # [0.5.0](https://github.com/querycap/webappkit/compare/@querycap-ui/date-pickers@0.4.1...@querycap-ui/date-pickers@0.5.0) (2020-11-16)
-
 
 ### Features
 
-* **@querycap-ui/*:** upgrade to [@emotion](https://github.com/emotion) to 11 ([5653bb6](https://github.com/querycap/webappkit/commit/5653bb63579fd592382fa4dd2ee709a838f6e944))
-
-
-
-
+- **@querycap-ui/\*:** upgrade to [@emotion](https://github.com/emotion) to 11 ([5653bb6](https://github.com/querycap/webappkit/commit/5653bb63579fd592382fa4dd2ee709a838f6e944))
 
 ## [0.4.1](https://github.com/querycap/webappkit/compare/@querycap-ui/date-pickers@0.4.0...@querycap-ui/date-pickers@0.4.1) (2020-10-29)
 
