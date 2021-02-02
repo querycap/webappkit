@@ -25,9 +25,12 @@ export = withPresets(
     core: /react|reactorx|scheduler|history|axios/,
     utils: /buffer|date-fns|lodash|rxjs/,
   }) as any,
-  (c) => {
-    c.output!.path = join(__dirname, `./public/web-sg/static`);
-    c.output!.publicPath = `./static/`;
+  (c, state) => {
+    const isProd = state.flags.production;
+    if (isProd) {
+      c.output!.path = join(__dirname, `./public/web-sg/static`);
+      c.output!.publicPath = `./static/`;
+    }
 
     c.resolve!.alias = {
       path: "path-browserify",

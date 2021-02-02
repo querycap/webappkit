@@ -11,6 +11,7 @@ export interface ITableColumn<T> {
   width?: string | number;
   ellipsis?: boolean;
   formatter?: (item: any, row: T, idx: number) => ReactNode;
+  align?: "left" | "center";
 }
 
 interface ITableExpandable<T> {
@@ -42,7 +43,7 @@ interface ITableRow<T> {
   rowStyle?: (row: T) => CSSBuilder;
 }
 
-const ellipsisStyle = select().overflowX("hidden").whiteSpace("nowrap").textOverflow("ellipsis").wordBreak("keep-all");
+const ellisisStyle = select().overflowX("hidden").whiteSpace("nowrap").textOverflow("ellipsis").wordBreak("keep-all");
 
 const TableRow = <T extends Dictionary<any>>({
   columns,
@@ -66,7 +67,9 @@ const TableRow = <T extends Dictionary<any>>({
         {map(columns, (column, index) => (
           <td
             key={column.key}
-            css={select().with(column.ellipsis ? ellipsisStyle : null)}
+            css={select()
+              .textAlign(column.align || "left")
+              .with(column.ellipsis ? ellisisStyle : null)}
             title={column.ellipsis ? get(row, column.key, "-") : ""}>
             {expandable?.rowExpandable(row) && index === 0 && (
               <span
@@ -168,7 +171,8 @@ export const Table = <T extends Dictionary<any>, P extends string>({
                   .paddingX(roundedEm(0.9))
                   .width(column.width || "auto")
                   .textAlign(align)
-                  .fontWeight(500)}>
+                  .fontWeight(500)
+                  .fontSize(theme.fontSizes.s)}>
                 {column.title}
               </th>
             ))}
