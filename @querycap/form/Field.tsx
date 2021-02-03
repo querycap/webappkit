@@ -2,7 +2,7 @@ import { useValueRef } from "@querycap/reactutils";
 import { errorMsg, Validator } from "@querycap/validators";
 import { useSelector } from "@reactorx/core";
 import { get, noop, isUndefined } from "lodash";
-import  {
+import {
   createContext,
   FunctionComponent,
   InputHTMLAttributes,
@@ -15,7 +15,7 @@ import { useFieldNameMayWithPrefix, useForm } from "./Form";
 import { FieldState } from "./State";
 
 export interface FieldMeta {
-  name: string;
+  name?: string;
   readOnly?: boolean;
   disabled?: boolean;
 }

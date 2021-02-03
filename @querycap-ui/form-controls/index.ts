@@ -8,3 +8,4 @@ export * from "./InputSelect";
 export * from "./Menu";
 export * from "./Radio";
 export * from "./Tag";
+export * from "./TextArea";
