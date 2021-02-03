@@ -3559,7 +3559,7 @@ __metadata:
   resolution: "@querycap-dev/webpack-preset-html@workspace:@querycap-dev/webpack-preset-html"
   dependencies:
     "@types/workbox-webpack-plugin": ^5.1.5
-    html-webpack-plugin: 5.0.0-beta.1
+    html-webpack-plugin: 5.0.0
     webpack-pwa-manifest: ^4.3.0
     workbox-core: 6.0.2
     workbox-navigation-preload: 6.0.2
@@ -9924,19 +9924,19 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"html-webpack-plugin@npm:5.0.0-beta.1":
-  version: 5.0.0-beta.1
-  resolution: "html-webpack-plugin@npm:5.0.0-beta.1"
+"html-webpack-plugin@npm:5.0.0":
+  version: 5.0.0
+  resolution: "html-webpack-plugin@npm:5.0.0"
   dependencies:
     "@types/html-minifier-terser": ^5.0.0
     html-minifier-terser: ^5.0.1
-    loader-utils: 2.0.0
+    loader-utils: ^2.0.0
     lodash: ^4.17.20
     pretty-error: ^2.1.1
-    tapable: 2.0.0
+    tapable: ^2.0.0
   peerDependencies:
-    webpack: ^5.1.2
-  checksum: d71b4e4a7b41936cff8b82bcfafedfcaa6f65798e4fa7ebe85d783453393ae4be7a8440ff1f9e21fc69c0efc7ab57e3eb1974f58c8078ab3e328f44a11345b70
+    webpack: ^5.20.0
+  checksum: 2b72c3639d220d0ca3b858b355905dc0df2410722c568fb8fb1814ad157f4a3726e35440783d19bc5353c130a0607afad199580fe85257883bf5e110f943a745
   languageName: node
   linkType: hard
 
@@ -11865,17 +11865,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"loader-utils@npm:2.0.0, loader-utils@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "loader-utils@npm:2.0.0"
-  dependencies:
-    big.js: ^5.2.2
-    emojis-list: ^3.0.0
-    json5: ^2.1.2
-  checksum: a1c2e48781e1501e126a32c39bc1fb1a7e2f02bd99e5aeb8853ddaf3c121fffefcc4579367f97ca6890b58369e571af1c9ec82e4e20db238d560ab359ff25c33
-  languageName: node
-  linkType: hard
-
 "loader-utils@npm:^1.0.3, loader-utils@npm:^1.1.0, loader-utils@npm:^1.4.0":
   version: 1.4.0
   resolution: "loader-utils@npm:1.4.0"
@@ -11884,6 +11873,17 @@ fsevents@^1.2.7:
     emojis-list: ^3.0.0
     json5: ^1.0.1
   checksum: 9fd690e57ad78d32ff2942383b4a7a175eba575280ba5aca3b4d03183fec34aa0db314f49bd3301adf7e60b02471644161bf53149e8f2d18fd6a52627e95a927
+  languageName: node
+  linkType: hard
+
+"loader-utils@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "loader-utils@npm:2.0.0"
+  dependencies:
+    big.js: ^5.2.2
+    emojis-list: ^3.0.0
+    json5: ^2.1.2
+  checksum: a1c2e48781e1501e126a32c39bc1fb1a7e2f02bd99e5aeb8853ddaf3c121fffefcc4579367f97ca6890b58369e571af1c9ec82e4e20db238d560ab359ff25c33
   languageName: node
   linkType: hard
 
@@ -16506,13 +16506,6 @@ fsevents@^1.2.7:
     slice-ansi: ^4.0.0
     string-width: ^4.2.0
   checksum: b51d4ad0f3f8a30a7d7f7efa19c07e4acba0a6dd62bb3484da6e45be93a5ac522626f455c0a68c76f02c21a10f7f284d1445925427dca869e0d42d01d48bf6ed
-  languageName: node
-  linkType: hard
-
-"tapable@npm:2.0.0":
-  version: 2.0.0
-  resolution: "tapable@npm:2.0.0"
-  checksum: e6321280f9ace1043b2d2e893b998454227f27da05e5e1f7c92a67752d6a87e2ca529aeb516f31a21c1a92d2532a77518423b7df7aaf7acd3a8df925f02b4c66
   languageName: node
   linkType: hard
 
