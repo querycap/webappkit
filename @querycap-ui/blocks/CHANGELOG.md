@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.1](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.10.0...@querycap-ui/blocks@0.10.1) (2021-02-03)
+
+### Bug Fixes
+
+- **blocks:** skeleton export ([38a9273](https://github.com/querycap/webappkit/commit/38a92736c2432042f9daaa9911acf7b57832bdc4))
+
 # [0.10.0](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.9.6...@querycap-ui/blocks@0.10.0) (2021-02-02)
 
 ### Features
