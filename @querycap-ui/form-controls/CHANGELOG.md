@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.11.0...@querycap-ui/form-controls@0.12.0) (2021-02-05)
+
+
+### Features
+
+* **form:** textarea ([1977b75](https://github.com/querycap/webappkit/commit/1977b752b3d7bb45c7f7276d5a3ab6712627e878))
+
+
+
+
+
 # [0.11.0](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.10.11...@querycap-ui/form-controls@0.11.0) (2021-02-02)
 
 ### Features

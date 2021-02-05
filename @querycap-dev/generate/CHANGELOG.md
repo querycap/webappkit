@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.13](https://github.com/querycap/webappkit/compare/@querycap-dev/generate@0.4.12...@querycap-dev/generate@0.4.13) (2021-02-05)
+
+**Note:** Version bump only for package @querycap-dev/generate
+
+
+
+
+
 ## [0.4.12](https://github.com/querycap/webappkit/compare/@querycap-dev/generate@0.4.11...@querycap-dev/generate@0.4.12) (2020-12-01)
 
 **Note:** Version bump only for package @querycap-dev/generate
