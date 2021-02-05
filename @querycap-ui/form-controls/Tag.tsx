@@ -1,6 +1,5 @@
 import { ReactNode } from "react";
-import { select, theme, colors, roundedEm } from "@querycap-ui/core";
-import { tint } from "polished";
+import { select, theme, colors, roundedEm, tint } from "@querycap-ui/core/macro";
 import { IconX } from "@querycap-ui/icons";
 
 export const Tag = ({

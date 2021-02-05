@@ -1,6 +1,6 @@
 import { ReactNode, InputHTMLAttributes } from "react";
 import { colors, select, theme } from "@querycap-ui/core";
-import { Button } from "@querycap-ui/form-controls";
+import { Button } from "./Button";
 
 export interface IRadioProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: ReactNode;

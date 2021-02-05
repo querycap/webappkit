@@ -1,9 +1,10 @@
 import { ReactNode, useMemo, useState } from "react";
-import { select, theme, colors, roundedEm, CSSBuilder } from "@querycap-ui/core";
+import { select, theme, colors, roundedEm, CSSBuilder } from "@querycap-ui/core/macro";
 import { map, get, Dictionary, concat, includes, reject, isEmpty, every, uniq, size } from "lodash";
 import { Checkbox } from "@querycap-ui/form-controls";
 import { IconChevronDown, IconChevronRight } from "@querycap-ui/icons";
-import { Loading, Empty } from "@querycap-ui/blocks";
+import { Loading } from "./Loading";
+import { Empty } from "./Empty";
 
 export interface ITableColumn<T> {
   title: ReactNode;
