@@ -2394,9 +2394,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/babel-plugin@npm:11.1.2":
-  version: 11.1.2
-  resolution: "@emotion/babel-plugin@npm:11.1.2"
+"@emotion/babel-plugin@npm:11.2.0":
+  version: 11.2.0
+  resolution: "@emotion/babel-plugin@npm:11.2.0"
   dependencies:
     "@babel/helper-module-imports": ^7.7.0
     "@babel/plugin-syntax-jsx": ^7.12.1
@@ -2412,7 +2412,7 @@ __metadata:
     stylis: ^4.0.3
   peerDependencies:
     "@babel/core": ^7.0.0
-  checksum: 2b8000817a013a40aef75abd85836dfbaf812159b13f3fadd1651763549cd9fb65465dd3d3300773be0d75da735947c31a349762930e816de7453f283fc47545
+  checksum: 4001dc3305742f58d2934f3e7067fb69a9df8ff9aa15f23fb3af1f605bba1236d22faa246a91a591f683633295ca83bd559b300ad893147f7bc47333b1c27ef9
   languageName: node
   linkType: hard
 
@@ -4571,7 +4571,7 @@ __metadata:
   dependencies:
     "@babel/plugin-syntax-jsx": ^7.12.13
     "@babel/plugin-transform-react-jsx": ^7.12.13
-    "@emotion/babel-plugin": 11.1.2
+    "@emotion/babel-plugin": 11.2.0
   languageName: unknown
   linkType: soft
 
