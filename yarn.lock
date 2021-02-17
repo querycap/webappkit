@@ -4488,7 +4488,7 @@ __metadata:
     connect-history-api-fallback: ^1.6.0
     interpret: ^2.2.0
     lodash: ^4.17.20
-    mime: 2.5.0
+    mime: 2.5.2
     webpack-dev-middleware: ^4.1.0
     webpack-hot-middleware: ^2.25.0
     yargs: ^16.2.0
@@ -13699,12 +13699,12 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"mime@npm:2.5.0":
-  version: 2.5.0
-  resolution: "mime@npm:2.5.0"
+"mime@npm:2.5.2":
+  version: 2.5.2
+  resolution: "mime@npm:2.5.2"
   bin:
     mime: cli.js
-  checksum: 19f6f7046cea23d39fb75ee6b99caf1781303a5cbf189c0f209d5b70e4b467642b64106a9f9d3ffce08b6ddfdcfaa95fb60e449c12ae29fb979c229b978e420b
+  checksum: 3e5377f0a1891350247699c5fff0469752a35d5c0baeb7cbee86907c143215ee8621d17c17401f10ffe020a0b327aa503b98cb7340039fce69bc465aed414fb7
   languageName: node
   linkType: hard
 
