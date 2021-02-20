@@ -3,13 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.3](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.10.2...@querycap-ui/blocks@0.10.3) (2021-02-20)
+
+### Bug Fixes
+
+- **blocks:** fix css builder ([6075c3e](https://github.com/querycap/webappkit/commit/6075c3e827ca1bc7ddef1728a19d11cb068685bb))
+
 ## [0.10.2](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.10.1...@querycap-ui/blocks@0.10.2) (2021-02-05)
 
 **Note:** Version bump only for package @querycap-ui/blocks
-
-
-
-
 
 ## [0.10.1](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.10.0...@querycap-ui/blocks@0.10.1) (2021-02-03)
 

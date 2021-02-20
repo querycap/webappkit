@@ -3,13 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.7.5...@querycap-dev/devkit@0.8.0) (2021-02-20)
+
+### Bug Fixes
+
+- **blocks:** fix css builder ([6075c3e](https://github.com/querycap/webappkit/commit/6075c3e827ca1bc7ddef1728a19d11cb068685bb))
+
+### Features
+
+- **container:** virtual list ([1bace61](https://github.com/querycap/webappkit/commit/1bace61dd0257223055ab579ef8ece300802eb70))
+
 ## [0.7.5](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.7.4...@querycap-dev/devkit@0.7.5) (2021-02-05)
 
 **Note:** Version bump only for package @querycap-dev/devkit
-
-
-
-
 
 ## [0.7.4](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.7.3...@querycap-dev/devkit@0.7.4) (2021-02-02)
 

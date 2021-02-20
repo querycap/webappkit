@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/querycap/webappkit/compare/@querycap-ui/containers@0.4.1...@querycap-ui/containers@0.5.0) (2021-02-20)
+
+### Features
+
+- **container:** virtual list ([1bace61](https://github.com/querycap/webappkit/commit/1bace61dd0257223055ab579ef8ece300802eb70))
+
 ## [0.4.1](https://github.com/querycap/webappkit/compare/@querycap-ui/containers@0.4.0...@querycap-ui/containers@0.4.1) (2020-10-29)
 
 ### Bug Fixes

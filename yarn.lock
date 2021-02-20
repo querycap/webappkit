@@ -4595,7 +4595,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/containers@^0.4.1, @querycap-ui/containers@workspace:@querycap-ui/containers":
+"@querycap-ui/containers@^0.5.0, @querycap-ui/containers@workspace:@querycap-ui/containers":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/containers@workspace:@querycap-ui/containers"
   peerDependencies:
@@ -4646,11 +4646,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/date-pickers@^0.6.0, @querycap-ui/date-pickers@workspace:@querycap-ui/date-pickers":
+"@querycap-ui/date-pickers@^0.6.1, @querycap-ui/date-pickers@workspace:@querycap-ui/date-pickers":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/date-pickers@workspace:@querycap-ui/date-pickers"
   dependencies:
-    "@querycap-ui/containers": ^0.4.1
+    "@querycap-ui/containers": ^0.5.0
     "@querycap-ui/icons": ^0.5.0
   peerDependencies:
     "@babel/runtime-corejs3": "*"
@@ -4718,7 +4718,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-ui/search-controls@workspace:@querycap-ui/search-controls"
   dependencies:
-    "@querycap-ui/date-pickers": ^0.6.0
+    "@querycap-ui/date-pickers": ^0.6.1
     "@querycap-ui/form-controls": ^0.12.0
     "@querycap-ui/icons": ^0.5.0
     "@querycap/reactutils": ^0.7.1
