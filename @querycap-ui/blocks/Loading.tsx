@@ -1,5 +1,5 @@
 import { Stack } from "@querycap-ui/layouts";
-import { select, roundedEm, keyframes, theme } from "@querycap-ui/core/macro";
+import { select, roundedEm, keyframes, theme } from "@querycap-ui/core";
 import { range, map } from "lodash";
 
 const rotate = keyframes({

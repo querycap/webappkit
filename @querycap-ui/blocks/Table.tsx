@@ -1,5 +1,5 @@
 import { ReactNode, useMemo, useState } from "react";
-import { select, theme, colors, roundedEm, CSSBuilder } from "@querycap-ui/core/macro";
+import { select, theme, colors, roundedEm, CSSBuilder } from "@querycap-ui/core";
 import { map, get, Dictionary, concat, includes, reject, isEmpty, every, uniq, size } from "lodash";
 import { Checkbox } from "@querycap-ui/form-controls";
 import { IconChevronDown, IconChevronRight } from "@querycap-ui/icons";
@@ -15,7 +15,7 @@ export interface ITableColumn<T> {
   align?: "left" | "center";
 }
 
-interface ITableExpandable<T> {
+export interface ITableExpandable<T> {
   expandedRowRender: (item: T) => ReactNode;
   rowExpandable: (item: T) => boolean;
 }
@@ -35,7 +35,7 @@ export interface ITableProps<T, P> {
   loading?: boolean;
 }
 
-interface ITableRow<T> {
+export interface ITableRow<T> {
   expandable?: ITableExpandable<T>;
   columns: ITableColumn<T>[];
   rowIndex: number;
@@ -46,7 +46,7 @@ interface ITableRow<T> {
 
 const ellisisStyle = select().overflowX("hidden").whiteSpace("nowrap").textOverflow("ellipsis").wordBreak("keep-all");
 
-const TableRow = <T extends Dictionary<any>>({
+export const TableRow = <T extends Dictionary<any>>({
   columns,
   rowIndex,
   row,

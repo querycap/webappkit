@@ -15,7 +15,8 @@
     "@querycap-ui/form-controls": "^0.12.0",
     "@querycap-ui/icons": "^0.5.0",
     "@querycap-ui/layouts": "^0.2.13",
-    "@querycap/uikit": "^0.4.2"
+    "@querycap/uikit": "^0.4.2",
+    "@emotion/react": "^11.1.4"
   },
   "publishConfig": {
     "access": "public"

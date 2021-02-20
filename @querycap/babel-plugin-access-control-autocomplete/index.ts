@@ -68,7 +68,7 @@ const isCreateRequestMethod = (id = "") => /create(\w+)?Request$/.test(id);
 
 const isNeedToMarkedAccessControlExpression = (
   importer: ReturnType<typeof createImporter>,
-  e: Expression | null,
+  e: Expression | undefined | null,
 ): boolean => {
   if (isArrowFunctionExpression(e)) {
     return true;

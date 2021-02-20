@@ -1,4 +1,4 @@
-import { select, keyframes } from "@querycap-ui/core/macro";
+import { select, keyframes } from "@querycap-ui/core";
 
 const skeletonLoading = keyframes({
   "0%": {
