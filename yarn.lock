@@ -4559,7 +4559,7 @@ __metadata:
     webpack-bundle-analyzer: ^4.4.0
   peerDependencies:
     "@babel/runtime-corejs3": "*"
-    "@querycap-dev/devkit": ^0.6.0
+    "@querycap-dev/devkit": ^0.8.0
     webpack: "*"
     webpack-cli: ^4.2.0
   languageName: unknown
