@@ -3,13 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/querycap/webappkit/compare/@querycap/access@0.6.2...@querycap/access@0.7.0) (2021-03-01)
+
+### Features
+
+- **access:** add strategies ([01b9e98](https://github.com/querycap/webappkit/commit/01b9e986f661f48e2ababc2f27e38bce09e46944))
+
 ## [0.6.2](https://github.com/querycap/webappkit/compare/@querycap/access@0.6.1...@querycap/access@0.6.2) (2020-11-23)
 
 **Note:** Version bump only for package @querycap/access
-
-
-
-
 
 ## [0.6.1](https://github.com/querycap/webappkit/compare/@querycap/access@0.6.0...@querycap/access@0.6.1) (2020-10-29)
 
