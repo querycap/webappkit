@@ -16,7 +16,7 @@
     "lodash": "^4.17.20",
     "minimatch": "^3.0.4",
     "rollup": "^2.38.4",
-    "rollup-plugin-dts": "^2.0.1",
+    "rollup-plugin-dts": "^3.0.0",
     "yargs": "^16.2.0"
   },
   "license": "MIT",
