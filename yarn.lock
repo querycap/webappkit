@@ -4523,7 +4523,7 @@ __metadata:
   resolution: "@querycap-dev/webpack-preset-html@workspace:@querycap-dev/webpack-preset-html"
   dependencies:
     "@types/workbox-webpack-plugin": ^5.1.5
-    html-webpack-plugin: 5.0.0
+    html-webpack-plugin: 5.3.1
     webpack-pwa-manifest: ^4.3.0
     workbox-core: 6.1.0
     workbox-navigation-preload: 6.1.0
@@ -11102,19 +11102,18 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"html-webpack-plugin@npm:5.0.0":
-  version: 5.0.0
-  resolution: "html-webpack-plugin@npm:5.0.0"
+"html-webpack-plugin@npm:5.3.1":
+  version: 5.3.1
+  resolution: "html-webpack-plugin@npm:5.3.1"
   dependencies:
     "@types/html-minifier-terser": ^5.0.0
     html-minifier-terser: ^5.0.1
-    loader-utils: ^2.0.0
     lodash: ^4.17.20
     pretty-error: ^2.1.1
     tapable: ^2.0.0
   peerDependencies:
     webpack: ^5.20.0
-  checksum: 2b72c3639d220d0ca3b858b355905dc0df2410722c568fb8fb1814ad157f4a3726e35440783d19bc5353c130a0607afad199580fe85257883bf5e110f943a745
+  checksum: 2d744cf3144686cc4b786dac8fbbce3733dd1825a99efea2f289b54e47201f8431df56114d72eb87cf4f78aa8dede6ea5ee09904313dbd72209dc3a43a804b51
   languageName: node
   linkType: hard
 
