@@ -1,7 +1,7 @@
 import { join } from "path";
 import { generateClient } from "..";
 
-it("generate-client", async () => {
+test.skip("generate-client", async () => {
   const opt = {
     cwd: join(__dirname, "./.tmp"),
     clientCreator: "../../../request.createRequest",
