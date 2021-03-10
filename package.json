@@ -17,7 +17,7 @@
     "fmt": "prettier --write @querycap*/{,**/}{,**/}*.{ts,tsx,json,md}",
     "tsc": "tsc --incremental --diagnostics -p tsconfig.json",
     "test": "yarn tsc && jest --coverage",
-    "build": "lerna exec monobundle",
+    "build": "lerna exec ../../node_modules/.bin/monobundle",
     "start": "devkit dev sg",
     "pkg": "devkit build --prod sg",
     "pkg:gh-page": "devkit build --prod sg gh-page",
