@@ -1,7 +1,6 @@
 import { Global } from "@emotion/react";
 import { cover, normalize, select, theme } from "@querycap-ui/core";
 import { headings } from "@querycap-ui/texts";
-import React from "react";
 
 export const CSSReset = () => {
   return (

@@ -4,8 +4,8 @@
   "license": "MIT",
   "dependencies": {
     "@babel/plugin-syntax-jsx": "^7.12.13",
-    "@babel/plugin-transform-react-jsx": "^7.12.13",
-    "@emotion/babel-plugin": "11.1.2"
+    "@babel/plugin-transform-react-jsx": "^7.12.17",
+    "@emotion/babel-plugin": "11.2.0"
   },
   "publishConfig": {
     "access": "public"

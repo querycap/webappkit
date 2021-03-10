@@ -22,7 +22,6 @@
     "strict": true,
     /* Additional Checks */
     "noUnusedLocals": true,
-    "preserveConstEnums": false,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,

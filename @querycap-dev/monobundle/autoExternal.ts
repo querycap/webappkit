@@ -1,4 +1,5 @@
 import { existsSync } from "fs";
+import { last } from "lodash";
 // @ts-ignore
 import minimatch from "minimatch";
 import { dirname, join, resolve } from "path";
@@ -99,6 +100,11 @@ export const createAutoExternal = (
 
         if (!(id.startsWith(".") || id.startsWith("/"))) {
           const parts = id.split("/");
+
+          if (parts.length > 2 && last(parts) === "macro") {
+            // import types of /macro
+            return false;
+          }
 
           if (parts.length > 2 && existsSync(join(monoRoot, parts[0], parts[1]))) {
             if (parts[2] !== "jsx-runtime") {

@@ -5,8 +5,8 @@
     "dist/"
   ],
   "dependencies": {
-    "lodash": "^4.17.20",
-    "postcss": "^8.2.4"
+    "lodash": "^4.17.21",
+    "postcss": "^8.2.8"
   },
   "license": "MIT",
   "publishConfig": {

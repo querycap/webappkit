@@ -1,10 +1,8 @@
 import { IState, stateFromEnvValue } from "@querycap-dev/devkit";
 import { join } from "path";
-import { Configuration, DefinePlugin, LoaderOptionsPlugin, optimize } from "webpack";
+import { Configuration, DefinePlugin, LoaderOptionsPlugin } from "webpack";
 // @ts-ignore
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
-
-const { ModuleConcatenationPlugin } = optimize;
 
 export type TPreset = (c: Configuration, state: IState) => void;
 
@@ -53,7 +51,6 @@ export const withPresets = (...presets: TPreset[]): Configuration => {
         minimize: true,
         debug: false,
       }),
-      new ModuleConcatenationPlugin(),
     );
   }
 

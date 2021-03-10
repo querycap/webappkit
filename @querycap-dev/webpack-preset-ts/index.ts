@@ -44,6 +44,7 @@ export const withTsPreset = (vendorGroups: { [key: string]: RegExp } = {}) => (
     chunkIds: isProd ? "deterministic" : "named",
     moduleIds: isProd ? "deterministic" : "named",
     minimize: isProd,
+    concatenateModules: isProd,
     minimizer: [
       new TerserPlugin({
         parallel: true,

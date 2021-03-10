@@ -16,7 +16,7 @@
     "@querycap/validators": "^0.2.3",
     "@reactorx/core": "^0.21.1",
     "@types/lodash": "^4.14.168",
-    "lodash": "^4.17.20"
+    "lodash": "^4.17.21"
   },
   "publishConfig": {
     "access": "public"

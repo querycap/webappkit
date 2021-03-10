@@ -1,7 +1,7 @@
 import { WheelSelect } from "@querycap-ui/containers";
 import { formatRFC3339, getDate, getDaysInMonth, getHours, getMinutes, getMonth, getYear, parseISO } from "date-fns";
 import { isUndefined, map, padStart, times } from "lodash";
-import  { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 interface IDate {
   year?: number;
@@ -164,22 +164,26 @@ export function DateWheelPicker({
       css={{
         display: "flex",
       }}>
-      {map(options, (opts, key: any) => (
-        <WheelSelect
-          key={key === "date" ? `date:${date.year}:${date.month}` : key}
-          sup={(labels as any)[key]}
-          name={key}
-          itemHeight={30}
-          options={opts}
-          value={(date as any)[key] ? `${(date as any)[key]}` : ""}
-          onValueChange={(value) => {
-            setDate((date) => ({
-              ...date,
-              [key]: Number(value),
-            }));
-          }}
-        />
-      ))}
+      {map(
+        options,
+        (opts, key: any) =>
+          opts && (
+            <WheelSelect
+              key={key === "date" ? `date:${date.year}:${date.month}` : key}
+              sup={(labels as any)[key]}
+              name={key}
+              itemHeight={30}
+              options={opts}
+              value={(date as any)[key] ? `${(date as any)[key]}` : ""}
+              onValueChange={(value) => {
+                setDate((date) => ({
+                  ...date,
+                  [key]: Number(value),
+                }));
+              }}
+            />
+          ),
+      )}
     </div>
   );
 }

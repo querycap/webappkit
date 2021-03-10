@@ -2,10 +2,11 @@ import { withPresets } from "@querycap-dev/webpack-preset";
 import { withAssetsPreset } from "@querycap-dev/webpack-preset-assets";
 import { withHTMLPreset } from "@querycap-dev/webpack-preset-html";
 import { withTsPreset } from "@querycap-dev/webpack-preset-ts";
+// @ts-ignore
 import glob from "glob";
 // @ts-ignore
 import { set } from "lodash";
-import { join } from "path";
+// import { join } from "path";
 // @ts-ignore
 import pkg from "./package.json";
 
@@ -25,12 +26,12 @@ export = withPresets(
     core: /react|reactorx|scheduler|history|axios/,
     utils: /buffer|date-fns|lodash|rxjs/,
   }) as any,
-  (c, state) => {
-    const isProd = state.flags.production;
-    if (isProd) {
-      c.output!.path = join(__dirname, `./public/web-sg/static`);
-      c.output!.publicPath = `./static/`;
-    }
+  (c, _) => {
+    // const isProd = state.flags.production;
+    // if (isProd) {
+    //   c.output!.path = join(__dirname, `./public/web-sg/static`);
+    //   c.output!.publicPath = `./static/`;
+    // }
 
     c.resolve!.alias = {
       path: "path-browserify",
