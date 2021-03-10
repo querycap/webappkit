@@ -21,7 +21,7 @@ jobs:
 
       - run: yarn prepare
 
-      - run: yarn pkg
+      - run: yarn pkg:gh-page
 
       - run: cp ./public/web-sg/index.html  ./public/web-sg/404.html
 
