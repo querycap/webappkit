@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.29](https://github.com/querycap/webappkit/compare/@querycap-dev/generate-client@0.5.28...@querycap-dev/generate-client@0.5.29) (2021-03-10)
+
+### Bug Fixes
+
+- **client:** fix enum display for client ([195ce75](https://github.com/querycap/webappkit/commit/195ce75d75e6edc3e84de65871588d53e9ab0ed2))
+
 ## [0.5.28](https://github.com/querycap/webappkit/compare/@querycap-dev/generate-client@0.5.27...@querycap-dev/generate-client@0.5.28) (2021-03-10)
 
 ### Bug Fixes
