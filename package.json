@@ -18,8 +18,9 @@
     "tsc": "tsc --incremental --diagnostics -p tsconfig.json",
     "test": "yarn tsc && jest --coverage",
     "build": "lerna exec monobundle",
-    "start": "devkit dev --prod sg",
+    "start": "devkit dev sg",
     "pkg": "devkit build --prod sg",
+    "pkg:gh-page": "devkit build --prod sg gh-page",
     "prepare": "yarn test && yarn build",
     "deploy": "gh-pages -d public/web-sg"
   },

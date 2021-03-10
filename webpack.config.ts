@@ -6,7 +6,7 @@ import { withTsPreset } from "@querycap-dev/webpack-preset-ts";
 import glob from "glob";
 // @ts-ignore
 import { set } from "lodash";
-// import { join } from "path";
+import { join } from "path";
 // @ts-ignore
 import pkg from "./package.json";
 
@@ -26,12 +26,15 @@ export = withPresets(
     core: /react|reactorx|scheduler|history|axios/,
     utils: /buffer|date-fns|lodash|rxjs/,
   }) as any,
-  (c, _) => {
-    // const isProd = state.flags.production;
-    // if (isProd) {
-    //   c.output!.path = join(__dirname, `./public/web-sg/static`);
-    //   c.output!.publicPath = `./static/`;
-    // }
+  (c, state) => {
+    console.log(state);
+
+    const isProd = state.flags.production;
+
+    if (isProd && state.env == "gh-page") {
+      c.output!.path = join(__dirname, `./public/web-sg/static`);
+      c.output!.publicPath = `./static/`;
+    }
 
     c.resolve!.alias = {
       path: "path-browserify",
