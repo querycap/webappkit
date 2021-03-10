@@ -68,19 +68,9 @@ const toDisplayObjectField = (schema: ISchemaBasic, decl: Decl) => {
 const toDisplayEnum = (schema: ISchemaBasic, name: string) => {
   const enumDisplays: { [k: string]: string } = {};
 
-  if (isObject(schema) && (has(schema, "x-enum-options") || has(schema, "x-enum-labels"))) {
-    let enumOptions = get(schema, "x-enum-options");
-    if (!enumOptions) {
-      enumOptions = map(get(schema, "x-enum-labels"), (label, i) => {
-        return {
-          label,
-          value: get(schema, ["enum", i]),
-        };
-      });
-    }
-
-    forEach(enumOptions, ({ value, label }) => {
-      enumDisplays[value] = label;
+  if (isObject(schema) && has(schema, "enum")) {
+    forEach(schema["enum"], (value, i) => {
+      enumDisplays[value] = get(schema, ["x-enum-options", i, "label"], get(schema, ["x-enum-labels", i], value));
     });
   }
 
