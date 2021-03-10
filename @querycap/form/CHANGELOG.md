@@ -3,16 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.10.0](https://github.com/querycap/webappkit/compare/@querycap/form@0.9.6...@querycap/form@0.10.0) (2021-02-05)
+## [0.10.1](https://github.com/querycap/webappkit/compare/@querycap/form@0.10.0...@querycap/form@0.10.1) (2021-03-10)
 
+**Note:** Version bump only for package @querycap/form
+
+# [0.10.0](https://github.com/querycap/webappkit/compare/@querycap/form@0.9.6...@querycap/form@0.10.0) (2021-02-05)
 
 ### Features
 
-* **form:** textarea ([1977b75](https://github.com/querycap/webappkit/commit/1977b752b3d7bb45c7f7276d5a3ab6712627e878))
-
-
-
-
+- **form:** textarea ([1977b75](https://github.com/querycap/webappkit/commit/1977b752b3d7bb45c7f7276d5a3ab6712627e878))
 
 ## [0.9.6](https://github.com/querycap/webappkit/compare/@querycap/form@0.9.5...@querycap/form@0.9.6) (2021-02-02)
 

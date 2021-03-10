@@ -3,13 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.2.13](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.2.12...@querycap-ui/layouts@0.2.13) (2021-02-05)
+## [0.2.14](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.2.13...@querycap-ui/layouts@0.2.14) (2021-03-10)
 
 **Note:** Version bump only for package @querycap-ui/layouts
 
+## [0.2.13](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.2.12...@querycap-ui/layouts@0.2.13) (2021-02-05)
 
-
-
+**Note:** Version bump only for package @querycap-ui/layouts
 
 ## [0.2.12](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.2.11...@querycap-ui/layouts@0.2.12) (2021-02-02)
 

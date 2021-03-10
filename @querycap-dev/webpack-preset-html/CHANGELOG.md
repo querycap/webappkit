@@ -3,99 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.8.14](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-html@0.8.13...@querycap-dev/webpack-preset-html@0.8.14) (2021-02-05)
+## [0.8.15](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-html@0.8.14...@querycap-dev/webpack-preset-html@0.8.15) (2021-03-10)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-html
 
+## [0.8.14](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-html@0.8.13...@querycap-dev/webpack-preset-html@0.8.14) (2021-02-05)
 
-
-
+**Note:** Version bump only for package @querycap-dev/webpack-preset-html
 
 ## [0.8.13](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-html@0.8.12...@querycap-dev/webpack-preset-html@0.8.13) (2020-12-21)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-html
 
-
-
-
-
 ## [0.8.12](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-html@0.8.11...@querycap-dev/webpack-preset-html@0.8.12) (2020-12-09)
-
 
 ### Bug Fixes
 
-* **deps:** update dependency html-webpack-plugin to v5.0.0-alpha.15 ([c527e91](https://github.com/querycap/webappkit/commit/c527e919027410ce675ad8cfe4213cbad6e68acf))
-
-
-
-
+- **deps:** update dependency html-webpack-plugin to v5.0.0-alpha.15 ([c527e91](https://github.com/querycap/webappkit/commit/c527e919027410ce675ad8cfe4213cbad6e68acf))
 
 ## [0.8.11](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-html@0.8.10...@querycap-dev/webpack-preset-html@0.8.11) (2020-12-04)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-html
 
-
-
-
-
 ## [0.8.10](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-html@0.8.9...@querycap-dev/webpack-preset-html@0.8.10) (2020-12-01)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-html
-
-
-
-
 
 ## [0.8.9](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-html@0.8.8...@querycap-dev/webpack-preset-html@0.8.9) (2020-11-23)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-html
 
-
-
-
-
 ## [0.8.8](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-html@0.8.7...@querycap-dev/webpack-preset-html@0.8.8) (2020-11-17)
-
 
 ### Bug Fixes
 
-* **deps:** update workbox monorepo to v6.0.0-rc.0 ([1ced761](https://github.com/querycap/webappkit/commit/1ced761cdd895e6ece26a0b10d1b964d856a063e))
-
-
-
-
+- **deps:** update workbox monorepo to v6.0.0-rc.0 ([1ced761](https://github.com/querycap/webappkit/commit/1ced761cdd895e6ece26a0b10d1b964d856a063e))
 
 ## [0.8.7](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-html@0.8.6...@querycap-dev/webpack-preset-html@0.8.7) (2020-11-10)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-html
 
-
-
-
-
 ## [0.8.6](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-html@0.8.5...@querycap-dev/webpack-preset-html@0.8.6) (2020-10-14)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-html
-
-
-
-
 
 ## [0.8.5](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-html@0.8.4...@querycap-dev/webpack-preset-html@0.8.5) (2020-10-14)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-html
 
-
-
-
-
 ## [0.8.4](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-html@0.8.3...@querycap-dev/webpack-preset-html@0.8.4) (2020-10-14)
 
 **Note:** Version bump only for package @querycap-dev/webpack-preset-html
-
-
-
-
 
 ## [0.8.3](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-html@0.8.2...@querycap-dev/webpack-preset-html@0.8.3) (2020-10-12)
 
