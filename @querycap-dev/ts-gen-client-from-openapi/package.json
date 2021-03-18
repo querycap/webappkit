@@ -1,20 +1,14 @@
 {
-  "name": "@querycap-dev/generate-client",
-  "version": "0.5.31",
-  "files": [
-    "dist/"
-  ],
-  "license": "MIT",
-  "peerDependencies": {
-    "@babel/runtime-corejs3": "*"
-  },
+  "name": "@querycap-dev/ts-gen-client-from-openapi",
+  "version": "1.2.2",
   "dependencies": {
-    "@querycap-dev/ts-gen-client-from-openapi": "^1.2.2",
     "@querycap-dev/ts-gen-core": "^1.2.2",
-    "@querycap-dev/generate": "^0.4.13",
-    "@types/lodash": "^4.14.168",
-    "axios": "^0.21.1",
-    "lodash": "^4.17.21"
+    "@querycap-dev/ts-gen-definitions-from-json-schema": "^1.2.2"
+  },
+  "peerDependencies": {
+    "@babel/runtime-corejs3": "*",
+    "@types/lodash": "4.x",
+    "lodash": "4.x"
   },
   "publishConfig": {
     "access": "public"
@@ -26,6 +20,9 @@
     "type": "git",
     "url": "ssh://git@github.com/querycap/webappkit.git"
   },
+  "files": [
+    "dist/"
+  ],
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "module": "dist/index.es.js"

@@ -1,4 +1,4 @@
-import { IOpenAPI, TParameter } from "@morlay/ts-gen-client-from-openapi";
+import { IOpenAPI, TParameter } from "@querycap-dev/ts-gen-client-from-openapi";
 import { filter, forEach, map, mapKeys, mapValues } from "lodash";
 
 export const patchOpenAPI = (

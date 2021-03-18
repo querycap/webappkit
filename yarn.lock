@@ -3081,44 +3081,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@morlay/ts-gen-client-from-openapi@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "@morlay/ts-gen-client-from-openapi@npm:1.2.2"
-  dependencies:
-    "@morlay/ts-gen-core": ^1.2.2
-    "@morlay/ts-gen-definitions-from-json-schema": ^1.2.2
-  peerDependencies:
-    "@babel/runtime-corejs3": "*"
-    "@types/lodash": 4.x
-    lodash: 4.x
-  checksum: 9a83525249d987df2be53b9995459e6a1333775dd375b39f2f879ac4da089aba94d8efdbbaa48245ed40fb91904b38cb106d090f874f4cb33fa9cd99c9ea82d6
-  languageName: node
-  linkType: hard
-
-"@morlay/ts-gen-core@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "@morlay/ts-gen-core@npm:1.2.2"
-  peerDependencies:
-    "@babel/runtime-corejs3": "*"
-    "@types/lodash": 4.x
-    lodash: 4.x
-  checksum: 23f151361ad0a814c16bf30a3805a2f382c5a559794460737400a2f831462c72c0715ee66a3cff1923ca5dd2e0698d14ed5175e7a4a7cd50ba56dba42c1972b5
-  languageName: node
-  linkType: hard
-
-"@morlay/ts-gen-definitions-from-json-schema@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "@morlay/ts-gen-definitions-from-json-schema@npm:1.2.2"
-  dependencies:
-    "@morlay/ts-gen-core": ^1.2.2
-  peerDependencies:
-    "@babel/runtime-corejs3": "*"
-    "@types/lodash": 4.x
-    lodash: 4.x
-  checksum: b9921fe66e3e3f9b61de44ed8db087c7e292bbfa587a54144d6e1829a41ca848d35778549e9fdaec95431da32db8c136ec6383e118901ae9f9fa792646313d95
-  languageName: node
-  linkType: hard
-
 "@nodelib/fs.scandir@npm:2.1.3":
   version: 2.1.3
   resolution: "@nodelib/fs.scandir@npm:2.1.3"
@@ -3430,9 +3392,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@querycap-dev/generate-client@workspace:@querycap-dev/generate-client"
   dependencies:
-    "@morlay/ts-gen-client-from-openapi": ^1.2.2
-    "@morlay/ts-gen-core": ^1.2.2
     "@querycap-dev/generate": ^0.4.13
+    "@querycap-dev/ts-gen-client-from-openapi": ^1.2.2
+    "@querycap-dev/ts-gen-core": ^1.2.2
     "@types/lodash": ^4.14.168
     axios: ^0.21.1
     lodash: ^4.17.21
@@ -3496,6 +3458,41 @@ __metadata:
     "@babel/types": "*"
   bin:
     monobundle: bin/monobundle.js
+  languageName: unknown
+  linkType: soft
+
+"@querycap-dev/ts-gen-client-from-openapi@^1.2.2, @querycap-dev/ts-gen-client-from-openapi@workspace:@querycap-dev/ts-gen-client-from-openapi":
+  version: 0.0.0-use.local
+  resolution: "@querycap-dev/ts-gen-client-from-openapi@workspace:@querycap-dev/ts-gen-client-from-openapi"
+  dependencies:
+    "@querycap-dev/ts-gen-core": ^1.2.2
+    "@querycap-dev/ts-gen-definitions-from-json-schema": ^1.2.2
+  peerDependencies:
+    "@babel/runtime-corejs3": "*"
+    "@types/lodash": 4.x
+    lodash: 4.x
+  languageName: unknown
+  linkType: soft
+
+"@querycap-dev/ts-gen-core@^1.2.2, @querycap-dev/ts-gen-core@workspace:@querycap-dev/ts-gen-core":
+  version: 0.0.0-use.local
+  resolution: "@querycap-dev/ts-gen-core@workspace:@querycap-dev/ts-gen-core"
+  peerDependencies:
+    "@babel/runtime-corejs3": "*"
+    "@types/lodash": 4.x
+    lodash: 4.x
+  languageName: unknown
+  linkType: soft
+
+"@querycap-dev/ts-gen-definitions-from-json-schema@^1.2.2, @querycap-dev/ts-gen-definitions-from-json-schema@workspace:@querycap-dev/ts-gen-definitions-from-json-schema":
+  version: 0.0.0-use.local
+  resolution: "@querycap-dev/ts-gen-definitions-from-json-schema@workspace:@querycap-dev/ts-gen-definitions-from-json-schema"
+  dependencies:
+    "@querycap-dev/ts-gen-core": ^1.2.2
+  peerDependencies:
+    "@babel/runtime-corejs3": "*"
+    "@types/lodash": 4.x
+    lodash: 4.x
   languageName: unknown
   linkType: soft
 

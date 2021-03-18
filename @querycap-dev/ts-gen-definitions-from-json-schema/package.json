@@ -1,0 +1,28 @@
+{
+  "name": "@querycap-dev/ts-gen-definitions-from-json-schema",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.2.2",
+  "dependencies": {
+    "@querycap-dev/ts-gen-core": "^1.2.2"
+  },
+  "peerDependencies": {
+    "@babel/runtime-corejs3": "*",
+    "@types/lodash": "4.x",
+    "lodash": "4.x"
+  },
+  "scripts": {
+    "prepare": "node ../../node_modules/.bin/monobundle"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/querycap/webappkit.git"
+  },
+  "files": [
+    "dist/"
+  ],
+  "types": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js"
+}
