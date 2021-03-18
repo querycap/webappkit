@@ -3393,8 +3393,8 @@ __metadata:
   resolution: "@querycap-dev/generate-client@workspace:@querycap-dev/generate-client"
   dependencies:
     "@querycap-dev/generate": ^0.4.13
-    "@querycap-dev/ts-gen-client-from-openapi": ^1.2.2
-    "@querycap-dev/ts-gen-core": ^1.2.2
+    "@querycap-dev/ts-gen-client-from-openapi": ^1.2.3
+    "@querycap-dev/ts-gen-core": ^1.2.3
     "@types/lodash": ^4.14.168
     axios: ^0.21.1
     lodash: ^4.17.21
@@ -3461,12 +3461,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-dev/ts-gen-client-from-openapi@^1.2.2, @querycap-dev/ts-gen-client-from-openapi@workspace:@querycap-dev/ts-gen-client-from-openapi":
+"@querycap-dev/ts-gen-client-from-openapi@^1.2.3, @querycap-dev/ts-gen-client-from-openapi@workspace:@querycap-dev/ts-gen-client-from-openapi":
   version: 0.0.0-use.local
   resolution: "@querycap-dev/ts-gen-client-from-openapi@workspace:@querycap-dev/ts-gen-client-from-openapi"
   dependencies:
-    "@querycap-dev/ts-gen-core": ^1.2.2
-    "@querycap-dev/ts-gen-definitions-from-json-schema": ^1.2.2
+    "@querycap-dev/ts-gen-core": ^1.2.3
+    "@querycap-dev/ts-gen-definitions-from-json-schema": ^1.2.3
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@types/lodash": 4.x
@@ -3474,7 +3474,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-dev/ts-gen-core@^1.2.2, @querycap-dev/ts-gen-core@workspace:@querycap-dev/ts-gen-core":
+"@querycap-dev/ts-gen-core@^1.2.3, @querycap-dev/ts-gen-core@workspace:@querycap-dev/ts-gen-core":
   version: 0.0.0-use.local
   resolution: "@querycap-dev/ts-gen-core@workspace:@querycap-dev/ts-gen-core"
   peerDependencies:
@@ -3484,11 +3484,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-dev/ts-gen-definitions-from-json-schema@^1.2.2, @querycap-dev/ts-gen-definitions-from-json-schema@workspace:@querycap-dev/ts-gen-definitions-from-json-schema":
+"@querycap-dev/ts-gen-definitions-from-json-schema@^1.2.3, @querycap-dev/ts-gen-definitions-from-json-schema@workspace:@querycap-dev/ts-gen-definitions-from-json-schema":
   version: 0.0.0-use.local
   resolution: "@querycap-dev/ts-gen-definitions-from-json-schema@workspace:@querycap-dev/ts-gen-definitions-from-json-schema"
   dependencies:
-    "@querycap-dev/ts-gen-core": ^1.2.2
+    "@querycap-dev/ts-gen-core": ^1.2.3
   peerDependencies:
     "@babel/runtime-corejs3": "*"
     "@types/lodash": 4.x
