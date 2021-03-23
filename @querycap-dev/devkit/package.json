@@ -1,12 +1,12 @@
 {
   "name": "@querycap-dev/devkit",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "bin": "bin/devkit.js",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*"
   },
   "dependencies": {
-    "@querycap-dev/generate": "^0.4.13",
+    "@querycap-dev/generate": "^0.4.14",
     "@types/cross-spawn": "^6.0.2",
     "@types/js-yaml": "^4.0.0",
     "cross-spawn": "^7.0.3",

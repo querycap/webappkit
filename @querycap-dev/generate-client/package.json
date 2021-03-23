@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/generate-client",
-  "version": "0.5.32",
+  "version": "0.5.33",
   "files": [
     "dist/"
   ],
@@ -9,7 +9,7 @@
     "@babel/runtime-corejs3": "*"
   },
   "dependencies": {
-    "@querycap-dev/generate": "^0.4.13",
+    "@querycap-dev/generate": "^0.4.14",
     "@querycap-dev/ts-gen-client-from-openapi": "^1.2.3",
     "@querycap-dev/ts-gen-core": "^1.2.3",
     "@types/lodash": "^4.14.168",
