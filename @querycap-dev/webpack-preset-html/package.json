@@ -11,11 +11,11 @@
     "@types/workbox-webpack-plugin": "^5.1.5",
     "html-webpack-plugin": "^5.3.1",
     "webpack-pwa-manifest": "^4.3.0",
-    "workbox-core": "^6.1.1",
-    "workbox-navigation-preload": "^6.1.1",
-    "workbox-precaching": "^6.1.1",
-    "workbox-strategies": "^6.1.1",
-    "workbox-webpack-plugin": "^6.1.1"
+    "workbox-core": "^6.1.2",
+    "workbox-navigation-preload": "^6.1.2",
+    "workbox-precaching": "^6.1.2",
+    "workbox-strategies": "^6.1.2",
+    "workbox-webpack-plugin": "^6.1.2"
   },
   "publishConfig": {
     "access": "public"

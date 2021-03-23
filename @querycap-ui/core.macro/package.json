@@ -7,8 +7,8 @@
   },
   "dependencies": {
     "@babel/generator": "^7.13.9",
-    "@babel/helper-module-imports": "^7.12.13",
-    "@babel/types": "^7.13.0",
+    "@babel/helper-module-imports": "^7.13.12",
+    "@babel/types": "^7.13.12",
     "@emotion/serialize": "^1.0.1",
     "@querycap-ui/css-aliases": "^0.2.3",
     "babel-plugin-macros": "^3.0.1"
