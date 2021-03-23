@@ -7,7 +7,7 @@ import { useToggle } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
 import { map, noop } from "lodash";
 import { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
-import { fromEvent, merge } from "rxjs";
+import { fromEvent, combineLatest } from "rxjs";
 import { filter as rxFilter, tap } from "rxjs/operators";
 import { InputIcon } from "./Input";
 import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect } from "./Menu";
@@ -33,13 +33,14 @@ export const InputSelect = (props: InputSelectProps) => {
 
   const inputElmRef = useRef<HTMLInputElement>(null);
 
+  const [isOpened, openPopoverOrigin, closePopoverOrigin] = useToggle();
+
   const valuesRef = useValueRef({
     onBlur: onBlur || noop,
     onFocus: onFocus || noop,
     disabled: readOnly || disabled || values.length <= 1,
+    isOpened,
   });
-
-  const [isOpened, openPopoverOrigin, closePopoverOrigin] = useToggle();
 
   const [openPopover, closePopover] = useMemo(
     () => [
@@ -116,7 +117,11 @@ export const InputSelect = (props: InputSelectProps) => {
         tap(preventDefault),
       ),
 
-      merge(inputFocus$, inputClick$).pipe(tap(() => openPopover())),
+      combineLatest([inputFocus$, inputClick$]).pipe(
+        tap(() => {
+          valuesRef.current.isOpened ? closePopover() : openPopover();
+        }),
+      ),
     ];
   }, []);
 
@@ -136,7 +141,11 @@ export const InputSelect = (props: InputSelectProps) => {
         {allowClear && value && !valuesRef.current.disabled ? (
           <IconX onClick={() => onValueChange("")} />
         ) : (
-          <IconChevronDown />
+          <IconChevronDown
+            css={select()
+              .transform(`rotate(${isOpened ? 180 : 0}deg)`)
+              .transition("transform 200ms ease 0s")}
+          />
         )}
       </InputIcon>
       {!valuesRef.current.disabled && isOpened && (
