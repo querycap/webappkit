@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.8.3...@querycap-dev/devkit@0.9.0) (2021-03-24)
+
+
+### Features
+
+* **devkit:** support pnpm ([ed1c0f4](https://github.com/querycap/webappkit/commit/ed1c0f4784dd24cde74aef75961bd20cf553e72d))
+
+
+
+
+
 ## [0.8.3](https://github.com/querycap/webappkit/compare/@querycap-dev/devkit@0.8.2...@querycap-dev/devkit@0.8.3) (2021-03-24)
 
 

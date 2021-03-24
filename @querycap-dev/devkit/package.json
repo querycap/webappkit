@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/devkit",
-  "version": "0.8.3",
+  "version": "0.9.0",
   "bin": "bin/devkit.js",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*"
