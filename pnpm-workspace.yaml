@@ -1,0 +1,5 @@
+packages:
+  - "@reactorx/*"
+  - "@querycap/*"
+  - "@querycap-ui/*"
+  - "@querycap-dev/*"

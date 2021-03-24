@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@querycap-ui/core": "^0.10.10",
+    "@emotion/react": "*",
     "remark-parse": "^9.0.0",
     "remark-react": "^8.0.0",
     "unified": "^9.2.1"
@@ -19,7 +20,7 @@
     "env": "browser"
   },
   "scripts": {
-    "prepare": "node ../../node_modules/.bin/monobundle"
+    "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
   "files": [
     "dist/"

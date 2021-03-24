@@ -3,6 +3,7 @@ import { transformSync } from "@babel/core";
 const compileToSnapshot = (code: string) => {
   const t = transformSync(code, {
     root: __dirname,
+    filename: "m.js",
     plugins: ["@babel/plugin-syntax-jsx", "babel-plugin-macros", "@emotion/babel-plugin"],
   });
 

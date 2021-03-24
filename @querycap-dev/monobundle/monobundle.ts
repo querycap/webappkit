@@ -2,212 +2,214 @@
 import json from "@rollup/plugin-json";
 import nodeResolve from "@rollup/plugin-node-resolve";
 import del from "del";
-import { existsSync, readFileSync, writeFileSync } from "fs";
-import { isEmpty,trim } from "lodash";
-import path, { join } from "path";
-import { OutputOptions, rollup, RollupOptions } from "rollup";
+import {existsSync, readFileSync, writeFileSync} from "fs";
+import {isEmpty, trim} from "lodash";
+import path, {join} from "path";
+import {OutputOptions, rollup, RollupOptions} from "rollup";
 import rollupBabel from "@rollup/plugin-babel";
 import dts from "rollup-plugin-dts";
-import { createAutoExternal } from "./autoExternal";
+import {createAutoExternal} from "./autoExternal";
 import transformRequireResolveWithImport from "./babel-plugin-transform-require-resolve-with-import";
-import { createLogger } from "./log";
-import { tscOnce } from "./tscOnce";
-import { execSync } from "child_process";
+import {createLogger} from "./log";
+import {tscOnce} from "./tscOnce";
+import {execSync} from "child_process";
 
 export const resolveRoot = (p: string): string => {
-  const lernaJSONFile = path.join(p, "./lerna.json");
+    const lernaJSONFile = path.join(p, "./lerna.json");
+    const pnpmWorkspaceYAML = path.join(p, "./pnpm-workspace.yaml");
 
-  if (!existsSync(lernaJSONFile)) {
-    return resolveRoot(path.join(p, "../"));
-  }
+    if (!(existsSync(lernaJSONFile) || existsSync(pnpmWorkspaceYAML))) {
+        return resolveRoot(path.join(p, "../"));
+    }
 
-  return p;
+    return p;
 };
 
 export interface IMonoBundleOption {
-  cleanBeforeBundle: boolean;
-  sideDependencies: string[];
-  env: "browser" | "node";
+    cleanBeforeBundle: boolean;
+    sideDependencies: string[];
+    env: "browser" | "node";
 }
 
 const commonPeerDeps = {
-  "@babel/runtime": "*",
-  "@babel/runtime-corejs3": "*",
-  "core-js": "*",
-  "regenerator-runtime": "*",
+    "@babel/runtime": "*",
+    "@babel/runtime-corejs3": "*",
+    "core-js": "*",
+    "regenerator-runtime": "*",
 };
 
-export const monobundle = async ({ cwd = process.cwd(), dryRun }: { cwd?: string; dryRun?: boolean }) => {
-  const monoRoot = resolveRoot(cwd);
+export const monobundle = async ({cwd = process.cwd(), dryRun}: { cwd?: string; dryRun?: boolean }) => {
+    const monoRoot = resolveRoot(cwd);
 
-  const indexTsFile = join(cwd, "index.ts");
+    const indexTsFile = join(cwd, "index.ts");
 
-  if (!existsSync(indexTsFile)) {
-    return;
-  }
+    if (!existsSync(indexTsFile)) {
+        return;
+    }
 
-  let pkg = JSON.parse(String(readFileSync(path.join(cwd, "package.json")))) as { [k: string]: any };
+    let pkg = JSON.parse(String(readFileSync(path.join(cwd, "package.json")))) as { [k: string]: any };
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const options: IMonoBundleOption = {
-    cleanBeforeBundle: true,
-    ...(pkg.monobundle || {}),
-  };
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    const options: IMonoBundleOption = {
+        cleanBeforeBundle: true,
+        ...(pkg.monobundle || {}),
+    };
 
-  delete pkg["ts"];
-  delete pkg["types"];
-  delete pkg["main"];
-  delete pkg["module"];
+    delete pkg["ts"];
+    delete pkg["types"];
+    delete pkg["main"];
+    delete pkg["module"];
 
-  pkg = {
-    ...pkg,
-    peerDependencies: {
-      ...(pkg.peerDependencies as { [k: string]: any }),
-      ...commonPeerDeps,
-    },
-  };
+    pkg = {
+        ...pkg,
+        peerDependencies: {
+            ...(pkg.peerDependencies as { [k: string]: any }),
+            ...commonPeerDeps,
+        },
+    };
 
-  const logger = createLogger(pkg.name);
+    const logger = createLogger(pkg.name);
 
-  const autoExternal = createAutoExternal(monoRoot, pkg, logger, {
-    commonPeerDeps: commonPeerDeps,
-    sideDeps: options.sideDependencies,
-  });
-
-  const outputs = {
-    types: "dist/index.d.ts",
-    files: ["dist/"],
-    main: "dist/index.js",
-    module: "dist/index.es.js",
-  };
-
-  const resolveRollupOptions: Array<() => Promise<RollupOptions>> = [
-    () =>
-      Promise.resolve({
-        input: indexTsFile,
-        output: [
-          {
-            dir: path.join(cwd, path.dirname(outputs.module)),
-            format: "es",
-            entryFileNames: "[name].es.js",
-            chunkFileNames: "[name]-[hash].es.js",
-          },
-          {
-            dir: path.join(cwd, path.dirname(outputs.main)),
-            format: "cjs",
-            exports: "named",
-          },
-        ],
-        plugins: [
-          autoExternal(),
-          nodeResolve({
-            extensions: [".ts", ".tsx", ".mjs", ".js", ".jsx", ".json"],
-          }),
-          json(),
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-          rollupBabel({
-            root: monoRoot,
-            babelrc: true,
-            plugins: [transformRequireResolveWithImport],
-            babelHelpers: "runtime",
-            envName: `rollup_${options.env}`.toUpperCase(),
-            exclude: "node_modules/**",
-            extensions: [".ts", ".tsx", ".mjs", ".js", ".jsx"],
-          }),
-        ],
-      }),
-    async () => {
-      const index = await tscOnce(monoRoot, cwd);
-
-      return {
-        input: index,
-        output: [
-          {
-            file: path.join(cwd, outputs.types),
-            format: "es",
-          },
-        ],
-        plugins: [
-          autoExternal(false),
-          dts({
-            respectExternal: true,
-          }),
-        ],
-      };
-    },
-  ];
-
-  logger.warning("bundling");
-
-  if (options.cleanBeforeBundle) {
-    del.sync(outputs.files.concat("_cjs/", "_esm5/").map((dir) => path.join(cwd, dir)));
-  }
-
-  let finalFiles: string[] = [];
-
-  for (const resolveRollupOption of resolveRollupOptions) {
-    const rollupOption = await resolveRollupOption();
-
-    const files = await rollup(rollupOption).then((bundle) => {
-      return Promise.all(
-        ([] as OutputOptions[]).concat(rollupOption.output!).map((output) => {
-          if (dryRun) {
-            return [];
-          }
-
-          return bundle.write(output).then((ret) => {
-            if (output.dir) {
-              return (ret.output || []).map((o) => path.join(path.relative(cwd, output.dir!), o.fileName));
-            }
-            return path.relative(cwd, output.file!);
-          });
-        }),
-      );
+    const autoExternal = createAutoExternal(monoRoot, pkg, logger, {
+        commonPeerDeps: commonPeerDeps,
+        sideDeps: options.sideDependencies,
     });
 
-    finalFiles = finalFiles.concat(files.flat());
-  }
+    const outputs = {
+        types: "dist/index.d.ts",
+        files: ["dist/"],
+        main: "dist/index.js",
+        module: "dist/index.es.js",
+    };
 
-  logger.success("bundled", ...finalFiles);
+    const resolveRollupOptions: Array<() => Promise<RollupOptions>> = [
+        () =>
+            Promise.resolve({
+                input: indexTsFile,
+                output: [
+                    {
+                        dir: path.join(cwd, path.dirname(outputs.module)),
+                        format: "es",
+                        entryFileNames: "[name].es.js",
+                        chunkFileNames: "[name]-[hash].es.js",
+                    },
+                    {
+                        dir: path.join(cwd, path.dirname(outputs.main)),
+                        format: "cjs",
+                        exports: "named",
+                    },
+                ],
+                plugins: [
+                    autoExternal(),
+                    nodeResolve({
+                        extensions: [".ts", ".tsx", ".mjs", ".js", ".jsx", ".json"],
+                    }),
+                    json(),
+                    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+                    rollupBabel({
+                        root: monoRoot,
+                        babelrc: true,
+                        plugins: [transformRequireResolveWithImport],
+                        babelHelpers: "runtime",
+                        envName: `rollup_${options.env}`.toUpperCase(),
+                        exclude: "node_modules/**",
+                        extensions: [".ts", ".tsx", ".mjs", ".js", ".jsx"],
+                    }),
+                ],
+            }),
+        async () => {
+            const index = await tscOnce(monoRoot, cwd);
 
-  const unused = autoExternal.warningAndGetUnused();
-
-  for (const dep in unused.peerDeps) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    delete pkg.peerDependencies[dep];
-  }
-
-  for (const dep in unused.deps) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    delete pkg.dependencies[dep];
-  }
-
-  writeFileSync(
-    path.join(cwd, "package.json"),
-    `${JSON.stringify(
-      {
-        ...pkg,
-        ...outputs,
-        dependencies: isEmpty(pkg.dependencies) ? undefined : (pkg.dependencies as { [k: string]: string }),
-        peerDependencies: isEmpty(pkg.peerDependencies) ? undefined : (pkg.peerDependencies as { [k: string]: string }),
-        files: [
-          ...((pkg.files as string[]) || []).filter(
-            (f: string) => !outputs.files.concat("_cjs/", "_esm5/").includes(f),
-          ),
-          ...outputs.files,
-        ],
-        scripts: {
-          ...(pkg.scripts as { [k: string]: string }),
-          prepare: "node ../../node_modules/.bin/monobundle",
+            return {
+                input: index,
+                output: [
+                    {
+                        file: path.join(cwd, outputs.types),
+                        format: "es",
+                    },
+                ],
+                plugins: [
+                    autoExternal(false),
+                    dts({
+                        respectExternal: true,
+                    }),
+                ],
+            };
         },
-        repository: pkg.repository ? pkg.repository : {
-          "type": "git",
-          "url": `ssh://${trim(String(execSync("git remote get-url origin")), "\n")}`,
-        },
-      },
-      null,
-      2,
-    )}
+    ];
+
+    logger.warning("bundling");
+    if (options.cleanBeforeBundle) {
+        logger.warning("delete");
+
+        del.sync(outputs.files.concat("_cjs/", "_esm5/").map((dir) => path.join(cwd, dir)));
+    }
+
+    let finalFiles: string[] = [];
+
+    for (const resolveRollupOption of resolveRollupOptions) {
+        const rollupOption = await resolveRollupOption();
+
+        const files = await rollup(rollupOption).then((bundle) => {
+            return Promise.all(
+                ([] as OutputOptions[]).concat(rollupOption.output!).map((output) => {
+                    if (dryRun) {
+                        return [];
+                    }
+
+                    return bundle.write(output).then((ret) => {
+                        if (output.dir) {
+                            return (ret.output || []).map((o) => path.join(path.relative(cwd, output.dir!), o.fileName));
+                        }
+                        return path.relative(cwd, output.file!);
+                    });
+                }),
+            );
+        });
+
+        finalFiles = finalFiles.concat(files.flat());
+    }
+
+    logger.success("bundled", ...finalFiles);
+
+    const unused = autoExternal.warningAndGetUnused();
+
+    for (const dep in unused.peerDeps) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        delete pkg.peerDependencies[dep];
+    }
+
+    for (const dep in unused.deps) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        delete pkg.dependencies[dep];
+    }
+
+    writeFileSync(
+        path.join(cwd, "package.json"),
+        `${JSON.stringify(
+            {
+                ...pkg,
+                ...outputs,
+                dependencies: isEmpty(pkg.dependencies) ? undefined : (pkg.dependencies as { [k: string]: string }),
+                peerDependencies: isEmpty(pkg.peerDependencies) ? undefined : (pkg.peerDependencies as { [k: string]: string }),
+                files: [
+                    ...((pkg.files as string[]) || []).filter(
+                        (f: string) => !outputs.files.concat("_cjs/", "_esm5/").includes(f),
+                    ),
+                    ...outputs.files,
+                ],
+                scripts: {
+                    ...(pkg.scripts as { [k: string]: string }),
+                    prepublishOnly: "../../node_modules/.bin/monobundle",
+                },
+                repository: pkg.repository ? pkg.repository : {
+                    "type": "git",
+                    "url": `ssh://${trim(String(execSync("git remote get-url origin")), "\n")}`,
+                },
+            },
+            null,
+            2,
+        )}
 `, // for prettier
-  );
+    );
 };

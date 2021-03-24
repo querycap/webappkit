@@ -1,5 +1,6 @@
 import TerserPlugin from "terser-webpack-plugin";
 import { Configuration, ProvidePlugin } from "webpack";
+import {join} from "path";
 
 export const withTsPreset = (vendorGroups: { [key: string]: RegExp } = {}) => (
   c: Configuration,
@@ -34,7 +35,13 @@ export const withTsPreset = (vendorGroups: { [key: string]: RegExp } = {}) => (
 
   Object.assign(c.resolve, {
     extensions: [".tsx", ".ts", ".mjs", ".js", ".json"],
-    modules: [process.cwd(), "node_modules"],
+    modules: [
+      state.cwd,
+      // root node_modules first
+      join(state.cwd, "node_modules"),
+      // then related node_modules
+      "node_modules"
+    ],
     enforceExtension: false,
     mainFields: ["browser", "jsnext:main", "module", "main"],
   });

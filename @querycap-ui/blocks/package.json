@@ -2,16 +2,14 @@
   "name": "@querycap-ui/blocks",
   "version": "0.10.6",
   "license": "MIT",
-  "peerDependencies": {
+  "dependencies": {
     "@babel/runtime-corejs3": "*",
     "@querycap-ui/core": "^0.x",
     "@reactorx/core": "*",
     "@reactorx/router": "*",
     "lodash": "4.x",
     "react": "17.x",
-    "rxjs": "*"
-  },
-  "dependencies": {
+    "rxjs": "*",
     "@emotion/react": "^11.1.5",
     "@querycap-ui/form-controls": "^0.13.0",
     "@querycap-ui/icons": "^0.5.0",
@@ -25,7 +23,7 @@
     "env": "browser"
   },
   "scripts": {
-    "prepare": "node ../../node_modules/.bin/monobundle"
+    "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
   "files": [
     "dist/"
@@ -33,6 +31,9 @@
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/querycap/webappkit.git"
+  },
+  "peerDependencies": {
+    "@babel/runtime-corejs3": "*"
   },
   "types": "dist/index.d.ts",
   "main": "dist/index.js",

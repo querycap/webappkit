@@ -11,7 +11,7 @@
     "@babel/plugin-transform-runtime": "^7.13.10",
     "@babel/plugin-transform-typescript": "^7.13.0",
     "babel-plugin-macros": "^3.0.1",
-    "babel-plugin-pure-calls-annotation": "^0.3.1",
+    "babel-plugin-pure-calls-annotation": "^0.4.1",
     "babel-plugin-typescript-iife-enum": "^0.2.1"
   },
   "publishConfig": {
@@ -21,7 +21,7 @@
     "dist/"
   ],
   "scripts": {
-    "prepare": "node ../../node_modules/.bin/monobundle"
+    "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
   "repository": {
     "type": "git",
