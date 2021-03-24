@@ -13,8 +13,10 @@ jobs:
         with:
           node-version: "14"
 
-      - run: yarn
-      - run: yarn test
+      - run: npm i -g pnpm
+      - run: pnpm install
+      - run: pnpm install:monobundle
+      - run: pnpm test
 
       - uses: codecov/codecov-action@v1
         with:

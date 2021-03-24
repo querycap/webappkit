@@ -22,7 +22,9 @@ RUN npm install -g --registry=${YARN_NPM_REGISTRY_SERVER} pnpm
 RUN --mount=type=cache,id=${PROJECT_GROUP}-${PROJECT_NAME},target=/root/.pnpm-store/ \
     pnpm --registry=${YARN_NPM_REGISTRY_SERVER} install
 
-RUN PROJECT_GROUP=${PROJECT_GROUP} PROJECT_VERSION=${PROJECT_VERSION} npx devkit build --prod ${APP} ${ENV}
+
+RUN PROJECT_GROUP=${PROJECT_GROUP} PROJECT_VERSION=${PROJECT_VERSION} \
+    npx devkit build --prod ${APP} ${ENV}
 
 FROM ${DOCKER_REGISTRY}/docker.io/querycap/webappserve:0.0.0
 

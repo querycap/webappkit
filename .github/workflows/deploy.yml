@@ -17,11 +17,12 @@ jobs:
 
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
-      - run: yarn
+      - run: npm i -g pnpm
+      - run: pnpm install
+      - run: pnpm install:monobundle
+      - run: pnpm test
 
-      - run: yarn prepare
-
-      - run: yarn pkg:gh-page
+      - run: pnpm pkg:gh-page
 
       - run: cp ./public/web-sg/index.html  ./public/web-sg/404.html
 

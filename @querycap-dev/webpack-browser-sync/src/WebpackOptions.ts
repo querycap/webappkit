@@ -4,6 +4,7 @@ import mime from "mime";
 import webpack from "webpack";
 // @ts-ignore
 import webpackDevMiddleware from "webpack-dev-middleware";
+// @ts-ignore
 import webpackHotMiddleware from "webpack-hot-middleware";
 import path from "path";
 

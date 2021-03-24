@@ -13,7 +13,7 @@
     "dist/"
   ],
   "scripts": {
-    "prepare": "node ../../node_modules/.bin/monobundle"
+    "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
   "repository": {
     "type": "git",

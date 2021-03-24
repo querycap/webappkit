@@ -7,7 +7,7 @@
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@querycap-dev/devkit": "^0.6.0",
+    "@querycap-dev/devkit": "*",
     "webpack": "*",
     "webpack-cli": "^4.2.0"
   },
@@ -18,7 +18,7 @@
     "access": "public"
   },
   "scripts": {
-    "prepare": "node ../../node_modules/.bin/monobundle"
+    "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
   "repository": {
     "type": "git",

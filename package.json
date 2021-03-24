@@ -4,25 +4,25 @@
   "workspaces": [
     "@reactorx/*",
     "@querycap/*",
-    "@querycap-ui/*",
-    "@querycap-dev/*"
+    "@querycap-dev/*",
+    "@querycap-ui/*"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=14",
+    "pnpm": ">=5"
   },
   "scripts": {
     "release": "lerna version --conventional-commits",
-    "ncu": "lerna exec -- ncu -u",
-    "clean": "rm -rf @querycap*/*/node_modules",
+    "release:from-package": "lerna publish from-package -y",
     "fmt": "prettier --write @querycap*/{,**/}{,**/}*.{ts,tsx,json,md}",
     "tsc": "tsc --incremental --diagnostics -p tsconfig.json",
-    "test": "yarn tsc && jest --coverage",
-    "build": "lerna exec ../../node_modules/.bin/monobundle",
+    "test": "pnpm tsc && jest --coverage",
     "start": "devkit dev sg",
+    "build": "pnpm -r --filter=!devkit exec ../../node_modules/.bin/monobundle",
     "pkg": "devkit build --prod sg",
     "pkg:gh-page": "devkit build --prod sg gh-page",
-    "prepare": "yarn test && yarn build",
-    "deploy": "gh-pages -d public/web-sg"
+    "preinstall": "npx only-allow pnpm",
+    "install:monobundle": "ts-node ./@querycap-dev/monobundle/bin/monobundle.js ./@querycap-dev/monobundle"
   },
   "devkit": {
     "dev": "webpack-browser-sync --config webpack.config.ts --historyApiFallback --index=../index.html",
@@ -53,8 +53,8 @@
   },
   "husky": {
     "hooks": {
-      "post-merge": "yarn",
-      "pre-commit": "lint-staged && pretty-quick --staged && yarn && git add yarn.lock",
+      "post-merge": "pnpm",
+      "pre-commit": "lint-staged && pretty-quick --staged && pnpm && git add pnpm.lock",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
@@ -97,11 +97,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
+    "@babel/plugin-syntax-jsx": "7.x",
     "@babel/preset-env": "^7.13.12",
     "@babel/runtime-corejs3": "^7.13.10",
     "@babel/types": "^7.13.12",
     "@commitlint/cli": "^12.0.1",
     "@commitlint/config-conventional": "^12.0.1",
+    "@emotion/babel-plugin": "^11.x",
     "@testing-library/react": "^11.2.5",
     "@types/babel-plugin-macros": "^2.8.4",
     "@types/babel__preset-env": "^7.9.1",
@@ -114,6 +116,7 @@
     "@types/react-dom": "^17.0.3",
     "axios": "^0.21.1",
     "babel-jest": "^26.6.3",
+    "babel-plugin-macros": "3.x",
     "benchmark": "2.1.4",
     "date-fns": "^2.19.0",
     "eslint-plugin-react": "^7.22.0",
@@ -139,6 +142,20 @@
     "webpack-cli": "^4.5.0"
   },
   "dependencies": {
-    "@querycap-dev/devkit": "workspace:@querycap-dev/devkit"
+    "@emotion/react": "^11.1.5",
+    "@querycap-dev/babel-preset": "workspace:*",
+    "@querycap-dev/devkit": "workspace:*",
+    "@querycap-dev/eslint-config": "workspace:*",
+    "@querycap-dev/monobundle": "workspace:*",
+    "@querycap-dev/webpack-browser-sync": "workspace:*",
+    "@querycap-dev/webpack-preset": "workspace:*",
+    "@querycap-dev/webpack-preset-assets": "workspace:*",
+    "@querycap-dev/webpack-preset-html": "workspace:*",
+    "@querycap-dev/webpack-preset-ts": "workspace:*",
+    "@querycap-ui/babel-preset-css-prop": "workspace:*",
+    "@querycap-ui/core": "workspace:*",
+    "@querycap/config": "workspace:*",
+    "glob": "^7.1.6",
+    "js-yaml": "^4.0.0"
   }
 }
