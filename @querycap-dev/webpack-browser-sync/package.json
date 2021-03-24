@@ -1,26 +1,26 @@
 {
   "name": "@querycap-dev/webpack-browser-sync",
-  "version": "0.2.8",
+  "version": "0.2.9-alpha.0",
   "bin": "bin/webpack-browser-sync.js",
   "dependencies": {
+    "@babel/runtime-corejs3": "*",
     "@types/browser-sync": "2.x",
     "@types/compression": "1.x",
     "@types/connect-history-api-fallback": "1.x",
     "@types/interpret": "1.x",
     "@types/lodash": "4.x",
-    "@types/yargs": "16.x",
     "@types/mime": "2.x",
+    "@types/yargs": "16.x",
     "browser-sync": "^2.26.14",
     "compression": "^1.7.4",
     "connect-history-api-fallback": "^1.6.0",
     "interpret": "^2.2.0",
     "lodash": "^4.17.21",
     "mime": "2.5.2",
+    "webpack": "*",
     "webpack-dev-middleware": "^4.1.0",
     "webpack-hot-middleware": "^2.25.0",
-    "yargs": "^16.2.0",
-    "@babel/runtime-corejs3": "*",
-    "webpack": "*"
+    "yargs": "^16.2.0"
   },
   "publishConfig": {
     "access": "public"

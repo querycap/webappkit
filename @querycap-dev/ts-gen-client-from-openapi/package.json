@@ -1,9 +1,9 @@
 {
   "name": "@querycap-dev/ts-gen-client-from-openapi",
-  "version": "1.2.3",
+  "version": "1.2.4-alpha.0",
   "dependencies": {
-    "@querycap-dev/ts-gen-core": "^1.2.3",
-    "@querycap-dev/ts-gen-definitions-from-json-schema": "^1.2.3"
+    "@querycap-dev/ts-gen-core": "^1.2.4-alpha.0",
+    "@querycap-dev/ts-gen-definitions-from-json-schema": "^1.2.4-alpha.0"
   },
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",

@@ -1,6 +1,6 @@
 {
   "name": "@querycap/strfmt",
-  "version": "0.5.1",
+  "version": "0.5.2-alpha.0",
   "files": [
     "dist/"
   ],
