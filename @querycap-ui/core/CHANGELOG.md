@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.10.10...@querycap-ui/core@0.11.0) (2021-03-24)
+
+
+### Features
+
+* drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
+
+
+
+
+
 ## [0.10.10](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.10.9...@querycap-ui/core@0.10.10) (2021-03-23)
 
 **Note:** Version bump only for package @querycap-ui/core

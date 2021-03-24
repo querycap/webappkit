@@ -1,14 +1,14 @@
 {
   "name": "@querycap-ui/texts",
-  "version": "0.6.10",
+  "version": "0.7.0",
   "license": "MIT",
   "peerDependencies": {
     "@emotion/react": "11.x",
     "react": "17.x"
   },
   "dependencies": {
-    "@querycap-ui/core": "^0.10.10",
     "@emotion/react": "*",
+    "@querycap-ui/core": "^0.11.0",
     "remark-parse": "^9.0.0",
     "remark-react": "^8.0.0",
     "unified": "^9.2.1"

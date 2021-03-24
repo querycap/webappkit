@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/querycap/webappkit/compare/@querycap-dev/generate-svg2tsx@0.4.0...@querycap-dev/generate-svg2tsx@0.5.0) (2021-03-24)
+
+
+### Features
+
+* drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
+
+
+
+
+
 # [0.4.0](https://github.com/querycap/webappkit/compare/@querycap-dev/generate-svg2tsx@0.3.11...@querycap-dev/generate-svg2tsx@0.4.0) (2020-10-15)
 
 

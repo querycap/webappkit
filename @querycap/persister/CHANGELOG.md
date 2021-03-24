@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/querycap/webappkit/compare/@querycap/persister@0.5.5...@querycap/persister@0.6.0) (2021-03-24)
+
+
+### Features
+
+* bump jsx-runtime ([453f52b](https://github.com/querycap/webappkit/commit/453f52b4a7b0e0f987de76da08c9bbb4d39802f8))
+* drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
+
+
+
+
+
 ## [0.5.5](https://github.com/querycap/webappkit/compare/@querycap/persister@0.5.4...@querycap/persister@0.5.5) (2020-10-14)
 
 **Note:** Version bump only for package @querycap/persister
