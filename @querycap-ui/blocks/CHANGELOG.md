@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.6](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.10.5...@querycap-ui/blocks@0.10.6) (2021-03-24)
+
+**Note:** Version bump only for package @querycap-ui/blocks
+
+
+
+
+
 ## [0.10.5](https://github.com/querycap/webappkit/compare/@querycap-ui/blocks@0.10.4...@querycap-ui/blocks@0.10.5) (2021-03-23)
 
 **Note:** Version bump only for package @querycap-ui/blocks

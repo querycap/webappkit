@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.12.2...@querycap-ui/form-controls@0.13.0) (2021-03-24)
+
+
+### Features
+
+* **form-control:** combineLatest instead merge ([c2fa605](https://github.com/querycap/webappkit/commit/c2fa605b626ce0bef6a44842c76404155783f57a))
+
+
+
+
+
 ## [0.12.2](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.12.1...@querycap-ui/form-controls@0.12.2) (2021-03-23)
 
 **Note:** Version bump only for package @querycap-ui/form-controls
