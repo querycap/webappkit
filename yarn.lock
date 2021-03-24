@@ -3736,7 +3736,7 @@ __metadata:
   resolution: "@querycap-ui/blocks@workspace:@querycap-ui/blocks"
   dependencies:
     "@emotion/react": ^11.1.5
-    "@querycap-ui/form-controls": ^0.12.2
+    "@querycap-ui/form-controls": ^0.13.0
     "@querycap-ui/icons": ^0.5.0
     "@querycap-ui/layouts": ^0.2.15
     "@querycap/uikit": ^0.4.2
@@ -3818,7 +3818,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@querycap-ui/form-controls@^0.12.2, @querycap-ui/form-controls@workspace:@querycap-ui/form-controls":
+"@querycap-ui/form-controls@^0.13.0, @querycap-ui/form-controls@workspace:@querycap-ui/form-controls":
   version: 0.0.0-use.local
   resolution: "@querycap-ui/form-controls@workspace:@querycap-ui/form-controls"
   dependencies:
@@ -3875,7 +3875,7 @@ __metadata:
   resolution: "@querycap-ui/search-controls@workspace:@querycap-ui/search-controls"
   dependencies:
     "@querycap-ui/date-pickers": ^0.6.2
-    "@querycap-ui/form-controls": ^0.12.2
+    "@querycap-ui/form-controls": ^0.13.0
     "@querycap-ui/icons": ^0.5.0
     "@querycap/reactutils": ^0.7.1
     "@querycap/strfmt": ^0.5.1
