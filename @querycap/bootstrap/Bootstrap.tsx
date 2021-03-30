@@ -2,9 +2,9 @@ import { BaseConfig, ConfigProvider } from "@querycap/config";
 import { createPersister } from "@querycap/persister";
 import { Actor, AsyncStage, Store, StoreProvider, useStore } from "@reactorx/core";
 import { ReactorxRouter } from "@reactorx/router";
-import { createBrowserHistory } from "history";
+import { createBrowserHistory, createHashHistory } from "history";
 import { isFunction } from "lodash";
-import  { ReactElement, ReactNode, StrictMode, useEffect, useMemo } from "react";
+import { ReactElement, ReactNode, StrictMode, useEffect, useMemo } from "react";
 import ReactDOM, { render } from "react-dom";
 // @ts-ignore
 import { createLogger } from "redux-logger";
@@ -24,7 +24,7 @@ function PersisterConnect({ persister }: { persister: ReturnType<typeof createPe
   return null;
 }
 
-const HistoryProvider = ({ children }: { children: ReactNode }) => {
+export const HistoryProvider = ({ children }: { children: ReactNode }) => {
   const confirm = useConfirm();
 
   const history = useMemo(
@@ -33,6 +33,21 @@ const HistoryProvider = ({ children }: { children: ReactNode }) => {
         basename: "",
         forceRefresh: false,
         keyLength: 6,
+        getUserConfirmation: (message, callback) => confirm(message, callback),
+      }),
+    [],
+  );
+
+  return <ReactorxRouter history={history}>{children}</ReactorxRouter>;
+};
+
+export const HashHistoryProvider = ({ children }: { children: ReactNode }) => {
+  const confirm = useConfirm();
+
+  const history = useMemo(
+    () =>
+      createHashHistory({
+        basename: "",
         getUserConfirmation: (message, callback) => confirm(message, callback),
       }),
     [],
@@ -54,7 +69,7 @@ export const createBootstrap = <T extends BaseConfig>(config: T) => (e: ReactEle
           }
         : render;
 
-    persister.hydrate((storeValues = {}) => {
+    void persister.hydrate((storeValues = {}) => {
       const store$ = Store.create(storeValues);
 
       if (process.env.NODE_ENV !== "production") {

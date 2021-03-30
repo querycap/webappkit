@@ -7,7 +7,7 @@ import { useToggle } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
 import { map, noop } from "lodash";
 import { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
-import { fromEvent, combineLatest } from "rxjs";
+import { fromEvent } from "rxjs";
 import { filter as rxFilter, tap } from "rxjs/operators";
 import { InputIcon } from "./Input";
 import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect } from "./Menu";
@@ -99,7 +99,7 @@ export const InputSelect = (props: InputSelectProps) => {
     }
 
     const inputClick$ = fromEvent<MouseEvent>(inputElmRef.current, "click");
-    const inputFocus$ = fromEvent<FocusEvent>(inputElmRef.current, "focus");
+    // const inputFocus$ = fromEvent<FocusEvent>(inputElmRef.current, "focus");
     const inputKeydown$ = fromEvent<KeyboardEvent>(inputElmRef.current, "keydown");
 
     const onKey = (k: string) => rxFilter((e: KeyboardEvent) => e.key === k);
@@ -117,7 +117,7 @@ export const InputSelect = (props: InputSelectProps) => {
         tap(preventDefault),
       ),
 
-      combineLatest([inputFocus$, inputClick$]).pipe(
+      inputClick$.pipe(
         tap(() => {
           valuesRef.current.isOpened ? closePopover() : openPopover();
         }),
