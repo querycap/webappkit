@@ -3,27 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.14.0](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.13.0...@querycap-ui/form-controls@0.14.0) (2021-03-24)
+## [0.14.1](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.14.0...@querycap-ui/form-controls@0.14.1) (2021-04-01)
 
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+# [0.14.0](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.13.0...@querycap-ui/form-controls@0.14.0) (2021-03-24)
 
 ### Features
 
-* drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
-
-
-
-
+- drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
 
 # [0.13.0](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.12.2...@querycap-ui/form-controls@0.13.0) (2021-03-24)
 
-
 ### Features
 
-* **form-control:** combineLatest instead merge ([c2fa605](https://github.com/querycap/webappkit/commit/c2fa605b626ce0bef6a44842c76404155783f57a))
-
-
-
-
+- **form-control:** combineLatest instead merge ([c2fa605](https://github.com/querycap/webappkit/commit/c2fa605b626ce0bef6a44842c76404155783f57a))
 
 ## [0.12.2](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.12.1...@querycap-ui/form-controls@0.12.2) (2021-03-23)
 
