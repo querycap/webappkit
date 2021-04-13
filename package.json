@@ -22,7 +22,7 @@
     "build": "pnpm -r --filter=!devkit exec ../../node_modules/.bin/monobundle",
     "pkg": "devkit build --prod sg",
     "pkg:gh-page": "devkit build --prod sg gh-page",
-    "preinstall": "npx only-allow pnpm",
+    "preinstall": "npx only-allow pnpm && husky install",
     "install:monobundle": "ts-node ./@querycap-dev/monobundle/bin/monobundle.js ./@querycap-dev/monobundle",
     "install:devkit": "ts-node ./@querycap-dev/monobundle/bin/monobundle.js ./@querycap-dev/devkit"
   },
@@ -52,13 +52,6 @@
       "<rootDir>"
     ],
     "testRegex": ".*/__tests__/.+\\.(generator|test|spec)\\.(ts|tsx)$"
-  },
-  "husky": {
-    "hooks": {
-      "post-merge": "pnpm install",
-      "pre-commit": "lint-staged && pretty-quick --staged && pnpm install && git add pnpm-lock.yaml",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "commitlint": {
     "extends": [
@@ -138,7 +131,7 @@
     "gh-pages": "^3.1.0",
     "glob": "^7.1.6",
     "history": "^4.10.1",
-    "husky": "^4.3.8",
+    "husky": "^6.x",
     "jest": "^26.6.3",
     "js-yaml": "^4.0.0",
     "lerna": "^4.0.0",
@@ -164,8 +157,7 @@
   },
   "pnpm": {
     "overrides": {
-      "history": "4",
-      "husky": "4",
+      "history": "4.x",
       "querystring-es3": "1.0.0-0"
     }
   }
