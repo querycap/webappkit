@@ -4,14 +4,13 @@ import { Button } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 import { useToggle } from "@querycap/uikit";
 
-
 const ModalDemo = () => {
   const [isOpen, show, hide] = useToggle();
 
   return (
     <div>
       <Modal isOpen={isOpen} onRequestClose={hide} onDestroyed={() => console.log("destroyed")}>
-        12313123
+        <div css={{ color: "#FFF", textAlign: "center" }}>12313123</div>
       </Modal>
       <Button onClick={show}>click modal</Button>
     </div>
