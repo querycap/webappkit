@@ -19,5 +19,7 @@ pnpm install:monobundle
 
 pnpm install:devkit
 
+pnpm build
+
 pnpm start
 ```
