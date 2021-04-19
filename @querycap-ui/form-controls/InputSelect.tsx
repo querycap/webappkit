@@ -133,7 +133,7 @@ export const InputSelect = (props: InputSelectProps) => {
           type="text"
           value={value}
           css={select().with(cover()).opacity(0).cursor("pointer")}
-          onChange={noop}
+          readOnly
         />
         <span>{value && display(value)}</span>&nbsp;
       </div>

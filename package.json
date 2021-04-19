@@ -22,7 +22,7 @@
     "build": "pnpm -r --filter=!devkit exec ../../node_modules/.bin/monobundle",
     "pkg": "devkit build --prod sg",
     "pkg:gh-page": "devkit build --prod sg gh-page",
-    "preinstall": "npx only-allow pnpm && husky install",
+    "preinstall": "npx only-allow pnpm",
     "install:monobundle": "ts-node ./@querycap-dev/monobundle/bin/monobundle.js ./@querycap-dev/monobundle",
     "install:devkit": "ts-node ./@querycap-dev/monobundle/bin/monobundle.js ./@querycap-dev/devkit"
   },
