@@ -14,7 +14,7 @@
     "@reactorx/router": "^0.23.0",
     "lodash": "4.x",
     "react": "17.x",
-    "rxjs": "*"
+    "rxjs": "6.x"
   },
   "publishConfig": {
     "access": "public"

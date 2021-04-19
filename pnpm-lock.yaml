@@ -404,7 +404,7 @@ importers:
       '@reactorx/router': ^0.23.0
       lodash: 4.x
       react: 17.x
-      rxjs: '*'
+      rxjs: 6.x
     dependencies:
       '@babel/runtime-corejs3': 7.13.10
       '@emotion/react': 11.1.5_react@17.0.2
@@ -417,7 +417,7 @@ importers:
       '@reactorx/router': link:../../@reactorx/router
       lodash: 4.17.21
       react: 17.0.2
-      rxjs: 6.6.6
+      rxjs: 6.6.7
 
   '@querycap-ui/containers':
     specifiers: {}
@@ -12714,13 +12714,6 @@ packages:
     engines: {npm: '>=2.0.0'}
     dependencies:
       symbol-observable: 1.0.1
-    dev: false
-
-  /rxjs/6.6.6:
-    resolution: {integrity: sha512-/oTwee4N4iWzAMAL9xdGKjkEHmIwupR3oXbQjCKywF1BeFohswF3vZdogbmEF6pZkOsXTzWkrZszrWpQTByYVg==}
-    engines: {npm: '>=2.0.0'}
-    dependencies:
-      tslib: 1.14.1
     dev: false
 
   /rxjs/6.6.7:
