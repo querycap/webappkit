@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.14.2](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.14.1...@querycap-ui/form-controls@0.14.2) (2021-04-25)
+
+
+### Bug Fixes
+
+* **form-control:** inputSelect auto placement ([0693432](https://github.com/querycap/webappkit/commit/0693432de1f8a88f18dddb5fd089fc884655ed90))
+
+
+
+
+
 ## [0.14.1](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.14.0...@querycap-ui/form-controls@0.14.1) (2021-04-01)
 
 **Note:** Version bump only for package @querycap-ui/form-controls
