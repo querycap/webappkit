@@ -150,11 +150,7 @@ export const InputSelect = (props: InputSelectProps) => {
       </InputIcon>
       {!valuesRef.current.disabled && isOpened && (
         <Select>
-          <SelectMenuPopover
-            fullWidth
-            triggerRef={inputElmRef}
-            onRequestClose={() => closePopover()}
-            placement={"bottom-left"}>
+          <SelectMenuPopover fullWidth triggerRef={inputElmRef} onRequestClose={() => closePopover()}>
             <MenuOptGroup>
               {map(values, (value) => (
                 <div data-opt={value} key={value}>
