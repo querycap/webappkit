@@ -1,18 +1,23 @@
 # Change Log
 
+## 0.3.1
+
+### Patch Changes
+
+- first release by changesets
+- Updated dependencies [undefined]
+  - @querycap/reactutils@0.8.1
+  - @reactorx/core@0.22.1
+  - @reactorx/router@0.23.1
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [0.3.0](https://github.com/querycap/webappkit/compare/@querycap/contexts@0.2.5...@querycap/contexts@0.3.0) (2021-03-24)
 
-
 ### Features
 
-* drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
-
-
-
-
+- drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
 
 ## [0.2.5](https://github.com/querycap/webappkit/compare/@querycap/contexts@0.2.4...@querycap/contexts@0.2.5) (2020-10-29)
 

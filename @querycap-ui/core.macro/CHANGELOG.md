@@ -1,18 +1,21 @@
 # Change Log
 
+## 0.4.1
+
+### Patch Changes
+
+- first release by changesets
+- Updated dependencies [undefined]
+  - @querycap-ui/css-aliases@0.3.1
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [0.4.0](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.3.8...@querycap-ui/core.macro@0.4.0) (2021-03-24)
 
-
 ### Features
 
-* drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
-
-
-
-
+- drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
 
 ## [0.3.8](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.3.7...@querycap-ui/core.macro@0.3.8) (2021-03-23)
 

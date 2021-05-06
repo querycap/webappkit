@@ -1,25 +1,25 @@
 {
   "name": "@querycap-ui/search-controls",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@querycap-ui/core": "^0.x",
-    "@querycap-ui/layouts": "^0.x",
-    "@querycap/reactutils": "^0.x",
-    "@reactorx/core": "0.x",
+    "@querycap-ui/core": "^0.11.3",
+    "@querycap-ui/layouts": "^0.3.3",
+    "@querycap/reactutils": "^0.8.1",
+    "@reactorx/core": "0.22.1",
     "date-fns": "2.x",
     "lodash": "4.x",
     "react": "17.x",
     "rxjs": "6.x"
   },
   "dependencies": {
-    "@querycap-ui/date-pickers": "workspace:^0.7.0",
-    "@querycap-ui/form-controls": "workspace:^0.14.2",
-    "@querycap-ui/icons": "workspace:^0.6.0",
-    "@querycap/reactutils": "workspace:^0.8.0",
-    "@querycap/strfmt": "workspace:^0.6.0",
-    "@querycap/uikit": "workspace:^0.5.0"
+    "@querycap-ui/date-pickers": "workspace:^0.7.1",
+    "@querycap-ui/form-controls": "workspace:^0.14.3",
+    "@querycap-ui/icons": "workspace:^0.6.1",
+    "@querycap/reactutils": "workspace:^0.8.1",
+    "@querycap/strfmt": "workspace:^0.6.1",
+    "@querycap/uikit": "workspace:^0.5.1"
   },
   "publishConfig": {
     "access": "public"

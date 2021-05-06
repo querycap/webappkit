@@ -1,15 +1,19 @@
 # Change Log
 
+## 0.3.3
+
+### Patch Changes
+
+- first release by changesets
+- Updated dependencies [undefined]
+  - @querycap-ui/core@0.11.3
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [0.3.2](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.3.1...@querycap-ui/layouts@0.3.2) (2021-04-25)
 
 **Note:** Version bump only for package @querycap-ui/layouts
-
-
-
-
 
 ## [0.3.1](https://github.com/querycap/webappkit/compare/@querycap-ui/layouts@0.3.0...@querycap-ui/layouts@0.3.1) (2021-04-01)
 

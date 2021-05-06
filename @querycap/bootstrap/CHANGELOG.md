@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.7.2
+
+### Patch Changes
+
+- first release by changesets
+- Updated dependencies [undefined]
+  - @querycap/config@0.7.1
+  - @querycap/notify@0.7.1
+  - @querycap/persister@0.6.1
+  - @reactorx/core@0.22.1
+  - @reactorx/router@0.23.1
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

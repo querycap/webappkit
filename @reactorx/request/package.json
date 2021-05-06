@@ -1,6 +1,6 @@
 {
   "name": "@reactorx/request",
-  "version": "0.22.0",
+  "version": "0.22.1",
   "files": [
     "dist/"
   ],
@@ -12,7 +12,7 @@
     "rxjs": ">=6.x"
   },
   "dependencies": {
-    "@reactorx/core": "workspace:^0.22.0"
+    "@reactorx/core": "workspace:^0.22.1"
   },
   "publishConfig": {
     "access": "public"

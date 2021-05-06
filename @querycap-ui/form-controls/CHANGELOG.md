@@ -1,18 +1,27 @@
 # Change Log
 
+## 0.14.3
+
+### Patch Changes
+
+- first release by changesets
+- Updated dependencies [undefined]
+  - @querycap-ui/core@0.11.3
+  - @querycap-ui/icons@0.6.1
+  - @querycap-ui/layouts@0.3.3
+  - @querycap/form@0.11.1
+  - @querycap/reactutils@0.8.1
+  - @querycap/uikit@0.5.1
+  - @reactorx/core@0.22.1
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [0.14.2](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.14.1...@querycap-ui/form-controls@0.14.2) (2021-04-25)
 
-
 ### Bug Fixes
 
-* **form-control:** inputSelect auto placement ([0693432](https://github.com/querycap/webappkit/commit/0693432de1f8a88f18dddb5fd089fc884655ed90))
-
-
-
-
+- **form-control:** inputSelect auto placement ([0693432](https://github.com/querycap/webappkit/commit/0693432de1f8a88f18dddb5fd089fc884655ed90))
 
 ## [0.14.1](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.14.0...@querycap-ui/form-controls@0.14.1) (2021-04-01)
 

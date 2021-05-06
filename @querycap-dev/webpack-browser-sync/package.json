@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/webpack-browser-sync",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "bin": "bin/webpack-browser-sync.js",
   "dependencies": {
     "@babel/runtime-corejs3": "*",

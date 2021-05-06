@@ -1,10 +1,10 @@
 {
   "name": "@querycap-ui/progresses",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@querycap-ui/core": "^0.x",
+    "@querycap-ui/core": "^0.11.3",
     "lodash": "4.x",
     "react": "17.x"
   },

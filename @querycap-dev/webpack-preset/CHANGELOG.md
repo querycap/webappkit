@@ -1,18 +1,21 @@
 # Change Log
 
+## 0.8.1
+
+### Patch Changes
+
+- first release by changesets
+- Updated dependencies [undefined]
+  - @querycap-dev/devkit@0.10.2
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [0.8.0](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset@0.7.12...@querycap-dev/webpack-preset@0.8.0) (2021-03-24)
 
-
 ### Features
 
-* drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
-
-
-
-
+- drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
 
 ## [0.7.12](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset@0.7.11...@querycap-dev/webpack-preset@0.7.12) (2021-03-10)
 

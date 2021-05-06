@@ -1,21 +1,21 @@
 {
   "name": "@querycap/bootstrap",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "files": [
     "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@reactorx/core": "0.x",
+    "@reactorx/core": "0.22.1",
     "lodash": "4.x",
     "react": "17.x",
     "react-dom": "17.x"
   },
   "dependencies": {
-    "@querycap/config": "workspace:^0.7.0",
-    "@querycap/notify": "workspace:^0.7.0",
-    "@querycap/persister": "workspace:^0.6.0",
-    "@reactorx/router": "workspace:^0.23.0",
+    "@querycap/config": "workspace:^0.7.1",
+    "@querycap/notify": "workspace:^0.7.1",
+    "@querycap/persister": "workspace:^0.6.1",
+    "@reactorx/router": "workspace:^0.23.1",
     "@types/history": "^4.7.8",
     "history": "~5.0.0",
     "redux-logger": "^3.0.6"

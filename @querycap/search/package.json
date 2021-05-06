@@ -1,22 +1,22 @@
 {
   "name": "@querycap/search",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "files": [
     "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@reactorx/core": "0.x",
-    "@reactorx/request": "0.x",
-    "@reactorx/router": "0.x",
+    "@reactorx/core": "0.22.1",
+    "@reactorx/request": "0.22.1",
+    "@reactorx/router": "0.23.1",
     "lodash": "4.x",
     "react": "17.x",
     "rxjs": "6.x"
   },
   "dependencies": {
-    "@querycap/contexts": "workspace:^0.3.0",
-    "@querycap/request": "workspace:^0.7.0"
+    "@querycap/contexts": "workspace:^0.3.1",
+    "@querycap/request": "workspace:^0.7.1"
   },
   "publishConfig": {
     "access": "public"

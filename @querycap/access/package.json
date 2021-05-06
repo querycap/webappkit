@@ -1,14 +1,14 @@
 {
   "name": "@querycap/access",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "files": [
     "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@reactorx/core": "0.x",
-    "@reactorx/request": "0.x",
+    "@reactorx/core": "0.22.1",
+    "@reactorx/request": "0.22.1",
     "axios": "0.21.x",
     "date-fns": "2.x",
     "lodash": "4.x",
@@ -16,8 +16,8 @@
     "rxjs": "6.x"
   },
   "dependencies": {
-    "@querycap/reactutils": "workspace:^0.8.0",
-    "@querycap/request": "workspace:^0.7.0",
+    "@querycap/reactutils": "workspace:^0.8.1",
+    "@querycap/request": "workspace:^0.7.1",
     "public-encrypt": "4.0.3"
   },
   "publishConfig": {

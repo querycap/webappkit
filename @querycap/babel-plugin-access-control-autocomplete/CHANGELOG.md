@@ -1,18 +1,19 @@
 # Change Log
 
+## 0.2.1
+
+### Patch Changes
+
+- first release by changesets
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 # [0.2.0](https://github.com/querycap/webappkit/compare/@querycap/babel-plugin-access-control-autocomplete@0.1.5...@querycap/babel-plugin-access-control-autocomplete@0.2.0) (2021-03-24)
 
-
 ### Features
 
-* drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
-
-
-
-
+- drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
 
 ## [0.1.5](https://github.com/querycap/webappkit/compare/@querycap/babel-plugin-access-control-autocomplete@0.1.4...@querycap/babel-plugin-access-control-autocomplete@0.1.5) (2021-03-23)
 

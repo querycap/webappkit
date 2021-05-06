@@ -1,16 +1,16 @@
 {
   "name": "@querycap/uikit",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@reactorx/core": "0.x",
+    "@reactorx/core": "0.22.1",
     "lodash": "4.x",
     "react": "17.x",
     "rxjs": "6.x"
   },
   "dependencies": {
-    "@querycap/reactutils": "workspace:^0.8.0",
+    "@querycap/reactutils": "workspace:^0.8.1",
     "@types/uuid": "^8.3.0",
     "hey-listen": "^1.0.8",
     "uuid": "^8.3.2"

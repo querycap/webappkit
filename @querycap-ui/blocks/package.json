@@ -1,17 +1,17 @@
 {
   "name": "@querycap-ui/blocks",
-  "version": "0.11.3",
+  "version": "0.11.4",
   "license": "MIT",
   "dependencies": {
     "@babel/runtime-corejs3": "*",
     "@emotion/react": "^11.1.5",
-    "@querycap-ui/core": "workspace:^0.11.2",
-    "@querycap-ui/form-controls": "workspace:^0.14.2",
-    "@querycap-ui/icons": "workspace:^0.6.0",
-    "@querycap-ui/layouts": "workspace:^0.3.2",
-    "@querycap/uikit": "workspace:^0.5.0",
-    "@reactorx/core": "workspace:^0.22.0",
-    "@reactorx/router": "workspace:^0.23.0",
+    "@querycap-ui/core": "workspace:^0.11.3",
+    "@querycap-ui/form-controls": "workspace:^0.14.3",
+    "@querycap-ui/icons": "workspace:^0.6.1",
+    "@querycap-ui/layouts": "workspace:^0.3.3",
+    "@querycap/uikit": "workspace:^0.5.1",
+    "@reactorx/core": "workspace:^0.22.1",
+    "@reactorx/router": "workspace:^0.23.1",
     "lodash": "^4.17.21"
   },
   "peerDependencies": {
