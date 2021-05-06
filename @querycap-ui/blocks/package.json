@@ -13,8 +13,11 @@
     "@reactorx/core": "^0.22.0",
     "@reactorx/router": "^0.23.0",
     "lodash": "4.x",
-    "react": "17.x",
-    "rxjs": "6.x"
+    "react": "17.x"
+  },
+  "peerDependencies": {
+    "@babel/runtime-corejs3": "*",
+    "rxjs": "7.x"
   },
   "publishConfig": {
     "access": "public"
@@ -31,9 +34,6 @@
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/querycap/webappkit.git"
-  },
-  "peerDependencies": {
-    "@babel/runtime-corejs3": "*"
   },
   "types": "dist/index.d.ts",
   "main": "dist/index.js",

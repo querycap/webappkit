@@ -9,7 +9,6 @@ module.exports = {
       for (const n in rootPkg.pnpm.overrides) {
         if (pkg.dependencies && pkg.dependencies[n]) {
           pkg.dependencies[n] = rootPkg.pnpm.overrides[n];
-          context.log(`lock dep ${n} version of ${pkg.name} to ${pkg.dependencies[n]}`);
         }
       }
       return pkg;
