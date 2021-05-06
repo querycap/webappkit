@@ -15,13 +15,16 @@ jobs:
         with:
           node-version: "15.x"
 
-      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
-
       - run: npm i -g pnpm
       - run: pnpm install
       - run: pnpm install:monobundle
       - run: pnpm test
 
-      - run: git add . && git reset --hard
-
-      - run: pnpm release:from-package
+      - name: Create Release Pull Request or Publish to npm
+        uses: changesets/action@master
+        with:
+          version: pnpm release:version-packages
+          publish: pnpm release:from-pacakges
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

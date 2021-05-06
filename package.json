@@ -12,8 +12,9 @@
     "pnpm": ">=5"
   },
   "scripts": {
-    "release": "changeset version",
-    "release:from-package": "changeset publish",
+    "release": "changeset",
+    "release:version-packages": "changeset version",
+    "release:from-packages": "changeset publish",
     "fmt": "prettier --write @querycap*/{,**/}{,**/}*.{ts,tsx,json,md}",
     "tsc": "tsc --incremental --diagnostics -p tsconfig.json",
     "test": "pnpm tsc && jest --coverage",
