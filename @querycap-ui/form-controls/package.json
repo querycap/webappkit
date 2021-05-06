@@ -7,7 +7,7 @@
     "@reactorx/core": "0.x",
     "lodash": "4.x",
     "react": "17.x",
-    "rxjs": "6.x"
+    "rxjs": "7.x"
   },
   "dependencies": {
     "@querycap-ui/core": "^0.11.2",
