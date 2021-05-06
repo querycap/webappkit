@@ -13,7 +13,7 @@
     "date-fns": "2.x",
     "lodash": "4.x",
     "react": "17.x",
-    "rxjs": "6.x"
+    "rxjs": "7.x"
   },
   "dependencies": {
     "@querycap/reactutils": "workspace:^0.8.1",

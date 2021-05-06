@@ -10,7 +10,7 @@
     "@reactorx/core": "0.22.1",
     "lodash": "4.x",
     "react": "17.x",
-    "rxjs": "6.x",
+    "rxjs": "7.x",
     "uuid": "8.x"
   },
   "dependencies": {
