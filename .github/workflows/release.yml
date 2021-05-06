@@ -24,7 +24,7 @@ jobs:
         uses: changesets/action@master
         with:
           version: pnpm release:version-packages
-          publish: pnpm release:from-pacakges
+          publish: pnpm release:from-packages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
