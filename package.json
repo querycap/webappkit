@@ -13,7 +13,7 @@
   },
   "scripts": {
     "release": "lerna version --conventional-commits",
-    "release:from-package": "lerna publish from-package -y",
+    "release:from-package": "pnpm -r publish",
     "fmt": "prettier --write @querycap*/{,**/}{,**/}*.{ts,tsx,json,md}",
     "tsc": "tsc --incremental --diagnostics -p tsconfig.json",
     "test": "pnpm tsc && jest --coverage",
