@@ -1,5 +1,5 @@
 import { filter, last, some } from "lodash";
-import  {
+import {
   Children,
   createContext,
   FunctionComponent,

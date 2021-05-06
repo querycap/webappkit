@@ -11,7 +11,7 @@
     "rxjs": "6.x"
   },
   "dependencies": {
-    "@reactorx/core": "^0.22.0",
+    "@reactorx/core": "workspace:^0.22.0",
     "path-to-regexp": "6.2.0"
   },
   "publishConfig": {

@@ -16,8 +16,8 @@
     "rxjs": "6.x"
   },
   "dependencies": {
-    "@querycap/reactutils": "^0.8.0",
-    "@querycap/request": "^0.7.0",
+    "@querycap/reactutils": "workspace:^0.8.0",
+    "@querycap/request": "workspace:^0.7.0",
     "public-encrypt": "4.0.3"
   },
   "publishConfig": {

@@ -2,8 +2,8 @@
   "name": "@querycap-dev/ts-gen-client-from-openapi",
   "version": "1.3.0",
   "dependencies": {
-    "@querycap-dev/ts-gen-core": "^1.3.0",
-    "@querycap-dev/ts-gen-definitions-from-json-schema": "^1.3.0"
+    "@querycap-dev/ts-gen-core": "workspace:^1.3.0",
+    "@querycap-dev/ts-gen-definitions-from-json-schema": "workspace:^1.3.0"
   },
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",

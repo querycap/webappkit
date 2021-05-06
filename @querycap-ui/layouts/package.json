@@ -8,7 +8,7 @@
     "react": "17.x"
   },
   "dependencies": {
-    "@querycap-ui/core": "^0.11.2"
+    "@querycap-ui/core": "workspace:^0.11.2"
   },
   "publishConfig": {
     "access": "public"

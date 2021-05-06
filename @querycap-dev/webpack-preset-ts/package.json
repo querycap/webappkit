@@ -10,7 +10,7 @@
     "webpack": "*"
   },
   "dependencies": {
-    "@types/terser-webpack-plugin": "^5.0.2",
+    "@types/terser-webpack-plugin": "^5.0.3",
     "babel-loader": "^8.2.2",
     "source-map-loader": "^2.0.1",
     "terser-webpack-plugin": "^5.1.1",

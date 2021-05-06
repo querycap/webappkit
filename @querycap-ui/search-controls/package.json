@@ -14,12 +14,12 @@
     "rxjs": "6.x"
   },
   "dependencies": {
-    "@querycap-ui/date-pickers": "^0.7.0",
-    "@querycap-ui/form-controls": "^0.14.2",
-    "@querycap-ui/icons": "^0.6.0",
-    "@querycap/reactutils": "^0.8.0",
-    "@querycap/strfmt": "^0.6.0",
-    "@querycap/uikit": "^0.5.0"
+    "@querycap-ui/date-pickers": "workspace:^0.7.0",
+    "@querycap-ui/form-controls": "workspace:^0.14.2",
+    "@querycap-ui/icons": "workspace:^0.6.0",
+    "@querycap/reactutils": "workspace:^0.8.0",
+    "@querycap/strfmt": "workspace:^0.6.0",
+    "@querycap/uikit": "workspace:^0.5.0"
   },
   "publishConfig": {
     "access": "public"
