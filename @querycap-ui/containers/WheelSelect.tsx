@@ -1,19 +1,6 @@
-import { cover, mix, rgba, select, theme, useTheme } from "@querycap-ui/core/macro";
-import { useValueRef } from "@querycap/reactutils";
-import { useObservableEffect } from "@reactorx/core";
-import { assign, Dictionary, map, max, reduce } from "lodash";
-import { useEffect, useMemo, useRef } from "react";
-import { animationFrameScheduler, BehaviorSubject, fromEvent, merge } from "rxjs";
-import {
-  delay as rxDelay,
-  distinctUntilChanged,
-  mergeMap,
-  map as rxMap,
-  observeOn,
-  takeUntil,
-  tap,
-  filter as rxFilter,
-} from "rxjs/operators";
+import { animated, cover, mix, rgba, select, theme, useGesture, useSpring, useTheme } from "@querycap-ui/core/macro";
+import { map, max, Dictionary, find, reduce } from "lodash";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 export interface PickerOption {
   label: string;
@@ -25,42 +12,46 @@ export interface WheelSelectProps {
   value: string;
   options: PickerOption[];
   onValueChange: (v: string) => void;
-
   itemHeight: number;
   sup?: string;
 }
 
-const rangeLimit = (v: number, min: number, max: number) => {
+const rangeLimit = (v: number, min: number, max: number): [number, boolean] => {
   if (v < min) {
-    return min;
+    return [min, true];
   }
   if (v > max) {
-    return max;
+    return [max, true];
   }
-  return v;
+  return [v, false];
 };
 
 export const colorIn = (fromColor: string, toColor: string, amount: number): string => {
   if (amount === 0) {
     return fromColor;
   }
-
   if (amount >= 1) {
     return toColor;
   }
-
   return mix(1, rgba(fromColor, 1 - amount), toColor);
+};
+
+const getValueByIdx = (options: PickerOption[], index: number) => {
+  return find(options, (_, idx) => index === idx)?.value;
+};
+
+const offsetYOfIndex = (options: PickerOption[], i: number, itemHeight: number) => {
+  if (i <= 0) {
+    i = 0;
+  } else if (i >= options.length - 1) {
+    i = options.length - 1;
+  }
+  return -i * itemHeight;
 };
 
 export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChange }: WheelSelectProps) => {
   const columnHeight = itemHeight * 5;
   const t = useTheme();
-
-  const transform = (height: number, delta: number) => ({
-    color: colorIn(t.colors.primary, t.state.color, Math.abs(delta)),
-    opacity: 1 - Math.abs(delta) * 0.2,
-    transform: `translate3d(0,${delta * height}px,0) scale(${1 - Math.abs(delta) * 0.1})`,
-  });
 
   const [valueIndexes, maxValueLength] = useMemo(
     () => [
@@ -77,209 +68,147 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
     [options],
   );
 
-  const selectedIndex$ = useMemo(() => new BehaviorSubject(valueIndexes[value] || 0), []);
+  const [selectIdx, setIdx] = useState(valueIndexes[value]);
 
-  useEffect(() => {
-    const nextIndex = valueIndexes[value] || 0;
-
-    if (nextIndex !== selectedIndex$.value) {
-      selectedIndex$.next(nextIndex);
-    }
-  }, [value]);
-
-  const containerElmRef = useRef<HTMLDivElement>(null);
-
-  const ctxRef = useValueRef({
-    maxIndex: options.length - 1,
-    valueIndexes,
-    name: name,
-    value,
-    itemHeight,
-    onValueChange,
+  const [{ y }, setY] = useSpring(() => {
+    return { y: offsetYOfIndex(options, selectIdx, itemHeight) };
   });
 
-  useObservableEffect(() => {
-    return selectedIndex$.pipe(
-      rxMap((v) => rangeLimit(Math.round(v), 0, ctxRef.current.maxIndex)),
-      distinctUntilChanged(),
-      tap((selectIndex) => {
-        ctxRef.current.onValueChange && ctxRef.current.onValueChange((options[selectIndex] || {}).value);
-      }),
-    );
-  }, []);
+  useEffect(() => {
+    setY({ y: offsetYOfIndex(options, selectIdx, itemHeight) });
+    onValueChange && onValueChange(getValueByIdx(options, selectIdx)!);
+  }, [selectIdx]);
 
-  useObservableEffect(() => {
-    if (!containerElmRef.current) {
-      return;
-    }
+  const offsetYRef = useRef(0);
 
-    const wheel$ = fromEvent(containerElmRef.current, "wheel");
+  const setIdxAndUpdateY = (nextIdx: number) => {
+    setIdx(nextIdx);
+    setY({ y: offsetYOfIndex(options, nextIdx, itemHeight) });
+  };
 
-    const mouseMove$ = merge(
-      fromEvent<MouseEvent>(containerElmRef.current, "mousemove"),
-      fromEvent<TouchEvent>(containerElmRef.current, "touchmove").pipe(rxMap((e) => e.touches[0])),
-    );
+  const bind = useGesture(
+    {
+      onWheel: ({ delta }) => {
+        const nextY = y.get() - delta[1];
 
-    const mouseDown$ = merge(
-      fromEvent<MouseEvent>(containerElmRef.current, "mousedown"),
-      fromEvent<TouchEvent>(containerElmRef.current, "touchstart").pipe(rxMap((e) => e.touches[0])),
-    );
+        const [nextIdx, outRange] = rangeLimit(-Math.round(nextY / itemHeight), 0, options.length - 1);
 
-    const mouseUp$ = merge(
-      fromEvent<MouseEvent>(document, "mouseup"),
-      fromEvent<TouchEvent>(document, "touchend").pipe(rxMap((e) => e.touches[0])),
-    );
+        if (!outRange) {
+          setY({ y: nextY });
+        }
 
-    return [
-      mouseDown$.pipe(
-        mergeMap((start) => {
-          const startIdx = selectedIndex$.value;
-
-          return mouseMove$.pipe(
-            rxMap((move) => ({
-              e: move,
-              nextIdx: startIdx + -(move.clientY - start.clientY) / itemHeight,
-            })),
-            takeUntil(
-              mouseUp$.pipe(
-                tap((end) => {
-                  selectedIndex$.next(Math.round(selectedIndex$.value));
-
-                  // as click event
-                  if (end && Math.abs(end.clientY - start.clientY) < itemHeight) {
-                    const target = end.target as HTMLElement;
-                    const i = target.getAttribute("data-idx");
-                    if (i) {
-                      selectedIndex$.next(Number(i));
-                    }
-                  }
-                }),
-              ),
-            ),
-          );
-        }),
-        rxFilter(({ nextIdx }) => {
-          return nextIdx > 0 && nextIdx < options.length;
-        }),
-        tap(({ e, nextIdx }) => {
-          if (!containerElmRef.current?.contains(e.target as HTMLElement)) {
-            return;
-          }
-
-          // disabled transition
-          containerElmRef.current.setAttribute("data-transition", "false");
-
-          selectedIndex$.next(nextIdx);
-        }),
-      ),
-
-      selectedIndex$.pipe(
-        tap((selectedIdx) => {
-          containerElmRef.current?.querySelectorAll("[data-idx]").forEach((e) => {
-            const next = transform(itemHeight, Number(e.getAttribute("data-idx")) - selectedIdx);
-            assign((e as HTMLElement).style, next);
-          });
-        }),
-      ),
-
-      // delay enable transition
-      selectedIndex$.pipe(
-        rxDelay(100),
-        tap(() => {
-          containerElmRef.current!.setAttribute("data-transition", "true");
-        }),
-      ),
-
-      wheel$.pipe(
-        observeOn(animationFrameScheduler),
-        tap((e) => {
-          if (!containerElmRef.current?.contains(e.target as HTMLElement)) {
-            return;
-          }
-
-          // disabled transition
-          containerElmRef.current.setAttribute("data-transition", "false");
-
-          const nextIdx = rangeLimit(
-            selectedIndex$.value + Math.round((e as WheelEvent).deltaY / 3),
-            0,
-            ctxRef.current.maxIndex,
-          );
-
-          selectedIndex$.next(nextIdx);
-        }),
-      ),
-    ];
-  }, [containerElmRef.current]);
+        setIdxAndUpdateY(nextIdx);
+      },
+      onDragStart: () => {
+        offsetYRef.current = y.get();
+      },
+      onDrag: ({ movement }) => {
+        setY({ y: offsetYRef.current + movement[1] });
+      },
+      onDragEnd: ({ movement }) => {
+        const [nextIdx] = rangeLimit(
+          -Math.round((offsetYRef.current + movement[1]) / itemHeight),
+          0,
+          options.length - 1,
+        );
+        setIdxAndUpdateY(nextIdx);
+      },
+    },
+    {
+      wheel: {
+        axis: "y",
+      },
+    },
+  );
 
   return (
     <div
-      data-name={name}
-      css={{
-        position: "relative",
-        overflow: "hidden",
-        userSelect: "none",
-        pointer: "cursor",
-
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "flex-end",
-        padding: "0 1.6em",
-      }}
       style={{
+        position: "relative",
+        width: "100%",
+        overflow: "hidden",
+        touchAction: "none", // Disable browser handling of all panning and zooming gestures
         height: columnHeight,
       }}>
-      <small css={select().width("50%").color(theme.colors.primary).textAlign("left")}>
-        <span
-          style={{
-            paddingLeft: `${maxValueLength / 2 + 1}em`,
-          }}>
-          {sup}
-        </span>
-      </small>
+      {sup && (
+        <div
+          css={select().with(cover()).with({
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-end",
+          })}>
+          <small css={select().width("50%").color(theme.colors.primary).textAlign("left")}>
+            <span
+              style={{
+                paddingLeft: `${maxValueLength / 2 + 1}em`,
+              }}>
+              {sup}
+            </span>
+          </small>
+        </div>
+      )}
       <div
-        ref={containerElmRef}
-        data-transition={true}
-        css={select()
-          .fontSize("1.4em")
-          .with(cover())
-          .with(
-            select("& > *").with({
-              cursor: "pointer",
+        data-name={name}
+        css={{
+          position: "relative",
+          padding: "0 1.6em",
+        }}>
+        <animated.div
+          role={"options"}
+          style={{ y }}
+          css={select()
+            .fontSize("1.4em")
+            .with({
               position: "absolute",
-              top: columnHeight / 2 - itemHeight / 2,
+              zIndex: 0,
               left: 0,
-              width: "100%",
-              whiteSpace: "nowrap",
-              color: t.state.color,
-              textOverflow: "ellipsis",
-              textAlign: "center",
-              height: itemHeight,
-              lineHeight: `${itemHeight}px`,
-            }),
-          )
-          .with(
-            select("&[data-transition=true] > *").with({
-              transition: "120ms",
-              transitionTimingFunction: "ease-out",
-            }),
-          )}>
-        {map(options, (option, index) => {
-          if (Math.abs(index - selectedIndex$.value) > 4) {
-            return null;
-          }
-
-          return (
-            <div
-              key={option.value}
-              data-idx={index}
-              data-opt={option.value}
-              style={transform(itemHeight, index - selectedIndex$.value)}>
-              {option.label}
-            </div>
-          );
-        })}
+              right: 0,
+              top: `${columnHeight / 2 - itemHeight / 2}px`,
+            })
+            .with(
+              select("& > *").with({
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+                textOverflow: "ellipsis",
+                color: t.state.color,
+                textAlign: "center",
+                height: itemHeight,
+                lineHeight: `${itemHeight}px`,
+              }),
+            )}>
+          {map(options, (option, index) => {
+            return (
+              <animated.div
+                key={option.value}
+                data-idx={index}
+                data-opt={option.value}
+                style={{
+                  color: y.to((y) => {
+                    const delta = index - Math.round(-(y / itemHeight));
+                    return colorIn(t.colors.primary, t.state.color, Math.abs(delta));
+                  }),
+                  opacity: y.to((y) => {
+                    const delta = index - Math.round(-(y / itemHeight));
+                    return 1 - Math.abs(delta) * 0.2;
+                  }),
+                  transform: y.to((y) => {
+                    const delta = index - Math.round(-(y / itemHeight));
+                    return `scale(${1 - Math.abs(delta) * 0.05})`;
+                  }),
+                }}>
+                {option.label}
+              </animated.div>
+            );
+          })}
+        </animated.div>
       </div>
+      <div
+        {...bind()}
+        role={"mask"}
+        css={select().with(cover()).with({
+          zIndex: 1,
+        })}
+      />
     </div>
   );
 };

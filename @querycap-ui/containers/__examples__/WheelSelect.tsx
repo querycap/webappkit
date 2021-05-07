@@ -1,6 +1,6 @@
 import { WheelSelect } from "@querycap-ui/containers";
 import { times } from "lodash";
-import  { useState } from "react";
+import { useState } from "react";
 
 const opts = times(100).map((_, i) => ({
   value: `${i}`,
@@ -12,7 +12,7 @@ export const WheelSelects = () => {
 
   return (
     <div>
-      <WheelSelect name="k" itemHeight={36} options={opts} value={value} onValueChange={updateValue} />
+      <WheelSelect name="k" itemHeight={36} options={opts} value={value} onValueChange={updateValue} sup={"年"} />
     </div>
   );
 };
