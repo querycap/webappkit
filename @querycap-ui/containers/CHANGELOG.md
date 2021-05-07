@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.2
+
+### Patch Changes
+
+- c327d55: bump to react-use-gesture
+
 ## 0.6.1
 
 ### Patch Changes
