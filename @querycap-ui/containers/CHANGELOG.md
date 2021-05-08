@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.3
+
+### Patch Changes
+
+- ui fix
+
 ## 0.6.2
 
 ### Patch Changes
