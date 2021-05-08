@@ -126,9 +126,6 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
       style={{
         position: "relative",
         width: "100%",
-        overflow: "hidden",
-        touchAction: "none", // Disable browser handling of all panning and zooming gestures
-        height: columnHeight,
       }}>
       {sup && (
         <div
@@ -140,7 +137,7 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
           <small css={select().width("50%").color(theme.colors.primary).textAlign("left")}>
             <span
               style={{
-                paddingLeft: `${maxValueLength / 2 + 1}em`,
+                paddingLeft: `${maxValueLength / 2 + 0.5}em`,
               }}>
               {sup}
             </span>
@@ -148,67 +145,77 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
         </div>
       )}
       <div
-        data-name={name}
-        css={{
+        style={{
           position: "relative",
-          padding: "0 1.6em",
+          width: "100%",
+          overflow: "hidden",
+          touchAction: "none", // Disable browser handling of all panning and zooming gestures
+          height: columnHeight,
+          minWidth: maxValueLength * t.state.fontSize * 1.2,
         }}>
-        <animated.div
-          role={"options"}
-          style={{ y }}
-          css={select()
-            .fontSize("1.4em")
-            .with({
-              position: "absolute",
-              zIndex: 0,
-              left: 0,
-              right: 0,
-              top: `${columnHeight / 2 - itemHeight / 2}px`,
-            })
-            .with(
-              select("& > *").with({
-                cursor: "pointer",
-                whiteSpace: "nowrap",
-                textOverflow: "ellipsis",
-                color: t.state.color,
-                textAlign: "center",
-                height: itemHeight,
-                lineHeight: `${itemHeight}px`,
-              }),
-            )}>
-          {map(options, (option, index) => {
-            return (
-              <animated.div
-                key={option.value}
-                data-idx={index}
-                data-opt={option.value}
-                style={{
-                  color: y.to((y) => {
-                    const delta = index - Math.round(-(y / itemHeight));
-                    return colorIn(t.colors.primary, t.state.color, Math.abs(delta));
-                  }),
-                  opacity: y.to((y) => {
-                    const delta = index - Math.round(-(y / itemHeight));
-                    return 1 - Math.abs(delta) * 0.2;
-                  }),
-                  transform: y.to((y) => {
-                    const delta = index - Math.round(-(y / itemHeight));
-                    return `scale(${1 - Math.abs(delta) * 0.05})`;
-                  }),
-                }}>
-                {option.label}
-              </animated.div>
-            );
+        <div
+          data-name={name}
+          css={{
+            position: "relative",
+            padding: "0 1.6em",
+          }}>
+          <animated.div
+            role={"options"}
+            style={{ y }}
+            css={select()
+              .fontSize("1.4em")
+              .with({
+                position: "absolute",
+                zIndex: 0,
+                left: 0,
+                right: 0,
+                top: `${columnHeight / 2 - itemHeight / 2}px`,
+              })
+              .with(
+                select("& > *").with({
+                  cursor: "pointer",
+                  whiteSpace: "nowrap",
+                  textOverflow: "ellipsis",
+                  color: t.state.color,
+                  textAlign: "center",
+                  height: itemHeight,
+                  lineHeight: `${itemHeight}px`,
+                }),
+              )}>
+            {map(options, (option, index) => {
+              return (
+                <animated.div
+                  key={option.value}
+                  data-idx={index}
+                  data-opt={option.value}
+                  style={{
+                    color: y.to((y) => {
+                      const delta = index - Math.round(-(y / itemHeight));
+                      return colorIn(t.colors.primary, t.state.color, Math.abs(delta));
+                    }),
+                    opacity: y.to((y) => {
+                      const delta = index - Math.round(-(y / itemHeight));
+                      return 1 - Math.abs(delta) * 0.2;
+                    }),
+                    transform: y.to((y) => {
+                      const delta = index - Math.round(-(y / itemHeight));
+                      return `scale(${1 - Math.abs(delta) * 0.05})`;
+                    }),
+                  }}>
+                  {option.label}
+                </animated.div>
+              );
+            })}
+          </animated.div>
+        </div>
+        <div
+          {...bind()}
+          role={"mask"}
+          css={select().with(cover()).with({
+            zIndex: 1,
           })}
-        </animated.div>
+        />
       </div>
-      <div
-        {...bind()}
-        role={"mask"}
-        css={select().with(cover()).with({
-          zIndex: 1,
-        })}
-      />
     </div>
   );
 };
