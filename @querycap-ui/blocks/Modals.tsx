@@ -144,31 +144,29 @@ export interface ModalPropsWithOnDestroyed extends ModalProps {
 export const Modal = ({ isOpen, children, onRequestClose, onDestroyed }: ModalPropsWithOnDestroyed) => {
   const transition = useModalTransition(isOpen, onDestroyed);
 
-  return transition(
-    (style, item, _, key) =>
-      item && (
-        <ModalBase onRequestClose={onRequestClose}>
-          <Fragment key={key}>
-            <AnimatedModalBackdrop onRequestClose={onRequestClose} style={{ opacity: style.opacity }} />
-            <animated.div style={style}>{children}</animated.div>
-          </Fragment>
-        </ModalBase>
-      ),
-  );
+  return transition((style, item, _, key) => (
+    <ModalBase onRequestClose={onRequestClose} key={key}>
+      {item && (
+        <Fragment>
+          <AnimatedModalBackdrop onRequestClose={onRequestClose} style={{ opacity: style.opacity }} />
+          <animated.div style={style}>{children}</animated.div>
+        </Fragment>
+      )}
+    </ModalBase>
+  ));
 };
 
 export const ModalDialog = ({ isOpen, children, onRequestClose, onDestroyed }: ModalPropsWithOnDestroyed) => {
   const transition = useModalTransition(isOpen, onDestroyed);
 
-  return transition(
-    (style, item, _, key) =>
-      item && (
-        <ModalDialogBase onRequestClose={onRequestClose}>
-          <Fragment key={key}>
-            <AnimatedModalBackdrop onRequestClose={onRequestClose} style={{ opacity: style.opacity }} />
-            <animated.div style={style}>{children}</animated.div>
-          </Fragment>
-        </ModalDialogBase>
-      ),
-  );
+  return transition((style, item, _, key) => (
+    <ModalDialogBase onRequestClose={onRequestClose} key={key}>
+      {item && (
+        <Fragment>
+          <AnimatedModalBackdrop onRequestClose={onRequestClose} style={{ opacity: style.opacity }} />
+          <animated.div style={style}>{children}</animated.div>
+        </Fragment>
+      )}
+    </ModalDialogBase>
+  ));
 };
