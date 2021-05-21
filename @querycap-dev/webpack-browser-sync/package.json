@@ -10,7 +10,7 @@
     "@types/interpret": "~1.1.1",
     "@types/lodash": "~4.14.168",
     "@types/mime": "~2.0.3",
-    "@types/yargs": "~16.0.1",
+    "@types/yargs": "~17.0.0",
     "browser-sync": "^2.26.14",
     "compression": "^1.7.4",
     "connect-history-api-fallback": "^1.6.0",
