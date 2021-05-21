@@ -12,7 +12,7 @@
   "dependencies": {
     "@types/terser-webpack-plugin": "^5.0.3",
     "babel-loader": "^8.2.2",
-    "source-map-loader": "^2.0.1",
+    "source-map-loader": "^3.0.0",
     "terser-webpack-plugin": "^5.1.1",
     "worker-loader": "^3.0.8"
   },
