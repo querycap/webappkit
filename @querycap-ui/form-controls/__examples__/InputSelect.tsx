@@ -11,7 +11,11 @@ export const InputSelects = () => {
   const [value, setValue] = useState(undefined);
   const [count, setCount] = useState("");
 
-  const enums = ["Apple", "Orange", "Banana"];
+  const enums = [
+    "<span style='color:red'>Apple<span style='font-size:14px;color:green'>苹果</span></span>",
+    "Orange",
+    "Banana",
+  ];
 
   const moreEnums = times(50);
 

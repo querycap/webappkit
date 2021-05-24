@@ -135,7 +135,7 @@ export const InputSelect = (props: InputSelectProps) => {
           css={select().with(cover()).opacity(0).cursor("pointer")}
           readOnly
         />
-        <span>{value && display(value)}</span>&nbsp;
+        <span dangerouslySetInnerHTML={{ __html: `<span>${display(value)}</span>` }}></span>&nbsp;
       </div>
       <InputIcon pullRight>
         {allowClear && value && !valuesRef.current.disabled ? (
@@ -153,8 +153,11 @@ export const InputSelect = (props: InputSelectProps) => {
           <SelectMenuPopover fullWidth triggerRef={inputElmRef} onRequestClose={() => closePopover()}>
             <MenuOptGroup>
               {map(values, (value) => (
-                <div data-opt={value} key={value}>
-                  {display(value)}
+                <div
+                  data-opt={value}
+                  key={value}
+                  dangerouslySetInnerHTML={{ __html: `<span>${display(value)}</span>` }}>
+                  {/* {display(value)} */}
                 </div>
               ))}
             </MenuOptGroup>

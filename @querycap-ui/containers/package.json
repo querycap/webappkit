@@ -5,11 +5,8 @@
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
     "@querycap-ui/core": "*",
-    "@querycap/reactutils": "*",
-    "@reactorx/core": "*",
     "lodash": "4.x",
-    "react": "17.x",
-    "rxjs": "*"
+    "react": "17.x"
   },
   "publishConfig": {
     "access": "public"
