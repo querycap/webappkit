@@ -241,7 +241,7 @@ importers:
       '@rollup/plugin-babel': ^5.3.0
       '@rollup/plugin-json': ^4.1.0
       '@rollup/plugin-node-resolve': ^13.0.0
-      '@types/yargs': ^16.0.1
+      '@types/yargs': ^17.0.0
       chalk: ^4.1.1
       del: ^6.0.0
       lodash: ^4.17.21
@@ -253,7 +253,7 @@ importers:
       '@rollup/plugin-babel': 5.3.0_rollup@2.47.0
       '@rollup/plugin-json': 4.1.0_rollup@2.47.0
       '@rollup/plugin-node-resolve': 13.0.0_rollup@2.47.0
-      '@types/yargs': 16.0.1
+      '@types/yargs': 17.0.0
       chalk: 4.1.1
       del: 6.0.0
       lodash: 4.17.21
@@ -288,7 +288,7 @@ importers:
       '@types/interpret': ~1.1.1
       '@types/lodash': ~4.14.168
       '@types/mime': ~2.0.3
-      '@types/yargs': ~16.0.1
+      '@types/yargs': ~17.0.0
       browser-sync: ^2.26.14
       compression: ^1.7.4
       connect-history-api-fallback: ^1.6.0
@@ -307,7 +307,7 @@ importers:
       '@types/interpret': 1.1.1
       '@types/lodash': 4.14.168
       '@types/mime': 2.0.3
-      '@types/yargs': 16.0.1
+      '@types/yargs': 17.0.0
       browser-sync: 2.26.14
       compression: 1.7.4
       connect-history-api-fallback: 1.6.0
@@ -371,13 +371,13 @@ importers:
     specifiers:
       '@types/terser-webpack-plugin': ^5.0.3
       babel-loader: ^8.2.2
-      source-map-loader: ^2.0.1
+      source-map-loader: ^3.0.0
       terser-webpack-plugin: ^5.1.1
       worker-loader: ^3.0.8
     dependencies:
       '@types/terser-webpack-plugin': 5.0.3
       babel-loader: 8.2.2
-      source-map-loader: 2.0.1
+      source-map-loader: 3.0.0
       terser-webpack-plugin: 5.1.1
       worker-loader: 3.0.8
 
@@ -3616,8 +3616,8 @@ packages:
       '@types/yargs-parser': 20.2.0
     dev: false
 
-  /@types/yargs/16.0.1:
-    resolution: {integrity: sha512-x4HABGLyzr5hKUzBC9dvjciOTm11WVH1NWonNjGgxapnTHu5SWUqyqn0zQ6Re0yQU0lsQ6ztLCoMAKDGZflyxA==}
+  /@types/yargs/17.0.0:
+    resolution: {integrity: sha512-RS7u2X7vdXjVQs160PWY1pjLBw6GJj04utojn0KU8p2rRZR37FSzzK6XOT+KLzT/DVbDYRyezroc0LHIvM5Z2A==}
     dependencies:
       '@types/yargs-parser': 20.2.0
     dev: false
@@ -10601,9 +10601,9 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /source-map-loader/2.0.1:
-    resolution: {integrity: sha512-UzOTTQhoNPeTNzOxwFw220RSRzdGSyH4lpNyWjR7Qm34P4/N0W669YSUFdH07+YNeN75h765XLHmNsF/bm97RQ==}
-    engines: {node: '>= 10.13.0'}
+  /source-map-loader/3.0.0:
+    resolution: {integrity: sha512-GKGWqWvYr04M7tn8dryIWvb0s8YM41z82iQv01yBtIylgxax0CwvSy6gc2Y02iuXwEfGWRlMicH0nvms9UZphw==}
+    engines: {node: '>= 12.13.0'}
     peerDependencies:
       webpack: ^5.0.0
     dependencies:
