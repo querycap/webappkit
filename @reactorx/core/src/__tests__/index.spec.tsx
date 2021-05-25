@@ -138,11 +138,11 @@ describe("@reactorx/core", () => {
       const $pong = node.container.querySelector("#pong")!;
       const $pingOrPong = node.container.querySelector("#pingOrPong")!;
 
-      expect($ping.innerHTML).toContain(so$.getValue()["ping"]);
-      expect($pong.innerHTML).toContain(so$.getValue()["pong"]);
+      expect($ping.innerHTML).toContain(String(so$.getValue()["ping"]));
+      expect($pong.innerHTML).toContain(String(so$.getValue()["pong"]));
 
       expect($pingOrPong.innerHTML).toContain("ping");
-      expect($pingOrPong.innerHTML).toContain(so$.getValue()["ping"]);
+      expect($pingOrPong.innerHTML).toContain(String(so$.getValue()["ping"]));
     }
 
     node.rerender(<App ping={false} />);
@@ -157,10 +157,10 @@ describe("@reactorx/core", () => {
       const $pingOrPong = node.container.querySelector("#pingOrPong")!;
 
       expect($ping).toBeNull();
-      expect($pong.innerHTML).toContain(so$.getValue()["pong"]);
+      expect($pong.innerHTML).toContain(String(so$.getValue()["pong"]));
 
       expect($pingOrPong.innerHTML).toContain("pong");
-      expect($pingOrPong.innerHTML).toContain(so$.getValue()["pong"]);
+      expect($pingOrPong.innerHTML).toContain(String(so$.getValue()["pong"]));
     }
   });
 });
