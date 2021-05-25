@@ -11,7 +11,18 @@ import { join } from "path";
 import pkg from "./package.json";
 
 export = withPresets(
-  (c) => {
+  (c, state) => {
+    const isProd = state.flags.production;
+
+    if (isProd && state.env == "gh-page") {
+      state.flags.noInject = true;
+
+      c.output!.path = join(__dirname, `./public/web-${state.name}/static/`);
+      c.output!.publicPath = `/${state.meta.config.basename}/static/`;
+    }
+
+    console.log(state);
+
     if (process.env.HTTPS) {
       set(c, "devServer", {
         browserSync: { https: !!process.env.HTTPS },
@@ -26,16 +37,7 @@ export = withPresets(
     core: /react|reactorx|scheduler|history|axios/,
     utils: /buffer|date-fns|lodash|rxjs/,
   }) as any,
-  (c, state) => {
-    console.log(state);
-
-    const isProd = state.flags.production;
-
-    if (isProd && state.env == "gh-page") {
-      c.output!.path = join(__dirname, `./public/web-sg/static`);
-      c.output!.publicPath = `./static/`;
-    }
-
+  (c) => {
     c.resolve!.alias = {
       path: "path-browserify",
       querystring: "querystring-es3",

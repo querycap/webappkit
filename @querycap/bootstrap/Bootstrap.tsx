@@ -24,13 +24,13 @@ function PersisterConnect({ persister }: { persister: ReturnType<typeof createPe
   return null;
 }
 
-export const HistoryProvider = ({ children }: { children: ReactNode }) => {
+export const HistoryProvider = ({ children, basename = "" }: { children: ReactNode; basename: string }) => {
   const confirm = useConfirm();
 
   const history = useMemo(
     () =>
       createBrowserHistory({
-        basename: "",
+        basename: basename,
         forceRefresh: false,
         keyLength: 6,
         getUserConfirmation: (message, callback) => confirm(message, callback),
@@ -104,7 +104,7 @@ export const createBootstrap = <T extends BaseConfig>(config: T) => (e: ReactEle
           <StoreProvider value={store$}>
             <ConfigProvider value={{ config }}>
               <PersisterConnect persister={persister} />
-              <HistoryProvider>{isFunction(e) ? e() : e}</HistoryProvider>
+              <HistoryProvider basename={(config as any).basename}>{isFunction(e) ? e() : e}</HistoryProvider>
             </ConfigProvider>
           </StoreProvider>
         </StrictMode>,

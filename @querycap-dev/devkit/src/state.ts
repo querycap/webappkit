@@ -15,6 +15,7 @@ export interface IState {
     production?: boolean;
     debug?: boolean;
     dryRun?: boolean;
+    noInject?: boolean;
   };
 
   meta: { [key: string]: { [k: string]: any } };

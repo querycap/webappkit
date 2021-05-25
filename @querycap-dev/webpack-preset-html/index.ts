@@ -47,10 +47,11 @@ export const withHTMLPreset = ({ meta }: { meta?: { [key: string]: string } } = 
         ...meta,
         "devkit:app": stringifyMetaContent({
           appName: state.name,
-          env: isProd ? "__ENV__" : state.env,
-          version: isProd ? process.env.PROJECT_VERSION || "0.0.0" : state.project.version,
+          env: isProd && !state.flags.noInject ? "__ENV__" : state.env,
+          version: isProd && !state.flags.noInject ? process.env.PROJECT_VERSION || "0.0.0" : state.project.version,
         }),
-        "devkit:config": isProd ? "__APP_CONFIG__" : stringifyMetaContent(state.meta.config || {}),
+        "devkit:config":
+          isProd && !state.flags.noInject ? "__APP_CONFIG__" : stringifyMetaContent(state.meta.config || {}),
       },
     }) as any,
   );
