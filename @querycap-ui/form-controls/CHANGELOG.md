@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.14.4
+
+### Patch Changes
+
+- 32d13b9: styling fix
+
 ## 0.14.3
 
 ### Patch Changes
