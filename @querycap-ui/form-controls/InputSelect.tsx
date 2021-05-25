@@ -137,17 +137,20 @@ export const InputSelect = (props: InputSelectProps) => {
         />
         <span>{value && display(value)}</span>&nbsp;
       </div>
-      <InputIcon pullRight>
-        {allowClear && value && !valuesRef.current.disabled ? (
+
+      {allowClear && value && !valuesRef.current.disabled ? (
+        <InputIcon pullRight>
           <IconX onClick={() => onValueChange("")} />
-        ) : (
+        </InputIcon>
+      ) : (
+        <InputIcon pullRight css={select().pointerEvents("none")}>
           <IconChevronDown
             css={select()
               .transform(`rotate(${isOpened ? 180 : 0}deg)`)
               .transition("transform 200ms ease 0s")}
           />
-        )}
-      </InputIcon>
+        </InputIcon>
+      )}
       {!valuesRef.current.disabled && isOpened && (
         <Select>
           <SelectMenuPopover fullWidth triggerRef={inputElmRef} onRequestClose={() => closePopover()}>
