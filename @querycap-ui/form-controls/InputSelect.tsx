@@ -11,6 +11,11 @@ import { fromEvent } from "rxjs";
 import { filter as rxFilter, tap } from "rxjs/operators";
 import { InputIcon } from "./Input";
 import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect } from "./Menu";
+import { isUndefined, isNull } from "lodash";
+
+const isValidValue = (v: any) => {
+  return !(isUndefined(v) || isNull(v) || v == "");
+};
 
 export interface InputSelectProps<T extends any = any> extends FieldInputCommonProps<T> {
   enum: any[];
@@ -85,7 +90,7 @@ export const InputSelect = (props: InputSelectProps) => {
     }
 
     return selectCtx.selectValue$.pipe(
-      rxFilter((v) => !!v),
+      rxFilter(isValidValue),
       tap((value) => {
         onValueChange(value);
         closePopover();
@@ -109,7 +114,7 @@ export const InputSelect = (props: InputSelectProps) => {
     return [
       inputKeydownEnter$.pipe(
         tap(() => {
-          if (selectCtx.focused$.value) {
+          if (isValidValue(selectCtx.focused$.value)) {
             selectCtx.select();
             selectCtx.focus("");
           }
@@ -131,14 +136,14 @@ export const InputSelect = (props: InputSelectProps) => {
         <input
           ref={inputElmRef}
           type="text"
-          value={value}
+          value={`${value}`}
           css={select().with(cover()).opacity(0).cursor("pointer")}
           readOnly
         />
-        <span>{value && display(value)}</span>&nbsp;
+        <span>{isValidValue(value) && display(value)}</span>&nbsp;
       </div>
 
-      {allowClear && value && !valuesRef.current.disabled ? (
+      {allowClear && isValidValue(value) && !valuesRef.current.disabled ? (
         <InputIcon pullRight>
           <IconX onClick={() => onValueChange("")} />
         </InputIcon>
@@ -156,7 +161,7 @@ export const InputSelect = (props: InputSelectProps) => {
           <SelectMenuPopover fullWidth triggerRef={inputElmRef} onRequestClose={() => closePopover()}>
             <MenuOptGroup>
               {map(values, (value) => (
-                <div data-opt={value} key={value}>
+                <div data-opt={`${value}`} key={value}>
                   {display(value)}
                 </div>
               ))}

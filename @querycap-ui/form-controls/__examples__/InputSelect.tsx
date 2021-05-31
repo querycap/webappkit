@@ -11,7 +11,7 @@ export const InputSelects = () => {
   const [value, setValue] = useState(undefined);
   const [count, setCount] = useState("");
 
-  const enums = ["Apple", "Orange", "Banana"];
+  const enums = [false, true];
 
   const moreEnums = times(50);
 
@@ -21,7 +21,7 @@ export const InputSelects = () => {
       <Stack spacing={roundedEm(0.6)} css={select().fontSize(theme.fontSizes.xs)}>
         <div css={select().position("relative")}>
           <Input small>
-            <InputSelect allowClear enum={enums} value={value || ""} onValueChange={setValue} name={"select"} />
+            <InputSelect allowClear enum={enums} value={value} onValueChange={setValue} name={"select"} />
           </Input>
         </div>
       </Stack>
