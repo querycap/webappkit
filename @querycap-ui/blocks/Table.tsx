@@ -1,6 +1,6 @@
 import { ReactNode, useMemo, useState } from "react";
 import { select, theme, colors, roundedEm, CSSBuilder } from "@querycap-ui/core";
-import { map, get, Dictionary, concat, includes, reject, isEmpty, every, uniq, size } from "lodash";
+import { map, forEach, get, Dictionary, concat, includes, reject, isEmpty, every, uniq, size } from "lodash";
 import { Checkbox } from "@querycap-ui/form-controls";
 import { IconChevronDown, IconChevronRight } from "@querycap-ui/icons";
 import { Loading } from "./Loading";
@@ -13,6 +13,7 @@ export interface ITableColumn<T> {
   ellipsis?: boolean;
   formatter?: (item: any, row: T, idx: number) => ReactNode;
   align?: "left" | "center";
+  fixed?: string;
 }
 
 export interface ITableExpandable<T> {
@@ -45,7 +46,45 @@ export interface ITableRow<T> {
 }
 
 const ellisisStyle = select().overflowX("hidden").whiteSpace("nowrap").textOverflow("ellipsis").wordBreak("keep-all");
-
+const fixedAfterLeft = select()
+  .right(0)
+  .transform(`translateX(100%)`)
+  .boxShadow(`inset 10px 0 8px -8px rgb(0 0 0 / 15%)`);
+const fixedAfterRight = select()
+  .left(0)
+  .transform(`translateX(-100%)`)
+  .boxShadow(`inset -10px 0 8px -8px rgb(0 0 0 / 15%)`);
+const fixedStyle = (type: string) =>
+  select()
+    .position("sticky")
+    .zIndex(2)
+    .background("#fff")
+    .with(
+      select("&:after")
+        .position("absolute")
+        .height("100%")
+        .width("30px")
+        .top(0)
+        .transform("translate(100%)")
+        .transition("box-shadow 0.3s")
+        .content(`""`)
+        .pointerEvents("none")
+        .with(type === "left" ? fixedAfterLeft : fixedAfterRight),
+    );
+const getPosition = (currentIndex: number, endColumns: ITableColumn<any>[], type: string | undefined) => {
+  if (currentIndex === 0) return 0;
+  let max = 0;
+  let value = 0;
+  forEach(endColumns, (item, index) => {
+    if (currentIndex === index) return value;
+    max += Number(item.width);
+    if (currentIndex > index) {
+      value += Number(item.width);
+    }
+  });
+  if (type === "right") value = max - value;
+  return value;
+};
 export const TableRow = <T extends Dictionary<any>>({
   columns,
   rowIndex,
@@ -70,7 +109,11 @@ export const TableRow = <T extends Dictionary<any>>({
             key={column.key}
             css={select()
               .textAlign(column.align || "left")
-              .with(column.ellipsis ? ellisisStyle : null)}
+              .with(column.ellipsis ? ellisisStyle : null)
+              .with(column.fixed ? fixedStyle(column.fixed) : null)}
+            style={{
+              [column.fixed as string]: getPosition(index, columns, column.fixed),
+            }}
             title={column.ellipsis ? get(row, column.key, "-") : ""}>
             {expandable?.rowExpandable(row) && index === 0 && (
               <span
@@ -155,25 +198,30 @@ export const Table = <T extends Dictionary<any>, P extends string>({
   }, [checkds, dataSource, columns]);
 
   return (
-    <>
+    <div css={select().overflow("auto")}>
       <table
         css={select()
           .width("100%")
+          .overflow("auto scroll")
           .borderCollapse("collapse")
           .tableLayout(tableLayout || "auto")}
         {...otherProps}>
         <thead>
           <tr css={select().backgroundColor(colors.gray1).borderSpacing(0)}>
-            {map(endColumns, (column) => (
+            {map(endColumns, (column, index) => (
               <th
                 key={column.key}
+                style={{
+                  [column.fixed as string]: getPosition(index, columns, column.fixed),
+                }}
                 css={select()
                   .paddingY(roundedEm(0.7))
                   .paddingX(roundedEm(0.9))
                   .width(column.width || "auto")
                   .textAlign(align)
                   .fontWeight(500)
-                  .fontSize(theme.fontSizes.s)}>
+                  .fontSize(theme.fontSizes.s)
+                  .with(column.fixed ? fixedStyle(column.fixed) : null)}>
                 {column.title}
               </th>
             ))}
@@ -205,6 +253,6 @@ export const Table = <T extends Dictionary<any>, P extends string>({
         </tbody>
       </table>
       {loading ? <Loading /> : size(dataSource) ? null : <Empty />}
-    </>
+    </div>
   );
 };
