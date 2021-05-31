@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.14.5
+
+### Patch Changes
+
+- b990ac9: boolean value fix
+
 ## 0.14.4
 
 ### Patch Changes
