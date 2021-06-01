@@ -4192,7 +4192,7 @@ packages:
       '@types/aria-query': 4.2.1
       aria-query: 4.2.2
       chalk: 4.1.1
-      dom-accessibility-api: 0.5.4
+      dom-accessibility-api: 0.5.5
       lz-string: 1.4.4
       pretty-format: 26.6.2
     dev: false
@@ -5662,9 +5662,9 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001231
+      caniuse-lite: 1.0.30001232
       colorette: 1.2.2
-      electron-to-chromium: 1.3.742
+      electron-to-chromium: 1.3.743
       escalade: 3.1.1
       node-releases: 1.1.72
     dev: false
@@ -5784,8 +5784,8 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /caniuse-lite/1.0.30001231:
-    resolution: {integrity: sha512-WAFFv31GgU4DiwNAy77qMo3nNyycEhH3ikcCVHvkQpPe/fO8Tb2aRYzss8kgyLQBm8mJ7OryW4X6Y4vsBCIqag==}
+  /caniuse-lite/1.0.30001232:
+    resolution: {integrity: sha512-e4Gyp7P8vqC2qV2iHA+cJNf/yqUKOShXQOJHQt81OHxlIZl/j/j3soEA0adAQi8CPUQgvOdDENyQ5kd6a6mNSg==}
     dev: false
 
   /chalk/1.1.3:
@@ -6594,8 +6594,8 @@ packages:
       esutils: 2.0.3
     dev: false
 
-  /dom-accessibility-api/0.5.4:
-    resolution: {integrity: sha512-TvrjBckDy2c6v6RLxPv5QXOnU+SmF9nBII5621Ve5fu6Z/BDrENurBEvlC1f44lKEUVqOpK4w9E5Idc5/EgkLQ==}
+  /dom-accessibility-api/0.5.5:
+    resolution: {integrity: sha512-8qdiSHWFg/rzd/oDByhKtBCR+1QtpNPcHDr94m3K+SLkFaPEhdCPA/Rm9hOPN9WUK9mEfNXH1zaM6F5e0yhw/A==}
     dev: false
 
   /dom-converter/0.2.0:
@@ -6688,8 +6688,8 @@ packages:
     requiresBuild: true
     dev: false
 
-  /electron-to-chromium/1.3.742:
-    resolution: {integrity: sha512-ihL14knI9FikJmH2XUIDdZFWJxvr14rPSdOhJ7PpS27xbz8qmaRwCwyg/bmFwjWKmWK9QyamiCZVCvXm5CH//Q==}
+  /electron-to-chromium/1.3.743:
+    resolution: {integrity: sha512-K2wXfo9iZQzNJNx67+Pld0DRF+9bYinj62gXCdgPhcu1vidwVuLPHQPPFnCdO55njWigXXpfBiT90jGUPbw8Zg==}
     dev: false
 
   /email-addresses/3.1.0:
@@ -12026,13 +12026,13 @@ packages:
       webpack: 5.36.2
     dev: false
 
-  /terser-webpack-plugin/5.1.2_webpack@5.38.1:
-    resolution: {integrity: sha512-6QhDaAiVHIQr5Ab3XUWZyDmrIPCHMiqJVljMF91YKyqwKkL5QHnYMkrMBy96v9Z7ev1hGhSEw1HQZc2p/s5Z8Q==}
+  /terser-webpack-plugin/5.1.3_webpack@5.38.1:
+    resolution: {integrity: sha512-cxGbMqr6+A2hrIB5ehFIF+F/iST5ZOxvOmy9zih9ySbP1C2oEWQSOUS+2SNBTjzx5xLKO4xnod9eywdfq1Nb9A==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
       webpack: ^5.1.0
     dependencies:
-      jest-worker: 26.6.2
+      jest-worker: 27.0.2
       p-limit: 3.1.0
       schema-utils: 3.0.0
       serialize-javascript: 5.0.1
@@ -12901,7 +12901,7 @@ packages:
       neo-async: 2.6.2
       schema-utils: 3.0.0
       tapable: 2.2.0
-      terser-webpack-plugin: 5.1.2_webpack@5.38.1
+      terser-webpack-plugin: 5.1.3_webpack@5.38.1
       watchpack: 2.2.0
       webpack-cli: 4.7.0_a4e2c9bbfcf62bca638ad199d0848153
       webpack-sources: 2.3.0
