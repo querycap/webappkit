@@ -1,5 +1,5 @@
 import { Stack } from "@querycap-ui/layouts";
-import { Table } from "../Table";
+import { Table, ITableColumn } from "../Table";
 
 export const Tables = () => {
   const dataSource = [
@@ -45,17 +45,18 @@ export const Tables = () => {
     },
   ];
 
-  const columns = [
+  const columns: ITableColumn<typeof dataSource[0]>[] = [
     {
       title: "姓名",
       key: "name",
       width: 100,
-      fixed: "left",
+      sticky: "left",
     },
     {
       title: "年龄",
       key: "age",
-      width: 200,
+      width: 100,
+      sticky: "left",
     },
     {
       title: "住址1",
@@ -90,7 +91,7 @@ export const Tables = () => {
     {
       title: "操作",
       key: "action",
-      fixed: "right",
+      sticky: "right",
       width: 200,
       formatter: (_: any, record: any) => (
         <Stack inline spacing={10}>
@@ -100,11 +101,12 @@ export const Tables = () => {
       ),
     },
   ];
+
   return (
     <Stack>
       <Table tableLayout={"fixed"} rowKey={"key"} columns={columns} dataSource={dataSource} />
+      <Table rowKey={"key"} columns={columns} dataSource={[]} />
       <Table tableLayout={"fixed"} rowKey={"key"} columns={columns} dataSource={[]} loading />
-      <Table tableLayout={"fixed"} rowKey={"key"} columns={columns} dataSource={[]} />
     </Stack>
   );
 };

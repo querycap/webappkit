@@ -13,7 +13,7 @@ export interface ITableColumn<T> {
   ellipsis?: boolean;
   formatter?: (item: any, row: T, idx: number) => ReactNode;
   align?: "left" | "center";
-  fixed?: string;
+  sticky?: "left" | "right";
 }
 
 export interface ITableExpandable<T> {
@@ -46,45 +46,53 @@ export interface ITableRow<T> {
 }
 
 const ellisisStyle = select().overflowX("hidden").whiteSpace("nowrap").textOverflow("ellipsis").wordBreak("keep-all");
-const fixedAfterLeft = select()
-  .right(0)
-  .transform(`translateX(100%)`)
-  .boxShadow(`inset 10px 0 8px -8px rgb(0 0 0 / 15%)`);
-const fixedAfterRight = select()
-  .left(0)
-  .transform(`translateX(-100%)`)
-  .boxShadow(`inset -10px 0 8px -8px rgb(0 0 0 / 15%)`);
-const fixedStyle = (type: string) =>
+
+const stickyColumnStyle = (type: "left" | "right") =>
   select()
     .position("sticky")
     .zIndex(2)
-    .background("#fff")
+    .background("inherit")
     .with(
       select("&:after")
+        .content(`""`)
         .position("absolute")
         .height("100%")
         .width("30px")
         .top(0)
         .transform("translate(100%)")
         .transition("box-shadow 0.3s")
-        .content(`""`)
         .pointerEvents("none")
-        .with(type === "left" ? fixedAfterLeft : fixedAfterRight),
+        .with(
+          type === "left"
+            ? select().right(0).transform(`translateX(100%)`).boxShadow(`inset 10px 0 8px -8px rgb(0 0 0 / 15%)`)
+            : select().left(0).transform(`translateX(-100%)`).boxShadow(`inset -10px 0 8px -8px rgb(0 0 0 / 15%)`),
+        ),
     );
-const getPosition = (currentIndex: number, endColumns: ITableColumn<any>[], type: string | undefined) => {
-  if (currentIndex === 0) return 0;
+
+const getStickyOffset = (currentIndex: number, endColumns: ITableColumn<any>[], type: string | undefined) => {
+  if (currentIndex === 0) {
+    return 0;
+  }
+
   let max = 0;
   let value = 0;
+
   forEach(endColumns, (item, index) => {
-    if (currentIndex === index) return value;
+    if (currentIndex === index) {
+      return;
+    }
     max += Number(item.width);
     if (currentIndex > index) {
       value += Number(item.width);
     }
   });
-  if (type === "right") value = max - value;
+
+  if (type === "right") {
+    return max - value;
+  }
   return value;
 };
+
 export const TableRow = <T extends Dictionary<any>>({
   columns,
   rowIndex,
@@ -110,9 +118,9 @@ export const TableRow = <T extends Dictionary<any>>({
             css={select()
               .textAlign(column.align || "left")
               .with(column.ellipsis ? ellisisStyle : null)
-              .with(column.fixed ? fixedStyle(column.fixed) : null)}
+              .with(column.sticky ? stickyColumnStyle(column.sticky) : null)}
             style={{
-              [column.fixed as string]: getPosition(index, columns, column.fixed),
+              [column.sticky as string]: getStickyOffset(index, columns, column.sticky),
             }}
             title={column.ellipsis ? get(row, column.key, "-") : ""}>
             {expandable?.rowExpandable(row) && index === 0 && (
@@ -212,7 +220,7 @@ export const Table = <T extends Dictionary<any>, P extends string>({
               <th
                 key={column.key}
                 style={{
-                  [column.fixed as string]: getPosition(index, columns, column.fixed),
+                  [column.sticky as string]: getStickyOffset(index, columns, column.sticky),
                 }}
                 css={select()
                   .paddingY(roundedEm(0.7))
@@ -221,7 +229,7 @@ export const Table = <T extends Dictionary<any>, P extends string>({
                   .textAlign(align)
                   .fontWeight(500)
                   .fontSize(theme.fontSizes.s)
-                  .with(column.fixed ? fixedStyle(column.fixed) : null)}>
+                  .with(column.sticky ? stickyColumnStyle(column.sticky) : null)}>
                 {column.title}
               </th>
             ))}
@@ -235,6 +243,7 @@ export const Table = <T extends Dictionary<any>, P extends string>({
                 .borderBottom(`1px solid`)
                 .borderColor(theme.state.borderColor)
                 .borderSpacing(0)
+                .backgroundColor(theme.state.backgroundColor)
                 .with(select("&:hover").backgroundColor(colors.gray2)),
             )
             .with(select("tr:last-child").borderBottom(`none`))
