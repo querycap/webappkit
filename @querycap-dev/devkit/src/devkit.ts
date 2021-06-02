@@ -66,13 +66,12 @@ const loadConfigFromFile = (cwd: string, state: IState) => {
 
       if (metaKey === "config") {
         state.meta[`config$`] = mapValues(conf[key], (fnOrValue: TValueBuilder, k) => {
-            const v = isFunction(fnOrValue) ? fnOrValue("$", "$", "$") : fnOrValue;
-            if (v[0] !== "$" && k.startsWith("SRV_")) {
-              return "${{ endpoints.api." + k.slice(4).replace(/_/g, "-").toLowerCase() + ".endpoint }}";
-            }
-            return v;
-          },
-        ) as any;
+          const v = isFunction(fnOrValue) ? fnOrValue("$", state.feature || "", state.name) : fnOrValue;
+          if (v[0] !== "$" && k.startsWith("SRV_")) {
+            return "${{ endpoints.api." + k.slice(4).replace(/_/g, "-").toLowerCase() + ".endpoint }}";
+          }
+          return v;
+        }) as any;
       }
     }
   }
