@@ -9,7 +9,7 @@ importers:
   .:
     specifiers:
       '@babel/core': ^7.14.3
-      '@babel/plugin-syntax-jsx': ~7.12.13
+      '@babel/plugin-syntax-jsx': ~7.14.0
       '@babel/preset-env': ^7.14.4
       '@babel/runtime-corejs3': ^7.14.0
       '@babel/types': ^7.14.4
@@ -73,7 +73,7 @@ importers:
       webpack-cli: ^4.7.0
     dependencies:
       '@babel/core': 7.14.3
-      '@babel/plugin-syntax-jsx': 7.12.13_@babel+core@7.14.3
+      '@babel/plugin-syntax-jsx': 7.14.5_@babel+core@7.14.3
       '@babel/preset-env': 7.14.4_@babel+core@7.14.3
       '@babel/runtime-corejs3': 7.14.0
       '@babel/types': 7.14.4
@@ -999,6 +999,11 @@ packages:
     resolution: {integrity: sha512-ZPafIPSwzUlAoWT8DKs1W2VyF2gOWthGd5NGFMsBcMMol+ZhK+EQY/e6V96poa6PA/Bh+C9plWN0hXO1uB8AfQ==}
     dev: false
 
+  /@babel/helper-plugin-utils/7.14.5:
+    resolution: {integrity: sha512-/37qQCE3K0vvZKwoK4XU/irIJQdIfCJuhU5eKnNxpFDsOkgFaUAwbv+RYw6eYgsC0E4hS7r5KqGULUogqui0fQ==}
+    engines: {node: '>=6.9.0'}
+    dev: false
+
   /@babel/helper-remap-async-to-generator/7.13.0:
     resolution: {integrity: sha512-pUQpFBE9JvC9lrQbpX0TmeNIy5s7GnZjna2lhhcHC7DzgBs6fWn722Y5cfwgrtrqc7NAJwMvOa0mKhq6XaE4jg==}
     dependencies:
@@ -1657,6 +1662,16 @@ packages:
     dependencies:
       '@babel/core': 7.14.3
       '@babel/helper-plugin-utils': 7.13.0
+    dev: false
+
+  /@babel/plugin-syntax-jsx/7.14.5_@babel+core@7.14.3:
+    resolution: {integrity: sha512-ohuFIsOMXJnbOMRfX7/w7LocdR6R7whhuRD4ax8IipLcLPlZGJKkBxgHp++U4N/vKyU16/YDQr2f5seajD3jIw==}
+    engines: {node: '>=6.9.0'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    dependencies:
+      '@babel/core': 7.14.3
+      '@babel/helper-plugin-utils': 7.14.5
     dev: false
 
   /@babel/plugin-syntax-logical-assignment-operators/7.10.4_@babel+core@7.14.0:
