@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.3.2
+
+### Patch Changes
+
+- ae12957: const should generate enum too
+- Updated dependencies [ae12957]
+  - @querycap-dev/ts-gen-core@1.3.2
+
 ## 1.3.1
 
 ### Patch Changes

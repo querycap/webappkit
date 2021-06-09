@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/generate-client",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "files": [
     "dist/"
   ],
@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@querycap-dev/generate": "workspace:^0.5.1",
-    "@querycap-dev/ts-gen-client-from-openapi": "workspace:^1.3.1",
-    "@querycap-dev/ts-gen-core": "workspace:^1.3.1",
+    "@querycap-dev/ts-gen-client-from-openapi": "workspace:^1.3.2",
+    "@querycap-dev/ts-gen-core": "workspace:^1.3.2",
     "@types/lodash": "^4.14.168",
     "axios": "^0.21.1",
     "lodash": "^4.17.21"
