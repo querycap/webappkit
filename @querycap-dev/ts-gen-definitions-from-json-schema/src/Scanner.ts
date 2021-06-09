@@ -364,7 +364,7 @@ export class Scanner {
       schema.enum = [schema.const];
     }
 
-    if (schema.$id && schema.enum!.length > 1 && isNaN(Number(schema.enum![0]))) {
+    if (schema.$id && schema.enum!.length > 0 && isNaN(Number(schema.enum![0]))) {
       const $id = toUpperCamelCase(schema.$id);
 
       this.writer.write(

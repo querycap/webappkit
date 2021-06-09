@@ -296,7 +296,7 @@ importers:
       lodash: ^4.17.21
       mime: 2.5.2
       webpack: '*'
-      webpack-dev-middleware: ^4.1.0
+      webpack-dev-middleware: ^5.0.0
       webpack-hot-middleware: ^2.25.0
       yargs: ^17.0.1
     dependencies:
@@ -315,7 +315,7 @@ importers:
       lodash: 4.17.21
       mime: 2.5.2
       webpack: 5.36.2
-      webpack-dev-middleware: 4.1.0_webpack@5.36.2
+      webpack-dev-middleware: 5.0.0_webpack@5.36.2
       webpack-hot-middleware: 2.25.0
       yargs: 17.0.1
 
@@ -9679,11 +9679,23 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
+  /mime-db/1.48.0:
+    resolution: {integrity: sha512-FM3QwxV+TnZYQ2aRqhlKBMHxk10lTbMt3bBkMAp54ddrNeVSfcQYOOKuGuy3Ddrm38I04If834fOUSq1yzslJQ==}
+    engines: {node: '>= 0.6'}
+    dev: false
+
   /mime-types/2.1.30:
     resolution: {integrity: sha512-crmjA4bLtR8m9qLpHvgxSChT+XoSlZi8J4n/aIdn3z92e/U47Z0V/yl+Wh9W046GgFVAmoNR/fmdbZYcSSIUeg==}
     engines: {node: '>= 0.6'}
     dependencies:
       mime-db: 1.47.0
+    dev: false
+
+  /mime-types/2.1.31:
+    resolution: {integrity: sha512-XGZnNzm3QvgKxa8dpzyhFTHmpP3l5YNusmne07VUOXxou9CqUqYa/HBy124RqtVh/O2pECas/MOcsDgpilPOPg==}
+    engines: {node: '>= 0.6'}
+    dependencies:
+      mime-db: 1.48.0
     dev: false
 
   /mime/1.4.1:
@@ -12772,16 +12784,16 @@ packages:
       webpack-merge: 5.7.3
     dev: false
 
-  /webpack-dev-middleware/4.1.0_webpack@5.36.2:
-    resolution: {integrity: sha512-mpa/FY+DiBu5+r5JUIyTCYWRfkWgyA3/OOE9lwfzV9S70A4vJYLsVRKj5rMFEsezBroy2FmPyQ8oBRVW8QmK1A==}
-    engines: {node: '>= 10.13.0'}
+  /webpack-dev-middleware/5.0.0_webpack@5.36.2:
+    resolution: {integrity: sha512-9zng2Z60pm6A98YoRcA0wSxw1EYn7B7y5owX/Tckyt9KGyULTkLtiavjaXlWqOMkM0YtqGgL3PvMOFgyFLq8vw==}
+    engines: {node: '>= 12.13.0'}
     peerDependencies:
       webpack: ^4.0.0 || ^5.0.0
     dependencies:
       colorette: 1.2.2
       mem: 8.1.1
       memfs: 3.2.2
-      mime-types: 2.1.30
+      mime-types: 2.1.31
       range-parser: 1.2.1
       schema-utils: 3.0.0
       webpack: 5.36.2

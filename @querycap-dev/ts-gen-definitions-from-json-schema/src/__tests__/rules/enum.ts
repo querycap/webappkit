@@ -11,4 +11,10 @@ export const cases = [
     },
     result: '"1" | "2" | "3"',
   },
+  {
+    schema: {
+      const: "1",
+    },
+    result: '"1"',
+  },
 ];
