@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.10.3
+
+### Patch Changes
+
+- 1714611: config inject fix
+
 ## 0.10.2
 
 ### Patch Changes

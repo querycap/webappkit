@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.6.2
+
+### Patch Changes
+
+- ae12957: const should generate enum too
+- Updated dependencies [ae12957]
+  - @querycap-dev/ts-gen-client-from-openapi@1.3.2
+  - @querycap-dev/ts-gen-core@1.3.2
+
 ## 0.6.1
 
 ### Patch Changes

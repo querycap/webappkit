@@ -43,33 +43,37 @@ export const MapboxGLCSS = () => (
 
     <Global
       styles={{
-        ".mapboxgl-canvas-container.mapboxgl-interactive:active, .mapboxgl-ctrl-group button.mapboxgl-ctrl-compass:active": {
-          cursor: "grabbing",
-        },
+        ".mapboxgl-canvas-container.mapboxgl-interactive:active, .mapboxgl-ctrl-group button.mapboxgl-ctrl-compass:active":
+          {
+            cursor: "grabbing",
+          },
       }}
     />
 
     <Global
       styles={{
-        ".mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate, .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate .mapboxgl-canvas": {
-          touchAction: "pan-x pan-y",
-        },
+        ".mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate, .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate .mapboxgl-canvas":
+          {
+            touchAction: "pan-x pan-y",
+          },
       }}
     />
 
     <Global
       styles={{
-        ".mapboxgl-canvas-container.mapboxgl-touch-drag-pan, .mapboxgl-canvas-container.mapboxgl-touch-drag-pan .mapboxgl-canvas": {
-          touchAction: "pinch-zoom",
-        },
+        ".mapboxgl-canvas-container.mapboxgl-touch-drag-pan, .mapboxgl-canvas-container.mapboxgl-touch-drag-pan .mapboxgl-canvas":
+          {
+            touchAction: "pinch-zoom",
+          },
       }}
     />
 
     <Global
       styles={{
-        ".mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan, .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan .mapboxgl-canvas": {
-          touchAction: "none",
-        },
+        ".mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan, .mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan .mapboxgl-canvas":
+          {
+            touchAction: "none",
+          },
       }}
     />
 
@@ -817,9 +821,10 @@ export const MapboxGLCSS = () => (
 
     <Global
       styles={{
-        ".mapboxgl-crosshair, .mapboxgl-crosshair .mapboxgl-interactive, .mapboxgl-crosshair .mapboxgl-interactive:active": {
-          cursor: "crosshair",
-        },
+        ".mapboxgl-crosshair, .mapboxgl-crosshair .mapboxgl-interactive, .mapboxgl-crosshair .mapboxgl-interactive:active":
+          {
+            cursor: "crosshair",
+          },
       }}
     />
 

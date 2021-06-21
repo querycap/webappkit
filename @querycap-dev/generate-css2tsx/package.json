@@ -6,7 +6,7 @@
   ],
   "dependencies": {
     "lodash": "^4.17.21",
-    "postcss": "^8.2.14"
+    "postcss": "^8.3.5"
   },
   "license": "MIT",
   "publishConfig": {

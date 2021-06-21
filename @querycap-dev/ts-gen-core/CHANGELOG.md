@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.3.2
+
+### Patch Changes
+
+- ae12957: const should generate enum too
+
 ## 1.3.1
 
 ### Patch Changes
