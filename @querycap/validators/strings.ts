@@ -1,10 +1,10 @@
-import { isEmpty, isNumber } from "lodash";
+import { isEmpty, isNumber, isBoolean } from "lodash";
 import { createValidator } from "./validator";
 
 export const required =
   (defaultErr = "必填") =>
   (v: any) =>
-    isEmpty(v) && !isNumber(v) ? new Error(defaultErr) : v;
+    isEmpty(v) && !isNumber(v) && !isBoolean(v) ? new Error(defaultErr) : v;
 
 export const validIDNumber = createValidator("请填写 18 位 合法身份证", (value: string) => {
   if (value.length !== 18) {
