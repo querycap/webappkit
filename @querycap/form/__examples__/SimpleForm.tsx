@@ -28,6 +28,7 @@ export const SimpleForm = () => {
     name: "231",
     email: "xxx@x.com",
     gender: "FEMALE",
+    number: 123,
   });
 
   return (
@@ -46,6 +47,10 @@ export const SimpleForm = () => {
         <FormControlWithField name="email" desc="邮箱" validate={pipe(required(), validEmail())}>
           {SimpleInputText}
         </FormControlWithField>
+        <FormControlWithField name="number" validate={pipe(required())}>
+          {SimpleInputText}
+        </FormControlWithField>
+
         <FormControls>
           <Button type="submit" primary>
             Submit
