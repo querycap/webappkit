@@ -114,7 +114,7 @@
     "@querycap-ui/babel-preset-css-prop": "workspace:*",
     "@querycap-ui/core": "workspace:*",
     "@querycap/config": "workspace:*",
-    "@testing-library/react": "^11.2.7",
+    "@testing-library/react": "^12.0.0",
     "@types/babel-plugin-macros": "^2.8.4",
     "@types/babel__preset-env": "^7.9.1",
     "@types/benchmark": "^2.1.0",
