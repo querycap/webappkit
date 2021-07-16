@@ -93,7 +93,7 @@ const createScanner = (program: NodePath<Program>) => {
       const ident = t.identifier(`${generatedPrefix}ref_${styleIdx}`);
       const decl = t.variableDeclaration("var", [t.variableDeclarator(ident, expr)]);
 
-      const ownerDecl = nodePath.findParent((p) => p.parentPath.isProgram())!;
+      const ownerDecl = nodePath.findParent((p) => p.parentPath!.isProgram())!;
       const inserted = ownerDecl.insertBefore([decl])[0];
 
       styleIdx++;
@@ -261,7 +261,7 @@ const createScanner = (program: NodePath<Program>) => {
 
         if (needTheme) {
           chainRoot.replaceWith(markThemeNeed(createFunctionIfNeed()));
-          if (chainRoot.parentPath.isExpression()) {
+          if (chainRoot.parentPath!.isExpression()) {
             markThemeNeed(chainRoot.parentPath.node);
           }
         } else {
@@ -319,7 +319,7 @@ export default createMacro(({ references }) => {
         const program = references[k][0].findParent((p) => p.isProgram()) as NodePath<Program>;
         const scanner = createScanner(program);
         references[k].reverse().forEach((p) => {
-          return p.parentPath.isCallExpression() && scanner.scan(p.parentPath);
+          return p.parentPath!.isCallExpression() && scanner.scan(p.parentPath);
         });
       } else {
         const querycapUICoreImport = createImporter(references[k][0], "@querycap-ui/core");

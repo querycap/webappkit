@@ -8,8 +8,8 @@
     "webpack": "*"
   },
   "dependencies": {
-    "@types/workbox-webpack-plugin": "^5.1.7",
-    "html-webpack-plugin": "^5.3.1",
+    "@types/workbox-webpack-plugin": "^5.1.8",
+    "html-webpack-plugin": "^5.3.2",
     "webpack-pwa-manifest": "^4.3.0",
     "workbox-core": "^6.1.5",
     "workbox-navigation-preload": "^6.1.5",
