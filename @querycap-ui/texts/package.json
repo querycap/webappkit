@@ -11,7 +11,7 @@
     "@querycap-ui/core": "workspace:^0.11.3",
     "remark-parse": "^9.0.0",
     "remark-react": "^8.0.0",
-    "unified": "^10.0.0"
+    "unified": "^10.0.1"
   },
   "publishConfig": {
     "access": "public"

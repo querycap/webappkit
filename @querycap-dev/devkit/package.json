@@ -8,12 +8,12 @@
   "dependencies": {
     "@querycap-dev/generate": "workspace:^0.5.1",
     "@types/cross-spawn": "^6.0.2",
-    "@types/js-yaml": "^4.0.1",
+    "@types/js-yaml": "^4.0.2",
     "cross-spawn": "^7.0.3",
     "js-yaml": "^4.1.0",
     "lodash": "^4.17.21",
     "npm-path": "^2.0.4",
-    "ts-node": "^10.0.0",
+    "ts-node": "^10.1.0",
     "yargs": "^17.0.1"
   },
   "license": "MIT",

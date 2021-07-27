@@ -16,7 +16,7 @@
     "@querycap/notify": "workspace:^0.7.1",
     "@querycap/persister": "workspace:^0.6.1",
     "@reactorx/router": "workspace:^0.23.1",
-    "@types/history": "^4.7.8",
+    "@types/history": "^4.7.9",
     "history": "~5.0.0",
     "redux-logger": "^3.0.6"
   },
