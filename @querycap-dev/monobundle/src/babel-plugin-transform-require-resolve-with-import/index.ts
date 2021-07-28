@@ -3,6 +3,7 @@ import type { CallExpression } from "@babel/types";
 import * as t from "@babel/types";
 
 const mark = "__require_resolve_with_import__";
+
 const transformedResolve = (node: Node) => {
   return node.leadingComments && node.leadingComments.find((c) => c.value == mark);
 };

@@ -3,7 +3,6 @@ import { Button, FormControl, Input, InputControlSuffix, InputIcon } from "@quer
 import { IconEyeOff, IconLock, IconUser } from "@querycap-ui/icons";
 import { headings } from "@querycap-ui/texts";
 
-
 export const Inputs = () => {
   return (
     <>

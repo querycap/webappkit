@@ -29,13 +29,20 @@
     "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
   "files": [
-    "dist/"
+    "./dist/"
   ],
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/querycap/webappkit.git"
   },
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js"
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./index.ts": "./index.ts"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs"
 }

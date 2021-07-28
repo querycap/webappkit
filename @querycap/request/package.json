@@ -2,7 +2,7 @@
   "name": "@querycap/request",
   "version": "0.7.1",
   "files": [
-    "dist/"
+    "./dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
@@ -28,7 +28,14 @@
     "type": "git",
     "url": "ssh://git@github.com/querycap/webappkit.git"
   },
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js"
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./index.ts": "./index.ts"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs"
 }

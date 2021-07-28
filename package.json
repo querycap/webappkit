@@ -1,5 +1,5 @@
 {
-  "name": "devkit",
+  "name": "webappkit",
   "private": true,
   "workspaces": [
     "@reactorx/*",
@@ -19,7 +19,7 @@
     "tsc": "tsc --incremental --diagnostics -p tsconfig.json",
     "test": "pnpm tsc && jest --coverage",
     "start": "devkit dev sg",
-    "build": "pnpm -r --filter=!devkit exec ../../node_modules/.bin/monobundle",
+    "build": "pnpm --filter='@querycap-ui/core.macro' --filter='@querycap-ui/css-aliases' exec ../../node_modules/.bin/monobundle && pnpm -r --filter=!webappkit exec ../../node_modules/.bin/monobundle",
     "pkg": "devkit build --prod sg",
     "pkg:gh-page": "devkit build --prod sg gh-page",
     "preinstall": "npx only-allow pnpm && npx husky install",
@@ -32,6 +32,7 @@
   },
   "jest": {
     "testEnvironment": "jsdom",
+    "maxConcurrency": 10,
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest"
     },
@@ -119,7 +120,7 @@
     "@types/benchmark": "^2.1.1",
     "@types/jest": "^26.0.24",
     "@types/lodash": "^4.14.171",
-    "@types/node": "^16.4.3",
+    "@types/node": "^16.4.5",
     "@types/prismjs": "^1.16.6",
     "@types/react": "^17.0.15",
     "@types/react-dom": "^17.0.9",
@@ -129,8 +130,8 @@
     "benchmark": "2.1.4",
     "date-fns": "^2.23.0",
     "eslint-plugin-react": "^7.24.0",
+    "fast-glob": "^3.2.7",
     "gh-pages": "^3.2.3",
-    "glob": "^7.1.7",
     "history": "^4.10.1",
     "husky": "^7.0.1",
     "jest": "^27.0.6",
@@ -151,15 +152,14 @@
     "ts-node": "^10.1.0",
     "typescript": "^4.3.5",
     "uuid": "^8.3.2",
-    "webpack": "^5.46.0",
+    "webpack": "^5.47.0",
     "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^4.7.2"
   },
   "pnpm": {
     "overrides": {
       "history": "4.x",
-      "querystring-es3": "1.0.0-0",
-      "globby": "11.x"
+      "querystring-es3": "1.0.0-0"
     }
   }
 }

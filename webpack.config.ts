@@ -2,12 +2,10 @@ import { withPresets } from "@querycap-dev/webpack-preset";
 import { withAssetsPreset } from "@querycap-dev/webpack-preset-assets";
 import { withHTMLPreset } from "@querycap-dev/webpack-preset-html";
 import { withTsPreset } from "@querycap-dev/webpack-preset-ts";
-// @ts-ignore
-import glob from "glob";
-// @ts-ignore
+import { sync as globSync } from "fast-glob";
 import { set } from "lodash";
-import { join } from "path";
-// @ts-ignore
+import { join, dirname } from "path";
+import { existsSync, mkdirSync, rmSync, symlinkSync } from "fs";
 import pkg from "./package.json";
 
 export = withPresets(
@@ -44,12 +42,21 @@ export = withPresets(
       lodash$: "lodash-es",
     };
 
-    pkg.workspaces
-      .map((p) => glob.sync(p, {}))
-      .flat()
-      .forEach((k) => {
-        (c.resolve!.alias as any)[`${k}$`] = `${k}/index`;
+    globSync(pkg.workspaces, { onlyDirectories: true }).forEach((k: string) => {
+      const files = globSync([`${k}/{,**/}__examples__/*{.ts,.tsx}`, `!${k}/node_modules/{,**/}*{.ts,.tsx}`]);
+
+      files.forEach((p: string) => {
+        const examplePath = `./src-app/sg/examples/${p}`;
+        const exampleDir = dirname(examplePath);
+        if (existsSync(exampleDir)) {
+          rmSync(exampleDir, { recursive: true });
+        }
+        mkdirSync(exampleDir, { recursive: true });
+        symlinkSync(join(__dirname, p), examplePath);
       });
+
+      (c.resolve!.alias as any)[`${k}$`] = `${k}/index.ts`;
+    });
   },
   withAssetsPreset() as any,
   withHTMLPreset() as any,

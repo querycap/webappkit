@@ -1,5 +1,5 @@
 import { transformSync } from "@babel/core";
-import plugin from "..";
+import plugin from "../index";
 
 const compileToSnapshot = (code: string) => {
   const t = transformSync(code, {

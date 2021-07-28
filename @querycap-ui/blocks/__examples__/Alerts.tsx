@@ -2,7 +2,6 @@ import { roundedEm } from "@querycap-ui/core/macro";
 import { Alert, AlertCard } from "@querycap-ui/blocks";
 import { Stack } from "@querycap-ui/layouts";
 
-
 export const Alerts = () => {
   return (
     <Stack spacing={roundedEm(0.6)} align={"stretch"}>

@@ -2,7 +2,7 @@
   "name": "@querycap-dev/generate",
   "version": "0.5.1",
   "files": [
-    "dist/"
+    "./dist/"
   ],
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "chalk": "^4.1.1",
-    "globby": "^11.0.x",
+    "fast-glob": "^3.2.7",
     "prettier": "^2.3.2"
   },
   "license": "MIT",
@@ -24,7 +24,14 @@
     "type": "git",
     "url": "ssh://git@github.com/querycap/webappkit.git"
   },
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js"
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./index.ts": "./index.ts"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs"
 }

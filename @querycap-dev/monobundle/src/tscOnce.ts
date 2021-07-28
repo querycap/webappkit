@@ -1,6 +1,6 @@
 import { spawnSync } from "child_process";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
-import path, { join } from "path";
+import { relative, join } from "path";
 
 const sleep = (time: number) =>
   new Promise((resolve) => {
@@ -35,7 +35,7 @@ const runTscOnce = async (projectRoot: string, lockfile: string, tmpDir: string)
 };
 
 export const tscOnce = async (monoRoot: string, cwd: string) => {
-  const monoPkg = path.relative(monoRoot, cwd);
+  const monoPkg = relative(monoRoot, cwd);
 
   const cacheBasic = join(monoRoot, "node_modules", ".cache", "monobundle");
 
@@ -54,5 +54,5 @@ export const tscOnce = async (monoRoot: string, cwd: string) => {
 
   await runTscOnce(monoRoot, lockfile, tmpRoot);
 
-  return path.join(monoRoot, ".tmp", monoPkg, "index.d.ts");
+  return join(monoRoot, ".tmp", monoPkg, "index.d.ts");
 };

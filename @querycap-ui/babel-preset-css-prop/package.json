@@ -12,7 +12,7 @@
   },
   "files": [
     "register.js",
-    "dist/"
+    "./dist/"
   ],
   "scripts": {
     "prepublishOnly": "../../node_modules/.bin/monobundle"
@@ -21,7 +21,17 @@
     "type": "git",
     "url": "ssh://git@github.com/querycap/webappkit.git"
   },
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js"
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./register": {
+      "require": "./register.js"
+    },
+    "./index.ts": "./index.ts"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs"
 }

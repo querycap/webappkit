@@ -2,7 +2,7 @@
   "name": "@querycap-dev/generate-svg2tsx",
   "version": "0.5.1",
   "files": [
-    "dist/"
+    "./dist/"
   ],
   "dependencies": {
     "@morlay/simplify-svg": "^1.0.0"
@@ -22,7 +22,14 @@
     "type": "git",
     "url": "ssh://git@github.com/querycap/webappkit.git"
   },
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js"
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./index.ts": "./index.ts"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs"
 }

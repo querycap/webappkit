@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { headings } from "../../texts/utils";
-import { Stack } from "../../layouts/Stack";
-import { roundedEm, theme } from "../../core/theme";
-import { select } from "../../core/select";
-import { Input } from "../Input";
-import { TextArea } from "../TextArea";
+import { headings } from "@querycap-ui/texts";
+import { Stack } from "@querycap-ui/layouts";
+import { select } from "@querycap-ui/core";
+import { roundedEm, theme } from "@querycap-ui/core";
+import { Input, TextArea } from "@querycap-ui/form-controls";
 
 export const TextAreas = () => {
   const [value, setValue] = useState("");

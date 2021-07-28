@@ -1,5 +1,5 @@
-import { version } from "./package.json";
 import chalk from "chalk";
+import { version } from "../package.json";
 
 export const createLogger = (name: string) => {
   return {

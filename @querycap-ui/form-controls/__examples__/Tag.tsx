@@ -1,6 +1,6 @@
 import { colors } from "@querycap-ui/core";
-import { Stack } from "@querycap-ui/layouts/Stack";
-import { Tag } from "../Tag";
+import { Stack } from "@querycap-ui/layouts";
+import { Tag } from "@querycap-ui/form-controls";
 
 export const Tags = () => {
   return (

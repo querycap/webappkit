@@ -1,25 +1,25 @@
 // @ts-ignore
 import json from "@rollup/plugin-json";
-import nodeResolve from "@rollup/plugin-node-resolve";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
 import del from "del";
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import { isEmpty, trim } from "lodash";
 import path, { join } from "path";
 import { OutputOptions, rollup, RollupOptions } from "rollup";
-import rollupBabel from "@rollup/plugin-babel";
+import { babel as rollupBabel } from "@rollup/plugin-babel";
 import dts from "rollup-plugin-dts";
+import { execSync } from "child_process";
 import { createAutoExternal } from "./autoExternal";
-import transformRequireResolveWithImport from "./babel-plugin-transform-require-resolve-with-import";
+import transformRequireResolveWithImport from "./babel-plugin-transform-require-resolve-with-import/index";
 import { createLogger } from "./log";
 import { tscOnce } from "./tscOnce";
-import { execSync } from "child_process";
 
 export const resolveRoot = (p: string): string => {
-  const lernaJSONFile = path.join(p, "./lerna.json");
-  const pnpmWorkspaceYAML = path.join(p, "./pnpm-workspace.yaml");
+  const lernaJSONFile = join(p, "./lerna.json");
+  const pnpmWorkspaceYAML = join(p, "./pnpm-workspace.yaml");
 
   if (!(existsSync(lernaJSONFile) || existsSync(pnpmWorkspaceYAML))) {
-    return resolveRoot(path.join(p, "../"));
+    return resolveRoot(join(p, "../"));
   }
 
   return p;
@@ -56,6 +56,7 @@ export const monobundle = async ({ cwd = process.cwd(), dryRun }: { cwd?: string
   };
 
   delete pkg["ts"];
+  delete pkg["type"];
   delete pkg["types"];
   delete pkg["main"];
   delete pkg["module"];
@@ -76,10 +77,10 @@ export const monobundle = async ({ cwd = process.cwd(), dryRun }: { cwd?: string
   });
 
   const outputs = {
-    types: "dist/index.d.ts",
-    files: ["dist/"],
-    main: "dist/index.js",
-    module: "dist/index.es.js",
+    files: ["./dist/"],
+    types: "./dist/index.d.ts",
+    main: "./dist/index.cjs",
+    module: "./dist/index.mjs",
   };
 
   const resolveRollupOptions: Array<() => Promise<RollupOptions>> = [
@@ -90,19 +91,21 @@ export const monobundle = async ({ cwd = process.cwd(), dryRun }: { cwd?: string
           {
             dir: path.join(cwd, path.dirname(outputs.module)),
             format: "es",
-            entryFileNames: "[name].es.js",
-            chunkFileNames: "[name]-[hash].es.js",
+            entryFileNames: "[name].mjs",
+            chunkFileNames: "[name]-[hash].mjs",
           },
           {
             dir: path.join(cwd, path.dirname(outputs.main)),
             format: "cjs",
+            entryFileNames: "[name].cjs",
+            chunkFileNames: "[name]-[hash].cjs",
             exports: "named",
           },
         ],
         plugins: [
           autoExternal(),
           nodeResolve({
-            extensions: [".ts", ".tsx", ".mjs", ".js", ".jsx", ".json"],
+            extensions: [".ts", ".tsx", ".mjs", "", ".jsx"],
           }),
           json(),
           // eslint-disable-next-line @typescript-eslint/no-unsafe-call
@@ -113,7 +116,7 @@ export const monobundle = async ({ cwd = process.cwd(), dryRun }: { cwd?: string
             babelHelpers: "runtime",
             envName: `rollup_${options.env}`.toUpperCase(),
             exclude: "node_modules/**",
-            extensions: [".ts", ".tsx", ".mjs", ".js", ".jsx"],
+            extensions: [".ts", ".tsx", ".mjs", "", ".jsx"],
           }),
         ],
       }),
@@ -139,6 +142,7 @@ export const monobundle = async ({ cwd = process.cwd(), dryRun }: { cwd?: string
   ];
 
   logger.warning("bundling");
+
   if (options.cleanBeforeBundle) {
     del.sync(outputs.files.concat("_cjs/", "_esm5/").map((dir) => path.join(cwd, dir)));
   }
@@ -187,15 +191,26 @@ export const monobundle = async ({ cwd = process.cwd(), dryRun }: { cwd?: string
     `${JSON.stringify(
       {
         ...pkg,
-        ...outputs,
-        dependencies: isEmpty(pkg.dependencies) ? undefined : (pkg.dependencies as { [k: string]: string }),
-        peerDependencies: isEmpty(pkg.peerDependencies) ? undefined : (pkg.peerDependencies as { [k: string]: string }),
+        types: outputs.types,
+        main: outputs.main,
+        module: outputs.module,
+        exports: {
+          ...(pkg.exports || {}),
+          ".": {
+            require: outputs.main,
+            import: outputs.module,
+          },
+          // for index.ts
+          "./index.ts": "./index.ts",
+        },
         files: [
           ...((pkg.files as string[]) || []).filter(
-            (f: string) => !outputs.files.concat("_cjs/", "_esm5/").includes(f),
+            (f: string) => !outputs.files.concat("dist/", "_cjs/", "_esm5/").includes(f),
           ),
           ...outputs.files,
         ],
+        dependencies: isEmpty(pkg.dependencies) ? undefined : (pkg.dependencies as { [k: string]: string }),
+        peerDependencies: isEmpty(pkg.peerDependencies) ? undefined : (pkg.peerDependencies as { [k: string]: string }),
         scripts: {
           ...(pkg.scripts as { [k: string]: string }),
           prepublishOnly: "../../node_modules/.bin/monobundle",

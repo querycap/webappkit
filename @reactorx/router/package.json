@@ -2,7 +2,7 @@
   "name": "@reactorx/router",
   "version": "0.23.1",
   "files": [
-    "dist/"
+    "./dist/"
   ],
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
@@ -24,7 +24,14 @@
     "type": "git",
     "url": "ssh://git@github.com/querycap/webappkit.git"
   },
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js"
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./index.ts": "./index.ts"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs"
 }
