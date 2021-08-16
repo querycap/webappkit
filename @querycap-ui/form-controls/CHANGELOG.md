@@ -1,5 +1,47 @@
 # Change Log
 
+## 0.14.8
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-ui/core@0.11.6
+  - @querycap-ui/icons@0.6.4
+  - @querycap-ui/layouts@0.3.6
+  - @querycap/form@0.11.4
+  - @querycap/reactutils@0.8.4
+  - @querycap/uikit@0.5.4
+  - @reactorx/core@0.22.4
+
+## 0.14.7
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-ui/core@0.11.5
+  - @querycap-ui/icons@0.6.3
+  - @querycap-ui/layouts@0.3.5
+  - @querycap/form@0.11.3
+  - @querycap/reactutils@0.8.3
+  - @querycap/uikit@0.5.3
+  - @reactorx/core@0.22.3
+
+## 0.14.6
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @querycap-ui/core@0.11.4
+  - @querycap-ui/icons@0.6.2
+  - @querycap-ui/layouts@0.3.4
+  - @querycap/form@0.11.2
+  - @querycap/reactutils@0.8.2
+  - @querycap/uikit@0.5.2
+  - @reactorx/core@0.22.2
+
 ## 0.14.5
 
 ### Patch Changes

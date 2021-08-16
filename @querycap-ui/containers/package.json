@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/containers",
-  "version": "0.6.3",
+  "version": "0.6.6",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
@@ -18,7 +18,8 @@
     "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "repository": {
     "type": "git",

@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/css-aliases",
-  "version": "0.3.1",
+  "version": "0.3.4",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -9,7 +9,8 @@
     "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "monobundle": {
     "cleanBeforeBundle": false

@@ -1,8 +1,9 @@
 {
   "name": "@reactorx/request",
-  "version": "0.22.1",
+  "version": "0.22.4",
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
@@ -12,7 +13,7 @@
     "rxjs": ">=6.x"
   },
   "dependencies": {
-    "@reactorx/core": "workspace:^0.22.1"
+    "@reactorx/core": "workspace:^0.22.4"
   },
   "publishConfig": {
     "access": "public"

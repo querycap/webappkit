@@ -1,13 +1,14 @@
 {
   "name": "@querycap/persister",
-  "version": "0.6.1",
+  "version": "0.6.4",
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@reactorx/core": "0.22.1",
+    "@reactorx/core": "0.22.4",
     "date-fns": "2.x",
     "lodash": "4.x",
     "rxjs": "7.x"

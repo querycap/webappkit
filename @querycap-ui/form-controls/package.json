@@ -1,21 +1,21 @@
 {
   "name": "@querycap-ui/form-controls",
-  "version": "0.14.5",
+  "version": "0.14.8",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@reactorx/core": "0.22.1",
+    "@reactorx/core": "0.22.4",
     "lodash": "4.x",
     "react": "17.x",
     "rxjs": "7.x"
   },
   "dependencies": {
-    "@querycap-ui/core": "workspace:^0.11.3",
-    "@querycap-ui/icons": "workspace:^0.6.1",
-    "@querycap-ui/layouts": "workspace:^0.3.3",
-    "@querycap/form": "workspace:^0.11.1",
-    "@querycap/reactutils": "workspace:^0.8.1",
-    "@querycap/uikit": "workspace:^0.5.1"
+    "@querycap-ui/core": "workspace:^0.11.6",
+    "@querycap-ui/icons": "workspace:^0.6.4",
+    "@querycap-ui/layouts": "workspace:^0.3.6",
+    "@querycap/form": "workspace:^0.11.4",
+    "@querycap/reactutils": "workspace:^0.8.4",
+    "@querycap/uikit": "workspace:^0.5.4"
   },
   "publishConfig": {
     "access": "public"
@@ -27,7 +27,8 @@
     "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "repository": {
     "type": "git",

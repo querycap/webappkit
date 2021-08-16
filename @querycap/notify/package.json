@@ -1,20 +1,21 @@
 {
   "name": "@querycap/notify",
-  "version": "0.7.1",
+  "version": "0.7.4",
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@reactorx/core": "0.22.1",
+    "@reactorx/core": "0.22.4",
     "lodash": "4.x",
     "react": "17.x",
     "rxjs": "7.x",
     "uuid": "8.x"
   },
   "dependencies": {
-    "@querycap/contexts": "workspace:^0.3.1"
+    "@querycap/contexts": "workspace:^0.3.4"
   },
   "publishConfig": {
     "access": "public"

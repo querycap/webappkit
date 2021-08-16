@@ -1,5 +1,41 @@
 # Change Log
 
+## 0.7.5
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap/config@0.7.4
+  - @querycap/notify@0.7.4
+  - @querycap/persister@0.6.4
+  - @reactorx/core@0.22.4
+  - @reactorx/router@0.23.4
+
+## 0.7.4
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap/config@0.7.3
+  - @querycap/notify@0.7.3
+  - @querycap/persister@0.6.3
+  - @reactorx/core@0.22.3
+  - @reactorx/router@0.23.3
+
+## 0.7.3
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @querycap/config@0.7.2
+  - @querycap/notify@0.7.2
+  - @querycap/persister@0.6.2
+  - @reactorx/core@0.22.2
+  - @reactorx/router@0.23.2
+
 ## 0.7.2
 
 ### Patch Changes

@@ -1,5 +1,41 @@
 # Change Log
 
+## 0.7.4
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap/contexts@0.3.4
+  - @querycap/request@0.7.4
+  - @reactorx/core@0.22.4
+  - @reactorx/request@0.22.4
+  - @reactorx/router@0.23.4
+
+## 0.7.3
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap/contexts@0.3.3
+  - @querycap/request@0.7.3
+  - @reactorx/core@0.22.3
+  - @reactorx/request@0.22.3
+  - @reactorx/router@0.23.3
+
+## 0.7.2
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @querycap/contexts@0.3.2
+  - @querycap/request@0.7.2
+  - @reactorx/core@0.22.2
+  - @reactorx/request@0.22.2
+  - @reactorx/router@0.23.2
+
 ## 0.7.1
 
 ### Patch Changes

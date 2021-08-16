@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/monobundle",
-  "version": "0.11.2",
+  "version": "0.11.5",
   "bin": "bin/monobundle.cjs",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
@@ -27,7 +27,8 @@
     "cleanBeforeBundle": false
   },
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "scripts": {
     "prepublishOnly": "../../node_modules/.bin/monobundle"

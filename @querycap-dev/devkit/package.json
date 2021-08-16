@@ -1,12 +1,12 @@
 {
   "name": "@querycap-dev/devkit",
-  "version": "0.10.3",
+  "version": "0.10.6",
   "bin": "bin/devkit.js",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*"
   },
   "dependencies": {
-    "@querycap-dev/generate": "workspace:^0.5.1",
+    "@querycap-dev/generate": "workspace:^0.5.4",
     "@types/cross-spawn": "^6.0.2",
     "@types/js-yaml": "^4.0.2",
     "cross-spawn": "^7.0.3",
@@ -21,7 +21,8 @@
     "access": "public"
   },
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "scripts": {
     "prepublishOnly": "../../node_modules/.bin/monobundle"

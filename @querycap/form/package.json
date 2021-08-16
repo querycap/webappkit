@@ -1,8 +1,9 @@
 {
   "name": "@querycap/form",
-  "version": "0.11.1",
+  "version": "0.11.4",
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
@@ -11,10 +12,10 @@
     "uuid": "8.x"
   },
   "dependencies": {
-    "@querycap/contexts": "workspace:^0.3.1",
-    "@querycap/reactutils": "workspace:^0.8.1",
-    "@querycap/validators": "workspace:^0.3.1",
-    "@reactorx/core": "workspace:^0.22.1",
+    "@querycap/contexts": "workspace:^0.3.4",
+    "@querycap/reactutils": "workspace:^0.8.4",
+    "@querycap/validators": "workspace:^0.3.4",
+    "@reactorx/core": "workspace:^0.22.4",
     "@types/lodash": "^4.14.171",
     "lodash": "^4.17.21"
   },

@@ -1,8 +1,9 @@
 {
   "name": "@querycap/validators",
-  "version": "0.3.1",
+  "version": "0.3.4",
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {

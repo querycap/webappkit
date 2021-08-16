@@ -1,5 +1,29 @@
 # Change Log
 
+## 0.6.4
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @reactorx/core@0.22.4
+
+## 0.6.3
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @reactorx/core@0.22.3
+
+## 0.6.2
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @reactorx/core@0.22.2
+
 ## 0.6.1
 
 ### Patch Changes

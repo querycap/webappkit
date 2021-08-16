@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.4.4
+
+### Patch Changes
+
+- release fix
+
+## 0.4.3
+
+### Patch Changes
+
+- release fix
+
+## 0.4.2
+
+### Patch Changes
+
+- 36cbb36: deps updates
+
 ## 0.4.1
 
 ### Patch Changes

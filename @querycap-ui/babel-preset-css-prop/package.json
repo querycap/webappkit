@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/babel-preset-css-prop",
-  "version": "0.9.1",
+  "version": "0.9.4",
   "license": "MIT",
   "dependencies": {
     "@babel/plugin-syntax-jsx": "^7.14.5",
@@ -12,7 +12,8 @@
   },
   "files": [
     "register.js",
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "scripts": {
     "prepublishOnly": "../../node_modules/.bin/monobundle"

@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/texts",
-  "version": "0.7.3",
+  "version": "0.7.6",
   "license": "MIT",
   "peerDependencies": {
     "@emotion/react": "11.x",
@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@emotion/react": "*",
-    "@querycap-ui/core": "workspace:^0.11.3",
+    "@querycap-ui/core": "workspace:^0.11.6",
     "remark-parse": "^9.0.0",
     "remark-react": "^8.0.0",
     "unified": "^10.0.1"
@@ -23,7 +23,8 @@
     "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "repository": {
     "type": "git",

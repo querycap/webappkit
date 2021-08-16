@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/layouts",
-  "version": "0.3.3",
+  "version": "0.3.6",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
@@ -8,7 +8,7 @@
     "react": "17.x"
   },
   "dependencies": {
-    "@querycap-ui/core": "workspace:^0.11.3"
+    "@querycap-ui/core": "workspace:^0.11.6"
   },
   "publishConfig": {
     "access": "public"
@@ -20,7 +20,8 @@
     "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "repository": {
     "type": "git",

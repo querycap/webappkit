@@ -77,7 +77,7 @@ export const monobundle = async ({ cwd = process.cwd(), dryRun }: { cwd?: string
   });
 
   const outputs = {
-    files: ["./dist/"],
+    files: ["dist/"],
     types: "./dist/index.d.ts",
     main: "./dist/index.cjs",
     module: "./dist/index.mjs",

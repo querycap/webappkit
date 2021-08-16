@@ -1,5 +1,35 @@
 # Change Log
 
+## 0.7.4
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap/notify@0.7.4
+  - @reactorx/core@0.22.4
+  - @reactorx/request@0.22.4
+
+## 0.7.3
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap/notify@0.7.3
+  - @reactorx/core@0.22.3
+  - @reactorx/request@0.22.3
+
+## 0.7.2
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @querycap/notify@0.7.2
+  - @reactorx/core@0.22.2
+  - @reactorx/request@0.22.2
+
 ## 0.7.1
 
 ### Patch Changes

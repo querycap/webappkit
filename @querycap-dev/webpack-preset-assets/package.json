@@ -1,8 +1,9 @@
 {
   "name": "@querycap-dev/webpack-preset-assets",
-  "version": "0.8.2",
+  "version": "0.8.5",
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {

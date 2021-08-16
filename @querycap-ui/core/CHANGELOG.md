@@ -1,5 +1,32 @@
 # Change Log
 
+## 0.11.6
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-ui/core.macro@0.4.4
+  - @querycap-ui/css-aliases@0.3.4
+
+## 0.11.5
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-ui/core.macro@0.4.3
+  - @querycap-ui/css-aliases@0.3.3
+
+## 0.11.4
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @querycap-ui/core.macro@0.4.2
+  - @querycap-ui/css-aliases@0.3.2
+
 ## 0.11.3
 
 ### Patch Changes

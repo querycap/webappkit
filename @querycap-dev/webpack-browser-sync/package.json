@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/webpack-browser-sync",
-  "version": "0.3.1",
+  "version": "0.3.4",
   "bin": "bin/webpack-browser-sync.js",
   "dependencies": {
     "@babel/runtime-corejs3": "*",
@@ -26,7 +26,8 @@
     "access": "public"
   },
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "scripts": {
     "prepublishOnly": "../../node_modules/.bin/monobundle"

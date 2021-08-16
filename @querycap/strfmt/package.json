@@ -1,8 +1,9 @@
 {
   "name": "@querycap/strfmt",
-  "version": "0.6.1",
+  "version": "0.6.4",
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {

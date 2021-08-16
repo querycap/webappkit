@@ -1,17 +1,18 @@
 {
   "name": "@querycap-dev/generate-client",
-  "version": "0.6.2",
+  "version": "0.6.5",
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*"
   },
   "dependencies": {
-    "@querycap-dev/generate": "workspace:^0.5.1",
-    "@querycap-dev/ts-gen-client-from-openapi": "workspace:^1.3.2",
-    "@querycap-dev/ts-gen-core": "workspace:^1.3.2",
+    "@querycap-dev/generate": "workspace:^0.5.4",
+    "@querycap-dev/ts-gen-client-from-openapi": "workspace:^1.3.5",
+    "@querycap-dev/ts-gen-core": "workspace:^1.3.5",
     "@types/lodash": "^4.14.171",
     "axios": "^0.21.1",
     "lodash": "^4.17.21"

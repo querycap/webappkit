@@ -1,5 +1,29 @@
 # Change Log
 
+## 1.3.5
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-dev/ts-gen-core@1.3.5
+
+## 1.3.4
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-dev/ts-gen-core@1.3.4
+
+## 1.3.3
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @querycap-dev/ts-gen-core@1.3.3
+
 ## 1.3.2
 
 ### Patch Changes

@@ -1,8 +1,9 @@
 {
   "name": "@querycap/webworkerutils",
-  "version": "0.4.1",
+  "version": "0.4.4",
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "publishConfig": {
     "access": "public"

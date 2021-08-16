@@ -1,8 +1,9 @@
 {
   "name": "@querycap-dev/generate-svg2tsx",
-  "version": "0.5.1",
+  "version": "0.5.4",
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "dependencies": {
     "@morlay/simplify-svg": "^1.0.0"

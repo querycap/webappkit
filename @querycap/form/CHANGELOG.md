@@ -1,5 +1,38 @@
 # Change Log
 
+## 0.11.4
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap/contexts@0.3.4
+  - @querycap/reactutils@0.8.4
+  - @querycap/validators@0.3.4
+  - @reactorx/core@0.22.4
+
+## 0.11.3
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap/contexts@0.3.3
+  - @querycap/reactutils@0.8.3
+  - @querycap/validators@0.3.3
+  - @reactorx/core@0.22.3
+
+## 0.11.2
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @querycap/contexts@0.3.2
+  - @querycap/reactutils@0.8.2
+  - @querycap/validators@0.3.2
+  - @reactorx/core@0.22.2
+
 ## 0.11.1
 
 ### Patch Changes

@@ -1,10 +1,10 @@
 {
   "name": "@querycap-ui/progresses",
-  "version": "0.6.1",
+  "version": "0.6.4",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@querycap-ui/core": "^0.11.3",
+    "@querycap-ui/core": "^0.11.6",
     "lodash": "4.x",
     "react": "17.x"
   },
@@ -18,7 +18,8 @@
     "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "repository": {
     "type": "git",

@@ -1,5 +1,29 @@
 # Change Log
 
+## 0.9.5
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-dev/devkit@0.10.6
+
+## 0.9.4
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-dev/devkit@0.10.5
+
+## 0.9.3
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @querycap-dev/devkit@0.10.4
+
 ## 0.9.2
 
 ### Patch Changes

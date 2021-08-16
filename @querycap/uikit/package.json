@@ -1,16 +1,16 @@
 {
   "name": "@querycap/uikit",
-  "version": "0.5.1",
+  "version": "0.5.4",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@reactorx/core": "0.22.1",
+    "@reactorx/core": "0.22.4",
     "lodash": "4.x",
     "react": "17.x",
     "rxjs": "7.x"
   },
   "dependencies": {
-    "@querycap/reactutils": "workspace:^0.8.1",
+    "@querycap/reactutils": "workspace:^0.8.4",
     "@types/uuid": "^8.3.1",
     "hey-listen": "^1.0.8",
     "uuid": "^8.3.2"
@@ -25,7 +25,8 @@
     "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "repository": {
     "type": "git",

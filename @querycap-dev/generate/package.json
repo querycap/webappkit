@@ -1,8 +1,9 @@
 {
   "name": "@querycap-dev/generate",
-  "version": "0.5.1",
+  "version": "0.5.4",
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",

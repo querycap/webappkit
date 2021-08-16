@@ -1,5 +1,32 @@
 # Change Log
 
+## 0.6.4
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap/access@0.8.4
+  - @reactorx/router@0.23.4
+
+## 0.6.3
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap/access@0.8.3
+  - @reactorx/router@0.23.3
+
+## 0.6.2
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @querycap/access@0.8.2
+  - @reactorx/router@0.23.2
+
 ## 0.6.1
 
 ### Patch Changes

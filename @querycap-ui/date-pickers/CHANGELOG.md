@@ -1,5 +1,35 @@
 # Change Log
 
+## 0.7.4
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-ui/containers@0.6.6
+  - @querycap-ui/core@0.11.6
+  - @querycap-ui/icons@0.6.4
+
+## 0.7.3
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-ui/containers@0.6.5
+  - @querycap-ui/core@0.11.5
+  - @querycap-ui/icons@0.6.3
+
+## 0.7.2
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @querycap-ui/containers@0.6.4
+  - @querycap-ui/core@0.11.4
+  - @querycap-ui/icons@0.6.2
+
 ## 0.7.1
 
 ### Patch Changes

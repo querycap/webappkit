@@ -1,5 +1,35 @@
 # Change Log
 
+## 0.6.5
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-dev/generate@0.5.4
+  - @querycap-dev/ts-gen-client-from-openapi@1.3.5
+  - @querycap-dev/ts-gen-core@1.3.5
+
+## 0.6.4
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-dev/generate@0.5.3
+  - @querycap-dev/ts-gen-client-from-openapi@1.3.4
+  - @querycap-dev/ts-gen-core@1.3.4
+
+## 0.6.3
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @querycap-dev/generate@0.5.2
+  - @querycap-dev/ts-gen-client-from-openapi@1.3.3
+  - @querycap-dev/ts-gen-core@1.3.3
+
 ## 0.6.2
 
 ### Patch Changes

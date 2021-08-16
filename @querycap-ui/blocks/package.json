@@ -1,17 +1,17 @@
 {
   "name": "@querycap-ui/blocks",
-  "version": "0.11.6",
+  "version": "0.11.9",
   "license": "MIT",
   "dependencies": {
     "@babel/runtime-corejs3": "*",
     "@emotion/react": "^11.4.0",
-    "@querycap-ui/core": "workspace:^0.11.3",
-    "@querycap-ui/form-controls": "workspace:^0.14.3",
-    "@querycap-ui/icons": "workspace:^0.6.1",
-    "@querycap-ui/layouts": "workspace:^0.3.3",
-    "@querycap/uikit": "workspace:^0.5.1",
-    "@reactorx/core": "workspace:^0.22.1",
-    "@reactorx/router": "workspace:^0.23.1",
+    "@querycap-ui/core": "workspace:^0.11.6",
+    "@querycap-ui/form-controls": "workspace:^0.14.8",
+    "@querycap-ui/icons": "workspace:^0.6.4",
+    "@querycap-ui/layouts": "workspace:^0.3.6",
+    "@querycap/uikit": "workspace:^0.5.4",
+    "@reactorx/core": "workspace:^0.22.4",
+    "@reactorx/router": "workspace:^0.23.4",
     "lodash": "^4.17.21"
   },
   "peerDependencies": {
@@ -29,7 +29,8 @@
     "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "repository": {
     "type": "git",

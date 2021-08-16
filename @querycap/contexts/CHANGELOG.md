@@ -1,5 +1,35 @@
 # Change Log
 
+## 0.3.4
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap/reactutils@0.8.4
+  - @reactorx/core@0.22.4
+  - @reactorx/router@0.23.4
+
+## 0.3.3
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap/reactutils@0.8.3
+  - @reactorx/core@0.22.3
+  - @reactorx/router@0.23.3
+
+## 0.3.2
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @querycap/reactutils@0.8.2
+  - @reactorx/core@0.22.2
+  - @reactorx/router@0.23.2
+
 ## 0.3.1
 
 ### Patch Changes

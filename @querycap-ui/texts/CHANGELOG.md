@@ -1,5 +1,29 @@
 # Change Log
 
+## 0.7.6
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-ui/core@0.11.6
+
+## 0.7.5
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-ui/core@0.11.5
+
+## 0.7.4
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @querycap-ui/core@0.11.4
+
 ## 0.7.3
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/icons",
-  "version": "0.6.1",
+  "version": "0.6.4",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
@@ -17,7 +17,8 @@
     "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
   "files": [
-    "./dist/"
+    "./dist/",
+    "dist/"
   ],
   "repository": {
     "type": "git",
