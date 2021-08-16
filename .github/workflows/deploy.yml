@@ -19,9 +19,8 @@ jobs:
 
       - run: npm i -g pnpm
       - run: pnpm install
-      - run: pnpm install:monobundle
-      - run: pnpm test
       - run: pnpm build
+      - run: pnpm test
 
       - run: pnpm pkg:gh-page
 

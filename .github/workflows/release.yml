@@ -20,7 +20,7 @@ jobs:
 
       - run: npm i -g pnpm
       - run: pnpm install
-      - run: pnpm install:monobundle
+      - run: pnpm build
       - run: pnpm test
 
       - name: Create Release Pull Request or Publish to npm

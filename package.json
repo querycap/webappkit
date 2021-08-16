@@ -19,12 +19,14 @@
     "tsc": "tsc --incremental --diagnostics -p tsconfig.json",
     "test": "pnpm tsc && jest --coverage",
     "start": "devkit dev sg",
-    "build": "pnpm --filter='@querycap-ui/core.macro' --filter='@querycap-ui/css-aliases' exec ../../node_modules/.bin/monobundle && pnpm -r --filter=!webappkit exec ../../node_modules/.bin/monobundle",
+    "cleanup": "pnpm -r --filter=!webappkit exec rm -rf ./dist",
+    "build": "pnpm install:monobundle && pnpm build:babel-plugins && pnpm -r --filter=!webappkit exec ../../node_modules/.bin/monobundle",
     "pkg": "devkit build --prod sg",
     "pkg:gh-page": "devkit build --prod sg gh-page",
     "preinstall": "npx only-allow pnpm && npx husky install",
-    "install:monobundle": "ts-node ./@querycap-dev/monobundle/bin/monobundle.js ./@querycap-dev/monobundle",
-    "install:devkit": "ts-node ./@querycap-dev/monobundle/bin/monobundle.js ./@querycap-dev/devkit"
+    "build:babel-plugins": "pnpm --filter='@querycap-ui/core.macro' --filter='@querycap-ui/css-aliases' exec ../../node_modules/.bin/monobundle",
+    "install:monobundle": "ts-node ./@querycap-dev/monobundle/bin.ts ./@querycap-dev/monobundle",
+    "install:devkit": "ts-node ./@querycap-dev/monobundle/bin.ts ./@querycap-dev/devkit"
   },
   "devkit": {
     "dev": "webpack-browser-sync --config webpack.config.ts --historyApiFallback --index=../index.html",
