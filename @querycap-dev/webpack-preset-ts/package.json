@@ -8,13 +8,13 @@
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "webpack": "*"
+    "webpack": "*",
+    "lodash": "*"
   },
   "dependencies": {
-    "@types/terser-webpack-plugin": "^5.0.4",
     "babel-loader": "^8.2.2",
     "source-map-loader": "^3.0.0",
-    "terser-webpack-plugin": "^5.1.4",
+    "terser-webpack-plugin": "^5.2.3",
     "worker-loader": "^3.0.8"
   },
   "publishConfig": {

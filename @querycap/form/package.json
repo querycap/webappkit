@@ -16,7 +16,7 @@
     "@querycap/reactutils": "workspace:^0.8.4",
     "@querycap/validators": "workspace:^0.3.4",
     "@reactorx/core": "workspace:^0.22.4",
-    "@types/lodash": "^4.14.171",
+    "@types/lodash": "^4.14.172",
     "lodash": "^4.17.21"
   },
   "publishConfig": {

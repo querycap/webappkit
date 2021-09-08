@@ -36,6 +36,8 @@ export = withPresets(
     utils: /buffer|date-fns|lodash|rxjs/,
   }) as any,
   (c) => {
+    c.resolve!.fallback = { assert: require.resolve("assert/") };
+
     c.resolve!.alias = {
       path: "path-browserify",
       querystring: "querystring-es3",

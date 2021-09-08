@@ -142,7 +142,6 @@ export const InputSelect = (props: InputSelectProps) => {
         />
         <span>{isValidValue(value) && display(value)}</span>&nbsp;
       </div>
-
       {allowClear && isValidValue(value) && !valuesRef.current.disabled ? (
         <InputIcon pullRight>
           <IconX onClick={() => onValueChange("")} />
