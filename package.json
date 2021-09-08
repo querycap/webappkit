@@ -136,7 +136,7 @@
     "eslint-plugin-react": "^7.25.1",
     "fast-glob": "^3.2.7",
     "gh-pages": "^3.2.3",
-    "history": "4.x",
+    "history": "5.x",
     "husky": "^7.0.2",
     "jest": "^27.1.0",
     "js-yaml": "^4.1.0",
