@@ -39,6 +39,8 @@ const collect = (examples: { [k: string]: readonly [any, any] }): IExample[] => 
       const key = keyPath.replace(`src-app/sg/examples/${group}/`, "./");
       const examples = req(key);
 
+      console.log(key);
+
       const e = {
         group: group,
         module: getModuleName(key),
@@ -50,8 +52,6 @@ const collect = (examples: { [k: string]: readonly [any, any] }): IExample[] => 
       results[`${e.group}/${e.module}/${e.name}`] = e;
     });
   });
-
-  console.log(results);
 
   return values(results);
 };
