@@ -44,15 +44,16 @@ export = withPresets(
       lodash$: "lodash-es",
     };
 
+    if (existsSync("./src-app/sg/examples")) {
+      rmSync("./src-app/sg/examples", { recursive: true });
+    }
+
     globSync(pkg.workspaces, { onlyDirectories: true }).forEach((k: string) => {
       const files = globSync([`${k}/{,**/}__examples__/*{.ts,.tsx}`, `!${k}/node_modules/{,**/}*{.ts,.tsx}`]);
 
       files.forEach((p: string) => {
         const examplePath = `./src-app/sg/examples/${p}`;
         const exampleDir = dirname(examplePath);
-        if (existsSync(exampleDir)) {
-          rmSync(exampleDir, { recursive: true });
-        }
         mkdirSync(exampleDir, { recursive: true });
         symlinkSync(join(__dirname, p), examplePath);
       });
