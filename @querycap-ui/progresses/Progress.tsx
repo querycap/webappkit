@@ -1,6 +1,6 @@
 import { select, theme, tintOrShade } from "@querycap-ui/core/macro";
 import { flow } from "lodash";
-import  { ReactNode } from "react";
+import { ReactNode } from "react";
 
 export const Progress = ({
   inline,

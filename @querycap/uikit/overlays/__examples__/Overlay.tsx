@@ -1,5 +1,5 @@
 import { Overlay } from "@querycap/uikit";
-import  { useRef } from "react";
+import { useRef } from "react";
 
 export const Overlays = () => {
   const ref = useRef(null);

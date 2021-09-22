@@ -3,7 +3,7 @@ import { theme } from "@querycap-ui/core/macro";
 import { must } from "@querycap/reactutils";
 import { useObservable } from "@reactorx/core";
 import { Dictionary, noop } from "lodash";
-import  { useRef } from "react";
+import { useRef } from "react";
 import { isUndefined } from "lodash";
 import { FilterMeta, FilterMetaBuilder, useNewSearchBox, useSearchBox } from "./search-box";
 import { SearchInputContainer } from "./search-inputs";
@@ -35,9 +35,13 @@ export const MaybeSortable = must(() => {
   );
 });
 
-export const createSearchBox = <TFilters extends Dictionary<any>>(
-  filterMetaBuilders: { [k in keyof TFilters]: FilterMetaBuilder },
-) => {
+export const displayFromOpts = (opts: any) => (v: string) => {
+  return opts[v] || v;
+};
+
+export const createSearchBox = <TFilters extends Dictionary<any>>(filterMetaBuilders: {
+  [k in keyof TFilters]: FilterMetaBuilder;
+}) => {
   const defaultFilters = {} as any;
   const filterLabels: { [k: string]: string } = {};
   const filterMetas: { [k: string]: FilterMeta } = {};
@@ -138,9 +142,3 @@ export const createSearchBox = <TFilters extends Dictionary<any>>(
     labels: typeof filterLabels;
   };
 };
-
-export function displayFromOpts(opts: any) {
-  return (v: string) => {
-    return opts[v] || v;
-  };
-}

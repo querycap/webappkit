@@ -1,6 +1,5 @@
 import { headings } from "@querycap-ui/texts";
 
-
 export const Headings = () => {
   return (
     <div>

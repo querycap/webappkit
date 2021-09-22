@@ -2,7 +2,6 @@ import { roundedEm } from "@querycap-ui/core/macro";
 import { Button, ButtonGroup } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 
-
 export const ButtonGroups = () => {
   return (
     <Stack spacing={roundedEm(0.6)}>

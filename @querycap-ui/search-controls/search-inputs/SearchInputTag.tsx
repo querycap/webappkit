@@ -1,6 +1,6 @@
 import { select, theme } from "@querycap-ui/core/macro";
 import { parseTagRule } from "@querycap/strfmt";
-import  { ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import { ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { BehaviorSubject } from "rxjs";
 import { SearchInputProps } from "../search-box";
 import { useKeyboardControlsOfSearchBox } from "./hooks";

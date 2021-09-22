@@ -5,21 +5,11 @@
 
 ### Require
 
-node v15+
+node v16+
 
 ### Quick Start
 
 ```bash
-
-npm install pnpm -g
-
-pnpm install
-
-pnpm install:monobundle
-
-pnpm install:devkit
-
-pnpm build
-
-pnpm start
+make install pnpm
+make dev
 ```

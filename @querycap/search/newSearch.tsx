@@ -3,47 +3,25 @@ import { useObservableEffect, useSelector } from "@reactorx/core";
 import { useRequest } from "@reactorx/request";
 import { parseSearchString, toSearchString, useRouter } from "@reactorx/router";
 import { Dictionary, isEqual, isUndefined, mapKeys, omit, omitBy, pick, pickBy, snakeCase, startsWith } from "lodash";
-import  { ReactNode, useEffect, useMemo } from "react";
+import { ReactNode, useEffect, useMemo } from "react";
 import { Observable } from "rxjs";
 import { distinctUntilChanged, map as rxMap, tap } from "rxjs/operators";
 import { SearchProvider, useSearch, useSearchContext } from "./SearchContext";
 import { Pager, SearchState } from "./SearchStore";
 
-export function useNewSearch<TFilters extends Dictionary<any>, T>(
-  name: string,
-  query = {} as TFilters & Omit<Pager, "total">,
-  syncFromURL?: boolean,
-) {
-  const { location } = useRouter();
+const SearchInit = () => {
+  const ctx = useSearch() as ReturnType<typeof useSearchContext>;
 
-  const ctx = useSearchContext<TFilters, T>(
-    name,
-    {
-      filters: {
-        ...omit(query, ["size", "offset"]),
-      },
-      pager: {
-        ...pick(query, ["size", "offset"]),
-      },
-      data: [],
-    },
-    syncFromURL ? location.search : "",
-  );
+  useEffect(() => {
+    ctx.initial();
 
-  const Search = useMemo(() => {
-    return function Search({ children }: { children: ReactNode }) {
-      return (
-        <SearchProvider value={{ search: ctx }} key={name}>
-          <SearchInit />
-          {syncFromURL && <SyncToURL key={name} name={name} />}
-          {children}
-        </SearchProvider>
-      );
+    return () => {
+      ctx.destroy();
     };
-  }, [ctx]);
+  }, []);
 
-  return [ctx, Search] as const;
-}
+  return null;
+};
 
 export const queryFromState = (state: SearchState) =>
   omitBy(
@@ -85,20 +63,6 @@ function SyncToURL({ name }: { name: string }) {
   return null;
 }
 
-function SearchInit() {
-  const ctx = useSearch() as ReturnType<typeof useSearchContext>;
-
-  useEffect(() => {
-    ctx.initial();
-
-    return () => {
-      ctx.destroy();
-    };
-  }, []);
-
-  return null;
-}
-
 export const useSearchQuerySelector = <TFilter extends {}>(
   state$: Observable<SearchState<TFilter, any>>,
   deps: any[] = [],
@@ -111,6 +75,42 @@ export const useSearchQuerySelector = <TFilter extends {}>(
     }),
     deps,
   );
+
+export const useNewSearch = <TFilters extends Dictionary<any>, T>(
+  name: string,
+  query = {} as TFilters & Omit<Pager, "total">,
+  syncFromURL?: boolean,
+) => {
+  const { location } = useRouter();
+
+  const ctx = useSearchContext<TFilters, T>(
+    name,
+    {
+      filters: {
+        ...omit(query, ["size", "offset"]),
+      },
+      pager: {
+        ...pick(query, ["size", "offset"]),
+      },
+      data: [],
+    },
+    syncFromURL ? location.search : "",
+  );
+
+  const Search = useMemo(() => {
+    return function Search({ children }: { children: ReactNode }) {
+      return (
+        <SearchProvider value={{ search: ctx }} key={name}>
+          <SearchInit />
+          {syncFromURL && <SyncToURL key={name} name={name} />}
+          {children}
+        </SearchProvider>
+      );
+    };
+  }, [ctx]);
+
+  return [ctx, Search] as const;
+};
 
 export const useNewSearchOfRequest = <TRequestActor extends RequestActor, TFilters = TRequestActor["arg"]>(
   requestActor: TRequestActor,

@@ -1,6 +1,6 @@
 import { IRouteProps, IRouterContext, Redirect, Route, Switch } from "@reactorx/router";
 import { assign, startsWith } from "lodash";
-import  { ComponentType, createContext, Fragment, lazy, Suspense, useContext } from "react";
+import { ComponentType, createContext, Fragment, lazy, Suspense, useContext } from "react";
 
 export interface IRouteTree {
   exact?: boolean;
@@ -256,25 +256,14 @@ export interface IRouteEnhanceProps extends IRouteProps, ISwitchByRouteProps {
   defaultComponent?: React.ComponentType;
 }
 
-export const SwitchByRoute = ({ route }: ISwitchByRouteProps): JSX.Element => {
-  return (
-    <Switch>
-      {route.routes.map((subRoute: RouteTree, idx: number) => {
-        return <RouteEnhance key={idx} route={subRoute} exact={subRoute.exact} path={subRoute.path} />;
-      })}
-    </Switch>
-  );
-};
-
 const MatchedRouteContext = createContext({ route: null } as { route: RouteTree | null });
 
 export const MatchedRouteProvider = MatchedRouteContext.Provider;
 
-export function useMatchedRoute() {
-  return useContext(MatchedRouteContext).route!;
-}
+export const useMatchedRoute = () => useContext(MatchedRouteContext).route!;
 
-export function RouteEnhance(props: IRouteEnhanceProps) {
+export const RouteEnhance = (props: IRouteEnhanceProps) => {
+  // eslint-disable-next-line @typescript-eslint/no-use-before-define
   const { route, defaultComponent = SwitchByRoute } = props;
 
   const Comp = route.Component || defaultComponent;
@@ -284,4 +273,14 @@ export function RouteEnhance(props: IRouteEnhanceProps) {
       <Route {...props} render={(props) => route.render(() => <Comp {...props} route={route} />)} />
     </MatchedRouteContext.Provider>
   );
-}
+};
+
+export const SwitchByRoute = ({ route }: ISwitchByRouteProps): JSX.Element => {
+  return (
+    <Switch>
+      {route.routes.map((subRoute: RouteTree, idx: number) => {
+        return <RouteEnhance key={idx} route={subRoute} exact={subRoute.exact} path={subRoute.path} />;
+      })}
+    </Switch>
+  );
+};

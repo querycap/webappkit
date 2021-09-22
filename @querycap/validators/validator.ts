@@ -9,19 +9,21 @@ export const errorMsg = <T extends any>(v: T | Error) => {
   return undefined;
 };
 
-export const createValidator = <T = any>(defaultError: string, test: (v: T) => boolean) => (error = defaultError) => {
-  return (valueOrError: T | Error) => {
-    if (isError(valueOrError)) {
+export const createValidator =
+  <T = any>(defaultError: string, test: (v: T) => boolean) =>
+  (error = defaultError) => {
+    return (valueOrError: T | Error) => {
+      if (isError(valueOrError)) {
+        return valueOrError;
+      }
+
+      if (!test(valueOrError)) {
+        return new Error(error);
+      }
+
       return valueOrError;
-    }
-
-    if (!test(valueOrError)) {
-      return new Error(error);
-    }
-
-    return valueOrError;
+    };
   };
-};
 
 export const all = <T extends any>(...validators: Validator[]) => {
   return (valueOrError: T | Error) => {

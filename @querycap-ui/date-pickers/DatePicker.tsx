@@ -20,7 +20,7 @@ import {
 
 import { zhCN } from "date-fns/locale";
 import { Dictionary, floor, flow, forEach, map, set } from "lodash";
-import  { HTMLAttributes, ReactNode, useEffect, useMemo, useState } from "react";
+import { HTMLAttributes, ReactNode, useEffect, useMemo, useState } from "react";
 
 export const format = (date: number | Date, formatStr: string) => {
   return originFormat(date, formatStr, {
@@ -153,6 +153,16 @@ export const useDateRange = (minValue?: string, maxValue?: string) => {
   return [isDateSmallThan, isDateLargeThan];
 };
 
+const groupByWeek = (days: Date[]): Dictionary<Dictionary<Date>> => {
+  const weeks = {};
+
+  forEach(days, (day, idx) => {
+    set(weeks, [floor(idx / 7, 0), idx % 7], day);
+  });
+
+  return weeks;
+};
+
 export const useMonthDays = (value: string, weekStartDay?: number) => {
   const [monthValue, setMonth] = useState<Date>(() => parseISOOrDefault(value, now()));
 
@@ -229,16 +239,6 @@ export const DayCell = ({
     </ThemeState>
   );
 };
-
-function groupByWeek(days: Date[]): Dictionary<Dictionary<Date>> {
-  const weeks = {};
-
-  forEach(days, (day, idx) => {
-    set(weeks, [floor(idx / 7, 0), idx % 7], day);
-  });
-
-  return weeks;
-}
 
 export const DatePickerHeader = ({
   navLeftDisabled,

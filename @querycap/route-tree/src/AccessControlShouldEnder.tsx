@@ -1,7 +1,7 @@
 import { displayPermissions, ShouldEnterResolver, TShouldRender, useAccessControl } from "@querycap/access";
 import { generatePath, useRouter } from "@reactorx/router";
 import { Dictionary, forEach, map, reduce, some, assign } from "lodash";
-import  { Children, cloneElement, lazy, ReactNode, Suspense, useEffect, useMemo } from "react";
+import { Children, cloneElement, lazy, ReactNode, Suspense, useEffect, useMemo } from "react";
 import { RouteTree } from "./RouteTree";
 
 const resolveShouldRender = (route: RouteTree): ((scope: string) => Promise<TShouldRender>) => {
@@ -127,7 +127,7 @@ export const indexAutoRedirectByRBAC = () => {
         return;
       }
 
-      reduce(
+      void reduce(
         route.parent.routes,
         (p, subRoute) => {
           return p.then((prev) => {

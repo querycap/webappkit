@@ -4,9 +4,8 @@ import { addMinutes, formatRFC3339 } from "date-fns";
 import localforage from "localforage";
 // @ts-ignore
 import memoryStorageDriver from "localforage-memoryStorageDriver";
-import  { useEffect } from "react";
+import { useEffect } from "react";
 import { createPersister } from "..";
-
 
 const timeout = (t: number) => {
   return new Promise((resolve) => {
@@ -14,7 +13,7 @@ const timeout = (t: number) => {
       resolve(t);
     }, t);
   });
-}
+};
 
 describe("Persister flow", () => {
   let persister: ReturnType<typeof createPersister>;

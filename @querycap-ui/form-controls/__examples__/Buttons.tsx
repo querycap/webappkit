@@ -4,7 +4,6 @@ import { IconCamera } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
 import { headings } from "@querycap-ui/texts";
 
-
 export const Buttons = () => {
   return (
     <>

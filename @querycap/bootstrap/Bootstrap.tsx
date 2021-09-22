@@ -56,60 +56,62 @@ export const HashHistoryProvider = ({ children }: { children: ReactNode }) => {
   return <ReactorxRouter history={history}>{children}</ReactorxRouter>;
 };
 
-export const createBootstrap = <T extends BaseConfig>(config: T) => (e: ReactElement | (() => ReactElement)) => {
-  const persister = createPersister({
-    name: config.appName || "app",
-  });
-
-  return ($root: Element, async = false) => {
-    const finalRender =
-      async && (ReactDOM as any).createRoot
-        ? (node: ReactNode, $r: Element) => {
-            return (ReactDOM as any).createRoot($r).render(node);
-          }
-        : render;
-
-    void persister.hydrate((storeValues = {}) => {
-      const store$ = Store.create(storeValues);
-
-      if (process.env.NODE_ENV !== "production") {
-        store$.applyMiddleware(
-          createLogger({
-            duration: true,
-            collapsed: true,
-            errorTransformer: (e: any) => {
-              throw e;
-            },
-            colors: {
-              title: (actor: Actor) => {
-                switch (actor.stage) {
-                  case AsyncStage.STARTED:
-                    return "blue";
-                  case AsyncStage.DONE:
-                    return "green";
-                  case AsyncStage.FAILED:
-                    return "red";
-                  case AsyncStage.CANCEL:
-                    return "orange";
-                }
-                return "black";
-              },
-            },
-          }),
-        );
-      }
-
-      finalRender(
-        <StrictMode>
-          <StoreProvider value={store$}>
-            <ConfigProvider value={{ config }}>
-              <PersisterConnect persister={persister} />
-              <HistoryProvider basename={(config as any).basename}>{isFunction(e) ? e() : e}</HistoryProvider>
-            </ConfigProvider>
-          </StoreProvider>
-        </StrictMode>,
-        $root,
-      );
+export const createBootstrap =
+  <T extends BaseConfig>(config: T) =>
+  (e: ReactElement | (() => ReactElement)) => {
+    const persister = createPersister({
+      name: config.appName || "app",
     });
+
+    return ($root: Element, async = false) => {
+      const finalRender =
+        async && (ReactDOM as any).createRoot
+          ? (node: ReactNode, $r: Element) => {
+              return (ReactDOM as any).createRoot($r).render(node);
+            }
+          : render;
+
+      void persister.hydrate((storeValues = {}) => {
+        const store$ = Store.create(storeValues);
+
+        if (process.env.NODE_ENV !== "production") {
+          store$.applyMiddleware(
+            createLogger({
+              duration: true,
+              collapsed: true,
+              errorTransformer: (e: any) => {
+                throw e;
+              },
+              colors: {
+                title: (actor: Actor) => {
+                  switch (actor.stage) {
+                    case AsyncStage.STARTED:
+                      return "blue";
+                    case AsyncStage.DONE:
+                      return "green";
+                    case AsyncStage.FAILED:
+                      return "red";
+                    case AsyncStage.CANCEL:
+                      return "orange";
+                  }
+                  return "black";
+                },
+              },
+            }),
+          );
+        }
+
+        finalRender(
+          <StrictMode>
+            <StoreProvider value={store$}>
+              <ConfigProvider value={{ config }}>
+                <PersisterConnect persister={persister} />
+                <HistoryProvider basename={(config as any).basename}>{isFunction(e) ? e() : e}</HistoryProvider>
+              </ConfigProvider>
+            </StoreProvider>
+          </StrictMode>,
+          $root,
+        );
+      });
+    };
   };
-};

@@ -9,7 +9,7 @@ import {
   SearchInputTimeRange,
 } from "@querycap-ui/search-controls";
 import { formatRFC3339 } from "date-fns";
-import  { useState } from "react";
+import { useState } from "react";
 
 const SearchBox = createSearchBox<any>({
   name: searchInput().label("名称").wildcard(),

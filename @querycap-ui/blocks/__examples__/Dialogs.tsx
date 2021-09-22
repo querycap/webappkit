@@ -4,7 +4,6 @@ import { Button } from "@querycap-ui/form-controls";
 import { IconCheckCircle } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
 
-
 export const Dialogs = () => {
   return (
     <Stack spacing={roundedEm(1.2)}>

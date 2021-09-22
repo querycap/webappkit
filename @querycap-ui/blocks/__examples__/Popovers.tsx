@@ -2,7 +2,7 @@ import { Popover } from "@querycap-ui/blocks";
 import { select, theme, roundedEm } from "@querycap-ui/core/macro";
 import { Stack } from "@querycap-ui/layouts";
 import { useToggle, useToggleControlOnClick } from "@querycap/uikit";
-import  { useRef } from "react";
+import { useRef } from "react";
 
 const PopoverDemo = ({ placement }: { placement: string }) => {
   const ref = useRef<HTMLDivElement>(null);

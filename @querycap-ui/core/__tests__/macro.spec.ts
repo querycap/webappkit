@@ -196,5 +196,3 @@ export const headings = {
     expect(results).toMatchSnapshot();
   });
 });
-
-

@@ -3,7 +3,6 @@ import { Button } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 import { map } from "lodash";
 
-
 export const NOSRC = true;
 
 const Panel = () => {

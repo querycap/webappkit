@@ -3,7 +3,7 @@ import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect
 import { useToggle } from "@querycap/uikit";
 import { useObservable, useObservableEffect } from "@reactorx/core";
 import { Dictionary, every, forEach, last, map, size, startsWith } from "lodash";
-import  { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { fromEvent, merge } from "rxjs";
 import { buffer, debounceTime, filter as rxFilter, tap } from "rxjs/operators";
 import { FilterMeta, FilterValue, useSearchBox, isNormalFilter } from "../search-box";
@@ -31,6 +31,23 @@ const isFilterHidden = (filterValues: FilterValue[], f: FilterMeta) => {
   }
 
   return size(getValues()) > 0;
+};
+
+const FilterRule = ({
+  hidden,
+  filter,
+  onClick,
+  ...otherProps
+}: {
+  filter: FilterMeta;
+  hidden: boolean;
+  onClick?: () => void;
+}) => {
+  return hidden ? null : (
+    <div onClick={onClick} {...otherProps}>
+      按 {filter.label} 筛选
+    </div>
+  );
 };
 
 export const SearchInputWild = () => {
@@ -206,22 +223,5 @@ export const SearchInputWild = () => {
         </Select>
       )}
     </>
-  );
-};
-
-const FilterRule = ({
-  hidden,
-  filter,
-  onClick,
-  ...otherProps
-}: {
-  filter: FilterMeta;
-  hidden: boolean;
-  onClick?: () => void;
-}) => {
-  return hidden ? null : (
-    <div onClick={onClick} {...otherProps}>
-      按 {filter.label} 筛选
-    </div>
   );
 };

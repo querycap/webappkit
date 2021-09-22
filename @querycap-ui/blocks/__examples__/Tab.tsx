@@ -1,6 +1,5 @@
 import { Tab, Tabs } from "@querycap-ui/blocks";
 
-
 export const TabDemo = () => {
   return (
     <div>

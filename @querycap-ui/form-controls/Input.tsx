@@ -1,7 +1,7 @@
 import { select, simpleShadow, theme, tintOrShade, transparentize } from "@querycap-ui/core/macro";
 import { FieldMeta } from "@querycap/form";
 import { flow } from "lodash";
-import  { ReactNode } from "react";
+import { ReactNode } from "react";
 import { base, fitPaddingY } from "./utils";
 
 export interface ControlledInput<T> extends Partial<FieldMeta> {

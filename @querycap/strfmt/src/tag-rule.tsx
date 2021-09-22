@@ -1,6 +1,5 @@
 import { drop } from "lodash";
 
-
 export interface TagNode {
   valid: () => boolean;
   toString: () => string;

@@ -1,4 +1,4 @@
-import  { memo, useLayoutEffect, useRef, useState } from "react";
+import { memo, useLayoutEffect, useRef, useState } from "react";
 
 export const HTMLComment = memo(({ text = "" }: { text: string }) => {
   const ref = useRef<HTMLSpanElement>(null);

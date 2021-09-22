@@ -7,8 +7,14 @@ export interface IStringMapper {
   (s: string): string;
 }
 
-export const startWith = (prefix: string): IStringMapper => (s: string): string => prefix + String(s);
-export const endWith = (suffix: string): IStringMapper => (s: string): string => String(s) + suffix;
+export const startWith =
+  (prefix: string): IStringMapper =>
+  (s: string): string =>
+    prefix + String(s);
+export const endWith =
+  (suffix: string): IStringMapper =>
+  (s: string): string =>
+    String(s) + suffix;
 
 export const indent = startWith(INDENT);
 export const indentAll = (s: string) => s.split(LINEBREAK).map(indent).join(LINEBREAK);

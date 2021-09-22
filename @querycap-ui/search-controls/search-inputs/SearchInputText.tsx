@@ -1,4 +1,4 @@
-import  { InputHTMLAttributes,useEffect, useRef } from "react";
+import { InputHTMLAttributes, useEffect, useRef } from "react";
 import { SearchInputProps } from "../search-box";
 import { useKeyboardControlsOfSearchBox } from "./hooks";
 

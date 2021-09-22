@@ -1,6 +1,6 @@
 import { Button } from "@querycap-ui/form-controls";
 import { Message, NotificationHub } from "@querycap-ui/blocks";
-import  { useState } from "react";
+import { useState } from "react";
 import { v4 as uuid } from "uuid";
 
 export const NotificationHubs = () => {

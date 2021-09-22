@@ -146,7 +146,7 @@ const withAccessControl = (method: "some" | "every", ...deps: Array<ShouldEnterR
 
     AC.resolveShouldRender = resolveShouldRender;
 
-    return (AC as any) as TFn;
+    return AC as any as TFn;
   };
 };
 

@@ -16,7 +16,7 @@ import {
   parseISO,
 } from "date-fns";
 import { flow } from "lodash";
-import  { useEffect, useState, HTMLAttributes } from "react";
+import { useEffect, useState, HTMLAttributes } from "react";
 import {
   DataCells,
   DatePickerHeader,
@@ -49,7 +49,6 @@ const Cell = (props: HTMLAttributes<any>) => (
     {...props}
   />
 );
-
 
 const getToday = () => {
   const n = now();
@@ -178,7 +177,6 @@ function maySwitchRange(range: [Date | null, Date | null], nextSelected: Date): 
 
   return [nextSelected, null];
 }
-
 
 export const DateHistoryRangePicker = (props: DateRangePickerProps) => {
   const [timeRange, setTimeRange] = useState(() => {

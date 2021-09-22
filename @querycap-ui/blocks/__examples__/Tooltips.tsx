@@ -2,7 +2,6 @@ import { TooltipTrigger } from "@querycap-ui/blocks";
 import { select, roundedEm } from "@querycap-ui/core/macro";
 import { Stack } from "@querycap-ui/layouts";
 
-
 const TooltipDemo = ({ placement }: { placement: string }) => {
   return (
     <TooltipTrigger placement={placement as any} content={<div css={{ padding: "0.2em" }}>{placement}</div>}>

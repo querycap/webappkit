@@ -19,13 +19,15 @@ export const confirmationStore = createStore<void, { [id: string]: Confirmation 
     ...confirmations,
     [arg.id]: arg,
   }),
-  confirm: ({ id, confirmed }: { id: string; confirmed: boolean }) => (confirmations) => ({
-    ...confirmations,
-    [id]: {
-      ...(confirmations[id] || {}),
-      confirmed,
-    },
-  }),
+  confirm:
+    ({ id, confirmed }: { id: string; confirmed: boolean }) =>
+    (confirmations) => ({
+      ...confirmations,
+      [id]: {
+        ...(confirmations[id] || {}),
+        confirmed,
+      },
+    }),
   destroy: (confirmationId: string) => (confirmations) => omit(confirmations, [confirmationId]),
 });
 

@@ -1,6 +1,5 @@
 import { IconSquare } from "@querycap-ui/icons";
 
-
 const scales = [1, 1.2, 1.8, 2];
 
 export const IconBaseLines = () => (

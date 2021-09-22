@@ -28,37 +28,6 @@ const ClearBtn = () => {
   );
 };
 
-const FilterInput = () => {
-  const { focusedFilter$, filters$, focusFilter, putOrFocusFilter } = useSearchBox();
-
-  const focusedFilter = useObservable(focusedFilter$);
-
-  if (focusedFilter) {
-    const Input = focusedFilter.type! || SearchInputText;
-
-    return (
-      <div css={select().flex(1).display("flex").alignItems("stretch").with(select("& > *:last-child").flex(1))}>
-        <FilterLabel filterMeta={focusedFilter} />
-        <Input
-          {...focusedFilter}
-          usedValues={map(
-            filter(filters$.value, ({ key }) => focusedFilter.key === key),
-            ({ value }) => value,
-          )}
-          onCancel={() => {
-            focusFilter(null);
-          }}
-          onSubmit={(v) => {
-            putOrFocusFilter(v);
-          }}
-        />
-      </div>
-    );
-  }
-
-  return <SearchInputWild />;
-};
-
 const FilterLabel = ({
   filterMeta,
   value,
@@ -110,6 +79,37 @@ const FilterLabel = ({
       {value && <CloseBtn onClick={() => onRemoveClick && onRemoveClick(filterMeta.key, value)} />}
     </div>
   );
+};
+
+const FilterInput = () => {
+  const { focusedFilter$, filters$, focusFilter, putOrFocusFilter } = useSearchBox();
+
+  const focusedFilter = useObservable(focusedFilter$);
+
+  if (focusedFilter) {
+    const Input = focusedFilter.type! || SearchInputText;
+
+    return (
+      <div css={select().flex(1).display("flex").alignItems("stretch").with(select("& > *:last-child").flex(1))}>
+        <FilterLabel filterMeta={focusedFilter} />
+        <Input
+          {...focusedFilter}
+          usedValues={map(
+            filter(filters$.value, ({ key }) => focusedFilter.key === key),
+            ({ value }) => value,
+          )}
+          onCancel={() => {
+            focusFilter(null);
+          }}
+          onSubmit={(v) => {
+            putOrFocusFilter(v);
+          }}
+        />
+      </div>
+    );
+  }
+
+  return <SearchInputWild />;
 };
 
 const FilterLabelList = () => {

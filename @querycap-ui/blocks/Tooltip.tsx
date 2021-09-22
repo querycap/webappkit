@@ -1,7 +1,7 @@
 import { select, shadows, theme, tintOrShade, withBackground, roundedEm } from "@querycap-ui/core/macro";
 import { useToggle, useToggleControlOnHover, withAutoPlacement } from "@querycap/uikit";
 import { flow } from "lodash";
-import  { Children, cloneElement, isValidElement, ReactChild, ReactNode, useRef } from "react";
+import { Children, cloneElement, isValidElement, ReactChild, ReactNode, useRef } from "react";
 import { Overlay, OverlayProps } from "./Overlay";
 
 export const Tooltip = withBackground(flow(theme.state.color, tintOrShade(0.05)))(

@@ -211,10 +211,10 @@ export const useNewForm = <TFormValues extends object>(
 
   const Form = useMemo(() => {
     return function Form({
-                           onSubmit,
-                           children,
-                           ...otherProps
-                         }: Omit<FormHTMLAttributes<any>, "onSubmit"> & {
+      onSubmit,
+      children,
+      ...otherProps
+    }: Omit<FormHTMLAttributes<any>, "onSubmit"> & {
       onSubmit?: (values: TFormValues, end: () => void) => void;
     }) {
       return (

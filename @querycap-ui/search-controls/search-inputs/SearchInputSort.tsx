@@ -5,7 +5,7 @@ import { IconArrowDown, IconArrowUp } from "@querycap-ui/icons";
 import { Portal, useToggle } from "@querycap/uikit";
 import { useObservable, useObservableEffect } from "@reactorx/core";
 import { includes, map, split } from "lodash";
-import  { HTMLAttributes,forwardRef, ReactNode, useMemo, useRef } from "react";
+import { HTMLAttributes, forwardRef, ReactNode, useMemo, useRef } from "react";
 import { BehaviorSubject, pipe } from "rxjs";
 import { distinctUntilChanged, map as rxMap, tap } from "rxjs/operators";
 import { displayValue, SearchInputProps } from "../search-box";

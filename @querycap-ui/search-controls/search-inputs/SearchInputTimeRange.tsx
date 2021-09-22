@@ -7,29 +7,31 @@ import { useToggle } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
 import { format, parseISO } from "date-fns";
 import { noop } from "lodash";
-import  { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { fromEvent, merge, pipe } from "rxjs";
 import { filter as rxFilter, tap } from "rxjs/operators";
 import { displayValue, SearchInputProps } from "../search-box";
 
-export const createTimeRangeDisplay = (f = "yyyy-MM-dd HH:mm") => (v: string) => {
-  const r = parseRange(v);
+export const createTimeRangeDisplay =
+  (f = "yyyy-MM-dd HH:mm") =>
+  (v: string) => {
+    const r = parseRange(v);
 
-  let d = "";
+    let d = "";
 
-  if (r.from) {
-    d += format(parseISO(r.from), f);
-  }
+    if (r.from) {
+      d += format(parseISO(r.from), f);
+    }
 
-  if (r.to) {
-    d += " 至 ";
-    d += format(parseISO(r.to), f);
-  } else {
-    d += " 至今";
-  }
+    if (r.to) {
+      d += " 至 ";
+      d += format(parseISO(r.to), f);
+    } else {
+      d += " 至今";
+    }
 
-  return d;
-};
+    return d;
+  };
 
 export const SearchInputTimeRange = ({
   minValue,

@@ -1,7 +1,6 @@
 import { colors, roundedEm, select, theme } from "@querycap-ui/core/macro";
 import { map, times } from "lodash";
 
-
 export const Space = () => {
   return (
     <>

@@ -1,5 +1,5 @@
 import { Checkbox } from "@querycap-ui/form-controls";
-import  { useState } from "react";
+import { useState } from "react";
 
 export const Checkboxes = () => {
   const [checked, setCheck] = useState(true);

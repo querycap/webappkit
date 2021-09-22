@@ -11,13 +11,15 @@ export const protocolPrefix = (url = "") => {
   return getProtocol() + url;
 };
 
-export const urlComplete = (baseURLs: Dictionary<string>) => (url = "/") => {
-  if (url.startsWith("http:") || url.startsWith("https:")) {
-    return url;
-  }
-  const firstPart = url.split("/")[1];
-  return `${protocolPrefix(baseURLs[firstPart])}${url}`;
-};
+export const urlComplete =
+  (baseURLs: Dictionary<string>) =>
+  (url = "/") => {
+    if (url.startsWith("http:") || url.startsWith("https:")) {
+      return url;
+    }
+    const firstPart = url.split("/")[1];
+    return `${protocolPrefix(baseURLs[firstPart])}${url}`;
+  };
 
 export const baseURLsFromConfig = (config: Dictionary<string>): Dictionary<string> => {
   const baseURLs: Dictionary<string> = {};

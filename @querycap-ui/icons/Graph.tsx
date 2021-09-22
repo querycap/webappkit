@@ -1,4 +1,4 @@
-import {  ReactElement, HTMLAttributes  } from "react";
+import { ReactElement, HTMLAttributes } from "react";
 
 export interface GraphProps extends HTMLAttributes<any> {
   inline?: boolean;

@@ -33,7 +33,7 @@ export const generate = (
   const dir = path.dirname(finalFilepath);
 
   if (!existsSync(dir)) {
-    mkdirSync(path.dirname(finalFilepath), {recursive:true});
+    mkdirSync(path.dirname(finalFilepath), { recursive: true });
   }
 
   writeFileSync(finalFilepath, content);

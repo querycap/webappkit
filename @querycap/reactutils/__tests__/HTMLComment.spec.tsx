@@ -1,7 +1,6 @@
 import { HTMLComment } from "@querycap/reactutils";
 import { render } from "@testing-library/react";
 
-
 const TEXT = "this is html comment";
 
 describe("HTMLComment", () => {

@@ -1,5 +1,3 @@
-
-
 export enum SimpleTypes {
   "boolean" = "boolean",
   integer = "integer",
@@ -29,9 +27,9 @@ export interface IApplicator {
     [k: string]: TSchema;
   };
   propertyNames?: TSchema;
-  "if"?: TSchema;
+  if?: TSchema;
   then?: TSchema;
-  "else"?: TSchema;
+  else?: TSchema;
   allOf?: TSchemaArray;
   anyOf?: TSchemaArray;
   oneOf?: TSchemaArray;
@@ -67,16 +65,14 @@ export interface IFormat {
 export interface IMetaData {
   title?: string;
   description?: string;
-  "default"?: any;
+  default?: any;
   deprecated?: boolean;
   readOnly?: boolean;
   writeOnly?: boolean;
   examples?: any[];
 }
 
-export interface ISchemaBasic extends ICore, IApplicator, IValidation, IMetaData, IFormat, IContent {
-
-}
+export interface ISchemaBasic extends ICore, IApplicator, IValidation, IMetaData, IFormat, IContent {}
 
 export interface IValidation {
   multipleOf?: number;
@@ -98,19 +94,19 @@ export interface IValidation {
   dependentRequired?: {
     [k: string]: TStringArray;
   };
-  "const"?: any;
-  "enum"?: any[];
+  const?: any;
+  enum?: any[];
   type?: TSimpleTypes | TSimpleTypes[];
 }
 
-export type TNonNegativeInteger = number
+export type TNonNegativeInteger = number;
 
-export type TNonNegativeIntegerDefault0 = TNonNegativeInteger
+export type TNonNegativeIntegerDefault0 = TNonNegativeInteger;
 
-export type TSchema = ISchemaBasic | boolean
+export type TSchema = ISchemaBasic | boolean;
 
-export type TSchemaArray = TSchema[]
+export type TSchemaArray = TSchema[];
 
-export type TSimpleTypes = keyof typeof SimpleTypes
+export type TSimpleTypes = keyof typeof SimpleTypes;
 
-export type TStringArray = string[]
+export type TStringArray = string[];

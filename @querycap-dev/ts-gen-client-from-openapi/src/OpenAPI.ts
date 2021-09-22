@@ -1,9 +1,7 @@
-
-
 export interface IAPIKeySecurityScheme {
   type: "apiKey";
   name: string;
-  "in": "header" | "query" | "cookie";
+  in: "header" | "query" | "cookie";
   description?: string;
   [k: string]: any;
 }
@@ -251,7 +249,7 @@ export interface IResponse {
 }
 
 export interface IResponses {
-  "default"?: IResponse | IReference;
+  default?: IResponse | IReference;
   [k: string]: IResponse | IReference | any;
 }
 
@@ -271,7 +269,7 @@ export interface ISchema {
   maxProperties?: number;
   minProperties?: number;
   required?: string[];
-  "enum"?: any[];
+  enum?: any[];
   type?: "array" | "boolean" | "integer" | "number" | "object" | "string";
   not?: ISchema | IReference;
   allOf?: Array<ISchema | IReference>;
@@ -285,7 +283,7 @@ export interface ISchema {
   additionalProperties?: ISchema | IReference | boolean;
   description?: string;
   format?: string;
-  "default"?: any;
+  default?: any;
   nullable?: boolean;
   discriminator?: IDiscriminator;
   readOnly?: boolean;
@@ -311,8 +309,8 @@ export interface IServer {
 }
 
 export interface IServerVariable {
-  "enum"?: string[];
-  "default": string;
+  enum?: string[];
+  default: string;
   description?: string;
   [k: string]: any;
 }
@@ -333,23 +331,25 @@ export interface IXML {
   [k: string]: any;
 }
 
-export type THTTPSecurityScheme = {
-  scheme?: "bearer";
-} & {
-  scheme: string;
-  bearerFormat?: string;
-  description?: string;
-  type: "http";
-  [k: string]: any;
-} | {
-  scheme?: any;
-} & {
-  scheme: string;
-  bearerFormat?: string;
-  description?: string;
-  type: "http";
-  [k: string]: any;
-}
+export type THTTPSecurityScheme =
+  | ({
+      scheme?: "bearer";
+    } & {
+      scheme: string;
+      bearerFormat?: string;
+      description?: string;
+      type: "http";
+      [k: string]: any;
+    })
+  | ({
+      scheme?: any;
+    } & {
+      scheme: string;
+      bearerFormat?: string;
+      description?: string;
+      type: "http";
+      [k: string]: any;
+    });
 
 export type THeader = TSchemaXorContent & {
   description?: string;
@@ -368,11 +368,11 @@ export type THeader = TSchemaXorContent & {
     [k: string]: IExample | IReference;
   };
   [k: string]: any;
-}
+};
 
 export type TParameter = TParameterLocation & {
   name: string;
-  "in": string;
+  in: string;
   description?: string;
   required?: boolean;
   deprecated?: boolean;
@@ -389,23 +389,31 @@ export type TParameter = TParameterLocation & {
     [k: string]: IExample | IReference;
   };
   [k: string]: any;
-}
+};
 
-export type TParameterLocation = {
-  "in"?: "path";
-  style?: "matrix" | "label" | "simple";
-  required: true;
-} | {
-  "in"?: "query";
-  style?: "form" | "spaceDelimited" | "pipeDelimited" | "deepObject";
-} | {
-  "in"?: "header";
-  style?: "simple";
-} | {
-  "in"?: "cookie";
-  style?: "form";
-}
+export type TParameterLocation =
+  | {
+      in?: "path";
+      style?: "matrix" | "label" | "simple";
+      required: true;
+    }
+  | {
+      in?: "query";
+      style?: "form" | "spaceDelimited" | "pipeDelimited" | "deepObject";
+    }
+  | {
+      in?: "header";
+      style?: "simple";
+    }
+  | {
+      in?: "cookie";
+      style?: "form";
+    };
 
-export type TSchemaXorContent = any
+export type TSchemaXorContent = any;
 
-export type TSecurityScheme = IAPIKeySecurityScheme | THTTPSecurityScheme | IOAuth2SecurityScheme | IOpenIDConnectSecurityScheme
+export type TSecurityScheme =
+  | IAPIKeySecurityScheme
+  | THTTPSecurityScheme
+  | IOAuth2SecurityScheme
+  | IOpenIDConnectSecurityScheme;

@@ -4,7 +4,6 @@ import { IconTrash } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
 import { FieldArray, FormSection, SimpleInputText, useNewForm } from "@querycap/form";
 
-
 export const NestedForm = () => {
   const [, Form] = useNewForm("NestedForm");
 
