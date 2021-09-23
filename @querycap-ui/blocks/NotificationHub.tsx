@@ -1,7 +1,6 @@
 import { animated, select, roundedEm, useTransition } from "@querycap-ui/core/macro";
 import { Portal } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
-import React from "react";
 import { timer } from "rxjs";
 import { tap } from "rxjs/operators";
 import { AlertCard, AlertProps } from "./Alert";
@@ -49,7 +48,8 @@ export const NotificationHub = ({
   closeRequestIn?: number;
   onRequestClose: (id: string) => void;
 }) => {
-  const transitions = useTransition(messages, (m) => m.id, {
+  const transitions = useTransition(messages, {
+    keys: (m) => m.id,
     from: { transform: "translate3d(0,-100%,0)", opacity: 1 },
     enter: { transform: "translate3d(0,0,0)", opacity: 1 },
     leave: { transform: "translate3d(0,-100%,0)", opacity: 0 },
@@ -57,7 +57,7 @@ export const NotificationHub = ({
 
   return (
     <>
-      {transitions.map(({ item, key, props: style }) => (
+      {transitions((style, item, _, key) => (
         <Portal key={key}>
           <animated.div
             style={style}

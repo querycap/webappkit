@@ -21,6 +21,9 @@ module.exports = {
   rules: {
     "func-style": ["error", "expression"],
     "react/display-name": "warn",
+    "react/jsx-key": ["error", { checkFragmentShorthand: false }],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "off",
     "require-atomic-updates": "off", // enable when this fix https://github.com/eslint/eslint/issues/11899

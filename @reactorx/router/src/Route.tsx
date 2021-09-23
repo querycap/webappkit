@@ -1,4 +1,4 @@
-import React from "react";
+import { ComponentType, ReactNode  } from "react";
 import { IMatch, matchPath } from "./utils";
 import { IRouterContext, RouterProvider, useRouter } from "./RouterContext";
 import { shallowEqual } from "@reactorx/core";
@@ -8,10 +8,10 @@ export interface IRouteProps {
   exact?: boolean;
   strict?: boolean;
   sensitive?: boolean;
-  component?: React.ComponentType<IRouterContext<any>>;
+  component?: ComponentType<IRouterContext<any>>;
   location?: any;
-  render?: (props: IRouterContext<any>) => React.ReactNode;
-  children?: (props: IRouterContext<any>) => React.ReactNode;
+  render?: (props: IRouterContext<any>) => ReactNode;
+  children?: (props: IRouterContext<any>) => ReactNode;
 
   // from switch
   // don't use this for manual
@@ -19,15 +19,15 @@ export interface IRouteProps {
 }
 
 function renderChildren(props: IRouteProps, context: IRouterContext) {
-  const { children, component, render } = props;
+  const { children, component: Comp, render } = props;
   const { match } = context;
 
   if (typeof children === "function") {
     return children(context);
   }
 
-  if (component) {
-    return match ? React.createElement(component, context) : null;
+  if (Comp) {
+    return match ? <Comp {...context}/> : null;
   }
 
   if (render) {

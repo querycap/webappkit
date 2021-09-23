@@ -3,7 +3,7 @@ import { highlight, languages } from "prismjs";
 import "prismjs/components/prism-typescript";
 import "prismjs/themes/prism-tomorrow.css";
 
-import React, { memo } from "react";
+import  { memo } from "react";
 
 export const CodeBlock = memo(({ children, ...otherProps }: { children: string }) => (
   <pre

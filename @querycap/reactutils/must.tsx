@@ -1,5 +1,4 @@
 import { some } from "lodash";
-import React from "react";
 
 export type NonNullableArray<TArr> = { [I in keyof TArr]: NonNullable<TArr[I]> };
 

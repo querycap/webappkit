@@ -1,6 +1,6 @@
 import { preventDefault, select, theme } from "@querycap-ui/core/macro";
 import { IconX } from "@querycap-ui/icons";
-import React from "react";
+
 import { pipe } from "rxjs";
 
 export function CloseBtn({ onClick }: { onClick: () => void }) {

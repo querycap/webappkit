@@ -1,3 +1,3 @@
-import React from "react";
+import type { ReactElement } from "react";
 
-export const createIcon = (svg: React.ReactElement) => (props: any) => <div {...props}>{svg}</div>;
+export const createIcon = (svg: ReactElement) => (props: any) => <div {...props}>{svg}</div>;

@@ -1,7 +1,7 @@
 import { preventDefault, roundedEm, select, theme } from "@querycap-ui/core/macro";
 import { Stack } from "@querycap-ui/layouts";
 import { times } from "lodash";
-import React, { memo, ReactNode } from "react";
+import { memo, ReactNode } from "react";
 import { pipe } from "rxjs";
 
 export interface Pager {

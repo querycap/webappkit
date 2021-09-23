@@ -1,21 +1,21 @@
-import React, { ReactNode } from "react";
-import { createLocation, PartialPath } from "history";
+import  {MouseEvent, ReactNode } from "react";
+import { createLocation, LocationDescriptorObject } from "history";
 import { useRouter } from "./RouterContext";
 
 export interface ILinkProps {
   onClick?: (evt: any) => void;
   replace?: boolean;
-  to: string | PartialPath;
+  to: string | LocationDescriptorObject;
   target?: string;
   className?: string;
   children?: ReactNode;
 }
 
-function isModifiedEvent(event: React.MouseEvent) {
+function isModifiedEvent(event: MouseEvent) {
   return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 }
 
-function handleClick(event: React.MouseEvent<HTMLAnchorElement>, nav: () => void) {
+function handleClick(event: MouseEvent<HTMLAnchorElement>, nav: () => void) {
   const attrTarget = (event.target as HTMLLinkElement).getAttribute("target");
 
   if (

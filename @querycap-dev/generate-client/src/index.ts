@@ -1,4 +1,4 @@
-import { TParameter } from "@morlay/ts-gen-client-from-openapi";
+import { TParameter } from "@querycap-dev/ts-gen-client-from-openapi";
 import { generate as generateFile } from "@querycap-dev/generate";
 import axios from "axios";
 import { createHash } from "crypto";

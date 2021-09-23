@@ -3,7 +3,6 @@ import { Button, FormControlWithField, InputIcon } from "@querycap-ui/form-contr
 import { IconTrash } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
 import { FieldArray, FormSection, SimpleInputText, useNewForm } from "@querycap/form";
-import React from "react";
 
 export const NestedForm = () => {
   const [, Form] = useNewForm("NestedForm");

@@ -1,7 +1,6 @@
 import { createRequestActor } from "../RequestActor";
 import { useRequesting$ } from "../useRequesting$";
 import { Store, StoreProvider, useSelector } from "@reactorx/core";
-import React from "react";
 import { act, render } from "@testing-library/react";
 
 describe("useRequesting$", () => {
@@ -30,25 +29,25 @@ describe("useRequesting$", () => {
       </StoreProvider>,
     );
 
-    for (let i = 0; i < 1000; i++) {
-      const $loading = node.container.querySelector("#loading")!;
+    for (let i = 0; i < 100; i++) {
+      const $loading = node.container.querySelector("#loading");
 
       act(() => {
         actor.started.invoke(store$);
       });
 
-      expect($loading.innerHTML).toContain("true");
+      expect($loading?.innerHTML).toContain("true");
 
       if (i % 2) {
         act(() => {
           actor.done.invoke(store$);
         });
-        expect($loading.innerHTML).toContain("false");
+        expect($loading?.innerHTML).toContain("false");
       } else {
         act(() => {
           actor.failed.invoke(store$);
         });
-        expect($loading.innerHTML).toContain("false");
+        expect($loading?.innerHTML).toContain("false");
       }
     }
   });

@@ -6,11 +6,16 @@ import { useValueRef } from "@querycap/reactutils";
 import { useToggle } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
 import { map, noop } from "lodash";
-import React, { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
-import { fromEvent, merge } from "rxjs";
+import { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
+import { fromEvent } from "rxjs";
 import { filter as rxFilter, tap } from "rxjs/operators";
 import { InputIcon } from "./Input";
 import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect } from "./Menu";
+import { isUndefined, isNull } from "lodash";
+
+const isValidValue = (v: any) => {
+  return !(isUndefined(v) || isNull(v) || v == "");
+};
 
 export interface InputSelectProps<T extends any = any> extends FieldInputCommonProps<T> {
   enum: any[];
@@ -33,13 +38,14 @@ export const InputSelect = (props: InputSelectProps) => {
 
   const inputElmRef = useRef<HTMLInputElement>(null);
 
+  const [isOpened, openPopoverOrigin, closePopoverOrigin] = useToggle();
+
   const valuesRef = useValueRef({
     onBlur: onBlur || noop,
     onFocus: onFocus || noop,
     disabled: readOnly || disabled || values.length <= 1,
+    isOpened,
   });
-
-  const [isOpened, openPopoverOrigin, closePopoverOrigin] = useToggle();
 
   const [openPopover, closePopover] = useMemo(
     () => [
@@ -84,7 +90,7 @@ export const InputSelect = (props: InputSelectProps) => {
     }
 
     return selectCtx.selectValue$.pipe(
-      rxFilter((v) => !!v),
+      rxFilter(isValidValue),
       tap((value) => {
         onValueChange(value);
         closePopover();
@@ -98,7 +104,7 @@ export const InputSelect = (props: InputSelectProps) => {
     }
 
     const inputClick$ = fromEvent<MouseEvent>(inputElmRef.current, "click");
-    const inputFocus$ = fromEvent<FocusEvent>(inputElmRef.current, "focus");
+    // const inputFocus$ = fromEvent<FocusEvent>(inputElmRef.current, "focus");
     const inputKeydown$ = fromEvent<KeyboardEvent>(inputElmRef.current, "keydown");
 
     const onKey = (k: string) => rxFilter((e: KeyboardEvent) => e.key === k);
@@ -108,7 +114,7 @@ export const InputSelect = (props: InputSelectProps) => {
     return [
       inputKeydownEnter$.pipe(
         tap(() => {
-          if (selectCtx.focused$.value) {
+          if (isValidValue(selectCtx.focused$.value)) {
             selectCtx.select();
             selectCtx.focus("");
           }
@@ -116,33 +122,45 @@ export const InputSelect = (props: InputSelectProps) => {
         tap(preventDefault),
       ),
 
-      merge(inputFocus$, inputClick$).pipe(tap(() => openPopover())),
+      inputClick$.pipe(
+        tap(() => {
+          valuesRef.current.isOpened ? closePopover() : openPopover();
+        }),
+      ),
     ];
   }, []);
 
   return (
     <>
       <div role="input" css={select().position("relative")}>
-        <input ref={inputElmRef} type="text" value={value} css={select().with(cover()).opacity(0)} onChange={noop} />
-        <span>{value && display(value)}</span>&nbsp;
+        <input
+          ref={inputElmRef}
+          type="text"
+          value={`${value}`}
+          css={select().with(cover()).opacity(0).cursor("pointer")}
+          readOnly
+        />
+        <span>{isValidValue(value) && display(value)}</span>&nbsp;
       </div>
-      <InputIcon pullRight>
-        {allowClear && value && !valuesRef.current.disabled ? (
+      {allowClear && isValidValue(value) && !valuesRef.current.disabled ? (
+        <InputIcon pullRight>
           <IconX onClick={() => onValueChange("")} />
-        ) : (
-          <IconChevronDown />
-        )}
-      </InputIcon>
+        </InputIcon>
+      ) : (
+        <InputIcon pullRight css={select().pointerEvents("none")}>
+          <IconChevronDown
+            css={select()
+              .transform(`rotate(${isOpened ? 180 : 0}deg)`)
+              .transition("transform 200ms ease 0s")}
+          />
+        </InputIcon>
+      )}
       {!valuesRef.current.disabled && isOpened && (
         <Select>
-          <SelectMenuPopover
-            fullWidth
-            triggerRef={inputElmRef}
-            onRequestClose={() => closePopover()}
-            placement={"bottom-left"}>
+          <SelectMenuPopover fullWidth triggerRef={inputElmRef} onRequestClose={() => closePopover()}>
             <MenuOptGroup>
               {map(values, (value) => (
-                <div data-opt={value} key={value}>
+                <div data-opt={`${value}`} key={value}>
                   {display(value)}
                 </div>
               ))}

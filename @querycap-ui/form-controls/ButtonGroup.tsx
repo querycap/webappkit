@@ -1,5 +1,5 @@
 import { select, theme } from "@querycap-ui/core/macro";
-import React, { Children, cloneElement, isValidElement, ReactNode } from "react";
+import { Children, cloneElement, isValidElement, ReactNode } from "react";
 
 export const ButtonGroup = ({ small, children }: { small?: boolean; children?: ReactNode }) => {
   return (

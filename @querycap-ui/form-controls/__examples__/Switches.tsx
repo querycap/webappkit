@@ -1,7 +1,7 @@
 import { roundedEm } from "@querycap-ui/core/macro";
 import { Switch } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
-import React, { useState } from "react";
+import { useState } from "react";
 
 export const Switches = () => {
   const [checked, setCheck] = useState(true);

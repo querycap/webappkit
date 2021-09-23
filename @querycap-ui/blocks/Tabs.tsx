@@ -1,7 +1,7 @@
 import { preventDefault, select, roundedEm, stopPropagation, theme } from "@querycap-ui/core/macro";
 import { pipe } from "rxjs";
 import { map } from "lodash";
-import React, { Children, isValidElement, ReactElement, ReactNode, useEffect, useState } from "react";
+import { Children, isValidElement, ReactElement, ReactNode, useEffect, useState } from "react";
 import { parseSearchString, toSearchString, useRouter } from "@reactorx/router";
 
 export interface TabProps {

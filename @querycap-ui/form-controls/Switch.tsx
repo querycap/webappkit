@@ -1,6 +1,7 @@
 import {
   animated,
   cover,
+  opacify,
   roundedEm,
   select,
   theme,
@@ -10,7 +11,7 @@ import {
   useTheme,
 } from "@querycap-ui/core/macro";
 import { pipe } from "rxjs";
-import React, {forwardRef, ReactNode, useEffect} from "react";
+import { forwardRef, ReactNode, useEffect } from "react";
 import { ControlledInput } from "./Input";
 
 export interface SwitchProps extends ControlledInput<boolean> {
@@ -67,10 +68,10 @@ const SwitchCore = ({ value, tips }: { value: boolean; tips?: [ReactNode, ReactN
             .textTransform("uppercase")
             .color(theme.state.color)
             .with(select("& > *").paddingX(roundedEm(0.3)).with(cover()))}>
-          <animated.span style={{ opacity: styles.onOpacity }} css={{ textAlign: "left" }}>
+          <animated.span style={{ opacity: styles.onOpacity } as any} css={{ textAlign: "left" }}>
             {tips[0]}
           </animated.span>
-          <animated.span style={{ opacity: styles.offOpacity }} css={{ textAlign: "right" }}>
+          <animated.span style={{ opacity: styles.offOpacity } as any} css={{ textAlign: "right" }}>
             {tips[1]}
           </animated.span>
         </div>
@@ -100,7 +101,8 @@ const SwitchCore = ({ value, tips }: { value: boolean; tips?: [ReactNode, ReactN
               .backgroundColor(pipe(theme.state.backgroundColor, tintOrShade(-0.1)))
               .borderRadius("100%")
               .boxShadow("0 2px 4px 0 rgba(0,0,0,0.3)"),
-          )}/>
+          )}
+      />
     </animated.div>
   );
 };
@@ -120,10 +122,10 @@ export const Switch = forwardRef(({ name, value, tips, onValueChange, disabled, 
       <ThemeState
         backgroundColor={
           disabled
-            ? pipe(theme.state.backgroundColor, tintOrShade(0.1))
+            ? pipe(theme.state.backgroundColor, tintOrShade(0.1), opacify(0.4))
             : value
             ? theme.colors.primary
-            : pipe(theme.state.backgroundColor, tintOrShade(0.3))
+            : pipe(theme.state.backgroundColor, tintOrShade(0.1))
         }
         autoColor>
         <SwitchCore value={value} tips={tips} />

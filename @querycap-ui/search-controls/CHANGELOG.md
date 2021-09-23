@@ -1,7 +1,187 @@
 # Change Log
 
+## 0.9.6
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-ui/core@0.11.6
+  - @querycap-ui/date-pickers@0.7.4
+  - @querycap-ui/form-controls@0.14.8
+  - @querycap-ui/icons@0.6.4
+  - @querycap-ui/layouts@0.3.6
+  - @querycap/reactutils@0.8.4
+  - @querycap/strfmt@0.6.4
+  - @querycap/uikit@0.5.4
+  - @reactorx/core@0.22.4
+
+## 0.9.5
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-ui/core@0.11.5
+  - @querycap-ui/date-pickers@0.7.3
+  - @querycap-ui/form-controls@0.14.7
+  - @querycap-ui/icons@0.6.3
+  - @querycap-ui/layouts@0.3.5
+  - @querycap/reactutils@0.8.3
+  - @querycap/strfmt@0.6.3
+  - @querycap/uikit@0.5.3
+  - @reactorx/core@0.22.3
+
+## 0.9.4
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @querycap-ui/core@0.11.4
+  - @querycap-ui/date-pickers@0.7.2
+  - @querycap-ui/form-controls@0.14.6
+  - @querycap-ui/icons@0.6.2
+  - @querycap-ui/layouts@0.3.4
+  - @querycap/reactutils@0.8.2
+  - @querycap/strfmt@0.6.2
+  - @querycap/uikit@0.5.2
+  - @reactorx/core@0.22.2
+
+## 0.9.3
+
+### Patch Changes
+
+- first release by changesets
+- Updated dependencies [undefined]
+  - @querycap-ui/core@0.11.3
+  - @querycap-ui/date-pickers@0.7.1
+  - @querycap-ui/form-controls@0.14.3
+  - @querycap-ui/icons@0.6.1
+  - @querycap-ui/layouts@0.3.3
+  - @querycap/reactutils@0.8.1
+  - @querycap/strfmt@0.6.1
+  - @querycap/uikit@0.5.1
+  - @reactorx/core@0.22.1
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [0.9.2](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.9.1...@querycap-ui/search-controls@0.9.2) (2021-04-25)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.9.1](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.9.0...@querycap-ui/search-controls@0.9.1) (2021-04-01)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+# [0.9.0](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.8.17...@querycap-ui/search-controls@0.9.0) (2021-03-24)
+
+### Features
+
+- drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
+
+## [0.8.17](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.8.16...@querycap-ui/search-controls@0.8.17) (2021-03-24)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.8.16](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.8.15...@querycap-ui/search-controls@0.8.16) (2021-03-23)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.8.15](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.8.14...@querycap-ui/search-controls@0.8.15) (2021-03-10)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.8.14](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.8.13...@querycap-ui/search-controls@0.8.14) (2021-02-20)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.8.13](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.8.12...@querycap-ui/search-controls@0.8.13) (2021-02-05)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.8.12](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.8.11...@querycap-ui/search-controls@0.8.12) (2021-02-02)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.8.11](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.8.10...@querycap-ui/search-controls@0.8.11) (2020-12-21)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.8.10](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.8.9...@querycap-ui/search-controls@0.8.10) (2020-12-10)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.8.9](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.8.8...@querycap-ui/search-controls@0.8.9) (2020-12-09)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.8.8](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.8.7...@querycap-ui/search-controls@0.8.8) (2020-12-01)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.8.7](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.8.6...@querycap-ui/search-controls@0.8.7) (2020-11-23)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.8.6](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.8.5...@querycap-ui/search-controls@0.8.6) (2020-11-16)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.8.5](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.8.4...@querycap-ui/search-controls@0.8.5) (2020-11-16)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.8.4](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.8.3...@querycap-ui/search-controls@0.8.4) (2020-11-10)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.8.3](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.8.2...@querycap-ui/search-controls@0.8.3) (2020-11-02)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.8.2](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.8.1...@querycap-ui/search-controls@0.8.2) (2020-10-29)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.8.1](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.8.0...@querycap-ui/search-controls@0.8.1) (2020-10-15)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+# [0.8.0](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.7.24...@querycap-ui/search-controls@0.8.0) (2020-10-15)
+
+### Features
+
+- bump jsx-runtime ([453f52b](https://github.com/querycap/webappkit/commit/453f52b4a7b0e0f987de76da08c9bbb4d39802f8))
+
+## [0.7.24](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.7.23...@querycap-ui/search-controls@0.7.24) (2020-10-14)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.7.23](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.7.22...@querycap-ui/search-controls@0.7.23) (2020-10-14)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.7.22](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.7.21...@querycap-ui/search-controls@0.7.22) (2020-10-12)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.7.21](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.7.20...@querycap-ui/search-controls@0.7.21) (2020-10-12)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.7.20](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.7.19...@querycap-ui/search-controls@0.7.20) (2020-10-09)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.7.19](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.7.18...@querycap-ui/search-controls@0.7.19) (2020-09-21)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
+
+## [0.7.18](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.7.17...@querycap-ui/search-controls@0.7.18) (2020-09-17)
+
+**Note:** Version bump only for package @querycap-ui/search-controls
 
 ## [0.7.17](https://github.com/querycap/webappkit/compare/@querycap-ui/search-controls@0.7.16...@querycap-ui/search-controls@0.7.17) (2020-09-07)
 

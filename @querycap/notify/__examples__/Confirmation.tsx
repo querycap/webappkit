@@ -3,7 +3,7 @@ import { preventDefault } from "@querycap-ui/core";
 import { confirmationStore, useConfirm } from "@querycap/notify";
 import { useObservable } from "@reactorx/core";
 import { isUndefined, map } from "lodash";
-import React from "react";
+
 import { pipe } from "rxjs";
 
 const Confirmations = () => {

@@ -1,32 +1,44 @@
 {
   "name": "@querycap-dev/devkit",
-  "version": "0.4.20",
+  "version": "0.10.6",
   "bin": "bin/devkit.js",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*"
   },
   "dependencies": {
-    "@querycap-dev/generate": "^0.4.6",
+    "@querycap-dev/generate": "workspace:^0.5.4",
     "@types/cross-spawn": "^6.0.2",
-    "@types/js-yaml": "^3.12.5",
+    "@types/js-yaml": "^4.0.3",
     "cross-spawn": "^7.0.3",
-    "js-yaml": "^3.14.0",
-    "lodash": "^4.17.20",
+    "js-yaml": "^4.1.0",
+    "lodash": "^4.17.21",
     "npm-path": "^2.0.4",
-    "ts-node": "^9.0.0",
-    "yargs": "^16.0.3"
+    "ts-node": "^10.2.1",
+    "yargs": "^17.1.1"
   },
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
   "files": [
+    "./dist/",
     "dist/"
   ],
   "scripts": {
-    "prepare": "node ../../node_modules/.bin/monobundle"
+    "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js"
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/querycap/webappkit.git"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./index.ts": "./index.ts"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs"
 }

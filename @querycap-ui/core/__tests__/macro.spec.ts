@@ -3,7 +3,8 @@ import { transformSync } from "@babel/core";
 const compileToSnapshot = (code: string) => {
   const t = transformSync(code, {
     root: __dirname,
-    plugins: ["@babel/plugin-syntax-jsx", "babel-plugin-macros", "babel-plugin-emotion"],
+    filename: "m.js",
+    plugins: ["@babel/plugin-syntax-jsx", "babel-plugin-macros", "@emotion/babel-plugin"],
   });
 
   return `
@@ -18,9 +19,8 @@ ${t?.code}
 describe("@querycap-ui/core/macro", () => {
   it("simple", () => {
     const result = compileToSnapshot(`
-import React from "react"
 import { select, animated } from "@querycap-ui/core/macro"
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 
 const v = css({ color: "red" })
 
@@ -37,7 +37,6 @@ const C = () => {
 
   it("with variables", () => {
     const result = compileToSnapshot(`
-import React from "react"
 import { select, roundedEm } from "@querycap-ui/core/macro"
 
 const C = () => {
@@ -53,7 +52,6 @@ const C = () => {
 
   it("select", () => {
     const result = compileToSnapshot(`
-import React from "react"
 import { select, OptionFocusedAttr } from "@querycap-ui/core/macro"
 
 const v = ""
@@ -80,7 +78,6 @@ const C = () => {
 
   it("nests", () => {
     const result = compileToSnapshot(`
-import React from "react"
 import { flow } from "lodash"
 import { select, roundedEm, theme, animated, cover } from "@querycap-ui/core/macro"
 
@@ -114,7 +111,6 @@ const Animated = animated(C);
 
   it("flow", () => {
     const result = compileToSnapshot(`
-import React from "react"
 import { flow } from "lodash"
 import { select, theme } from "@querycap-ui/core/macro"
 

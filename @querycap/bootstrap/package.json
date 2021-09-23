@@ -1,23 +1,24 @@
 {
   "name": "@querycap/bootstrap",
-  "version": "0.4.8",
+  "version": "0.7.5",
   "files": [
+    "./dist/",
     "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@reactorx/core": "0.x",
+    "@reactorx/core": "0.22.4",
     "lodash": "4.x",
-    "react": "16.x",
-    "react-dom": "16.x"
+    "react": "17.x",
+    "react-dom": "17.x"
   },
   "dependencies": {
-    "@querycap/config": "^0.6.3",
-    "@querycap/notify": "^0.5.2",
-    "@querycap/persister": "^0.5.3",
-    "@reactorx/router": "^0.20.8",
-    "@types/history": "^4.7.7",
-    "history": "^4.10.1",
+    "@querycap/config": "workspace:^0.7.4",
+    "@querycap/notify": "workspace:^0.7.4",
+    "@querycap/persister": "workspace:^0.6.4",
+    "@reactorx/router": "workspace:^0.23.4",
+    "@types/history": "^4.7.9",
+    "history": "~5.0.1",
     "redux-logger": "^3.0.6"
   },
   "publishConfig": {
@@ -27,9 +28,20 @@
     "env": "browser"
   },
   "scripts": {
-    "prepare": "node ../../node_modules/.bin/monobundle"
+    "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js"
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/querycap/webappkit.git"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./index.ts": "./index.ts"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs"
 }

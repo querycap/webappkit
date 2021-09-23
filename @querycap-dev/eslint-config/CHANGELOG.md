@@ -1,7 +1,99 @@
 # Change Log
 
+## 0.5.16
+
+### Patch Changes
+
+- release fix
+
+## 0.5.15
+
+### Patch Changes
+
+- 36cbb36: deps updates
+
+## 0.5.14
+
+### Patch Changes
+
+- first release by changesets
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [0.5.13](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.5.12...@querycap-dev/eslint-config@0.5.13) (2021-03-23)
+
+**Note:** Version bump only for package @querycap-dev/eslint-config
+
+## [0.5.12](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.5.11...@querycap-dev/eslint-config@0.5.12) (2021-03-10)
+
+**Note:** Version bump only for package @querycap-dev/eslint-config
+
+## [0.5.11](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.5.10...@querycap-dev/eslint-config@0.5.11) (2021-02-05)
+
+**Note:** Version bump only for package @querycap-dev/eslint-config
+
+## [0.5.10](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.5.9...@querycap-dev/eslint-config@0.5.10) (2021-02-02)
+
+**Note:** Version bump only for package @querycap-dev/eslint-config
+
+## [0.5.9](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.5.8...@querycap-dev/eslint-config@0.5.9) (2020-12-21)
+
+**Note:** Version bump only for package @querycap-dev/eslint-config
+
+## [0.5.8](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.5.7...@querycap-dev/eslint-config@0.5.8) (2020-12-09)
+
+**Note:** Version bump only for package @querycap-dev/eslint-config
+
+## [0.5.7](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.5.6...@querycap-dev/eslint-config@0.5.7) (2020-12-01)
+
+**Note:** Version bump only for package @querycap-dev/eslint-config
+
+## [0.5.6](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.5.5...@querycap-dev/eslint-config@0.5.6) (2020-11-23)
+
+**Note:** Version bump only for package @querycap-dev/eslint-config
+
+## [0.5.5](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.5.4...@querycap-dev/eslint-config@0.5.5) (2020-11-17)
+
+**Note:** Version bump only for package @querycap-dev/eslint-config
+
+## [0.5.4](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.5.3...@querycap-dev/eslint-config@0.5.4) (2020-11-16)
+
+**Note:** Version bump only for package @querycap-dev/eslint-config
+
+## [0.5.3](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.5.2...@querycap-dev/eslint-config@0.5.3) (2020-11-10)
+
+**Note:** Version bump only for package @querycap-dev/eslint-config
+
+## [0.5.2](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.5.1...@querycap-dev/eslint-config@0.5.2) (2020-11-02)
+
+**Note:** Version bump only for package @querycap-dev/eslint-config
+
+## [0.5.1](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.5.0...@querycap-dev/eslint-config@0.5.1) (2020-10-29)
+
+**Note:** Version bump only for package @querycap-dev/eslint-config
+
+# [0.5.0](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.4.19...@querycap-dev/eslint-config@0.5.0) (2020-10-15)
+
+### Features
+
+- bump jsx-runtime ([453f52b](https://github.com/querycap/webappkit/commit/453f52b4a7b0e0f987de76da08c9bbb4d39802f8))
+
+## [0.4.19](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.4.18...@querycap-dev/eslint-config@0.4.19) (2020-10-14)
+
+**Note:** Version bump only for package @querycap-dev/eslint-config
+
+## [0.4.18](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.4.17...@querycap-dev/eslint-config@0.4.18) (2020-10-12)
+
+**Note:** Version bump only for package @querycap-dev/eslint-config
+
+## [0.4.17](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.4.16...@querycap-dev/eslint-config@0.4.17) (2020-09-28)
+
+**Note:** Version bump only for package @querycap-dev/eslint-config
+
+## [0.4.16](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.4.15...@querycap-dev/eslint-config@0.4.16) (2020-09-17)
+
+**Note:** Version bump only for package @querycap-dev/eslint-config
 
 ## [0.4.15](https://github.com/querycap/webappkit/compare/@querycap-dev/eslint-config@0.4.14...@querycap-dev/eslint-config@0.4.15) (2020-09-10)
 

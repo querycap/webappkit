@@ -1,2 +1,3 @@
 !macro/index.js
-!aliases.js
+
+!jsx-runtime/*.js

@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Router } from "..";
 import { render } from "@testing-library/react";
 import { createMemoryHistory } from "history";

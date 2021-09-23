@@ -10,15 +10,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - uses: actions/setup-node@v1
         with:
-          node-version: "14"
+          # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
+          fetch-depth: 0
 
-      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+      - uses: pnpm/action-setup@v2
+        with:
+          version: "6"
 
-      - run: yarn
+      - run: make test
 
-      - run: yarn test
-
-      - run: yarn lerna publish from-package -y
+      - name: Create Release Pull Request or Publish to npm
+        uses: changesets/action@master
+        with:
+          version: make release.version-packages
+          publish: make release.from-packages
+          commit: "chore(release): %s"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

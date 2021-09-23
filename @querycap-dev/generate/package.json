@@ -1,7 +1,8 @@
 {
   "name": "@querycap-dev/generate",
-  "version": "0.4.6",
+  "version": "0.5.4",
   "files": [
+    "./dist/",
     "dist/"
   ],
   "peerDependencies": {
@@ -9,18 +10,29 @@
     "prettier": "*"
   },
   "dependencies": {
-    "chalk": "^4.1.0",
-    "globby": "^11.0.1",
-    "prettier": "^2.1.2"
+    "chalk": "^4.1.2",
+    "fast-glob": "^3.2.7",
+    "prettier": "^2.3.2"
   },
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "prepare": "node ../../node_modules/.bin/monobundle"
+    "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js"
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/querycap/webappkit.git"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./index.ts": "./index.ts"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs"
 }

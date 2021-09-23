@@ -22,7 +22,7 @@ export const exec = (sh: string, state: IState) => {
 
   cmd.on("close", (code) => {
     if (code !== 0) {
-      process.exit(code);
+      code && process.exit(code);
     }
   });
 

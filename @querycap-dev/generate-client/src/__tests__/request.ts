@@ -8,6 +8,7 @@ export interface IRequestOptions {
   data?: any;
 }
 
-export const createRequest = <TReq, TRespBody>(_: string, _2: (req: TReq) => IRequestOptions) => (
-  _3: TReq,
-): Promise<TRespBody> => Promise.resolve({} as TRespBody);
+export const createRequest =
+  <TReq, TRespBody>(_: string, _2: (req: TReq) => IRequestOptions) =>
+  (_3: TReq): Promise<TRespBody> =>
+    Promise.resolve({} as TRespBody);

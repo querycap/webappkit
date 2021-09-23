@@ -1,8 +1,7 @@
-import { roundedEm, preventDefault } from "@querycap-ui/core";
-import { select, shadows, theme, transparentize } from "@querycap-ui/core/macro";
+import { select, shadows, theme, transparentize, roundedEm, preventDefault } from "@querycap-ui/core/macro";
 import { IconAlertCircle, IconCheckCircle, IconInfo, IconX, IconXCircle } from "@querycap-ui/icons";
 import { flow } from "lodash";
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { pipe } from "rxjs";
 
 export interface AlertProps {

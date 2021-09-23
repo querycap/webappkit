@@ -1,4 +1,4 @@
-// export const GROUP = "gis";
+export const GROUP = "gis";
 
 export const ENVS = {
   DEMO: "DEMO",
@@ -12,6 +12,18 @@ export const APP_MANIFEST = {
 };
 
 export const APP_CONFIG = {
+  APPS: (env: string) => {
+    if (env == "$") {
+      return "${{ keys.demo.demo.apps }}";
+    }
+    return "";
+  },
+  SRV_A: (env: string) => {
+    if (env === "$") {
+      return "${{ endpoints.api.test.endpoint }}";
+    }
+    return "//127.0.0.1:80";
+  },
   SRV_TEST: (env: string, feature: string) => {
     if (env === "local") {
       return `//127.0.0.1:80`;

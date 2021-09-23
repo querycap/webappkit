@@ -2,7 +2,6 @@ import { colors, select, defaultTheme, theme, ThemeState, roundedEm } from "@que
 import { Button } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 import { map } from "lodash";
-import React from "react";
 
 export const NOSRC = true;
 

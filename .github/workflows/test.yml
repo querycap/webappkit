@@ -9,14 +9,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: "16"
+      - uses: pnpm/action-setup@v2
+        with:
+          version: "6"
 
-      - run: yarn
-      - run: yarn test
+      - run: make test
 
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v2
         with:
           file: ./coverage/clover.xml
           fail_ci_if_error: true

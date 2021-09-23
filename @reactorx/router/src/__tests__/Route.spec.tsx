@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import  { useEffect } from "react";
 import { createMemoryHistory as createHistory, createMemoryHistory } from "history";
 import { Redirect, Route, Router } from "..";
 

@@ -1,26 +1,38 @@
 {
   "name": "@reactorx/request",
-  "version": "0.20.9",
+  "version": "0.22.4",
   "files": [
+    "./dist/",
     "dist/"
   ],
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "axios": "0.19.x",
+    "axios": "0.21.x",
     "lodash": "4.x",
-    "react": ">=16.x",
+    "react": ">=17.x",
     "rxjs": ">=6.x"
   },
   "dependencies": {
-    "@reactorx/core": "^0.20.8"
+    "@reactorx/core": "workspace:^0.22.4"
   },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "prepare": "node ../../node_modules/.bin/monobundle"
+    "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js"
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/querycap/webappkit.git"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./index.ts": "./index.ts"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs"
 }

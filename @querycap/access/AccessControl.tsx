@@ -3,7 +3,7 @@ import { RequestActor } from "@querycap/request";
 import { RequestActor as RequestActorOrigin } from "@reactorx/request";
 import { AxiosRequestConfig } from "axios";
 import { Dictionary, every, filter, forEach, map, some } from "lodash";
-import React, { createContext, FunctionComponent, lazy, ReactNode, Suspense, useContext } from "react";
+import { createContext, FunctionComponent, lazy, ReactNode, Suspense, useContext } from "react";
 
 const AccessControlContext = createContext({
   permissions: {},
@@ -11,6 +11,7 @@ const AccessControlContext = createContext({
 } as {
   permissions?: { [k: string]: boolean };
   attrs?: { [k: string]: string[] };
+  strategies?: { [k: string]: boolean };
 });
 
 export const AccessControlProvider = AccessControlContext.Provider;
@@ -145,7 +146,7 @@ const withAccessControl = (method: "some" | "every", ...deps: Array<ShouldEnterR
 
     AC.resolveShouldRender = resolveShouldRender;
 
-    return (AC as any) as TFn;
+    return AC as any as TFn;
   };
 };
 

@@ -1,7 +1,5 @@
 import { Visitor } from "@babel/core";
 // @ts-ignore
-import { addNamed } from "@babel/helper-module-imports";
-// @ts-ignore
 import jsx from "@babel/plugin-syntax-jsx";
 
 const createComponentBlock = (value: string) => ({
@@ -16,16 +14,12 @@ export const importEmotionJSXOnlyNeed = () => {
     visitor: {
       Program: {
         enter(path, state: any) {
-          let hasFragment = false;
           let hasJSX = false;
           let needEmotion = false;
 
           path.traverse({
             JSX() {
               hasJSX = true;
-            },
-            JSXFragment() {
-              hasFragment = true;
             },
             JSXAttribute(path) {
               if (path.get("name").node.name === "css") {
@@ -36,17 +30,7 @@ export const importEmotionJSXOnlyNeed = () => {
 
           if (hasJSX) {
             if (needEmotion) {
-              state.file.ast.comments.push(createComponentBlock(`@jsx ${addNamed(path, "jsx", "@emotion/core").name}`));
-            } else {
-              state.file.ast.comments.push(
-                createComponentBlock(`@jsx ${addNamed(path, "createElement", "react").name}`),
-              );
-            }
-
-            if (hasFragment) {
-              state.file.ast.comments.push(
-                createComponentBlock(`@jsxFrag ${addNamed(path, "Fragment", "react").name}`),
-              );
+              state.file.ast.comments.push(createComponentBlock(`@jsxImportSource @querycap-ui/core`));
             }
           }
         },

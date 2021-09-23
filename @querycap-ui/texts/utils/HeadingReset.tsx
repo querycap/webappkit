@@ -1,6 +1,6 @@
-import { Global } from "@emotion/core";
+import { Global } from "@emotion/react";
 import { select } from "@querycap-ui/core/macro";
-import React from "react";
+
 import { headings } from "./headings";
 
 export const HeadingReset = () => (

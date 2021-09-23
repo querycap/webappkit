@@ -3,7 +3,6 @@ import { roundedEm } from "@querycap-ui/core/macro";
 import { Button } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 import { useToggle } from "@querycap/uikit";
-import React from "react";
 
 const ModalDemo = () => {
   const [isOpen, show, hide] = useToggle();
@@ -11,7 +10,7 @@ const ModalDemo = () => {
   return (
     <div>
       <Modal isOpen={isOpen} onRequestClose={hide} onDestroyed={() => console.log("destroyed")}>
-        12313123
+        <div css={{ color: "#FFF", textAlign: "center" }}>12313123</div>
       </Modal>
       <Button onClick={show}>click modal</Button>
     </div>

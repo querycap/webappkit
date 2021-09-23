@@ -1,31 +1,43 @@
 {
   "name": "@querycap-dev/webpack-preset-assets",
-  "version": "0.6.14",
+  "version": "0.8.5",
   "files": [
+    "./dist/",
     "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
     "@querycap-dev/devkit": "*",
-    "webpack": "4.x"
+    "webpack": "*"
   },
   "dependencies": {
-    "css-loader": "^4.3.0",
-    "file-loader": "6.1.0",
+    "css-loader": "^6.2.0",
+    "file-loader": "6.2.0",
     "glsl-shader-loader": "0.1.6",
-    "html-loader": "1.3.0",
+    "html-loader": "2.1.2",
     "markdownit-loader": "2.0.0",
-    "raw-loader": "4.0.1",
-    "style-loader": "^1.2.1",
-    "url-loader": "4.1.0"
+    "raw-loader": "4.0.2",
+    "style-loader": "^3.2.1",
+    "url-loader": "4.1.1"
   },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "prepare": "node ../../node_modules/.bin/monobundle"
+    "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js"
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/querycap/webappkit.git"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./index.ts": "./index.ts"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs"
 }

@@ -8,6 +8,7 @@ import {
   Expression,
   Function,
   Identifier,
+  isIdentifier,
   Program,
   V8IntrinsicIdentifier,
   VariableDeclarator,
@@ -20,7 +21,7 @@ const aliases: { [k: string]: string[] } = aliasesOrigin;
 
 const createImporter = (path: NodePath<any>, source: string) => {
   const exports: { [k: string]: Identifier } = {};
-  const program = path.isProgram() ? path : path.findParent((p) => p.isProgram());
+  const program = path.isProgram() ? path : path.findParent((p) => p.isProgram())!;
 
   return (method: string): Identifier => {
     if (!exports[method]) {
@@ -31,7 +32,7 @@ const createImporter = (path: NodePath<any>, source: string) => {
       if (importDeclaration) {
         const importSpecifier = importDeclaration
           .get("specifiers")
-          .find((n) => n.isImportSpecifier() && n.node.imported.name === method);
+          .find((n) => n.isImportSpecifier() && isIdentifier(n.node.imported) && n.node.imported.name === method);
 
         if (importSpecifier && importSpecifier.isImportSpecifier()) {
           exports[method] = importSpecifier.node.local;
@@ -92,7 +93,7 @@ const createScanner = (program: NodePath<Program>) => {
       const ident = t.identifier(`${generatedPrefix}ref_${styleIdx}`);
       const decl = t.variableDeclaration("var", [t.variableDeclarator(ident, expr)]);
 
-      const ownerDecl = nodePath.findParent((p) => p.parentPath.isProgram());
+      const ownerDecl = nodePath.findParent((p) => p.parentPath!.isProgram())!;
       const inserted = ownerDecl.insertBefore([decl])[0];
 
       styleIdx++;
@@ -260,7 +261,7 @@ const createScanner = (program: NodePath<Program>) => {
 
         if (needTheme) {
           chainRoot.replaceWith(markThemeNeed(createFunctionIfNeed()));
-          if (chainRoot.parentPath.isExpression()) {
+          if (chainRoot.parentPath!.isExpression()) {
             markThemeNeed(chainRoot.parentPath.node);
           }
         } else {
@@ -318,7 +319,7 @@ export default createMacro(({ references }) => {
         const program = references[k][0].findParent((p) => p.isProgram()) as NodePath<Program>;
         const scanner = createScanner(program);
         references[k].reverse().forEach((p) => {
-          return p.parentPath.isCallExpression() && scanner.scan(p.parentPath);
+          return p.parentPath!.isCallExpression() && scanner.scan(p.parentPath);
         });
       } else {
         const querycapUICoreImport = createImporter(references[k][0], "@querycap-ui/core");

@@ -1,10 +1,10 @@
 import { errorMsg } from "@querycap/validators";
 import { Dictionary, filter, forEach, get, isArray, isEmpty, isObject, map, mapValues, pickBy } from "lodash";
-import React, { createContext, FormHTMLAttributes, useContext, useEffect, useLayoutEffect, useMemo } from "react";
+import { createContext, FormHTMLAttributes, useContext, useEffect, useLayoutEffect, useMemo } from "react";
 import { formStore } from "./FormStore";
 
 import { FieldState, FormState } from "./State";
-import {v4 as uuid} from "uuid";
+import { v4 as uuid } from "uuid";
 
 const FieldPrefixContext = createContext({ prefix: "" });
 
@@ -214,9 +214,9 @@ export const useNewForm = <TFormValues extends object>(
       onSubmit,
       children,
       ...otherProps
-    }: {
+    }: Omit<FormHTMLAttributes<any>, "onSubmit"> & {
       onSubmit?: (values: TFormValues, end: () => void) => void;
-    } & Omit<FormHTMLAttributes<any>, "onSubmit">) {
+    }) {
       return (
         <FormProvider key={formName} value={{ form: ctx }}>
           <FormInitial />

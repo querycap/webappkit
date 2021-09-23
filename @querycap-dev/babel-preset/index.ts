@@ -32,7 +32,7 @@ export default () => ({
     ],
     [pluginTypescriptIifeEnum],
     [pluginTransformTypescript, { isTSX: true }],
-    [pluginTransformReactJSX],
+    [pluginTransformReactJSX, { runtime: "automatic" }],
     [pluginProposalClassProperties],
     [pluginProposalObjectRestSpread],
     [pluginProposalOptionalChaining],

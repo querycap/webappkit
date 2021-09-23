@@ -1,14 +1,15 @@
 {
   "name": "@querycap/reactutils",
-  "version": "0.6.2",
+  "version": "0.8.4",
   "files": [
+    "./dist/",
     "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
     "lodash": "4.x",
-    "react": "16.x"
+    "react": "17.x"
   },
   "publishConfig": {
     "access": "public"
@@ -17,9 +18,20 @@
     "env": "browser"
   },
   "scripts": {
-    "prepare": "node ../../node_modules/.bin/monobundle"
+    "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js"
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/querycap/webappkit.git"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./index.ts": "./index.ts"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs"
 }

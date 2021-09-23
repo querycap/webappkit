@@ -1,7 +1,91 @@
 # Change Log
 
+## 0.5.4
+
+### Patch Changes
+
+- release fix
+
+## 0.5.3
+
+### Patch Changes
+
+- release fix
+
+## 0.5.2
+
+### Patch Changes
+
+- 36cbb36: deps updates
+
+## 0.5.1
+
+### Patch Changes
+
+- first release by changesets
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.5.0](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.4.10...@querycap-dev/babel-preset@0.5.0) (2021-03-24)
+
+### Features
+
+- drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
+
+## [0.4.10](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.4.9...@querycap-dev/babel-preset@0.4.10) (2021-03-23)
+
+**Note:** Version bump only for package @querycap-dev/babel-preset
+
+## [0.4.9](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.4.8...@querycap-dev/babel-preset@0.4.9) (2021-03-10)
+
+**Note:** Version bump only for package @querycap-dev/babel-preset
+
+## [0.4.8](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.4.7...@querycap-dev/babel-preset@0.4.8) (2021-02-05)
+
+**Note:** Version bump only for package @querycap-dev/babel-preset
+
+## [0.4.7](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.4.6...@querycap-dev/babel-preset@0.4.7) (2021-02-02)
+
+**Note:** Version bump only for package @querycap-dev/babel-preset
+
+## [0.4.6](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.4.5...@querycap-dev/babel-preset@0.4.6) (2020-12-21)
+
+**Note:** Version bump only for package @querycap-dev/babel-preset
+
+## [0.4.5](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.4.4...@querycap-dev/babel-preset@0.4.5) (2020-12-10)
+
+**Note:** Version bump only for package @querycap-dev/babel-preset
+
+## [0.4.4](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.4.3...@querycap-dev/babel-preset@0.4.4) (2020-12-01)
+
+**Note:** Version bump only for package @querycap-dev/babel-preset
+
+## [0.4.3](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.4.2...@querycap-dev/babel-preset@0.4.3) (2020-11-23)
+
+**Note:** Version bump only for package @querycap-dev/babel-preset
+
+## [0.4.2](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.4.1...@querycap-dev/babel-preset@0.4.2) (2020-11-10)
+
+**Note:** Version bump only for package @querycap-dev/babel-preset
+
+## [0.4.1](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.4.0...@querycap-dev/babel-preset@0.4.1) (2020-10-29)
+
+**Note:** Version bump only for package @querycap-dev/babel-preset
+
+# [0.4.0](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.3.15...@querycap-dev/babel-preset@0.4.0) (2020-10-15)
+
+### Features
+
+- bump jsx-runtime ([453f52b](https://github.com/querycap/webappkit/commit/453f52b4a7b0e0f987de76da08c9bbb4d39802f8))
+
+## [0.3.15](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.3.14...@querycap-dev/babel-preset@0.3.15) (2020-10-14)
+
+**Note:** Version bump only for package @querycap-dev/babel-preset
+
+## [0.3.14](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.3.13...@querycap-dev/babel-preset@0.3.14) (2020-10-14)
+
+**Note:** Version bump only for package @querycap-dev/babel-preset
 
 ## [0.3.13](https://github.com/querycap/webappkit/compare/@querycap-dev/babel-preset@0.3.12...@querycap-dev/babel-preset@0.3.13) (2020-09-07)
 

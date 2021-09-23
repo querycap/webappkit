@@ -1,12 +1,28 @@
 import { WheelSelect } from "@querycap-ui/containers";
 import { formatRFC3339, getHours, getMinutes, getSeconds, parseISO, setHours, setMinutes, setSeconds } from "date-fns";
 import { padStart, times } from "lodash";
-import React from "react";
+import { useCallback } from "react";
 
 export const TimePicker = ({ value, onValueChange }: { value: string; onValueChange: (val: any) => void }) => {
   const dateTime = value ? parseISO(value) : new Date(Date.now());
 
   const itemHeight = 30;
+
+  const changeHours = useCallback(
+    (val: any) => {
+      onValueChange(formatRFC3339(setHours(dateTime, val)));
+    },
+    [dateTime],
+  );
+
+  const changeMinutes = useCallback(
+    (val: any) => {
+      onValueChange(formatRFC3339(setMinutes(dateTime, val)));
+    },
+    [dateTime],
+  );
+
+  const changeSeconds = useCallback((val: any) => onValueChange(formatRFC3339(setSeconds(dateTime, val))), [dateTime]);
 
   return (
     <div css={{ display: "flex", width: "100%", "& > *": { flex: 1 } }}>
@@ -19,9 +35,7 @@ export const TimePicker = ({ value, onValueChange }: { value: string; onValueCha
           value: String(v),
           label: padStart(String(v), 2, "0"),
         }))}
-        onValueChange={(val: any) => {
-          onValueChange(formatRFC3339(setHours(dateTime, val)));
-        }}
+        onValueChange={changeHours}
       />
       <WheelSelect
         name="minute"
@@ -32,7 +46,7 @@ export const TimePicker = ({ value, onValueChange }: { value: string; onValueCha
           value: String(v),
           label: padStart(String(v), 2, "0"),
         }))}
-        onValueChange={(val: any) => onValueChange(formatRFC3339(setMinutes(dateTime, val)))}
+        onValueChange={changeMinutes}
       />
       <WheelSelect
         name="second"
@@ -43,7 +57,7 @@ export const TimePicker = ({ value, onValueChange }: { value: string; onValueCha
           value: String(v),
           label: padStart(String(v), 2, "0"),
         }))}
-        onValueChange={(val: any) => onValueChange(formatRFC3339(setSeconds(dateTime, val)))}
+        onValueChange={changeSeconds}
       />
     </div>
   );

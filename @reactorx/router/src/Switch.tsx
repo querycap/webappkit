@@ -1,13 +1,13 @@
-import { Location, PartialPath } from "history";
-import * as React from "react";
+import { Location, LocationDescriptorObject } from "history";
+import { ReactNode, ReactElement, Children, cloneElement, isValidElement } from "react";
 import { IMatch, matchPath } from "./utils";
 import { useRouter } from "./RouterContext";
 import { IRouteProps } from "./Route";
 import { IRedirectProps } from "./Redirect";
 
 export interface ISwitchProps {
-  children: React.ReactNode;
-  location?: PartialPath;
+  children: ReactNode;
+  location?: LocationDescriptorObject;
 }
 
 export const Switch = (props: ISwitchProps) => {
@@ -16,10 +16,10 @@ export const Switch = (props: ISwitchProps) => {
   const location = (props.location || router.location) as Location;
 
   let match: IMatch<any> | null = null;
-  let element: React.ReactElement<any> | undefined;
+  let element: ReactElement<any> | undefined;
 
-  React.Children.forEach(props.children, (child) => {
-    if (match == null && React.isValidElement(child)) {
+  Children.forEach(props.children, (child) => {
+    if (match == null && isValidElement(child)) {
       element = child;
 
       const path = (child.props as IRouteProps).path || (child.props as IRedirectProps).from;
@@ -28,5 +28,5 @@ export const Switch = (props: ISwitchProps) => {
     }
   });
 
-  return !!match && !!element ? React.cloneElement(element, { location, computedMatch: match }) : null;
+  return !!match && !!element ? cloneElement(element, { location, computedMatch: match }) : null;
 };

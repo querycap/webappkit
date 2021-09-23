@@ -1,5 +1,4 @@
 import {
-  animated,
   cover,
   preventDefault,
   rgba,
@@ -7,11 +6,15 @@ import {
   stopPropagation,
   theme,
   useTransition,
+  TransitionFn,
+  PickAnimated,
+  animated,
+  AnimatedComponent,
 } from "@querycap-ui/core/macro";
 import { IconX } from "@querycap-ui/icons";
 import { useOnExactlyClick, usePortalCloseOnEsc, withPortal } from "@querycap/uikit";
 import { noop } from "lodash";
-import React, { forwardRef, Fragment, ReactNode, Ref, useRef } from "react";
+import { forwardRef, Fragment, HTMLAttributes, ReactNode, Ref, useRef } from "react";
 import { pipe } from "rxjs";
 
 export interface ModalBaseProps {
@@ -60,8 +63,11 @@ export const ModalDialogBase = withPortal(({ onRequestClose, ...otherProps }: Mo
   );
 });
 
-export const useModalTransition = (isOpen = false, onDestroyed?: () => void) =>
-  useTransition(isOpen, null, {
+export const useModalTransition = (
+  isOpen = false,
+  onDestroyed?: () => void,
+): TransitionFn<boolean, PickAnimated<{ opacity: number; transform: string }>> =>
+  useTransition<boolean, { opacity: number; transform: string }>(isOpen, {
     from: { opacity: 0.5, transform: "translate3d(0,30px,0) scale(1)" },
     enter: { opacity: 1, transform: "translate3d(0,0,0) scale(1)" },
     leave: { opacity: 0, transform: "translate3d(0,0,0) scale(0.9)" },
@@ -71,7 +77,7 @@ export const useModalTransition = (isOpen = false, onDestroyed?: () => void) =>
 
 export const ModalPanel = forwardRef(
   (
-    { children, onRequestClose, ...otherProps }: ModalBaseProps & React.HTMLAttributes<HTMLDivElement>,
+    { children, onRequestClose, ...otherProps }: ModalBaseProps & HTMLAttributes<HTMLDivElement>,
     ref: Ref<HTMLDivElement>,
   ) => (
     <div
@@ -102,7 +108,7 @@ export const ModalPanel = forwardRef(
   ),
 );
 
-export const ModalBackdrop = ({ onRequestClose, ...others }: React.HTMLAttributes<any> & ModalBaseProps) => {
+export const ModalBackdrop = ({ onRequestClose, ...others }: HTMLAttributes<any> & ModalBaseProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useOnExactlyClick(ref, onRequestClose || noop, !onRequestClose);
@@ -129,7 +135,7 @@ export interface ModalProps extends ModalBaseProps {
   isOpen: boolean;
 }
 
-export const AnimatedModalBackdrop = animated(ModalBackdrop);
+export const AnimatedModalBackdrop: AnimatedComponent<typeof ModalBackdrop> = animated(ModalBackdrop);
 
 export interface ModalPropsWithOnDestroyed extends ModalProps {
   onDestroyed?: () => void;
@@ -138,35 +144,29 @@ export interface ModalPropsWithOnDestroyed extends ModalProps {
 export const Modal = ({ isOpen, children, onRequestClose, onDestroyed }: ModalPropsWithOnDestroyed) => {
   const transition = useModalTransition(isOpen, onDestroyed);
 
-  return (
-    <ModalBase onRequestClose={onRequestClose}>
-      {transition.map(
-        ({ item, key, props: style }) =>
-          item && (
-            <Fragment key={key}>
-              <AnimatedModalBackdrop onRequestClose={onRequestClose} style={{ opacity: style.opacity }} />
-              <animated.div style={style}>{children}</animated.div>
-            </Fragment>
-          ),
+  return transition((style, item, _, key) => (
+    <ModalBase onRequestClose={onRequestClose} key={key}>
+      {item && (
+        <Fragment>
+          <AnimatedModalBackdrop onRequestClose={onRequestClose} style={{ opacity: style.opacity }} />
+          <animated.div style={style}>{children}</animated.div>
+        </Fragment>
       )}
     </ModalBase>
-  );
+  ));
 };
 
 export const ModalDialog = ({ isOpen, children, onRequestClose, onDestroyed }: ModalPropsWithOnDestroyed) => {
   const transition = useModalTransition(isOpen, onDestroyed);
 
-  return (
-    <ModalDialogBase onRequestClose={onRequestClose}>
-      {transition.map(
-        ({ item, key, props: style }) =>
-          item && (
-            <Fragment key={key}>
-              <AnimatedModalBackdrop onRequestClose={onRequestClose} style={{ opacity: style.opacity }} />
-              <animated.div style={style}>{children}</animated.div>
-            </Fragment>
-          ),
+  return transition((style, item, _, key) => (
+    <ModalDialogBase onRequestClose={onRequestClose} key={key}>
+      {item && (
+        <Fragment>
+          <AnimatedModalBackdrop onRequestClose={onRequestClose} style={{ opacity: style.opacity }} />
+          <animated.div style={style}>{children}</animated.div>
+        </Fragment>
       )}
     </ModalDialogBase>
-  );
+  ));
 };

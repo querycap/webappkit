@@ -1,7 +1,109 @@
 # Change Log
 
+## 0.11.4
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap/contexts@0.3.4
+  - @querycap/reactutils@0.8.4
+  - @querycap/validators@0.3.4
+  - @reactorx/core@0.22.4
+
+## 0.11.3
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap/contexts@0.3.3
+  - @querycap/reactutils@0.8.3
+  - @querycap/validators@0.3.3
+  - @reactorx/core@0.22.3
+
+## 0.11.2
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @querycap/contexts@0.3.2
+  - @querycap/reactutils@0.8.2
+  - @querycap/validators@0.3.2
+  - @reactorx/core@0.22.2
+
+## 0.11.1
+
+### Patch Changes
+
+- first release by changesets
+- Updated dependencies [undefined]
+  - @querycap/contexts@0.3.1
+  - @querycap/reactutils@0.8.1
+  - @querycap/validators@0.3.1
+  - @reactorx/core@0.22.1
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.11.0](https://github.com/querycap/webappkit/compare/@querycap/form@0.10.1...@querycap/form@0.11.0) (2021-03-24)
+
+### Features
+
+- drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
+
+## [0.10.1](https://github.com/querycap/webappkit/compare/@querycap/form@0.10.0...@querycap/form@0.10.1) (2021-03-10)
+
+**Note:** Version bump only for package @querycap/form
+
+# [0.10.0](https://github.com/querycap/webappkit/compare/@querycap/form@0.9.6...@querycap/form@0.10.0) (2021-02-05)
+
+### Features
+
+- **form:** textarea ([1977b75](https://github.com/querycap/webappkit/commit/1977b752b3d7bb45c7f7276d5a3ab6712627e878))
+
+## [0.9.6](https://github.com/querycap/webappkit/compare/@querycap/form@0.9.5...@querycap/form@0.9.6) (2021-02-02)
+
+**Note:** Version bump only for package @querycap/form
+
+## [0.9.5](https://github.com/querycap/webappkit/compare/@querycap/form@0.9.4...@querycap/form@0.9.5) (2020-11-23)
+
+**Note:** Version bump only for package @querycap/form
+
+## [0.9.4](https://github.com/querycap/webappkit/compare/@querycap/form@0.9.3...@querycap/form@0.9.4) (2020-11-16)
+
+**Note:** Version bump only for package @querycap/form
+
+## [0.9.3](https://github.com/querycap/webappkit/compare/@querycap/form@0.9.2...@querycap/form@0.9.3) (2020-11-10)
+
+**Note:** Version bump only for package @querycap/form
+
+## [0.9.2](https://github.com/querycap/webappkit/compare/@querycap/form@0.9.1...@querycap/form@0.9.2) (2020-11-02)
+
+**Note:** Version bump only for package @querycap/form
+
+## [0.9.1](https://github.com/querycap/webappkit/compare/@querycap/form@0.9.0...@querycap/form@0.9.1) (2020-10-29)
+
+**Note:** Version bump only for package @querycap/form
+
+# [0.9.0](https://github.com/querycap/webappkit/compare/@querycap/form@0.8.6...@querycap/form@0.9.0) (2020-10-15)
+
+### Features
+
+- bump jsx-runtime ([453f52b](https://github.com/querycap/webappkit/commit/453f52b4a7b0e0f987de76da08c9bbb4d39802f8))
+
+## [0.8.6](https://github.com/querycap/webappkit/compare/@querycap/form@0.8.5...@querycap/form@0.8.6) (2020-10-14)
+
+**Note:** Version bump only for package @querycap/form
+
+## [0.8.5](https://github.com/querycap/webappkit/compare/@querycap/form@0.8.4...@querycap/form@0.8.5) (2020-10-14)
+
+**Note:** Version bump only for package @querycap/form
+
+## [0.8.4](https://github.com/querycap/webappkit/compare/@querycap/form@0.8.3...@querycap/form@0.8.4) (2020-10-12)
+
+**Note:** Version bump only for package @querycap/form
 
 ## [0.8.3](https://github.com/querycap/webappkit/compare/@querycap/form@0.8.2...@querycap/form@0.8.3) (2020-09-07)
 

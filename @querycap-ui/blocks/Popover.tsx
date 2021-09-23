@@ -1,7 +1,7 @@
 import { select, shadows, theme } from "@querycap-ui/core/macro";
 import { withAutoPlacement } from "@querycap/uikit";
 import { startsWith } from "lodash";
-import React from "react";
+
 import { Overlay, OverlayProps } from "./Overlay";
 
 export const Popover = withAutoPlacement(({ children, placement, ...otherProps }: OverlayProps) => {

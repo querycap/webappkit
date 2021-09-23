@@ -1,6 +1,5 @@
 import { select, defaultTheme, theme, roundedEm } from "@querycap-ui/core/macro";
 import { map } from "lodash";
-import React from "react";
 
 export const BorderRadius = () => {
   return (

@@ -1,10 +1,8 @@
 import { IState, stateFromEnvValue } from "@querycap-dev/devkit";
 import { join } from "path";
-import { Configuration, DefinePlugin, LoaderOptionsPlugin, optimize } from "webpack";
+import { Configuration, DefinePlugin, LoaderOptionsPlugin } from "webpack";
 // @ts-ignore
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
-
-const { ModuleConcatenationPlugin, AggressiveMergingPlugin } = optimize;
 
 export type TPreset = (c: Configuration, state: IState) => void;
 
@@ -19,8 +17,9 @@ export const withPresets = (...presets: TPreset[]): Configuration => {
     output: {
       path: join(state.cwd, `public/web-${state.name}`, `/__built__/`),
       publicPath: `/__built__/`,
-      chunkFilename: "[name].[contenthash].chunk.js",
-      filename: "[name].[contenthash].js",
+      chunkFilename: `[name]${state.flags.production ? ".[contenthash]" : ""}.chunk.js`,
+      filename: `[name]${state.flags.production ? ".[contenthash]" : ""}.js`,
+      pathinfo: state.flags.production,
     },
     mode: state.flags.production ? "production" : "development",
     performance: {
@@ -52,8 +51,6 @@ export const withPresets = (...presets: TPreset[]): Configuration => {
         minimize: true,
         debug: false,
       }),
-      new ModuleConcatenationPlugin(),
-      new AggressiveMergingPlugin({}),
     );
   }
 

@@ -1,7 +1,7 @@
 import { roundedEm, select, theme, transparentize } from "@querycap-ui/core/macro";
 import { useObservable } from "@reactorx/core";
 import { filter, flow, map, size } from "lodash";
-import React from "react";
+
 import { displayValue, FilterMeta, filterValueID, useSearchBox } from "../search-box";
 import { SearchInputText } from "./SearchInputText";
 import { SearchInputWild } from "./SearchInputWild";
@@ -26,37 +26,6 @@ const ClearBtn = () => {
       />
     </div>
   );
-};
-
-const FilterInput = () => {
-  const { focusedFilter$, filters$, focusFilter, putOrFocusFilter } = useSearchBox();
-
-  const focusedFilter = useObservable(focusedFilter$);
-
-  if (focusedFilter) {
-    const Input = focusedFilter.type! || SearchInputText;
-
-    return (
-      <div css={select().flex(1).display("flex").alignItems("stretch").with(select("& > *:last-child").flex(1))}>
-        <FilterLabel filterMeta={focusedFilter} />
-        <Input
-          {...focusedFilter}
-          usedValues={map(
-            filter(filters$.value, ({ key }) => focusedFilter.key === key),
-            ({ value }) => value,
-          )}
-          onCancel={() => {
-            focusFilter(null);
-          }}
-          onSubmit={(v) => {
-            putOrFocusFilter(v);
-          }}
-        />
-      </div>
-    );
-  }
-
-  return <SearchInputWild />;
 };
 
 const FilterLabel = ({
@@ -110,6 +79,37 @@ const FilterLabel = ({
       {value && <CloseBtn onClick={() => onRemoveClick && onRemoveClick(filterMeta.key, value)} />}
     </div>
   );
+};
+
+const FilterInput = () => {
+  const { focusedFilter$, filters$, focusFilter, putOrFocusFilter } = useSearchBox();
+
+  const focusedFilter = useObservable(focusedFilter$);
+
+  if (focusedFilter) {
+    const Input = focusedFilter.type! || SearchInputText;
+
+    return (
+      <div css={select().flex(1).display("flex").alignItems("stretch").with(select("& > *:last-child").flex(1))}>
+        <FilterLabel filterMeta={focusedFilter} />
+        <Input
+          {...focusedFilter}
+          usedValues={map(
+            filter(filters$.value, ({ key }) => focusedFilter.key === key),
+            ({ value }) => value,
+          )}
+          onCancel={() => {
+            focusFilter(null);
+          }}
+          onSubmit={(v) => {
+            putOrFocusFilter(v);
+          }}
+        />
+      </div>
+    );
+  }
+
+  return <SearchInputWild />;
 };
 
 const FilterLabelList = () => {

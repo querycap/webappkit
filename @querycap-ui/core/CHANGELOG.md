@@ -1,7 +1,145 @@
 # Change Log
 
+## 0.11.6
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-ui/core.macro@0.4.4
+  - @querycap-ui/css-aliases@0.3.4
+
+## 0.11.5
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-ui/core.macro@0.4.3
+  - @querycap-ui/css-aliases@0.3.3
+
+## 0.11.4
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @querycap-ui/core.macro@0.4.2
+  - @querycap-ui/css-aliases@0.3.2
+
+## 0.11.3
+
+### Patch Changes
+
+- first release by changesets
+- Updated dependencies [undefined]
+  - @querycap-ui/core.macro@0.4.1
+  - @querycap-ui/css-aliases@0.3.1
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [0.11.2](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.11.1...@querycap-ui/core@0.11.2) (2021-04-25)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+## [0.11.1](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.11.0...@querycap-ui/core@0.11.1) (2021-04-01)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+# [0.11.0](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.10.10...@querycap-ui/core@0.11.0) (2021-03-24)
+
+### Features
+
+- drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
+
+## [0.10.10](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.10.9...@querycap-ui/core@0.10.10) (2021-03-23)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+## [0.10.9](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.10.8...@querycap-ui/core@0.10.9) (2021-03-10)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+## [0.10.8](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.10.7...@querycap-ui/core@0.10.8) (2021-02-05)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+## [0.10.7](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.10.6...@querycap-ui/core@0.10.7) (2021-02-02)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+## [0.10.6](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.10.5...@querycap-ui/core@0.10.6) (2020-12-21)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+## [0.10.5](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.10.4...@querycap-ui/core@0.10.5) (2020-12-10)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+## [0.10.4](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.10.3...@querycap-ui/core@0.10.4) (2020-12-09)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+## [0.10.3](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.10.2...@querycap-ui/core@0.10.3) (2020-12-01)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+## [0.10.2](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.10.1...@querycap-ui/core@0.10.2) (2020-11-23)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+## [0.10.1](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.10.0...@querycap-ui/core@0.10.1) (2020-11-16)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+# [0.10.0](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.9.5...@querycap-ui/core@0.10.0) (2020-11-16)
+
+### Features
+
+- **@querycap-ui/\*:** upgrade to [@emotion](https://github.com/emotion) to 11 ([5653bb6](https://github.com/querycap/webappkit/commit/5653bb63579fd592382fa4dd2ee709a838f6e944))
+
+## [0.9.5](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.9.4...@querycap-ui/core@0.9.5) (2020-11-10)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+## [0.9.4](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.9.3...@querycap-ui/core@0.9.4) (2020-11-02)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+## [0.9.3](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.9.2...@querycap-ui/core@0.9.3) (2020-10-29)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+## [0.9.2](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.9.0...@querycap-ui/core@0.9.2) (2020-10-15)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+# [0.9.0](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.8.17...@querycap-ui/core@0.9.0) (2020-10-15)
+
+### Features
+
+- bump jsx-runtime ([453f52b](https://github.com/querycap/webappkit/commit/453f52b4a7b0e0f987de76da08c9bbb4d39802f8))
+
+## [0.8.17](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.8.16...@querycap-ui/core@0.8.17) (2020-10-14)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+## [0.8.16](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.8.15...@querycap-ui/core@0.8.16) (2020-10-14)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+## [0.8.15](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.8.14...@querycap-ui/core@0.8.15) (2020-10-12)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+## [0.8.14](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.8.13...@querycap-ui/core@0.8.14) (2020-10-12)
+
+**Note:** Version bump only for package @querycap-ui/core
+
+## [0.8.13](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.8.12...@querycap-ui/core@0.8.13) (2020-09-21)
+
+**Note:** Version bump only for package @querycap-ui/core
 
 ## [0.8.12](https://github.com/querycap/webappkit/compare/@querycap-ui/core@0.8.11...@querycap-ui/core@0.8.12) (2020-09-07)
 

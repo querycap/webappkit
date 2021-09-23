@@ -3,7 +3,7 @@ import yargs, { Argv } from "yargs";
 import { devkit } from "./devkit";
 
 export const cliFor = <T>(argv: Argv<T>, cwd = process.cwd()) => {
-  return () => {
+  return async () => {
     const kit = devkit(cwd);
 
     let y = argv
@@ -42,9 +42,15 @@ export const cliFor = <T>(argv: Argv<T>, cwd = process.cwd()) => {
     y = y.command("init", "initial project");
 
     try {
-      const commands = take(y.argv._, 3);
+      const argv = await y.argv;
+      const commands = take(argv._, 3);
 
-      kit.run(commands[0], commands[1] || process.env.APP || "", commands[2] || process.env.ENV || "", y.argv);
+      kit.run(
+        String(commands[0]),
+        String(commands[1]) || process.env.APP || "",
+        String(commands[2]) || process.env.ENV || "",
+        argv,
+      );
     } catch (e) {
       console.error(e);
       y.showHelp();

@@ -2,7 +2,6 @@ import { createMemoryHistory } from "history";
 import { Switch } from "../Switch";
 import { Route } from "../Route";
 import { Redirect } from "../Redirect";
-import React from "react";
 import { ReactorxRouter, routerActors } from "../ReactorxRouter";
 import { act, render } from "@testing-library/react";
 import { Store, StoreProvider } from "@reactorx/core";

@@ -45,12 +45,14 @@ export const formStore = createStore<FormOpt, FormState>({
   group: "form",
   storageKey: ({ group, form }) => `${group}:${form}`,
 })({
-  initial: (initials: any = {}) => () => ({
-    id: uuid(),
-    fields: {},
-    initials: initials,
-    values: cloneDeep(initials),
-  }),
+  initial:
+    (initials: any = {}) =>
+    () => ({
+      id: uuid(),
+      fields: {},
+      initials: initials,
+      values: cloneDeep(initials),
+    }),
   destroy: () => () => undefined,
   startSubmit: () =>
     mustReady((formState) => ({

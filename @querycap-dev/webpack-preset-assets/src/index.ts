@@ -2,7 +2,7 @@ import { IState } from "@querycap-dev/devkit";
 import { Configuration } from "webpack";
 
 export const withAssetsPreset = () => (c: Configuration, _2: IState) => {
-  c.module?.rules.push(
+  c.module?.rules!.push(
     {
       test: /\.css$/,
       use: [require.resolve("style-loader"), require.resolve("css-loader")],

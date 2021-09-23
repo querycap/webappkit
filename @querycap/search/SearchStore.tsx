@@ -32,14 +32,16 @@ export const searchStore = createStore<SearchOpt, SearchState>({
 })({
   initial: (arg: SearchState) => () => arg,
   destroy: () => () => undefined,
-  setPager: ({ offset, size }: { offset: number; size: number }) => (searchState) => ({
-    ...searchState,
-    pager: {
-      ...searchState.pager,
-      offset,
-      size,
-    },
-  }),
+  setPager:
+    ({ offset, size }: { offset: number; size: number }) =>
+    (searchState) => ({
+      ...searchState,
+      pager: {
+        ...searchState.pager,
+        offset,
+        size,
+      },
+    }),
   setFilters: (filters: Dictionary<any>) => (searchState) => ({
     ...searchState,
     filters: {
@@ -51,13 +53,15 @@ export const searchStore = createStore<SearchOpt, SearchState>({
       offset: 0,
     },
   }),
-  setData: (d: { data: any[]; total?: number }, { append }: { append?: boolean }) => (searchState) => ({
-    ...searchState,
-    pager: {
-      ...searchState.pager,
-      total: d.total,
-    },
-    data: append ? [...(searchState.data || []), ...d.data] : d.data,
-    searched: true,
-  }),
+  setData:
+    (d: { data: any[]; total?: number }, { append }: { append?: boolean }) =>
+    (searchState) => ({
+      ...searchState,
+      pager: {
+        ...searchState.pager,
+        total: d.total,
+      },
+      data: append ? [...(searchState.data || []), ...d.data] : d.data,
+      searched: true,
+    }),
 });

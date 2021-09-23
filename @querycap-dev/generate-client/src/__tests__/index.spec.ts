@@ -8,5 +8,5 @@ test.skip("generate-client", async () => {
     force: true,
   };
 
-  await generateClient("idp", "https://srv-octohelm---octohelm.hw-dev.rktl.xyz/octohelm", opt);
+  await generateClient("idp", "https://srv-idp---idp.hw-dev.rktl.xyz/idp", opt);
 });

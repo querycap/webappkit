@@ -1,6 +1,6 @@
-import { clientScanner, IOpenAPI } from "@morlay/ts-gen-client-from-openapi";
-import { Decl, Identifier, safeKey, toLowerCamelCase, Type, Value, writerOf } from "@morlay/ts-gen-core";
-import type { ISchemaBasic } from "@morlay/ts-gen-definitions-from-json-schema";
+import { clientScanner, IOpenAPI } from "@querycap-dev/ts-gen-client-from-openapi";
+import { Decl, Identifier, safeKey, toLowerCamelCase, Type, Value, writerOf } from "@querycap-dev/ts-gen-core";
+import type { ISchemaBasic } from "@querycap-dev/ts-gen-definitions-from-json-schema";
 import { dropRight, first, forEach, get, has, isObject, keys, last, map, omit, reduce, size, split } from "lodash";
 
 const toDisplayMethod = (name = "") => {
@@ -68,11 +68,9 @@ const toDisplayObjectField = (schema: ISchemaBasic, decl: Decl) => {
 const toDisplayEnum = (schema: ISchemaBasic, name: string) => {
   const enumDisplays: { [k: string]: string } = {};
 
-  if (isObject(schema) && has(schema, "x-enum-options")) {
-    const enumOptions = get(schema, "x-enum-options");
-
-    forEach(enumOptions, ({ value, label }) => {
-      enumDisplays[value] = label;
+  if (isObject(schema) && has(schema, "enum")) {
+    forEach(schema["enum"], (value, i) => {
+      enumDisplays[value] = get(schema, ["x-enum-options", i, "label"], get(schema, ["x-enum-labels", i], value));
     });
   }
 

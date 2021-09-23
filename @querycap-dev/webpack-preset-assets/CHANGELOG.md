@@ -1,7 +1,94 @@
 # Change Log
 
+## 0.8.5
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-dev/devkit@0.10.6
+
+## 0.8.4
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-dev/devkit@0.10.5
+
+## 0.8.3
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @querycap-dev/devkit@0.10.4
+
+## 0.8.2
+
+### Patch Changes
+
+- Updated dependencies [1714611]
+  - @querycap-dev/devkit@0.10.3
+
+## 0.8.1
+
+### Patch Changes
+
+- first release by changesets
+- Updated dependencies [undefined]
+  - @querycap-dev/devkit@0.10.2
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.8.0](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-assets@0.7.9...@querycap-dev/webpack-preset-assets@0.8.0) (2021-03-24)
+
+### Features
+
+- drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
+
+## [0.7.9](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-assets@0.7.8...@querycap-dev/webpack-preset-assets@0.7.9) (2021-03-23)
+
+**Note:** Version bump only for package @querycap-dev/webpack-preset-assets
+
+## [0.7.8](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-assets@0.7.7...@querycap-dev/webpack-preset-assets@0.7.8) (2021-03-10)
+
+**Note:** Version bump only for package @querycap-dev/webpack-preset-assets
+
+## [0.7.7](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-assets@0.7.6...@querycap-dev/webpack-preset-assets@0.7.7) (2020-11-10)
+
+**Note:** Version bump only for package @querycap-dev/webpack-preset-assets
+
+## [0.7.6](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-assets@0.7.5...@querycap-dev/webpack-preset-assets@0.7.6) (2020-10-14)
+
+**Note:** Version bump only for package @querycap-dev/webpack-preset-assets
+
+## [0.7.5](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-assets@0.7.4...@querycap-dev/webpack-preset-assets@0.7.5) (2020-10-14)
+
+**Note:** Version bump only for package @querycap-dev/webpack-preset-assets
+
+## [0.7.4](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-assets@0.7.3...@querycap-dev/webpack-preset-assets@0.7.4) (2020-10-14)
+
+**Note:** Version bump only for package @querycap-dev/webpack-preset-assets
+
+## [0.7.3](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-assets@0.7.2...@querycap-dev/webpack-preset-assets@0.7.3) (2020-10-12)
+
+**Note:** Version bump only for package @querycap-dev/webpack-preset-assets
+
+## [0.7.2](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-assets@0.7.1...@querycap-dev/webpack-preset-assets@0.7.2) (2020-09-28)
+
+**Note:** Version bump only for package @querycap-dev/webpack-preset-assets
+
+## [0.7.1](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-assets@0.7.0...@querycap-dev/webpack-preset-assets@0.7.1) (2020-09-17)
+
+**Note:** Version bump only for package @querycap-dev/webpack-preset-assets
+
+# [0.7.0](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-assets@0.6.14...@querycap-dev/webpack-preset-assets@0.7.0) (2020-09-17)
+
+### Features
+
+- **webpack\*:** upgrade v5 ([f1f7314](https://github.com/querycap/webappkit/commit/f1f731455891400904d64eb44ebf3a94d8f414cb))
 
 ## [0.6.14](https://github.com/querycap/webappkit/compare/@querycap-dev/webpack-preset-assets@0.6.13...@querycap-dev/webpack-preset-assets@0.6.14) (2020-09-10)
 

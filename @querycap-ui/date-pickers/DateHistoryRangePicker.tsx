@@ -16,7 +16,7 @@ import {
   parseISO,
 } from "date-fns";
 import { flow } from "lodash";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, HTMLAttributes } from "react";
 import {
   DataCells,
   DatePickerHeader,
@@ -38,7 +38,7 @@ export interface DateRangePickerProps {
   weekStartDay?: number;
 }
 
-const Cell = (props: React.HTMLAttributes<any>) => (
+const Cell = (props: HTMLAttributes<any>) => (
   <span
     css={{
       lineHeight: 1,
@@ -49,119 +49,6 @@ const Cell = (props: React.HTMLAttributes<any>) => (
     {...props}
   />
 );
-
-export const DateHistoryRangePicker = (props: DateRangePickerProps) => {
-  const [timeRange, setTimeRange] = useState(() => {
-    const [from, to] = props.value || ["", ""];
-
-    return [parseISOOrDefault(from, addMonths(now(), -1)), parseISOOrDefault(to, now())] as [Date | null, Date | null];
-  });
-  const [flag, setFlag] = useState(false);
-
-  const [daysInWeeksMin, monthValueMin, setMonthMin] = useMonthDays(
-    formatRFC3339(addMonths(now(), -1)),
-    props.weekStartDay,
-  );
-
-  const [daysInWeeksMax, monthValueMax, setMonthMax] = useMonthDays(formatRFC3339(now()), props.weekStartDay);
-
-  useEffect(() => {
-    if (timeRange[0] && timeRange[1] && flag) {
-      props.onValueChange([formatRFC3339(timeRange[0]), formatRFC3339(timeRange[1])]);
-    }
-  }, [timeRange[0], timeRange[1]]);
-
-  const ds = useTheme();
-
-  const handleNav = (deltaMonth: number) => {
-    setMonthMin((p) => addMonths(p, deltaMonth));
-    setMonthMax((p) => addMonths(p, deltaMonth));
-  };
-
-  const isDayInRange = (day: Date) =>
-    !!timeRange[0] &&
-    !!timeRange[1] &&
-    (isAfterDay(day, timeRange[0]) || isSameDay(day, timeRange[0])) &&
-    (isBeforeDay(day, timeRange[1]) || isSameDay(day, timeRange[1]));
-
-  const isDaySelected = (day: Date) =>
-    (!!timeRange[0] && isSameDay(day, timeRange[0])) || (!!timeRange[1] && isSameDay(day, timeRange[1]));
-
-  const isOutOfRange = (day: Date): boolean => {
-    return (!!props.max && isAfter(day, parseISO(props.max))) || (!!props.min && isBefore(parseISO(props.min), day));
-  };
-
-  return (
-    <div css={{ display: "flex", width: "100%" }}>
-      <div css={{ flex: 1, display: "flex" }}>
-        <div css={{ minWidth: "8em", color: ds.state.color }}>
-          <DatePickerHeader monthValue={monthValueMin} onNav={handleNav} navRightDisabled />
-          <DataCells daysInWeeks={daysInWeeksMin}>
-            {(day, idx) => {
-              const isCurrentMonth = isSameMonth(day, monthValueMin);
-
-              return (
-                <DayCell
-                  key={idx}
-                  day={day}
-                  disabled={isOutOfRange(day)}
-                  onSelected={(day) => {
-                    if (isBeforeMonth(day, monthValueMin)) {
-                      handleNav(-1);
-                    }
-                    setTimeRange((pr) => {
-                      return maySwitchRange(pr, day);
-                    });
-                    setFlag(true);
-                  }}
-                  isInRange={isCurrentMonth && isDayInRange(day)}
-                  isSelected={isCurrentMonth && isDaySelected(day)}
-                  isCurrentMonth={isCurrentMonth}
-                />
-              );
-            }}
-          </DataCells>
-        </div>
-        <div css={{ minWidth: "8em", color: ds.state.color }}>
-          <DatePickerHeader monthValue={monthValueMax} onNav={handleNav} navLeftDisabled />
-          <DataCells daysInWeeks={daysInWeeksMax}>
-            {(day, idx) => {
-              const isCurrentMonth = isSameMonth(day, monthValueMax);
-
-              return (
-                <DayCell
-                  key={idx}
-                  day={day}
-                  disabled={isOutOfRange(day)}
-                  onSelected={(day) => {
-                    if (isAfterMonth(day, monthValueMax)) {
-                      handleNav(1);
-                    }
-                    setTimeRange((pr) => {
-                      return maySwitchRange(pr, day);
-                    });
-                    setFlag(true);
-                  }}
-                  isCurrentMonth={isCurrentMonth}
-                  isInRange={isCurrentMonth && isDayInRange(day)}
-                  isSelected={isCurrentMonth && isDaySelected(day)}
-                />
-              );
-            }}
-          </DataCells>
-        </div>
-      </div>
-      {props.quick && (
-        <QuickSelect
-          onSelect={(from, to) => {
-            setTimeRange([from, to]);
-            setFlag(true);
-          }}
-        />
-      )}
-    </div>
-  );
-};
 
 const getToday = () => {
   const n = now();
@@ -290,3 +177,116 @@ function maySwitchRange(range: [Date | null, Date | null], nextSelected: Date): 
 
   return [nextSelected, null];
 }
+
+export const DateHistoryRangePicker = (props: DateRangePickerProps) => {
+  const [timeRange, setTimeRange] = useState(() => {
+    const [from, to] = props.value || ["", ""];
+
+    return [parseISOOrDefault(from, addMonths(now(), -1)), parseISOOrDefault(to, now())] as [Date | null, Date | null];
+  });
+  const [flag, setFlag] = useState(false);
+
+  const [daysInWeeksMin, monthValueMin, setMonthMin] = useMonthDays(
+    formatRFC3339(addMonths(now(), -1)),
+    props.weekStartDay,
+  );
+
+  const [daysInWeeksMax, monthValueMax, setMonthMax] = useMonthDays(formatRFC3339(now()), props.weekStartDay);
+
+  useEffect(() => {
+    if (timeRange[0] && timeRange[1] && flag) {
+      props.onValueChange([formatRFC3339(timeRange[0]), formatRFC3339(timeRange[1])]);
+    }
+  }, [timeRange[0], timeRange[1]]);
+
+  const ds = useTheme();
+
+  const handleNav = (deltaMonth: number) => {
+    setMonthMin((p) => addMonths(p, deltaMonth));
+    setMonthMax((p) => addMonths(p, deltaMonth));
+  };
+
+  const isDayInRange = (day: Date) =>
+    !!timeRange[0] &&
+    !!timeRange[1] &&
+    (isAfterDay(day, timeRange[0]) || isSameDay(day, timeRange[0])) &&
+    (isBeforeDay(day, timeRange[1]) || isSameDay(day, timeRange[1]));
+
+  const isDaySelected = (day: Date) =>
+    (!!timeRange[0] && isSameDay(day, timeRange[0])) || (!!timeRange[1] && isSameDay(day, timeRange[1]));
+
+  const isOutOfRange = (day: Date): boolean => {
+    return (!!props.max && isAfter(day, parseISO(props.max))) || (!!props.min && isBefore(parseISO(props.min), day));
+  };
+
+  return (
+    <div css={{ display: "flex", width: "100%" }}>
+      <div css={{ flex: 1, display: "flex" }}>
+        <div css={{ minWidth: "8em", color: ds.state.color }}>
+          <DatePickerHeader monthValue={monthValueMin} onNav={handleNav} navRightDisabled />
+          <DataCells daysInWeeks={daysInWeeksMin}>
+            {(day, idx) => {
+              const isCurrentMonth = isSameMonth(day, monthValueMin);
+
+              return (
+                <DayCell
+                  key={idx}
+                  day={day}
+                  disabled={isOutOfRange(day)}
+                  onSelected={(day) => {
+                    if (isBeforeMonth(day, monthValueMin)) {
+                      handleNav(-1);
+                    }
+                    setTimeRange((pr) => {
+                      return maySwitchRange(pr, day);
+                    });
+                    setFlag(true);
+                  }}
+                  isInRange={isCurrentMonth && isDayInRange(day)}
+                  isSelected={isCurrentMonth && isDaySelected(day)}
+                  isCurrentMonth={isCurrentMonth}
+                />
+              );
+            }}
+          </DataCells>
+        </div>
+        <div css={{ minWidth: "8em", color: ds.state.color }}>
+          <DatePickerHeader monthValue={monthValueMax} onNav={handleNav} navLeftDisabled />
+          <DataCells daysInWeeks={daysInWeeksMax}>
+            {(day, idx) => {
+              const isCurrentMonth = isSameMonth(day, monthValueMax);
+
+              return (
+                <DayCell
+                  key={idx}
+                  day={day}
+                  disabled={isOutOfRange(day)}
+                  onSelected={(day) => {
+                    if (isAfterMonth(day, monthValueMax)) {
+                      handleNav(1);
+                    }
+                    setTimeRange((pr) => {
+                      return maySwitchRange(pr, day);
+                    });
+                    setFlag(true);
+                  }}
+                  isCurrentMonth={isCurrentMonth}
+                  isInRange={isCurrentMonth && isDayInRange(day)}
+                  isSelected={isCurrentMonth && isDaySelected(day)}
+                />
+              );
+            }}
+          </DataCells>
+        </div>
+      </div>
+      {props.quick && (
+        <QuickSelect
+          onSelect={(from, to) => {
+            setTimeRange([from, to]);
+            setFlag(true);
+          }}
+        />
+      )}
+    </div>
+  );
+};

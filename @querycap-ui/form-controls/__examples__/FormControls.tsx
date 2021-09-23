@@ -2,7 +2,6 @@ import { select } from "@querycap-ui/core";
 import { Button, FormControl, Input, InputControlSuffix, InputIcon } from "@querycap-ui/form-controls";
 import { IconEyeOff, IconLock, IconUser } from "@querycap-ui/icons";
 import { headings } from "@querycap-ui/texts";
-import React from "react";
 
 export const Inputs = () => {
   return (

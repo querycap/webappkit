@@ -14,7 +14,7 @@ import {
   uniqBy,
   values,
 } from "lodash";
-import React, { createContext, FunctionComponent, ReactNode, useContext, useMemo } from "react";
+import { createContext, FunctionComponent, ReactNode, useContext, useMemo } from "react";
 import { BehaviorSubject, merge } from "rxjs";
 import { distinctUntilChanged, tap } from "rxjs/operators";
 
@@ -313,9 +313,9 @@ export const useNewSearchBox = (
   const ctx = useSearchBoxMgr(defaultFilters, opts);
 
   const SearchBox = useMemo(
-    () => ({ children }: { children: ReactNode }) => (
-      <SelectBoxContextProvider value={{ searchBox: ctx }}>{children}</SelectBoxContextProvider>
-    ),
+    () =>
+      ({ children }: { children: ReactNode }) =>
+        <SelectBoxContextProvider value={{ searchBox: ctx }}>{children}</SelectBoxContextProvider>,
     [],
   );
 

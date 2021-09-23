@@ -15,6 +15,48 @@ const keyFromActor = (actor: Actor<any, { key: string; scope: string }>) => temp
 const setData = TempActor.named<any, { key: string }>("set").effectOn(keyFromActor, (_, { arg }) => arg);
 const destroy = TempActor.named<undefined, { key: string }>("destroy").effectOn(keyFromActor, () => undefined);
 
+export function parseCacheControl(cacheControl: string): { [key: string]: string | number } {
+  // Taken from [Wreck](https://github.com/hapijs/wreck)
+  const re =
+    /* eslint-disable-next-line no-control-regex,no-useless-escape */
+    /(?:^|(?:\s*\,\s*))([^\x00-\x20\(\)<>@\,;\:\\"\/\[\]\?\=\{\}\x7F]+)(?:\=(?:([^\x00-\x20\(\)<>@\,;\:\\"\/\[\]\?\=\{\}\x7F]+)|(?:\"((?:[^"\\]|\\.)*)\")))?/g;
+
+  const header: { [key: string]: string | number } = {};
+  cacheControl.replace(re, (_, $1, $2, $3) => {
+    const value = $2 || $3;
+    header[$1] = value ? value.toLowerCase() : true;
+    return "";
+  });
+
+  if (header["max-age"]) {
+    const maxAge = parseInt(String(header["max-age"]), 10);
+    if (isNaN(maxAge)) {
+      delete header["max-age"];
+    } else {
+      header["max-age"] = maxAge;
+    }
+  }
+
+  return header;
+}
+
+export const maySetExpiry = (headers: { [key: string]: string }, cb: (expiresIn: number) => void) => {
+  let expiresIn: number | null = null;
+
+  if (headers["cache-control"]) {
+    const parsedCC = parseCacheControl(headers["cache-control"]);
+    if (parsedCC["max-age"]) {
+      expiresIn = Number(parsedCC["max-age"]) * 1000;
+    }
+  } else if (headers["expires"]) {
+    expiresIn = new Date(headers["expires"]).getTime() - Date.now();
+  }
+
+  if (expiresIn) {
+    cb(expiresIn);
+  }
+};
+
 export const useTempDataOfRequest = <TRequestActor extends RequestActor<any, any>>(
   requestActor: TRequestActor,
   arg: TRequestActor["arg"],
@@ -63,44 +105,3 @@ export const useTempDataOfRequest = <TRequestActor extends RequestActor<any, any
 
   return [data, request, requesting$] as const;
 };
-
-export function maySetExpiry(headers: { [key: string]: string }, cb: (expiresIn: number) => void) {
-  let expiresIn: number | null = null;
-
-  if (headers["cache-control"]) {
-    const parsedCC = parseCacheControl(headers["cache-control"]);
-    if (parsedCC["max-age"]) {
-      expiresIn = Number(parsedCC["max-age"]) * 1000;
-    }
-  } else if (headers["expires"]) {
-    expiresIn = new Date(headers["expires"]).getTime() - Date.now();
-  }
-
-  if (expiresIn) {
-    cb(expiresIn);
-  }
-}
-
-export function parseCacheControl(cacheControl: string): { [key: string]: string | number } {
-  // Taken from [Wreck](https://github.com/hapijs/wreck)
-  // eslint-disable-next-line no-control-regex,no-useless-escape
-  const re = /(?:^|(?:\s*\,\s*))([^\x00-\x20\(\)<>@\,;\:\\"\/\[\]\?\=\{\}\x7F]+)(?:\=(?:([^\x00-\x20\(\)<>@\,;\:\\"\/\[\]\?\=\{\}\x7F]+)|(?:\"((?:[^"\\]|\\.)*)\")))?/g;
-
-  const header: { [key: string]: string | number } = {};
-  cacheControl.replace(re, (_, $1, $2, $3) => {
-    const value = $2 || $3;
-    header[$1] = value ? value.toLowerCase() : true;
-    return "";
-  });
-
-  if (header["max-age"]) {
-    const maxAge = parseInt(String(header["max-age"]), 10);
-    if (isNaN(maxAge)) {
-      delete header["max-age"];
-    } else {
-      header["max-age"] = maxAge;
-    }
-  }
-
-  return header;
-}

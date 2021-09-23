@@ -1,5 +1,5 @@
 import { History } from "history";
-import React, { useEffect, useState } from "react";
+import  { ReactNode, useEffect, useState } from "react";
 import { IMatch } from "./utils";
 import { RouterProvider } from "./RouterContext";
 
@@ -14,7 +14,21 @@ const computeRootMatch = (pathname: string): IMatch<any> => {
 
 export interface IRouterProps {
   history: History;
-  children: React.ReactNode;
+  children: ReactNode;
+}
+
+
+function HistoryListener({ history, onLocationChange }: { history: History; onLocationChange: () => void }) {
+  useEffect(() => {
+    const unlisten = history.listen(() => {
+      onLocationChange();
+    });
+    return () => {
+      unlisten();
+    };
+  }, []);
+
+  return null;
 }
 
 export function Router({ history, children }: IRouterProps) {
@@ -31,17 +45,4 @@ export function Router({ history, children }: IRouterProps) {
       {children}
     </RouterProvider>
   );
-}
-
-function HistoryListener({ history, onLocationChange }: { history: History; onLocationChange: () => void }) {
-  useEffect(() => {
-    const unlisten = history.listen(() => {
-      onLocationChange();
-    });
-    return () => {
-      unlisten();
-    };
-  }, []);
-
-  return null;
 }

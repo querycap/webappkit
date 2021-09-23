@@ -1,19 +1,18 @@
 {
   "name": "@querycap-ui/date-pickers",
-  "version": "0.3.6",
+  "version": "0.7.4",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@emotion/core": "10.0.x",
-    "@emotion/css": "10.0.x",
+    "@emotion/react": "11.x",
     "@querycap-ui/core": "*",
     "date-fns": "*",
     "lodash": "4.x",
-    "react": "16.x"
+    "react": "17.x"
   },
   "dependencies": {
-    "@querycap-ui/containers": "^0.3.1",
-    "@querycap-ui/icons": "^0.3.4"
+    "@querycap-ui/containers": "workspace:^0.6.6",
+    "@querycap-ui/icons": "workspace:^0.6.4"
   },
   "publishConfig": {
     "access": "public"
@@ -22,12 +21,24 @@
     "env": "browser"
   },
   "scripts": {
-    "prepare": "node ../../node_modules/.bin/monobundle"
+    "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
   "files": [
+    "./dist/",
     "dist/"
   ],
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js"
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/querycap/webappkit.git"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./index.ts": "./index.ts"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs"
 }

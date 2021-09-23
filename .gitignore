@@ -1,5 +1,6 @@
 dist/
-config/*.yml
+
+cmd/
 
 public/
 coverage/
@@ -12,6 +13,7 @@ node_modules/
 
 !*.config.js
 !.eslintrc.js
+!pnpmfile.js
 
 *.log
 package-lock.json

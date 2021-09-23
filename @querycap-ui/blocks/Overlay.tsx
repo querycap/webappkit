@@ -1,6 +1,6 @@
 import { animated, useTransition } from "@querycap-ui/core/macro";
 import { IOverlayProps, Overlay as OverlayBase } from "@querycap/uikit";
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 export interface OverlayProps extends IOverlayProps {
   isOpen: boolean;
@@ -23,7 +23,7 @@ const transformOf = (placement = "bottom", v: number) => {
 const AnimatedOverlay = animated(OverlayBase);
 
 export const Overlay = ({ fullWidth, isOpen, triggerRef, onRequestClose, placement, children }: OverlayProps) => {
-  const transition = useTransition(isOpen, null, {
+  const transition = useTransition(isOpen, {
     from: { opacity: 0, transform: transformOf(placement as string, 5) },
     enter: { opacity: 1, transform: transformOf(placement as string, 1) },
     leave: { opacity: 0, transform: transformOf(placement as string, 3) },
@@ -32,8 +32,8 @@ export const Overlay = ({ fullWidth, isOpen, triggerRef, onRequestClose, placeme
 
   return (
     <>
-      {transition.map(
-        ({ item, key, props: style }) =>
+      {transition(
+        (style, item, _, key) =>
           item && (
             <AnimatedOverlay
               key={key}

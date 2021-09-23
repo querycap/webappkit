@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode, RefObject, useMemo, useRef } from "react";
+import { FunctionComponent, ReactNode, RefObject, useMemo, useRef } from "react";
 import { withPortal } from "./Portal";
 import { usePortalCloseOnEsc, usePortalCloseOnOutsideClick } from "./portal-controls";
 import { calcPosition, useRectOfElement } from "./position";
@@ -57,7 +57,7 @@ export const Overlay = withPortal(
   }: IOverlayProps & React.HTMLAttributes<any>) => {
     const contentRef = useRef<Element | null>(null);
 
-    const [triggerRect] = useRectOfElement(triggerRef, true, []);
+    const [triggerRect] = useRectOfElement(triggerRef, true, updateBy);
     const [contentRect] = useRectOfElement(contentRef, true, updateBy);
 
     const [left, top] = calcPosition(placement || triggerRect.placement, triggerRect, contentRect);

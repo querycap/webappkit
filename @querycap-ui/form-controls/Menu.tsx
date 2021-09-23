@@ -1,9 +1,16 @@
 import { preventDefault, roundedEm, select, shadows, theme, transparentize } from "@querycap-ui/core/macro";
 import { useValueRef } from "@querycap/reactutils";
-import { getBoundingClientRect, Overlay, position, useRectOfElement } from "@querycap/uikit";
+import {
+  getBoundingClientRect,
+  IOverlayProps,
+  Overlay,
+  position,
+  useRectOfElement,
+  withAutoPlacement,
+} from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
 import { Dictionary, filter, flow, indexOf, isUndefined, replace, toLower } from "lodash";
-import React, {
+import {
   Children,
   cloneElement,
   createContext,
@@ -139,19 +146,6 @@ export interface OptGroupProps<T = ReactElement<{ "data-opt": string }> | null> 
   children: T | Array<T>;
 }
 
-export const OptGroup = ({ children }: OptGroupProps) => {
-  return (
-    <>
-      {Children.map(children, (elem) => {
-        if (isValidElement<{ "data-opt": string; hidden?: boolean }>(elem) && !elem.props["hidden"]) {
-          return <Option value={elem.props["data-opt"]}>{elem}</Option>;
-        }
-        return elem;
-      })}
-    </>
-  );
-};
-
 export const Option = ({ value, children }: { value: string; children: ReactElement }) => {
   const ctx = useSelect();
 
@@ -170,6 +164,19 @@ export const Option = ({ value, children }: { value: string; children: ReactElem
           ctx.focus(value);
         },
         onClick: pipe(preventDefault, () => ctx.select()),
+      })}
+    </>
+  );
+};
+
+export const OptGroup = ({ children }: OptGroupProps) => {
+  return (
+    <>
+      {Children.map(children, (elem) => {
+        if (isValidElement<{ "data-opt": string; hidden?: boolean }>(elem) && !elem.props["hidden"]) {
+          return <Option value={elem.props["data-opt"]}>{elem}</Option>;
+        }
+        return elem;
       })}
     </>
   );
@@ -251,32 +258,20 @@ export function SelectMenu({ children, ...otherProps }: { children: ReactNode })
   );
 }
 
-export function SelectMenuPopover({
-  fullWidth,
-  onRequestClose,
-  updateBy,
-  placement,
-  children,
-  triggerRef,
-}: {
-  triggerRef: RefObject<HTMLElement>;
-  onRequestClose: () => void;
-  children: ReactNode;
-  fullWidth?: boolean;
-  placement?: string;
-  updateBy?: any[];
-}) {
-  return (
-    <Overlay
-      updateBy={updateBy}
-      triggerRef={triggerRef}
-      placement={placement as any}
-      fullWidth={fullWidth}
-      onRequestClose={onRequestClose}>
-      <SelectMenu>{children}</SelectMenu>
-    </Overlay>
-  );
-}
+export const SelectMenuPopover = withAutoPlacement(
+  ({ fullWidth, onRequestClose, updateBy, placement, children, triggerRef }: IOverlayProps) => {
+    return (
+      <Overlay
+        updateBy={updateBy}
+        triggerRef={triggerRef}
+        placement={placement as any}
+        fullWidth={fullWidth}
+        onRequestClose={onRequestClose}>
+        <SelectMenu>{children}</SelectMenu>
+      </Overlay>
+    );
+  },
+);
 
 export function MenuPopover({
   fullWidth,

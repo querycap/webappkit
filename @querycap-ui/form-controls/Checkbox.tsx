@@ -1,6 +1,6 @@
 import { select, theme, roundedEm } from "@querycap-ui/core/macro";
 import { IconCheckSquare, IconMinusSquare, IconSquare } from "@querycap-ui/icons";
-import React, { forwardRef, ReactNode } from "react";
+import { forwardRef, ReactNode } from "react";
 import { ControlledInput } from "./Input";
 
 export interface CheckboxProps extends ControlledInput<boolean> {

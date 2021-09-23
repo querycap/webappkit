@@ -24,6 +24,8 @@ const SomeComponent = () => {
   return (
     <>
       <div>123</div>
+      <span>{undefined}</span>  
+      <span v="v" key={"i"} {...v}  />
     </>
   )
 }`),
@@ -48,7 +50,7 @@ const SomeComponent = () => {
       compileToSnapshot(`
 const SomeComponent = () => {
   return (
-    <div css={(t) => ({ color: t.color.primary })}>123</div>
+    <div css={(t) => ({ color: t.color.primary })}><span key={"a"}>1</span><span key={"b"}>2</span></div>
   )
 }`),
     ).toMatchSnapshot();

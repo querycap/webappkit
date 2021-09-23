@@ -1,28 +1,30 @@
-import { Interpolation } from "@emotion/core";
 import { isEmpty, isFunction } from "lodash";
+import { Interpolation } from "@emotion/react";
 import { CSSProperties } from "react";
 import { aliases } from "@querycap-ui/css-aliases";
 import { Theme } from "./theme";
 
-export type InterpolationBuilder = (t: Theme) => Interpolation;
+export type InterpolationBuilder = (t: Theme) => Interpolation<any>;
 
-const applyStyles = (...interpolations: Array<InterpolationBuilder | Interpolation>) => (t: any): Interpolation => {
-  const styles: Interpolation[] = [];
+const applyStyles =
+  (...interpolations: Array<InterpolationBuilder | Interpolation<any>>) =>
+  (t: any): Interpolation<any> => {
+    const styles: Interpolation<any>[] = [];
 
-  for (const interpolation of interpolations) {
-    styles.push(isFunction(interpolation) ? interpolation(t) : interpolation);
-  }
+    for (const interpolation of interpolations) {
+      styles.push(isFunction(interpolation) ? interpolation(t) : interpolation);
+    }
 
-  if (styles.length === 0) {
-    return {};
-  }
+    if (styles.length === 0) {
+      return {};
+    }
 
-  if (styles.length === 1) {
-    return styles[0];
-  }
+    if (styles.length === 1) {
+      return styles[0];
+    }
 
-  return styles;
-};
+    return styles;
+  };
 
 export interface CSSPropertiesWithAliases extends CSSProperties {
   colorFill: CSSProperties["color"];
@@ -39,44 +41,46 @@ export interface CSSPropertiesWithAliases extends CSSProperties {
 }
 
 export interface BuilderProperties extends CSSPropertiesWithAliases {
-  with: Interpolation;
+  with: Interpolation<any>;
 }
 
 export type CSSBuilder = {
   [k in keyof BuilderProperties]-?: (arg: ((t: Theme) => BuilderProperties[k]) | BuilderProperties[k]) => CSSBuilder;
 } & {
-  (t: Theme): Interpolation;
+  <T extends {}>(t: T): Interpolation<T>;
 };
 
 type StyleOrBuilderSet = {
   [k: string]: any | ((t: any) => any);
 };
 
-const buildStyle = (styleOrBuilders: StyleOrBuilderSet) => (t: any): Interpolation => {
-  const styles = {} as any;
+const buildStyle =
+  (styleOrBuilders: StyleOrBuilderSet) =>
+  (t: any): Interpolation<any> => {
+    const styles = {} as any;
 
-  for (const prop in styleOrBuilders) {
-    const styleOrBuilder = styleOrBuilders[prop];
-    const value = isFunction(styleOrBuilder) ? styleOrBuilder(t) : styleOrBuilder;
+    for (const prop in styleOrBuilders) {
+      const styleOrBuilder = styleOrBuilders[prop];
+      const value = isFunction(styleOrBuilder) ? styleOrBuilder(t) : styleOrBuilder;
 
-    if ((aliases as any)[prop]) {
-      for (const p of (aliases as any)[prop]) {
-        styles[p] = value;
+      if ((aliases as any)[prop]) {
+        for (const p of (aliases as any)[prop]) {
+          styles[p] = value;
+        }
+      } else {
+        styles[prop] = value;
       }
-    } else {
-      styles[prop] = value;
     }
-  }
 
-  return styles;
-};
+    return styles;
+  };
 
 export const selectKeys = (...selectors: string[]) => selectors.join(", ");
 
 const createBuilder = (
   selectors: readonly string[],
   styleOrBuilders: StyleOrBuilderSet = {},
-  interpolationOrBuilders: ReadonlyArray<InterpolationBuilder | Interpolation> = [],
+  interpolationOrBuilders: ReadonlyArray<InterpolationBuilder | Interpolation<any>> = [],
 ) => {
   const applyTheme = (t: any) => {
     const n = selectors.length;
@@ -98,6 +102,10 @@ const createBuilder = (
 
   const builder = new Proxy(applyTheme, {
     get(_, prop) {
+      // @emotion 11 should hack return undefined for private prop
+      if (prop === "raw" || prop === "__emotion_styles") {
+        return undefined;
+      }
       if (prop === "with") {
         return (v: any): any => {
           return createBuilder(
@@ -122,4 +130,10 @@ const createBuilder = (
 
 export function select(...selectors: readonly string[]): CSSBuilder {
   return createBuilder(selectors, {}, []);
+}
+
+declare module "react" {
+  interface Attributes {
+    css?: Interpolation<any>;
+  }
 }

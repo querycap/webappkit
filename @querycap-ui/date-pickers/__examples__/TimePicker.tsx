@@ -1,5 +1,5 @@
 import { TimePicker } from "@querycap-ui/date-pickers";
-import React, { useState } from "react";
+import { useState } from "react";
 
 export const TimePickers = () => {
   const [value, updateValue] = useState("");

@@ -1,7 +1,109 @@
 # Change Log
 
+## 0.4.4
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-ui/css-aliases@0.3.4
+
+## 0.4.3
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-ui/css-aliases@0.3.3
+
+## 0.4.2
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @querycap-ui/css-aliases@0.3.2
+
+## 0.4.1
+
+### Patch Changes
+
+- first release by changesets
+- Updated dependencies [undefined]
+  - @querycap-ui/css-aliases@0.3.1
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [0.4.0](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.3.8...@querycap-ui/core.macro@0.4.0) (2021-03-24)
+
+### Features
+
+- drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
+
+## [0.3.8](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.3.7...@querycap-ui/core.macro@0.3.8) (2021-03-23)
+
+**Note:** Version bump only for package @querycap-ui/core.macro
+
+## [0.3.7](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.3.6...@querycap-ui/core.macro@0.3.7) (2021-03-10)
+
+**Note:** Version bump only for package @querycap-ui/core.macro
+
+## [0.3.6](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.3.5...@querycap-ui/core.macro@0.3.6) (2021-02-05)
+
+**Note:** Version bump only for package @querycap-ui/core.macro
+
+## [0.3.5](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.3.4...@querycap-ui/core.macro@0.3.5) (2021-02-02)
+
+**Note:** Version bump only for package @querycap-ui/core.macro
+
+## [0.3.4](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.3.3...@querycap-ui/core.macro@0.3.4) (2020-12-21)
+
+**Note:** Version bump only for package @querycap-ui/core.macro
+
+## [0.3.3](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.3.2...@querycap-ui/core.macro@0.3.3) (2020-12-10)
+
+**Note:** Version bump only for package @querycap-ui/core.macro
+
+## [0.3.2](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.3.1...@querycap-ui/core.macro@0.3.2) (2020-12-01)
+
+**Note:** Version bump only for package @querycap-ui/core.macro
+
+## [0.3.1](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.3.0...@querycap-ui/core.macro@0.3.1) (2020-11-23)
+
+**Note:** Version bump only for package @querycap-ui/core.macro
+
+# [0.3.0](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.2.2...@querycap-ui/core.macro@0.3.0) (2020-11-16)
+
+### Features
+
+- **@querycap-ui/\*:** upgrade to [@emotion](https://github.com/emotion) to 11 ([5653bb6](https://github.com/querycap/webappkit/commit/5653bb63579fd592382fa4dd2ee709a838f6e944))
+
+## [0.2.2](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.2.1...@querycap-ui/core.macro@0.2.2) (2020-11-10)
+
+**Note:** Version bump only for package @querycap-ui/core.macro
+
+## [0.2.1](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.2.0...@querycap-ui/core.macro@0.2.1) (2020-10-29)
+
+**Note:** Version bump only for package @querycap-ui/core.macro
+
+# [0.2.0](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.1.12...@querycap-ui/core.macro@0.2.0) (2020-10-15)
+
+### Features
+
+- bump jsx-runtime ([453f52b](https://github.com/querycap/webappkit/commit/453f52b4a7b0e0f987de76da08c9bbb4d39802f8))
+
+## [0.1.12](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.1.11...@querycap-ui/core.macro@0.1.12) (2020-10-14)
+
+**Note:** Version bump only for package @querycap-ui/core.macro
+
+## [0.1.11](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.1.10...@querycap-ui/core.macro@0.1.11) (2020-10-14)
+
+**Note:** Version bump only for package @querycap-ui/core.macro
+
+## [0.1.10](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.1.9...@querycap-ui/core.macro@0.1.10) (2020-10-12)
+
+**Note:** Version bump only for package @querycap-ui/core.macro
 
 ## [0.1.9](https://github.com/querycap/webappkit/compare/@querycap-ui/core.macro@0.1.8...@querycap-ui/core.macro@0.1.9) (2020-09-07)
 

@@ -1,16 +1,10 @@
 import { select, theme, roundedEm } from "@querycap-ui/core/macro";
-import { Button, Input, InputIcon, InputPrefix, InputSelect, InputSuffix } from "@querycap-ui/form-controls";
+import { Button, Input, InputIcon, InputPrefix, InputSuffix } from "@querycap-ui/form-controls";
 import { IconAirplay, IconEyeOff } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";
 import { headings } from "@querycap-ui/texts";
-import React, { useState } from "react";
-import { times } from "lodash";
 
 export const Inputs = () => {
-  const [value, setValue] = useState("");
-
-  const enums = times(50);
-
   return (
     <>
       <h2 css={headings.h2}> 输入状态 </h2>
@@ -71,15 +65,6 @@ export const Inputs = () => {
             提交
           </Button>
         </Stack>
-      </Stack>
-
-      <h2 css={headings.h2}> Input Select </h2>
-      <Stack spacing={roundedEm(0.6)} css={select().fontSize(theme.fontSizes.xs)}>
-        <div css={select().position("relative")}>
-          <Input>
-            <InputSelect allowClear enum={enums} value={value} onValueChange={setValue} name={"select"} />
-          </Input>
-        </div>
       </Stack>
     </>
   );

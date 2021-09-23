@@ -1,27 +1,38 @@
 {
   "name": "@querycap-dev/webpack-preset",
-  "version": "0.6.19",
+  "version": "0.8.5",
   "files": [
+    "./dist/",
     "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@morlay/webpack-browser-sync": "*",
-    "@querycap-dev/devkit": "^0.4.11",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "@querycap-dev/devkit": "*",
+    "webpack": "*",
+    "webpack-cli": "^4.7.2"
   },
   "dependencies": {
-    "webpack-bundle-analyzer": "^3.8.0"
+    "webpack-bundle-analyzer": "^4.4.2"
   },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "prepare": "node ../../node_modules/.bin/monobundle"
+    "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js"
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/querycap/webappkit.git"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./index.ts": "./index.ts"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs"
 }

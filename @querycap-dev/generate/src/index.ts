@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import { existsSync, mkdirSync, writeFileSync } from "fs";
+import { mkdirSync, existsSync, writeFileSync } from "fs";
 import * as path from "path";
 // @ts-ignore
 import * as prettier from "prettier";
@@ -33,7 +33,7 @@ export const generate = (
   const dir = path.dirname(finalFilepath);
 
   if (!existsSync(dir)) {
-    mkdirSync(path.dirname(finalFilepath));
+    mkdirSync(path.dirname(finalFilepath), { recursive: true });
   }
 
   writeFileSync(finalFilepath, content);

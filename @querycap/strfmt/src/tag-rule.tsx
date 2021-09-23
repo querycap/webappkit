@@ -1,5 +1,4 @@
 import { drop } from "lodash";
-import React from "react";
 
 export interface TagNode {
   valid: () => boolean;

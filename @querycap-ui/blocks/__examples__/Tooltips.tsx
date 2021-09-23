@@ -1,7 +1,6 @@
 import { TooltipTrigger } from "@querycap-ui/blocks";
 import { select, roundedEm } from "@querycap-ui/core/macro";
 import { Stack } from "@querycap-ui/layouts";
-import React from "react";
 
 const TooltipDemo = ({ placement }: { placement: string }) => {
   return (

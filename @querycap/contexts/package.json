@@ -1,18 +1,19 @@
 {
   "name": "@querycap/contexts",
-  "version": "0.2.2",
+  "version": "0.3.4",
   "files": [
+    "./dist/",
     "dist/"
   ],
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
     "@querycap/reactutils": "*",
-    "@reactorx/core": "0.x",
-    "@reactorx/router": "0.x",
+    "@reactorx/core": "0.22.4",
+    "@reactorx/router": "0.23.4",
     "date-fns": "2.x",
     "lodash": "4.x",
-    "react": "16.x",
-    "rxjs": "6.x"
+    "react": "17.x",
+    "rxjs": "7.x"
   },
   "license": "MIT",
   "publishConfig": {
@@ -22,9 +23,20 @@
     "env": "browser"
   },
   "scripts": {
-    "prepare": "node ../../node_modules/.bin/monobundle"
+    "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js"
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/querycap/webappkit.git"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./index.ts": "./index.ts"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs"
 }

@@ -3,7 +3,7 @@ const run = () =>
     bootstrap(document.querySelector("#root") as Element, true);
   });
 
-if ("serviceWorker" in navigator) {
+if (process.env.PWA_ENABLED && "serviceWorker" in navigator) {
   void navigator.serviceWorker.register("/sw.js").then(() => run());
 } else {
   void run();

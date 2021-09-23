@@ -1,5 +1,4 @@
 import { Tab, Tabs } from "@querycap-ui/blocks";
-import React from "react";
 
 export const TabDemo = () => {
   return (

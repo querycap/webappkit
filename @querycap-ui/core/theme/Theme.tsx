@@ -1,16 +1,18 @@
-import { ThemeContext } from "@emotion/core";
+import { ThemeContext } from "@emotion/react";
 import { flow, forEach, isFunction, keys, mapValues } from "lodash";
 import { rgba, transparentize } from "polished";
-import React, { useContext, useMemo } from "react";
+import { useContext, useMemo } from "react";
 import type { FunctionComponent, ReactNode } from "react";
 import { colors } from "./colors";
 import { safeTextColor, simpleShadow, tintOrShade } from "./helpers";
 
 export type ValueOrThemeGetter<T> = T | ((t: Theme) => T);
 
-export const fromTheme = <T extends any>(valueOrGetter: ValueOrThemeGetter<T>) => (t: Theme) => {
-  return isFunction(valueOrGetter) ? valueOrGetter(t) : valueOrGetter;
-};
+export const fromTheme =
+  <T extends any>(valueOrGetter: ValueOrThemeGetter<T>) =>
+  (t: Theme) => {
+    return isFunction(valueOrGetter) ? valueOrGetter(t) : valueOrGetter;
+  };
 
 const fontStack = (...fonts: string[]) => fonts.map((font) => (font.includes(" ") ? `"${font}"` : font)).join(", ");
 
@@ -118,7 +120,7 @@ export const shadows = {
 
 export const roundedEm = (em: number) => (t: Theme) => Math.round(em * t.state.fontSize);
 
-export const ThemeProvider = (props: { theme?: Theme; children?: React.ReactNode }) => (
+export const ThemeProvider = (props: { theme?: Theme; children?: ReactNode }) => (
   <ThemeContext.Provider value={props.theme || defaultTheme}>{props.children}</ThemeContext.Provider>
 );
 
@@ -168,18 +170,17 @@ export const ThemeState = ({
   return <ThemeProvider theme={next}>{children}</ThemeProvider>;
 };
 
-export const withThemeState = (
-  state: {
-    [V in keyof Theme["state"]]?: Theme["state"][V] | ((t: Theme) => Theme["state"][V]);
-  },
-) => {
-  return <T extends {}>(Comp: FunctionComponent<T>) => (props: T) => {
-    return (
-      <ThemeState {...state}>
-        <Comp {...props} />
-      </ThemeState>
-    );
-  };
+export const withThemeState = (state: {
+  [V in keyof Theme["state"]]?: Theme["state"][V] | ((t: Theme) => Theme["state"][V]);
+}) => {
+  return <T extends {}>(Comp: FunctionComponent<T>) =>
+    (props: T) => {
+      return (
+        <ThemeState {...state}>
+          <Comp {...props} />
+        </ThemeState>
+      );
+    };
 };
 
 export const withBackground = (backgroundColor: ValueOrThemeGetter<string>) =>

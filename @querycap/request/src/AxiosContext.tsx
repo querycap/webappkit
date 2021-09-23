@@ -5,11 +5,12 @@ import {
   paramsSerializer,
   setDefaultContentType,
   transformRequest,
+  transformResponse,
   TRequestInterceptor,
 } from "@reactorx/request";
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 import { Dictionary, forEach } from "lodash";
-import React, { createContext, ReactNode, useContext, useMemo } from "react";
+import { createContext, ReactNode, useContext, useMemo } from "react";
 import { RequestActor } from "./RequestActor";
 import { urlComplete } from "./utils";
 
@@ -36,6 +37,7 @@ export const AxiosProvider = ({
     const c = axios.create({
       ...opts,
       paramsSerializer,
+      transformResponse,
       transformRequest,
     });
 

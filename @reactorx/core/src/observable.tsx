@@ -1,6 +1,6 @@
 import { merge, Observable } from "rxjs";
 import { distinctUntilChanged, map } from "rxjs/operators";
-import React, { createElement, useEffect, useLayoutEffect, useMemo, useState } from "react";
+import  { ReactNode, useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { shallowEqual } from "./utils";
 import { useStore } from "./ctx";
 
@@ -84,7 +84,7 @@ export function useObservable<T>(ob$: Observable<T>, defaultValue?: T): T {
 
 export interface IObserverProps<TState> {
   state$: Observable<TState>;
-  children: (state: TState) => React.ReactNode;
+  children: (state: TState) => ReactNode;
 }
 
 function Observer(props: IObserverProps<any>) {
@@ -93,11 +93,12 @@ function Observer(props: IObserverProps<any>) {
   return <>{children(state)}</>;
 }
 
-export function renderOn<T>(ob$: Observable<T>, render: (state: T) => React.ReactNode) {
-  return createElement(Observer, {
-    state$: ob$,
-    children: render,
-  });
+export function renderOn<T>(ob$: Observable<T>, render: (state: T) => ReactNode) {
+  return (
+    <Observer state$={ob$}>
+      {render}
+    </Observer>
+  )
 }
 
 export function useConn<T, TOutput = T>(

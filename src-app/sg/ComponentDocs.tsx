@@ -2,9 +2,9 @@ import {
   colors,
   cover,
   rgba,
+  roundedEm,
   select,
   shadows,
-  roundedEm,
   theme,
   ThemeState,
   withBackground,
@@ -13,7 +13,7 @@ import { Switch } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 import { IRoute, NavLink, parseSearchString, Redirect, useRouter } from "@reactorx/router";
 import { filter, groupBy, keys, last, map, noop } from "lodash";
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { CSSReset } from "src-app/sg/Reset";
 import { CodeBlock } from "./CodeBlock";
 
@@ -39,21 +39,12 @@ const ExampleBlock = ({ name, module, group, source, examples }: IExample) => {
         .paddingY(roundedEm(1.5))
         .paddingX(roundedEm(1.2))
         .with(select("& + &").borderTopWidth(1).borderTopStyle("solid").borderColor(theme.state.borderColor))}>
-      <div
-        css={select()
-          .position("absolute")
-          .top(0)
-          .right(0)
-          .paddingX(roundedEm(1.2))
-          .paddingY(roundedEm(0.6))
-          .fontSize(theme.fontSizes.s)
-          .opacity(0.3)}>
+      <div css={select().paddingX(roundedEm(1.2)).paddingY(roundedEm(0.6)).fontSize(theme.fontSizes.s).opacity(0.3)}>
         {group}/{module}/{name}
       </div>
-      <Stack inline spacing={roundedEm(0.6)}>
+      <Stack spacing={roundedEm(0.6)}>
         <div
           css={select()
-            .flex(1)
             .borderWidth(1)
             .borderStyle("solid")
             .borderRadius(theme.radii.normal)
@@ -65,7 +56,7 @@ const ExampleBlock = ({ name, module, group, source, examples }: IExample) => {
           ))}
         </div>
         {!!source && (
-          <div css={select().borderBottomRadius(theme.radii.normal).fontSize("0.6em").width("30%")}>
+          <div css={select().borderBottomRadius(theme.radii.normal).fontSize("0.6em")}>
             <CodeBlock>{source}</CodeBlock>
           </div>
         )}
@@ -153,7 +144,7 @@ const List = ({ filterBy }: { filterBy: { group?: string; module?: string; name?
   return (
     <>
       {map(matched, (ex) => {
-        return <ExampleBlock {...ex} key={`${ex.group}:${ex.module}:${ex.name}`} />;
+        return <ExampleBlock key={`${ex.group}:${ex.module}:${ex.name}`} {...ex} />;
       })}
     </>
   );
@@ -185,7 +176,9 @@ const Nav = withBackground(colors.gray9)(({ groups }: { groups: string[] }) => {
       ))}
 
       <NavLink key={"toggle"} to={dark ? `${location.pathname}` : `${location.pathname}?dark=1`}>
-        <Switch value={!!dark} onValueChange={noop} />
+        <ThemeState backgroundColor={colors.white}>
+          <Switch value={!!dark} onValueChange={noop} />
+        </ThemeState>
       </NavLink>
     </Stack>
   );
@@ -225,8 +218,8 @@ export const ComponentDocs = (props: IRoute<{ group?: string; module?: string; n
       borderColor={dark ? rgba(colors.gray2, 0.15) : theme.state.borderColor}
       color={dark ? colors.gray2 : theme.state.color}
       backgroundColor={dark ? colors.gray8 : theme.state.backgroundColor}>
-      <ComponentDocsMain {...props} />
       <CSSReset />
+      <ComponentDocsMain {...props} />
     </ThemeState>
   );
 };

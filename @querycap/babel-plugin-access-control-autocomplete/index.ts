@@ -19,7 +19,7 @@ const createImporter = (path: NodePath<any>, source: string) => {
   const exports: { [k: string]: Identifier } = {};
   const locals: { [k: string]: Identifier } = {};
 
-  const program = path.isProgram() ? path : path.findParent((p) => p.isProgram());
+  const program = path.isProgram() ? path : path.findParent((p) => p.isProgram())!;
 
   const collect = (exportName: string, local: Identifier) => {
     exports[exportName] = local;
@@ -40,7 +40,7 @@ const createImporter = (path: NodePath<any>, source: string) => {
         if (importDeclaration) {
           const importSpecifier = importDeclaration
             .get("specifiers")
-            .find((n) => n.isImportSpecifier() && n.node.imported.name === method);
+            .find((n) => n.isImportSpecifier() && isIdentifier(n.node.imported) && n.node.imported.name === method);
 
           if (importSpecifier && importSpecifier.isImportSpecifier()) {
             collect(method, importSpecifier.node.local);
@@ -68,7 +68,7 @@ const isCreateRequestMethod = (id = "") => /create(\w+)?Request$/.test(id);
 
 const isNeedToMarkedAccessControlExpression = (
   importer: ReturnType<typeof createImporter>,
-  e: Expression | null,
+  e: Expression | undefined | null,
 ): boolean => {
   if (isArrowFunctionExpression(e)) {
     return true;

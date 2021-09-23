@@ -1,7 +1,191 @@
 # Change Log
 
+## 0.14.8
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-ui/core@0.11.6
+  - @querycap-ui/icons@0.6.4
+  - @querycap-ui/layouts@0.3.6
+  - @querycap/form@0.11.4
+  - @querycap/reactutils@0.8.4
+  - @querycap/uikit@0.5.4
+  - @reactorx/core@0.22.4
+
+## 0.14.7
+
+### Patch Changes
+
+- release fix
+- Updated dependencies [undefined]
+  - @querycap-ui/core@0.11.5
+  - @querycap-ui/icons@0.6.3
+  - @querycap-ui/layouts@0.3.5
+  - @querycap/form@0.11.3
+  - @querycap/reactutils@0.8.3
+  - @querycap/uikit@0.5.3
+  - @reactorx/core@0.22.3
+
+## 0.14.6
+
+### Patch Changes
+
+- 36cbb36: deps updates
+- Updated dependencies [36cbb36]
+  - @querycap-ui/core@0.11.4
+  - @querycap-ui/icons@0.6.2
+  - @querycap-ui/layouts@0.3.4
+  - @querycap/form@0.11.2
+  - @querycap/reactutils@0.8.2
+  - @querycap/uikit@0.5.2
+  - @reactorx/core@0.22.2
+
+## 0.14.5
+
+### Patch Changes
+
+- b990ac9: boolean value fix
+
+## 0.14.4
+
+### Patch Changes
+
+- 32d13b9: styling fix
+
+## 0.14.3
+
+### Patch Changes
+
+- first release by changesets
+- Updated dependencies [undefined]
+  - @querycap-ui/core@0.11.3
+  - @querycap-ui/icons@0.6.1
+  - @querycap-ui/layouts@0.3.3
+  - @querycap/form@0.11.1
+  - @querycap/reactutils@0.8.1
+  - @querycap/uikit@0.5.1
+  - @reactorx/core@0.22.1
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [0.14.2](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.14.1...@querycap-ui/form-controls@0.14.2) (2021-04-25)
+
+### Bug Fixes
+
+- **form-control:** inputSelect auto placement ([0693432](https://github.com/querycap/webappkit/commit/0693432de1f8a88f18dddb5fd089fc884655ed90))
+
+## [0.14.1](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.14.0...@querycap-ui/form-controls@0.14.1) (2021-04-01)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+# [0.14.0](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.13.0...@querycap-ui/form-controls@0.14.0) (2021-03-24)
+
+### Features
+
+- drop yarn and use pnpm ([f7e7394](https://github.com/querycap/webappkit/commit/f7e7394e1531ffb96ecb3e393e8131451f3e1d9f))
+
+# [0.13.0](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.12.2...@querycap-ui/form-controls@0.13.0) (2021-03-24)
+
+### Features
+
+- **form-control:** combineLatest instead merge ([c2fa605](https://github.com/querycap/webappkit/commit/c2fa605b626ce0bef6a44842c76404155783f57a))
+
+## [0.12.2](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.12.1...@querycap-ui/form-controls@0.12.2) (2021-03-23)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+## [0.12.1](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.12.0...@querycap-ui/form-controls@0.12.1) (2021-03-10)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+# [0.12.0](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.11.0...@querycap-ui/form-controls@0.12.0) (2021-02-05)
+
+### Features
+
+- **form:** textarea ([1977b75](https://github.com/querycap/webappkit/commit/1977b752b3d7bb45c7f7276d5a3ab6712627e878))
+
+# [0.11.0](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.10.11...@querycap-ui/form-controls@0.11.0) (2021-02-02)
+
+### Features
+
+- **ui:** table、loading、empty、radio、tag ([a71c686](https://github.com/querycap/webappkit/commit/a71c686ec3d309aaa5e565b362037165386a934a))
+
+## [0.10.11](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.10.10...@querycap-ui/form-controls@0.10.11) (2020-12-21)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+## [0.10.10](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.10.9...@querycap-ui/form-controls@0.10.10) (2020-12-10)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+## [0.10.9](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.10.8...@querycap-ui/form-controls@0.10.9) (2020-12-09)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+## [0.10.8](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.10.7...@querycap-ui/form-controls@0.10.8) (2020-12-01)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+## [0.10.7](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.10.6...@querycap-ui/form-controls@0.10.7) (2020-11-23)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+## [0.10.6](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.10.5...@querycap-ui/form-controls@0.10.6) (2020-11-16)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+## [0.10.5](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.10.4...@querycap-ui/form-controls@0.10.5) (2020-11-16)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+## [0.10.4](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.10.3...@querycap-ui/form-controls@0.10.4) (2020-11-10)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+## [0.10.3](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.10.2...@querycap-ui/form-controls@0.10.3) (2020-11-02)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+## [0.10.2](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.10.1...@querycap-ui/form-controls@0.10.2) (2020-10-29)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+## [0.10.1](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.10.0...@querycap-ui/form-controls@0.10.1) (2020-10-15)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+# [0.10.0](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.9.11...@querycap-ui/form-controls@0.10.0) (2020-10-15)
+
+### Features
+
+- bump jsx-runtime ([453f52b](https://github.com/querycap/webappkit/commit/453f52b4a7b0e0f987de76da08c9bbb4d39802f8))
+
+## [0.9.11](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.9.10...@querycap-ui/form-controls@0.9.11) (2020-10-14)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+## [0.9.10](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.9.9...@querycap-ui/form-controls@0.9.10) (2020-10-14)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+## [0.9.9](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.9.8...@querycap-ui/form-controls@0.9.9) (2020-10-12)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+## [0.9.8](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.9.7...@querycap-ui/form-controls@0.9.8) (2020-10-12)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+## [0.9.7](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.9.6...@querycap-ui/form-controls@0.9.7) (2020-09-21)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
+
+## [0.9.6](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.9.5...@querycap-ui/form-controls@0.9.6) (2020-09-17)
+
+**Note:** Version bump only for package @querycap-ui/form-controls
 
 ## [0.9.5](https://github.com/querycap/webappkit/compare/@querycap-ui/form-controls@0.9.4...@querycap-ui/form-controls@0.9.5) (2020-09-07)
 

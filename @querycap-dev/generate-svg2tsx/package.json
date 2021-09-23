@@ -1,7 +1,8 @@
 {
   "name": "@querycap-dev/generate-svg2tsx",
-  "version": "0.3.8",
+  "version": "0.5.4",
   "files": [
+    "./dist/",
     "dist/"
   ],
   "dependencies": {
@@ -16,9 +17,20 @@
     "lodash": "*"
   },
   "scripts": {
-    "prepare": "node ../../node_modules/.bin/monobundle"
+    "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js"
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/querycap/webappkit.git"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./index.ts": "./index.ts"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs"
 }

@@ -2,7 +2,6 @@ import { ILinkProps, Link } from "./Link";
 import { IMatch } from "./utils";
 import { Route } from "./Route";
 import { Location } from "history";
-import * as React from "react";
 
 export interface INavLinkProps extends ILinkProps {
   isActive?: (match: IMatch<any>, location: Location) => boolean;

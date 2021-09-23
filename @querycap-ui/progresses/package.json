@@ -1,13 +1,12 @@
 {
   "name": "@querycap-ui/progresses",
-  "version": "0.4.1",
+  "version": "0.6.4",
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@emotion/core": "10.x",
-    "@querycap-ui/core": "^0.x",
+    "@querycap-ui/core": "^0.11.6",
     "lodash": "4.x",
-    "react": "16.x"
+    "react": "17.x"
   },
   "publishConfig": {
     "access": "public"
@@ -16,12 +15,24 @@
     "env": "browser"
   },
   "scripts": {
-    "prepare": "node ../../node_modules/.bin/monobundle"
+    "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
   "files": [
+    "./dist/",
     "dist/"
   ],
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js"
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/querycap/webappkit.git"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./index.ts": "./index.ts"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs"
 }

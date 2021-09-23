@@ -1,4 +1,3 @@
-import React from "react";
 import { createIcon } from "../Graph";
 
 export const IconActivity = createIcon(
