@@ -1,3 +1,3 @@
-APP_CONFIG: >-
-  APPS=${{ keys.demo.demo.apps }},SRV_A=${{ endpoints.api.test.endpoint
-  }},SRV_TEST=${{ endpoints.api.test.endpoint }}
+APP_CONFIG__APPS: ${{ keys.demo.demo.apps }}
+APP_CONFIG__SRV_A: ${{ endpoints.api.test.endpoint }}
+APP_CONFIG__SRV_TEST: ${{ endpoints.api.test.endpoint }}

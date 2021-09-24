@@ -1,8 +1,8 @@
 import { generate } from "@querycap-dev/generate";
 import { dump } from "js-yaml";
-import { isUndefined, omitBy } from "lodash";
+import { isUndefined, map, omitBy } from "lodash";
 import path, { join } from "path";
-import { stringify } from "querystring";
+import { withPrefix } from "@querycap/config";
 import { IState } from "./state";
 import * as fs from "fs";
 
@@ -24,23 +24,12 @@ export const writeConfig = (cwd: string, state: IState) => {
     dump(
       omitEmpty({
         ...baseConfig,
-        APP_CONFIG: stringify(state.meta.config || {}, ",", "=", {
-          encodeURIComponent: (v) => v,
-        }),
+        ...withPrefix(state.meta.config || {}),
       }),
     ),
   );
 
-  generate(
-    join(cwd, `./config/master.yml`),
-    dump(
-      omitEmpty({
-        APP_CONFIG: stringify(state.meta.config$ || {}, ",", "=", {
-          encodeURIComponent: (v) => v,
-        }),
-      }),
-    ),
-  );
+  generate(join(cwd, `./config/master.yml`), dump(omitEmpty(withPrefix(state.meta.config$ || {}))));
 
   generate(
     join(cwd, `./deploy/qservice.yml`),
@@ -51,7 +40,7 @@ spec:
   envs:
     APP: \${{ APP }}
     ENV: \${{ ENV }}
-    APP_CONFIG: \${{ APP_CONFIG }}
+    ${map(withPrefix(state.meta.config$ || {}), (_, k) => k).join("\n    ")}
   ports:
     - "80"
   livenessProbe:
@@ -68,8 +57,7 @@ spec:
   generate(
     join(cwd, `./Dockerfile`),
     `
-ARG DOCKER_REGISTRY
-FROM --platform=\${BUILDPLATFORM} \${DOCKER_REGISTRY}/docker.io/library/node:15-buster as build-env
+FROM --platform=\${BUILDPLATFORM} docker.io/library/node:16-buster as build-env
 
 FROM --platform=\${BUILDPLATFORM} build-env AS builder
 
@@ -101,7 +89,7 @@ RUN yarn install
 RUN PROJECT_GROUP=\${PROJECT_GROUP} PROJECT_VERSION=\${PROJECT_VERSION} \\
     npx devkit build --prod \${APP} \${ENV}
 
-FROM \${DOCKER_REGISTRY}/docker.io/querycap/webappserve:0.0.0
+FROM docker.io/querycap/webappserve:0.1.0
 
 ARG PROJECT_NAME
 COPY --from=builder /src/public/\${PROJECT_NAME} /app

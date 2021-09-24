@@ -1,4 +1,4 @@
-import { parse } from "querystring";
+import { parse } from "./configvalue";
 import { createContext, useContext } from "react";
 
 export type BaseConfig = { appName: string; env: string; version: string };
@@ -13,13 +13,8 @@ const getDevKitValue = (key: string) => {
 };
 
 export const confLoader = <TKeys extends string>() => {
-  const app = parse(getDevKitValue("app"), ",", "=", {
-    decodeURIComponent: (v) => v,
-  });
-
-  const config = parse(getDevKitValue("config"), ",", "=", {
-    decodeURIComponent: (v) => v,
-  });
+  const app = parse(getDevKitValue("app"));
+  const config = parse(getDevKitValue("config"));
 
   const conf = (): { [key in TKeys]: string } & BaseConfig => {
     return {

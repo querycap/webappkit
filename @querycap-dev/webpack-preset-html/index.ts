@@ -2,7 +2,7 @@ import { IState } from "@querycap-dev/devkit";
 import { existsSync } from "fs";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { join } from "path";
-import { stringify } from "querystring";
+import { stringify } from "@querycap/config";
 import { Configuration, DefinePlugin } from "webpack";
 import WebpackPwaManifest from "webpack-pwa-manifest";
 import { InjectManifest } from "workbox-webpack-plugin";
@@ -26,11 +26,6 @@ export const withHTMLPreset =
     const hasFavicon = existsSync(join(c.context!, "./favicon.ico"));
     const hasIndexHTML = existsSync(join(c.context!, "./index.html"));
 
-    const stringifyMetaContent = (o: any = {}) =>
-      stringify(o, ",", "=", {
-        encodeURIComponent: (v) => v,
-      });
-
     const indexHTML = "../index.html";
 
     c.plugins?.push(
@@ -44,13 +39,13 @@ export const withHTMLPreset =
         title: state.meta.manifest?.name,
         meta: {
           ...meta,
-          "devkit:app": stringifyMetaContent({
+          "devkit:app": stringify({
             appName: state.name,
             env: isProd && !state.flags.noInject ? "__ENV__" : state.env,
-            version: isProd && !state.flags.noInject ? process.env.PROJECT_VERSION || "0.0.0" : state.project.version,
+            version:
+              isProd && !state.flags.noInject ? process.env.PROJECT_VERSION || "0.0.0" : state.project.version || "",
           }),
-          "devkit:config":
-            isProd && !state.flags.noInject ? "__APP_CONFIG__" : stringifyMetaContent(state.meta.config || {}),
+          "devkit:config": isProd && !state.flags.noInject ? "__APP_CONFIG__" : stringify(state.meta.config || {}),
         },
       }) as any,
     );

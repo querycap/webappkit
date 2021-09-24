@@ -5,7 +5,9 @@ spec:
   envs:
     APP: ${{ APP }}
     ENV: ${{ ENV }}
-    APP_CONFIG: ${{ APP_CONFIG }}
+    APP_CONFIG__APPS
+    APP_CONFIG__SRV_A
+    APP_CONFIG__SRV_TEST
   ports:
     - "80"
   livenessProbe:

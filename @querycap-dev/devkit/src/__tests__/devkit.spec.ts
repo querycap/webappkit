@@ -1,31 +1,29 @@
 import path from "path";
 import yargs from "yargs";
-import { cliFor } from "../index";
+import { cliFor } from "../";
 
 const cwd = path.join(__dirname, "../__examples__");
 
-const cmd = (...args: string[]) => {
-  cliFor(yargs(args, cwd), cwd)();
-};
+const cmd = (...args: string[]) => cliFor(yargs(args, cwd), cwd)();
 
 describe("#devkit", () => {
-  it.skip("--help", () => {
-    cmd("--help");
+  it.skip("--help", async () => {
+    await cmd("--help");
   });
 
-  it("init", () => {
-    cmd("init");
+  it("init", async () => {
+    await cmd("init");
   });
 
-  it("dev", function () {
-    cmd("dev", "demo--test", "--dry-run");
+  it("dev", async () => {
+    await cmd("dev", "demo--test", "--dry-run");
   });
 
-  it("build", function () {
-    cmd("build", "demo--test", "demo", "--prod", "--debug", "--dry-run");
+  it("build", async () => {
+    await cmd("build", "demo--test", "demo", "--prod", "--debug", "--dry-run");
   });
 
-  it("release", function () {
-    cmd("release", "demo", "demo", "--dry-run");
+  it("release", async () => {
+    await cmd("release", "demo", "demo", "--dry-run");
   });
 });

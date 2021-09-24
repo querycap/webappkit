@@ -1,6 +1,5 @@
 
-ARG DOCKER_REGISTRY
-FROM --platform=${BUILDPLATFORM} ${DOCKER_REGISTRY}/docker.io/library/node:15-buster as build-env
+FROM --platform=${BUILDPLATFORM} docker.io/library/node:16-buster as build-env
 
 FROM --platform=${BUILDPLATFORM} build-env AS builder
 
@@ -25,7 +24,7 @@ RUN pnpm --registry=${YARN_NPM_REGISTRY_SERVER} install
 RUN PROJECT_GROUP=${PROJECT_GROUP} PROJECT_VERSION=${PROJECT_VERSION} \
     npx devkit build --prod ${APP} ${ENV}
 
-FROM ${DOCKER_REGISTRY}/docker.io/querycap/webappserve:0.0.0
+FROM docker.io/querycap/webappserve:0.1.0
 
 ARG PROJECT_NAME
 COPY --from=builder /src/public/${PROJECT_NAME} /app
