@@ -1,0 +1,41 @@
+{
+  "name": "@querycap-ui/themes",
+  "version": "0.7.6",
+  "license": "MIT",
+  "peerDependencies": {
+    "@emotion/react": "11.x",
+    "react": "17.x"
+  },
+  "dependencies": {
+    "@emotion/react": "*",
+    "@querycap-ui/core": "workspace:^0.11.6",
+    "react-color": "2.18.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "monobundle": {
+    "env": "browser"
+  },
+  "scripts": {
+    "prepublishOnly": "../../node_modules/.bin/monobundle"
+  },
+  "files": [
+    "./dist/",
+    "dist/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/querycap/webappkit.git"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    },
+    "./index.ts": "./index.ts"
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs"
+}
