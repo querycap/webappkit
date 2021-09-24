@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.0.0
+
+### Minor Changes
+
+- 55de3f9: split APP_CONFIG to multiple env var for docker
+
+### Patch Changes
+
+- Updated dependencies [55de3f9]
+  - @querycap-dev/devkit@0.11.0
+  - @querycap/config@0.8.0
+
 ## 0.9.5
 
 ### Patch Changes

@@ -543,7 +543,7 @@ importers:
 
   '@querycap/bootstrap':
     specifiers:
-      '@querycap/config': workspace:^0.7.4
+      '@querycap/config': workspace:^0.8.0
       '@querycap/notify': workspace:^0.7.4
       '@querycap/persister': workspace:^0.6.4
       '@reactorx/router': workspace:^0.23.4

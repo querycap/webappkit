@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.0
+
+### Minor Changes
+
+- 55de3f9: split APP_CONFIG to multiple env var for docker
+
 ## 0.7.4
 
 ### Patch Changes

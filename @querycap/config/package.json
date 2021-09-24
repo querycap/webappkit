@@ -1,6 +1,6 @@
 {
   "name": "@querycap/config",
-  "version": "0.7.4",
+  "version": "0.8.0",
   "files": [
     "./dist/",
     "dist/"

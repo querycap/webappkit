@@ -6,6 +6,7 @@ release:
 
 release.version-packages:
 	pnpx changeset version
+	CI=false pnpm install
 
 release.from-packages:
 	pnpx changeset publish

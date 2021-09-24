@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.7.6
+
+### Patch Changes
+
+- Updated dependencies [55de3f9]
+  - @querycap/config@0.8.0
+
 ## 0.7.5
 
 ### Patch Changes
