@@ -40,7 +40,7 @@ spec:
   envs:
     APP: \${{ APP }}
     ENV: \${{ ENV }}
-    ${map(withPrefix(state.meta.config$ || {}), (_, k) => k).join("\n    ")}
+    ${map(withPrefix(state.meta.config$ || {}), (_, k) => `${k}: \${{ ${k} }}`).join("\n    ")}
   ports:
     - "80"
   livenessProbe:
