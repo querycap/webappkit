@@ -41,6 +41,10 @@ build.babel-plugins:
 install:
 	pnpm i
 
+dep:
+	pnpm up --latest
+	pnpm i
+
 install.monobundle:
 	pnpx ts-node ./@querycap-dev/monobundle/bin.ts ./@querycap-dev/monobundle
 
