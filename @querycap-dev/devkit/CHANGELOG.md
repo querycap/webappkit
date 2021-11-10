@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.11.1
+
+### Patch Changes
+
+- 2b049a7: deps updates
+- Updated dependencies [2b049a7]
+  - @querycap-dev/generate@0.5.5
+  - @querycap/config@0.8.1
+
 ## 0.11.0
 
 ### Minor Changes

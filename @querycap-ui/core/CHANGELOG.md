@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.11.7
+
+### Patch Changes
+
+- 2b049a7: deps updates
+- Updated dependencies [2b049a7]
+  - @querycap-ui/core.macro@0.4.5
+
 ## 0.11.6
 
 ### Patch Changes

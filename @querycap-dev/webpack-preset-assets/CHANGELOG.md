@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.0.1
+
+### Patch Changes
+
+- 2b049a7: deps updates
+- Updated dependencies [2b049a7]
+  - @querycap-dev/devkit@0.11.1
+
 ## 1.0.0
 
 ### Patch Changes

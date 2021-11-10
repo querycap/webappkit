@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.6.7
+
+### Patch Changes
+
+- Updated dependencies [2b049a7]
+  - @querycap-ui/core@0.11.7
+
 ## 0.6.6
 
 ### Patch Changes
