@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.11.10
+
+### Patch Changes
+
+- 2b049a7: deps updates
+- Updated dependencies [2b049a7]
+  - @querycap-ui/core@0.11.7
+  - @querycap-ui/icons@0.6.5
+
 ## 0.11.9
 
 ### Patch Changes

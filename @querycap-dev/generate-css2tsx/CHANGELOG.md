@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.7.5
+
+### Patch Changes
+
+- 2b049a7: deps updates
+
 ## 0.7.4
 
 ### Patch Changes

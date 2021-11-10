@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.7.5
+
+### Patch Changes
+
+- Updated dependencies [2b049a7]
+  - @querycap-ui/core@0.11.7
+  - @querycap-ui/containers@0.6.7
+  - @querycap-ui/icons@0.6.5
+
 ## 0.7.4
 
 ### Patch Changes

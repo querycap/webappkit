@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/webpack-preset-ts",
-  "version": "0.10.4",
+  "version": "0.10.5",
   "files": [
     "./dist/",
     "dist/"

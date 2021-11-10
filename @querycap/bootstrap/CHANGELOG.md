@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.7.7
+
+### Patch Changes
+
+- 2b049a7: deps updates
+- Updated dependencies [2b049a7]
+  - @querycap/config@0.8.1
+
 ## 0.7.6
 
 ### Patch Changes
