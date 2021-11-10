@@ -11,13 +11,13 @@
     "webpack": "*"
   },
   "dependencies": {
-    "css-loader": "^6.2.0",
+    "css-loader": "^6.5.1",
     "file-loader": "6.2.0",
     "glsl-shader-loader": "0.1.6",
-    "html-loader": "2.1.2",
+    "html-loader": "3.0.1",
     "markdownit-loader": "2.0.0",
     "raw-loader": "4.0.2",
-    "style-loader": "^3.2.1",
+    "style-loader": "^3.3.1",
     "url-loader": "4.1.1"
   },
   "publishConfig": {

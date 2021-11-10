@@ -9,13 +9,13 @@
     "@querycap-dev/generate": "workspace:^0.5.4",
     "@querycap/config": "workspace:*",
     "@types/cross-spawn": "^6.0.2",
-    "@types/js-yaml": "^4.0.3",
+    "@types/js-yaml": "^4.0.4",
     "cross-spawn": "^7.0.3",
     "js-yaml": "^4.1.0",
     "lodash": "^4.17.21",
     "npm-path": "^2.0.4",
-    "ts-node": "^10.2.1",
-    "yargs": "^17.1.1"
+    "ts-node": "^10.4.0",
+    "yargs": "^17.2.1"
   },
   "license": "MIT",
   "publishConfig": {

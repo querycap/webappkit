@@ -42,7 +42,7 @@ install:
 	pnpm i
 
 dep:
-	pnpm up --latest
+	pnpm up -r --latest
 	pnpm i
 
 install.monobundle:
