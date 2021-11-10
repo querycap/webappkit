@@ -6,7 +6,7 @@ release:
 
 release.version-packages:
 	pnpx changeset version
-	CI=false pnpm install
+	CI=false pnpm install --no-frozen-lockfile
 
 release.from-packages:
 	pnpx changeset publish
