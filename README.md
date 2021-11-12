@@ -11,5 +11,6 @@ node v16+
 
 ```bash
 make install pnpm
+make build
 make dev
 ```
