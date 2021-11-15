@@ -34,13 +34,12 @@ export = withPresets(
     styling: /polished|emotion|react-spring|react-use-gesture/,
     core: /react|reactorx|scheduler|history|axios/,
     utils: /buffer|date-fns|lodash|rxjs/,
-  }) as any,
+  }),
   (c) => {
     c.resolve!.fallback = { assert: require.resolve("assert/") };
 
     c.resolve!.alias = {
       path: "path-browserify",
-      querystring: "querystring-es3",
       lodash$: "lodash-es",
     };
 
@@ -61,6 +60,6 @@ export = withPresets(
       (c.resolve!.alias as any)[`${k}$`] = `${k}/index.ts`;
     });
   },
-  withAssetsPreset() as any,
-  withHTMLPreset() as any,
+  withAssetsPreset(),
+  withHTMLPreset(),
 );

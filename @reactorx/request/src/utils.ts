@@ -1,5 +1,4 @@
-import { Dictionary, forEach, isArray, isObject, isString, map, pickBy } from "lodash";
-import { stringify } from "querystring";
+import { Dictionary, isUndefined, forEach, isArray, isObject, isString, map, pickBy } from "lodash";
 
 export interface ISelectOption {
   label: string;
@@ -7,7 +6,7 @@ export interface ISelectOption {
 }
 
 export const optionsFromEnum = (enums: any, displayFn: (val: string) => string): ISelectOption[] => {
-  const strings = pickBy<string>(enums, isString);
+  const strings = pickBy<string>(enums as Dictionary<any>, isString);
 
   return map<Dictionary<string>, ISelectOption>(strings, (key: string) => ({
     label: displayFn(key),
@@ -20,39 +19,36 @@ const getContentType = (headers: any = {}) => headers["Content-Type"] || headers
 export const isContentTypeMultipartFormData = (headers: any) => getContentType(headers).includes("multipart/form-data");
 export const isContentTypeFormURLEncoded = (headers: any) =>
   getContentType(headers).includes("application/x-www-form-urlencoded");
+
 export const isContentTypeJSON = (headers: any) => {
   return getContentType(headers).includes("application/json");
 };
 
 export const paramsSerializer = (params: any) => {
-  const data = {} as any;
+  const searchParams = new URLSearchParams();
 
-  const add = (k: string, v: string) => {
-    if (typeof v === "undefined" || String(v).length === 0) {
-      return;
-    }
-
-    if (data[k]) {
-      data[k] = ([] as string[]).concat(data[k]).concat(v);
-      return;
-    }
-
-    data[k] = v;
-  };
-
-  const appendValue = (k: string, v: any) => {
+  const append = (k: string, v: any) => {
     if (isArray(v)) {
-      forEach(v, (item) => appendValue(k, item));
-    } else if (isObject(v)) {
-      add(k, JSON.stringify(v));
-    } else {
-      add(k, v);
+      forEach(v, (vv) => {
+        append(k, vv);
+      });
+      return;
     }
+    if (isObject(v)) {
+      append(k, JSON.stringify(v));
+      return;
+    }
+    if (isUndefined(v) || `${v}`.length == 0) {
+      return;
+    }
+    searchParams.append(k, `${v}`);
   };
 
-  forEach(params, (v, k) => appendValue(k, v));
+  forEach(params, (v, k) => {
+    append(k, v);
+  });
 
-  return stringify(data);
+  return searchParams.toString();
 };
 
 export const transformRequest = (data: any, headers: any) => {
@@ -67,7 +63,7 @@ export const transformRequest = (data: any, headers: any) => {
       } else if (isObject(v)) {
         formData.append(k, JSON.stringify(v));
       } else {
-        formData.append(k, v);
+        formData.append(k, v as string);
       }
     };
 
@@ -87,9 +83,9 @@ export const transformRequest = (data: any, headers: any) => {
   return data;
 };
 
-export const transformResponse = (data: any, headers: any) => {
+export const transformResponse = (data: unknown, headers: { [k: string]: any }) => {
   if (isContentTypeJSON(headers)) {
-    return JSON.parse(data);
+    return JSON.parse(data as string);
   }
   return data;
 };

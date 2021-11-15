@@ -62,7 +62,6 @@ importers:
       prettier: ^2.4.1
       pretty-quick: ^3.1.1
       prismjs: 1.25.0
-      querystring-es3: 1.0.0-0
       raw-loader: ^4.0.2
       react: ^17.0.2
       react-dom: ^17.0.2
@@ -128,7 +127,6 @@ importers:
       prettier: 2.4.1
       pretty-quick: 3.1.1_prettier@2.4.1
       prismjs: 1.25.0
-      querystring-es3: 1.0.0-0
       raw-loader: 4.0.2_webpack@5.63.0
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
@@ -4608,14 +4606,6 @@ packages:
 
   /buffer-xor/1.0.3:
     resolution: {integrity: sha1-JuYe0UIvtw3ULm42cp7VHYVf6Nk=}
-    dev: false
-
-  /buffer/5.0.5:
-    resolution: {integrity: sha1-Nck5MkSpCv+DWBBj0W8Igs7MlBg=}
-    deprecated: This version of 'buffer' is out-of-date. You must update to v5.0.8 or newer
-    dependencies:
-      base64-js: 1.5.1
-      ieee754: 1.2.1
     dev: false
 
   /buffer/5.7.1:
@@ -9298,13 +9288,6 @@ packages:
   /qs/6.2.3:
     resolution: {integrity: sha1-HPyyXBCpsrSDBT/zn138kjOQjP4=}
     engines: {node: '>=0.6'}
-    dev: false
-
-  /querystring-es3/1.0.0-0:
-    resolution: {integrity: sha1-/1uk02FVvpzxEXi6LrscCK1p1Ls=}
-    engines: {node: '>=4'}
-    dependencies:
-      buffer: 5.0.5
     dev: false
 
   /querystring/0.2.1:

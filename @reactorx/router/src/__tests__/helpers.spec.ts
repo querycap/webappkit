@@ -11,6 +11,7 @@ describe("helpers", () => {
     const search = toSearchString(query);
 
     expect(search).toBe("?some=1&string=s&slice=1&slice=2");
+
     expect(parseSearchString(search)).toEqual({
       some: "1",
       string: "s",
