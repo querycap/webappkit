@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.7.5
+
+### Patch Changes
+
+- @querycap/contexts@1.0.0
+
 ## 0.7.4
 
 ### Patch Changes

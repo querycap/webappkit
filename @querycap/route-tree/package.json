@@ -1,6 +1,6 @@
 {
   "name": "@querycap/route-tree",
-  "version": "0.6.4",
+  "version": "1.0.0",
   "files": [
     "./dist/",
     "dist/"
@@ -9,7 +9,7 @@
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
     "@querycap/access": "*",
-    "@reactorx/router": "0.23.4",
+    "@reactorx/router": "1.0.0",
     "lodash": "4.x",
     "react": "17.x"
   },
