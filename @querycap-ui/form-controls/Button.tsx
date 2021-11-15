@@ -88,6 +88,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           role={"button"}
           css={select()
             .with(base)
+            .cursor("pointer")
             .lineHeight(InputButtonSize.SMALL === buttonSize ? 1.7 : 1.6)
             .fontSize(buttonFontSize(buttonSize))
             .position("relative")
