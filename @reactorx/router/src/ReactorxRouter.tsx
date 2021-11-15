@@ -1,18 +1,22 @@
 import { Actor, useEpic, useStore } from "@reactorx/core";
-import { History, Location, LocationDescriptor } from "history";
+import { History, Location, PartialLocation, Path } from "history";
 import { Observable } from "rxjs";
 import { filter, ignoreElements, tap } from "rxjs/operators";
-import { IRouterProps, Router } from "./Router";
-import  { useEffect, useMemo } from "react";
+import { RouterProps, Router } from "./Router";
+import { useEffect, useMemo } from "react";
 
 export const RouterActor = Actor.of("router");
 
 export const routerActors = {
-  push: RouterActor.named<LocationDescriptor>("push"),
-  replace: RouterActor.named<LocationDescriptor>("replace"),
+  push: RouterActor.named<string | PartialLocation>("push"),
+  replace: RouterActor.named<string | PartialLocation>("replace"),
   go: RouterActor.named<number>("go"),
-  goBack: RouterActor.named<void>("goBack"),
-  goForward: RouterActor.named<void>("goForward"),
+  back: RouterActor.named<void>("back"),
+  forward: RouterActor.named<void>("forward"),
+  // @deprecated use back instead
+  goBack: RouterActor.named<void>("back"),
+  // @deprecated use forward instead
+  goForward: RouterActor.named<void>("forward"),
 };
 
 export const locationStorageKey = "_location";
@@ -26,22 +30,23 @@ const createRouterEpic = (history: History) => {
       tap((actor) => {
         switch (actor.name) {
           case "push":
-            history.push(actor.arg);
+            history.push(actor.arg as Path, actor.arg.stage);
             return;
           case "replace":
-            history.replace(actor.arg);
+            history.replace(actor.arg as Path, actor.arg.stage);
             return;
           case "go":
-            history.go(actor.arg);
+            history.go(actor.arg as number);
             return;
-          case "goBack":
-            history.goBack();
+          case "back":
+            history.back();
             return;
-          case "goForward":
-            history.goForward();
+          case "forward":
+            history.forward();
             return;
         }
       }),
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       ignoreElements(),
     );
 };
@@ -51,14 +56,17 @@ export function ReactorxConnect({ history }: { history: History }) {
 
   // have to do once to load stored location before mount
   useMemo(() => {
-    const state = store$.getState();
-    if (state[locationStorageKey]) {
-      history.replace(state[locationStorageKey]);
+    const globalState = store$.getState();
+    const storedLocation = globalState[locationStorageKey];
+    if (storedLocation) {
+      const { state, key, ...to } = storedLocation;
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+      history.replace(to, state);
     }
   }, []);
 
   useEffect(() => {
-    const unlisten = history.listen((location) => {
+    const unlisten = history.listen(({ location }) => {
       routerChanged.with(location).invoke(store$);
     });
     return () => {
@@ -71,7 +79,7 @@ export function ReactorxConnect({ history }: { history: History }) {
   return null;
 }
 
-export function ReactorxRouter({ history, ...otherProps }: IRouterProps) {
+export function ReactorxRouter({ history, ...otherProps }: RouterProps) {
   return (
     <>
       <ReactorxConnect history={history} />

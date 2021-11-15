@@ -1,5 +1,5 @@
 import { createMemoryHistory as createHistory } from "history";
-import { Prompt, Router } from "..";
+import { Prompt, PromptUserConfirmation, Router } from "..";
 import { act, render } from "@testing-library/react";
 
 describe("A <Prompt>", () => {
@@ -8,14 +8,15 @@ describe("A <Prompt>", () => {
       callback(false);
     });
 
-    const history = createHistory({
-      getUserConfirmation: getUserConfirmation,
-    });
+    const history = createHistory({});
 
     render(
-      <Router history={history}>
-        <Prompt message="Are you sure?" />
-      </Router>,
+      <PromptUserConfirmation getUserConfirmation={getUserConfirmation}>
+        <Router history={history}>
+          <Prompt message="Are you sure?" />
+        </Router>
+        ,
+      </PromptUserConfirmation>,
     );
 
     act(() => {
@@ -31,14 +32,15 @@ describe("A <Prompt>", () => {
         callback(false);
       });
 
-      const history = createHistory({
-        getUserConfirmation: getUserConfirmation,
-      });
+      const history = createHistory({});
 
       render(
-        <Router history={history}>
-          <Prompt message="Are you sure?" when={false} />
-        </Router>,
+        <PromptUserConfirmation getUserConfirmation={getUserConfirmation}>
+          <Router history={history}>
+            <Prompt message="Are you sure?" when={false} />
+          </Router>
+          ,
+        </PromptUserConfirmation>,
       );
 
       act(() => {

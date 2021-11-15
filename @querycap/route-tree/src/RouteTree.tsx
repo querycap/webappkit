@@ -1,4 +1,4 @@
-import { IRouteProps, IRouterContext, Redirect, Route, Switch } from "@reactorx/router";
+import { RouteProps, IRouterContext, Redirect, Route, Switch } from "@reactorx/router";
 import { assign, startsWith } from "lodash";
 import { ComponentType, createContext, Fragment, lazy, Suspense, useContext } from "react";
 
@@ -252,7 +252,7 @@ export interface ISwitchByRouteProps {
   route: RouteTree;
 }
 
-export interface IRouteEnhanceProps extends IRouteProps, ISwitchByRouteProps {
+export interface IRouteEnhanceProps extends RouteProps, ISwitchByRouteProps {
   defaultComponent?: React.ComponentType;
 }
 

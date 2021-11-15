@@ -1,7 +1,7 @@
 import { BaseConfig, ConfigProvider } from "@querycap/config";
 import { createPersister } from "@querycap/persister";
 import { Actor, AsyncStage, Store, StoreProvider, useStore } from "@reactorx/core";
-import { ReactorxRouter } from "@reactorx/router";
+import { PromptUserConfirmation, ReactorxRouter } from "@reactorx/router";
 import { createBrowserHistory, createHashHistory } from "history";
 import { isFunction } from "lodash";
 import { ReactElement, ReactNode, StrictMode, useEffect, useMemo } from "react";
@@ -27,33 +27,27 @@ function PersisterConnect({ persister }: { persister: ReturnType<typeof createPe
 export const HistoryProvider = ({ children, basename = "" }: { children: ReactNode; basename: string }) => {
   const confirm = useConfirm();
 
-  const history = useMemo(
-    () =>
-      createBrowserHistory({
-        basename: basename,
-        forceRefresh: false,
-        keyLength: 6,
-        getUserConfirmation: (message, callback) => confirm(message, callback),
-      }),
-    [],
-  );
+  const history = useMemo(() => createBrowserHistory({}), []);
 
-  return <ReactorxRouter history={history}>{children}</ReactorxRouter>;
+  return (
+    <PromptUserConfirmation getUserConfirmation={confirm}>
+      <ReactorxRouter basename={basename} history={history}>
+        {children}
+      </ReactorxRouter>
+    </PromptUserConfirmation>
+  );
 };
 
 export const HashHistoryProvider = ({ children }: { children: ReactNode }) => {
   const confirm = useConfirm();
 
-  const history = useMemo(
-    () =>
-      createHashHistory({
-        basename: "",
-        getUserConfirmation: (message, callback) => confirm(message, callback),
-      }),
-    [],
-  );
+  const history = useMemo(() => createHashHistory({}), []);
 
-  return <ReactorxRouter history={history}>{children}</ReactorxRouter>;
+  return (
+    <PromptUserConfirmation getUserConfirmation={confirm}>
+      <ReactorxRouter history={history}>{children}</ReactorxRouter>
+    </PromptUserConfirmation>
+  );
 };
 
 export const createBootstrap =
@@ -76,7 +70,8 @@ export const createBootstrap =
 
         if (process.env.NODE_ENV !== "production") {
           store$.applyMiddleware(
-            createLogger({
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+            (createLogger as any)({
               duration: true,
               collapsed: true,
               errorTransformer: (e: any) => {

@@ -21,8 +21,8 @@ describe("Integration Tests", () => {
       </Router>,
     ).container;
 
-    expect($node.innerHTML).toContain(TEXT1);
     expect($node.innerHTML).toContain(TEXT2);
+    expect($node.innerHTML).toContain(TEXT1);
   });
 
   it("renders only as deep as the matching Route", () => {
