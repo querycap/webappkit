@@ -1,7 +1,7 @@
 import { RequestActor } from "@querycap/request";
 import { useObservableEffect, useSelector } from "@reactorx/core";
 import { useRequest } from "@reactorx/request";
-import { parseSearchString, toSearchString, useRouter } from "@reactorx/router";
+import { parseSearchString, toSearchString, useLocation, useNavigate, useRouter } from "@reactorx/router";
 import { Dictionary, isEqual, isUndefined, mapKeys, omit, omitBy, pick, pickBy, snakeCase, startsWith } from "lodash";
 import { ReactNode, useEffect, useMemo } from "react";
 import { Observable } from "rxjs";
@@ -34,31 +34,28 @@ export const queryFromState = (state: SearchState) =>
 
 function SyncToURL({ name }: { name: string }) {
   const ctx = useSearch() as ReturnType<typeof useSearchContext>;
-  const { history } = useRouter();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const nextQuery = useSelector(ctx.state$, queryFromState);
 
   const navWithQuery = (query: any = {}) => {
-    const others = pickBy(parseSearchString(history.location.search), (_, k) => !startsWith(k, `${name}.`));
+    const others = pickBy(parseSearchString(location.search), (_, k) => !startsWith(k, `${name}.`));
 
-    history.replace({
-      ...history.location,
-      search: toSearchString({
-        ...others,
-        ...mapKeys(query, (_, k) => `${name}.${k}`),
-      }),
-    });
+    navigate(
+      {
+        search: toSearchString({
+          ...others,
+          ...mapKeys(query, (_, k) => `${name}.${k}`),
+        }),
+      },
+      { replace: true },
+    );
   };
 
   useEffect(() => {
     navWithQuery(nextQuery);
   }, [nextQuery]);
-
-  useEffect(() => {
-    return () => {
-      navWithQuery({});
-    };
-  }, []);
 
   return null;
 }
@@ -134,6 +131,7 @@ export const useNewSearchOfRequest = <TRequestActor extends RequestActor, TFilte
 ) => {
   const [ctx, Search] = useNewSearch<TFilters, TRequestActor["done"]["arg"]["data"]["data"][0]>(
     snakeCase(name || requestActor.name),
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     {
       size,
       offset,
@@ -145,23 +143,27 @@ export const useNewSearchOfRequest = <TRequestActor extends RequestActor, TFilte
   const [request, requesting$] = useRequest(requestActor, {
     onSuccess: (actor) => {
       const resp = actor.arg.data;
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       ctx.setData(resp.data, resp.total);
     },
   });
 
   const fetch = useMemo(() => {
-    return (query: TRequestActor["arg"] = queryFromState((ctx.state$ as any).value)) => {
+    return (query: TRequestActor["arg"] = queryFromState(ctx.state$.value)) => {
       const filters = omit(query, ["size", "offset"]);
       const pager = pick(query, ["size", "offset"]);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       return request(queryToArg(filters as any, pager));
     };
   }, [ctx]);
 
   useObservableEffect(() => {
     return ctx.state$.pipe(
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       rxMap(queryFromState),
       distinctUntilChanged(isEqual),
       tap((query) => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         fetch(query);
       }),
     );

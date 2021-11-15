@@ -16,6 +16,53 @@ describe("A <Switch>", () => {
     expect(node.container.innerHTML).not.toContain("two");
   });
 
+  describe("renders nests", () => {
+    const routes = (
+      <Switch>
+        <Route path="/one">
+          {() => (
+            <Switch>
+              <Route path="/one" exact={true}>
+                {() => <h1>one</h1>}
+              </Route>
+              <Route path="/one/callback/:id">
+                {() => (
+                  <Switch>
+                    <Route path="" exact={true}>
+                      {() => <h1>two</h1>}
+                    </Route>
+                    <Route path="/one/callback/:id/sub" exact={true}>
+                      {() => <h1>sub</h1>}
+                    </Route>
+                  </Switch>
+                )}
+              </Route>
+            </Switch>
+          )}
+        </Route>
+      </Switch>
+    );
+
+    it("exact route", () => {
+      const node = render(<Router history={createMemoryHistory({ initialEntries: ["/one"] })}>{routes}</Router>);
+      expect(node.container.innerHTML).toContain("one");
+    });
+
+    it("sub route", () => {
+      const node = render(
+        <Router history={createMemoryHistory({ initialEntries: ["/one/callback/xxx"] })}>{routes}</Router>,
+      );
+      expect(node.container.innerHTML).toContain("two");
+    });
+
+    it("sub route in patterned path", () => {
+      const node = render(
+        <Router history={createMemoryHistory({ initialEntries: ["/one/callback/xxx/sub"] })}>{routes}</Router>,
+      );
+      expect(node.container.innerHTML).toContain("sub");
+    });
+  });
+
   it("renders index route", () => {
     const node = render(
       <Router history={createMemoryHistory({ initialEntries: ["/one/xxx"] })}>

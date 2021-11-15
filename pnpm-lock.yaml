@@ -598,7 +598,7 @@ importers:
 
   '@querycap/search':
     specifiers:
-      '@querycap/contexts': workspace:^1.0.1
+      '@querycap/contexts': workspace:^1.0.2
       '@querycap/request': workspace:^0.7.5
     dependencies:
       '@querycap/contexts': link:../contexts

@@ -1,5 +1,14 @@
 import { History, Location, PartialLocation, To } from "history";
-import { Children, ComponentType, Fragment, isValidElement, ReactNode, useLayoutEffect, useState } from "react";
+import {
+  Children,
+  ComponentType,
+  Fragment,
+  isValidElement,
+  ReactNode,
+  useContext,
+  useLayoutEffect,
+  useState,
+} from "react";
 import {
   Router as ReactRouter,
   Route as ReactRoute,
@@ -17,6 +26,8 @@ import {
   useHref,
   useResolvedPath,
   useInRouterContext,
+  generatePath,
+  UNSAFE_RouteContext,
 } from "react-router";
 
 export {
@@ -36,6 +47,7 @@ export {
   useResolvedPath,
   useInRouterContext,
   createRoutesFromChildren,
+  generatePath,
 };
 
 export interface RouterProps {
@@ -75,10 +87,10 @@ interface HistoryNavigates {
   goForward(): void;
 }
 
-export const useHistoryNavigate = () => {
+export const useHistory = (location: Location) => {
   const navigate = useNavigate();
-
   return {
+    location: location,
     push: (to: To) => navigate(to),
     replace: (to: To) => navigate(to, { replace: true }),
     go: (delta: number) => navigate(delta),
@@ -89,19 +101,19 @@ export const useHistoryNavigate = () => {
   };
 };
 
-interface Router<TParameters> {
+interface RouterContext<TParameters> {
   match: {
     params: TParameters;
     pathname: string;
     url: string;
   };
   location: Location;
-  history: HistoryNavigates;
+  history: HistoryNavigates & { location: Location };
 }
 
-export const useRouter = <TParameters extends { [k: string]: any }>(): Router<TParameters> => {
+export const useRouter = <TParameters extends { [k: string]: any }>(): RouterContext<TParameters> => {
   const location = useLocation();
-  const history = useHistoryNavigate();
+  const history = useHistory(location);
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const params = useParams() as any;
 
@@ -155,6 +167,22 @@ const mayBeExactPath = (path?: string, exact?: boolean): string => {
   return "*";
 };
 
+const mayTrimParentPath = (path: string, parentPath = "/") => {
+  if (path[0] === "/" && parentPath[0] === "/") {
+    if (parentPath.endsWith("/*")) {
+      parentPath = parentPath.slice(0, parentPath.length - 2);
+    }
+    if (path.indexOf(parentPath) > -1) {
+      if (parentPath === "/") {
+        return path.slice(1);
+      }
+      return path.slice(parentPath.length + 1);
+    }
+    return path;
+  }
+  return path;
+};
+
 export const Route = ({ path, index, exact, sensitive, ...otherProps }: RouteProps) => {
   return (
     <Routes>
@@ -164,7 +192,6 @@ export const Route = ({ path, index, exact, sensitive, ...otherProps }: RoutePro
         caseSensitive={sensitive}
         element={<RouteWrap {...otherProps} />}
       />
-      <ReactRoute path={"*"} element={null} />
     </Routes>
   );
 };
@@ -189,8 +216,27 @@ export const Redirect = ({ from, to, push, state }: RedirectProps) => {
   return <Navigate to={to} replace={!push} state={state} />;
 };
 
+const joinPaths = (paths: string[]): string => paths.join("/").replace(/\/\/+/g, "/");
+
 // @deprecated Switch to Routes
 export const Switch = ({ children, location }: SwitchProps) => {
+  const { matches: parentMatches } = useContext(UNSAFE_RouteContext);
+
+  const parentPath = parentMatches
+    .map((routeMatch) => {
+      return routeMatch && routeMatch.route;
+    })
+    .reduce((p, route) => {
+      let parentPath = route.path ? route.path : "";
+      if (parentPath.endsWith("/*")) {
+        parentPath = parentPath.slice(0, parentPath.length - 2);
+      }
+      if (p == "") {
+        return parentPath;
+      }
+      return joinPaths([p, parentPath]);
+    }, "");
+
   return (
     <Routes location={location}>
       {Children.map(children, (e) => {
@@ -200,7 +246,7 @@ export const Switch = ({ children, location }: SwitchProps) => {
 
             return (
               <ReactRoute
-                path={mayBeExactPath(from, !!from)}
+                path={mayTrimParentPath(mayBeExactPath(from, !!from), parentPath)}
                 element={<Navigate to={to} replace={!push} state={state} />}
               />
             );
@@ -211,7 +257,7 @@ export const Switch = ({ children, location }: SwitchProps) => {
           return (
             <ReactRoute
               index={index}
-              path={mayBeExactPath(path, exact)}
+              path={mayTrimParentPath(mayBeExactPath(path, exact), parentPath)}
               caseSensitive={sensitive}
               element={<RouteWrap {...otherProps} />}
             />

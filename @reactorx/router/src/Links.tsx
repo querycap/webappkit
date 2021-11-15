@@ -83,6 +83,8 @@ export interface NavLinkProps extends Omit<LinkProps, "className" | "style"> {
   caseSensitive?: boolean;
   className?: string | ((props: { isActive: boolean }) => string);
   end?: boolean;
+  // @deprecated use end instead
+  exact?: boolean;
   style?: CSSProperties | ((props: { isActive: boolean }) => CSSProperties);
 }
 
@@ -97,10 +99,12 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(function NavL
     end = false,
     style: styleProp,
     to,
+    exact = false,
     ...rest
   },
   ref,
 ) {
+  const finalEnd = end || exact;
   const location = useLocation();
   const path = useResolvedPath(to);
 
@@ -113,7 +117,7 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(function NavL
 
   const isActive =
     locationPathname === toPathname ||
-    (!end && locationPathname.startsWith(toPathname) && locationPathname.charAt(toPathname.length) === "/");
+    (!finalEnd && locationPathname.startsWith(toPathname) && locationPathname.charAt(toPathname.length) === "/");
 
   const ariaCurrent = isActive ? ariaCurrentProp : undefined;
 
@@ -131,5 +135,15 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(function NavL
 
   const style = typeof styleProp === "function" ? styleProp({ isActive }) : styleProp;
 
-  return <Link {...rest} aria-current={ariaCurrent} className={className} ref={ref} style={style} to={to} />;
+  return (
+    <Link
+      {...rest}
+      aria-current={ariaCurrent}
+      data-current={isActive}
+      className={className}
+      ref={ref}
+      style={style}
+      to={to}
+    />
+  );
 });
