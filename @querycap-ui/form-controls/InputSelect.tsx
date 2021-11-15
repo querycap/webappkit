@@ -5,13 +5,12 @@ import { FieldInputCommonProps } from "@querycap/form";
 import { useValueRef } from "@querycap/reactutils";
 import { useToggle } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
-import { map, noop } from "lodash";
+import { isNull, isUndefined, map, noop } from "lodash";
 import { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
 import { fromEvent } from "rxjs";
 import { filter as rxFilter, tap } from "rxjs/operators";
 import { InputIcon } from "./Input";
 import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect } from "./Menu";
-import { isUndefined, isNull } from "lodash";
 
 const isValidValue = (v: any) => {
   return !(isUndefined(v) || isNull(v) || v == "");
@@ -21,6 +20,7 @@ export interface InputSelectProps<T extends any = any> extends FieldInputCommonP
   enum: any[];
   display?: (v: T) => ReactNode;
   allowClear?: boolean;
+  placeholder?: string;
 }
 
 export const InputSelect = (props: InputSelectProps) => {
@@ -34,6 +34,7 @@ export const InputSelect = (props: InputSelectProps) => {
     disabled,
     readOnly,
     allowClear,
+    placeholder,
   } = props;
 
   const inputElmRef = useRef<HTMLInputElement>(null);
@@ -140,6 +141,7 @@ export const InputSelect = (props: InputSelectProps) => {
           css={select().with(cover()).opacity(0).cursor("pointer")}
           readOnly
         />
+        {!value && <span css={select().color('#9ca1aa')}>{placeholder}</span>}
         <span>{isValidValue(value) && display(value)}</span>&nbsp;
       </div>
       {allowClear && isValidValue(value) && !valuesRef.current.disabled ? (
