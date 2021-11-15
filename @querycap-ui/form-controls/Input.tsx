@@ -35,28 +35,30 @@ const createInputStyle = ({ disabled, active, success, danger, small }: InputOpt
     )
     .with(
       active &&
-        select()
-          .borderColor(theme.colors.primary)
-          .boxShadow(flow(theme.colors.primary, transparentize(0.85), simpleShadow("0 0 0 0.2em"))),
+      select()
+        .borderColor(theme.colors.primary)
+        .boxShadow(flow(theme.colors.primary, transparentize(0.85), simpleShadow("0 0 0 0.2em"))),
     )
     .with(
       success &&
-        select()
-          .borderColor(theme.colors.success)
-          .boxShadow(flow(theme.colors.success, transparentize(0.85), simpleShadow("0 0 0 0.2em"))),
+      select()
+        .borderColor(theme.colors.success)
+        .backgroundColor(flow(theme.colors.success, transparentize(0.9)))
+        .boxShadow(flow(theme.colors.success, transparentize(0.85), simpleShadow("0 0 0 0.2em"))),
     )
     .with(
       danger &&
-        select()
-          .borderColor(theme.colors.danger)
-          .boxShadow(flow(theme.colors.danger, transparentize(0.85), simpleShadow("0 0 0 0.2em"))),
+      select()
+        .borderColor(theme.colors.danger)
+        .backgroundColor(flow(theme.colors.danger, transparentize(0.9)))
+        .boxShadow(flow(theme.colors.danger, transparentize(0.85), simpleShadow("0 0 0 0.2em"))),
     )
     .with(
       disabled &&
-        select()
-          .opacity(0.5)
-          .cursor("default")
-          .backgroundColor(flow(theme.state.backgroundColor, tintOrShade(0.1))),
+      select()
+        .opacity(0.5)
+        .cursor("default")
+        .backgroundColor(flow(theme.state.backgroundColor, tintOrShade(0.1))),
     )
     .with(select("& > *").paddingY(fitPaddingY(small)))
     .with(
@@ -99,9 +101,11 @@ export const InputPrefix = ({ children, ...otherProps }: { children?: ReactNode 
       css={select()
         .paddingX(paddingX)
         .color(flow(theme.state.color, transparentize(0.5)))
-        .backgroundColor(flow(theme.state.backgroundColor, tintOrShade(0.06)))
-        .borderRight(`1px solid`)
-        .borderColor(theme.state.borderColor)}>
+        // .backgroundColor(flow(theme.state.backgroundColor, tintOrShade(0.06)))
+        // .borderRight(`1px solid`)
+        // .borderColor(theme.state.borderColor)
+      }
+    >
       {children}
     </span>
   );
@@ -114,8 +118,8 @@ export const InputSuffix = ({ children, ...otherProps }: { children?: ReactNode 
       css={select()
         .paddingX(paddingX)
         .color(flow(theme.state.color, transparentize(0.5)))
-        .backgroundColor(flow(theme.state.backgroundColor, tintOrShade(0.06)))
-        .borderLeft(`1px solid`)
+        // .backgroundColor(flow(theme.state.backgroundColor, tintOrShade(0.06)))
+        // .borderLeft(`1px solid`)
         .borderColor(theme.state.borderColor)}>
       {children}
     </span>
