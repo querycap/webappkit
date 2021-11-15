@@ -16,6 +16,19 @@ describe("A <Switch>", () => {
     expect(node.container.innerHTML).not.toContain("two");
   });
 
+  it("renders index route", () => {
+    const node = render(
+      <Router history={createMemoryHistory({ initialEntries: ["/one/xxx"] })}>
+        <Switch>
+          <Route index path="/one" render={() => <h1>one</h1>} />
+          <Route path="/one/two" render={() => <h1>two</h1>} />
+        </Switch>
+      </Router>,
+    );
+
+    expect(node.container.innerHTML).toContain("one");
+  });
+
   it("renders the first <Redirect> that matches the URL", () => {
     const node = render(
       <Router history={createMemoryHistory({ initialEntries: ["/three"] })}>

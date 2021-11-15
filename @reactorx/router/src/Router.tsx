@@ -118,6 +118,7 @@ export const useRouter = <TParameters extends { [k: string]: any }>(): Router<TP
 
 export interface RouteProps {
   path?: string;
+  index?: boolean;
   exact?: boolean;
   sensitive?: boolean;
   location?: any;
@@ -154,12 +155,12 @@ const mayBeExactPath = (path?: string, exact?: boolean): string => {
   return "*";
 };
 
-export const Route = ({ path, exact, sensitive, ...otherProps }: RouteProps) => {
+export const Route = ({ path, index, exact, sensitive, ...otherProps }: RouteProps) => {
   return (
     <Routes>
       <ReactRoute
         path={mayBeExactPath(path, exact)}
-        index={exact}
+        index={index}
         caseSensitive={sensitive}
         element={<RouteWrap {...otherProps} />}
       />
@@ -205,10 +206,11 @@ export const Switch = ({ children, location }: SwitchProps) => {
             );
           }
 
-          const { path, exact, sensitive, ...otherProps } = e.props as RouteProps;
+          const { path, index, exact, sensitive, ...otherProps } = e.props as RouteProps;
 
           return (
             <ReactRoute
+              index={index}
               path={mayBeExactPath(path, exact)}
               caseSensitive={sensitive}
               element={<RouteWrap {...otherProps} />}

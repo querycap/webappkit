@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @reactorx/router@1.0.1
+  - @querycap/contexts@1.0.1
+
 ## 1.0.0
 
 ### Patch Changes
