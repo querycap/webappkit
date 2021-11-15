@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.0.0
+
+### Patch Changes
+
+- Updated dependencies [513b065]
+  - @reactorx/router@1.0.0
+
 ## 0.3.4
 
 ### Patch Changes

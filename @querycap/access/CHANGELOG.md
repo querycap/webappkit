@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.8.5
+
+### Patch Changes
+
+- Updated dependencies [513b065]
+  - @reactorx/request@0.22.5
+  - @querycap/request@0.7.5
+
 ## 0.8.4
 
 ### Patch Changes

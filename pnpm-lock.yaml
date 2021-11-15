@@ -401,7 +401,7 @@ importers:
       '@querycap-ui/layouts': workspace:^0.3.6
       '@querycap/uikit': workspace:^0.5.4
       '@reactorx/core': workspace:^0.22.4
-      '@reactorx/router': workspace:^0.23.4
+      '@reactorx/router': workspace:^1.0.0
       lodash: ^4.17.21
     dependencies:
       '@babel/runtime-corejs3': 7.16.3
@@ -522,7 +522,7 @@ importers:
   '@querycap/access':
     specifiers:
       '@querycap/reactutils': workspace:^0.8.4
-      '@querycap/request': workspace:^0.7.4
+      '@querycap/request': workspace:^0.7.5
       public-encrypt: 4.0.3
     dependencies:
       '@querycap/reactutils': link:../reactutils
@@ -538,9 +538,9 @@ importers:
   '@querycap/bootstrap':
     specifiers:
       '@querycap/config': workspace:^0.8.1
-      '@querycap/notify': workspace:^0.7.4
+      '@querycap/notify': workspace:^0.7.5
       '@querycap/persister': workspace:^0.6.4
-      '@reactorx/router': workspace:^0.23.4
+      '@reactorx/router': workspace:^1.0.0
       '@types/history': ^4.7.9
       history: ~5.1.0
       redux-logger: ^3.0.6
@@ -561,7 +561,7 @@ importers:
 
   '@querycap/form':
     specifiers:
-      '@querycap/contexts': workspace:^0.3.4
+      '@querycap/contexts': workspace:^1.0.0
       '@querycap/reactutils': workspace:^0.8.4
       '@querycap/validators': workspace:^0.3.4
       '@reactorx/core': workspace:^0.22.4
@@ -577,7 +577,7 @@ importers:
 
   '@querycap/notify':
     specifiers:
-      '@querycap/contexts': workspace:^0.3.4
+      '@querycap/contexts': workspace:^1.0.0
     dependencies:
       '@querycap/contexts': link:../contexts
 
@@ -598,8 +598,8 @@ importers:
 
   '@querycap/search':
     specifiers:
-      '@querycap/contexts': workspace:^0.3.4
-      '@querycap/request': workspace:^0.7.4
+      '@querycap/contexts': workspace:^1.0.0
+      '@querycap/request': workspace:^0.7.5
     dependencies:
       '@querycap/contexts': link:../contexts
       '@querycap/request': link:../request

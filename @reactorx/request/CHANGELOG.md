@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.22.5
+
+### Patch Changes
+
+- 513b065: drop deprecated querystring
+  bump to react router v6
+
 ## 0.22.4
 
 ### Patch Changes

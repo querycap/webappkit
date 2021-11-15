@@ -1,6 +1,6 @@
 {
   "name": "@querycap-ui/blocks",
-  "version": "0.11.10",
+  "version": "0.11.11",
   "license": "MIT",
   "dependencies": {
     "@babel/runtime-corejs3": "*",
@@ -11,7 +11,7 @@
     "@querycap-ui/layouts": "workspace:^0.3.6",
     "@querycap/uikit": "workspace:^0.5.4",
     "@reactorx/core": "workspace:^0.22.4",
-    "@reactorx/router": "workspace:^0.23.4",
+    "@reactorx/router": "workspace:^1.0.0",
     "lodash": "^4.17.21"
   },
   "peerDependencies": {
