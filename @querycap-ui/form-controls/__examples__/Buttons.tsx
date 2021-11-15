@@ -29,23 +29,39 @@ export const Buttons = () => {
           </Button>
         </div>
       </Stack>
-      <h2 css={headings.h2}>小按钮</h2>
-      <Stack spacing={roundedEm(0.6)} css={select().fontSize(theme.fontSizes.xs)}>
+      <h2 css={headings.h2}>按钮尺寸</h2>
+      <Stack spacing={roundedEm(0.6)}>
         <Stack inline spacing={roundedEm(0.6)}>
-          <Button type="button" primary small>
-            主按钮
-          </Button>
-          <Button type="button" primary small disabled>
-            主按钮
-          </Button>
-        </Stack>
-        <Stack inline spacing={roundedEm(0.6)}>
-          <Button type="button" small>
-            按钮
-          </Button>
-          <Button type="button" small disabled>
-            按钮
-          </Button>
+          <div>
+            <Button type="button" primary size={"LARGE"}>
+              大按钮
+            </Button>
+          </div>
+          <div>
+            <Button type="button" primary size={"MEDIUM"}>
+              中按钮
+            </Button>
+          </div>
+          <div>
+            <Button type="button" primary size={"SMALL"}>
+              小按钮
+            </Button>
+          </div>
+          <div>
+            <Button type="button" size={"LARGE"}>
+              大按钮
+            </Button>
+          </div>
+          <div>
+            <Button type="button" size={"MEDIUM"}>
+              中按钮
+            </Button>
+          </div>
+          <div>
+            <Button type="button" size={"SMALL"}>
+              小按钮
+            </Button>
+          </div>
         </Stack>
       </Stack>
       <h2 css={headings.h2}>隐形按钮</h2>
