@@ -25,7 +25,6 @@ export const AutoCompletes = () => {
                 <div css={select().position("relative")}>
                     <Input small>
                         <AutoComplete allowClear enum={enums} value={value} onValueChange={(val) => { 
-                            console.info(val,'==')
                             setValue(val) }} name={"autocomplete"} />
                     </Input>
                 </div>
