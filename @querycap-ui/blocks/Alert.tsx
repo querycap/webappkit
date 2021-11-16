@@ -1,11 +1,11 @@
-import { select, shadows, theme, transparentize, roundedEm, preventDefault } from "@querycap-ui/core/macro";
+import { preventDefault, roundedEm, select, shadows, theme, transparentize } from "@querycap-ui/core/macro";
 import { IconAlertCircle, IconCheckCircle, IconInfo, IconX, IconXCircle } from "@querycap-ui/icons";
 import { flow } from "lodash";
 import { ReactNode } from "react";
 import { pipe } from "rxjs";
 
 export interface AlertProps {
-  type: "info" | "success" | "error" | "warning";
+  type?: "default" | "card" | "line";
   children?: ReactNode;
   onRequestClose?: () => void;
 }
@@ -47,7 +47,7 @@ export const AlertCard = ({ type, onRequestClose, children }: AlertProps) => {
         .width("100%")
         .paddingX("1em")
         .paddingY(roundedEm(0.8))
-        .borderRadius(theme.radii.s)
+        .borderRadius(100)
         .boxShadow(shadows.medium)
         .color(theme.state.color)
         .backgroundColor(theme.state.backgroundColor)
