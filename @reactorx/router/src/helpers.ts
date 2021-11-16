@@ -1,7 +1,7 @@
 import { forEach, isArray, isObject, isUndefined } from "lodash";
 
-export const toSearchString = (query: any) => {
-  const searchParams = new URLSearchParams();
+export const searchStringify = (query: { [k: string]: any }) => {
+  const params = new URLSearchParams();
 
   const append = (k: string, v: any) => {
     if (isArray(v)) {
@@ -17,18 +17,23 @@ export const toSearchString = (query: any) => {
     if (isUndefined(v) || `${v}`.length == 0) {
       return;
     }
-    searchParams.append(k, `${v}`);
+    params.append(k, `${v}`);
   };
 
   forEach(query, (v, k) => {
     append(k, v);
   });
 
-  const s = searchParams.toString();
+  const s = params.toString();
   return s ? `?${s}` : "";
 };
 
-export function parseSearchString<T extends { [k: string]: string[] }>(search: string): T {
+// @deprecated use searchStringify instead
+export const toSearchString = (query: { [k: string]: any }) => {
+  return searchStringify(query);
+};
+
+export function parseSearchString<T extends { [k: string]: string | string[] }>(search: string): T {
   if (search.startsWith("?")) {
     search = search.slice(1);
   }
