@@ -45,25 +45,13 @@ export const Radio = ({ label, disabled, checked, onCheckedChange, ...inputProps
           .width(16)
           .height(16)
           .backgroundColor(colors.white)
-          .border(`1px solid ${colors.gray5}`)
+          .borderStyle("solid")
+          .borderColor(checked ? theme.colors.primary : colors.gray5)
+          .borderWidth(checked ? 5 : 1)
           .borderRadius("100%")
-          .transition("all .3s")
-          .marginRight("0.5em")
-          .with(
-            select("::after")
-              .position("absolute")
-              .top("3px")
-              .left("3px")
-              .display("table")
-              .width(8)
-              .height(8)
-              .backgroundColor(theme.colors.primary)
-              .borderRadius(8)
-              .content("''")
-              .transform(checked ? `scale(1)` : `scale(0)`)
-              .transition("all .3s cubic-bezier(.78,.14,.15,.86)")
-              .opacity(checked ? 1 : 0),
-          )}
+          // .transition("border-width .1s")
+          .transition("all .3s cubic-bezier(.78,.14,.15,.86)")
+          .marginRight("0.5em")}
       />
       {label && <span>{label}</span>}
     </label>
