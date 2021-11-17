@@ -87,7 +87,7 @@
     "@babel/runtime-corejs3": "^7.16.3",
     "@babel/types": "^7.16.0",
     "@changesets/cli": "^2.18.0",
-    "@commitlint/cli": "^14.1.0",
+    "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^14.1.0",
     "@emotion/babel-plugin": "^11.3.0",
     "@emotion/react": "^11.6.0",
