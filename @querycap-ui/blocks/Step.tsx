@@ -1,4 +1,4 @@
-import { select } from "@querycap-ui/core";
+import { colors, select, transparentize } from "@querycap-ui/core";
 import { Children, ComponentType, ReactNode } from "react";
 
 
@@ -12,6 +12,26 @@ export const Steps = ({ current = 0, type = 'default', children = [], ...otherPr
     return <div {...otherProps} css={select().display('flex')}>
         {Children.map(children, (child: any, idx) => {
             const { children: content, ...otherProps } = child.props;
+            if (type == 'line') {
+                return <div css={[
+                    select().minWidth(142).borderBottom('4px solid').borderColor(t => t.state.borderColor).marginRight(t => t.radii.normal),
+                    current >= idx && select().borderColor(t => t.colors.primary)
+                ]}>
+                    <div css={[select().marginBottom(12),
+                    idx <= current && select().color(t => t.colors.primary)
+                    ]}>{content}</div>
+                </div>
+            }
+            if (type == 'card') {
+                return <div css={[
+                    select().minWidth(180).minHeight(60).padding(12).margin(t => t.radii.normal),
+                    idx < current && select().backgroundColor(t => transparentize(0.85, t.colors.success)).color(t => t.colors.success),
+                    idx == current && select().backgroundColor(t => t.colors.primary).color('#fff'),
+                    idx > current && select().backgroundColor(colors.gray1).color(t => t.state.color)
+                ]}>
+                    {content}
+                </div>
+            }
 
             return <div>
                 <div key={idx} css={select().display('flex').alignItems('center').position('relative')}>
@@ -50,7 +70,7 @@ const StepIcon = ({ isActive, children, ...otherProps }: { isActive: boolean; ch
 const StepContent = ({ children }: { children: ReactNode }) => {
     return (
         <div
-            css={select().marginRight('0.5rem')}>
+            css={select().marginTop('0.5rem')}>
             {children}
         </div>
     );
