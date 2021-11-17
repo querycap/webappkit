@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 import { pipe } from "rxjs";
 
 export interface AlertProps {
-  type?: "default" | "card" | "line";
+  type?: "info" | "success" | "error" | "warning";
   children?: ReactNode;
   onRequestClose?: () => void;
 }
