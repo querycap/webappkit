@@ -9,7 +9,8 @@ const TooltipDemo = ({ placement }: { placement: string }) => {
         css={{
           border: `1px solid #ddd`,
           padding: "1em",
-        }}>
+        }}
+      >
         {placement}
       </div>
     </TooltipTrigger>

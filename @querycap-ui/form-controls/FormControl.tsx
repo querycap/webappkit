@@ -26,7 +26,8 @@ export const FormControl = ({ label, error, desc, children }: FormControlProps) 
         .display("block")
         .position("relative")
         .paddingY(roundedEm(1.8))
-        .with(!label && select().paddingTop(0))}>
+        .with(!label && select().paddingTop(0))}
+    >
       <div
         css={select()
           .position("relative")
@@ -48,7 +49,8 @@ export const FormControl = ({ label, error, desc, children }: FormControlProps) 
               .right(0)
               .left(0)
               .fontSize(roundedEm(0.75)),
-          )}>
+          )}
+      >
         {label && <div role={"label"}>{label}</div>}
         {children}
         {error ? (

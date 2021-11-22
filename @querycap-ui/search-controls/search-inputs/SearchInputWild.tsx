@@ -201,7 +201,8 @@ export const SearchInputWild = () => {
             triggerRef={inputElmRef}
             onRequestClose={closePopover}
             placement={"bottom-left"}
-            updateBy={[filterValues]}>
+            updateBy={[filterValues]}
+          >
             <MenuOptGroup>
               <div data-opt={"submit"}>按 Enter 键或者点击这里开始搜索</div>
             </MenuOptGroup>

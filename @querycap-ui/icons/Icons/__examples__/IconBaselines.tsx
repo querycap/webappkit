@@ -9,7 +9,8 @@ export const IconBaseLines = () => (
       "& [role=text]": {
         outline: "1px solid red",
       },
-    }}>
+    }}
+  >
     {scales.map((scale) => {
       return (
         <div key={scale} css={{ fontSize: `${scale}em` }}>

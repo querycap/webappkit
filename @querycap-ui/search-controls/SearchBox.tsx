@@ -125,7 +125,8 @@ export const createSearchBox = <TFilters extends Dictionary<any>>(filterMetaBuil
                   .border("none")
                   .colorFill("inherit")
                   .paddingX(roundedEm(0.2)),
-              )}>
+              )}
+          >
             <SearchInputContainer />
             <MaybeSortable />
           </label>

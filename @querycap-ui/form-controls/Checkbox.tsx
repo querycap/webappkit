@@ -24,7 +24,8 @@ export const Checkbox = forwardRef(
         <span
           css={select()
             .fill(disabled ? theme.state.borderColor : theme.colors.primary)
-            .cursor(disabled ? "default" : "pointer")}>
+            .cursor(disabled ? "default" : "pointer")}
+        >
           {value ? (
             indeterminate ? (
               <IconMinusSquare scale={1.2} />

@@ -8,7 +8,8 @@ export function CloseBtn({ onClick }: { onClick: () => void }) {
     <a
       href="#"
       css={select().outline(0).opacity(0.5).paddingX("0.1em").position("relative").colorFill(theme.state.color)}
-      onClick={pipe(preventDefault, onClick)}>
+      onClick={pipe(preventDefault, onClick)}
+    >
       <IconX />
     </a>
   );

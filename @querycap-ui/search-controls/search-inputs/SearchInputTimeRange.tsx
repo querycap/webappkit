@@ -113,7 +113,8 @@ export const SearchInputTimeRange = ({
                       css={{ padding: "0 2em", position: "absolute" }}
                       onClick={pipe(preventDefault, () => {
                         setTimeRange((r) => ({ ...r, to: "" }));
-                      })}>
+                      })}
+                    >
                       至今
                     </a>
                     <DateWheelPicker
@@ -134,7 +135,8 @@ export const SearchInputTimeRange = ({
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                  })}>
+                  })}
+                >
                   <div css={select().color(theme.colors.primary)}>至今</div>
                   <div
                     css={{
@@ -142,14 +144,16 @@ export const SearchInputTimeRange = ({
                       bottom: "20%",
                       display: "flex",
                       "& > * + *": { marginLeft: "0.5em" },
-                    }}>
+                    }}
+                  >
                     <span css={{ opacity: 0.7 }}>或</span>
                     <a
                       href={"#"}
                       css={select().colorFill(theme.colors.primary)}
                       onClick={pipe(preventDefault, () => {
                         setTimeRange((r) => ({ ...r, to: r.from }));
-                      })}>
+                      })}
+                    >
                       <IconCalendar /> &nbsp; 选择日期
                     </a>
                   </div>
@@ -163,7 +167,8 @@ export const SearchInputTimeRange = ({
               display: "flex",
               justifyContent: "flex-end",
               "& > * + *": { marginLeft: "1em" },
-            }}>
+            }}
+          >
             <a href={"#"} css={{ color: "inherit", opacity: 0.7 }} onClick={pipe(preventDefault, onCancel)}>
               取消
             </a>
@@ -171,7 +176,8 @@ export const SearchInputTimeRange = ({
               href={"#"}
               onClick={pipe(preventDefault, () => {
                 onSubmit(stringifyRange(timeRange));
-              })}>
+              })}
+            >
               确定
             </a>
           </div>

@@ -11,7 +11,8 @@ export const NestedForm = () => {
     <Form
       onSubmit={(values) => {
         alert(JSON.stringify(values, null, 2));
-      }}>
+      }}
+    >
       <FormSection name="people">
         <FormControlWithField name="firstName">{SimpleInputText}</FormControlWithField>
         <FormControlWithField name="lastName">{SimpleInputText}</FormControlWithField>
@@ -41,7 +42,8 @@ export const NestedForm = () => {
                             onClick={(e) => {
                               e.preventDefault();
                               remove(i);
-                            }}>
+                            }}
+                          >
                             <IconTrash />
                           </a>
                         </InputIcon>

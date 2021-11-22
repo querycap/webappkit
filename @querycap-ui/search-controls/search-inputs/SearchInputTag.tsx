@@ -22,7 +22,8 @@ export const displayTag = (v = ""): ReactNode => {
           select("& .exp-value").with(
             select("&:before", "&:after").content(`"'"`).opacity(0.3).color(theme.colors.primary),
           ),
-        )}>
+        )}
+    >
       {parseTagRule(v)?.toJSX()}
     </span>
   );

@@ -94,7 +94,8 @@ export const SearchInputSort = ({ defaultValue, display, enum: values = [], onSu
         .paddingX(roundedEm(0.2))
         .paddingY(roundedEm(0.2))
         .cursor("pointer")
-        .with(select("& > *").paddingX(roundedEm(0.2)))}>
+        .with(select("& > *").paddingX(roundedEm(0.2)))}
+    >
       <SortLabel asc={asc} onClick={pipe(preventDefault, () => (isOpened ? closePopover() : openPopover()))}>
         {displayValue(by, display)}
       </SortLabel>
@@ -108,7 +109,8 @@ export const SearchInputSort = ({ defaultValue, display, enum: values = [], onSu
               css={{ minWidth: 100 }}
               triggerRef={triggerElmRef}
               onRequestClose={closePopover}
-              placement={"bottom-right"}>
+              placement={"bottom-right"}
+            >
               <MenuOptGroup>
                 {map(values, (key) => (
                   <SortLabel
@@ -117,7 +119,8 @@ export const SearchInputSort = ({ defaultValue, display, enum: values = [], onSu
                     asc={asc}
                     {...{
                       [OptionFocusedAttr]: key === by,
-                    }}>
+                    }}
+                  >
                     {displayValue(key, display)}
                   </SortLabel>
                 ))}

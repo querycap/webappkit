@@ -31,6 +31,9 @@ build: install.monobundle build.babel-plugins
 pkg:
 	devkit build --prod sg
 
+preview:
+	devkit preview sg
+
 pkg.gh-page: test
 	pnpx devkit build --prod sg gh-page
 	cp ./public/web-sg/index.html  ./public/web-sg/404.html
@@ -46,10 +49,10 @@ dep:
 	pnpm i
 
 install.monobundle:
-	pnpx ts-node ./@querycap-dev/monobundle/bin.ts ./@querycap-dev/monobundle
+	pnpx ts-node -T ./@querycap-dev/monobundle/bin.ts ./@querycap-dev/monobundle
 
 install.devkit:
-	pnpx ts-node ./@querycap-dev/monobundle/bin.ts ./@querycap-dev/devkit
+	pnpx ts-node -T ./@querycap-dev/monobundle/bin.ts ./@querycap-dev/devkit
 
 install.pnpm:
 	npm install --force -g pnpm

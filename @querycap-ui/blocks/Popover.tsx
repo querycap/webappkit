@@ -11,7 +11,8 @@ export const Popover = withAutoPlacement(({ children, placement, ...otherProps }
         style={{
           position: "relative",
           padding: startsWith(placement, "left") || startsWith(placement, "right") ? "0 4px" : "4px 0",
-        }}>
+        }}
+      >
         <div
           css={select()
             .borderRadius(theme.radii.s)
@@ -19,7 +20,8 @@ export const Popover = withAutoPlacement(({ children, placement, ...otherProps }
             .borderColor(theme.state.borderColor)
             .color(theme.state.color)
             .backgroundColor(theme.state.backgroundColor)
-            .boxShadow(shadows.normal)}>
+            .boxShadow(shadows.normal)}
+        >
           {children}
         </div>
       </div>

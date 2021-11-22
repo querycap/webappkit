@@ -6,7 +6,8 @@ export const Empty = ({ text = "暂无数据" }: { text?: string }) => (
       css={{
         height: "2.5em",
         marginBottom: "0.5em",
-      }}>
+      }}
+    >
       <svg width="64" height="41" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg">
         <g transform="translate(0 1)" fill="none" fillRule="evenodd">
           <ellipse fill="#F5F5F5" cx="32" cy="33" rx="32" ry="7" />

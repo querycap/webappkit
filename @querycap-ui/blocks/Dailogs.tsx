@@ -17,7 +17,8 @@ export const DialogContainer = withTextSize(theme.fontSizes.s)(
           .minWidth(width)
           .backgroundColor(theme.state.backgroundColor)
           .boxShadow(shadows.large)}
-        {...otherProps}>
+        {...otherProps}
+      >
         {children}
       </div>
     );
@@ -32,7 +33,8 @@ export const DialogClose = ({ float, onRequestClose }: { float?: boolean; onRequ
       css={select()
         .opacity(0.3)
         .colorFill(theme.state.color)
-        .with(float && select().position("absolute").right(0).top(0).padding(roundedEm(0.9)))}>
+        .with(float && select().position("absolute").right(0).top(0).padding(roundedEm(0.9)))}
+    >
       <IconX />
     </a>
   );
@@ -50,7 +52,8 @@ export const DialogHeading = ({ children }: { children?: ReactNode }) => {
         .alignItems("center")
         .justifyContent("space-between")
         .borderColor(theme.state.borderColor)
-        .with(select("& h1,h2,h3,h4,h5,h6").margin(0))}>
+        .with(select("& h1,h2,h3,h4,h5,h6").margin(0))}
+    >
       {children}
     </div>
   );

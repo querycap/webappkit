@@ -61,7 +61,8 @@ export const NotificationHub = ({
         <Portal key={key}>
           <animated.div
             style={style}
-            css={select().position("absolute").top(0).left(0).right(0).zIndex(10).pointerEvents("none")}>
+            css={select().position("absolute").top(0).left(0).right(0).zIndex(10).pointerEvents("none")}
+          >
             <div css={select().maxWidth(320).margin("0 auto").pointerEvents("auto").padding(roundedEm(0.6))}>
               <Notification msg={item} closeRequestIn={closeRequestIn} onRequestClose={onRequestClose} />
             </div>

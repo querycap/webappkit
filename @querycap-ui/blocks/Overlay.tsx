@@ -41,7 +41,8 @@ export const Overlay = ({ fullWidth, isOpen, triggerRef, onRequestClose, placeme
               placement={placement}
               style={style}
               fullWidth={fullWidth}
-              onRequestClose={onRequestClose}>
+              onRequestClose={onRequestClose}
+            >
               {children}
             </AnimatedOverlay>
           ),

@@ -9,7 +9,8 @@ export const Overlays = () => {
       css={{
         padding: "20em",
         fontSize: 10,
-      }}>
+      }}
+    >
       <div
         ref={ref}
         css={{
@@ -19,7 +20,8 @@ export const Overlays = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-        }}>
+        }}
+      >
         Trigger
       </div>
       {[
@@ -47,7 +49,8 @@ export const Overlays = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-            }}>
+            }}
+          >
             {placement}
           </div>
         </Overlay>

@@ -22,7 +22,8 @@ export const Radio = ({ label, disabled, checked, onCheckedChange, ...inputProps
           select("&:hover")
             .cursor(disabled ? "not-allowed" : "pointer")
             .opacity(disabled ? 0.7 : 0.8),
-        )}>
+        )}
+    >
       <input
         css={{ display: "none" }}
         type="radio"
@@ -76,7 +77,8 @@ export const ButtonRadio = ({ label, disabled, checked, onCheckedChange, childre
     disabled={disabled}
     primary={!!checked}
     onClick={() => onCheckedChange && onCheckedChange(!checked)}
-    small>
+    small
+  >
     {label && <span>{label}</span>}
   </Button>
 );

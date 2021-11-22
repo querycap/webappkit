@@ -37,7 +37,8 @@ const NavBtn = ({ children, ...otherProps }: { disabled?: boolean } & HTMLAttrib
         outline: 0,
         margin: 0,
         cursor: "pointer",
-      })}>
+      })}
+    >
       <span>{children}</span>
     </a>
   );
@@ -80,9 +81,9 @@ export interface IDatePickerProps {
 
 export const now = () => new Date(Date.now());
 
-export const parseISOOrDefault = <T extends any>(value = "", defaultDate: T) => {
+export function parseISOOrDefault<T>(value = "", defaultDate: T) {
   return value ? parseISO(value) : defaultDate;
-};
+}
 
 export const useDatePicker = (value: string) => {
   const [selectedDate, setState] = useState(() => parseISOOrDefault(value, new Date(Date.now())));
@@ -225,7 +226,8 @@ export const DayCell = ({
       backgroundColor={isSelected && !disabled ? theme.colors.primary : theme.state.backgroundColor}
       color={
         isSelected ? flow(theme.colors.primary, safeTextColor) : isToday ? theme.colors.primary : theme.state.color
-      }>
+      }
+    >
       <Cell
         {...otherProps}
         css={select()
@@ -233,7 +235,8 @@ export const DayCell = ({
           .backgroundColor(theme.state.backgroundColor)
           .with((isInPrevMonth || isInNextMonth) && { opacity: 0.6 })
           .with(disabled ? { opacity: 0.5 } : { "&:hover": { opacity: 0.7, cursor: "pointer" } })}
-        onClick={() => onSelect(dayValue)}>
+        onClick={() => onSelect(dayValue)}
+      >
         {format(dayValue, "d")}
       </Cell>
     </ThemeState>
@@ -254,7 +257,8 @@ export const DatePickerHeader = ({
   <div
     css={select()
       .padding("0 0.5em")
-      .borderBottom(flow(theme.state.borderColor, (color) => `2px solid ${color}`))}>
+      .borderBottom(flow(theme.state.borderColor, (color) => `2px solid ${color}`))}
+  >
     <WeekRow>
       <NavBtn css={[navLeftDisabled && { visibility: "hidden" }]} disabled={navLeftDisabled} onClick={() => onNav(-1)}>
         <IconChevronLeft />

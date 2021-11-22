@@ -163,7 +163,8 @@ export function DateWheelPicker({
     <div
       css={{
         display: "flex",
-      }}>
+      }}
+    >
       {map(
         options,
         (opts, key: any) =>

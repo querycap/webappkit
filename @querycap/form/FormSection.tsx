@@ -13,7 +13,8 @@ export const FormSection = ({ name, children }: IFormSection) => {
     <FieldPrefixProvider
       value={{
         prefix,
-      }}>
+      }}
+    >
       {children}
     </FieldPrefixProvider>
   );

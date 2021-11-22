@@ -52,7 +52,8 @@ export const AlertCard = ({ type, onRequestClose, children }: AlertProps) => {
         .color(theme.state.color)
         .backgroundColor(theme.state.backgroundColor)
         .with(select("& > [role=img]").fill(color).marginRight("0.8em"))
-        .with(select("& > [role=info]").flex(1))}>
+        .with(select("& > [role=info]").flex(1))}
+    >
       <div role={"img"}>
         <AlertIcon type={type} scale={1.2} />
       </div>
@@ -62,7 +63,8 @@ export const AlertCard = ({ type, onRequestClose, children }: AlertProps) => {
           href={"#"}
           css={select().opacity(0.3).colorFill(theme.state.color)}
           role={"button"}
-          onClick={pipe(preventDefault, onRequestClose)}>
+          onClick={pipe(preventDefault, onRequestClose)}
+        >
           <IconX />
         </a>
       )}
@@ -85,7 +87,8 @@ export const Alert = ({ type, onRequestClose, children }: AlertProps) => {
         .borderColor(color)
         .backgroundColor(flow(color, transparentize(0.85)))
         .with(select("& > [role=img]").fill(color).marginRight("0.8em"))
-        .with(select("& > [role=info]").flex(1))}>
+        .with(select("& > [role=info]").flex(1))}
+    >
       <div role={"img"}>
         <AlertIcon type={type} scale={1.2} />
       </div>
@@ -95,7 +98,8 @@ export const Alert = ({ type, onRequestClose, children }: AlertProps) => {
           href={"#"}
           css={select().opacity(0.3).colorFill(theme.state.color)}
           role={"button"}
-          onClick={pipe(preventDefault, onRequestClose)}>
+          onClick={pipe(preventDefault, onRequestClose)}
+        >
           <IconX />
         </a>
       )}

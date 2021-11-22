@@ -83,14 +83,16 @@ const DayCell = ({
       }
       color={
         isSelected ? flow(theme.colors.primary, safeTextColor) : isToday ? theme.colors.primary : theme.state.color
-      }>
+      }
+    >
       <Cell
         css={select()
           .color(theme.state.color)
           .backgroundColor(theme.state.backgroundColor)
           .with(!isCurrentMonth && { opacity: 0.6 })
           .with(disabled ? { opacity: 0.5 } : { "&:hover": { opacity: 0.7, cursor: "pointer" } })}
-        onClick={disabled ? undefined : () => onSelected(day)}>
+        onClick={disabled ? undefined : () => onSelected(day)}
+      >
         {format(day, "d")}
       </Cell>
     </ThemeState>
@@ -109,13 +111,15 @@ export const QuickSelect = ({ onSelect }: { onSelect: (from: Date, to: Date) => 
         alignItems: "center",
         justifyContent: "center",
       })
-      .with(select("& > *").cursor("pointer").padding("0.5em 0").color(theme.colors.primary))}>
+      .with(select("& > *").cursor("pointer").padding("0.5em 0").color(theme.colors.primary))}
+  >
     <div
       onClick={() => {
         const today = getToday();
 
         onSelect(today, addSeconds(addDays(today, 1), -1));
-      }}>
+      }}
+    >
       今天
     </div>
     <div
@@ -123,7 +127,8 @@ export const QuickSelect = ({ onSelect }: { onSelect: (from: Date, to: Date) => 
         const today = getToday();
 
         onSelect(addDays(today, -1), addSeconds(today, -1));
-      }}>
+      }}
+    >
       昨天
     </div>
     <div
@@ -131,7 +136,8 @@ export const QuickSelect = ({ onSelect }: { onSelect: (from: Date, to: Date) => 
         const today = getToday();
 
         onSelect(addDays(today, -6), today);
-      }}>
+      }}
+    >
       最近 7 天
     </div>
     <div
@@ -139,7 +145,8 @@ export const QuickSelect = ({ onSelect }: { onSelect: (from: Date, to: Date) => 
         const today = getToday();
 
         onSelect(addDays(today, -29), today);
-      }}>
+      }}
+    >
       最近 30 天
     </div>
     <div
@@ -147,7 +154,8 @@ export const QuickSelect = ({ onSelect }: { onSelect: (from: Date, to: Date) => 
         const today = getToday();
 
         onSelect(new Date(getYear(today), getMonth(today), 1), today);
-      }}>
+      }}
+    >
       本月
     </div>
     <div
@@ -157,7 +165,8 @@ export const QuickSelect = ({ onSelect }: { onSelect: (from: Date, to: Date) => 
         const firstDay = addMonths(new Date(getYear(today), getMonth(today), 1), -1);
 
         onSelect(firstDay, lastDayOfMonth(firstDay));
-      }}>
+      }}
+    >
       上月
     </div>
   </div>

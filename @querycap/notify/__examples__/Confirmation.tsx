@@ -18,10 +18,12 @@ const Confirmations = () => {
           key={id}
           isOpen={isUndefined(confirmed)}
           onRequestClose={() => confirm({ id, confirmed: false })}
-          onDestroyed={() => destroy(id)}>
+          onDestroyed={() => destroy(id)}
+        >
           <DialogPrompt
             onRequestClose={() => confirm({ id, confirmed: false })}
-            onRequestConfirm={() => confirm({ id, confirmed: true })}>
+            onRequestConfirm={() => confirm({ id, confirmed: true })}
+          >
             {content}
           </DialogPrompt>
         </ModalDialog>
@@ -41,7 +43,8 @@ export const Confirmation = () => {
         onClick={pipe(preventDefault, () => {
           confirm("hello", console.log);
           confirm("hello", console.log);
-        })}>
+        })}
+      >
         trigger confirm
       </a>
     </>

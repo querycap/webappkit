@@ -18,7 +18,8 @@ export const NotificationHubs = () => {
               summary: "错误",
             },
           ]);
-        }}>
+        }}
+      >
         notify
       </Button>
       <NotificationHub

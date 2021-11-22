@@ -1,57 +1,50 @@
-import { forEach, pickBy, values, last, isFunction } from "lodash";
+import { forEach, isFunction, pickBy, values } from "lodash";
 import { FunctionComponent } from "react";
 
-const groups = {
-  "@querycap": [
-    (require as any).context(`./examples/@querycap/`, true, /\/__examples__\/(.+)\.tsx?$/),
-    (require as any).context(`!!raw-loader!./examples/@querycap/`, true, /\/__examples__\/(.+)\.tsx?$/),
-  ] as const,
-  "@querycap-ui": [
-    (require as any).context(`./examples/@querycap-ui/`, true, /\/__examples__\/(.+)\.tsx?$/),
-    (require as any).context(`!!raw-loader!./examples/@querycap-ui/`, true, /\/__examples__\/(.+)\.tsx?$/),
-  ] as const,
-};
+interface ModuleExamples {
+  [k: string]: { [k: string]: FunctionComponent };
+}
+
+const modules = (import.meta as any).globEager(
+  "../../{@querycap,@querycap-ui}/{*/,**/}__examples__/*{.ts,.tsx}",
+) as ModuleExamples;
 
 export interface IExample {
   group: string;
   module: string;
   name: string;
-
   source?: string;
   examples: { [k: string]: FunctionComponent };
 }
 
-const getModuleName = (key: string) => {
+const getGroupModuleComponent = (key: string) => {
   const result = key.replace(/\.tsx?$/g, "").split("/");
-  return `${result[1]}`;
+
+  for (let i = 0; i < result.length; i++) {
+    if (result[i].startsWith("@")) {
+      return [result[i], result[i + 1], result[result.length - 1]];
+    }
+  }
+  return [];
 };
 
-const getComponentName = (key: string) => {
-  const result = key.replace(/\.tsx?$/g, "").split("/");
-  return `${last(result)}`;
-};
-
-const collect = (examples: { [k: string]: readonly [any, any] }): IExample[] => {
+const collect = (modules: ModuleExamples): IExample[] => {
   const results: { [k: string]: IExample } = {};
 
-  forEach(examples, ([req, reqSrc], group) => {
-    forEach(req.keys(), (keyPath) => {
-      const key = keyPath.replace(`src-app/sg/examples/${group}/`, "./");
-      const examples = req(key);
+  forEach(modules, (examples, path) => {
+    const [group, module, name] = getGroupModuleComponent(path);
 
-      const e = {
-        group: group,
-        module: getModuleName(key),
-        name: getComponentName(key),
-        source: examples.NOSRC ? undefined : reqSrc(key).default,
-        examples: pickBy(examples, isFunction),
-      };
+    const e = {
+      group: group,
+      module: module,
+      name: name,
+      examples: pickBy(examples, isFunction),
+    };
 
-      results[`${e.group}/${e.module}/${e.name}`] = e;
-    });
+    results[`${e.group}/${e.module}/${e.name}`] = e;
   });
 
   return values(results);
 };
 
-export const examples = collect(groups);
+export const examples = collect(modules);

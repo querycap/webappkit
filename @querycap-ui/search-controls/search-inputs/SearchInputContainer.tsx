@@ -51,7 +51,8 @@ const FilterLabel = ({
         .color(flow(theme.state.color, transparentize(0.05)))
         .borderRadius(theme.radii.s)
         .backgroundColor(flow(theme.state.color, transparentize(0.96)))
-        .with(select("& > *").paddingY(roundedEm(0.3)))}>
+        .with(select("& > *").paddingY(roundedEm(0.3)))}
+    >
       <div
         css={select()
           .display("flex")
@@ -66,7 +67,8 @@ const FilterLabel = ({
               ...filterMeta,
               defaultValue: value,
             });
-        }}>
+        }}
+      >
         <span css={select().display("block").paddingX(roundedEm(0.3))}>{filterMeta.label}</span>
       </div>
       {value && (
@@ -150,7 +152,8 @@ export const SearchInputContainer = (_: {}) => {
           .marginY(roundedEm(-0.2))
           .paddingX(roundedEm(0.2))
           .with(select("& > *").marginX(roundedEm(0.2)).marginY(roundedEm(0.4)))
-          .with(select("& input", "& [role=input]").width("100%").paddingY(roundedEm(0.4)))}>
+          .with(select("& input", "& [role=input]").width("100%").paddingY(roundedEm(0.4)))}
+      >
         <FilterLabelList />
         <div css={select().flex(1)}>
           <FilterInput />

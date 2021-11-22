@@ -35,7 +35,8 @@ export const Graph = ({ children, scale = 1, inline, ...otherProps }: GraphProps
           : {
               display: "flex",
             },
-      ]}>
+      ]}
+    >
       {children}
     </span>
   );
@@ -57,7 +58,8 @@ export const Icon = ({ inline = true, children, ...props }: GraphProps) => (
         top: ".125em",
         fill: "inherit",
       },
-    }}>
+    }}
+  >
     {children}
   </Graph>
 );

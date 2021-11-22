@@ -19,14 +19,16 @@ export const Space = () => {
               css={select()
                 .paddingX(roundedEm(0.4 * i))
                 .marginTop(roundedEm(0.2))
-                .backgroundColor(colors.yellow1)}>
+                .backgroundColor(colors.yellow1)}
+            >
               <div
                 css={select()
                   .padding(roundedEm(0.2))
                   .width(200)
                   .border("1px solid")
                   .borderColor(theme.state.borderColor)
-                  .backgroundColor(theme.state.backgroundColor)}>
+                  .backgroundColor(theme.state.backgroundColor)}
+              >
                 roundedEm({0.4 * i})
               </div>
             </div>

@@ -229,7 +229,8 @@ export const useNewForm = <TFormValues extends object>(
                 });
               }
             })}
-            {...otherProps}>
+            {...otherProps}
+          >
             {children}
           </form>
           <FormDestroy />

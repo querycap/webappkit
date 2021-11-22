@@ -32,7 +32,8 @@ export const Skeleton = () => {
               .borderRadius(4)
               .marginBottom(16)
               .with(commonStyle),
-          )}>
+          )}
+      >
         <li />
         <li />
         <li css={select().width("60%")} />

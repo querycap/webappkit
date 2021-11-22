@@ -36,7 +36,8 @@ export const Tag = ({
         .textAlign("center")
         .cursor(onClick ? "pointer" : "default")}
       onClick={onClick}
-      {...otherPorps}>
+      {...otherPorps}
+    >
       {children}
       {closable && <IconX onClick={() => onClose && onClose()} css={select().colorFill(bgColor).marginLeft("0.5em")} />}
     </span>

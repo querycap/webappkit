@@ -61,6 +61,7 @@ export const VirtualList = <T extends Dictionary<any>>(props: IVirtualListProps<
     const dataSliceInView$ = getDataSliceInView(props.data$, options$, indicesInView$, scrollDirection$, actualRows$);
     const scrollHeight$ = getScrollHeight(props.data$, options$);
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     const scrollTo$ = merge([userScrollToPosition(options$), getStickyTop(props.data$, options$).pipe(mapTo(0))]).pipe(
       mergeAll(),
     );
@@ -85,7 +86,8 @@ export const VirtualList = <T extends Dictionary<any>>(props: IVirtualListProps<
           <div
             key={props.keepDom ? i : props.uniqKey ? data.origin[props.uniqKey] : i}
             css={select().position("absolute").width("100%")}
-            style={{ top: data.$pos }}>
+            style={{ top: data.$pos }}
+          >
             {data.origin !== undefined ? (props.children as any)(data.origin, data.$index) : null}
           </div>
         ))}

@@ -203,7 +203,8 @@ export const Menu = forwardRef(({ children, ...otherProps }: { children: ReactNo
           .maxHeight(maxHeight)
           .boxShadow(shadows.medium)
           .padding("0.2em 0")
-          .overflowY("auto")}>
+          .overflowY("auto")}
+      >
         {children}
       </div>
     </div>
@@ -266,7 +267,8 @@ export const SelectMenuPopover = withAutoPlacement(
         triggerRef={triggerRef}
         placement={placement as any}
         fullWidth={fullWidth}
-        onRequestClose={onRequestClose}>
+        onRequestClose={onRequestClose}
+      >
         <SelectMenu>{children}</SelectMenu>
       </Overlay>
     );
@@ -295,7 +297,8 @@ export function MenuPopover({
       triggerRef={triggerRef}
       placement={placement as any}
       fullWidth={fullWidth}
-      onRequestClose={onRequestClose}>
+      onRequestClose={onRequestClose}
+    >
       <Menu ref={ref}>{children}</Menu>
     </Overlay>
   );
@@ -321,7 +324,8 @@ export const MenuGroup = ({ children }: { children: ReactNode }) => (
               .color(theme.state.color)
               .backgroundColor(flow(theme.state.color, transparentize(0.88))),
           ),
-      )}>
+      )}
+  >
     {children}
   </div>
 );

@@ -86,7 +86,8 @@ export const Input = ({ children, disabled, small, active, success, danger, ...p
         success,
         disabled,
       })}
-      {...props}>
+      {...props}
+    >
       {children}
     </div>
   );
@@ -101,7 +102,8 @@ export const InputPrefix = ({ children, ...otherProps }: { children?: ReactNode 
         .color(flow(theme.state.color, transparentize(0.5)))
         .backgroundColor(flow(theme.state.backgroundColor, tintOrShade(0.06)))
         .borderRight(`1px solid`)
-        .borderColor(theme.state.borderColor)}>
+        .borderColor(theme.state.borderColor)}
+    >
       {children}
     </span>
   );
@@ -116,7 +118,8 @@ export const InputSuffix = ({ children, ...otherProps }: { children?: ReactNode 
         .color(flow(theme.state.color, transparentize(0.5)))
         .backgroundColor(flow(theme.state.backgroundColor, tintOrShade(0.06)))
         .borderLeft(`1px solid`)
-        .borderColor(theme.state.borderColor)}>
+        .borderColor(theme.state.borderColor)}
+    >
       {children}
     </span>
   );
@@ -126,7 +129,8 @@ export const InputControlSuffix = ({ children, ...otherProps }: { children?: Rea
   return (
     <span
       {...otherProps}
-      css={select().position("relative").display("block").borderLeft(`1px solid`).borderColor(theme.state.borderColor)}>
+      css={select().position("relative").display("block").borderLeft(`1px solid`).borderColor(theme.state.borderColor)}
+    >
       {children}
     </span>
   );
@@ -136,11 +140,8 @@ export const InputControlPrefix = ({ children, ...otherProps }: { children?: Rea
   return (
     <span
       {...otherProps}
-      css={select()
-        .position("relative")
-        .display("block")
-        .borderRight(`1px solid`)
-        .borderColor(theme.state.borderColor)}>
+      css={select().position("relative").display("block").borderRight(`1px solid`).borderColor(theme.state.borderColor)}
+    >
       {children}
     </span>
   );
@@ -157,7 +158,8 @@ export const InputIcon = ({ pullRight, children, ...otherProps }: { children?: R
         .colorFill(flow(theme.state.color, transparentize(0.5)))
         .backgroundColor(flow(theme.state.color, transparentize(0.97)))
         .cursor("pointer")
-        .with(pullRight && select().position("absolute").backgroundColor("transparent").right(0))}>
+        .with(pullRight && select().position("absolute").backgroundColor("transparent").right(0))}
+    >
       {children}
     </span>
   );

@@ -111,7 +111,8 @@ export const TableRow = <T extends Dictionary<any>>({
           .with(rowStyle ? rowStyle(row) : null)}
         onClick={() => {
           onRowClick && onRowClick(row);
-        }}>
+        }}
+      >
         {map(columns, (column, index) => (
           <td
             key={column.key}
@@ -122,7 +123,8 @@ export const TableRow = <T extends Dictionary<any>>({
             style={{
               [column.sticky as string]: getStickyOffset(index, columns, column.sticky),
             }}
-            title={column.ellipsis ? get(row, column.key, "-") : ""}>
+            title={column.ellipsis ? get(row, column.key, "-") : ""}
+          >
             {expandable?.rowExpandable(row) && index === 0 && (
               <span
                 css={select()
@@ -131,7 +133,8 @@ export const TableRow = <T extends Dictionary<any>>({
                   .display("inline")
                   .colorFill(colors.gray5)
                   .transition("all 0.3s")}
-                onClick={() => toggleVisible(!visible)}>
+                onClick={() => toggleVisible(!visible)}
+              >
                 {visible ? <IconChevronDown /> : <IconChevronRight />}
               </span>
             )}
@@ -213,7 +216,8 @@ export const Table = <T extends Dictionary<any>, P extends string>({
           .overflow("auto scroll")
           .borderCollapse("collapse")
           .tableLayout(tableLayout || "auto")}
-        {...otherProps}>
+        {...otherProps}
+      >
         <thead>
           <tr css={select().backgroundColor(colors.gray1).borderSpacing(0)}>
             {map(endColumns, (column, index) => (
@@ -229,7 +233,8 @@ export const Table = <T extends Dictionary<any>, P extends string>({
                   .textAlign(align)
                   .fontWeight(500)
                   .fontSize(theme.fontSizes.s)
-                  .with(column.sticky ? stickyColumnStyle(column.sticky) : null)}>
+                  .with(column.sticky ? stickyColumnStyle(column.sticky) : null)}
+              >
                 {column.title}
               </th>
             ))}
@@ -247,7 +252,8 @@ export const Table = <T extends Dictionary<any>, P extends string>({
                 .with(select("&:hover").backgroundColor(colors.gray2)),
             )
             .with(select("tr:last-child").borderBottom(`none`))
-            .with(select("tr td").padding(roundedEm(0.9)).textAlign(align))}>
+            .with(select("tr td").padding(roundedEm(0.9)).textAlign(align))}
+        >
           {map(dataSource, (row, rowIdx) => (
             <TableRow
               key={get(row, rowKey)}

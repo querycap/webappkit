@@ -35,7 +35,8 @@ export const SimpleForm = () => {
       <Form
         onSubmit={(values) => {
           alert(JSON.stringify(values, null, 2));
-        }}>
+        }}
+      >
         <FormControlWithField name="gender">
           {(props) => <InputSelect {...props} enum={["FEMALE", "MALE"]} display={displayGender} />}
         </FormControlWithField>

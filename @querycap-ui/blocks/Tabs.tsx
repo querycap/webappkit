@@ -84,7 +84,8 @@ export const Tabs = ({
                   .backgroundColor(theme.colors.primary),
               )
               .with(select("&[data-current=true]").color(theme.colors.primary)),
-          )}>
+          )}
+      >
         {map(state.orders, (name) => {
           return (
             <a
@@ -96,7 +97,8 @@ export const Tabs = ({
                   ...state,
                   active: name,
                 }));
-              })}>
+              })}
+            >
               {state.tabs[name].title}
             </a>
           );

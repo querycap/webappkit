@@ -13,7 +13,8 @@ const Panel = () => {
           .padding(roundedEm(1.2))
           .border("1px solid")
           .borderColor(theme.state.borderColor)
-          .borderRadius(theme.radii.normal)}>
+          .borderRadius(theme.radii.normal)}
+      >
         <h1 style={{ margin: 0 }}>标题</h1>
         <p>文本文本</p>
         <div>
@@ -63,7 +64,8 @@ export const State = () => {
           <code
             style={{
               color: defaultTheme.state.backgroundColor,
-            }}>
+            }}
+          >
             theme.state.backgroundColor
           </code>
         </li>

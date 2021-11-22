@@ -6,8 +6,6 @@ import { createBrowserHistory, createHashHistory } from "history";
 import { isFunction } from "lodash";
 import { ReactElement, ReactNode, StrictMode, useEffect, useMemo } from "react";
 import ReactDOM, { render } from "react-dom";
-// @ts-ignore
-import { createLogger } from "redux-logger";
 import { useConfirm } from "@querycap/notify";
 
 function PersisterConnect({ persister }: { persister: ReturnType<typeof createPersister> }) {
@@ -53,6 +51,8 @@ export const HashHistoryProvider = ({ children }: { children: ReactNode }) => {
 export const createBootstrap =
   <T extends BaseConfig>(config: T) =>
   (e: ReactElement | (() => ReactElement)) => {
+    console.log(config);
+
     const persister = createPersister({
       name: config.appName || "app",
     });
@@ -69,31 +69,34 @@ export const createBootstrap =
         const store$ = Store.create(storeValues);
 
         if (process.env.NODE_ENV !== "production") {
-          store$.applyMiddleware(
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-            (createLogger as any)({
-              duration: true,
-              collapsed: true,
-              errorTransformer: (e: any) => {
-                throw e;
-              },
-              colors: {
-                title: (actor: Actor) => {
-                  switch (actor.stage) {
-                    case AsyncStage.STARTED:
-                      return "blue";
-                    case AsyncStage.DONE:
-                      return "green";
-                    case AsyncStage.FAILED:
-                      return "red";
-                    case AsyncStage.CANCEL:
-                      return "orange";
-                  }
-                  return "black";
+          // @ts-ignore
+          void import("redux-logger").then(({ createLogger }) => {
+            store$.applyMiddleware(
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+              createLogger({
+                duration: true,
+                collapsed: true,
+                errorTransformer: (e: any) => {
+                  throw e;
                 },
-              },
-            }),
-          );
+                colors: {
+                  title: (actor: Actor) => {
+                    switch (actor.stage) {
+                      case AsyncStage.STARTED:
+                        return "blue";
+                      case AsyncStage.DONE:
+                        return "green";
+                      case AsyncStage.FAILED:
+                        return "red";
+                      case AsyncStage.CANCEL:
+                        return "orange";
+                    }
+                    return "black";
+                  },
+                },
+              }),
+            );
+          });
         }
 
         finalRender(

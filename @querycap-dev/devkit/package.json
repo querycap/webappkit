@@ -9,7 +9,7 @@
     "@querycap-dev/generate": "workspace:^0.5.5",
     "@querycap/config": "workspace:*",
     "@types/cross-spawn": "^6.0.2",
-    "@types/js-yaml": "^4.0.4",
+    "@types/js-yaml": "^4.0.5",
     "cross-spawn": "^7.0.3",
     "js-yaml": "^4.1.0",
     "lodash": "^4.17.21",

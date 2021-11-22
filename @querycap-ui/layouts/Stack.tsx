@@ -35,7 +35,8 @@ export const Stack = ({
                 .marginLeft(flow(fromTheme(spacing), negative))
                 .with(select("& > *").marginLeft(spacing))
             : select("& > * + *").marginTop(spacing),
-        )}>
+        )}
+    >
       {children}
     </div>
   );

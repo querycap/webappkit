@@ -28,7 +28,8 @@ export const Loading = ({ ...props }) => {
           transform: "rotate(45deg)",
           animation: `${rotate} 1.2s infinite linear`,
         }}
-        {...props}>
+        {...props}
+      >
         {map(range(4), (i) => {
           return (
             <i

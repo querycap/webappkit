@@ -9,28 +9,32 @@ export const Alerts = () => {
         type={"info"}
         onRequestClose={() => {
           //
-        }}>
+        }}
+      >
         提示信息
       </Alert>
       <Alert
         type={"success"}
         onRequestClose={() => {
           //
-        }}>
+        }}
+      >
         提示信息
       </Alert>
       <Alert
         type={"error"}
         onRequestClose={() => {
           //
-        }}>
+        }}
+      >
         提示信息
       </Alert>
       <Alert
         type={"warning"}
         onRequestClose={() => {
           //
-        }}>
+        }}
+      >
         提示信息
       </Alert>
     </Stack>
@@ -44,28 +48,32 @@ export const AlertCards = () => {
         type={"info"}
         onRequestClose={() => {
           //
-        }}>
+        }}
+      >
         提示信息
       </AlertCard>
       <AlertCard
         type={"success"}
         onRequestClose={() => {
           //
-        }}>
+        }}
+      >
         提示信息
       </AlertCard>
       <AlertCard
         type={"error"}
         onRequestClose={() => {
           //
-        }}>
+        }}
+      >
         提示信息
       </AlertCard>
       <AlertCard
         type={"warning"}
         onRequestClose={() => {
           //
-        }}>
+        }}
+      >
         提示信息
       </AlertCard>
     </Stack>

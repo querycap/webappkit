@@ -17,14 +17,16 @@ export const Tooltip = withBackground(flow(theme.state.color, tintOrShade(0.05))
             .padding(roundedEm(0.1))
             .zIndex(500)
             .pointerEvents("none")
-            .with(select("&:before").content(`""`).position("absolute").left("50%").marginLeft(-1).zIndex(2))}>
+            .with(select("&:before").content(`""`).position("absolute").left("50%").marginLeft(-1).zIndex(2))}
+        >
           <div
             css={select()
               .colorFill(theme.state.color)
               .backgroundColor(theme.state.backgroundColor)
               .boxShadow(shadows.normal)
               .borderRadius(theme.radii.s)
-              .padding("0.25em 0.5em")}>
+              .padding("0.25em 0.5em")}
+          >
             {children}
           </div>
         </div>

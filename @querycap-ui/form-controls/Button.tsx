@@ -32,7 +32,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <ThemeState
         borderColor={primary ? theme.colors.primary : theme.state.borderColor}
         color={primary ? flow(theme.colors.primary, safeTextColor) : flow(theme.state.color, tintOrShade(0.3))}
-        backgroundColor={primary ? theme.colors.primary : flow(theme.state.backgroundColor, tint(0.2))}>
+        backgroundColor={primary ? theme.colors.primary : flow(theme.state.backgroundColor, tint(0.2))}
+      >
         <button
           ref={ref}
           role={"button"}

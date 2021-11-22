@@ -80,7 +80,8 @@ export const Portal = ({ pid = uuid(), children }: { pid?: string; children: Rea
         stack: stack,
         container: elmRef.current,
         pid: pid,
-      }}>
+      }}
+    >
       {createPortal(children, elmRef.current)}
     </PortalContext.Provider>
   );

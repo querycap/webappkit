@@ -60,14 +60,16 @@ const SwitchCore = ({ value, tips }: { value: boolean; tips?: [ReactNode, ReactN
         .height("1em")
         .width(tips ? "2.5em" : "1.5em")
         .borderRadius("0.6em")
-        .border("1px solid")}>
+        .border("1px solid")}
+    >
       {tips && (
         <div
           css={select()
             .fontSize("0.6em")
             .textTransform("uppercase")
             .color(theme.state.color)
-            .with(select("& > *").paddingX(roundedEm(0.3)).with(cover()))}>
+            .with(select("& > *").paddingX(roundedEm(0.3)).with(cover()))}
+        >
           <animated.span style={{ opacity: styles.onOpacity } as any} css={{ textAlign: "left" }}>
             {tips[0]}
           </animated.span>
@@ -127,7 +129,8 @@ export const Switch = forwardRef(({ name, value, tips, onValueChange, disabled, 
             ? theme.colors.primary
             : pipe(theme.state.backgroundColor, tintOrShade(0.1))
         }
-        autoColor>
+        autoColor
+      >
         <SwitchCore value={value} tips={tips} />
       </ThemeState>
     </label>

@@ -79,7 +79,8 @@ export const Overlay = withPortal(
           position: "absolute",
           zIndex: 10,
           width: fullWidth ? triggerRect.width : "auto",
-        }}>
+        }}
+      >
         {children}
       </div>
     );

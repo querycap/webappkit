@@ -45,7 +45,8 @@ export const FieldArray = ({ defaultValues = [], name, children }: FieldArrayPro
               key={i}
               value={{
                 prefix: `${fieldName}[${i}]`,
-              }}>
+              }}
+            >
               {render(i)}
             </FieldPrefixProvider>
           ))}

@@ -8,11 +8,11 @@ import { safeTextColor, simpleShadow, tintOrShade } from "./helpers";
 
 export type ValueOrThemeGetter<T> = T | ((t: Theme) => T);
 
-export const fromTheme =
-  <T extends any>(valueOrGetter: ValueOrThemeGetter<T>) =>
-  (t: Theme) => {
+export function fromTheme<T>(valueOrGetter: ValueOrThemeGetter<T>) {
+  return (t: Theme) => {
     return isFunction(valueOrGetter) ? valueOrGetter(t) : valueOrGetter;
   };
+}
 
 const fontStack = (...fonts: string[]) => fonts.map((font) => (font.includes(" ") ? `"${font}"` : font)).join(", ");
 
@@ -42,7 +42,6 @@ const state = {
 
 export const defaultTheme = {
   state: state,
-
   colors: {
     primary: colors.blue6,
     success: colors.green5,
@@ -158,6 +157,7 @@ export const ThemeState = ({
 
   const next = useMemo((): Theme => {
     if (autoColor) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       nextState.color = safeTextColor(nextState.backgroundColor);
     }
 

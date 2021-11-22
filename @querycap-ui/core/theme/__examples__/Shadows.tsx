@@ -16,7 +16,8 @@ export const Shadows = () => {
                   .width(400)
                   .borderRadius(theme.radii.normal)
                   .backgroundColor(theme.state.backgroundColor)
-                  .boxShadow(v)}>
+                  .boxShadow(v)}
+              >
                 {k}
               </div>
             </div>

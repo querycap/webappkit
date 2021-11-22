@@ -58,7 +58,8 @@ const NavBtn = ({
       if (!disabled) {
         onRequestNav();
       }
-    })}>
+    })}
+  >
     {children}
   </a>
 );
@@ -95,12 +96,14 @@ export const Pagination = ({ total, pager, onPagerChange, onShowSizeChange, ...o
           .textDecoration("none")
           .borderRadius(theme.radii.s)
           .whiteSpace("nowrap")
-          .with(select("&[data-disabled=true]").opacity(0.5).colorFill(theme.state.color).cursor("not-allowed"))}>
+          .with(select("&[data-disabled=true]").opacity(0.5).colorFill(theme.state.color).cursor("not-allowed"))}
+      >
         <NavBtn
           disabled={currentPage === 1}
           onRequestNav={() => {
             updatePage(currentPage - 1);
-          }}>
+          }}
+        >
           上页
         </NavBtn>
         <div>
@@ -113,7 +116,8 @@ export const Pagination = ({ total, pager, onPagerChange, onShowSizeChange, ...o
             value={currentPage}
             onChange={pipe(preventDefault, (e) => {
               updatePage(Number((e as any).target?.value));
-            })}>
+            })}
+          >
             <Options value={totalPage} />
           </select>
           &nbsp;/&nbsp;{totalPage}
@@ -122,7 +126,8 @@ export const Pagination = ({ total, pager, onPagerChange, onShowSizeChange, ...o
           disabled={currentPage === totalPage}
           onRequestNav={() => {
             updatePage(currentPage + 1);
-          }}>
+          }}
+        >
           下页
         </NavBtn>
         <div>共 {total} 条</div>

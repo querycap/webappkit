@@ -9,7 +9,8 @@ export const ButtonGroup = ({ small, children }: { small?: boolean; children?: R
         .with(select("& > [role=button]:first-of-type").borderLeftRadius(theme.radii.s))
         .with(select("& > [role=button]:last-of-type").borderRightRadius(theme.radii.s))
         .with(select("& > [role=button] + [role=button]").marginX(-1))
-        .with(select("& > [role=button][data-primary=true]").zIndex(1))}>
+        .with(select("& > [role=button][data-primary=true]").zIndex(1))}
+    >
       {Children.map(children, (e) => {
         if (isValidElement(e)) {
           return cloneElement(e, { small: small });

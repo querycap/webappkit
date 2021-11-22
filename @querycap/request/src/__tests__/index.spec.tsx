@@ -51,7 +51,8 @@ describe("#requests", () => {
           })}
           options={{
             adapter: mock,
-          }}>
+          }}
+        >
           <Emojis />
           <Emojis />
           <Emojis />

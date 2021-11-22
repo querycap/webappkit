@@ -8,7 +8,6 @@ export const CSSReset = () => {
       <Global styles={normalize()} />
 
       <Global styles={select("*", "*::after", "*::before").boxSizing("border-box")} />
-
       <Global
         styles={select()
           .with(

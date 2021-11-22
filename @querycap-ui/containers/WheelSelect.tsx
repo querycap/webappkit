@@ -126,19 +126,22 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
       style={{
         position: "relative",
         width: "100%",
-      }}>
+      }}
+    >
       {sup && (
         <div
           css={select().with(cover()).with({
             display: "flex",
             alignItems: "center",
             justifyContent: "flex-end",
-          })}>
+          })}
+        >
           <small css={select().width("50%").color(theme.colors.primary).textAlign("left")}>
             <span
               style={{
                 paddingLeft: `${maxValueLength / 2 + 0.5}em`,
-              }}>
+              }}
+            >
               {sup}
             </span>
           </small>
@@ -152,13 +155,15 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
           touchAction: "none", // Disable browser handling of all panning and zooming gestures
           height: columnHeight,
           minWidth: maxValueLength * t.state.fontSize * 1.2,
-        }}>
+        }}
+      >
         <div
           data-name={name}
           css={{
             position: "relative",
             padding: "0 1.6em",
-          }}>
+          }}
+        >
           <animated.div
             role={"options"}
             style={{ y }}
@@ -181,7 +186,8 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
                   height: itemHeight,
                   lineHeight: `${itemHeight}px`,
                 }),
-              )}>
+              )}
+          >
             {map(options, (option, index) => {
               return (
                 <animated.div
@@ -201,7 +207,8 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
                       const delta = index - Math.round(-(y / itemHeight));
                       return `scale(${1 - Math.abs(delta) * 0.05})`;
                     }),
-                  }}>
+                  }}
+                >
                   {option.label}
                 </animated.div>
               );

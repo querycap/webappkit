@@ -23,7 +23,8 @@ export const Progress = ({
       .width(inline ? 200 : "100%")
       .overflow("hidden")
       .borderRadius(theme.radii.normal)
-      .backgroundColor(flow(theme.state.backgroundColor, tintOrShade(0.08)))}>
+      .backgroundColor(flow(theme.state.backgroundColor, tintOrShade(0.08)))}
+  >
     {children}
   </div>
 );

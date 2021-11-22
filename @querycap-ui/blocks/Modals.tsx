@@ -36,7 +36,8 @@ export const ModalBase = withPortal(({ onRequestClose, children }: ModalBaseProp
           padding: "2em",
           overflowY: "auto",
         },
-      ]}>
+      ]}
+    >
       {children}
     </div>
   );
@@ -88,7 +89,8 @@ export const ModalPanel = forwardRef(
         .padding("2.8em 3.2em")
         .borderRadius(theme.radii.normal)
         .backgroundColor(theme.state.backgroundColor)}
-      {...otherProps}>
+      {...otherProps}
+    >
       {onRequestClose && (
         <a
           href="#"
@@ -99,7 +101,8 @@ export const ModalPanel = forwardRef(
             .right(0)
             .padding("0.5em 1em")
             .opacity(0.5)
-            .colorFill(theme.state.color)}>
+            .colorFill(theme.state.color)}
+        >
           <IconX />
         </a>
       )}

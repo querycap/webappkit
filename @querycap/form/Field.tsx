@@ -107,7 +107,8 @@ export const Field = ({ name: n, validate: v, disabled, readOnly, children }: Fi
   return (
     <FieldProvider
       key={`${fieldState.formID}/${fieldState.name}`}
-      value={{ ...fieldState, disabled, readOnly, controls }}>
+      value={{ ...fieldState, disabled, readOnly, controls }}
+    >
       <FieldRegister name={name} validate={validate} />
       {children}
     </FieldProvider>

@@ -17,7 +17,8 @@ export const BorderRadius = () => {
                   .border("1px solid")
                   .borderRadius(v)
                   .borderColor(theme.state.borderColor)
-                  .backgroundColor(theme.state.backgroundColor)}>
+                  .backgroundColor(theme.state.backgroundColor)}
+              >
                 radii.{k} = {v}
               </div>
             </div>
