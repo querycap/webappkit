@@ -507,8 +507,8 @@ importers:
 
   '@querycap-ui/date-pickers':
     specifiers:
-      '@querycap-ui/containers': workspace:^0.6.7
-      '@querycap-ui/icons': workspace:^0.6.5
+      '@querycap-ui/containers': workspace:^0.6.8
+      '@querycap-ui/icons': workspace:^0.6.6
     dependencies:
       '@querycap-ui/containers': link:../containers
       '@querycap-ui/icons': link:../icons

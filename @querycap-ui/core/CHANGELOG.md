@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.11.8
+
+### Patch Changes
+
+- fix exports
+
 ## 0.11.7
 
 ### Patch Changes

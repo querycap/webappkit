@@ -38,9 +38,6 @@
     "arrowParens": "always",
     "printWidth": 120
   },
-  "types": "./dist/index.d.ts",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
   "exports": {
     ".": {
       "require": "./dist/index.cjs",
@@ -57,5 +54,8 @@
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:querycap/webappkit.git"
-  }
+  },
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs"
 }
