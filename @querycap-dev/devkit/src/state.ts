@@ -1,3 +1,11 @@
+export interface IDevkitConfig {
+  images: {
+    build: string;
+    runtime: string;
+  };
+  actions: { [k: string]: string };
+}
+
 export interface IState {
   cwd: string;
   context: string;

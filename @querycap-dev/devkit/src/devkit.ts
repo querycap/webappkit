@@ -5,7 +5,7 @@ import { writeConfig } from "./action-build";
 import { initial } from "./action-initial";
 import { release } from "./action-release";
 import { exec } from "./exec";
-import { IState } from "./state";
+import { IState, IDevkitConfig } from "./state";
 
 const resolveApps = (cwd: string): { [key: string]: string } => {
   const appBases: { [key: string]: string } = {};
@@ -78,10 +78,16 @@ const loadConfigFromFile = (cwd: string, state: IState) => {
 };
 
 export const devkit = (cwd = process.cwd()) => {
-  let actions: { [k: string]: string } = {
-    dev: "echo 'dev'",
-    build: "echo 'build'",
-    release: "",
+  let c: IDevkitConfig = {
+    images: {
+      build: "docker.io/library/node:16-buster",
+      runtime: "docker.io/querycap/webappserve:0.2.1",
+    },
+    actions: {
+      dev: "echo 'dev'",
+      build: "echo 'build'",
+      release: "",
+    },
   };
 
   const pkgJSON = join(cwd, "package.json");
@@ -91,9 +97,17 @@ export const devkit = (cwd = process.cwd()) => {
       const pkg = JSON.parse(String(readFileSync(pkgJSON)));
 
       if (pkg && isObject(pkg.devkit)) {
-        actions = {
-          ...actions,
-          ...pkg.devkit,
+        const devkitConfig = pkg.devkit.actions || pkg.devkit.images ? pkg.devkit : { actions: pkg.devkit };
+
+        c = {
+          images: {
+            ...c.images,
+            ...(devkitConfig.images || {}),
+          },
+          actions: {
+            ...c.actions,
+            ...(devkitConfig.actions || {}),
+          },
         };
       }
     } catch (e) {
@@ -105,7 +119,7 @@ export const devkit = (cwd = process.cwd()) => {
 
   return {
     apps: keys(appBases),
-    actions: actions,
+    actions: c.actions,
     run: (
       action: string,
       app: string,
@@ -123,8 +137,8 @@ export const devkit = (cwd = process.cwd()) => {
         return;
       }
 
-      if (!has(actions, action || "")) {
-        throw new Error(`missing action ${keys(actions).join(", ")}`);
+      if (!has(c.actions, action || "")) {
+        throw new Error(`missing action ${keys(c.actions).join(", ")}`);
       }
 
       const [name, feature] = (app || "").toLowerCase().split("--");
@@ -160,10 +174,10 @@ export const devkit = (cwd = process.cwd()) => {
       }
 
       if (action === "dev") {
-        writeConfig(join(cwd, "cmd", state.name), state);
+        writeConfig(join(cwd, "cmd", state.name), state, c);
       }
 
-      exec(actions[action], state);
+      exec(c.actions[action], state);
     },
   };
 };

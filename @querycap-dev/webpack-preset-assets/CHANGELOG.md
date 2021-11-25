@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.0.0
+
+### Patch Changes
+
+- Updated dependencies
+  - @querycap-dev/devkit@0.12.0
+
 ## 1.0.1
 
 ### Patch Changes

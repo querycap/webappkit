@@ -1,6 +1,11 @@
 {
   "devkit": {
-    "dev": "echo ${PATH}",
-    "build": "base64 -d <<< ${DEVKIT}"
+    "images": {
+      "runtime": "docker.io/querycap/webappserve:0.2.1"
+    },
+    "actions": {
+      "dev": "echo ${PATH}",
+      "build": "base64 -d <<< ${DEVKIT}"
+    }
   }
 }

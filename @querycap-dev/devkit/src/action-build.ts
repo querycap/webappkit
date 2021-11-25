@@ -3,12 +3,12 @@ import { dump } from "js-yaml";
 import { isUndefined, map, omitBy } from "lodash";
 import path, { join } from "path";
 import { withPrefix } from "@querycap/config";
-import { IState } from "./state";
+import { IDevkitConfig, IState } from "./state";
 import * as fs from "fs";
 
 const omitEmpty = <T extends object = any>(o: T) => omitBy(o, (v) => isUndefined(v));
 
-export const writeConfig = (cwd: string, state: IState) => {
+export const writeConfig = (cwd: string, state: IState, c: IDevkitConfig) => {
   const baseConfig = {
     APP: state.name,
     ENV: state.env,
@@ -57,7 +57,7 @@ spec:
   generate(
     join(cwd, `./Dockerfile`),
     `
-FROM --platform=\${BUILDPLATFORM} docker.io/library/node:16-buster as build-env
+FROM --platform=\${BUILDPLATFORM} ${c.images.build} as build-env
 
 FROM --platform=\${BUILDPLATFORM} build-env AS builder
 
@@ -89,7 +89,7 @@ RUN yarn install
 RUN PROJECT_GROUP=\${PROJECT_GROUP} PROJECT_VERSION=\${PROJECT_VERSION} \\
     npx devkit build --prod \${APP} \${ENV}
 
-FROM docker.io/querycap/webappserve:0.1.0
+FROM ${c.images.runtime}
 
 ARG PROJECT_NAME
 COPY --from=builder /src/public/\${PROJECT_NAME} /app
