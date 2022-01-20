@@ -10,9 +10,9 @@
     "prettier": "*"
   },
   "dependencies": {
-    "chalk": "^4.1.2",
-    "fast-glob": "^3.2.7",
-    "prettier": "^2.4.1"
+    "chalk": "4.x",
+    "fast-glob": "^3.2.11",
+    "prettier": "^2.5.1"
   },
   "license": "MIT",
   "publishConfig": {

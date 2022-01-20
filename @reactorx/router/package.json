@@ -7,14 +7,14 @@
   ],
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
+    "history": "5.x",
     "lodash": "*",
     "react": "*",
-    "history": "5.x",
     "rxjs": "7.x"
   },
   "dependencies": {
     "@reactorx/core": "workspace:^0.22.4",
-    "react-router": "^6.0.2"
+    "react-router": "^6.2.1"
   },
   "publishConfig": {
     "access": "public"
