@@ -10,7 +10,7 @@
     "prettier": "*"
   },
   "dependencies": {
-    "chalk": "4.x",
+    "chalk": "5.x",
     "fast-glob": "^3.2.11",
     "prettier": "^2.5.1"
   },
