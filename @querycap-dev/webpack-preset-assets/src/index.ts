@@ -41,7 +41,7 @@ export const withAssetsPreset = () => (c: Configuration, _2: IState) => {
       use: [require.resolve("file-loader")],
     },
     {
-      test: /\.(png|jpg)$/,
+      test: /\.(png|jpg|gif)$/,
       use: [
         {
           loader: require.resolve("file-loader"),
