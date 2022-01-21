@@ -88,7 +88,7 @@
     "@babel/types": "^7.15.6",
     "@changesets/cli": "^2.17.0",
     "@commitlint/cli": "^13.1.0",
-    "@commitlint/config-conventional": "^13.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
     "@emotion/babel-plugin": "^11.3.0",
     "@emotion/react": "^11.4.1",
     "@querycap-dev/babel-preset": "workspace:*",
