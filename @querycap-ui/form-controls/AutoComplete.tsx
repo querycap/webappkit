@@ -89,10 +89,6 @@ export const AutoComplete = (props: AutocompleteProps) => {
 
     useLayoutEffect(() => {
         if (!value && values.length > 0) {
-<<<<<<< HEAD
-=======
-            console.info('----=')
->>>>>>> 8e04c27 (feat: autoComplete)
             onValueChange(values[0].value, true);
         }
     }, []);
