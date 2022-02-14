@@ -175,8 +175,8 @@ const PageItem = ({ num }: { num: number }) => {
     css={[
       (num < 1 || num > totalPage) && select().display('none'),
       select().width(28).height(28).borderRadius('50%').textAlign('center').lineHeight('28px'),
-      select('&:hover').color(t => t.colors.primary).background(flow(theme.colors.primary, transparentize(0.2))),
-      currentPage == num && select().color(t => t.colors.primary).background(flow(theme.colors.primary, transparentize(0.3))),
+      select('&:hover').color(t => t.colors.primary).background(flow(theme.colors.primary, transparentize(0.8))),
+      currentPage == num && select().color(t => t.colors.primary).background(flow(theme.colors.primary, transparentize(0.8))),
       // disabled && select().opacity(0.8),
     ]}
   >{num}</div>
