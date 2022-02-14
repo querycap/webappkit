@@ -1,7 +1,8 @@
-import { preventDefault, roundedEm, select, theme } from "@querycap-ui/core/macro";
+import { preventDefault, roundedEm, select, theme, transparentize } from "@querycap-ui/core/macro";
+import { IconChevronLeft, IconChevronRight } from '@querycap-ui/icons';
 import { Stack } from "@querycap-ui/layouts";
-import { times } from "lodash";
-import { memo, ReactNode } from "react";
+import { flow, times } from "lodash";
+import { createContext, memo, ReactNode, useContext } from "react";
 import { pipe } from "rxjs";
 
 export interface Pager {
@@ -54,6 +55,7 @@ const NavBtn = ({
     role={"nav"}
     href={"#"}
     data-disabled={disabled}
+    css={!disabled && select('&:hover').fill(t => t.colors.primary)}
     onClick={pipe(preventDefault, () => {
       if (!disabled) {
         onRequestNav();
@@ -104,9 +106,24 @@ export const Pagination = ({ total, pager, onPagerChange, onShowSizeChange, ...o
             updatePage(currentPage - 1);
           }}
         >
-          上页
+          <IconChevronLeft />
         </NavBtn>
-        <div>
+        <PaginationProvider value={{
+          currentPage,
+          totalPage,
+          updatePage,
+        }}>
+          <PageItems />
+        </PaginationProvider>
+        <NavBtn
+          disabled={currentPage === totalPage}
+          onRequestNav={() => {
+            updatePage(currentPage + 1);
+          }}
+        >
+          <IconChevronRight />
+        </NavBtn>
+        {totalPage > 6 &&
           <select
             css={select()
               .borderRadius(theme.radii.s)
@@ -120,21 +137,50 @@ export const Pagination = ({ total, pager, onPagerChange, onShowSizeChange, ...o
           >
             <Options value={totalPage} />
           </select>
-          &nbsp;/&nbsp;{totalPage}
-        </div>
-        <NavBtn
-          disabled={currentPage === totalPage}
-          onRequestNav={() => {
-            updatePage(currentPage + 1);
-          }}
-        >
-          下页
-        </NavBtn>
-        <div>共 {total} 条</div>
+        }
       </Stack>
     </div>
   );
 };
+
+interface IPaginationContext {
+  currentPage: number,
+  totalPage: number,
+  updatePage: (num: number) => void,
+}
+
+const PaginationContext = createContext({} as IPaginationContext);
+const PaginationProvider = PaginationContext.Provider;
+const usePaginationInfo = () => useContext(PaginationContext)
+
+const PageItems = () => {
+  const { currentPage, totalPage } = usePaginationInfo();
+  return <Stack inline spacing={4}>
+    {currentPage - 2 > 1 && <PageItem num={1} />}
+    {currentPage >= 5 && <div>...</div>}
+    <PageItem num={currentPage - 2} />
+    <PageItem num={currentPage - 1} />
+    <PageItem num={currentPage} />
+    <PageItem num={currentPage + 1} />
+    <PageItem num={currentPage + 2} />
+    {currentPage <= totalPage - 5 && <div>...</div>}
+    {currentPage + 2 < totalPage && <PageItem num={totalPage} />}
+  </Stack>
+}
+
+const PageItem = ({ num }: { num: number }) => {
+  const { currentPage, totalPage, updatePage } = usePaginationInfo();
+  return <div
+    onClick={() => updatePage(num)}
+    css={[
+      (num < 1 || num > totalPage) && select().display('none'),
+      select().width(28).height(28).borderRadius('50%').textAlign('center').lineHeight('28px'),
+      select('&:hover').color(t => t.colors.primary).background(flow(theme.colors.primary, transparentize(0.2))),
+      currentPage == num && select().color(t => t.colors.primary).background(flow(theme.colors.primary, transparentize(0.3))),
+      // disabled && select().opacity(0.8),
+    ]}
+  >{num}</div>
+}
 
 export interface PagerWithTotal extends Pager {
   total?: number;
