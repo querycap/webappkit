@@ -11,9 +11,6 @@ export const Switches = () => {
       <div>
         <Switch value={checked} disabled onValueChange={setCheck} /> <span>文本</span>
       </div>
-      <div>
-        <Switch value={checked} onValueChange={setCheck} tips={["on", "off"]} /> <span>文本</span>
-      </div>
       <div css={{ fontSize: "2em" }}>
         <Switch value={checked} onValueChange={setCheck} /> <span>文本</span>
       </div>

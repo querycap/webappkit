@@ -7,7 +7,9 @@ export const Tags = () => {
     <Stack inline spacing={20}>
       <Tag>Tag 1</Tag>
       <Tag closable>Tag 2</Tag>
-      <Tag color={colors.green5}>Green</Tag>
+      <Tag color={colors.green5} bordered>
+        Green
+      </Tag>
       <Tag color={colors.red5}>Red</Tag>
       <Tag color={colors.purple5} isChecked={false}>
         UnChecked

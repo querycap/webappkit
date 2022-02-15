@@ -2,7 +2,6 @@ import {
   animated,
   cover,
   opacify,
-  roundedEm,
   select,
   theme,
   ThemeState,
@@ -10,24 +9,23 @@ import {
   useSpring,
   useTheme,
 } from "@querycap-ui/core/macro";
+import { colors } from "@querycap-ui/core/theme/colors";
 import { pipe } from "rxjs";
-import { forwardRef, ReactNode, useEffect } from "react";
+import { forwardRef, useEffect } from "react";
 import { ControlledInput } from "./Input";
 
-export interface SwitchProps extends ControlledInput<boolean> {
-  tips?: [ReactNode, ReactNode];
-}
+export interface SwitchProps extends ControlledInput<boolean> {}
 
-const SwitchCore = ({ value, tips }: { value: boolean; tips?: [ReactNode, ReactNode] }) => {
+const SwitchCore = ({ value }: { value: boolean }) => {
   const ds = useTheme();
-
   const getStyle = (value: boolean) => {
     if (value) {
       return {
-        transform: `translate3d(${tips ? "150%" : "50%"},0,0)`,
+        transform: `translate3d(100%,0,0)`,
         backgroundColor: ds.state.backgroundColor,
         onOpacity: 1,
         offOpacity: 0,
+        borderColor: colors.gray2,
       };
     }
 
@@ -36,6 +34,7 @@ const SwitchCore = ({ value, tips }: { value: boolean; tips?: [ReactNode, ReactN
       backgroundColor: ds.state.backgroundColor,
       onOpacity: 0,
       offOpacity: 1,
+      borderColor: colors.blue1,
     };
   };
 
@@ -49,50 +48,35 @@ const SwitchCore = ({ value, tips }: { value: boolean; tips?: [ReactNode, ReactN
 
   return (
     <animated.div
-      style={{
-        borderColor: styles.backgroundColor,
-        backgroundColor: styles.backgroundColor,
-      }}
-      css={select()
-        .position("relative")
-        .display("inline-block")
-        .top("0.125em")
-        .height("1em")
-        .width(tips ? "2.5em" : "1.5em")
-        .borderRadius("0.6em")
-        .border("1px solid")}
+      css={select().position("relative").display("inline-block").top("0.125em").height("1em").marginRight(8).width(24)}
     >
-      {tips && (
-        <div
-          css={select()
-            .fontSize("0.6em")
-            .textTransform("uppercase")
-            .color(theme.state.color)
-            .with(select("& > *").paddingX(roundedEm(0.3)).with(cover()))}
-        >
-          <animated.span style={{ opacity: styles.onOpacity } as any} css={{ textAlign: "left" }}>
-            {tips[0]}
-          </animated.span>
-          <animated.span style={{ opacity: styles.offOpacity } as any} css={{ textAlign: "right" }}>
-            {tips[1]}
-          </animated.span>
-        </div>
-      )}
-
       <animated.div
         style={{
-          borderColor: styles.backgroundColor,
+          backgroundColor: styles.backgroundColor,
+        }}
+        css={select()
+          .height(8)
+          .width("100%")
+          .position("absolute")
+          .left(0)
+          .top("50%")
+          .marginTop(-4)
+          .borderRadius("0.6em")}
+      />
+      <animated.div
+        style={{
+          borderColor: styles.borderColor,
           transform: styles.transform,
         }}
         css={select()
           .position("absolute")
-          .top(-1)
-          .left(-1)
-          .display("block")
-          .height("1em")
-          .width("1em")
+          .top("50%")
+          .marginTop(-7)
+          .left(0)
+          .height(14)
+          .width(14)
           .borderRadius("100%")
-          .border("2px solid")
+          .border("1px solid")
           .backgroundColor("white")
           .pointerEvents("none")
           .with(
@@ -109,7 +93,7 @@ const SwitchCore = ({ value, tips }: { value: boolean; tips?: [ReactNode, ReactN
   );
 };
 
-export const Switch = forwardRef(({ name, value, tips, onValueChange, disabled, ...props }: SwitchProps, ref) => {
+export const Switch = forwardRef(({ name, value, onValueChange, disabled, ...props }: SwitchProps, ref) => {
   return (
     <label {...props} role="switch" aria-checked={value} css={select().cursor(!disabled ? "pointer" : "default")}>
       <input
@@ -131,7 +115,7 @@ export const Switch = forwardRef(({ name, value, tips, onValueChange, disabled, 
         }
         autoColor
       >
-        <SwitchCore value={value} tips={tips} />
+        <SwitchCore value={value} />
       </ThemeState>
     </label>
   );
