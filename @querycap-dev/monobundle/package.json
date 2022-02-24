@@ -14,7 +14,7 @@
     "chalk": "4.x",
     "del": "^6.0.0",
     "lodash": "^4.17.21",
-    "minimatch": "^3.0.4",
+    "minimatch": "^5.0.1",
     "rollup": "^2.64.0",
     "rollup-plugin-dts": "^4.1.0",
     "yargs": "^17.3.1"
