@@ -1,4 +1,4 @@
-import { isEmpty } from "lodash";
+import { isEmpty } from "@querycap/lodash";
 import { createValidator } from "./validator";
 
 export const required =

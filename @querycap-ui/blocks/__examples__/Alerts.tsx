@@ -1,4 +1,4 @@
-import { roundedEm } from "@querycap-ui/core/macro";
+import { roundedEm } from "@querycap-ui/core";
 import { Alert, AlertCard } from "@querycap-ui/blocks";
 import { Stack } from "@querycap-ui/layouts";
 

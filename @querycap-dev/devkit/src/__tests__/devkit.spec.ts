@@ -1,7 +1,9 @@
-import path from "path";
+import path, { dirname } from "path";
 import yargs from "yargs";
 import { cliFor } from "../";
+import { fileURLToPath } from "url";
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const cwd = path.join(__dirname, "../__examples__");
 
 const cmd = (...args: string[]) => cliFor(yargs(args, cwd), cwd)();

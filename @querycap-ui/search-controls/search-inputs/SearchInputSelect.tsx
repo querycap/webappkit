@@ -2,7 +2,7 @@ import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect
 import { cover, preventDefault, select } from "@querycap-ui/core";
 import { useToggle } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
-import { filter, includes, map, noop } from "lodash";
+import { filter, includes, map, noop } from "@querycap/lodash";
 import { useEffect, useRef } from "react";
 import { fromEvent, merge } from "rxjs";
 import { filter as rxFilter, tap } from "rxjs/operators";

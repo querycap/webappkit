@@ -1,6 +1,5 @@
 import { render } from "@testing-library/react";
-
-import { must } from "..";
+import { must } from "@querycap/reactutils";
 
 describe("#must", () => {
   const mustTrue = must(() => {

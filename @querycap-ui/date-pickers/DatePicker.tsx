@@ -1,4 +1,4 @@
-import { safeTextColor, select, theme, ThemeState, useTheme } from "@querycap-ui/core/macro";
+import { safeTextColor, select, theme, ThemeState, useTheme } from "@querycap-ui/core";
 import { IconChevronLeft, IconChevronRight } from "@querycap-ui/icons";
 import {
   addDays,
@@ -19,7 +19,7 @@ import {
 } from "date-fns";
 
 import { zhCN } from "date-fns/locale";
-import { Dictionary, floor, flow, forEach, map, set } from "lodash";
+import { Dictionary, floor, flow, forEach, map, set } from "@querycap/lodash";
 import { HTMLAttributes, ReactNode, useEffect, useMemo, useState } from "react";
 
 export const format = (date: number | Date, formatStr: string) => {

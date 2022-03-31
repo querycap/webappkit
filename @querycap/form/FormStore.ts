@@ -1,5 +1,5 @@
 import { createStore } from "@querycap/contexts";
-import { cloneDeep, Dictionary, get, isFunction, mapValues, omit, set } from "lodash";
+import { cloneDeep, Dictionary, get, isFunction, mapValues, omit, set } from "@querycap/lodash";
 import { v4 as uuid } from "uuid";
 import { FieldState, FormErrors, FormState } from "./State";
 

@@ -1,4 +1,4 @@
-export const createWorker = <TArg extends any, TOutput extends any>(exec: (arg: TArg) => TOutput) => {
+export const createWorker = <TArg, TOutput>(exec: (arg: TArg) => TOutput) => {
   self &&
     self.addEventListener &&
     self?.addEventListener("message", (event) => {

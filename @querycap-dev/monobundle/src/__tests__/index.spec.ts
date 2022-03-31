@@ -1,9 +1,11 @@
 import { monobundle } from "../monobundle";
 import del from "del";
-import { join } from "path";
-
+import { dirname, join } from "path";
 // @ts-ignore
 import { jest } from "@jest/globals";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 describe("monobundle", () => {
   beforeEach(() => {

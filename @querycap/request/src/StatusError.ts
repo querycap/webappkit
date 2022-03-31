@@ -1,6 +1,6 @@
 import { StatusBadGateway, StatusClientClosedRequest, StatusConnectionClosedWithoutResponse } from "@reactorx/request";
 import axios, { AxiosError, AxiosInterceptorManager, AxiosResponse } from "axios";
-import { reduce } from "lodash";
+import { reduce } from "@querycap/lodash";
 
 export interface IStatusError {
   canBeTalkError: boolean;
@@ -17,15 +17,6 @@ export interface IErrorField {
   field: string;
   in: string;
   msg: string;
-}
-
-export function errorPatch(_: any, response: AxiosInterceptorManager<AxiosResponse>) {
-  response.use(
-    (resp) => resp,
-    (err) => {
-      throw patchError(err);
-    },
-  );
 }
 
 function patchError(error: AxiosError): AxiosResponse<IStatusError> {
@@ -92,5 +83,14 @@ export function pickErrors(errorFields: IErrorField[] = []) {
       [error.field]: error.msg,
     }),
     {},
+  );
+}
+
+export function errorPatch(_: any, response: AxiosInterceptorManager<AxiosResponse>) {
+  response.use(
+    (resp) => resp,
+    (err) => {
+      throw patchError(err);
+    },
   );
 }

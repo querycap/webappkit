@@ -1,5 +1,5 @@
 import type { GetManualChunkApi, Plugin } from "rollup";
-import { uniq } from "lodash";
+import { uniq } from "@querycap/lodash";
 
 export type ChunksGroups = { [name: string]: RegExp };
 

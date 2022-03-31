@@ -1,5 +1,5 @@
 import { ThemeContext } from "@emotion/react";
-import { flow, forEach, isFunction, keys, mapValues } from "lodash";
+import { flow, forEach, isFunction, keys, mapValues } from "@querycap/lodash";
 import { rgba, transparentize } from "polished";
 import { useContext, useMemo } from "react";
 import type { FunctionComponent, ReactNode } from "react";

@@ -1,11 +1,15 @@
 import { readFileSync } from "fs";
-import { camelCase, Dictionary, forEach, includes, map, startsWith, toNumber, trim, upperFirst } from "lodash";
+import { camelCase, forEach, includes, map, startsWith, toNumber, trim, upperFirst } from "@querycap/lodash";
 import { dirname, relative, resolve } from "path";
-import { Declaration, Node, parse, Rule } from "postcss";
+import postcss, { Declaration, Node, Rule } from "postcss";
 
 const isDeclNode = (node: Node): node is Declaration => {
   return node.type === "decl";
 };
+
+interface Dictionary<T> {
+  [k: string]: T;
+}
 
 const stringifyJSObject = (o: Dictionary<string>): string => {
   let rules = `{
@@ -59,7 +63,7 @@ export const css2tsx = (name: string, filename: string, opts: { exclude?: string
 
   const baseDir = dirname(filename);
 
-  (parse(css).nodes || [])
+  (postcss.parse(css).nodes || [])
     .filter((node: Node): node is Rule => node.type === "rule")
     .forEach((rule) => {
       const selector = rule.selector.replace(/\r\n/g, " ").replace(/:first-child/g, ":first-of-type");

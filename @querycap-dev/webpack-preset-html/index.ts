@@ -1,11 +1,15 @@
 import { IState } from "@querycap-dev/devkit";
 import { existsSync } from "fs";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import { join } from "path";
+import { dirname, join } from "path";
 import { stringify } from "@querycap/config";
+// @ts-ignore
 import { Configuration, DefinePlugin } from "webpack";
 import WebpackPwaManifest from "webpack-pwa-manifest";
 import { InjectManifest } from "workbox-webpack-plugin";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const resolvePkgRoot = (p: string): string => {
   const packageJSON = join(p, "./package.json");

@@ -1,4 +1,4 @@
-import { theme, ThemeState, roundedEm } from "@querycap-ui/core/macro";
+import { theme, ThemeState, roundedEm } from "@querycap-ui/core";
 import { Stack } from "@querycap-ui/layouts";
 import {
   createSearchBox,

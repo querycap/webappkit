@@ -1,6 +1,6 @@
 import { Volume } from "@reactorx/core";
 import { parseSearchString } from "@reactorx/router";
-import { Dictionary, mapKeys, omit, pickBy, split, startsWith, pick } from "lodash";
+import { Dictionary, mapKeys, omit, pickBy, split, startsWith, pick } from "@querycap/lodash";
 import { createContext, useContext, useMemo } from "react";
 import { Observable } from "rxjs";
 import { Pager, SearchState, searchStore } from "./SearchStore";

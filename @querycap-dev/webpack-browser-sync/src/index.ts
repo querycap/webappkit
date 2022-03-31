@@ -2,7 +2,7 @@ import browserSync from "browser-sync";
 import compress from "compression";
 import connectHistoryApiFallback from "connect-history-api-fallback";
 import interpret from "interpret";
-import { get } from "lodash";
+import { get } from "@querycap/lodash";
 import path from "path";
 import { getBaseDir } from "./utils";
 import { createMiddlewaresForWebpack } from "./WebpackOptions";

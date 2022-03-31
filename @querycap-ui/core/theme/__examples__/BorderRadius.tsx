@@ -1,5 +1,5 @@
-import { select, defaultTheme, theme, roundedEm } from "@querycap-ui/core/macro";
-import { map } from "lodash";
+import { select, defaultTheme, theme, roundedEm } from "@querycap-ui/core";
+import { map } from "@querycap/lodash";
 
 export const BorderRadius = () => {
   return (

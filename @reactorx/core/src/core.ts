@@ -65,12 +65,12 @@ export class Actor<TArg = any, TOpts = any> {
 
   constructor(opt: IActorOpt<TArg, TOpts>) {
     this.group = opt.group || this.group;
-    this.name = opt.name!;
+    this.name = opt.name || "";
     this.stage = opt.stage;
 
     this.effect = opt.effect;
 
-    this.arg = opt.arg!;
+    this.arg = opt.arg as TArg;
     this.opts = opt.opts || ({} as TOpts);
   }
 

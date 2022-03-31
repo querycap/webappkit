@@ -2,7 +2,6 @@
   "name": "@querycap/form",
   "version": "0.11.6",
   "files": [
-    "./dist/",
     "dist/"
   ],
   "license": "MIT",
@@ -16,8 +15,7 @@
     "@querycap/reactutils": "workspace:^0.8.4",
     "@querycap/validators": "workspace:^0.3.4",
     "@reactorx/core": "workspace:^0.22.4",
-    "@types/lodash": "^4.14.178",
-    "lodash": "^4.17.21"
+    "@querycap/lodash": "workspace:*"
   },
   "publishConfig": {
     "access": "public"
@@ -36,6 +34,7 @@
     },
     "./index.ts": "./index.ts"
   },
+  "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs"

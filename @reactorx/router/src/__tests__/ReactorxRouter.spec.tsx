@@ -3,7 +3,7 @@ import { Redirect, Switch, Route } from "../Router";
 import { ReactorxRouter, routerActors } from "../ReactorxRouter";
 import { act, render } from "@testing-library/react";
 import { Store, StoreProvider } from "@reactorx/core";
-import { omit } from "lodash";
+import { omit } from "@querycap/lodash";
 
 describe("ReactorxRouter", () => {
   it("renders the first <Redirect> that matches the URL", () => {

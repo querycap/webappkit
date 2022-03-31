@@ -1,18 +1,8 @@
-import {
-  colors,
-  cover,
-  rgba,
-  roundedEm,
-  select,
-  shadows,
-  theme,
-  ThemeState,
-  withBackground,
-} from "@querycap-ui/core/macro";
+import { colors, cover, rgba, roundedEm, select, shadows, theme, ThemeState, withBackground } from "@querycap-ui/core";
 import { Switch } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 import { NavLink, parseSearchString, Redirect, useParams, useRouter } from "@reactorx/router";
-import { filter, groupBy, keys, last, map, noop } from "lodash";
+import { filter, groupBy, keys, last, map, noop } from "@querycap/lodash";
 import { ReactNode } from "react";
 import { CSSReset } from "src-app/sg/Reset";
 import { CodeBlock } from "./CodeBlock";

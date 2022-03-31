@@ -1,4 +1,4 @@
-import { safeTextColor, select, theme, ThemeState, transparentize, useTheme } from "@querycap-ui/core/macro";
+import { safeTextColor, select, theme, ThemeState, transparentize, useTheme } from "@querycap-ui/core";
 import {
   addDays,
   addMonths,
@@ -15,7 +15,7 @@ import {
   lastDayOfMonth,
   parseISO,
 } from "date-fns";
-import { flow } from "lodash";
+import { flow } from "@querycap/lodash";
 import { useEffect, useState, HTMLAttributes } from "react";
 import {
   DataCells,

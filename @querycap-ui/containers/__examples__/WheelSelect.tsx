@@ -1,5 +1,5 @@
 import { WheelSelect } from "@querycap-ui/containers";
-import { times } from "lodash";
+import { times } from "@querycap/lodash";
 import { useState } from "react";
 
 const opts = times(100).map((_, i) => ({

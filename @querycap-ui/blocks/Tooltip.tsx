@@ -1,6 +1,6 @@
-import { select, shadows, theme, tintOrShade, withBackground, roundedEm } from "@querycap-ui/core/macro";
+import { select, shadows, theme, tintOrShade, withBackground, roundedEm } from "@querycap-ui/core";
 import { useToggle, useToggleControlOnHover, withAutoPlacement } from "@querycap/uikit";
-import { flow } from "lodash";
+import { flow } from "@querycap/lodash";
 import { Children, cloneElement, isValidElement, ReactChild, ReactNode, useRef } from "react";
 import { Overlay, OverlayProps } from "./Overlay";
 

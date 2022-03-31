@@ -1,4 +1,4 @@
-import { Dictionary, forEach, startsWith } from "lodash";
+import { Dictionary, forEach, startsWith } from "@querycap/lodash";
 
 export const getProtocol = () => globalThis.location.protocol;
 

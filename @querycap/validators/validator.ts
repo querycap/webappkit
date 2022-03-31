@@ -1,8 +1,8 @@
-import { isError } from "lodash";
+import { isError } from "@querycap/lodash";
 
 export type Validator<T = any> = (valueOrError: T | Error) => T | Error;
 
-export const errorMsg = <T extends any>(v: T | Error) => {
+export const errorMsg = <T>(v: T | Error) => {
   if (isError(v)) {
     return v.message;
   }
@@ -25,7 +25,7 @@ export const createValidator =
     };
   };
 
-export const all = <T extends any>(...validators: Validator[]) => {
+export const all = <T>(...validators: Validator[]) => {
   return (valueOrError: T | Error) => {
     if (isError(valueOrError)) {
       return valueOrError;

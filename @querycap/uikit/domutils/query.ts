@@ -15,7 +15,7 @@ export const getScrollableParent = (element: Element | null): Element => {
   switch (element.nodeName) {
     case "HTML":
     case "BODY":
-      return element.ownerDocument!.body;
+      return element.ownerDocument.body;
     case "#document":
       return (element as any).body as Element;
   }

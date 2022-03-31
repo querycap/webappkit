@@ -13,7 +13,7 @@ import {
   trim,
   uniqBy,
   values,
-} from "lodash";
+} from "@querycap/lodash";
 import { createContext, FunctionComponent, ReactNode, useContext, useMemo } from "react";
 import { BehaviorSubject, merge } from "rxjs";
 import { distinctUntilChanged, tap } from "rxjs/operators";
@@ -56,7 +56,7 @@ export interface FilterMeta {
   type?: SearchInput;
 }
 
-export type FilterMetaBuilder<TFilterMeta extends any = Omit<FilterMeta, "key" | "type">> = {
+export type FilterMetaBuilder<TFilterMeta = Omit<FilterMeta, "key" | "type">> = {
   [K in keyof TFilterMeta]-?: TFilterMeta[K] extends boolean | undefined
     ? () => FilterMetaBuilder<TFilterMeta>
     : (arg: TFilterMeta[K]) => FilterMetaBuilder<TFilterMeta>;

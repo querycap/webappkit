@@ -1,6 +1,6 @@
 import { WheelSelect } from "@querycap-ui/containers";
 import { formatRFC3339, getHours, getMinutes, getSeconds, parseISO, setHours, setMinutes, setSeconds } from "date-fns";
-import { padStart, times } from "lodash";
+import { padStart, times } from "@querycap/lodash";
 import { useCallback } from "react";
 
 export const TimePicker = ({ value, onValueChange }: { value: string; onValueChange: (val: any) => void }) => {

@@ -1,5 +1,5 @@
 import { Popover } from "@querycap-ui/blocks";
-import { select, theme, roundedEm } from "@querycap-ui/core/macro";
+import { select, theme, roundedEm } from "@querycap-ui/core";
 import { Stack } from "@querycap-ui/layouts";
 import { useToggle, useToggleControlOnClick } from "@querycap/uikit";
 import { useRef } from "react";

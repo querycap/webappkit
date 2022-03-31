@@ -1,4 +1,4 @@
-import { select, theme, roundedEm } from "@querycap-ui/core/macro";
+import { select, theme, roundedEm } from "@querycap-ui/core";
 import { Button, Input, InputIcon, InputPrefix, InputSuffix } from "@querycap-ui/form-controls";
 import { IconAirplay, IconEyeOff } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";

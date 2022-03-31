@@ -1,4 +1,4 @@
-import { isEmpty, isFunction } from "lodash";
+import { isEmpty, isFunction } from "@querycap/lodash";
 import { Interpolation } from "@emotion/react";
 import { CSSProperties } from "react";
 import { aliases } from "@querycap-ui/css-aliases";

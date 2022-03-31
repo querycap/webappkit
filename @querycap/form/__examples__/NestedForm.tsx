@@ -1,4 +1,4 @@
-import { select, roundedEm } from "@querycap-ui/core/macro";
+import { select, roundedEm } from "@querycap-ui/core";
 import { Button, FormControlWithField, InputIcon } from "@querycap-ui/form-controls";
 import { IconTrash } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";

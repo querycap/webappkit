@@ -1,10 +1,10 @@
 import { roundedEm, select } from "@querycap-ui/core";
-import { theme } from "@querycap-ui/core/macro";
+import { theme } from "@querycap-ui/core";
 import { must } from "@querycap/reactutils";
 import { useObservable } from "@reactorx/core";
-import { Dictionary, noop } from "lodash";
+import { Dictionary, noop } from "@querycap/lodash";
 import { useRef } from "react";
-import { isUndefined } from "lodash";
+import { isUndefined } from "@querycap/lodash";
 import { FilterMeta, FilterMetaBuilder, useNewSearchBox, useSearchBox } from "./search-box";
 import { SearchInputContainer } from "./search-inputs";
 import { SearchInputSort } from "./search-inputs/SearchInputSort";

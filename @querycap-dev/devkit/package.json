@@ -1,7 +1,7 @@
 {
   "name": "@querycap-dev/devkit",
   "version": "0.12.0",
-  "bin": "bin/devkit.js",
+  "bin": "bin/devkit.mjs",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*"
   },
@@ -12,17 +12,16 @@
     "@types/js-yaml": "^4.0.5",
     "cross-spawn": "^7.0.3",
     "js-yaml": "^4.1.0",
-    "lodash": "^4.17.21",
+    "@querycap/lodash": "workspace:*",
     "npm-path": "^2.0.4",
-    "ts-node": "^10.4.0",
-    "yargs": "^17.3.1"
+    "yargs": "^17.4.0",
+    "esbuild": "^0.14.29"
   },
   "license": "MIT",
   "publishConfig": {
     "access": "public"
   },
   "files": [
-    "./dist/",
     "dist/"
   ],
   "scripts": {
@@ -39,6 +38,7 @@
     },
     "./index.ts": "./index.ts"
   },
+  "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs"

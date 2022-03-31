@@ -1,4 +1,7 @@
-export const GROUP = "gis";
+import { x } from "./util";
+import u from "./util.json" assert { type: "json" };
+
+export const GROUP = `${x}${u.x}`;
 
 export const ENVS = {
   DEMO: "DEMO",

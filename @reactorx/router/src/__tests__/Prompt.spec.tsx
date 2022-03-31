@@ -1,10 +1,11 @@
 import { createMemoryHistory as createHistory } from "history";
 import { Prompt, PromptUserConfirmation, Router } from "..";
 import { act, render } from "@testing-library/react";
+import { jest } from "@jest/globals";
 
 describe("A <Prompt>", () => {
   it("calls getUserConfirmation with the prompt message", () => {
-    const getUserConfirmation = jest.fn((_, callback) => {
+    const getUserConfirmation = jest.fn((_, callback: any) => {
       callback(false);
     });
 
@@ -28,7 +29,7 @@ describe("A <Prompt>", () => {
 
   describe("with when=false", () => {
     it("does not call getUserConfirmation", () => {
-      const getUserConfirmation = jest.fn((_, callback) => {
+      const getUserConfirmation = jest.fn((_, callback: any) => {
         callback(false);
       });
 

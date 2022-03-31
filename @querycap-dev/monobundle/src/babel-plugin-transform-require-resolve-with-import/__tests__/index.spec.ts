@@ -1,5 +1,9 @@
 import { transformSync } from "@babel/core";
 import plugin from "../index";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const compileToSnapshot = (code: string) => {
   const t = transformSync(code, {

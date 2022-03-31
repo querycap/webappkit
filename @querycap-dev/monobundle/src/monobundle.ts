@@ -3,7 +3,7 @@ import json from "@rollup/plugin-json";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import del from "del";
 import { existsSync, readFileSync, writeFileSync } from "fs";
-import { isEmpty, trim } from "lodash";
+import { isEmpty, trim } from "@querycap/lodash";
 import path, { join } from "path";
 import { OutputOptions, rollup, RollupOptions } from "rollup";
 import { babel as rollupBabel } from "@rollup/plugin-babel";
@@ -191,6 +191,7 @@ export const monobundle = async ({ cwd = process.cwd(), dryRun }: { cwd?: string
     `${JSON.stringify(
       {
         ...pkg,
+        type: "module",
         types: outputs.types,
         main: outputs.main,
         module: outputs.module,

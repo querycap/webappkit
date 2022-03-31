@@ -2,7 +2,6 @@
   "name": "@querycap/access",
   "version": "0.8.5",
   "files": [
-    "./dist/",
     "dist/"
   ],
   "license": "MIT",
@@ -12,8 +11,8 @@
     "@reactorx/request": "0.22.5",
     "axios": "0.21.x",
     "date-fns": "2.x",
-    "lodash": "4.x",
-    "react": "17.x",
+    "@querycap/lodash": "workspace:*",
+    "react": ">=17.x",
     "rxjs": "7.x"
   },
   "dependencies": {
@@ -41,6 +40,7 @@
     },
     "./index.ts": "./index.ts"
   },
+  "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs"

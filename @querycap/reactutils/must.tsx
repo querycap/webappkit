@@ -1,4 +1,4 @@
-import { some } from "lodash";
+import { some } from "@querycap/lodash";
 
 export type NonNullableArray<TArr> = { [I in keyof TArr]: NonNullable<TArr[I]> };
 

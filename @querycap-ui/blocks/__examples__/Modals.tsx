@@ -1,5 +1,5 @@
 import { Dialog, Modal, ModalDialog } from "@querycap-ui/blocks";
-import { roundedEm } from "@querycap-ui/core/macro";
+import { roundedEm } from "@querycap-ui/core";
 import { Button } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 import { useToggle } from "@querycap/uikit";

@@ -1,8 +1,9 @@
 import { HTMLComment } from "@querycap/reactutils";
 import { RequestActor } from "@querycap/request";
 import { RequestActor as RequestActorOrigin } from "@reactorx/request";
-import { AxiosRequestConfig } from "axios";
-import { Dictionary, every, filter, forEach, map, some } from "lodash";
+import type { AxiosRequestConfig } from "axios";
+import { every, filter, forEach, map, some } from "@querycap/lodash";
+import type { Dictionary } from "@querycap/lodash";
 import { createContext, FunctionComponent, lazy, ReactNode, Suspense, useContext } from "react";
 
 const AccessControlContext = createContext({

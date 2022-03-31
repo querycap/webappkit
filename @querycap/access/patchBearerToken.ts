@@ -1,7 +1,7 @@
 import { AxiosRequestConfig } from "@querycap/request";
 import { Store } from "@reactorx/core";
 import { AxiosInterceptorManager } from "axios";
-import { get, has, set, size, some } from "lodash";
+import { get, has, set, size, some } from "@querycap/lodash";
 import { accessKey, hasLogon } from "./AccessToken";
 import { TokenSet } from "./TokenSet";
 

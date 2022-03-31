@@ -1,5 +1,5 @@
 import { existsSync } from "fs";
-import { last } from "lodash";
+import { last } from "@querycap/lodash";
 // @ts-ignore
 import minimatch from "minimatch";
 import { dirname, join, resolve } from "path";

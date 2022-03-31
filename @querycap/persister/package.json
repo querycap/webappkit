@@ -2,7 +2,6 @@
   "name": "@querycap/persister",
   "version": "0.6.4",
   "files": [
-    "./dist/",
     "dist/"
   ],
   "license": "MIT",
@@ -10,7 +9,7 @@
     "@babel/runtime-corejs3": "*",
     "@reactorx/core": "0.22.4",
     "date-fns": "2.x",
-    "lodash": "4.x",
+    "@querycap/lodash": "workspace:*",
     "rxjs": "7.x"
   },
   "dependencies": {
@@ -36,6 +35,7 @@
     },
     "./index.ts": "./index.ts"
   },
+  "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs"

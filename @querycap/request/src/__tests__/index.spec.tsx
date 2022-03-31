@@ -1,7 +1,7 @@
 import { Store, StoreProvider } from "@reactorx/core";
 import { StatusOK } from "@reactorx/request";
 import { act, render } from "@testing-library/react";
-import { AxiosRequestConfig, AxiosResponse } from "axios";
+import type { AxiosRequestConfig, AxiosResponse } from "axios";
 
 import { A, AxiosProvider, baseURLsFromConfig, createRequestActor, useTempDataOfRequest } from "..";
 

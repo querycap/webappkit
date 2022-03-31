@@ -1,4 +1,4 @@
-import { includes, split } from "lodash";
+import { includes, split } from "@querycap/lodash";
 
 export interface IRange {
   from?: string;

@@ -1,4 +1,4 @@
-import { preventDefault, select, theme } from "@querycap-ui/core/macro";
+import { preventDefault, select, theme } from "@querycap-ui/core";
 import { DateWheelPicker } from "@querycap-ui/date-pickers";
 import { MenuPopover, useKeyboardArrowControls } from "@querycap-ui/form-controls";
 import { IconCalendar } from "@querycap-ui/icons";
@@ -6,7 +6,7 @@ import { parseRange, stringifyRange } from "@querycap/strfmt";
 import { useToggle } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
 import { format, parseISO } from "date-fns";
-import { noop } from "lodash";
+import { noop } from "@querycap/lodash";
 import { useEffect, useRef, useState } from "react";
 import { fromEvent, merge, pipe } from "rxjs";
 import { filter as rxFilter, tap } from "rxjs/operators";

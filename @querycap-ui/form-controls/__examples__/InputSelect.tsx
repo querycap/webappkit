@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { times } from "lodash";
+import { times } from "@querycap/lodash";
 import { headings } from "../../texts/utils";
 import { Stack } from "../../layouts/Stack";
 import { roundedEm, theme } from "../../core/theme";

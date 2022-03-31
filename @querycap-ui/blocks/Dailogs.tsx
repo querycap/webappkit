@@ -1,5 +1,5 @@
 import { roundedEm } from "@querycap-ui/core";
-import { preventDefault, select, shadows, stopPropagation, theme, withTextSize } from "@querycap-ui/core/macro";
+import { preventDefault, select, shadows, stopPropagation, theme, withTextSize } from "@querycap-ui/core";
 import { Button } from "@querycap-ui/form-controls";
 import { IconX } from "@querycap-ui/icons";
 import { Stack } from "@querycap-ui/layouts";

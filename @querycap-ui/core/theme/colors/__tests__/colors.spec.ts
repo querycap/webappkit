@@ -1,5 +1,9 @@
 import { generate } from "@querycap-dev/generate";
 import { parseToRgb, rgb } from "polished";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 describe("generate", () => {
   it("colors", () => {

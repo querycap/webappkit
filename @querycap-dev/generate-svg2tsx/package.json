@@ -2,7 +2,6 @@
   "name": "@querycap-dev/generate-svg2tsx",
   "version": "0.5.4",
   "files": [
-    "./dist/",
     "dist/"
   ],
   "dependencies": {
@@ -14,7 +13,7 @@
   },
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "lodash": "*"
+    "@querycap/lodash": "workspace:*"
   },
   "scripts": {
     "prepublishOnly": "../../node_modules/.bin/monobundle"
@@ -30,6 +29,7 @@
     },
     "./index.ts": "./index.ts"
   },
+  "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs"

@@ -1,5 +1,5 @@
 import { Actor, useConn, useStore, Volume } from "@reactorx/core";
-import { isFunction } from "lodash";
+import { isFunction } from "@querycap/lodash";
 import { useMemo } from "react";
 
 export type StateReducer<TState> = (state: TState) => TState | undefined;
@@ -7,7 +7,7 @@ export type StateReducer<TState> = (state: TState) => TState | undefined;
 export type ActorInvoker<TState = any> = (arg: any, opts: any) => void | StateReducer<TState>;
 
 export const createStore =
-  <TMeta extends any, TState extends any>({
+  <TMeta, TState>({
     group,
     initialState,
     storageKey = ({ group }) => group,

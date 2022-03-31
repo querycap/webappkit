@@ -1,6 +1,6 @@
-import { preventDefault, select, roundedEm, stopPropagation, theme } from "@querycap-ui/core/macro";
+import { preventDefault, select, roundedEm, stopPropagation, theme } from "@querycap-ui/core";
 import { pipe } from "rxjs";
-import { map } from "lodash";
+import { map } from "@querycap/lodash";
 import { Children, isValidElement, ReactElement, ReactNode, useEffect, useState } from "react";
 import { parseSearchString, toSearchString, useRouter } from "@reactorx/router";
 

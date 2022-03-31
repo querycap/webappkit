@@ -9,7 +9,7 @@ import {
   tintOrShade,
   useSpring,
   useTheme,
-} from "@querycap-ui/core/macro";
+} from "@querycap-ui/core";
 import { pipe } from "rxjs";
 import { forwardRef, ReactNode, useEffect } from "react";
 import { ControlledInput } from "./Input";
@@ -39,12 +39,12 @@ const SwitchCore = ({ value, tips }: { value: boolean; tips?: [ReactNode, ReactN
     };
   };
 
-  const [styles, set] = useSpring(() => getStyle(value));
+  const [styles, api] = useSpring(() => getStyle(value));
 
   const next = getStyle(value);
 
   useEffect(() => {
-    set(next);
+    api.start(next);
   }, [value]);
 
   return (

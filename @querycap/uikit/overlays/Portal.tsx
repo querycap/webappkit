@@ -1,4 +1,4 @@
-import { filter, last, some } from "lodash";
+import { filter, last, some } from "@querycap/lodash";
 import {
   Children,
   createContext,
@@ -10,8 +10,11 @@ import {
   useMemo,
   useRef,
 } from "react";
+import { v4 as uuidv4 } from "uuid";
+
+const useId = () => useMemo(() => uuidv4(), []);
+
 import { createPortal } from "react-dom";
-import { v4 as uuid } from "uuid";
 
 const createStackMgr = () => {
   let stack: string[] = [];
@@ -40,39 +43,25 @@ export const usePortalContext = () => useContext(PortalContext);
 // eslint-disable-next-line @typescript-eslint/unbound-method
 const canUseDOM = !!(typeof globalThis !== "undefined" && globalThis.document && globalThis.document.createElement);
 
-export const Portal = ({ pid = uuid(), children }: { pid?: string; children: ReactNode }) => {
+const PortalCore = ({ children }: { children: ReactNode }) => {
   const { container, stack } = usePortalContext();
 
-  const elmRef = useRef<HTMLElement | undefined>(undefined);
-
-  useMemo(() => {
-    if (canUseDOM) {
-      elmRef.current = document.createElement("div");
-      elmRef.current.setAttribute("data-portal-id", pid || "-");
-    }
-  }, []);
+  const pid = useId();
+  const elmRef = useRef<HTMLElement>(document.createElement("div"));
 
   useEffect(() => {
-    if (!elmRef.current) {
-      return;
-    }
+    const c = container ?? document.body;
 
-    const c = container || document.body;
-
+    elmRef.current.setAttribute("data-portal-id", pid || "-");
     c.appendChild(elmRef.current);
 
     const unregister = stack.register(pid);
 
     return () => {
-      c.removeChild(elmRef.current!);
+      c.removeChild(elmRef.current);
       unregister();
-      elmRef.current = undefined;
     };
   }, []);
-
-  if (!elmRef.current) {
-    return null;
-  }
 
   return (
     <PortalContext.Provider
@@ -85,6 +74,10 @@ export const Portal = ({ pid = uuid(), children }: { pid?: string; children: Rea
       {createPortal(children, elmRef.current)}
     </PortalContext.Provider>
   );
+};
+
+export const Portal = ({ children }: { children: ReactNode }) => {
+  return canUseDOM ? <PortalCore>{children}</PortalCore> : null;
 };
 
 export const withPortal = <TProps extends {} = {}>(Comp: FunctionComponent<TProps & { children?: ReactNode }>) => {

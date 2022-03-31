@@ -2,7 +2,18 @@ import { RequestActor } from "@querycap/request";
 import { useObservableEffect, useSelector } from "@reactorx/core";
 import { useRequest } from "@reactorx/request";
 import { parseSearchString, toSearchString, useLocation, useNavigate, useRouter } from "@reactorx/router";
-import { Dictionary, isEqual, isUndefined, mapKeys, omit, omitBy, pick, pickBy, snakeCase, startsWith } from "lodash";
+import {
+  Dictionary,
+  isEqual,
+  isUndefined,
+  mapKeys,
+  omit,
+  omitBy,
+  pick,
+  pickBy,
+  snakeCase,
+  startsWith,
+} from "@querycap/lodash";
 import { ReactNode, useEffect, useMemo } from "react";
 import { Observable } from "rxjs";
 import { distinctUntilChanged, map as rxMap, tap } from "rxjs/operators";

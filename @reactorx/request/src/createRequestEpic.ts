@@ -5,7 +5,7 @@ import axios, {
   AxiosResponse,
   CancelTokenSource,
 } from "axios";
-import { forEach, set } from "lodash";
+import { forEach, set } from "@querycap/lodash";
 import { IEpic } from "@reactorx/core";
 import {
   catchError as rxCatchError,

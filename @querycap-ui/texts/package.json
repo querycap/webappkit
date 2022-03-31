@@ -11,7 +11,7 @@
     "@querycap-ui/core": "workspace:^0.11.6",
     "remark-parse": "^10.0.1",
     "remark-react": "^9.0.1",
-    "unified": "^10.1.1"
+    "unified": "^10.1.2"
   },
   "publishConfig": {
     "access": "public"
@@ -23,7 +23,6 @@
     "prepublishOnly": "../../node_modules/.bin/monobundle"
   },
   "files": [
-    "./dist/",
     "dist/"
   ],
   "repository": {
@@ -37,6 +36,7 @@
     },
     "./index.ts": "./index.ts"
   },
+  "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs"

@@ -1,5 +1,5 @@
 import { RouteProps, IRouterContext, Redirect, Route, Switch } from "@reactorx/router";
-import { assign, startsWith } from "lodash";
+import { assign, startsWith } from "@querycap/lodash";
 import { ComponentType, createContext, Fragment, lazy, Suspense, useContext } from "react";
 
 export interface IRouteTree {

@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: "^17"
 
@@ -23,9 +23,8 @@ jobs:
 
       - run: make pkg.gh-page
 
-      - uses: JamesIves/github-pages-deploy-action@v4.2.2
+      - uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: public/web-sg
-          CLEAN: true
+          branch: gh-pages
+          folder: public/web-sg
+          clean: true

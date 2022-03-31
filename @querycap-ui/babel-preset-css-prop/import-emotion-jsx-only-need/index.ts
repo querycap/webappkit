@@ -10,7 +10,7 @@ const createComponentBlock = (value: string) => ({
 export const importEmotionJSXOnlyNeed = () => {
   return {
     name: "import-emotion-jsx-only-need",
-    inherits: jsx,
+    inherits: (jsx as any).default || jsx, // ugly to make esm & cjs work
     visitor: {
       Program: {
         enter(path, state: any) {

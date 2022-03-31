@@ -1,4 +1,4 @@
-import { preventDefault, roundedEm, select, shadows, theme, transparentize } from "@querycap-ui/core/macro";
+import { preventDefault, roundedEm, select, shadows, theme, transparentize } from "@querycap-ui/core";
 import { useValueRef } from "@querycap/reactutils";
 import {
   getBoundingClientRect,
@@ -9,7 +9,7 @@ import {
   withAutoPlacement,
 } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
-import { Dictionary, filter, flow, indexOf, isUndefined, replace, toLower } from "lodash";
+import { Dictionary, filter, flow, indexOf, isUndefined, replace, toLower } from "@querycap/lodash";
 import {
   Children,
   cloneElement,

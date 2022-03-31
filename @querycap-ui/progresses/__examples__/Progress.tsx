@@ -1,4 +1,4 @@
-import { select, theme, roundedEm } from "@querycap-ui/core/macro";
+import { select, theme, roundedEm } from "@querycap-ui/core";
 import { Stack } from "@querycap-ui/layouts";
 import { Progress } from "@querycap-ui/progresses";
 

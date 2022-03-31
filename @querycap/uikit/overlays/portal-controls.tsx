@@ -1,17 +1,10 @@
 import { useValueRef } from "@querycap/reactutils";
 import { invariant } from "hey-listen";
-import { noop, toUpper } from "lodash";
+import { noop, toUpper } from "@querycap/lodash";
 import { RefObject, useEffect } from "react";
 import { fromEvent, merge as observableMerge } from "rxjs";
 import { bufferTime, delay as rxDelay, filter as rxFilter } from "rxjs/operators";
 import { usePortalContext } from "./Portal";
-
-export function usePortalCloseOnOutsideClick(close: () => void = noop, elementRefs: Array<RefObject<Element | null>>) {
-  const { container } = usePortalContext();
-  const containerRef = useValueRef(container);
-
-  return useCloseOnOutsideClick(close, [containerRef, ...elementRefs]);
-}
 
 export function useCloseOnOutsideClick(close: () => void, elementRefs: Array<RefObject<Element | null>>) {
   const closeRef = useValueRef(close);
@@ -56,6 +49,13 @@ export function useCloseOnOutsideClick(close: () => void, elementRefs: Array<Ref
       sub.unsubscribe();
     };
   }, []);
+}
+
+export function usePortalCloseOnOutsideClick(close: () => void = noop, elementRefs: Array<RefObject<Element | null>>) {
+  const { container } = usePortalContext();
+  const containerRef = useValueRef(container);
+
+  return useCloseOnOutsideClick(close, [containerRef, ...elementRefs]);
 }
 
 export function usePortalCloseOnEsc(close: () => void = noop) {

@@ -1,7 +1,7 @@
 import { Stack } from "../../layouts/Stack";
 import { ButtonRadio, Radio } from "../Radio";
 import { useState } from "react";
-import { map } from "lodash";
+import { map } from "@querycap/lodash";
 
 export const Radioes = () => {
   const [check, setCheck] = useState("Hangzhou");

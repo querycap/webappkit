@@ -1,4 +1,4 @@
-import { roundedEm } from "@querycap-ui/core/macro";
+import { roundedEm } from "@querycap-ui/core";
 import { Switch } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 import { useState } from "react";

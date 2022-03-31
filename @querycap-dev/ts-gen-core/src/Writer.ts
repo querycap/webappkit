@@ -1,5 +1,5 @@
 import { Decl, ModuleExport, ModuleImport, toUpperCamelCase } from "./utils";
-import { last, orderBy, replace, split, values } from "lodash";
+import { last, orderBy, replace, split, values } from "@querycap/lodash";
 
 export interface IWriterOpts {
   prefixInterface: string;

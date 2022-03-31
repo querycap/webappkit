@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@querycap-ui/core/macro builder only 1`] = `
+exports[`@querycap-ui/core builder only 1`] = `
 "
 
-import { select, theme } from \\"@querycap-ui/core/macro\\";
+import { select, theme } from \\"@querycap-ui/core\\";
     
 export const headings = {
   h1: select()
@@ -16,8 +16,8 @@ export const headings = {
     
  ↓ ↓ ↓ ↓ ↓ ↓
 
-import { theme as _theme } from \\"@querycap-ui/core\\";
 import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
+import { theme } from \\"@querycap-ui/core\\";
 var __macro_generated_ref_0 = {
   name: \\"6xa9h0\\",
   styles: \\"margin-bottom:1px;font-size:12px;\\"
@@ -27,7 +27,7 @@ var __macro_generated_ref_1 = roundedEm =>
 /*__THEME_NEED__*/
 __macro_generated_t => [__macro_generated_ref_0, {
   marginTop: _fromTheme(roundedEm(0.4))(__macro_generated_t),
-  fontWeight: _fromTheme(_theme.fontWeights.bold)(__macro_generated_t)
+  fontWeight: _fromTheme(theme.fontWeights.bold)(__macro_generated_t)
 }];
 
 export const headings = {
@@ -38,7 +38,7 @@ export const headings = {
   "
 `;
 
-exports[`@querycap-ui/core/macro complex 1`] = `
+exports[`@querycap-ui/core complex 1`] = `
 "
 
 import {
@@ -52,8 +52,8 @@ import {
   tint,
   tintOrShade,
   transparentize,
-} from \\"@querycap-ui/core/macro\\";
-import { flow } from \\"lodash\\";
+} from \\"@querycap-ui/core\\";
+import { flow } from \\"@querycap/lodash\\";
 import { base } from \\"./util\\";
 
 const createBtnStyle = ({block, invisible, small}) =>
@@ -86,15 +86,10 @@ const createBtnStyle = ({block, invisible, small}) =>
     
  ↓ ↓ ↓ ↓ ↓ ↓
 
-import { transparentize as _transparentize } from \\"@querycap-ui/core\\";
-import { theme as _theme } from \\"@querycap-ui/core\\";
-import { simpleShadow as _simpleShadow } from \\"@querycap-ui/core\\";
 import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
 import { selectKeys as _selectKeys } from \\"@querycap-ui/core\\";
-import { roundedEm as _roundedEm } from \\"@querycap-ui/core\\";
-import { rgba as _rgba } from \\"@querycap-ui/core\\";
-import { colors as _colors } from \\"@querycap-ui/core\\";
-import { flow } from \\"lodash\\";
+import { colors, rgba, roundedEm, safeTextColor, simpleShadow, theme, tint, tintOrShade, transparentize } from \\"@querycap-ui/core\\";
+import { flow } from \\"@querycap/lodash\\";
 import { base } from \\"./util\\";
 var __macro_generated_ref_0 = {
   name: \\"1w92t4z\\",
@@ -112,7 +107,7 @@ var __macro_generated_ref_3 =
 /*__THEME_NEED__*/
 __macro_generated_t => ({
   [_selectKeys(\\"&:focus\\")]: [__macro_generated_ref_2, {
-    boxShadow: _fromTheme(flow(_theme.state.borderColor, _transparentize(0.85), _simpleShadow(\\"0 0 0 0.2em\\")))(__macro_generated_t)
+    boxShadow: _fromTheme(flow(theme.state.borderColor, transparentize(0.85), simpleShadow(\\"0 0 0 0.2em\\")))(__macro_generated_t)
   }]
 });
 
@@ -120,7 +115,7 @@ var __macro_generated_ref_4 =
 /*__THEME_NEED__*/
 __macro_generated_t => ({
   [_selectKeys(\\"&:active\\")]: {
-    boxShadow: _fromTheme(\`inset 0 0.15em 0.3em \${_rgba(_colors.black, 0.15)}\`)(__macro_generated_t)
+    boxShadow: _fromTheme(\`inset 0 0.15em 0.3em \${rgba(colors.black, 0.15)}\`)(__macro_generated_t)
   }
 });
 
@@ -128,7 +123,7 @@ var __macro_generated_ref_5 =
 /*__THEME_NEED__*/
 __macro_generated_t => ({
   [_selectKeys(\\"& > * + *\\")]: {
-    marginLeft: _fromTheme(_roundedEm(0.1))(__macro_generated_t)
+    marginLeft: _fromTheme(roundedEm(0.1))(__macro_generated_t)
   }
 });
 
@@ -157,13 +152,13 @@ var __macro_generated_ref_11 = (block, small, invisible) =>
 __macro_generated_t => [_fromTheme(base)(__macro_generated_t), __macro_generated_ref_10, {
   paddingLeft: _fromTheme(block ? 0 : small ? \\"1.2em\\" : \\"1.6em\\")(__macro_generated_t),
   paddingRight: _fromTheme(block ? 0 : small ? \\"1.2em\\" : \\"1.6em\\")(__macro_generated_t),
-  paddingTop: _fromTheme(flow(_theme.state.fontSize, _roundedEm(small ? 0.25 : 0.5)))(__macro_generated_t),
-  paddingBottom: _fromTheme(flow(_theme.state.fontSize, _roundedEm(small ? 0.25 : 0.5)))(__macro_generated_t),
+  paddingTop: _fromTheme(flow(theme.state.fontSize, roundedEm(small ? 0.25 : 0.5)))(__macro_generated_t),
+  paddingBottom: _fromTheme(flow(theme.state.fontSize, roundedEm(small ? 0.25 : 0.5)))(__macro_generated_t),
   display: _fromTheme(block ? \\"block\\" : \\"inline-block\\")(__macro_generated_t),
-  backgroundColor: _fromTheme(_theme.state.backgroundColor)(__macro_generated_t),
-  borderColor: _fromTheme(_theme.state.borderColor)(__macro_generated_t),
-  color: _fromTheme(_theme.state.color)(__macro_generated_t),
-  fill: _fromTheme(_theme.state.color)(__macro_generated_t)
+  backgroundColor: _fromTheme(theme.state.backgroundColor)(__macro_generated_t),
+  borderColor: _fromTheme(theme.state.borderColor)(__macro_generated_t),
+  color: _fromTheme(theme.state.color)(__macro_generated_t),
+  fill: _fromTheme(theme.state.color)(__macro_generated_t)
 }, block && __macro_generated_ref_9, invisible && __macro_generated_ref_8, _fromTheme(__macro_generated_ref_7)(__macro_generated_t), _fromTheme(
 /*__THEME_NEED__*/
 __macro_generated_ref_5)(__macro_generated_t), _fromTheme(
@@ -188,11 +183,11 @@ __macro_generated_ref_11(block, small, invisible);
   "
 `;
 
-exports[`@querycap-ui/core/macro flow 1`] = `
+exports[`@querycap-ui/core flow 1`] = `
 "
 
-import { flow } from \\"lodash\\"
-import { select, theme } from \\"@querycap-ui/core/macro\\"
+import { flow } from \\"@querycap/lodash\\"
+import { select, theme } from \\"@querycap-ui/core\\"
 
 const C = () => {
   const v = \\"red\\"
@@ -211,20 +206,20 @@ const C = () => {
     
  ↓ ↓ ↓ ↓ ↓ ↓
 
-import { theme as _theme } from \\"@querycap-ui/core\\";
 import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
-import { flow } from \\"lodash\\";
+import { flow } from \\"@querycap/lodash\\";
+import { theme } from \\"@querycap-ui/core\\";
 
 var __macro_generated_ref_0 = v =>
 /*__THEME_NEED__*/
 __macro_generated_t => ({
-  border: _fromTheme(flow(_theme.state.borderColor, color => \`2px solid \${color + v}\`))(__macro_generated_t)
+  border: _fromTheme(flow(theme.state.borderColor, color => \`2px solid \${color + v}\`))(__macro_generated_t)
 });
 
 var __macro_generated_ref_1 =
 /*__THEME_NEED__*/
 __macro_generated_t => ({
-  border: _fromTheme(flow(_theme.state.borderColor, color => \`2px solid \${color}\`))(__macro_generated_t)
+  border: _fromTheme(flow(theme.state.borderColor, color => \`2px solid \${color}\`))(__macro_generated_t)
 });
 
 const C = () => {
@@ -244,11 +239,11 @@ const C = () => {
   "
 `;
 
-exports[`@querycap-ui/core/macro nests 1`] = `
+exports[`@querycap-ui/core nests 1`] = `
 "
 
-import { flow } from \\"lodash\\"
-import { select, roundedEm, theme, animated, cover } from \\"@querycap-ui/core/macro\\"
+import { flow } from \\"@querycap/lodash\\"
+import { select, roundedEm, theme, animated, cover } from \\"@querycap-ui/core\\"
 
 const C = () => {
   const v = \\"red\\"
@@ -277,32 +272,29 @@ const Animated = animated(C);
     
  ↓ ↓ ↓ ↓ ↓ ↓
 
-import { cover as _cover } from \\"@querycap-ui/core\\";
-import { animated as _animated } from \\"@querycap-ui/core\\";
-import { theme as _theme } from \\"@querycap-ui/core\\";
-import { roundedEm as _roundedEm } from \\"@querycap-ui/core\\";
 import { selectKeys as _selectKeys } from \\"@querycap-ui/core\\";
 import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
-import { flow } from \\"lodash\\";
+import { flow } from \\"@querycap/lodash\\";
+import { roundedEm, theme, animated, cover } from \\"@querycap-ui/core\\";
 
 var __macro_generated_ref_0 =
 /*__THEME_NEED__*/
 __macro_generated_t => ({
   [_selectKeys(\\"& > a\\")]: {
-    color: _fromTheme(_theme.state.color)(__macro_generated_t)
+    color: _fromTheme(theme.state.color)(__macro_generated_t)
   }
 });
 
 var __macro_generated_ref_1 =
 /*__THEME_NEED__*/
 __macro_generated_t => ({
-  color: _fromTheme(_theme.state.color)(__macro_generated_t)
+  color: _fromTheme(theme.state.color)(__macro_generated_t)
 });
 
 var __macro_generated_ref_2 =
 /*__THEME_NEED__*/
 __macro_generated_t => ({
-  color: _fromTheme(_theme.state.color)(__macro_generated_t)
+  color: _fromTheme(theme.state.color)(__macro_generated_t)
 });
 
 var __macro_generated_ref_3 = {
@@ -320,10 +312,10 @@ var __macro_generated_ref_5 = {
 var __macro_generated_ref_6 = v =>
 /*__THEME_NEED__*/
 __macro_generated_t => [__macro_generated_ref_5, {
-  border: _fromTheme(flow(_theme.state.borderColor, color => \`2px solid \${color}\`))(__macro_generated_t),
-  padding: _fromTheme(_roundedEm(0.2))(__macro_generated_t),
+  border: _fromTheme(flow(theme.state.borderColor, color => \`2px solid \${color}\`))(__macro_generated_t),
+  padding: _fromTheme(roundedEm(0.2))(__macro_generated_t),
   color: _fromTheme(v)(__macro_generated_t)
-}, _fromTheme(__macro_generated_ref_4)(__macro_generated_t), _fromTheme(_cover)(__macro_generated_t), {
+}, _fromTheme(__macro_generated_ref_4)(__macro_generated_t), _fromTheme(cover)(__macro_generated_t), {
   fontSize: 1
 }, _fromTheme(
 /*__THEME_NEED__*/
@@ -348,14 +340,14 @@ const C = () => {
     </>;
 };
 
-const Animated = _animated(C);  
+const Animated = animated(C);  
   "
 `;
 
-exports[`@querycap-ui/core/macro select 1`] = `
+exports[`@querycap-ui/core select 1`] = `
 "
 
-import { select, OptionFocusedAttr } from \\"@querycap-ui/core/macro\\"
+import { select, OptionFocusedAttr } from \\"@querycap-ui/core\\"
 
 const v = \\"\\"
 
@@ -376,9 +368,9 @@ const C = () => {
     
  ↓ ↓ ↓ ↓ ↓ ↓
 
-import { OptionFocusedAttr as _OptionFocusedAttr } from \\"@querycap-ui/core\\";
 import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
 import { selectKeys as _selectKeys } from \\"@querycap-ui/core\\";
+import { OptionFocusedAttr } from \\"@querycap-ui/core\\";
 const v = \\"\\";
 var __macro_generated_ref_0 = {
   name: \\"tokvmb\\",
@@ -396,7 +388,7 @@ var __macro_generated_ref_3 = {
   styles: \\"color:red;\\"
 };
 var __macro_generated_ref_4 = {
-  [_selectKeys(\`&[\${_OptionFocusedAttr}=true]\`)]: __macro_generated_ref_3
+  [_selectKeys(\`&[\${OptionFocusedAttr}=true]\`)]: __macro_generated_ref_3
 };
 var __macro_generated_ref_5 = {
   name: \\"tokvmb\\",
@@ -425,10 +417,10 @@ const C = () => {
   "
 `;
 
-exports[`@querycap-ui/core/macro simple 1`] = `
+exports[`@querycap-ui/core simple 1`] = `
 "
 
-import { select, animated } from \\"@querycap-ui/core/macro\\"
+import { select, animated } from \\"@querycap-ui/core\\"
 import { css } from \\"@emotion/react\\";
 
 const v = css({ color: \\"red\\" })
@@ -443,10 +435,9 @@ const C = () => {
     
  ↓ ↓ ↓ ↓ ↓ ↓
 
-import { animated as _animated } from \\"@querycap-ui/core\\";
-
 function _EMOTION_STRINGIFIED_CSS_ERROR__() { return \\"You have tried to stringify object returned from \`css\` function. It isn't supposed to be used directly (e.g. as value of the \`className\` prop), but rather handed to emotion so it can handle it (e.g. as value of \`css\` prop).\\"; }
 
+import { animated } from \\"@querycap-ui/core\\";
 import { css } from \\"@emotion/react\\";
 const v = process.env.NODE_ENV === \\"production\\" ? {
   name: \\"hwfcu5\\",
@@ -454,7 +445,7 @@ const v = process.env.NODE_ENV === \\"production\\" ? {
 } : {
   name: \\"1a9uk2c-v\\",
   styles: \\"color:red;label:v;\\",
-  map: \\"/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm0uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBSVUiLCJmaWxlIjoibS5qcyIsInNvdXJjZXNDb250ZW50IjpbIlxuaW1wb3J0IHsgc2VsZWN0LCBhbmltYXRlZCB9IGZyb20gXCJAcXVlcnljYXAtdWkvY29yZS9tYWNyb1wiXG5pbXBvcnQgeyBjc3MgfSBmcm9tIFwiQGVtb3Rpb24vcmVhY3RcIjtcblxuY29uc3QgdiA9IGNzcyh7IGNvbG9yOiBcInJlZFwiIH0pXG5cbmNvbnN0IEMgPSAoKSA9PiB7XG4gIHJldHVybiAoXG4gICAgPD5cbiAgICAgIDxhbmltYXRlZC5kaXYgY3NzPXtzZWxlY3QoKS5mbGV4KDEpfT48L2FuaW1hdGVkLmRpdj5cbiAgICA8Lz5cbiAgKVxufSJdfQ== */\\",
+  map: \\"/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm0uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBSVUiLCJmaWxlIjoibS5qcyIsInNvdXJjZXNDb250ZW50IjpbIlxuaW1wb3J0IHsgc2VsZWN0LCBhbmltYXRlZCB9IGZyb20gXCJAcXVlcnljYXAtdWkvY29yZVwiXG5pbXBvcnQgeyBjc3MgfSBmcm9tIFwiQGVtb3Rpb24vcmVhY3RcIjtcblxuY29uc3QgdiA9IGNzcyh7IGNvbG9yOiBcInJlZFwiIH0pXG5cbmNvbnN0IEMgPSAoKSA9PiB7XG4gIHJldHVybiAoXG4gICAgPD5cbiAgICAgIDxhbmltYXRlZC5kaXYgY3NzPXtzZWxlY3QoKS5mbGV4KDEpfT48L2FuaW1hdGVkLmRpdj5cbiAgICA8Lz5cbiAgKVxufSJdfQ== */\\",
   toString: _EMOTION_STRINGIFIED_CSS_ERROR__
 };
 var __macro_generated_ref_0 = {
@@ -464,16 +455,16 @@ var __macro_generated_ref_0 = {
 
 const C = () => {
   return <>
-      <_animated.div css={__macro_generated_ref_0}></_animated.div>
+      <animated.div css={__macro_generated_ref_0}></animated.div>
     </>;
 };  
   "
 `;
 
-exports[`@querycap-ui/core/macro with variables 1`] = `
+exports[`@querycap-ui/core with variables 1`] = `
 "
 
-import { select, roundedEm } from \\"@querycap-ui/core/macro\\"
+import { select, roundedEm } from \\"@querycap-ui/core\\"
 
 const C = () => {
   return (
@@ -485,8 +476,8 @@ const C = () => {
     
  ↓ ↓ ↓ ↓ ↓ ↓
 
-import { roundedEm as _roundedEm } from \\"@querycap-ui/core\\";
 import { fromTheme as _fromTheme } from \\"@querycap-ui/core\\";
+import { roundedEm } from \\"@querycap-ui/core\\";
 var __macro_generated_ref_0 = {
   name: \\"k008qs\\",
   styles: \\"display:flex;\\"
@@ -495,7 +486,7 @@ var __macro_generated_ref_0 = {
 var __macro_generated_ref_1 =
 /*__THEME_NEED__*/
 __macro_generated_t => [__macro_generated_ref_0, {
-  padding: _fromTheme(_roundedEm(0.2))(__macro_generated_t)
+  padding: _fromTheme(roundedEm(0.2))(__macro_generated_t)
 }];
 
 const C = () => {

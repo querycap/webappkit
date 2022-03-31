@@ -1,7 +1,21 @@
 import { clientScanner, IOpenAPI } from "@querycap-dev/ts-gen-client-from-openapi";
 import { Decl, Identifier, safeKey, toLowerCamelCase, Type, Value, writerOf } from "@querycap-dev/ts-gen-core";
 import type { ISchemaBasic } from "@querycap-dev/ts-gen-definitions-from-json-schema";
-import { dropRight, first, forEach, get, has, isObject, keys, last, map, omit, reduce, size, split } from "lodash";
+import {
+  dropRight,
+  first,
+  forEach,
+  get,
+  has,
+  isObject,
+  keys,
+  last,
+  map,
+  omit,
+  reduce,
+  size,
+  split,
+} from "@querycap/lodash";
 
 const toDisplayMethod = (name = "") => {
   return toLowerCamelCase(["display", name.replace("$$$", "")].join("_"));

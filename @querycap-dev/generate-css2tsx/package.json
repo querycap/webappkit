@@ -2,12 +2,11 @@
   "name": "@querycap-dev/generate-css2tsx",
   "version": "0.7.5",
   "files": [
-    "./dist/",
     "dist/"
   ],
   "dependencies": {
-    "lodash": "^4.17.21",
-    "postcss": "^8.4.5"
+    "@querycap/lodash": "workspace:*",
+    "postcss": "^8.4.12"
   },
   "license": "MIT",
   "publishConfig": {
@@ -30,6 +29,7 @@
     },
     "./index.ts": "./index.ts"
   },
+  "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs"

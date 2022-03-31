@@ -1,5 +1,5 @@
-import { roundedEm, select, shadows, theme } from "@querycap-ui/core/macro";
-import { map } from "lodash";
+import { roundedEm, select, shadows, theme } from "@querycap-ui/core";
+import { map } from "@querycap/lodash";
 
 export const Shadows = () => {
   return (

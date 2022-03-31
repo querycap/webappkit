@@ -3,6 +3,10 @@ import * as path from "path";
 import petsOpenAPIJSON from "./examples/pets_v3";
 import { writerOf } from "@querycap-dev/ts-gen-core";
 import { clientScanner } from "../ClientScanner";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 describe("ts-gen-client-from-swagger", () => {
   it("#toClientV3", () => {

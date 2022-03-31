@@ -2,7 +2,7 @@ import { useObservable } from "@reactorx/core";
 import { useMemo } from "react";
 import { BehaviorSubject } from "rxjs";
 
-export const useToggle = <TState extends any>() => {
+export const useToggle = <TState>() => {
   const { showed$, show, hide } = useMemo(() => {
     const showed$ = new BehaviorSubject<{
       showed: boolean;

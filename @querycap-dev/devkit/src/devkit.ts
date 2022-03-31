@@ -1,23 +1,27 @@
-import { existsSync, lstatSync, readdirSync, readFileSync } from "fs";
-import { has, isFunction, isObject, keys, mapKeys, mapValues, startsWith } from "lodash";
+import { has, isFunction, isObject, keys, mapKeys, mapValues, startsWith } from "@querycap/lodash";
 import { join } from "path";
 import { writeConfig } from "./action-build";
 import { initial } from "./action-initial";
 import { release } from "./action-release";
 import { exec } from "./exec";
 import { IState, IDevkitConfig } from "./state";
+import * as vm from "vm";
+import { createContext } from "vm";
+import { existsSync } from "fs";
+import { readdir, lstat, readFile } from "fs/promises";
+import { build } from "esbuild";
 
-const resolveApps = (cwd: string): { [key: string]: string } => {
+const resolveApps = async (cwd: string): Promise<{ [key: string]: string }> => {
   const appBases: { [key: string]: string } = {};
 
   const root = join(cwd, "src-app");
 
-  const paths = existsSync(root) ? readdirSync(root) : [];
+  const paths = existsSync(root) ? await readdir(root) : [];
 
   for (const p of paths) {
     const fullPath = join(root, p);
 
-    if (lstatSync(fullPath).isDirectory()) {
+    if ((await lstat(fullPath)).isDirectory()) {
       appBases[p] = fullPath;
     }
   }
@@ -27,7 +31,7 @@ const resolveApps = (cwd: string): { [key: string]: string } => {
 
 type TValueBuilder = (env: string, feature: string, nameOrHolder: string) => string;
 
-const loadConfigFromFile = (cwd: string, state: IState) => {
+const loadConfigFromFile = async (cwd: string, state: IState) => {
   state.context = join(cwd, "src-app", state.name);
 
   const configFile = join(state.context, "config.ts");
@@ -36,10 +40,26 @@ const loadConfigFromFile = (cwd: string, state: IState) => {
     return;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  require("ts-node/register");
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const conf = require(configFile);
+  const ret = await build({
+    entryPoints: [configFile],
+    outfile: "config.json",
+    format: "cjs",
+    sourcemap: false,
+    bundle: true,
+    splitting: false,
+    globalName: "conf",
+    write: false,
+  });
+
+  const ctx = {
+    module: {
+      exports: {},
+    },
+  };
+
+  vm.runInContext(String(ret.outputFiles[0].text), createContext(ctx));
+
+  const conf = ctx.module.exports as any;
 
   const envs = mapKeys(conf.ENVS, (key: string) => key.toLowerCase());
 
@@ -68,7 +88,7 @@ const loadConfigFromFile = (cwd: string, state: IState) => {
         state.meta[`config$`] = mapValues(conf[key], (fnOrValue: TValueBuilder, k) => {
           const v = isFunction(fnOrValue) ? fnOrValue("$", state.feature || "", state.name) : fnOrValue;
           if (v[0] !== "$" && k.startsWith("SRV_")) {
-            return "${{ endpoints.api." + k.slice(4).replace(/_/g, "-").toLowerCase() + ".endpoint }}";
+            return `$\{{ endpoints.api.${k.slice(4).replace(/_/g, "-").toLowerCase()}.endpoint }}`;
           }
           return v;
         }) as any;
@@ -77,7 +97,7 @@ const loadConfigFromFile = (cwd: string, state: IState) => {
   }
 };
 
-export const devkit = (cwd = process.cwd()) => {
+export const devkit = async (cwd = process.cwd()) => {
   let c: IDevkitConfig = {
     images: {
       build: "docker.io/library/node:16-buster",
@@ -94,7 +114,7 @@ export const devkit = (cwd = process.cwd()) => {
 
   if (existsSync(pkgJSON)) {
     try {
-      const pkg = JSON.parse(String(readFileSync(pkgJSON)));
+      const pkg = JSON.parse(String(await readFile(pkgJSON)));
 
       if (pkg && isObject(pkg.devkit)) {
         const devkitConfig = pkg.devkit.actions || pkg.devkit.images ? pkg.devkit : { actions: pkg.devkit };
@@ -115,12 +135,12 @@ export const devkit = (cwd = process.cwd()) => {
     }
   }
 
-  const appBases = resolveApps(cwd);
+  const appBases = await resolveApps(cwd);
 
   return {
     apps: keys(appBases),
     actions: c.actions,
-    run: (
+    run: async (
       action: string,
       app: string,
       env: string,
@@ -166,7 +186,7 @@ export const devkit = (cwd = process.cwd()) => {
         throw new Error(`missing <app>, should one of ${keys(appBases).join(", ")}`);
       }
 
-      loadConfigFromFile(cwd, state);
+      await loadConfigFromFile(cwd, state);
 
       if (action === "release") {
         release(state);

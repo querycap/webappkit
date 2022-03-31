@@ -1,13 +1,16 @@
 import { Plugin, ResolvedConfig, resolvePackageData, transformWithEsbuild } from "vite";
 import type { OutputBundle } from "rollup";
 import cheerio from "cheerio";
-import { join } from "path";
+import { dirname, join } from "path";
 import { readFileSync } from "fs";
 import { NormalizedOutputOptions, RenderedChunk } from "rollup";
 import { paramsOf } from "./plugin-proxy";
+import { fileURLToPath } from "url";
+
+const _dirname = dirname(fileURLToPath(import.meta.url));
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-const requirejsFile = join(resolvePackageData("requirejs", __dirname, true)?.dir || "", "require.js");
+const requirejsFile = join(resolvePackageData("requirejs", _dirname, true)?.dir || "", "require.js");
 
 const transformRequireJS = () => {
   return transformWithEsbuild(String(readFileSync(requirejsFile)), requirejsFile, {

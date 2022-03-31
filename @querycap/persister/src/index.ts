@@ -1,7 +1,7 @@
 import { Store } from "@reactorx/core";
 import { isBefore, parseISO } from "date-fns";
-import { createInstance, LOCALSTORAGE } from "localforage";
-import { filter, isNull, isUndefined, keys, map, uniq } from "lodash";
+import localforage from "localforage";
+import { filter, isNull, isUndefined, keys, map, uniq } from "@querycap/lodash";
 import { fromEvent, merge } from "rxjs";
 import { tap } from "rxjs/operators";
 
@@ -11,19 +11,26 @@ const isPersist = (key = "") => {
   return [key.startsWith("$"), key[1] === "$"] as const;
 };
 
-export const createPersister = (opts: LocalForageOptions) => {
-  return new Persister({
-    driver: LOCALSTORAGE,
-    ...opts,
-    name: opts.name || "app",
-  });
-};
+const isExpired = (expireAt = "") => isBefore(parseISO(expireAt), new Date());
+
+function isValidValue(value: any) {
+  if (isUndefined(value)) {
+    return false;
+  }
+  if (isNull(value)) {
+    return false;
+  }
+  if (value.expireAt) {
+    return !isExpired(value.expireAt);
+  }
+  return true;
+}
 
 export class Persister {
   storage: LocalForage;
 
   constructor(opts: LocalForageOptions) {
-    this.storage = createInstance(opts);
+    this.storage = localforage.createInstance(opts);
   }
 
   clear() {
@@ -100,12 +107,12 @@ export class Persister {
           prevState = nextState;
 
           if (clearAll) {
-            this.clear();
+            void this.clear();
           } else {
             nextDataToStore["$persist"] = persists;
 
-            this.saveAll(nextDataToStore);
-            this.removeAll(keysToDelete);
+            void this.saveAll(nextDataToStore);
+            void this.removeAll(keysToDelete);
           }
         }),
       ),
@@ -193,17 +200,10 @@ export class Persister {
   }
 }
 
-const isExpired = (expireAt = "") => isBefore(parseISO(expireAt), new Date());
-
-function isValidValue(value: any) {
-  if (isUndefined(value)) {
-    return false;
-  }
-  if (isNull(value)) {
-    return false;
-  }
-  if (value.expireAt) {
-    return !isExpired(value.expireAt);
-  }
-  return true;
-}
+export const createPersister = (opts: LocalForageOptions) => {
+  return new Persister({
+    driver: localforage.LOCALSTORAGE,
+    ...opts,
+    name: opts.name || "app",
+  });
+};

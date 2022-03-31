@@ -36,6 +36,7 @@ export const applyPlugins = (...plugins: Plugin[]) => {
         ...rollupBabel({
           babelrc: true,
           babelHelpers: "runtime",
+          envName: "ROLLUP_BROWSER",
           exclude: "node_modules/**",
           extensions: extensions,
         }),

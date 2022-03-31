@@ -1,4 +1,4 @@
-import { animated, useTransition } from "@querycap-ui/core/macro";
+import { animated, useTransition } from "@querycap-ui/core";
 import { IOverlayProps, Overlay as OverlayBase } from "@querycap/uikit";
 import { ReactNode } from "react";
 

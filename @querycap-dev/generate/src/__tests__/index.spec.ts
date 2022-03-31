@@ -1,5 +1,8 @@
-import path from "path";
+import path, { dirname } from "path";
 import { generate } from "..";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 describe("#generate", () => {
   it("generate ts", () => {

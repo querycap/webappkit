@@ -2,7 +2,6 @@
   "name": "@querycap/webworkerutils",
   "version": "0.4.4",
   "files": [
-    "./dist/",
     "dist/"
   ],
   "publishConfig": {
@@ -28,6 +27,7 @@
     },
     "./index.ts": "./index.ts"
   },
+  "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs"

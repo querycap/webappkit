@@ -2,7 +2,7 @@ import { DialogPrompt, ModalDialog } from "@querycap-ui/blocks";
 import { preventDefault } from "@querycap-ui/core";
 import { confirmationStore, useConfirm } from "@querycap/notify";
 import { useObservable } from "@reactorx/core";
-import { isUndefined, map } from "lodash";
+import { isUndefined, map } from "@querycap/lodash";
 
 import { pipe } from "rxjs";
 

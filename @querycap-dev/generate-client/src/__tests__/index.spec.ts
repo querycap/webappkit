@@ -1,5 +1,8 @@
-import { join } from "path";
+import { dirname, join } from "path";
 import { generateClient } from "..";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 test.skip("generate-client", async () => {
   const opt = {
