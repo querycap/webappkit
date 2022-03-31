@@ -7,8 +7,7 @@
   },
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@types/lodash": "4.x",
-    "lodash": "4.x"
+    "@querycap/lodash": "workspace:*"
   },
   "publishConfig": {
     "access": "public"
@@ -21,7 +20,6 @@
     "url": "ssh://git@github.com/querycap/webappkit.git"
   },
   "files": [
-    "./dist/",
     "dist/"
   ],
   "exports": {
@@ -31,6 +29,7 @@
     },
     "./index.ts": "./index.ts"
   },
+  "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs"

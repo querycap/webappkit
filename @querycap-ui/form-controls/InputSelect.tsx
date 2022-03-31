@@ -1,23 +1,23 @@
 import { cover, preventDefault } from "@querycap-ui/core";
-import { select } from "@querycap-ui/core/macro";
+import { select } from "@querycap-ui/core";
 import { IconChevronDown, IconX } from "@querycap-ui/icons";
 import { FieldInputCommonProps } from "@querycap/form";
 import { useValueRef } from "@querycap/reactutils";
 import { useToggle } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
-import { map, noop } from "lodash";
+import { map, noop } from "@querycap/lodash";
 import { ReactNode, useLayoutEffect, useMemo, useRef } from "react";
 import { fromEvent } from "rxjs";
 import { filter as rxFilter, tap } from "rxjs/operators";
 import { InputIcon } from "./Input";
 import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect } from "./Menu";
-import { isUndefined, isNull } from "lodash";
+import { isUndefined, isNull } from "@querycap/lodash";
 
 const isValidValue = (v: any) => {
   return !(isUndefined(v) || isNull(v) || v == "");
 };
 
-export interface InputSelectProps<T extends any = any> extends FieldInputCommonProps<T> {
+export interface InputSelectProps<T = any> extends FieldInputCommonProps<T> {
   enum: any[];
   display?: (v: T) => ReactNode;
   allowClear?: boolean;

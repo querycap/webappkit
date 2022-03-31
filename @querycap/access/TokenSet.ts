@@ -1,4 +1,4 @@
-import { Dictionary, map, trim } from "lodash";
+import { Dictionary, map, trim } from "@querycap/lodash";
 
 export class TokenSet {
   static parse(s = ""): TokenSet {

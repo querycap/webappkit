@@ -2,13 +2,12 @@
   "name": "@querycap/validators",
   "version": "0.3.4",
   "files": [
-    "./dist/",
     "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "lodash": "4.17.x"
+    "@querycap/lodash": "workspace:*"
   },
   "publishConfig": {
     "access": "public"
@@ -27,6 +26,7 @@
     },
     "./index.ts": "./index.ts"
   },
+  "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs"

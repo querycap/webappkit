@@ -1,6 +1,6 @@
-import { select, shadows, theme } from "@querycap-ui/core/macro";
+import { select, shadows, theme } from "@querycap-ui/core";
 import { withAutoPlacement } from "@querycap/uikit";
-import { startsWith } from "lodash";
+import { startsWith } from "@querycap/lodash";
 
 import { Overlay, OverlayProps } from "./Overlay";
 

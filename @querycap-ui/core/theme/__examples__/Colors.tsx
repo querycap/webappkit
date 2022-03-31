@@ -1,5 +1,5 @@
-import { safeTextColor, select, defaultTheme, theme, ThemeState, negative, roundedEm } from "@querycap-ui/core/macro";
-import { map, flow } from "lodash";
+import { safeTextColor, select, defaultTheme, theme, ThemeState, negative, roundedEm } from "@querycap-ui/core";
+import { map, flow } from "@querycap/lodash";
 import { Fragment } from "react";
 import { colors } from "../colors";
 

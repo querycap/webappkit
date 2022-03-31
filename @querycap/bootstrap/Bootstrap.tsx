@@ -3,9 +3,9 @@ import { createPersister } from "@querycap/persister";
 import { Actor, AsyncStage, Store, StoreProvider, useStore } from "@reactorx/core";
 import { PromptUserConfirmation, ReactorxRouter } from "@reactorx/router";
 import { createBrowserHistory, createHashHistory } from "history";
-import { isFunction } from "lodash";
+import { isFunction } from "@querycap/lodash";
 import { ReactElement, ReactNode, StrictMode, useEffect, useMemo } from "react";
-import ReactDOM, { render } from "react-dom";
+import { createRoot } from "react-dom/client";
 import { useConfirm } from "@querycap/notify";
 
 function PersisterConnect({ persister }: { persister: ReturnType<typeof createPersister> }) {
@@ -57,13 +57,8 @@ export const createBootstrap =
       name: config.appName || "app",
     });
 
-    return ($root: Element, async = false) => {
-      const finalRender =
-        async && (ReactDOM as any).createRoot
-          ? (node: ReactNode, $r: Element) => {
-              return (ReactDOM as any).createRoot($r).render(node);
-            }
-          : render;
+    return ($root: Element, strictMode = false) => {
+      const r = createRoot($root);
 
       void persister.hydrate((storeValues = {}) => {
         const store$ = Store.create(storeValues);
@@ -99,17 +94,20 @@ export const createBootstrap =
           });
         }
 
-        finalRender(
-          <StrictMode>
-            <StoreProvider value={store$}>
-              <ConfigProvider value={{ config }}>
-                <PersisterConnect persister={persister} />
-                <HistoryProvider basename={(config as any).basename}>{isFunction(e) ? e() : e}</HistoryProvider>
-              </ConfigProvider>
-            </StoreProvider>
-          </StrictMode>,
-          $root,
+        const app = (
+          <StoreProvider value={store$}>
+            <ConfigProvider value={{ config }}>
+              <PersisterConnect persister={persister} />
+              <HistoryProvider basename={(config as any).basename}>{isFunction(e) ? e() : e}</HistoryProvider>
+            </ConfigProvider>
+          </StoreProvider>
         );
+
+        if (strictMode) {
+          r.render(<StrictMode>{app}</StrictMode>);
+        } else {
+          r.render(app);
+        }
       });
     };
   };

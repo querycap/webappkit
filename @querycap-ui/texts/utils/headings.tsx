@@ -1,4 +1,4 @@
-import { select, theme, roundedEm } from "@querycap-ui/core/macro";
+import { select, theme, roundedEm } from "@querycap-ui/core";
 
 export const headings = {
   break: select()

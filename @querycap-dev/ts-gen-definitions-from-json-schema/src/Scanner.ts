@@ -27,7 +27,7 @@ import {
   split,
   times,
   values,
-} from "lodash";
+} from "@querycap/lodash";
 
 const canInterface = (type: Type) => {
   return !type.composed && type.name.startsWith("{");

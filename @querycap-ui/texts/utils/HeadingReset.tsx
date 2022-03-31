@@ -1,5 +1,5 @@
 import { Global } from "@emotion/react";
-import { select } from "@querycap-ui/core/macro";
+import { select } from "@querycap-ui/core";
 
 import { headings } from "./headings";
 

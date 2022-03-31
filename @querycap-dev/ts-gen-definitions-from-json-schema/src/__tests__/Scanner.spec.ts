@@ -1,7 +1,7 @@
-import * as lodash from "lodash";
 import { ISchemaBasic } from "../Schema";
 import { scan, Scanner } from "../Scanner";
 import { writerOf } from "@querycap-dev/ts-gen-core";
+import { forEach } from "@querycap/lodash";
 
 export interface ICase {
   schema: ISchemaBasic;
@@ -9,22 +9,22 @@ export interface ICase {
 }
 
 const rules = {
-  allOf: require("./rules/allOf"),
-  any: require("./rules/any"),
-  anyOf: require("./rules/anyOf"),
-  array: require("./rules/array"),
-  boolean: require("./rules/boolean"),
-  enum: require("./rules/enum"),
-  null: require("./rules/null"),
-  number: require("./rules/number"),
-  object: require("./rules/object"),
-  ref: require("./rules/ref"),
-  string: require("./rules/string"),
+  allOf: await import("./rules/allOf"),
+  any: await import("./rules/any"),
+  anyOf: await import("./rules/anyOf"),
+  array: await import("./rules/array"),
+  boolean: await import("./rules/boolean"),
+  enum: await import("./rules/enum"),
+  null: await import("./rules/null"),
+  number: await import("./rules/number"),
+  object: await import("./rules/object"),
+  ref: await import("./rules/ref"),
+  string: await import("./rules/string"),
 };
 
 describe("TypeBuilder#toType", () => {
-  lodash.forEach(rules, ({ cases }, filename) => {
-    lodash.forEach(cases, (caseItem: ICase, idx) => {
+  forEach(rules, ({ cases }, filename) => {
+    forEach(cases, (caseItem, idx) => {
       test(`${filename} ${idx}`, () => {
         const writer = writerOf();
         scan(writer, {

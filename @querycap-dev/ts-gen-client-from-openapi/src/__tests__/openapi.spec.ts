@@ -6,6 +6,10 @@ import * as path from "path";
 import schemaJSON from "../spec/schema.json";
 // @ts-ignore
 import openApiJSON from "../spec/openapi.json";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 test("#toOpenAPI", () => {
   const mergedSchema = simplifySchema(

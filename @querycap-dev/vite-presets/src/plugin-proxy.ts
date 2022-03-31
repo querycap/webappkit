@@ -53,7 +53,7 @@ export const wrap = ({ transformChunk, ...plugin }: PluginProxy): Plugin => {
   async function transform(this: PluginContext, code: string, id: string, ssr: boolean) {
     if (plugin.transform) {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-      const ret = pickCode(await plugin.transform.call(this as any, code, id, ssr));
+      const ret = pickCode(await plugin.transform.call(this as any, code, id, { ssr }));
       if (ret) {
         code = ret;
       }

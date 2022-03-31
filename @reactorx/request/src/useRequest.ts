@@ -1,4 +1,4 @@
-import { noop } from "lodash";
+import { noop } from "@querycap/lodash";
 import { useEffect, useMemo, useRef } from "react";
 import { Actor, IDispatch, useStore } from "@reactorx/core";
 import { RequestActor } from "./RequestActor";
@@ -32,6 +32,7 @@ export function useRequest<TReq, TRespBody, TError>(
   const lastCallbackRef = useRef<Pick<typeof options, "onSuccess" | "onFail">>({});
 
   const optionsRef = useRef(options);
+
   useEffect(() => {
     optionsRef.current = options;
   });
@@ -87,23 +88,24 @@ export function useRequest<TReq, TRespBody, TError>(
   }, [requestActor]);
 
   const request = useMemo(
-    () => (
-      arg: typeof options["arg"] = optionsRef.current.arg || ({} as any),
-      opts: typeof options["opts"] & Pick<typeof options, "onSuccess" | "onFail"> = {
-        ...optionsRef.current.opts,
+    () =>
+      (
+        arg: typeof options["arg"] = optionsRef.current.arg || ({} as any),
+        opts: typeof options["opts"] & Pick<typeof options, "onSuccess" | "onFail"> = {
+          ...optionsRef.current.opts,
+        },
+      ) => {
+        cancelIfExists();
+
+        lastCallbackRef.current.onSuccess = opts.onSuccess;
+        lastCallbackRef.current.onFail = opts.onFail;
+
+        requesting$.next(true);
+
+        const actor = requestActor.with(arg, opts);
+        lastRequestActor.current = actor;
+        actor.invoke({ dispatch });
       },
-    ) => {
-      cancelIfExists();
-
-      lastCallbackRef.current.onSuccess = opts.onSuccess;
-      lastCallbackRef.current.onFail = opts.onFail;
-
-      requesting$.next(true);
-
-      const actor = requestActor.with(arg, opts);
-      lastRequestActor.current = actor;
-      actor.invoke({ dispatch });
-    },
     [],
   );
 

@@ -1,7 +1,6 @@
-import { Node, NodePath } from "@babel/core";
-import generate from "@babel/generator";
 // @ts-ignore
 import { addDefault, addNamed } from "@babel/helper-module-imports";
+import babelGen from "@babel/generator";
 import * as t from "@babel/types";
 import {
   CallExpression,
@@ -10,12 +9,17 @@ import {
   Identifier,
   isIdentifier,
   Program,
+  Node,
   V8IntrinsicIdentifier,
   VariableDeclarator,
 } from "@babel/types";
+// @ts-ignore
 import { serializeStyles } from "@emotion/serialize";
 import { aliases as aliasesOrigin } from "@querycap-ui/css-aliases";
-import { createMacro } from "babel-plugin-macros";
+import { NodePath } from "@babel/traverse";
+import { Visitor } from "@babel/core";
+
+const generate = (babelGen as any).default || babelGen;
 
 const aliases: { [k: string]: string[] } = aliasesOrigin;
 
@@ -51,7 +55,7 @@ const generatedPrefix = "__macro_generated_";
 
 const isGenerated = (id: string) => id.startsWith(generatedPrefix);
 
-const createScanner = (program: NodePath<Program>) => {
+export const createScanner = (program: NodePath<Program>) => {
   const querycapUICoreImport = createImporter(program, "@querycap-ui/core");
 
   const objectExpression = (o: { [k: string]: Expression }) => {
@@ -312,22 +316,38 @@ const createScanner = (program: NodePath<Program>) => {
   };
 };
 
-export default createMacro(({ references }) => {
-  Object.keys(references).forEach((k) => {
-    if (references[k].length > 0) {
-      if (k === "select") {
-        const program = references[k][0].findParent((p) => p.isProgram()) as NodePath<Program>;
-        const scanner = createScanner(program);
-        references[k].reverse().forEach((p) => {
-          return p.parentPath!.isCallExpression() && scanner.scan(p.parentPath);
-        });
-      } else {
-        const querycapUICoreImport = createImporter(references[k][0], "@querycap-ui/core");
+export const removeQuerycapUICoreSelect = () => {
+  return {
+    name: "remove-css-select",
+    visitor: {
+      ImportSpecifier: {
+        enter(path, _: any) {
+          const pp = path.parentPath;
+          if (pp.isImportDeclaration() && pp.get("source").node.value == "@querycap-ui/core") {
+            const i = path.get("imported");
 
-        references[k].forEach((p) => {
-          (p as NodePath<Identifier>).node.name = querycapUICoreImport(k).name;
-        });
-      }
-    }
-  });
-});
+            if (i.isIdentifier() && i.node.name == "select") {
+              const program = path.findParent((p) => p.isProgram()) as NodePath<Program>;
+              const scanner = createScanner(program);
+
+              const l = path.get("local");
+
+              program.scope
+                .getBinding(l.node.name)
+                ?.referencePaths.reverse()
+                .forEach((np) => {
+                  const pp = np.parentPath;
+                  if (pp?.isCallExpression()) {
+                    scanner.scan(pp);
+                  }
+                });
+
+              path.remove();
+            }
+            // console.log(path.parentPath.parentPath.);
+          }
+        },
+      },
+    } as Visitor,
+  };
+};

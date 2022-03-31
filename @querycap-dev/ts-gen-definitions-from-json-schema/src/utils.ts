@@ -1,4 +1,4 @@
-import { assign, filter, has, isBoolean, some } from "lodash";
+import { assign, filter, has, isBoolean, some } from "@querycap/lodash";
 
 import { ISchemaBasic, SimpleTypes, TSchema } from "./Schema";
 

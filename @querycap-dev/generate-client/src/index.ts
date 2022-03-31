@@ -3,7 +3,7 @@ import { generate as generateFile } from "@querycap-dev/generate";
 import axios from "axios";
 import { createHash } from "crypto";
 import { readFileSync } from "fs";
-import { pickBy, startsWith, toLower } from "lodash";
+import { pickBy, startsWith, toLower } from "@querycap/lodash";
 import path from "path";
 import { generate } from "./generate";
 import { patchOpenAPI } from "./openapi-patch";

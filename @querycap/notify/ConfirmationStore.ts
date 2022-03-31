@@ -1,6 +1,6 @@
 import { createStore } from "@querycap/contexts";
 import { useObservableEffect } from "@reactorx/core";
-import { isUndefined, keys, omit, pick, values } from "lodash";
+import { isUndefined, keys, omit, pick, values } from "@querycap/lodash";
 import { ReactNode, useMemo, useRef } from "react";
 import { flatMap, tap } from "rxjs/operators";
 import { v4 as uuid } from "uuid";

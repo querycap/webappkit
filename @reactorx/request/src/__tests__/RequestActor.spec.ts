@@ -1,7 +1,7 @@
 import { createRequestActor } from "../RequestActor";
 import { AxiosResponse } from "axios";
 import { StatusOK, StatusUnauthorized } from "@reactorx/request";
-import { noop } from "lodash";
+import { noop } from "@querycap/lodash";
 
 interface IGitHubError {
   message: string;

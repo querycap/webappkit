@@ -1,5 +1,10 @@
-dev: install install.devkit
+TS_NODE = node --experimental-specifier-resolution=node --loader=ts-node/esm/transpile-only
+
+dev: install bootstrap
 	pnpx devkit dev sg
+
+build.sg: install bootstrap
+	pnpx devkit build sg
 
 release:
 	pnpx changeset
@@ -20,12 +25,12 @@ tsc:
 test: install build jest
 
 jest:
-	pnpx jest --coverage
+	NODE_OPTIONS=--experimental-vm-modules pnpx jest
 
 cleanup:
 	pnpm -r --filter=!webappkit exec rm -rf ./dist
 
-build: install.monobundle build.babel-plugins
+build: bootstrap.monobundle build.babel-plugins
 	pnpm -r --filter=!webappkit exec ../../node_modules/.bin/monobundle
 
 pkg:
@@ -39,7 +44,10 @@ pkg.gh-page: test
 	cp ./public/web-sg/index.html  ./public/web-sg/404.html
 
 build.babel-plugins:
-	pnpm --filter='@querycap-ui/core.macro' --filter='@querycap-ui/css-aliases' exec ../../node_modules/.bin/monobundle
+	pnpm \
+ 		--filter='@querycap-ui/css-aliases' \
+ 		--filter='@querycap-ui/babel-preset-css-prop' \
+ 		exec monobundle
 
 install:
 	pnpm i
@@ -48,11 +56,9 @@ dep:
 	pnpm up -r --latest
 	pnpm i
 
-install.monobundle:
-	pnpx ts-node -T ./@querycap-dev/monobundle/bin.ts ./@querycap-dev/monobundle
+bootstrap.monobundle:
+	$(TS_NODE) ./@querycap-dev/monobundle/bin.ts ./@querycap-dev/monobundle
 
-install.devkit:
-	pnpx ts-node -T ./@querycap-dev/monobundle/bin.ts ./@querycap-dev/devkit
-
-install.pnpm:
-	npm install --force -g pnpm
+bootstrap:
+	$(TS_NODE) ./@querycap-dev/monobundle/bin.ts ./@querycap-dev/devkit
+	$(TS_NODE) ./@querycap-dev/monobundle/bin.ts ./@querycap-dev/vite-presets

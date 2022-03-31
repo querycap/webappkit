@@ -1,4 +1,4 @@
-import { Dictionary, omit, size } from "lodash";
+import { omit, size } from "@querycap/lodash";
 import { AsyncStage, useEpic } from "@reactorx/core";
 import { RequestActor } from "./RequestActor";
 import { filter as rxFilter, ignoreElements as rxIgnoreElements, scan as rxScan, tap as rxTap } from "rxjs/operators";
@@ -14,7 +14,7 @@ export const useRequesting$ = () => {
       rxScan((counts, actor: any) => {
         const parentActorType = actor.opts.parentActor.type;
 
-        const count = counts[parentActorType] || 0;
+        const count: number = counts[parentActorType] || 0;
 
         if (actor.stage === AsyncStage.STARTED) {
           return {
@@ -31,8 +31,8 @@ export const useRequesting$ = () => {
         }
 
         return omit(counts, parentActorType);
-      }, {} as Dictionary<number>),
-      rxTap((nextRequests) => {
+      }, {} as { [k: string]: number }),
+      rxTap((nextRequests: any) => {
         requesting$.next(size(nextRequests) > 0);
       }),
       rxIgnoreElements(),

@@ -1,6 +1,6 @@
 import { generate } from "@querycap-dev/generate";
 import { dump } from "js-yaml";
-import { isUndefined, map, omitBy } from "lodash";
+import { isUndefined, map, omitBy } from "@querycap/lodash";
 import path, { join } from "path";
 import { withPrefix } from "@querycap/config";
 import { IDevkitConfig, IState } from "./state";

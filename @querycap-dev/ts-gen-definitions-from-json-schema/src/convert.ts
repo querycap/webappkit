@@ -1,4 +1,4 @@
-import { assign, drop, forEach, get, has, isBoolean, isString, replace, split } from "lodash";
+import { assign, drop, forEach, get, has, isBoolean, isString, replace, split } from "@querycap/lodash";
 import { ISchemaBasic, TSchema } from "./Schema";
 import { isMetaType, normalizeSchema } from "./utils";
 

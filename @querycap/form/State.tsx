@@ -1,5 +1,5 @@
 import { Validator } from "@querycap/validators";
-import { Dictionary } from "lodash";
+import { Dictionary } from "@querycap/lodash";
 
 export interface FieldState {
   name?: string;

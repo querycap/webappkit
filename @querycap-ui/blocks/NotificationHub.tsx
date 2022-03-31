@@ -1,4 +1,4 @@
-import { animated, select, roundedEm, useTransition } from "@querycap-ui/core/macro";
+import { animated, select, roundedEm, useTransition } from "@querycap-ui/core";
 import { Portal } from "@querycap/uikit";
 import { useObservableEffect } from "@reactorx/core";
 import { timer } from "rxjs";

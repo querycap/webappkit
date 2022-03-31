@@ -2,7 +2,6 @@
   "name": "@querycap/contexts",
   "version": "1.0.3",
   "files": [
-    "./dist/",
     "dist/"
   ],
   "peerDependencies": {
@@ -11,8 +10,8 @@
     "@reactorx/core": "0.22.4",
     "@reactorx/router": "1.0.3",
     "date-fns": "2.x",
-    "lodash": "4.x",
-    "react": "17.x",
+    "@querycap/lodash": "workspace:*",
+    "react": ">=17.x",
     "rxjs": "7.x"
   },
   "license": "MIT",
@@ -36,6 +35,7 @@
     },
     "./index.ts": "./index.ts"
   },
+  "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs"

@@ -1,5 +1,5 @@
 // https://en.wikipedia.org/wiki/Grayscale
-import { curry } from "lodash";
+import { curry } from "@querycap/lodash";
 import { parseToRgb, shade, tint } from "polished";
 
 export const grayscaleValue = (color: string) => {

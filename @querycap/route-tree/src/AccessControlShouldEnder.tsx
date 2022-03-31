@@ -1,6 +1,6 @@
 import { displayPermissions, ShouldEnterResolver, TShouldRender, useAccessControl } from "@querycap/access";
 import { generatePath, useRouter } from "@reactorx/router";
-import { Dictionary, forEach, map, reduce, some, assign } from "lodash";
+import { Dictionary, forEach, map, reduce, some, assign } from "@querycap/lodash";
 import { Children, cloneElement, lazy, ReactNode, Suspense, useEffect, useMemo } from "react";
 import { RouteTree } from "./RouteTree";
 

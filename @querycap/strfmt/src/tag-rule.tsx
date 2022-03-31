@@ -1,4 +1,4 @@
-import { drop } from "lodash";
+import { drop } from "@querycap/lodash";
 
 export interface TagNode {
   valid: () => boolean;

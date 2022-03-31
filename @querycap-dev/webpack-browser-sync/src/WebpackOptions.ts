@@ -1,5 +1,5 @@
 import browserSync from "browser-sync";
-import { concat, dropWhile, isObject, map, mapValues, reduce } from "lodash";
+import { concat, dropWhile, isObject, map, mapValues, reduce } from "@querycap/lodash";
 import mime from "mime";
 import webpack from "webpack";
 // @ts-ignore

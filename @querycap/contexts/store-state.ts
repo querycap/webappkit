@@ -1,6 +1,6 @@
 import { Actor, useConn, useObservable, useStore } from "@reactorx/core";
 import { addSeconds, formatRFC3339 } from "date-fns";
-import { get, isEmpty, isFunction, isObject } from "lodash";
+import { get, isEmpty, isFunction, isObject } from "@querycap/lodash";
 import { createContext, useCallback, useContext } from "react";
 
 const StoreStateScopeContext = createContext({ scope: "" });

@@ -1,5 +1,5 @@
 import { createStore } from "@querycap/contexts";
-import { Dictionary } from "lodash";
+import { Dictionary } from "@querycap/lodash";
 
 export interface Pager {
   offset: number;

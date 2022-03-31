@@ -1,7 +1,7 @@
 import { preventDefault } from "@querycap-ui/core";
 import { useValueRef } from "@querycap/reactutils";
 import { useObservableEffect } from "@reactorx/core";
-import { last } from "lodash";
+import { last } from "@querycap/lodash";
 import { RefObject } from "react";
 import { fromEvent, merge } from "rxjs";
 import { buffer, debounceTime, filter as rxFilter, map as rxMap, tap } from "rxjs/operators";

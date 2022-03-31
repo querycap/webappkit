@@ -2,7 +2,6 @@
   "name": "@querycap-dev/generate",
   "version": "0.5.5",
   "files": [
-    "./dist/",
     "dist/"
   ],
   "peerDependencies": {
@@ -10,9 +9,9 @@
     "prettier": "*"
   },
   "dependencies": {
-    "chalk": "4.x",
+    "chalk": "~5.0.1",
     "fast-glob": "^3.2.11",
-    "prettier": "^2.5.1"
+    "prettier": "^2.6.1"
   },
   "license": "MIT",
   "publishConfig": {
@@ -32,6 +31,7 @@
     },
     "./index.ts": "./index.ts"
   },
+  "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs"

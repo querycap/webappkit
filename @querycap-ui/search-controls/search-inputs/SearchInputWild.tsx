@@ -2,7 +2,7 @@ import { preventDefault } from "@querycap-ui/core";
 import { MenuOptGroup, SelectMenuPopover, useKeyboardArrowControls, useNewSelect } from "@querycap-ui/form-controls";
 import { useToggle } from "@querycap/uikit";
 import { useObservable, useObservableEffect } from "@reactorx/core";
-import { Dictionary, every, forEach, last, map, size, startsWith } from "lodash";
+import { Dictionary, every, forEach, last, map, size, startsWith } from "@querycap/lodash";
 import { useEffect, useRef } from "react";
 import { fromEvent, merge } from "rxjs";
 import { buffer, debounceTime, filter as rxFilter, tap } from "rxjs/operators";

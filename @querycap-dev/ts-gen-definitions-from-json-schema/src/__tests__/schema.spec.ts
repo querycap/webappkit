@@ -1,9 +1,13 @@
 import { scan } from "../Scanner";
 // @ts-ignore
 import schemaJSON from "../spec/schema.json";
-import * as fs from "fs";
-import * as path from "path";
+import fs from "fs";
+import path from "path";
 import { writerOf } from "@querycap-dev/ts-gen-core";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 test("#toSchema", () => {
   const writer = writerOf();

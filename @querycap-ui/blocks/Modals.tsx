@@ -10,10 +10,10 @@ import {
   PickAnimated,
   animated,
   AnimatedComponent,
-} from "@querycap-ui/core/macro";
+} from "@querycap-ui/core";
 import { IconX } from "@querycap-ui/icons";
 import { useOnExactlyClick, usePortalCloseOnEsc, withPortal } from "@querycap/uikit";
-import { noop } from "lodash";
+import { noop } from "@querycap/lodash";
 import { forwardRef, Fragment, HTMLAttributes, ReactNode, Ref, useRef } from "react";
 import { pipe } from "rxjs";
 
@@ -162,9 +162,9 @@ export const Modal = ({ isOpen, children, onRequestClose, onDestroyed }: ModalPr
 export const ModalDialog = ({ isOpen, children, onRequestClose, onDestroyed }: ModalPropsWithOnDestroyed) => {
   const transition = useModalTransition(isOpen, onDestroyed);
 
-  return transition((style, item, _, key) => (
+  return transition((style, opened, _, key) => (
     <ModalDialogBase onRequestClose={onRequestClose} key={key}>
-      {item && (
+      {opened && (
         <Fragment>
           <AnimatedModalBackdrop onRequestClose={onRequestClose} style={{ opacity: style.opacity }} />
           <animated.div style={style}>{children}</animated.div>

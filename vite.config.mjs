@@ -1,11 +1,4 @@
-import {
-  applyPlugins,
-  config,
-  outputAmd,
-  resolve,
-  vendorChunks,
-  workerAsModule,
-} from "./@querycap-dev/vite-presets/src";
+import { applyPlugins, config, outputAmd, resolve, vendorChunks, workerAsModule } from "@querycap-dev/vite-presets";
 import { VitePWA } from "vite-plugin-pwa";
 
 const baseURL = "/webappkit/";
@@ -13,11 +6,11 @@ const baseURL = "/webappkit/";
 export default applyPlugins(
   config((c) => {
     c.base = baseURL;
-    c.build!.assetsDir = "static";
+    c.build.assetsDir = "static";
   }),
   resolve({
     alias: {
-      lodash: "lodash-es",
+      lodash: "lodash",
       path: "path-browserify",
     },
     dedupe: ["react", "react-dom", "@emotion/react"],
@@ -30,6 +23,7 @@ export default applyPlugins(
     markdown: /micromark|remark|unist|unified|mdast/,
     d3: /d3-shape|d3-path/,
   }),
+
   // remove this for modern project
   // install requirejs by your self
   outputAmd(),

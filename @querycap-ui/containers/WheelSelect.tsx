@@ -1,5 +1,5 @@
-import { animated, cover, mix, rgba, select, theme, useGesture, useSpring, useTheme } from "@querycap-ui/core/macro";
-import { map, max, Dictionary, find, reduce } from "lodash";
+import { animated, cover, mix, rgba, select, theme, useGesture, useSpring, useTheme } from "@querycap-ui/core";
+import { map, max, find, reduce } from "@querycap/lodash";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 export interface PickerOption {
@@ -61,7 +61,7 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
           ...optionsIndexes,
           [opt.value]: i,
         }),
-        {} as Dictionary<number>,
+        {} as { [k: string]: number },
       ),
       max(map(options, ({ value }) => value.length)) || 0,
     ],
@@ -70,12 +70,12 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
 
   const [selectIdx, setIdx] = useState(valueIndexes[value]);
 
-  const [{ y }, setY] = useSpring(() => {
+  const [{ y }, api] = useSpring(() => {
     return { y: offsetYOfIndex(options, selectIdx, itemHeight) };
   });
 
   useEffect(() => {
-    setY({ y: offsetYOfIndex(options, selectIdx, itemHeight) });
+    api.start({ y: offsetYOfIndex(options, selectIdx, itemHeight) });
     onValueChange && onValueChange(getValueByIdx(options, selectIdx)!);
   }, [selectIdx]);
 
@@ -83,7 +83,7 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
 
   const setIdxAndUpdateY = (nextIdx: number) => {
     setIdx(nextIdx);
-    setY({ y: offsetYOfIndex(options, nextIdx, itemHeight) });
+    api.start({ y: offsetYOfIndex(options, nextIdx, itemHeight) });
   };
 
   const bind = useGesture(
@@ -94,7 +94,7 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
         const [nextIdx, outRange] = rangeLimit(-Math.round(nextY / itemHeight), 0, options.length - 1);
 
         if (!outRange) {
-          setY({ y: nextY });
+          api.start({ y: nextY });
         }
 
         setIdxAndUpdateY(nextIdx);
@@ -103,7 +103,7 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
         offsetYRef.current = y.get();
       },
       onDrag: ({ movement }) => {
-        setY({ y: offsetYRef.current + movement[1] });
+        api.start({ y: offsetYRef.current + movement[1] });
       },
       onDragEnd: ({ movement }) => {
         const [nextIdx] = rangeLimit(
@@ -220,6 +220,7 @@ export const WheelSelect = ({ sup, value, name, options, itemHeight, onValueChan
           role={"mask"}
           css={select().with(cover()).with({
             zIndex: 1,
+            touchAction: "none",
           })}
         />
       </div>

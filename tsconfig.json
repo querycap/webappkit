@@ -1,5 +1,5 @@
 {
-  "compileOnSave": true,
+  "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": ".",
@@ -12,12 +12,11 @@
     "noImplicitAny": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node",
     "jsx": "react-jsx",
     "lib": ["dom", "esnext", "webworker"],
+    "target": "es2017",
     "module": "esnext",
-    "target": "es2015",
+    "moduleResolution": "node",
     "pretty": true,
     "strict": true,
     /* Additional Checks */
@@ -31,10 +30,5 @@
     "noEmitOnError": false,
     "emitDeclarationOnly": true
   },
-  "exclude": [".tmp/*", "dist/*", "node_modules/*"],
-  "ts-node": {
-    "compilerOptions": {
-      "module": "commonjs"
-    }
-  }
+  "exclude": [".tmp/*", "dist/*", "node_modules/*"]
 }

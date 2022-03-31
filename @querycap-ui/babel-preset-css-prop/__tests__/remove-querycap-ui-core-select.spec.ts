@@ -1,10 +1,16 @@
 import { transformSync } from "@babel/core";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+import { removeQuerycapUICoreSelect } from "../remove-querycap-ui-core-select";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const compileToSnapshot = (code: string) => {
   const t = transformSync(code, {
     root: __dirname,
     filename: "m.js",
-    plugins: ["@babel/plugin-syntax-jsx", "babel-plugin-macros", "@emotion/babel-plugin"],
+    plugins: ["@babel/plugin-syntax-jsx", removeQuerycapUICoreSelect, "@emotion/babel-plugin"],
   });
 
   return `
@@ -16,10 +22,10 @@ ${t?.code}
   `;
 };
 
-describe("@querycap-ui/core/macro", () => {
+describe("@querycap-ui/core", () => {
   it("simple", () => {
     const result = compileToSnapshot(`
-import { select, animated } from "@querycap-ui/core/macro"
+import { select, animated } from "@querycap-ui/core"
 import { css } from "@emotion/react";
 
 const v = css({ color: "red" })
@@ -37,7 +43,7 @@ const C = () => {
 
   it("with variables", () => {
     const result = compileToSnapshot(`
-import { select, roundedEm } from "@querycap-ui/core/macro"
+import { select, roundedEm } from "@querycap-ui/core"
 
 const C = () => {
   return (
@@ -52,7 +58,7 @@ const C = () => {
 
   it("select", () => {
     const result = compileToSnapshot(`
-import { select, OptionFocusedAttr } from "@querycap-ui/core/macro"
+import { select, OptionFocusedAttr } from "@querycap-ui/core"
 
 const v = ""
 
@@ -70,16 +76,13 @@ const C = () => {
   )
 }
 `);
-
-    console.log(result);
-
     expect(result).toMatchSnapshot();
   });
 
   it("nests", () => {
     const result = compileToSnapshot(`
-import { flow } from "lodash"
-import { select, roundedEm, theme, animated, cover } from "@querycap-ui/core/macro"
+import { flow } from "@querycap/lodash"
+import { select, roundedEm, theme, animated, cover } from "@querycap-ui/core"
 
 const C = () => {
   const v = "red"
@@ -111,8 +114,8 @@ const Animated = animated(C);
 
   it("flow", () => {
     const result = compileToSnapshot(`
-import { flow } from "lodash"
-import { select, theme } from "@querycap-ui/core/macro"
+import { flow } from "@querycap/lodash"
+import { select, theme } from "@querycap-ui/core"
 
 const C = () => {
   const v = "red"
@@ -145,8 +148,8 @@ import {
   tint,
   tintOrShade,
   transparentize,
-} from "@querycap-ui/core/macro";
-import { flow } from "lodash";
+} from "@querycap-ui/core";
+import { flow } from "@querycap/lodash";
 import { base } from "./util";
 
 const createBtnStyle = ({block, invisible, small}) =>
@@ -182,7 +185,7 @@ const createBtnStyle = ({block, invisible, small}) =>
 
   it("builder only", () => {
     const results = compileToSnapshot(`
-import { select, theme } from "@querycap-ui/core/macro";
+import { select, theme } from "@querycap-ui/core";
     
 export const headings = {
   h1: select()

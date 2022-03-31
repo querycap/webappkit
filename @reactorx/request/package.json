@@ -2,13 +2,12 @@
   "name": "@reactorx/request",
   "version": "0.22.5",
   "files": [
-    "./dist/",
     "dist/"
   ],
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
     "axios": "0.21.x",
-    "lodash": "4.x",
+    "@querycap/lodash": "workspace:*",
     "react": ">=17.x",
     "rxjs": ">=6.x"
   },
@@ -32,6 +31,7 @@
     },
     "./index.ts": "./index.ts"
   },
+  "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs"

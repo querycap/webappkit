@@ -1,5 +1,5 @@
-import { select, theme, roundedEm } from "@querycap-ui/core/macro";
-import { map, startsWith } from "lodash";
+import { select, theme, roundedEm } from "@querycap-ui/core";
+import { map, startsWith } from "@querycap/lodash";
 
 import * as IconSets from "@querycap-ui/icons";
 

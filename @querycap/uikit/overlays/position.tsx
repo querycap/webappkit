@@ -1,5 +1,5 @@
 import { useValueRef } from "@querycap/reactutils";
-import { isEqual, mapValues } from "lodash";
+import { isEqual, mapValues } from "@querycap/lodash";
 import { RefObject, useCallback, useEffect, useLayoutEffect, useState } from "react";
 import { animationFrameScheduler, fromEvent as observableFromEvent, merge as observableMerge } from "rxjs";
 import { observeOn } from "rxjs/operators";

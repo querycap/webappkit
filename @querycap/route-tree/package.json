@@ -2,7 +2,6 @@
   "name": "@querycap/route-tree",
   "version": "1.0.3",
   "files": [
-    "./dist/",
     "dist/"
   ],
   "license": "MIT",
@@ -10,7 +9,7 @@
     "@babel/runtime-corejs3": "*",
     "@querycap/access": "*",
     "@reactorx/router": "1.0.3",
-    "lodash": "4.x",
+    "@querycap/lodash": "workspace:*",
     "react": "17.x"
   },
   "publishConfig": {
@@ -33,6 +32,7 @@
     },
     "./index.ts": "./index.ts"
   },
+  "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs"

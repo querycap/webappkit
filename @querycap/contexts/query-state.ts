@@ -1,6 +1,6 @@
 import { useValueRef } from "@querycap/reactutils";
 import { parseSearchString, toSearchString, useRouter } from "@reactorx/router";
-import { isArray, omit, pickBy } from "lodash";
+import { isArray, omit, pickBy } from "@querycap/lodash";
 import { useEffect, useState } from "react";
 
 export const useQueryState = <T extends string | string[]>(queryKey: string, defaultValue: T) => {

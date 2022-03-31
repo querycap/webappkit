@@ -1,6 +1,7 @@
 import { useMemoizeOnce } from "@querycap/reactutils";
 import { render } from "@testing-library/react";
 import { memo, ReactNode } from "react";
+import { jest } from "@jest/globals";
 
 describe("#useMemoizeOnce", () => {
   it("called", () => {

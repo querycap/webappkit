@@ -1,7 +1,7 @@
-import { colors, select, defaultTheme, theme, ThemeState, roundedEm } from "@querycap-ui/core/macro";
+import { colors, select, defaultTheme, theme, ThemeState, roundedEm } from "@querycap-ui/core";
 import { Button } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
-import { map } from "lodash";
+import { map } from "@querycap/lodash";
 
 export const NOSRC = true;
 

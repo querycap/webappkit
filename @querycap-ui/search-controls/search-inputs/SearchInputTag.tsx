@@ -1,4 +1,4 @@
-import { select, theme } from "@querycap-ui/core/macro";
+import { select, theme } from "@querycap-ui/core";
 import { parseTagRule } from "@querycap/strfmt";
 import { ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { BehaviorSubject } from "rxjs";

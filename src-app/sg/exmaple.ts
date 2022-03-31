@@ -1,4 +1,4 @@
-import { forEach, isFunction, pickBy, values } from "lodash";
+import { forEach, isFunction, pickBy, values } from "@querycap/lodash";
 import { FunctionComponent } from "react";
 
 interface ModuleExamples {

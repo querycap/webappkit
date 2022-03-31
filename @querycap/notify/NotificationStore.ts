@@ -1,6 +1,6 @@
 import { createStore } from "@querycap/contexts";
 import { useObservable } from "@reactorx/core";
-import { omit } from "lodash";
+import { omit } from "@querycap/lodash";
 import { useMemo } from "react";
 import { v4 as uuid } from "uuid";
 

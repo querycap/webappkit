@@ -1,6 +1,6 @@
 import { preventDefault } from "@querycap-ui/core";
 import { HTMLComment } from "@querycap/reactutils";
-import { map } from "lodash";
+import { map } from "@querycap/lodash";
 import { useState } from "react";
 import { pipe } from "rxjs";
 

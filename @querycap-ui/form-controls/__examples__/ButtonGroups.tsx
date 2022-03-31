@@ -1,4 +1,4 @@
-import { roundedEm } from "@querycap-ui/core/macro";
+import { roundedEm } from "@querycap-ui/core";
 import { Button, ButtonGroup } from "@querycap-ui/form-controls";
 import { Stack } from "@querycap-ui/layouts";
 

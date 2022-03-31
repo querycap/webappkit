@@ -1,4 +1,4 @@
-import { camelCase, dropRight, last, map, replace, trim, upperFirst } from "lodash";
+import { camelCase, dropRight, last, map, replace, trim, upperFirst } from "@querycap/lodash";
 import path from "path";
 import {
   simplifySvg,
@@ -14,6 +14,7 @@ import {
   collapseGroups,
   convertToReactJSX,
 } from "@morlay/simplify-svg";
+
 import cheerio from "cheerio";
 
 const toUpperCamelCase = (str: string): string => upperFirst(camelCase(str));

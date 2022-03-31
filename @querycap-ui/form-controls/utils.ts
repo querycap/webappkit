@@ -1,4 +1,4 @@
-import { roundedEm, select, theme } from "@querycap-ui/core/macro";
+import { roundedEm, select, theme } from "@querycap-ui/core";
 
 export const fitPaddingY = (small?: boolean) => roundedEm(small ? 0.3 : 0.6);
 

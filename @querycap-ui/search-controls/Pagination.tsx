@@ -1,6 +1,6 @@
-import { preventDefault, roundedEm, select, theme } from "@querycap-ui/core/macro";
+import { preventDefault, roundedEm, select, theme } from "@querycap-ui/core";
 import { Stack } from "@querycap-ui/layouts";
-import { times } from "lodash";
+import { times } from "@querycap/lodash";
 import { memo, ReactNode } from "react";
 import { pipe } from "rxjs";
 

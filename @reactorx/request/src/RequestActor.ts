@@ -1,5 +1,5 @@
 import { Actor, AsyncActor, AsyncStage, IActorOpt, IAsyncDerived } from "@reactorx/core";
-import { Dictionary, isUndefined, omit, pickBy } from "lodash";
+import { Dictionary, isUndefined, omit, pickBy } from "@querycap/lodash";
 import { AxiosRequestConfig, AxiosResponse } from "axios";
 import { paramsSerializer } from "./utils";
 

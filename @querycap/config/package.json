@@ -2,7 +2,6 @@
   "name": "@querycap/config",
   "version": "0.8.1",
   "files": [
-    "./dist/",
     "dist/"
   ],
   "peerDependencies": {
@@ -30,6 +29,7 @@
     },
     "./index.ts": "./index.ts"
   },
+  "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs"

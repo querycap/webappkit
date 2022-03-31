@@ -9,7 +9,7 @@ import {
   TRequestInterceptor,
 } from "@reactorx/request";
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
-import { Dictionary, forEach } from "lodash";
+import { Dictionary, forEach } from "@querycap/lodash";
 import { createContext, ReactNode, useContext, useMemo } from "react";
 import { RequestActor } from "./RequestActor";
 import { urlComplete } from "./utils";

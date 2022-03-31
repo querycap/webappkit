@@ -7,8 +7,8 @@ import {
   RequestActor as RequestActorOrigin,
   TRequestInterceptor,
 } from "@reactorx/request";
-import { AxiosRequestConfig } from "axios";
-import { map } from "lodash";
+import type { AxiosRequestConfig } from "axios";
+import { map } from "@querycap/lodash";
 import { merge as observableMerge, Observable } from "rxjs";
 import { filter as rxFilter, ignoreElements as rxIgnoreElements, tap as rxTap } from "rxjs/operators";
 import { errorPatch, IStatusError } from "./StatusError";

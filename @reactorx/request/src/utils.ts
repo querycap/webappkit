@@ -1,4 +1,4 @@
-import { Dictionary, isUndefined, forEach, isArray, isObject, isString, map, pickBy } from "lodash";
+import { Dictionary, isUndefined, forEach, isArray, isObject, isString, map, pickBy } from "@querycap/lodash";
 
 export interface ISelectOption {
   label: string;

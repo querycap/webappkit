@@ -1,12 +1,12 @@
 {
   "presets": [
-    "@querycap-dev/babel-preset/register",
-    "@querycap-ui/babel-preset-css-prop/register",
+    "@querycap-dev/babel-preset",
     [
       "@babel/preset-env",
       {
         "targets": {
-          "node": "12"
+          "node": "12",
+          "esmodules": true
         }
       }
     ]
@@ -14,6 +14,7 @@
   "env": {
     "ROLLUP_BROWSER": {
       "presets": [
+        "@querycap-ui/babel-preset-css-prop",
         [
           "@babel/preset-env",
           {

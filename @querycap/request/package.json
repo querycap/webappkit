@@ -2,18 +2,17 @@
   "name": "@querycap/request",
   "version": "0.7.5",
   "files": [
-    "./dist/",
     "dist/"
   ],
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
     "@querycap/notify": "^0.7.5",
-    "@reactorx/core": "0.22.4",
-    "@reactorx/request": "0.22.5",
-    "axios": "0.21.x",
-    "lodash": "4.x",
-    "react": "17.x",
+    "@reactorx/core": "^0.22.4",
+    "@reactorx/request": "^0.22.5",
+    "axios": "^0.26.1",
+    "@querycap/lodash": "workspace:*",
+    "react": ">=17.x",
     "rxjs": "7.x"
   },
   "publishConfig": {
@@ -36,6 +35,7 @@
     },
     "./index.ts": "./index.ts"
   },
+  "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs"

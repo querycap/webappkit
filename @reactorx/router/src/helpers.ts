@@ -1,4 +1,4 @@
-import { forEach, isArray, isObject, isUndefined } from "lodash";
+import { forEach, isArray, isObject, isUndefined } from "@querycap/lodash";
 
 export const searchStringify = (query: { [k: string]: any }) => {
   const params = new URLSearchParams();

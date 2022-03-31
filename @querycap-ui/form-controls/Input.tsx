@@ -1,6 +1,6 @@
-import { select, simpleShadow, theme, tintOrShade, transparentize } from "@querycap-ui/core/macro";
+import { select, simpleShadow, theme, tintOrShade, transparentize } from "@querycap-ui/core";
 import { FieldMeta } from "@querycap/form";
-import { flow } from "lodash";
+import { flow } from "@querycap/lodash";
 import { ReactNode } from "react";
 import { base, fitPaddingY } from "./utils";
 

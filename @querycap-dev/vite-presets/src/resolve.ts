@@ -4,6 +4,7 @@ import { join } from "path";
 
 export const resolve = (r: UserConfig["resolve"] | ((r: UserConfig["resolve"]) => UserConfig["resolve"])): Plugin => {
   const cwd = process.cwd();
+
   const workspaces: string[] = JSON.parse(String(readFileSync(join(cwd, "package.json")))).workspaces || [];
 
   const isWorkspace = (source: string): boolean => {
@@ -30,7 +31,7 @@ export const resolve = (r: UserConfig["resolve"] | ((r: UserConfig["resolve"]) =
     },
     resolveId(source: string) {
       if (isWorkspace(source)) {
-        for (let i = 0; extensions.length; i++) {
+        for (let i = 0; i < extensions.length; i++) {
           const f = join(cwd, source, "index" + extensions[i]);
           if (existsSync(f)) {
             return f;

@@ -1,5 +1,5 @@
 import { TooltipTrigger } from "@querycap-ui/blocks";
-import { select, roundedEm } from "@querycap-ui/core/macro";
+import { select, roundedEm } from "@querycap-ui/core";
 import { Stack } from "@querycap-ui/layouts";
 
 const TooltipDemo = ({ placement }: { placement: string }) => {

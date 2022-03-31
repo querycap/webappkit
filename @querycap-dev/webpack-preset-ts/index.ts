@@ -1,7 +1,7 @@
 import TerserPlugin from "terser-webpack-plugin";
 import { Configuration, ProvidePlugin } from "webpack";
 import { join } from "path";
-import { last } from "lodash";
+import { last } from "@querycap/lodash";
 
 export const withTsPreset =
   (vendorGroups: { [key: string]: RegExp } = {}) =>

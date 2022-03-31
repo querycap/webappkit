@@ -5,13 +5,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "prepublishOnly": "../../node_modules/.bin/monobundle"
-  },
-  "files": [
-    "./dist/",
-    "dist/"
-  ],
   "monobundle": {
     "cleanBeforeBundle": false
   },
@@ -26,6 +19,13 @@
     },
     "./index.ts": "./index.ts"
   },
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "prepublishOnly": "../../node_modules/.bin/monobundle"
+  },
+  "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs"

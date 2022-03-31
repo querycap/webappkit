@@ -1,10 +1,11 @@
 // @ts-ignore
 // import { registerSW } from "virtual:pwa-register";
 
-const start = () =>
+const start = () => {
   void import("./bootstrap").then(({ bootstrap }) => {
-    bootstrap(document.querySelector("#root") as Element, true);
+    bootstrap(document.querySelector("#root") as Element);
   });
+};
 
 start();
 

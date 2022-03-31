@@ -1,4 +1,4 @@
-import { has, reduce, toLower, toUpper, upperFirst, words } from "lodash";
+import { has, reduce, toLower, toUpper, upperFirst, words } from "@querycap/lodash";
 
 const INDENT = "  ";
 const LINEBREAK = "\n";

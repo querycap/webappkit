@@ -10,8 +10,8 @@ import {
   tint,
   tintOrShade,
   transparentize,
-} from "@querycap-ui/core/macro";
-import { flow } from "lodash";
+} from "@querycap-ui/core";
+import { flow } from "@querycap/lodash";
 import { ButtonHTMLAttributes, forwardRef, ReactNode } from "react";
 import { base, fitPaddingY } from "./utils";
 

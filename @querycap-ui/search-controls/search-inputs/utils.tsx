@@ -1,4 +1,4 @@
-import { preventDefault, select, theme } from "@querycap-ui/core/macro";
+import { preventDefault, select, theme } from "@querycap-ui/core";
 import { IconX } from "@querycap-ui/icons";
 
 import { pipe } from "rxjs";

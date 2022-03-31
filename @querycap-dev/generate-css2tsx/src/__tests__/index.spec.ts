@@ -1,6 +1,9 @@
 import { generate } from "@querycap-dev/generate";
-import path from "path";
+import path, { dirname } from "path";
 import { css2tsx } from "../";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 describe("css2tsx", () => {
   it("gen", () => {

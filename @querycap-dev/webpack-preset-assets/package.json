@@ -2,7 +2,6 @@
   "name": "@querycap-dev/webpack-preset-assets",
   "version": "2.0.0",
   "files": [
-    "./dist/",
     "dist/"
   ],
   "license": "MIT",
@@ -10,7 +9,7 @@
     "@querycap-dev/devkit": "*"
   },
   "dependencies": {
-    "css-loader": "^6.5.1",
+    "css-loader": "^6.7.1",
     "file-loader": "6.2.0",
     "glsl-shader-loader": "0.1.6",
     "html-loader": "3.1.0",
@@ -36,6 +35,7 @@
     },
     "./index.ts": "./index.ts"
   },
+  "type": "module",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs"

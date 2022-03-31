@@ -1,6 +1,6 @@
 import { createRequestActor, createRequestEpic, StatusOK, useRequest } from "..";
 import { composeEpics, Store, StoreProvider } from "@reactorx/core";
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AxiosRequestConfig, AxiosResponse } from "axios";
 import { act, render } from "@testing-library/react";
 
@@ -51,8 +51,9 @@ const waitLoop = (count = 1) => {
 };
 
 describe("full flow", () => {
-  const store$ = Store.create({});
   let count = 0;
+
+  let store$ = Store.create({});
 
   const mock = (config: AxiosRequestConfig): Promise<AxiosResponse> => {
     count++;
@@ -68,7 +69,7 @@ describe("full flow", () => {
           headers: {},
           config,
         });
-      }, 5);
+      }, 8);
     });
   };
 
@@ -83,6 +84,17 @@ describe("full flow", () => {
 
   beforeEach(() => {
     count = 0;
+
+    store$ = Store.create({});
+
+    store$.epicOn(
+      composeEpics(
+        createRequestEpic({
+          baseURL: "https://api.github.com",
+          adapter: mock,
+        }),
+      ),
+    );
   });
 
   it("in react", async () => {
@@ -97,9 +109,7 @@ describe("full flow", () => {
       </StoreProvider>,
     );
 
-    await act(waitLoop(7));
-
-    console.log(node.container.innerHTML);
+    await act(waitLoop(9));
 
     expect(count).toBe(1);
     expect(node.container.innerHTML).toContain("1f4af");
@@ -136,8 +146,9 @@ describe("full flow", () => {
     );
 
     // waiting
-    await act(waitLoop(7));
-
+    await act(waitLoop(6));
+    // waiting final resust
+    await act(waitLoop(3));
     sub.unsubscribe();
 
     expect(stages).toEqual([undefined, undefined, "STARTED", "STARTED", "CANCEL", "CANCEL", "FAILED", "FAILED"]);
@@ -156,7 +167,7 @@ describe("full flow", () => {
       useEffect(() => {
         nextLoop(() => {
           setClose(true);
-        }, 0);
+        }, 1);
       }, []);
 
       return (
@@ -174,13 +185,14 @@ describe("full flow", () => {
       </StoreProvider>,
     );
 
-    // waiting
-    await act(waitLoop(7));
+    // waiting to cancel
+    await act(waitLoop(6));
 
+    // waiting final resust
+    await act(waitLoop(3));
     sub.unsubscribe();
 
     expect(count).toEqual(1);
-
     expect(stages).toEqual([
       undefined,
       undefined,
