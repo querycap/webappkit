@@ -1,5 +1,25 @@
 # Change Log
 
+## 1.0.0
+
+### Minor Changes
+
+- 07aca52: ESM !!!!
+
+### Patch Changes
+
+- Updated dependencies [07aca52]
+  - @querycap/lodash@1.1.0
+  - @querycap-ui/core@1.0.0
+  - @querycap-ui/date-pickers@1.0.0
+  - @querycap-ui/form-controls@1.0.0
+  - @querycap-ui/icons@1.0.0
+  - @querycap-ui/layouts@1.0.0
+  - @querycap/reactutils@1.0.0
+  - @querycap/strfmt@1.0.0
+  - @querycap/uikit@1.0.0
+  - @reactorx/core@0.23.0
+
 ## 0.9.6
 
 ### Patch Changes

@@ -1,5 +1,21 @@
 # Change Log
 
+## 1.0.0
+
+### Minor Changes
+
+- 07aca52: ESM !!!!
+
+### Patch Changes
+
+- Updated dependencies [07aca52]
+  - @querycap/lodash@1.1.0
+  - @reactorx/router@2.0.0
+  - @querycap/config@0.9.0
+  - @querycap/notify@1.0.0
+  - @querycap/persister@1.0.0
+  - @reactorx/core@0.23.0
+
 ## 0.7.8
 
 ### Patch Changes

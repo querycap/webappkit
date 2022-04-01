@@ -1,5 +1,19 @@
 # Change Log
 
+## 0.7.0
+
+### Minor Changes
+
+- 07aca52: ESM !!!!
+
+### Patch Changes
+
+- Updated dependencies [07aca52]
+  - @querycap-dev/ts-gen-client-from-openapi@2.0.0
+  - @querycap-dev/ts-gen-core@2.0.0
+  - @querycap/lodash@1.1.0
+  - @querycap-dev/generate@0.6.0
+
 ## 0.6.6
 
 ### Patch Changes

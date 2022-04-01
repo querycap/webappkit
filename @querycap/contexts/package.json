@@ -1,14 +1,14 @@
 {
   "name": "@querycap/contexts",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "files": [
     "dist/"
   ],
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
     "@querycap/reactutils": "*",
-    "@reactorx/core": "0.22.4",
-    "@reactorx/router": "1.0.3",
+    "@reactorx/core": "0.23.0",
+    "@reactorx/router": "2.0.0",
     "date-fns": "2.x",
     "@querycap/lodash": "workspace:*",
     "react": ">=17.x",

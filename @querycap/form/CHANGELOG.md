@@ -1,5 +1,20 @@
 # Change Log
 
+## 0.12.0
+
+### Minor Changes
+
+- 07aca52: ESM !!!!
+
+### Patch Changes
+
+- Updated dependencies [07aca52]
+  - @querycap/contexts@2.0.0
+  - @querycap/lodash@1.1.0
+  - @querycap/reactutils@1.0.0
+  - @querycap/validators@1.0.0
+  - @reactorx/core@0.23.0
+
 ## 0.11.6
 
 ### Patch Changes
