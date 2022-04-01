@@ -28,7 +28,7 @@ export const Tabs = ({
     tabs: { [k: string]: TabProps };
     orders: string[];
     active: string;
-  }>({ orders: [], tabs: {}, active: cacheKey && query[cacheKey] ? query[cacheKey] : defaultActive || "" });
+  }>({ orders: [], tabs: {}, active: cacheKey && query[cacheKey] ? (query[cacheKey] as string) : defaultActive || "" });
 
   useEffect(() => {
     const tabs: { [k: string]: TabProps } = {};

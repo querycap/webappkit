@@ -7,10 +7,10 @@
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@reactorx/core": "0.23.0",
-    "@reactorx/request": "1.0.0",
-    "@reactorx/router": "2.0.0",
-    "@querycap/lodash": "workspace:*",
+    "@reactorx/core": "*",
+    "@reactorx/request": "*",
+    "@reactorx/router": "*",
+    "@querycap/lodash": "*",
     "react": ">=17.x",
     "rxjs": "7.x"
   },

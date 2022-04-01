@@ -9,7 +9,7 @@
   },
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@querycap/lodash": "workspace:*"
+    "@querycap/lodash": "*"
   },
   "scripts": {
     "prepublishOnly": "../../node_modules/.bin/monobundle"

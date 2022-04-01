@@ -1,4 +1,4 @@
-import { RouteProps, IRouterContext, Redirect, Route, Switch } from "@reactorx/router";
+import { RouteProps, RouterContext, Redirect, Route, Switch } from "@reactorx/router";
 import { assign, startsWith } from "@querycap/lodash";
 import { ComponentType, createContext, Fragment, lazy, Suspense, useContext } from "react";
 
@@ -36,7 +36,7 @@ export class RouteTree implements IRouteTree {
 
   static createRedirect = (to: string) =>
     assign(
-      ({ match }: IRouterContext<any>) => {
+      ({ match }: RouterContext<any>) => {
         return <Redirect to={startsWith(to, "/") ? to : `${match.url}/${to}`} />;
       },
       {

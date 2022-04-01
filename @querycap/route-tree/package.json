@@ -8,8 +8,8 @@
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
     "@querycap/access": "*",
-    "@reactorx/router": "2.0.0",
-    "@querycap/lodash": "workspace:*",
+    "@reactorx/router": "*",
+    "@querycap/lodash": "*",
     "react": "17.x"
   },
   "publishConfig": {

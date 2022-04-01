@@ -4,12 +4,12 @@
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@querycap-ui/core": "^1.0.0",
-    "@querycap-ui/layouts": "^1.0.0",
-    "@querycap/reactutils": "^1.0.0",
-    "@reactorx/core": "0.23.0",
+    "@querycap-ui/core": "*",
+    "@querycap-ui/layouts": "*",
+    "@querycap/reactutils": "*",
+    "@reactorx/core": "*",
     "date-fns": "2.x",
-    "@querycap/lodash": "1.1.0",
+    "@querycap/lodash": "*",
     "react": ">=17.x",
     "rxjs": "7.x"
   },

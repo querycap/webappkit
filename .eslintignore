@@ -1,4 +1,5 @@
 dist/
+@@deprecated/
 *.d.ts
 *.js
 *.cjs

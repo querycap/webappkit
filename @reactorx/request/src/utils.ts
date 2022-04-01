@@ -83,7 +83,7 @@ export const transformRequest = (data: any, headers: any) => {
   return data;
 };
 
-export const transformResponse = (data: unknown, headers: { [k: string]: any }) => {
+export const transformResponse = (data: any, headers: { [k: string]: any } = {}) => {
   if (isContentTypeJSON(headers)) {
     return JSON.parse(data as string);
   }

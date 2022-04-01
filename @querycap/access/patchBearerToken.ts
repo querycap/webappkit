@@ -28,14 +28,14 @@ export const patchBearerToken = ({ getState }: Store, ...excludeBasePaths: strin
       const token = getAccessTokenFromState(getState());
 
       if (token) {
-        const authorization = TokenSet.parse((axiosRequestConfig.headers || {}).Authorization)
+        const authorization = TokenSet.parse((axiosRequestConfig.headers || {}).Authorization as string)
           .with("Bearer", token)
           .toString();
 
         if (has(axiosRequestConfig.params, "authorization")) {
           set(axiosRequestConfig.params, "authorization", authorization);
         } else {
-          set(axiosRequestConfig.headers, "Authorization", authorization);
+          set(axiosRequestConfig.headers as {}, "Authorization", authorization);
         }
       }
 

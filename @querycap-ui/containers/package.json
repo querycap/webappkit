@@ -5,7 +5,7 @@
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
     "@querycap-ui/core": "*",
-    "@querycap/lodash": "workspace:*",
+    "@querycap/lodash": "*",
     "react": "17.x"
   },
   "publishConfig": {

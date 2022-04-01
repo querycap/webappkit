@@ -5,7 +5,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@querycap/lodash": "workspace:*",
+    "@querycap/lodash": "*",
     "postcss": "^8.4.12"
   },
   "license": "MIT",

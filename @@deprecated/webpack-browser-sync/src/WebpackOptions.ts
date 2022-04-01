@@ -67,6 +67,7 @@ export const createMiddlewaresForWebpack = (webpackConfig: webpack.Configuration
       if (req.method === "GET" && req.url === "/") {
         devMiddleware.waitUntilValid(() => {
           const indexFile = path.join(webpackConfig.output!.path!, index);
+          // @ts-ignore
           res.end(devMiddleware.context.outputFileSystem.readFileSync(indexFile));
         });
       } else {
@@ -75,6 +76,7 @@ export const createMiddlewaresForWebpack = (webpackConfig: webpack.Configuration
           const contentType = mime.getType(req.url!);
           contentType && res.setHeader("content-type", contentType);
           const filename = webpackConfig.output!.path! + ".." + req.url!;
+          // @ts-ignore
           res.end(devMiddleware.context.outputFileSystem.readFileSync(filename));
         } catch (e) {
           next();

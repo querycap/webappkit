@@ -7,7 +7,7 @@
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@querycap/lodash": "workspace:*"
+    "@querycap/lodash": "*"
   },
   "publishConfig": {
     "access": "public"

@@ -7,7 +7,7 @@
     "@emotion/react": "11.x",
     "@querycap-ui/core": "*",
     "date-fns": "*",
-    "@querycap/lodash": "workspace:*",
+    "@querycap/lodash": "*",
     "react": "17.x"
   },
   "dependencies": {

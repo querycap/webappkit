@@ -31,5 +31,9 @@ export default {
   "modulePaths": [
     "<rootDir>",
   ],
+  "testPathIgnorePatterns": [
+    "/node_modules/",
+    "<rootDir>/@@deprecated/",
+  ],
   "testRegex": ".*/__tests__/.+\\.(generator|test|spec)\\.(ts|tsx)$",
 };

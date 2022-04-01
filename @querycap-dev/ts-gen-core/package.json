@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@querycap/lodash": "workspace:*"
+    "@querycap/lodash": "*"
   },
   "publishConfig": {
     "access": "public"

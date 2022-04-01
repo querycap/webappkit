@@ -8,9 +8,9 @@ export const useQueryState = <T extends string | string[]>(queryKey: string, def
   const query = parseSearchString(location.search);
   const queryRef = useValueRef(query);
 
-  const [value, setValue] = useState<T>(() => {
+  const [value, setValue] = useState<T>((): any => {
     if (isArray(defaultValue)) {
-      return query[queryKey] ? [].concat(query[queryKey]) : defaultValue;
+      return query[queryKey] ? ([] as string[]).concat(query[queryKey]) : defaultValue;
     }
     return query[queryKey] || defaultValue;
   });

@@ -7,11 +7,11 @@
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@reactorx/core": "0.23.0",
-    "@reactorx/request": "1.0.0",
+    "@reactorx/core": "*",
+    "@reactorx/request": "*",
     "axios": "0.21.x",
     "date-fns": "2.x",
-    "@querycap/lodash": "workspace:*",
+    "@querycap/lodash": "*",
     "react": ">=17.x",
     "rxjs": "7.x"
   },

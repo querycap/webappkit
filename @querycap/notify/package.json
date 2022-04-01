@@ -7,8 +7,8 @@
   "license": "MIT",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
-    "@reactorx/core": "0.23.0",
-    "@querycap/lodash": "workspace:*",
+    "@reactorx/core": "*",
+    "@querycap/lodash": "*",
     "react": ">=17.x",
     "rxjs": "7.x",
     "uuid": "8.x"

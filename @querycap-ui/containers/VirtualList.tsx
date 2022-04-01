@@ -15,7 +15,10 @@ import {
 } from "./VirtualListCommon";
 import { select } from "@querycap-ui/core";
 import { ReactNode, useEffect, useRef, useState } from "react";
-import { Dictionary } from "@querycap/lodash";
+
+interface Dictionary<T> {
+  [k: string]: T;
+}
 
 export interface IVirtualListOptions {
   height: number;

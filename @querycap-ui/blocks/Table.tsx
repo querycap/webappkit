@@ -1,10 +1,14 @@
 import { ReactNode, useMemo, useState } from "react";
 import { select, theme, colors, roundedEm, CSSBuilder } from "@querycap-ui/core";
-import { map, forEach, get, Dictionary, concat, includes, reject, isEmpty, every, uniq, size } from "@querycap/lodash";
+import { map, forEach, get, concat, includes, reject, isEmpty, every, uniq, size } from "@querycap/lodash";
 import { Checkbox } from "@querycap-ui/form-controls";
 import { IconChevronDown, IconChevronRight } from "@querycap-ui/icons";
 import { Loading } from "./Loading";
 import { Empty } from "./Empty";
+
+interface Dictionary<T> {
+  [k: string]: T;
+}
 
 export interface ITableColumn<T> {
   title: ReactNode;

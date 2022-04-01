@@ -9,7 +9,11 @@ import {
   Value,
   Writer,
 } from "@querycap-dev/ts-gen-core";
-import { assign, concat, Dictionary, filter, first, forEach, map, reduce, toUpper, values } from "@querycap/lodash";
+import { assign, concat, filter, first, forEach, map, reduce, toUpper, values } from "@querycap/lodash";
+
+interface Dictionary<T> {
+  [k: string]: T;
+}
 
 export interface IClientOpts {
   clientId: string;

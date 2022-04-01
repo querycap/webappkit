@@ -6,8 +6,8 @@
   ],
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
+    "@querycap/lodash": "*",
     "axios": "0.21.x",
-    "@querycap/lodash": "workspace:*",
     "react": ">=17.x",
     "rxjs": ">=6.x"
   },

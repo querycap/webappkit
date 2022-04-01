@@ -101,7 +101,7 @@ export const useHistory = (location: Location) => {
   };
 };
 
-interface RouterContext<TParameters> {
+export interface RouterContext<TParameters> {
   match: {
     params: TParameters;
     pathname: string;

@@ -7,10 +7,10 @@
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
     "@querycap/reactutils": "*",
-    "@reactorx/core": "0.23.0",
-    "@reactorx/router": "2.0.0",
+    "@reactorx/core": "*",
+    "@reactorx/router": "*",
     "date-fns": "2.x",
-    "@querycap/lodash": "workspace:*",
+    "@querycap/lodash": "*",
     "react": ">=17.x",
     "rxjs": "7.x"
   },
