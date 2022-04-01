@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/ts-gen-core",
-  "version": "1.3.5",
+  "version": "2.0.0",
   "peerDependencies": {
     "@babel/runtime-corejs3": "*",
     "@querycap/lodash": "workspace:*"

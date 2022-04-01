@@ -1,6 +1,6 @@
 {
   "name": "@querycap-dev/generate-svg2tsx",
-  "version": "0.5.4",
+  "version": "1.0.0",
   "files": [
     "dist/"
   ],

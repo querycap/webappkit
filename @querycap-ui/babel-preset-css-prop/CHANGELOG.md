@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.10.0
+
+### Minor Changes
+
+- 07aca52: ESM !!!!
+
+### Patch Changes
+
+- Updated dependencies [07aca52]
+  - @querycap-ui/css-aliases@0.4.0
+
 ## 0.9.5
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # Change Log
 
+## 0.13.0
+
+### Minor Changes
+
+- 07aca52: ESM !!!!
+
+### Patch Changes
+
+- Updated dependencies [07aca52]
+  - @querycap/lodash@1.1.0
+  - @querycap-dev/generate@0.6.0
+  - @querycap/config@0.9.0
+
 ## 0.12.0
 
 ### Minor Changes

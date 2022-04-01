@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.0.0
+
+### Minor Changes
+
+- 07aca52: ESM !!!!
+
+### Patch Changes
+
+- Updated dependencies [07aca52]
+  - @querycap-dev/devkit@0.13.0
+
 ## 2.0.0
 
 ### Patch Changes

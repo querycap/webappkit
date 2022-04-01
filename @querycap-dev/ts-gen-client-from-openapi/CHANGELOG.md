@@ -1,5 +1,18 @@
 # Change Log
 
+## 2.0.0
+
+### Minor Changes
+
+- 07aca52: ESM !!!!
+
+### Patch Changes
+
+- Updated dependencies [07aca52]
+  - @querycap-dev/ts-gen-core@2.0.0
+  - @querycap-dev/ts-gen-definitions-from-json-schema@2.0.0
+  - @querycap/lodash@1.1.0
+
 ## 1.3.5
 
 ### Patch Changes

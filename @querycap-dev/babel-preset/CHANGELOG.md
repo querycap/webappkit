@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.0
+
+### Minor Changes
+
+- 07aca52: ESM !!!!
+
 ## 0.5.5
 
 ### Patch Changes
