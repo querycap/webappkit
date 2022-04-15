@@ -12,7 +12,7 @@
     "@querycap-ui/css-aliases": "workspace:^0.4.0",
     "@use-gesture/react": "^10.2.11",
     "polished": "^4.2.2",
-    "react-spring": "^9.4.5-beta.1"
+    "react-spring": "^10.0.0-alpha.1"
   },
   "publishConfig": {
     "access": "public"
