@@ -1,4 +1,4 @@
-define("static/vendor~localforage.056fab36",["exports","./vendor~core.152a6264"],function(Fe,V){"use strict";var he={exports:{}};/*!
+define("static/vendor~localforage.468ed49c",["exports","./vendor~core.88c02b49"],function(Fe,V){"use strict";var he={exports:{}};/*!
     localForage -- Offline Storage, Improved
     Version 1.10.0
     https://localforage.github.io/localForage
