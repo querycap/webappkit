@@ -57,7 +57,7 @@ export const createBootstrap =
       name: config.appName || "app",
     });
 
-    return ($root: Element, strictMode = false) => {
+    return ($root: Element, strictMode = true) => {
       const r = createRoot($root);
 
       void persister.hydrate((storeValues = {}) => {

@@ -8,7 +8,7 @@ export const Markdown = memo(({ children }: { children: string }) => {
     () =>
       unified()
         .use(remarkParse as any, { commonmark: true })
-        .use(remarkReact, { createElement: createElement, Fragment: Fragment }),
+        .use(remarkReact, { createElement: createElement as any, Fragment: Fragment }),
     [],
   );
 

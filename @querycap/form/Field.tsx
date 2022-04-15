@@ -132,7 +132,7 @@ export interface FieldInputCommonProps<T = any> extends FieldMeta {
   onBlur?: () => void;
 }
 
-export const FieldInput = ({ children }: { children: (props: FieldInputCommonProps) => JSX.Element | number }) => {
+export const FieldInput = ({ children }: { children: (props: FieldInputCommonProps) => ReactNode }) => {
   const { name, readOnly, disabled, value, controls } = useField();
 
   return (

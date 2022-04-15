@@ -4,7 +4,7 @@
   "license": "MIT",
   "dependencies": {
     "@babel/runtime-corejs3": "*",
-    "@emotion/react": "^11.8.2",
+    "@emotion/react": "^11.9.0",
     "@querycap-ui/core": "workspace:^1.0.0",
     "@querycap-ui/form-controls": "workspace:^1.0.0",
     "@querycap-ui/icons": "workspace:^1.0.0",

@@ -15,7 +15,7 @@ export interface PluginProxy extends Plugin {
   ): Promise<TransformResult> | TransformResult;
 }
 
-const pickCode = <TResult extends { code?: string } | string | undefined | null>(ret: TResult): string | null => {
+const pickCode = <TResult extends TransformResult | string | undefined | null>(ret: TResult): string | null => {
   if (ret) {
     if (typeof ret === "object") {
       if (ret.code) {

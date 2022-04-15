@@ -8,14 +8,14 @@
   "dependencies": {
     "@querycap-dev/generate": "workspace:*",
     "@querycap/config": "workspace:*",
+    "@querycap/lodash": "workspace:*",
     "@types/cross-spawn": "^6.0.2",
     "@types/js-yaml": "^4.0.5",
     "cross-spawn": "^7.0.3",
+    "esbuild": "^0.14.36",
     "js-yaml": "^4.1.0",
-    "@querycap/lodash": "*",
     "npm-path": "^2.0.4",
-    "yargs": "^17.4.0",
-    "esbuild": "^0.14.29"
+    "yargs": "^17.4.1"
   },
   "license": "MIT",
   "publishConfig": {

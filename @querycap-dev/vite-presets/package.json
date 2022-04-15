@@ -6,11 +6,11 @@
     "access": "public"
   },
   "dependencies": {
-    "@querycap/lodash": "*",
-    "@querycap/config": "workspace:*",
     "@querycap-dev/devkit": "workspace:*",
+    "@querycap/config": "workspace:*",
+    "@querycap/lodash": "workspace:*",
     "@rollup/plugin-babel": "^5.3.1",
-    "@rollup/plugin-node-resolve": "^13.1.3",
+    "@rollup/plugin-node-resolve": "^13.2.0",
     "cheerio": "^1.0.0-rc.10"
   },
   "peerDependencies": {
@@ -21,17 +21,17 @@
     "@querycap/lodash": "*",
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/plugin-url": "^6.1.0",
-    "@types/node": "^17.0.23",
-    "@types/react": "^17.0.43",
-    "@types/react-dom": "^17.0.14",
-    "@vitejs/plugin-legacy": "^1.8.0",
-    "prettier": "^2.6.1",
+    "@types/node": "^17.0.24",
+    "@types/react": "^18.0.5",
+    "@types/react-dom": "^18.0.1",
+    "@vitejs/plugin-legacy": "^1.8.1",
+    "prettier": "^2.6.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "rollup": "^2.70.1",
+    "rollup": "^2.70.2",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3",
-    "vite": "^2.9.1"
+    "vite": "^2.9.5"
   },
   "prettier": {
     "trailingComma": "all",

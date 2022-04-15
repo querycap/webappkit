@@ -69,7 +69,9 @@ export const FormControl = ({ label, error, desc, children }: FormControlProps) 
   );
 };
 
-export interface FormControlWithFieldProps extends Omit<FormControlProps, "error">, Pick<InputProps, "small"> {
+export interface FormControlWithFieldProps
+  extends Omit<FormControlProps, "children" | "error">,
+    Pick<InputProps, "small"> {
   children: Parameters<typeof FieldInput>[0]["children"];
 }
 
