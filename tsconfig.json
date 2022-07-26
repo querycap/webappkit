@@ -6,6 +6,7 @@
     "outDir": ".tmp",
     "paths": {
       "@babel/types": ["node_modules/@babel/types"],
+      "@querycap/lodash": ["node_modules/.pnpm/@types+lodash@4.14.181/node_modules/@types/lodash"],
       "*": ["__types__/*", "*/index.ts", "*"]
     },
     "resolveJsonModule": true,
