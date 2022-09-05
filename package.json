@@ -95,7 +95,7 @@
     "@types/react-dom": "^18.0.1",
     "assert": "^2.0.0",
     "axios": "^0.26.1",
-    "babel-jest": "^27.5.1",
+    "babel-jest": "^29.0.2",
     "babel-plugin-macros": "^3.1.0",
     "benchmark": "2.1.4",
     "cheerio": "^1.0.0-rc.10",
